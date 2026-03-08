@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハルとおじいさん｜第7部 学びの地図</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+    background: #f5f3f8;
+    color: #1a1828;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .cover {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    background: linear-gradient(160deg, #0d0818 0%, #2a1850 45%, #5030a0 100%);
+    color: #e8d8ff;
+    text-align: center;
+    padding: 60px 40px;
+    page-break-after: always;
+  }
+  .cover-series { font-size: 11px; letter-spacing: 0.35em; color: #9870d0; margin-bottom: 24px; text-transform: uppercase; }
+  .cover-title { font-size: 48px; font-weight: 700; line-height: 1.25; margin-bottom: 16px; color: #f8f0ff; }
+  .cover-subtitle { font-size: 15px; color: #9870d0; margin-bottom: 52px; letter-spacing: 0.12em; }
+  .cover-chapter { border: 1px solid #9870d0; padding: 14px 44px; font-size: 13px; color: #9870d0; letter-spacing: 0.2em; margin-bottom: 52px; }
+  .cover-tagline { font-size: 14px; color: #c8b0e8; max-width: 560px; line-height: 2.2; }
+  .cover-tagline em { font-style: normal; color: #e0c8ff; font-weight: 700; }
+  .cover-divider { width: 60px; height: 1px; background: #402880; margin: 36px auto; }
+  .cover-note { font-size: 10px; color: #402880; letter-spacing: 0.15em; }
+  .page { max-width: 880px; margin: 0 auto; padding: 64px 68px; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .section-label { font-size: 10px; letter-spacing: 0.4em; color: #6040a0; text-transform: uppercase; margin-bottom: 6px; }
+  .section-title { font-size: 26px; font-weight: 700; color: #1a1828; margin-bottom: 6px; border-bottom: 2px solid #9870d0; padding-bottom: 12px; }
+  .section-intro { font-size: 13px; color: #281838; margin: 20px 0 32px; line-height: 2.0; }
+  .essay-box { background: linear-gradient(135deg, #f8f0ff 0%, #edd8ff 100%); border-left: 5px solid #6040a0; padding: 28px 32px; margin-bottom: 28px; border-radius: 0 6px 6px 0; }
+  .essay-box h3 { font-size: 14px; color: #402880; margin-bottom: 14px; font-weight: 700; }
+  .essay-box p { font-size: 13px; color: #180820; line-height: 2.0; margin-bottom: 12px; }
+  .essay-box p:last-child { margin-bottom: 0; }
+  .argument-heading { font-size: 17px; font-weight: 700; color: #180820; margin: 36px 0 12px; padding-bottom: 8px; border-bottom: 1px solid #9870d0; }
+  .argument-body { font-size: 13px; color: #1a1828; line-height: 2.1; margin-bottom: 20px; }
+  .pull-quote { border-left: 4px solid #6040a0; margin: 24px 0 24px 16px; padding: 12px 20px; font-size: 14px; font-style: italic; color: #2a1040; line-height: 1.9; background: #f8f0ff; }
+  /* Scientist cards */
+  .scientist-card { background: #fff; border: 1px solid #c8a8f0; border-radius: 10px; margin-bottom: 36px; overflow: hidden; box-shadow: 0 3px 14px rgba(80,40,160,0.10); }
+  .sc-header { padding: 20px 28px; display: flex; align-items: flex-start; gap: 20px; }
+  .sc1 .sc-header { background: linear-gradient(100deg, #2a1060, #5028a0); }
+  .sc2 .sc-header { background: linear-gradient(100deg, #102040, #2040a0); }
+  .sc3 .sc-header { background: linear-gradient(100deg, #201040, #402080); }
+  .sc4 .sc-header { background: linear-gradient(100deg, #0a1838, #182860); }
+  .sc-num-box { text-align: center; }
+  .sc-num { font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 0.25em; margin-bottom: 2px; }
+  .sc-name { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .sc-year { font-size: 12px; color: rgba(255,255,255,0.65); margin-bottom: 8px; }
+  .sc-premise { display: inline-block; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 5px 16px; font-size: 12px; color: #fff; letter-spacing: 0.1em; }
+  .sc-body { padding: 24px 28px; border-bottom: 1px solid #f0e0ff; }
+  .sc-body p { font-size: 12.5px; color: #180828; line-height: 2.0; margin-bottom: 12px; }
+  .sc-body p:last-child { margin-bottom: 0; }
+  .sc-episodes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; padding-top: 18px; border-top: 1px dashed #d0b0f0; }
+  .ep-col-label { font-size: 9.5px; letter-spacing: 0.25em; color: #6040a0; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+  .ep-col-content { font-size: 12px; color: #180820; line-height: 1.9; }
+  .ep-col-content li { list-style: none; padding-left: 1em; position: relative; margin-bottom: 5px; }
+  .ep-col-content li::before { content: '・'; position: absolute; left: 0; color: #7050b0; }
+  .sc-footer { padding: 16px 28px; background: #fbf5ff; }
+  .sc-message { font-size: 14px; font-weight: 700; color: #2a1040; line-height: 1.7; margin-bottom: 8px; }
+  .sc-question { font-size: 12.5px; color: #1a1828; font-style: italic; line-height: 1.8; }
+  .sc-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+  .sc-tag { background: #edd8ff; border: 1px solid #c8a8f0; border-radius: 20px; font-size: 11px; color: #402880; padding: 3px 10px; }
+  /* Summary table */
+  .summary-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 12px; }
+  .summary-table th { background: #2a1060; color: #e8d8ff; padding: 10px 14px; text-align: left; font-weight: 700; font-size: 11px; letter-spacing: 0.1em; }
+  .summary-table td { padding: 10px 14px; border-bottom: 1px solid #e8d8ff; color: #1a1828; line-height: 1.75; vertical-align: top; }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:nth-child(even) td { background: #f8f0ff; }
+  /* Central question */
+  .central-question { background: linear-gradient(135deg, #f8f0ff, #edd8ff); border: 2px solid #9870d0; border-radius: 8px; padding: 32px 36px; text-align: center; margin: 32px 0; }
+  .cq-label { font-size: 10px; letter-spacing: 0.35em; color: #6040a0; text-transform: uppercase; margin-bottom: 14px; }
+  .cq-text { font-size: 20px; font-weight: 700; color: #1a1828; line-height: 1.7; margin-bottom: 16px; }
+  .cq-sub { font-size: 12.5px; color: #281838; line-height: 2.0; }
+  /* Glossary */
+  .glossary-item { background: #fff; border: 1px solid #d0b0f0; border-radius: 6px; padding: 18px 20px; margin-bottom: 14px; }
+  .glossary-term { font-size: 14px; font-weight: 700; color: #402880; margin-bottom: 3px; display: flex; align-items: baseline; gap: 8px; }
+  .glossary-kana { font-size: 11px; font-weight: 400; color: #6040a0; }
+  .glossary-en { font-size: 11px; font-weight: 400; color: #8060b0; font-style: italic; margin-left: auto; }
+  .glossary-def { font-size: 12.5px; color: #180820; line-height: 1.9; margin-top: 8px; }
+  .glossary-note { font-size: 11.5px; color: #2a1040; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #d0b0f0; line-height: 1.8; }
+  /* Bridge */
+  .bridge-box { background: linear-gradient(135deg, #0a1a10, #182a20); color: #c0d8c8; padding: 28px 32px; border-radius: 8px; margin-top: 32px; }
+  .bridge-label { font-size: 10px; letter-spacing: 0.32em; color: #60a880; margin-bottom: 12px; text-transform: uppercase; }
+  .bridge-text { font-size: 16px; font-weight: 700; line-height: 1.7; color: #d8f0e0; margin-bottom: 10px; }
+  .bridge-sub { font-size: 12.5px; color: #80a890; line-height: 1.95; }
+  /* Footer */
+  .doc-footer { text-align: center; padding: 28px 0 10px; font-size: 10.5px; color: #6040a0; letter-spacing: 0.15em; border-top: 1px solid #d0b0f0; margin-top: 48px; }
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 40px 50px; }
+    .scientist-card { box-shadow: none; }
+    .essay-box, .bridge-box, .central-question, .sc-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @page { size: A4; margin: 15mm 15mm; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-series">ハルとおじいさん ／ AIと人間のあいだ</div>
+  <div class="cover-title">第7部<br>人間の前提を外す</div>
+  <div class="cover-subtitle">4人の天才が外した「人間の当たり前」</div>
+  <div class="cover-chapter">第1話〜第4話｜全8本（前編・後編）</div>
+  <div class="cover-tagline">
+    <em>「人間の感覚は、世界の真実を保証しない。」（アインシュタイン）</em><br>
+    <em>「理解できなくても、正しく計算できれば前に進める。」（ファインマン）</em><br>
+    <em>「考えることは、人間だけの特権ではないかもしれない。」（チューリング）</em><br>
+    <em>「思考は、作れる。」（フォン・ノイマン）</em><br>
+    <br>
+    4人が外した前提の向こうに、何が残っているか。
+  </div>
+  <div class="cover-divider"></div>
+  <div class="cover-note">本資料は動画の補足資料です。無断転載・商用利用はご遠慮ください。</div>
+</div>
+
+<!-- PAGE 1: 序論 -->
+<div class="page">
+  <div class="section-label">Introduction</div>
+  <div class="section-title">この部で問われていること</div>
+  <div class="section-intro">
+    第7部は一つのシンプルな問いから始まる——「人間だけに与えられた能力とは何か」。数と計算が極限まで進んだ20世紀、4人の科学者が人間の「当たり前」を一つずつ外していった。その過程で「人間とは何か」という問いが鮮明に浮かび上がる。
+  </div>
+  <div class="essay-box">
+    <h3>なぜ「人間の前提を外す」のか</h3>
+    <p>
+      私たちは普段、多くのことを「当たり前」として受け入れている。「自分の目で見たことは信じられる」「わからないことは前に進めない」「考えることは人間にしかできない」「思考は非物質的で作れない」——これらはすべて、20世紀の科学によって根拠が揺らいだ。
+    </p>
+    <p>
+      しかしこれは「人間への侮辱」ではない。逆説的だが、人間の前提が外されるたびに、「それでも人間にしかできないこと」が明確になっていく。感覚が信頼できないとわかれば、「おかしいと気づく感性」が問われる。理解なしに計算できるとわかれば、「なぜを問うこと」が問われる。機械が考えられるとわかれば、「何を考えるか」が問われる。思考が作れるとわかれば、「何のために思考するか」が問われる。
+    </p>
+    <p>
+      第7部が目指すのは、前提の解体を通じた「人間の再定義」だ。
+    </p>
+  </div>
+  <div class="argument-heading">4人の科学者と「外した前提」</div>
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>話</th>
+        <th>科学者</th>
+        <th>外した前提</th>
+        <th>核心メッセージ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>第1話</td>
+        <td>アインシュタイン<br><small>（1879–1955）</small></td>
+        <td>感覚</td>
+        <td>人間の感覚は、世界の真実を保証しない</td>
+      </tr>
+      <tr>
+        <td>第2話</td>
+        <td>ファインマン<br><small>（1918–1988）</small></td>
+        <td>理解</td>
+        <td>理解できなくても、正しく計算できれば前に進める</td>
+      </tr>
+      <tr>
+        <td>第3話</td>
+        <td>チューリング<br><small>（1912–1954）</small></td>
+        <td>人間の特権</td>
+        <td>考えることは、人間だけの特権ではないかもしれない</td>
+      </tr>
+      <tr>
+        <td>第4話</td>
+        <td>フォン・ノイマン<br><small>（1903–1957）</small></td>
+        <td>思考の非物質性</td>
+        <td>思考は、作れる</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pull-quote">
+    「4人が外した前提は、実は一本の糸で繋がっている。<br>
+    感覚も、理解も、思考も、人間の「特権」ではなかった——<br>
+    だとすれば、人間に残されたものは何か。」
+  </div>
+  <div class="doc-footer">ハルとおじいさん｜第7部 人間の前提を外す　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 2: Scientists 1 & 2 -->
+<div class="page">
+  <div class="section-label">Episodes 01 – 02</div>
+  <div class="section-title">アインシュタインとファインマン</div>
+
+  <!-- Einstein -->
+  <div class="scientist-card sc1">
+    <div class="sc-header">
+      <div class="sc-num-box">
+        <div class="sc-num">EPISODE 01</div>
+        <div class="sc-name">アインシュタイン</div>
+        <div class="sc-year">Albert Einstein  1879–1955</div>
+        <div class="sc-premise">外した前提：感覚</div>
+      </div>
+    </div>
+    <div class="sc-body">
+      <p>「電車の中で歩くと、地面に立つ人から見た速さは足し算できる」——これは日常の直感だ。しかし光は違う。マイケルソンとモーリーは1887年の実験で「地球がどちらに動いていても、光の速さは変わらない」ことを示した。これは常識に反する。光を追いかけながら光を観測しても、光の速さは変わらない——だとすれば、変わるのは別の何かだ。</p>
+      <p>16歳のアインシュタインは問うた。「光と同じ速さで走ったら、光はどう見えるか」。この問いが特殊相対性理論（1905年）に結実した。アインシュタインの答え：変わるのは「時間」と「空間」だ。速く動くと時間はゆっくり進む（時間の遅れ）。強い重力があると空間は曲がる（一般相対性理論、1915年）。</p>
+      <p>これは単なる物理の話ではない。私たちが「当たり前」と思っていた「時間は誰にとっても同じ速さで流れる」「空間は平らだ」という感覚的確信が崩れた。カーナビのGPSはアインシュタインの理論なしには正確に動かない——相対性効果を補正しなければ1日で数キロのズレが生じる。</p>
+      <div class="sc-episodes">
+        <div>
+          <div class="ep-col-label">前編の焦点（感覚を超えて）</div>
+          <div class="ep-col-content"><ul>
+            <li>常識的な速さの足し算と光の違い</li>
+            <li>光の速さが不変という実験結果の衝撃</li>
+            <li>16歳の思考実験——「光を追いかけたら」</li>
+          </ul></div>
+        </div>
+        <div>
+          <div class="ep-col-label">後編の焦点（感覚を超えて）</div>
+          <div class="ep-col-content"><ul>
+            <li>時間の遅れと空間の曲がり</li>
+            <li>GPS・カーナビへの実用的影響</li>
+            <li>「おかしい」と気づく感性の重要性</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-footer">
+      <div class="sc-message">「感覚が当てにならないなら、何を信じるか。」</div>
+      <div class="sc-question">感覚的な「当たり前」が崩れたとき、私たちはどうやって世界を理解するのか。「おかしい」と感じる直感は、感覚に依拠しながら感覚を超えようとする。この逆説をどう考えるか。</div>
+      <div class="sc-tags">
+        <span class="sc-tag">特殊相対性理論</span>
+        <span class="sc-tag">時空の歪み</span>
+        <span class="sc-tag">GPS / カーナビ</span>
+        <span class="sc-tag">感覚の限界</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feynman -->
+  <div class="scientist-card sc2">
+    <div class="sc-header">
+      <div class="sc-num-box">
+        <div class="sc-num">EPISODE 02</div>
+        <div class="sc-name">ファインマン</div>
+        <div class="sc-year">Richard Feynman  1918–1988</div>
+        <div class="sc-premise">外した前提：理解</div>
+      </div>
+    </div>
+    <div class="sc-body">
+      <p>「自転車に乗れるけど、なぜ倒れないか説明できない」「泳げるけど、なぜ浮くか説明できない」——私たちは毎日、理解していないものを使って生きている。「できる」と「わかる」は別物だ。これは量子力学において究極の形で現れる。</p>
+      <p>電子の二重スリット実験では、電子を1個ずつスリット（細い穴）に向けて放つと、「見ていないとき」は両方のスリットを同時に通り抜けたかのような干渉縞が現れる。しかし「どちらを通ったか」を観測しようとすると、干渉縞が消えて普通の粒のように振る舞う。なぜそうなるか——100年以上誰もわかっていない。</p>
+      <p>ファインマンの有名な言葉：「量子力学を理解していると思う人は、量子力学を理解していない」。そしてファインマンの選択：「わからなくても、計算はできる」。スマートフォンもコンピュータも、「わからないけど当たる計算」で動いている。理解をあきらめることは、考えることをやめることではない。</p>
+      <div class="sc-episodes">
+        <div>
+          <div class="ep-col-label">前編の焦点（できるとわかる）</div>
+          <div class="ep-col-content"><ul>
+            <li>「できる」と「わかる」の違い</li>
+            <li>日常の謎——自転車・水泳・スマホ</li>
+            <li>「誰にもわからないこと」への導入</li>
+          </ul></div>
+        </div>
+        <div>
+          <div class="ep-col-label">後編の焦点（理解を超えて）</div>
+          <div class="ep-col-content"><ul>
+            <li>二重スリット実験の衝撃</li>
+            <li>ファインマンの選択：計算で前に進む</li>
+            <li>「わからない」ことと共存する知性</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-footer">
+      <div class="sc-message">「理解できなくても、正しく計算できれば前に進める。」</div>
+      <div class="sc-question">「わからないまま使う」ことは妥協か、それとも現実への適応か。自分が理解していないものを使う不安と、どう付き合うか。</div>
+      <div class="sc-tags">
+        <span class="sc-tag">量子力学</span>
+        <span class="sc-tag">二重スリット実験</span>
+        <span class="sc-tag">理解と計算</span>
+        <span class="sc-tag">不確定性原理</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第7部 人間の前提を外す　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 3: Scientists 3 & 4 -->
+<div class="page">
+  <div class="section-label">Episodes 03 – 04</div>
+  <div class="section-title">チューリングとフォン・ノイマン ── そして束ね</div>
+
+  <!-- Turing -->
+  <div class="scientist-card sc3">
+    <div class="sc-header">
+      <div class="sc-num-box">
+        <div class="sc-num">EPISODE 03</div>
+        <div class="sc-name">チューリング</div>
+        <div class="sc-year">Alan Turing  1912–1954</div>
+        <div class="sc-premise">外した前提：人間の特権</div>
+      </div>
+    </div>
+    <div class="sc-body">
+      <p>「考えることは、人間だけにできるのか」——チューリングはこの問いに正面から向き合った。しかし彼は「機械は考えられるか」という問いは「良い問いではない」と言う。なぜか。「考える」を定義できないからだ。代わりに彼は問いを変えた：「人間と機械を会話だけで区別できるか」。</p>
+      <p>チューリングテスト（1950年論文）は、文字だけでやり取りして人間か機械かを区別できなければ「考えている」と言えるのではないか、という提案だ。これは哲学的な決定手続きではなく「操作的定義」——検証可能な形に問いを変換する戦略だ。また、チューリングマシンの理論（1936年）は「計算とは手順に従うことだ」と定義し、あらゆる計算が原理的に単純な機械で実行できることを示した。コンピュータの理論的基礎がここに生まれた。</p>
+      <p>チューリングは同性愛を理由に化学的去勢の刑を受け、1954年に死亡した（青酸カリが塗られたリンゴを食べたとも言われる）。英国政府は2013年に正式に謝罪した。「考えることは人間の特権か」を問い続けた人物の悲劇的な最期は、「人間とは何か」という問いをさらに深くする。</p>
+      <div class="sc-episodes">
+        <div>
+          <div class="ep-col-label">前編の焦点（人間の特権を超えて）</div>
+          <div class="ep-col-content"><ul>
+            <li>「考える」の境界線——犬・虫・植物・人間</li>
+            <li>計算＝手順に従うこと</li>
+            <li>チューリングマシンの革命的シンプルさ</li>
+          </ul></div>
+        </div>
+        <div>
+          <div class="ep-col-label">後編の焦点（人間の特権を超えて）</div>
+          <div class="ep-col-content"><ul>
+            <li>チューリングテスト——問いの変換戦略</li>
+            <li>「区別できなければ考えている」の含意</li>
+            <li>チューリングの悲劇と時代の限界</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-footer">
+      <div class="sc-message">「考えることは、人間だけの特権ではないかもしれない。」</div>
+      <div class="sc-question">チューリングテストに合格した機械は「考えている」と言えるか。問いを変換することで真の問いは回避されているのか、それとも解決されているのか。</div>
+      <div class="sc-tags">
+        <span class="sc-tag">チューリングマシン</span>
+        <span class="sc-tag">チューリングテスト</span>
+        <span class="sc-tag">計算の定義</span>
+        <span class="sc-tag">知能の定義</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Von Neumann -->
+  <div class="scientist-card sc4">
+    <div class="sc-header">
+      <div class="sc-num-box">
+        <div class="sc-num">EPISODE 04</div>
+        <div class="sc-name">フォン・ノイマン</div>
+        <div class="sc-year">John von Neumann  1903–1957</div>
+        <div class="sc-premise">外した前提：思考の非物質性</div>
+      </div>
+    </div>
+    <div class="sc-body">
+      <p>「棚は設計図があれば作れる。では、考えは作れるか」——フォン・ノイマンはこの問いに対して実際に「作った」。6歳で8桁の掛け算を暗算し、電話帳を暗記したとも言われる天才は、1945年にコンピュータアーキテクチャの革命を起こした。当時の計算機は計算するたびに配線を繋ぎ変えていた——プログラムがハードウェアだったのだ。フォン・ノイマンのアイデアは「計算の手順（プログラム）も、データと同じくメモリに保存する」というものだ。</p>
+      <p>このプログラム内蔵方式（フォン・ノイマン型アーキテクチャ）は、コンピュータを「特定の計算をする機械」から「あらゆる計算ができる汎用機」に変えた。そしてこれは哲学的な意味も持つ——「形のない思考（計算の手順）を物質（メモリ）に保存できる」。心・思考・アイデアという非物質的と思われていたものが、物質として記録・複製・送信・実行できるようになった。</p>
+      <p>第4話後編は4人の「束ね」でもある。アインシュタインが感覚を外し、ファインマンが理解を外し、チューリングが人間の特権を外し、フォン・ノイマンが思考の非物質性を外した。その先に残った人間の役割——「問いを立てること」「意味を与えること」「何を大切にするかを選ぶこと」。</p>
+      <div class="sc-episodes">
+        <div>
+          <div class="ep-col-label">前編の焦点（思考を作る）</div>
+          <div class="ep-col-content"><ul>
+            <li>フォン・ノイマンの天才と初期計算機</li>
+            <li>プログラム内蔵方式の革命</li>
+            <li>「形のないもの」を物質に</li>
+          </ul></div>
+        </div>
+        <div>
+          <div class="ep-col-label">後編の焦点（人間に残されたもの）</div>
+          <div class="ep-col-content"><ul>
+            <li>4人の前提外しの振り返り</li>
+            <li>人間に残された役割</li>
+            <li>「問いを立てる」という人間の本質</li>
+          </ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-footer">
+      <div class="sc-message">「思考は作れる。では、人間に残されたものは何か。」</div>
+      <div class="sc-question">思考が「作れるもの」なら、それを「何のために作るか」を決めるのは誰か。計算できないことを問い続けることが、最後の人間の仕事か。</div>
+      <div class="sc-tags">
+        <span class="sc-tag">フォン・ノイマン型</span>
+        <span class="sc-tag">プログラム内蔵</span>
+        <span class="sc-tag">思考の物質化</span>
+        <span class="sc-tag">人間の再定義</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge-box">
+    <div class="bridge-label">Bridge to Part 8 ── 第8部「AI誕生の歴史」へ</div>
+    <div class="bridge-text">4人が積み上げた問いの先に、AIは生まれた。</div>
+    <div class="bridge-sub">
+      チューリングの計算理論 → フォン・ノイマンのコンピュータ → 機械学習 → ディープラーニング → 生成AI<br>
+      第8部では、AIが「知識を生成する機械」になるまでの歴史を辿る。<br>
+      そして通奏低音として流れ続ける問い：「人間とは何か」——第7部が問い続けたことの、現代形。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第7部 人間の前提を外す　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 4: 用語集 -->
+<div class="page">
+  <div class="section-label">Glossary</div>
+  <div class="section-title">用語解説</div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">特殊相対性理論 <span class="glossary-kana">とくしゅそうたいせいりろん</span><span class="glossary-en">Special Theory of Relativity</span></div>
+    <div class="glossary-def">アインシュタインが1905年に発表した理論。「物理法則はすべての慣性系で同じ」「光の速度は観測者の運動に依存しない」という2つの公準から導かれる。結論：速く動くと時間が遅れる（時間の遅れ）、質量とエネルギーは等価（E=mc²）。1915年発表の一般相対性理論は重力を時空の曲がりとして記述する。</div>
+    <div class="glossary-note">日常への影響：GPSの人工衛星は地上より速く動くため相対論的時間の遅れ（1日7マイクロ秒遅くなる）と重力の弱さによる時間の進み（1日45マイクロ秒速くなる）を補正している。補正なしでは1日に11kmのズレが生じる。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">量子力学 <span class="glossary-kana">りょうしりきがく</span><span class="glossary-en">Quantum Mechanics</span></div>
+    <div class="glossary-def">原子・電子・光子などミクロな世界を記述する物理理論（20世紀初頭〜）。特徴：粒子は観測するまで確率的な状態が重なり合う（重ね合わせ）、観測によって状態が決まる（波束の収縮）、位置と運動量は同時に正確には測れない（不確定性原理）。スマートフォン・LED・MRIは量子力学なしには存在しない。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">チューリングマシン <span class="glossary-en">Turing Machine</span></div>
+    <div class="glossary-def">アラン・チューリングが1936年に提案した仮想的な計算装置。無限のテープ（メモリ）・読み書きヘッド・状態遷移規則だけで構成されるシンプルな機械。「チューリング完全」な機械はあらゆる計算を実行できることが証明された。現代のコンピュータはすべて「チューリング完全」である。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">チューリングテスト <span class="glossary-en">Turing Test</span></div>
+    <div class="glossary-def">「コンピューターは考えられるか」という問いへのチューリングの操作的回答（1950年論文）。人間の審査官が文字のみで機械と人間に質問し、5分後に30%以上の審査官が機械を人間と誤認したら「合格」とする。2014年に初めて「合格」したとされるプログラムが登場したが、基準の妥当性は今も議論される。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">フォン・ノイマン型アーキテクチャ <span class="glossary-en">Von Neumann Architecture</span></div>
+    <div class="glossary-def">フォン・ノイマンが1945年に提案したコンピュータの設計思想。CPU（処理）・メモリ（記憶）・入出力という構成で、プログラム（命令）もデータも同じメモリに保存する。これ以前の計算機はプログラムを配線で固定していた。今日のコンピュータ・スマートフォン・タブレットほぼすべてがこのアーキテクチャを採用している。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">二重スリット実験 <span class="glossary-kana">にじゅうすりっとじっけん</span><span class="glossary-en">Double-Slit Experiment</span></div>
+    <div class="glossary-def">量子力学の奇妙さを最もよく示す実験。2つの細い穴（スリット）に電子・光子などを1個ずつ通すと、観測しないときは「波」として両方を通り干渉縞（縞模様）を作るが、どちらを通ったか「見ようとする」と「粒」として一方しか通らなくなる。フォン・ノイマンは「観測行為が量子系に影響を与える」を数学的に定式化した。</div>
+  </div>
+
+  <div class="central-question" style="margin-top: 32px;">
+    <div class="cq-label">第7部を貫く問い</div>
+    <div class="cq-text">「4つの前提が外れた後に、<br>何が残っているか。」</div>
+    <div class="cq-sub">
+      感覚も、理解も、思考も、人間の専有物ではなかった。<br>
+      残ったのは——問いを立てること。意味を与えること。<br>
+      「なぜ」を問い続けること。それが計算できない人間の仕事だ。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第7部 人間の前提を外す　― 補足資料 ―　©ハルとおじいさん制作チーム</div>
+</div>
+
+</body>
+</html>

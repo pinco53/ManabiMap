@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハルとおじいさん｜第1部 蒸気の時代 学びの地図</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+    background: #faf6f0;
+    color: #2a1a0e;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  /* ========== COVER ========== */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(160deg, #1a1008 0%, #3a2010 40%, #6a3820 70%, #4a2818 100%);
+    color: #f0e0c8;
+    text-align: center;
+    padding: 60px 40px;
+    page-break-after: always;
+  }
+
+  .cover-series {
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: #c08040;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  .cover-title {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    color: #f0e0c8;
+  }
+
+  .cover-subtitle {
+    font-size: 15px;
+    color: #c08040;
+    margin-bottom: 52px;
+    letter-spacing: 0.12em;
+  }
+
+  .cover-film {
+    border: 1px solid #c08040;
+    padding: 14px 44px;
+    font-size: 13px;
+    color: #c08040;
+    letter-spacing: 0.2em;
+    margin-bottom: 52px;
+  }
+
+  .cover-tagline {
+    font-size: 14px;
+    color: #d0a880;
+    max-width: 560px;
+    line-height: 2.2;
+  }
+
+  .cover-tagline em {
+    font-style: normal;
+    color: #e0a060;
+    font-weight: 700;
+  }
+
+  .cover-divider {
+    width: 60px;
+    height: 1px;
+    background: #6a4020;
+    margin: 36px auto;
+  }
+
+  .cover-note {
+    font-size: 10px;
+    color: #6a4028;
+    letter-spacing: 0.15em;
+  }
+
+  /* ========== PAGES ========== */
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 64px 68px;
+    page-break-after: always;
+  }
+
+  .page:last-child { page-break-after: auto; }
+
+  /* ========== SECTION HEADER ========== */
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: #b05020;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2a1a0e;
+    margin-bottom: 6px;
+    border-bottom: 2px solid #d06830;
+    padding-bottom: 12px;
+  }
+
+  .section-intro {
+    font-size: 13px;
+    color: #4a3018;
+    margin: 20px 0 32px;
+    line-height: 2.0;
+  }
+
+  /* ========== ESSAY BOX ========== */
+  .essay-box {
+    background: linear-gradient(135deg, #fdf8f0 0%, #faf0e0 100%);
+    border-left: 5px solid #b05020;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .essay-box h3 {
+    font-size: 14px;
+    color: #7a3010;
+    margin-bottom: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .essay-box p {
+    font-size: 13px;
+    color: #3a2010;
+    line-height: 2.0;
+    margin-bottom: 12px;
+  }
+
+  .essay-box p:last-child { margin-bottom: 0; }
+
+  /* ========== CONTRAST VISUAL ========== */
+  .contrast-visual {
+    margin: 36px 0;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: 0 4px 20px rgba(80,40,10,0.12);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .contrast-left {
+    flex: 1;
+    background: linear-gradient(160deg, #f0ead0, #e0d4a8);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .contrast-right {
+    flex: 1;
+    background: linear-gradient(160deg, #d0c0b0, #a08878);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .contrast-center {
+    width: 72px;
+    background: linear-gradient(180deg, #d06830, #8a3a10, #d06830);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    box-shadow: -4px 0 16px rgba(140,60,10,0.35), 4px 0 16px rgba(140,60,10,0.35);
+    z-index: 1;
+  }
+
+  .contrast-side-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2a1a0e;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  .contrast-side-desc {
+    font-size: 12px;
+    color: #3a2010;
+    line-height: 2.0;
+    text-align: left;
+  }
+
+  .contrast-side-desc li {
+    list-style: none;
+    padding-left: 1.2em;
+    position: relative;
+    margin-bottom: 4px;
+  }
+
+  .contrast-side-desc li::before {
+    content: '\25B8';
+    position: absolute;
+    left: 0;
+    color: #8a4010;
+    font-size: 10px;
+    top: 2px;
+  }
+
+  /* ========== SCENE FLOW ========== */
+  .scene-flow {
+    display: flex;
+    gap: 0;
+    margin: 32px 0;
+    align-items: stretch;
+  }
+
+  .scene-flow-item {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #e0c8a0;
+    padding: 16px 10px;
+    text-align: center;
+  }
+
+  .scene-flow-item.climax {
+    background: linear-gradient(160deg, #3a1808, #6a3018);
+    border-color: #6a3018;
+  }
+
+  .scene-flow-arrow {
+    display: flex;
+    align-items: center;
+    color: #c07030;
+    font-size: 20px;
+    padding: 0 2px;
+    flex-shrink: 0;
+  }
+
+  .sf-num { font-size: 10px; color: #b05020; letter-spacing: 0.2em; margin-bottom: 4px; }
+  .sf-num-w { font-size: 10px; color: #d09870; letter-spacing: 0.2em; margin-bottom: 4px; }
+  .sf-title { font-size: 12px; font-weight: 700; color: #2a1a0e; line-height: 1.5; }
+  .sf-title-w { font-size: 12px; font-weight: 700; color: #f0e0d0; line-height: 1.5; }
+  .sf-key { font-size: 10px; color: #8a4010; margin-top: 6px; }
+  .sf-key-w { font-size: 10px; color: #d09870; margin-top: 6px; }
+
+  /* ========== CENTRAL QUESTION ========== */
+  .central-question {
+    background: linear-gradient(135deg, #fdf8f0, #faf0e0);
+    border: 2px solid #d06830;
+    border-radius: 8px;
+    padding: 32px 36px;
+    text-align: center;
+    margin: 32px 0;
+  }
+
+  .cq-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    color: #b05020;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .cq-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2a1a0e;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .cq-sub {
+    font-size: 12.5px;
+    color: #5a3018;
+    line-height: 2.0;
+  }
+
+  /* ========== HISTORY TIMELINE ========== */
+  .timeline {
+    margin: 28px 0;
+    position: relative;
+    padding-left: 0;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 0;
+    margin-bottom: 2px;
+  }
+
+  .tl-year {
+    font-size: 12px;
+    font-weight: 700;
+    color: #8a3a10;
+    padding: 14px 16px 14px 0;
+    text-align: right;
+    border-right: 3px solid #d06830;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .tl-year::after {
+    content: '';
+    position: absolute;
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 11px;
+    background: #b05020;
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+
+  .tl-content {
+    padding: 14px 0 14px 20px;
+    border-bottom: 1px solid #f0e0d0;
+  }
+
+  .tl-content:last-child { border-bottom: none; }
+
+  .tl-event {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #2a1a0e;
+    margin-bottom: 4px;
+  }
+
+  .tl-desc {
+    font-size: 12px;
+    color: #5a3018;
+    line-height: 1.85;
+  }
+
+  .tl-tag {
+    display: inline-block;
+    background: #faf0e0;
+    border: 1px solid #d8b880;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #8a3a10;
+    padding: 2px 7px;
+    margin-right: 5px;
+    margin-top: 4px;
+  }
+
+  .tl-tag.iron { background: #e8e0d8; border-color: #a09088; color: #504038; }
+  .tl-tag.steam { background: #f8e8d8; border-color: #d09060; color: #804020; }
+  .tl-tag.red { background: #f8e0e0; border-color: #d08080; color: #903030; }
+  .tl-tag.green { background: #e0f0e8; border-color: #80c8a0; color: #206040; }
+
+  /* ========== THEME CARDS ========== */
+  .theme-card {
+    background: #fff;
+    border: 1px solid #e0c8a0;
+    border-radius: 8px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(120,60,10,0.08);
+  }
+
+  .theme-header {
+    padding: 16px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .th1 .theme-header { background: linear-gradient(100deg, #5a3010, #8a4a20); }
+  .th2 .theme-header { background: linear-gradient(100deg, #3a2818, #5a4028); }
+  .th3 .theme-header { background: linear-gradient(100deg, #2a2020, #4a3838); }
+  .th4 .theme-header { background: linear-gradient(100deg, #302818, #504020); }
+  .th5 .theme-header { background: linear-gradient(100deg, #2a1808, #4a2810); }
+
+  .theme-number {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.25em;
+    margin-bottom: 3px;
+  }
+
+  .theme-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .theme-lead {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+  }
+
+  .theme-body {
+    padding: 22px 24px;
+    border-bottom: 1px solid #f0e0c8;
+  }
+
+  .theme-body p {
+    font-size: 12.5px;
+    color: #3a2010;
+    line-height: 2.0;
+    margin-bottom: 12px;
+  }
+
+  .theme-body p:last-child { margin-bottom: 0; }
+
+  .theme-footer {
+    padding: 16px 24px;
+    background: #fffdf5;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .footer-section { flex: 1; }
+
+  .footer-label {
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    color: #b05020;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  .question-text {
+    font-size: 12.5px;
+    color: #2a1a0e;
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .keyword-tag {
+    background: #faf0e0;
+    border: 1px solid #d8b880;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #7a3810;
+    padding: 3px 10px;
+  }
+
+  /* ========== PERSPECTIVE BOX ========== */
+  .perspective {
+    background: #fff;
+    border: 1px solid #e0c8a0;
+    border-radius: 6px;
+    padding: 22px 26px;
+    margin: 20px 0;
+  }
+
+  .perspective-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: #b05020;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .perspective p {
+    font-size: 12.5px;
+    color: #3a2010;
+    line-height: 2.0;
+    margin-bottom: 10px;
+  }
+
+  .perspective p:last-child { margin-bottom: 0; }
+
+  /* ========== ARGUMENT SECTION ========== */
+  .argument-heading {
+    font-size: 17px;
+    font-weight: 700;
+    color: #3a1808;
+    margin: 36px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d06830;
+  }
+
+  .argument-body {
+    font-size: 13px;
+    color: #2a1a0e;
+    line-height: 2.1;
+    margin-bottom: 20px;
+  }
+
+  .pull-quote {
+    border-left: 4px solid #b05020;
+    margin: 24px 0 24px 16px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-style: italic;
+    color: #5a2810;
+    line-height: 1.9;
+    background: #fdf8f2;
+  }
+
+  /* ========== GLOSSARY ========== */
+  .glossary-item {
+    background: #fff;
+    border: 1px solid #e0c8a0;
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    break-inside: avoid;
+  }
+
+  .glossary-term {
+    font-size: 14px;
+    font-weight: 700;
+    color: #6a2808;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .glossary-kana {
+    font-size: 11px;
+    font-weight: 400;
+    color: #9a6020;
+    letter-spacing: 0.05em;
+  }
+
+  .glossary-en {
+    font-size: 11px;
+    font-weight: 400;
+    color: #b05020;
+    font-style: italic;
+    margin-left: auto;
+  }
+
+  .glossary-def {
+    font-size: 12.5px;
+    color: #3a2010;
+    line-height: 1.9;
+    margin-top: 8px;
+  }
+
+  .glossary-note {
+    font-size: 11.5px;
+    color: #7a4820;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #e0d0b8;
+    line-height: 1.8;
+  }
+
+  /* ========== QUESTIONS SECTION ========== */
+  .discussion-q {
+    counter-reset: qnum;
+    margin: 20px 0;
+  }
+
+  .d-item {
+    counter-increment: qnum;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0e0c8;
+  }
+
+  .d-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .d-num {
+    width: 28px;
+    height: 28px;
+    background: #b05020;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .d-text {
+    font-size: 13px;
+    color: #2a1a0e;
+    line-height: 1.9;
+  }
+
+  .d-hint {
+    font-size: 11.5px;
+    color: #7a4820;
+    margin-top: 5px;
+    line-height: 1.75;
+  }
+
+  /* ========== BRIDGE BOX ========== */
+  .bridge-box {
+    background: linear-gradient(135deg, #2a1808, #4a2810);
+    color: #f0d8c0;
+    padding: 28px 32px;
+    border-radius: 8px;
+    margin-top: 32px;
+  }
+
+  .bridge-label {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    color: #d09060;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .bridge-text {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.7;
+    color: #f0e0d0;
+    margin-bottom: 10px;
+  }
+
+  .bridge-sub {
+    font-size: 12.5px;
+    color: #c0a080;
+    line-height: 1.95;
+  }
+
+  /* ========== FOOTER ========== */
+  .doc-footer {
+    text-align: center;
+    padding: 28px 0 10px;
+    font-size: 10.5px;
+    color: #b05020;
+    letter-spacing: 0.15em;
+    border-top: 1px solid #e0c8a0;
+    margin-top: 48px;
+  }
+
+  /* ========== PRINT ========== */
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 40px 50px; }
+    .theme-card { box-shadow: none; }
+    .contrast-visual { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .essay-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .bridge-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .theme-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .scene-flow-item.climax { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @page {
+    size: A4;
+    margin: 15mm 15mm;
+  }
+</style>
+</head>
+<body>
+
+<!-- ================ COVER ================ -->
+<div class="cover">
+  <div class="cover-series">ハルとおじいさん ／ AIと人間のあいだ</div>
+  <div class="cover-title">第1部<br>蒸気の時代</div>
+  <div class="cover-subtitle">産業革命 ── 機械が人間のリズムを変えた日</div>
+  <div class="cover-film">単編フィルム｜約8分</div>
+  <div class="cover-tagline">
+    <em>「便利さは、何を奪ったのか。」</em><br>
+    <em>「効率とは、誰のための言葉だったのか。」</em><br>
+    <em>「時計の針は、何を刻み始めたのか。」</em><br>
+    <br>
+    1760年代のイングランドから始まった変革を<br>
+    この資料で読み解きます。
+  </div>
+  <div class="cover-divider"></div>
+  <div class="cover-note">本資料は動画の補足資料です。無断転載・商用利用はご遠慮ください。</div>
+</div>
+
+
+<!-- ================ PAGE 1: 序論 ================ -->
+<div class="page">
+  <div class="section-label">Introduction</div>
+  <div class="section-title">なぜ産業革命から始めるのか</div>
+
+  <div class="section-intro">
+    「ハルとおじいさん」は、AIと人間の関係を考える物語だ。しかしその第1部が描くのは、AIでもコンピュータでもなく、蒸気機関である。1760年代のイングランド、石炭の煙と鉄の音が響く工場の街から、このシリーズは始まる。なぜか。
+  </div>
+
+  <div class="essay-box">
+    <h3>三部作の出発点として</h3>
+    <p>
+      第1部から第3部は、ひとつの三部作を構成している。産業革命（第1部）、デジタル革命（第2部）、AI革命（第3部）——三つの技術革命を通じて、人間と機械の関係がどのように変容してきたかを歴史的に追う。第1部はその基盤であり、出発点だ。
+    </p>
+    <p>
+      産業革命から始めるのには理由がある。AIの本質を理解するためには、「技術が社会を変えるとはどういうことか」の原型を知る必要があるからだ。蒸気機関は人類史上初めて、人間の筋肉労働を大規模に代替した技術だった。それは単なる道具の進歩ではなく、労働の意味、時間の感覚、教育の目的、そして人間の尊厳に対する根本的な問い直しを引き起こした。
+    </p>
+    <p>
+      AIが今日の私たちに突きつけている問い——「機械に代替されない人間の価値とは何か」——は、250年前にも同じ構造で問われていたのだ。その歴史を知ることが、現在地を知る最短の道である。
+    </p>
+  </div>
+
+  <div class="argument-heading">技術革命の「型」を読む</div>
+  <p class="argument-body">
+    歴史家カール・ポランニーは『大転換』（1944）で、産業革命がもたらしたのは単なる生産方法の変化ではなく、社会の「自己調整メカニズム」の根本的な転換だったと指摘した。土地・労働・貨幣が「商品」として市場に組み込まれ、人間のあらゆる営みが「効率」という尺度で測られるようになった。
+  </p>
+  <p class="argument-body">
+    この「型」は、その後の技術革命でも繰り返されている。デジタル革命は情報を商品化し、AI革命は判断そのものを商品化しつつある。第1部が産業革命を丁寧に追うのは、この「型」の原型をまず体に入れるためだ。型を知る者だけが、新しい変化の中でも構造を見抜ける。
+  </p>
+
+  <div class="pull-quote">
+    「すべての技術革命は、同じ問いを変奏する。<br>
+    『何が自由になり、何が失われたのか。』<br>
+    産業革命はその最初の一節だ。」
+  </div>
+
+  <p class="argument-body">
+    第1部のおよそ15分間は、1760年代の農村イングランドから1800年代初頭の工業都市まで、約50年間の変化を追う。一本のフィルムとして構成されており、話数で分かれてはいない。穏やかな農村の風景から始まり、蒸気機関の誕生、工場の勃興、鉄道の敷設、そして時計に支配された都市生活へと、ひとつの物語として展開する。
+  </p>
+
+  <div class="doc-footer">ハルとおじいさん｜第1部 蒸気の時代　― 補足資料 ―</div>
+</div>
+
+
+<!-- ================ PAGE 2: 歴史年表 ================ -->
+<div class="page">
+  <div class="section-label">Historical Timeline</div>
+  <div class="section-title">産業革命の歩み ── 1700年代から1800年代へ</div>
+
+  <div class="section-intro">
+    第1部が描く時代の主要な転換点を、社会的・技術的文脈とともに整理する。産業革命は単一の「事件」ではなく、数十年にわたる漸進的な変化の連鎖だった。
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-year">〜1760年代</div>
+      <div class="tl-content">
+        <div class="tl-event">農業社会のイングランド</div>
+        <div class="tl-desc">
+          人口の大半が農村に暮らし、季節と日の出・日の入りが生活のリズムを決めていた。手工業と家内制工業が生産の中心で、労働者は自分のペースで仕事をしていた。生産性は低いが、個人の裁量は大きかった。アダム・スミスが『国富論』（1776）で描写した「分業以前の社会」の姿がここにある。
+        </div>
+        <div><span class="tl-tag">農業社会</span><span class="tl-tag green">家内制手工業</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1712年</div>
+      <div class="tl-content">
+        <div class="tl-event">ニューコメンの大気圧機関</div>
+        <div class="tl-desc">
+          トーマス・ニューコメンが炭鉱の排水用に蒸気機関の原型を開発。熱効率はわずか1%程度と極めて低かったが、「蒸気の力で機械を動かす」という原理が実証された。この60年後にワットが改良を加えることになる。
+        </div>
+        <div><span class="tl-tag steam">蒸気機関</span><span class="tl-tag">炭鉱</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1769年</div>
+      <div class="tl-content">
+        <div class="tl-event">ジェームズ・ワットの改良蒸気機関</div>
+        <div class="tl-desc">
+          ワットがニューコメンの蒸気機関に「分離凝縮器」を加え、熱効率を飛躍的に向上させた。単なる排水用ポンプだった蒸気機関が、あらゆる動力源として使える汎用エンジンに変貌した。この一歩が、人類の「筋力依存」からの脱却の起点となった。
+        </div>
+        <div><span class="tl-tag steam">蒸気機関の改良</span><span class="tl-tag red">歴史的転換点</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1770〜80年代</div>
+      <div class="tl-content">
+        <div class="tl-event">紡績機械と工場制度の成立</div>
+        <div class="tl-desc">
+          ジェニー紡績機（1764）、水力紡績機（1769）、ミュール紡績機（1779）の相次ぐ発明により、繊維産業が爆発的に機械化。リチャード・アークライトが水力紡績工場を設立し、近代的な「工場（ファクトリー）」という概念を確立。労働者は自宅の作業場から工場へ移り始める。
+        </div>
+        <div><span class="tl-tag iron">工場制度</span><span class="tl-tag">繊維産業</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1800年前後</div>
+      <div class="tl-content">
+        <div class="tl-event">工場労働と児童労働の拡大</div>
+        <div class="tl-desc">
+          蒸気機関の普及により工場は内陸部にも拡大。繊維工場では5歳からの児童が1日14時間以上働かされた。カール・マルクスが後に分析するように、「労働力の商品化」がこの時代に本格化する。人間の時間と体が、初めて「コスト」として計算される対象になった。
+        </div>
+        <div><span class="tl-tag red">児童労働</span><span class="tl-tag iron">労働の商品化</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1825年</div>
+      <div class="tl-content">
+        <div class="tl-event">世界初の公共鉄道（ストックトン・ダーリントン鉄道）</div>
+        <div class="tl-desc">
+          ジョージ・スティーヴンソンが設計した蒸気機関車が、世界で初めて旅客と貨物を公共輸送。1830年にはリヴァプール・マンチェスター鉄道が開通し、都市間を「時刻表」で結ぶ時代が始まった。物理的な距離が「時間」に置き換えられ始める。
+        </div>
+        <div><span class="tl-tag steam">蒸気機関車</span><span class="tl-tag">鉄道時代</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1840年代〜</div>
+      <div class="tl-content">
+        <div class="tl-event">標準時間の導入と教育制度の整備</div>
+        <div class="tl-desc">
+          鉄道の運行に時刻表が必要となり、各地でバラバラだった「地方時」が統一へ向かう（鉄道時間）。E.P.トンプソンが分析したように、労働者は「仕事のリズム」から「時計のリズム」へと管理されるようになった。同時期に初等教育が制度化され始め、「時間を守り、指示に従う」労働者を育成する教育システムが形づくられていく。
+        </div>
+        <div><span class="tl-tag iron">標準時間</span><span class="tl-tag">教育制度</span><span class="tl-tag red">規律社会</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="contrast-visual" style="margin-top: 36px;">
+    <div class="contrast-left">
+      <div class="contrast-side-title">産業革命以前</div>
+      <div class="contrast-side-desc">
+        <ul>
+          <li>季節と太陽が時間の尺度</li>
+          <li>労働のペースは自分で決める</li>
+          <li>生産性は低いが裁量は大きい</li>
+          <li>共同体が生活の単位</li>
+          <li>手仕事の技術が個人の価値</li>
+        </ul>
+      </div>
+    </div>
+    <div class="contrast-center">転　換</div>
+    <div class="contrast-right">
+      <div class="contrast-side-title">産業革命以後</div>
+      <div class="contrast-side-desc">
+        <ul>
+          <li>時計と時刻表が時間の尺度</li>
+          <li>労働のペースは機械が決める</li>
+          <li>生産性は高いが裁量は縮小</li>
+          <li>都市が生活の単位</li>
+          <li>替えのきく労働力が「効率」の源</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第1部 蒸気の時代　― 補足資料 ―</div>
+</div>
+
+
+<!-- ================ PAGE 3: テーマ詳解 ================ -->
+<div class="page">
+  <div class="section-label">Themes in Depth</div>
+  <div class="section-title">テーマ詳解 ── 蒸気の時代が変えたもの</div>
+  <div class="section-intro">第1部が15分のフィルムで描く5つのテーマを、それぞれ掘り下げて読み解く。</div>
+
+  <!-- Theme 1 -->
+  <div class="theme-card th1">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">THEME 01</div>
+        <div class="theme-title">蒸気機関の誕生</div>
+        <div class="theme-lead">人類が「筋力」という制約から解放された瞬間</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>
+        ジェームズ・ワットの改良蒸気機関（1769年）は、人類史における最初の「汎用動力装置」だった。それ以前、人間が使える動力は人力・畜力・水力・風力に限られ、いずれも場所と条件に強く縛られていた。水車は川のそばにしか置けず、風車は風が吹かなければ動かない。蒸気機関は、石炭と水さえあれば、どこでも、いつでも、安定した動力を生み出した。
+      </p>
+      <p>
+        この転換の本質は「制約からの解放」にある。人間の筋肉では持ち上げられない重量を持ち上げ、手では到達できない速度で糸を紡ぐ。アダム・スミスが『国富論』で「分業」の効率性を論じたとき、彼は人間の身体能力を前提としていた。蒸気機関は、その前提そのものを書き換えた。しかし解放には常に代償がある——それが第1部の通底するテーマだ。
+      </p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">人間の身体的限界を超える技術は、なぜ「解放」であると同時に「束縛」の始まりでもあったのか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">蒸気機関</span>
+          <span class="keyword-tag">汎用動力</span>
+          <span class="keyword-tag">制約の解放</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme 2 -->
+  <div class="theme-card th2">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">THEME 02</div>
+        <div class="theme-title">工場と労働の変容</div>
+        <div class="theme-lead">人間が機械の「一部」になった日</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>
+        工場制度の成立は、労働の意味を根底から変えた。家内制手工業の時代、職人は原材料の仕入れから完成品の納品まで、全工程を自分で管理していた。一着の服を織るのにどれだけ時間をかけるかは、職人自身が決めた。カール・マルクスが後に「疎外（Entfremdung）」と呼んだ問題の核心は、まさにこの変化にある。
+      </p>
+      <p>
+        工場では、労働者は全体のごく一部の工程だけを繰り返す。糸を紡ぐだけ、ボビンを交換するだけ、機械の監視をするだけ。自分が何を作っているのかという全体像が見えなくなる。マルクスは『資本論』（1867年）で、工場労働者が「機械の付属物」に転じたと記述した。これは比喩ではなく、文字通りの現実だった。5歳の子どもが紡績機の下に潜り込み、切れた糸を結ぶ——その子にとって「労働」は、機械のリズムに自分の身体を合わせることだった。
+      </p>
+      <p>
+        児童労働の残酷さは、単に長時間・低賃金という問題にとどまらない。子どもたちが失ったのは、自分自身のリズムで世界を発見する時間——つまり「子ども時代」そのものだった。1833年の工場法はようやく9歳未満の労働を禁じたが、それでも9〜13歳は1日9時間の労働が許容されていた。
+      </p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">「全体が見えない労働」は、現代のどこに生き残っているか。私たちは今も何かの「付属物」ではないか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">工場制度</span>
+          <span class="keyword-tag">疎外</span>
+          <span class="keyword-tag">児童労働</span>
+          <span class="keyword-tag">労働の分断</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme 3 -->
+  <div class="theme-card th3">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">THEME 03</div>
+        <div class="theme-title">鉄道がつないだ世界</div>
+        <div class="theme-lead">距離が「時間」に変わり、世界が縮んだ</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>
+        1830年にリヴァプール・マンチェスター鉄道が開通したとき、人々は初めて「時速50キロ」を体験した。馬車の3〜4倍の速度で、風景が後方へ流れていく。歴史家ヴォルフガング・シヴェルブシュは『鉄道旅行の歴史』（1977年）で、この体験がもたらした知覚の変容を詳細に分析している。窓の外の風景は「パノラマ」となり、旅は「移動」から「輸送」に変わった。途中経過が消え、出発地と到着地だけが残った。
+      </p>
+      <p>
+        しかし鉄道がもたらした最も深い変化は、速度ではなく「時間の統一」だった。鉄道以前のイギリスでは、各都市が独自の「地方時」を使っていた。ロンドンとブリストルでは約10分の時差があった。鉄道の時刻表はこの「ずれ」を許容できない。1847年にはイギリスのほぼすべての鉄道会社がグリニッジ標準時を採用し、やがて国全体の時間が統一された。人々が「同じ時間」を生きるようになった——これは技術の副産物であると同時に、近代社会の基盤そのものだ。
+      </p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">鉄道が統一した「時間」は、私たちに何を与え、何を奪ったか。「同じ時間を生きる」ことは自然なことか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">蒸気機関車</span>
+          <span class="keyword-tag">時間の統一</span>
+          <span class="keyword-tag">パノラマ的知覚</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第1部 蒸気の時代　― 補足資料 ―</div>
+</div>
+
+
+<!-- ================ PAGE 3b: テーマ詳解（続き） ================ -->
+<div class="page">
+  <div class="section-label">Themes in Depth (continued)</div>
+  <div class="section-title">テーマ詳解 ── 時計と教育、そして代償</div>
+
+  <!-- Theme 4 -->
+  <div class="theme-card th4">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">THEME 04</div>
+        <div class="theme-title">時計と教育の標準化</div>
+        <div class="theme-lead">「時間を守る人間」はいかにして作られたか</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>
+        歴史家E.P.トンプソンの画期的な論文「時間、労働規律と産業資本主義」（1967年）は、産業革命が人間の時間感覚をいかに根底から作り変えたかを明らかにした。産業革命以前、労働は「仕事指向（task-orientation）」だった。畑を耕すのは「日が出てから日が沈むまで」ではなく、「畑が耕し終わるまで」だ。仕事の性質が時間を決めていた。
+      </p>
+      <p>
+        工場はこの関係を逆転させた。「何時から何時まで」が先にあり、その枠内で仕事が割り当てられる。トンプソンはこれを「時間規律（time-discipline）」と呼んだ。工場の時計は、労働者の行動を分刻みで管理した。遅刻には罰金、早退には給与天引き——人間の時間が「貨幣」と交換可能な単位になったのだ。
+      </p>
+      <p>
+        この「時間規律」を社会に定着させたのが、近代教育制度だった。1870年のイギリス初等教育法は、すべての子どもに学校教育を義務づけた。カリキュラムの内容以上に重要だったのは、「時間割」という仕組みそのものだ。8時に登校し、決められた時間に決められた科目を学び、鐘が鳴ったら次の科目に移る。これは工場労働のリハーサルだったと、教育史家たちは指摘する。学校は「知識を教える場」であると同時に、「時計に従う身体」を作る装置だった。
+      </p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">学校の「時間割」は、何のために設計されたのか。今の教育は、まだ工場モデルの延長線上にあるか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">時間規律</span>
+          <span class="keyword-tag">近代教育</span>
+          <span class="keyword-tag">工場モデル</span>
+          <span class="keyword-tag">E.P.トンプソン</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme 5 -->
+  <div class="theme-card th5">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">THEME 05</div>
+        <div class="theme-title">便利さの代償</div>
+        <div class="theme-lead">筋力は解放された。しかし、個のリズムは失われた。</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>
+        第1部が最後に描くのは、産業革命がもたらした「逆説」だ。蒸気機関は人間を筋肉労働から解放した。鉄道は移動の自由を与えた。工場制度は大量生産を可能にし、かつて贅沢品だった衣服や日用品を庶民の手に届けた。物質的な豊かさは、確実に増大した。
+      </p>
+      <p>
+        しかし同時に、人間は「自分のリズムで生きる」という、それまで当たり前だったものを失った。朝焼けとともに目覚め、季節に合わせて仕事を変え、疲れたら休む——農業社会の非効率性のなかにあった「個人のペース」が、時計と機械によって均一化された。ヴィクトリア朝の作家チャールズ・ディケンズが『オリバー・ツイスト』（1838年）や『困難な時世（Hard Times）』（1854年）で描いたのは、この均一化の中で踏みにじられる人間の尊厳だった。
+      </p>
+      <p>
+        これは「進歩は悪だった」という結論ではない。重要なのは、「得たもの」と「失ったもの」を正確に棚卸しすることだ。この棚卸しを怠ると、技術をただ礼賛するか、ただ恐れるかの二択に陥る。第1部は、その中間にある「問い」の空間に立つことを読者に求める。
+      </p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">「便利さ」の代償として失ったものを、私たちは正確に言語化できるか。それは取り戻せるものか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">便利さの代償</span>
+          <span class="keyword-tag">個のリズム</span>
+          <span class="keyword-tag">均一化</span>
+          <span class="keyword-tag">逆説</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene Flow -->
+  <div class="scene-flow" style="margin-top: 28px;">
+    <div class="scene-flow-item"><div class="sf-num">序</div><div class="sf-title">農村の風景</div><div class="sf-key">穏やかなリズム</div></div>
+    <div class="scene-flow-arrow">&rarr;</div>
+    <div class="scene-flow-item"><div class="sf-num">起</div><div class="sf-title">蒸気機関</div><div class="sf-key">筋力の解放</div></div>
+    <div class="scene-flow-arrow">&rarr;</div>
+    <div class="scene-flow-item"><div class="sf-num">承</div><div class="sf-title">工場と鉄道</div><div class="sf-key">効率の支配</div></div>
+    <div class="scene-flow-arrow">&rarr;</div>
+    <div class="scene-flow-item"><div class="sf-num">転</div><div class="sf-title">時計と教育</div><div class="sf-key">規律の内面化</div></div>
+    <div class="scene-flow-arrow">&rarr;</div>
+    <div class="scene-flow-item climax"><div class="sf-num-w">結</div><div class="sf-title-w">便利さの代償</div><div class="sf-key-w">個の喪失</div></div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第1部 蒸気の時代　― 補足資料 ―</div>
+</div>
+
+
+<!-- ================ PAGE 4: 核心論考 ================ -->
+<div class="page">
+  <div class="section-label">Core Argument</div>
+  <div class="section-title">核心論考 ── 産業革命という「型」</div>
+  <div class="section-intro">
+    第1部が描く産業革命は、単独の歴史的事象としてだけでなく、すべての技術革命を読み解く「型（テンプレート）」として機能する。その構造を三つの視点から整理する。
+  </div>
+
+  <div class="argument-heading">I. 解放と疎外の同時性</div>
+  <p class="argument-body">
+    産業革命の最も重要な教訓は、「解放」と「疎外」が同じ変化の表裏であるという事実だ。蒸気機関は人間を筋肉労働から解放した。しかしまさにその解放が、人間を「機械の従属物」へと転じさせた。マルクスが見抜いたのは、技術そのものが問題なのではなく、技術が組み込まれる社会的関係が問題だということだった。
+  </p>
+  <p class="argument-body">
+    この構造はデジタル革命でも再現される。インターネットは情報へのアクセスを解放した。しかし同時に、24時間の情報過多と「注意の搾取（attention economy）」を生んだ。AI革命もまた同じ型に従うだろう。判断と創造が「解放」される一方で、何が「疎外」されるのか——それが第3部のテーマだ。
+  </p>
+
+  <div class="pull-quote">
+    「技術は中立ではない。しかし技術が善か悪かという問いは、<br>
+    その技術がどのような社会的関係の中で使われるかという問いに<br>
+    常に置き換えられなければならない。」
+  </div>
+
+  <div class="argument-heading">II. 時間の再定義 ── トンプソンの遺産</div>
+  <p class="argument-body">
+    E.P.トンプソンの「時間規律」論は、産業革命を「時間の感覚の革命」として読み替えた点で画期的だった。産業革命以前の人間にとって、時間は「流れるもの」だった。日の長さは季節によって変わり、仕事の密度は天候と収穫に依存した。産業革命以後、時間は「計るもの」になった。均質で、分割可能で、売買可能な「もの」として扱われるようになった。
+  </p>
+  <p class="argument-body">
+    この変化は不可逆だった。一度「時計の時間」を内面化した社会は、「仕事指向」の時間には戻れない。現代人が「時間が足りない」と感じるのは、実際に時間が減ったからではなく、時間を「消費するもの」として感覚する枠組み自体が、産業革命によってインストールされたからだ。フランスの社会学者ピエール・ブルデューが「ハビトゥス」と呼んだ、身体化された社会的構造の一例がここにある。
+  </p>
+  <p class="argument-body">
+    現代のスマートフォンは、この「時間の管理」をさらに精密化した。通知音が鳴るたびに注意を奪われる構造は、工場の鐘が労働者の行動を区切った構造の精緻な子孫と言える。第2部（デジタル革命）で扱う「注意の経済」の原型が、ここにすでに見えている。
+  </p>
+
+  <div class="argument-heading">III. 教育の「型」── 工場モデルの持続</div>
+  <p class="argument-body">
+    産業革命期に設計された教育制度の基本構造は、驚くほど変わっていない。一斉授業、時間割、定期試験、学年制——これらはすべて、「一定のリズムで一定の品質の労働者を産出する」工場モデルの応用だ。教育史家ケン・ロビンソンは、現代の学校制度が産業革命の思想を未だに引きずっていることを繰り返し指摘した。
+  </p>
+  <p class="argument-body">
+    AI時代において、この「型」はついに臨界点に達しつつある。AIが定型的な知識処理を代替できるようになった今、「時間を守り、指示に従い、与えられた問題を正確に解く」能力の価値は相対的に低下する。第1部で描かれる「教育の標準化」の歴史は、第3部（AI革命）で問われる「これからの学びとは何か」の前提として機能する。
+  </p>
+
+  <div class="perspective">
+    <div class="perspective-label">第1部の位置づけ ── 三部作の基盤</div>
+    <p>
+      第1部は「蒸気の時代」という過去を描いているが、その真の目的は「型」の提示にある。解放と疎外の同時性、時間の再定義、教育の工場モデル——この三つの構造は、第2部（デジタル革命）と第3部（AI革命）で変奏される。
+    </p>
+    <p>
+      第1部で「筋力」が解放された。第2部では「情報処理」が解放される。第3部では「判断と創造」が解放される。それぞれの時代に、何が自由になり、何が失われたのか。この問いを持ち続けることが、三部作を通じて読者に求められている姿勢だ。
+    </p>
+  </div>
+
+  <div class="central-question">
+    <div class="cq-label">第1部の中心的問い</div>
+    <div class="cq-text">
+      便利さは、何を解放し、何を奪ったのか。<br>
+      その問いを、250年後の私たちは答えられるか。
+    </div>
+    <div class="cq-sub">
+      産業革命の「得たもの」と「失ったもの」を正確に棚卸しすること。<br>
+      それが、AI時代を自分の頭で考えるための最初の一歩になる。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第1部 蒸気の時代　― 補足資料 ―</div>
+</div>
+
+
+<!-- ================ PAGE 5: 用語解説 + 問いの地図 + Bridge ================ -->
+<div class="page">
+  <div class="section-label">Glossary</div>
+  <div class="section-title">用語解説</div>
+  <div class="section-intro">
+    第1部に登場する主要な概念を、背景知識とともに整理した。単なる定義にとどまらず、「なぜこの言葉が重要か」を合わせて説明する。
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">産業革命 <span class="glossary-kana">さんぎょうかくめい</span><span class="glossary-en">Industrial Revolution</span></div>
+    <div class="glossary-def">
+      18世紀後半のイギリスを起点に、農業・手工業中心の社会が工業・機械中心の社会へと転換した歴史的過程。技術的革新（蒸気機関、紡績機械）だけでなく、社会制度（工場制度、都市化、教育制度）の全面的な変容を含む。「革命」と呼ばれるが、実態は数十年にわたる漸進的な変化の蓄積だった。
+    </div>
+    <div class="glossary-note">
+      なぜ重要か：AIを含むすべての技術革命の「原型」。技術が社会をどう変えるかのメカニズムを学ぶための最良の事例。
+    </div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">蒸気機関 <span class="glossary-kana">じょうききかん</span><span class="glossary-en">Steam Engine</span></div>
+    <div class="glossary-def">
+      水を加熱して蒸気を発生させ、その膨張力で機械を動かす装置。ニューコメン（1712年）が原型を開発し、ワット（1769年）が分離凝縮器を導入して効率を劇的に向上させた。炭鉱の排水用ポンプから始まり、やがて紡績工場・鍛冶工場・蒸気機関車・蒸気船の動力源へと応用範囲が拡大した。
+    </div>
+    <div class="glossary-note">
+      補足：ワットの功績は「蒸気機関を発明した」ことではなく、「既存の蒸気機関を汎用動力装置に進化させた」こと。改良という行為が、革命を引き起こした。
+    </div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">疎外 <span class="glossary-kana">そがい</span><span class="glossary-en">Alienation / Entfremdung</span></div>
+    <div class="glossary-def">
+      カール・マルクスが用いた概念で、労働者が自分の労働の産物・労働過程・他の労働者・自分自身の本質から切り離される状態を指す。工場制度では、労働者は全体の一工程だけを担当するため、自分が「何を作っているか」「なぜ作っているか」の感覚を失う。
+    </div>
+    <div class="glossary-note">
+      現代の文脈：現代のオフィスワーカーが「自分の仕事の意味が見えない」と感じるとき、それは産業革命期の疎外と構造的に同じ問題を抱えている可能性がある。
+    </div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">時間規律 <span class="glossary-kana">じかんきりつ</span><span class="glossary-en">Time-Discipline</span></div>
+    <div class="glossary-def">
+      E.P.トンプソンが提唱した概念。産業革命以前の「仕事指向（task-orientation）」の時間感覚が、工場制度によって「時計指向（clock-time）」の時間感覚に置き換えられた過程を指す。労働の価値が「成果物」ではなく「費やした時間」で測られるようになった。
+    </div>
+    <div class="glossary-note">
+      関連文献：E.P. Thompson, "Time, Work-Discipline, and Industrial Capitalism" (1967), Past & Present, No. 38.
+    </div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">工場法 <span class="glossary-kana">こうじょうほう</span><span class="glossary-en">Factory Acts</span></div>
+    <div class="glossary-def">
+      19世紀イギリスで制定された一連の労働者保護法。1833年工場法は9歳未満の児童労働を禁止し、13歳未満の労働を1日9時間に制限した。不十分ながら、「国家が労働条件に介入する」という原則を確立した点で画期的だった。
+    </div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">家内制手工業 <span class="glossary-kana">かないせいしゅこうぎょう</span><span class="glossary-en">Domestic System / Putting-out System</span></div>
+    <div class="glossary-def">
+      工場制度以前の生産形態。商人が原材料を各家庭に配り、職人が自宅で加工して完成品を納める。労働者は自分のペースで作業でき、農業と並行して行うことも多かった。生産効率は低いが、労働者の自律性は高かった。工場制度の台頭により急速に衰退。
+    </div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">囲い込み <span class="glossary-kana">かこいこみ</span><span class="glossary-en">Enclosure</span></div>
+    <div class="glossary-def">
+      16〜19世紀にかけてイギリスで行われた共有地の私有化。かつて村人が自由に利用していた共有の牧草地・森林が地主に囲い込まれ、農民は土地を失った。行き場を失った農民が都市に流入し、工場の労働力となった。産業革命の「人的条件」を整えた制度的変化。
+    </div>
+    <div class="glossary-note">
+      ポランニーの視点：囲い込みは「土地の商品化」の始まりであり、労働・貨幣の商品化とともに市場社会の三本柱を構成する。
+    </div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">分業 <span class="glossary-kana">ぶんぎょう</span><span class="glossary-en">Division of Labour</span></div>
+    <div class="glossary-def">
+      アダム・スミスが『国富論』（1776年）冒頭の「ピン工場」の例で有名にした概念。作業を細かく分割し、各人が一工程だけを担当することで、全体の生産性が飛躍的に向上する。しかしスミス自身も晩年には、過度な分業が労働者を「愚かで無知に」する危険を指摘していた。
+    </div>
+  </div>
+
+  <!-- 問いの地図 -->
+  <div class="argument-heading" style="margin-top: 44px;">問いの地図</div>
+
+  <div class="discussion-q">
+
+    <div class="d-item">
+      <div class="d-num">1</div>
+      <div>
+        <div class="d-text">産業革命で人間は「筋肉労働」から解放された。では、デジタル革命とAI革命では、それぞれ何から解放されるのか。そして、それぞれ何を失う可能性があるか。</div>
+        <div class="d-hint">ヒント：第2部（デジタル革命）と第3部（AI革命）への橋渡しとなる問い。「解放」と「喪失」のセットで考える。</div>
+      </div>
+    </div>
+
+    <div class="d-item">
+      <div class="d-num">2</div>
+      <div>
+        <div class="d-text">E.P.トンプソンの「時間規律」は、現代のどこに残っているか。スマートフォンの通知、カレンダーアプリ、リモートワークの「オンライン状態表示」——これらは産業革命の時計とどう似ていて、どう違うか。</div>
+        <div class="d-hint">ヒント：「誰が誰の時間を管理しているか」という視点で比較する。</div>
+      </div>
+    </div>
+
+    <div class="d-item">
+      <div class="d-num">3</div>
+      <div>
+        <div class="d-text">現代の学校教育に「工場モデル」の名残はあるか。あるとすれば、それはAI時代にどう変わるべきか。「時間割で区切られた一斉授業」に代わる教育の形を、自分なりに構想してみよ。</div>
+        <div class="d-hint">ヒント：産業革命以前の「仕事指向」の学びと、現代のテクノロジーを組み合わせたらどうなるかを考える。</div>
+      </div>
+    </div>
+
+    <div class="d-item">
+      <div class="d-num">4</div>
+      <div>
+        <div class="d-text">「便利さの代償」として失われたものは、本当に取り戻せないのか。あるいは、取り戻す必要はないのか。「個人のリズム」という概念が、現代においてどのような意味を持ちうるかを論じてみよ。</div>
+        <div class="d-hint">ヒント：「取り戻す」ではなく「新しい形で再発明する」という可能性も含めて考える。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bridge to Part 2 -->
+  <div class="bridge-box">
+    <div class="bridge-label">Bridge to Part 2</div>
+    <div class="bridge-text">
+      蒸気は筋肉を解放した。<br>
+      次は、電気とシリコンが「情報処理」を解放する。
+    </div>
+    <div class="bridge-sub">
+      第2部「デジタルの夜明け」では、コンピュータとインターネットがもたらした<br>
+      第二の革命を追う。産業革命が「身体」を変えたように、<br>
+      デジタル革命は「知覚」と「つながり」を変えた。<br>
+      しかしそこにもまた、同じ構造の「代償」が待っている。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第1部 蒸気の時代　― 補足資料 ―</div>
+</div>
+
+</body>
+</html>

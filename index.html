@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学びの地図 ── ハルとおじいさん</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #08080d;
+  --bg-card: #10101a;
+  --bg-card-hover: #18182a;
+  --text: #e0e0e8;
+  --text-dim: #8888a0;
+  --text-bright: #ffffff;
+  --border: #2a2a40;
+  --neon-orange: #ff6b2b;
+  --neon-blue: #4da6ff;
+  --neon-cyan: #00e5ff;
+  --neon-green: #39ff14;
+  --neon-purple: #bf5fff;
+  --neon-gold: #ffd700;
+  --neon-magenta: #ff2d95;
+  --neon-sky: #00d4ff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== HERO ========== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 20% 30%, rgba(191,95,255,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 350px at 80% 60%, rgba(0,229,255,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 300px at 50% 80%, rgba(255,107,43,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-series {
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.hero-title {
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  position: relative;
+  background: linear-gradient(135deg, #fff 0%, #bf5fff 30%, #00e5ff 60%, #39ff14 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 300;
+  color: var(--text-dim);
+  max-width: 600px;
+  margin-bottom: 48px;
+  position: relative;
+  line-height: 2;
+}
+
+.hero-divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.hero-scroll {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--text-dim);
+  position: relative;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hero-scroll::after {
+  content: '↓';
+  display: block;
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* ========== NAVIGATION ========== */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,13,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.nav-bar::-webkit-scrollbar { display: none; }
+
+.nav-bar a {
+  flex-shrink: 0;
+  padding: 14px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.nav-bar a:hover {
+  color: var(--text-bright);
+}
+
+.nav-bar a[data-part="1"]:hover { border-color: var(--neon-orange); color: var(--neon-orange); }
+.nav-bar a[data-part="2"]:hover { border-color: var(--neon-blue); color: var(--neon-blue); }
+.nav-bar a[data-part="3"]:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); }
+.nav-bar a[data-part="4"]:hover { border-color: var(--neon-green); color: var(--neon-green); }
+.nav-bar a[data-part="5"]:hover { border-color: var(--neon-purple); color: var(--neon-purple); }
+.nav-bar a[data-part="6"]:hover { border-color: var(--neon-gold); color: var(--neon-gold); }
+.nav-bar a[data-part="7"]:hover { border-color: var(--neon-magenta); color: var(--neon-magenta); }
+.nav-bar a[data-part="8"]:hover { border-color: var(--neon-sky); color: var(--neon-sky); }
+
+/* ========== CHAPTER GROUPS ========== */
+.chapter-group {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px 40px;
+}
+
+.group-header {
+  text-align: center;
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.group-label {
+  font-size: 11px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.group-title {
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.group-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 2;
+}
+
+/* Group color themes */
+.group-revolutions .group-label { color: var(--neon-cyan); }
+.group-revolutions .group-title { color: var(--text-bright); }
+
+.group-tools .group-label { color: var(--neon-green); }
+.group-tools .group-title { color: var(--text-bright); }
+
+.group-beyond .group-label { color: var(--neon-magenta); }
+.group-beyond .group-title { color: var(--text-bright); }
+
+.group-now .group-label { color: var(--neon-sky); }
+.group-now .group-title { color: var(--text-bright); }
+
+/* ========== PART CARDS ========== */
+.parts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.part-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.part-card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+
+.part-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.part-card:hover::before { opacity: 1; }
+
+/* Card accent colors */
+.part-card[data-part="1"]::before { background: var(--neon-orange); }
+.part-card[data-part="2"]::before { background: var(--neon-blue); }
+.part-card[data-part="3"]::before { background: var(--neon-cyan); }
+.part-card[data-part="4"]::before { background: var(--neon-green); }
+.part-card[data-part="5"]::before { background: var(--neon-purple); }
+.part-card[data-part="6"]::before { background: var(--neon-gold); }
+.part-card[data-part="7"]::before { background: var(--neon-magenta); }
+.part-card[data-part="8"]::before { background: var(--neon-sky); }
+
+.part-card[data-part="1"]:hover { box-shadow: 0 8px 32px rgba(255,107,43,0.15); }
+.part-card[data-part="2"]:hover { box-shadow: 0 8px 32px rgba(77,166,255,0.15); }
+.part-card[data-part="3"]:hover { box-shadow: 0 8px 32px rgba(0,229,255,0.15); }
+.part-card[data-part="4"]:hover { box-shadow: 0 8px 32px rgba(57,255,20,0.15); }
+.part-card[data-part="5"]:hover { box-shadow: 0 8px 32px rgba(191,95,255,0.15); }
+.part-card[data-part="6"]:hover { box-shadow: 0 8px 32px rgba(255,215,0,0.15); }
+.part-card[data-part="7"]:hover { box-shadow: 0 8px 32px rgba(255,45,149,0.15); }
+.part-card[data-part="8"]:hover { box-shadow: 0 8px 32px rgba(0,212,255,0.15); }
+
+.card-thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+  background: #0c0c18;
+}
+
+.card-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.part-card:hover .card-thumbnail img {
+  transform: scale(1.05);
+}
+
+.card-thumbnail .play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.part-card:hover .play-overlay { opacity: 1; }
+
+.play-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.play-icon::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 4px;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card-part-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  margin-bottom: 8px;
+}
+
+.part-card[data-part="1"] .card-part-num { color: var(--neon-orange); }
+.part-card[data-part="2"] .card-part-num { color: var(--neon-blue); }
+.part-card[data-part="3"] .card-part-num { color: var(--neon-cyan); }
+.part-card[data-part="4"] .card-part-num { color: var(--neon-green); }
+.part-card[data-part="5"] .card-part-num { color: var(--neon-purple); }
+.part-card[data-part="6"] .card-part-num { color: var(--neon-gold); }
+.part-card[data-part="7"] .card-part-num { color: var(--neon-magenta); }
+.part-card[data-part="8"] .card-part-num { color: var(--neon-sky); }
+
+.card-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+.card-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.keyword {
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+.card-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card-link {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-link:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.card-link.primary {
+  border-color: currentColor;
+}
+
+.card-link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* ========== TIMELINE CONNECTOR ========== */
+.timeline-connector {
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+}
+
+.timeline-connector::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 60px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, var(--border), transparent);
+}
+
+/* ========== COMING SOON STATE ========== */
+.card-thumbnail.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0c0c18, #14142a);
+}
+
+.placeholder-text {
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.2em;
+}
+
+/* ========== FOOTER ========== */
+.site-footer {
+  text-align: center;
+  padding: 80px 24px 40px;
+  border-top: 1px solid var(--border);
+  margin-top: 80px;
+}
+
+.footer-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: var(--text-dim);
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--text-bright); }
+
+.footer-copy {
+  font-size: 11px;
+  color: #444;
+  letter-spacing: 0.1em;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .chapter-group { padding: 60px 16px 20px; }
+  .parts-grid { grid-template-columns: 1fr; }
+  .card-body { padding: 20px; }
+  .hero { padding: 40px 20px; }
+}
+
+@media (max-width: 480px) {
+  .card-title { font-size: 18px; }
+  .card-links { flex-direction: column; }
+  .card-link { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="top">
+  <div class="hero-series">ハルとおじいさん</div>
+  <h1 class="hero-title">学びの地図</h1>
+  <p class="hero-subtitle">
+    蒸気機関からAIまで──<br>
+    人類が歩んだ知の道のりを、<br>
+    おじいさんとハルの対話でたどる
+  </p>
+  <div class="hero-divider"></div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav-bar">
+  <a href="#part1" data-part="1">第1部</a>
+  <a href="#part2" data-part="2">第2部</a>
+  <a href="#part3" data-part="3">第3部</a>
+  <a href="#part4" data-part="4">第4部</a>
+  <a href="#part5" data-part="5">第5部</a>
+  <a href="#part6" data-part="6">第6部</a>
+  <a href="#part7" data-part="7">第7部</a>
+  <a href="#part8" data-part="8">第8部</a>
+</nav>
+
+<!-- ============================================================ -->
+<!-- CHAPTER GROUP 1: 三大革命 (Parts 1-3)                         -->
+<!-- ============================================================ -->
+<section class="chapter-group group-revolutions">
+  <div class="group-header">
+    <div class="group-label">CHAPTER I</div>
+    <h2 class="group-title">三大革命</h2>
+    <p class="group-desc">
+      産業革命、デジタル革命、AI革命──<br>
+      人間の暮らしを根底から変えた三つの転換点を俯瞰する
+    </p>
+  </div>
+
+  <div class="parts-grid">
+
+    <!-- Part 1 -->
+    <div class="part-card" data-part="1" id="part1">
+      <div class="card-thumbnail placeholder">
+        <span class="placeholder-text">PART 1</span>
+      </div>
+      <div class="card-body">
+        <div class="card-part-num">PART 01</div>
+        <h3 class="card-title">蒸気の時代</h3>
+        <p class="card-subtitle">産業革命 ── 機械が人間のリズムを変えた日</p>
+        <div class="card-keywords">
+          <span class="keyword">産業革命</span>
+          <span class="keyword">蒸気機関</span>
+          <span class="keyword">労働と時間</span>
+          <span class="keyword">手仕事から工場へ</span>
+        </div>
+        <div class="card-links">
+          <a href="parts/part1.html" class="card-link primary" style="color:var(--neon-orange)">
+            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4m7-2v18m0 0l-4-4m4 4l4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            学びの地図を見る
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part 2 -->
+    <div class="part-card" data-part="2" id="part2">
+      <div class="card-thumbnail placeholder">
+        <span class="placeholder-text">PART 2</span>
+      </div>
+      <div class="card-body">
+        <div class="card-part-num">PART 02</div>
+        <h3 class="card-title">つながる世界</h3>
+        <p class="card-subtitle">1940年代〜2020年代 ── デジタル革命が変えた「人と人のあいだ」</p>
+        <div class="card-keywords">
+          <span class="keyword">コンピュータ</span>
+          <span class="keyword">インターネット</span>
+          <span class="keyword">SNS</span>
+          <span class="keyword">つながりの光と影</span>
+        </div>
+        <div class="card-links">
+          <a href="parts/part2.html" class="card-link primary" style="color:var(--neon-blue)">
+            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4m7-2v18m0 0l-4-4m4 4l4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            学びの地図を見る
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part 3 -->
+    <div class="part-card" data-part="3" id="part3">
+      <div class="card-thumbnail placeholder">
+        <span class="placeholder-text">PART 3</span>
+      </div>
+      <div class="card-body">
+        <div class="card-part-num">PART 03</div>
+        <h3 class="card-title">AIと生きる未来</h3>
+        <p class="card-subtitle">三部作の完結 ── 産業革命・デジタル革命、そしてAI革命へ</p>
+        <div class="card-keywords">
+          <span class="keyword">AI</span>
+          <span class="keyword">機械学習</span>
+          <span class="keyword">共存</span>
+          <span class="keyword">未来の選択</span>
+        </div>
+        <div class="card-links">
+          <a href="parts/part3.html" class="card-link primary" style="color:var(--neon-cyan)">
+            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4m7-2v18m0 0l-4-4m4 4l4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            学びの地図を見る
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="timeline-connector"></div>
+
+<!-- ============================================================ -->
+<!-- CHAPTER GROUP 2: 文明の道具 (Parts 4-6)                       -->
+<!-- ============================================================ -->
+<section class="chapter-group group-tools">
+  <div class="group-header">
+    <div class="group-label">CHAPTER II</div>
+    <h2 class="group-title">文明の道具</h2>
+    <p class="group-desc">
+      文字、言葉、数字──<br>
+      人類が発明した「見えない道具」が、思考と社会をどう形づくったか
+    </p>
+  </div>
+
+  <div class="parts-grid">
+
+    <!-- Part 4 -->
+    <div class="part-card" data-part="4" id="part4">
+      <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2WxoHkQX1M6VJCrFKtdxXx8Z" target="_blank" rel="noopener">
+        <div class="card-thumbnail">
+          <img src="https://img.youtube.com/vi/8dySbSKpZNU/hqdefault.jpg" alt="第4部 サムネイル" loading="lazy">
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+      </a>
+      <div class="card-body">
+        <div class="card-part-num">PART 04</div>
+        <h3 class="card-title">文字と知識の冒険</h3>
+        <p class="card-subtitle">5000年の旅 ── 人類はどうやって知識を残してきたか</p>
+        <div class="card-keywords">
+          <span class="keyword">文字の誕生</span>
+          <span class="keyword">粘土板から紙へ</span>
+          <span class="keyword">印刷革命</span>
+          <span class="keyword">知識の民主化</span>
+        </div>
+        <div class="card-links">
+          <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2WxoHkQX1M6VJCrFKtdxXx8Z" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-green)">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
+            再生リスト
+          </a>
+          <a href="parts/part4.html" class="card-link" style="color:var(--neon-green)">学びの地図</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part 5 -->
+    <div class="part-card" data-part="5" id="part5">
+      <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wz9a-nLF0FAkTgRr8km-ql8" target="_blank" rel="noopener">
+        <div class="card-thumbnail">
+          <img src="https://img.youtube.com/vi/gIOypSyJwMs/hqdefault.jpg" alt="第5部 サムネイル" loading="lazy">
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+      </a>
+      <div class="card-body">
+        <div class="card-part-num">PART 05</div>
+        <h3 class="card-title">言葉と思考の旅</h3>
+        <p class="card-subtitle">言語とは何か ── 言葉は思考を作るのか、思考が言葉を作るのか</p>
+        <div class="card-keywords">
+          <span class="keyword">言語の起源</span>
+          <span class="keyword">思考と言葉</span>
+          <span class="keyword">翻訳の壁</span>
+          <span class="keyword">AIと言語理解</span>
+        </div>
+        <div class="card-links">
+          <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wz9a-nLF0FAkTgRr8km-ql8" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-purple)">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
+            再生リスト
+          </a>
+          <a href="parts/part5.html" class="card-link" style="color:var(--neon-purple)">学びの地図</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part 6 -->
+    <div class="part-card" data-part="6" id="part6">
+      <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wwmx7EE_-oXyN4FOeIsbXos" target="_blank" rel="noopener">
+        <div class="card-thumbnail">
+          <img src="https://img.youtube.com/vi/TxDMU6SVg3o/hqdefault.jpg" alt="第6部 サムネイル" loading="lazy">
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+      </a>
+      <div class="card-body">
+        <div class="card-part-num">PART 06</div>
+        <h3 class="card-title">数字と世界</h3>
+        <p class="card-subtitle">数は道具か支配者か ── 人類と数の5000年</p>
+        <div class="card-keywords">
+          <span class="keyword">ゼロの発見</span>
+          <span class="keyword">数学と文明</span>
+          <span class="keyword">統計と支配</span>
+          <span class="keyword">アルゴリズム</span>
+        </div>
+        <div class="card-links">
+          <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wwmx7EE_-oXyN4FOeIsbXos" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-gold)">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
+            再生リスト
+          </a>
+          <a href="parts/part6.html" class="card-link" style="color:var(--neon-gold)">学びの地図</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="timeline-connector"></div>
+
+<!-- ============================================================ -->
+<!-- CHAPTER GROUP 3: 前提を超える (Part 7)                        -->
+<!-- ============================================================ -->
+<section class="chapter-group group-beyond">
+  <div class="group-header">
+    <div class="group-label">CHAPTER III</div>
+    <h2 class="group-title">前提を超える</h2>
+    <p class="group-desc">
+      アインシュタイン、ファインマン、チューリング、フォン・ノイマン──<br>
+      4人の天才が壊した「人間の当たり前」
+    </p>
+  </div>
+
+  <div class="parts-grid">
+
+    <!-- Part 7 -->
+    <div class="part-card" data-part="7" id="part7" style="max-width: 560px; margin: 0 auto;">
+      <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2WxfmzrTlbDejA9E6F5NvHHf" target="_blank" rel="noopener">
+        <div class="card-thumbnail">
+          <img src="https://img.youtube.com/vi/-j4wBrRSWWM/hqdefault.jpg" alt="第7部 サムネイル" loading="lazy">
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+      </a>
+      <div class="card-body">
+        <div class="card-part-num">PART 07</div>
+        <h3 class="card-title">人間の前提を外す</h3>
+        <p class="card-subtitle">4人の天才が外した「人間の当たり前」</p>
+        <div class="card-keywords">
+          <span class="keyword">アインシュタイン</span>
+          <span class="keyword">ファインマン</span>
+          <span class="keyword">チューリング</span>
+          <span class="keyword">フォン・ノイマン</span>
+        </div>
+        <div class="card-links">
+          <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2WxfmzrTlbDejA9E6F5NvHHf" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-magenta)">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
+            再生リスト
+          </a>
+          <a href="parts/part7.html" class="card-link" style="color:var(--neon-magenta)">学びの地図</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="timeline-connector"></div>
+
+<!-- ============================================================ -->
+<!-- CHAPTER GROUP 4: いま、ここ (Part 8)                          -->
+<!-- ============================================================ -->
+<section class="chapter-group group-now">
+  <div class="group-header">
+    <div class="group-label">CHAPTER IV</div>
+    <h2 class="group-title">いま、ここ</h2>
+    <p class="group-desc">
+      生成AIという断層──<br>
+      人間と機械の境界を問い直す、現在進行形の物語
+    </p>
+  </div>
+
+  <div class="parts-grid">
+
+    <!-- Part 8 -->
+    <div class="part-card" data-part="8" id="part8" style="max-width: 560px; margin: 0 auto;">
+      <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wx32GuS8t4vuk8_kjK_NIa5" target="_blank" rel="noopener">
+        <div class="card-thumbnail">
+          <img src="https://img.youtube.com/vi/979DSjYsE-o/hqdefault.jpg" alt="第8部 サムネイル" loading="lazy">
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+      </a>
+      <div class="card-body">
+        <div class="card-part-num">PART 08</div>
+        <h3 class="card-title">AIと人間のあいだ</h3>
+        <p class="card-subtitle">歴史 ── 生成という断層はどう生まれたか</p>
+        <div class="card-keywords">
+          <span class="keyword">生成AI</span>
+          <span class="keyword">ルールから確率へ</span>
+          <span class="keyword">人間の意味</span>
+          <span class="keyword">連載中</span>
+        </div>
+        <div class="card-links">
+          <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wx32GuS8t4vuk8_kjK_NIa5" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-sky)">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
+            再生リスト
+          </a>
+          <a href="parts/part8.html" class="card-link" style="color:var(--neon-sky)">学びの地図</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="footer-title">ハルとおじいさん ── 学びの地図</div>
+  <p class="footer-copy">&copy; 2025-2026 ハルとおじいさん</p>
+</footer>
+
+</body>
+</html>

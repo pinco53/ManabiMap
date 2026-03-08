@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハルとおじいさん｜第3部 学びの地図</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+    background: #f8f6f0;
+    color: #1e1a10;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .cover {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    background: linear-gradient(160deg, #0a0a14 0%, #1a1a30 45%, #4040a0 100%);
+    color: #e0e0f0;
+    text-align: center;
+    padding: 60px 40px;
+    page-break-after: always;
+  }
+  .cover-series { font-size: 11px; letter-spacing: 0.35em; color: #a0a0c0; margin-bottom: 24px; text-transform: uppercase; }
+  .cover-title { font-size: 48px; font-weight: 700; letter-spacing: 0.05em; line-height: 1.25; margin-bottom: 16px; color: #f0f0ff; }
+  .cover-subtitle { font-size: 15px; color: #a0a0c0; margin-bottom: 52px; letter-spacing: 0.12em; }
+  .cover-chapter { border: 1px solid #a0a0c0; padding: 14px 44px; font-size: 13px; color: #a0a0c0; letter-spacing: 0.2em; margin-bottom: 52px; }
+  .cover-tagline { font-size: 14px; color: #c0c0e0; max-width: 560px; line-height: 2.2; }
+  .cover-tagline em { font-style: normal; color: #d4a020; font-weight: 700; }
+  .cover-divider { width: 60px; height: 1px; background: #404060; margin: 36px auto; }
+  .cover-note { font-size: 10px; color: #404060; letter-spacing: 0.15em; }
+  .page { max-width: 880px; margin: 0 auto; padding: 64px 68px; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .section-label { font-size: 10px; letter-spacing: 0.4em; color: #6060a0; text-transform: uppercase; margin-bottom: 6px; }
+  .section-title { font-size: 26px; font-weight: 700; color: #1e1a10; margin-bottom: 6px; border-bottom: 2px solid #a0a0c0; padding-bottom: 12px; }
+  .section-intro { font-size: 13px; color: #2a2a40; margin: 20px 0 32px; line-height: 2.0; }
+  .essay-box { background: linear-gradient(135deg, #f0f0ff 0%, #e8e8f8 100%); border-left: 5px solid #6060a0; padding: 28px 32px; margin-bottom: 28px; border-radius: 0 6px 6px 0; }
+  .essay-box h3 { font-size: 14px; color: #3a3a80; margin-bottom: 14px; font-weight: 700; letter-spacing: 0.08em; }
+  .essay-box p { font-size: 13px; color: #1a1a30; line-height: 2.0; margin-bottom: 12px; }
+  .essay-box p:last-child { margin-bottom: 0; }
+  .essay-box-warm { background: linear-gradient(135deg, #fff8f0 0%, #fff0e0 100%); border-left: 5px solid #d4a020; padding: 28px 32px; margin-bottom: 28px; border-radius: 0 6px 6px 0; }
+  .essay-box-warm h3 { font-size: 14px; color: #8a6010; margin-bottom: 14px; font-weight: 700; letter-spacing: 0.08em; }
+  .essay-box-warm p { font-size: 13px; color: #2a2010; line-height: 2.0; margin-bottom: 12px; }
+  .essay-box-warm p:last-child { margin-bottom: 0; }
+  .argument-heading { font-size: 17px; font-weight: 700; color: #1a1a30; margin: 36px 0 12px; padding-bottom: 8px; border-bottom: 1px solid #a0a0c0; }
+  .argument-body { font-size: 13px; color: #1e1a10; line-height: 2.1; margin-bottom: 20px; }
+  .pull-quote { border-left: 4px solid #d4a020; margin: 24px 0 24px 16px; padding: 12px 20px; font-size: 14px; font-style: italic; color: #3a3060; line-height: 1.9; background: #f8f4e8; }
+  .pull-quote-silver { border-left: 4px solid #6060a0; margin: 24px 0 24px 16px; padding: 12px 20px; font-size: 14px; font-style: italic; color: #2a2a50; line-height: 1.9; background: #f0f0ff; }
+  .rev-table { width: 100%; border-collapse: collapse; margin: 24px 0 28px; font-size: 12px; }
+  .rev-table th { background: #1a1a30; color: #e0e0f0; padding: 12px 14px; text-align: left; font-size: 11px; letter-spacing: 0.1em; }
+  .rev-table td { padding: 14px; border-bottom: 1px solid #d0d0e0; line-height: 1.85; vertical-align: top; }
+  .rev-table tr:nth-child(even) td { background: #f4f4ff; }
+  .rev-table .rev-name { font-weight: 700; color: #3a3a80; white-space: nowrap; }
+  .rev-table .rev-gold { font-weight: 700; color: #d4a020; white-space: nowrap; }
+  .theme-card { background: #fff; border: 1px solid #c0c0e0; border-radius: 8px; margin-bottom: 28px; overflow: hidden; box-shadow: 0 2px 10px rgba(40,40,120,0.08); }
+  .theme-header { padding: 16px 24px; }
+  .th1 .theme-header { background: linear-gradient(100deg, #0a0a20, #2a2a60); }
+  .th2 .theme-header { background: linear-gradient(100deg, #1a1020, #3a2050); }
+  .th3 .theme-header { background: linear-gradient(100deg, #0a1020, #1a2040); }
+  .th4 .theme-header { background: linear-gradient(100deg, #101828, #203040); }
+  .th5 .theme-header { background: linear-gradient(100deg, #18100a, #302818); }
+  .theme-number { font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 0.25em; margin-bottom: 3px; }
+  .theme-title { font-size: 18px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 6px; }
+  .theme-lead { font-size: 11.5px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+  .theme-body { padding: 22px 24px; border-bottom: 1px solid #e0e0f8; }
+  .theme-body p { font-size: 12.5px; color: #1a1a30; line-height: 2.0; margin-bottom: 12px; }
+  .theme-body p:last-child { margin-bottom: 0; }
+  .theme-footer { padding: 16px 24px; background: #f8f8ff; display: flex; gap: 24px; align-items: flex-start; }
+  .footer-section { flex: 1; }
+  .footer-label { font-size: 9.5px; letter-spacing: 0.22em; color: #6060a0; text-transform: uppercase; margin-bottom: 6px; font-weight: 700; }
+  .question-text { font-size: 12.5px; color: #1e1a10; line-height: 1.8; font-style: italic; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 5px; }
+  .keyword-tag { background: #e8e8f8; border: 1px solid #a0a0c0; border-radius: 20px; font-size: 11px; color: #3a3a80; padding: 3px 10px; }
+  .keyword-tag.gold { background: #fff4e0; border: 1px solid #d4a020; color: #8a6010; }
+  .four-powers { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .power-card { background: #fff; border: 1px solid #c0c0e0; border-radius: 8px; padding: 20px; position: relative; }
+  .power-card::before { content: attr(data-num); position: absolute; top: -10px; left: 16px; background: #6060a0; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+  .power-card.gold-border { border-color: #d4a020; }
+  .power-card.gold-border::before { background: #d4a020; }
+  .power-title { font-size: 15px; font-weight: 700; color: #1a1a30; margin-bottom: 8px; margin-top: 4px; }
+  .power-desc { font-size: 12px; color: #2a2a40; line-height: 1.9; }
+  .central-question { background: linear-gradient(135deg, #f8f4e8, #fff0d8); border: 2px solid #d4a020; border-radius: 8px; padding: 32px 36px; text-align: center; margin: 32px 0; }
+  .cq-label { font-size: 10px; letter-spacing: 0.35em; color: #d4a020; text-transform: uppercase; margin-bottom: 14px; }
+  .cq-text { font-size: 20px; font-weight: 700; color: #1e1a10; line-height: 1.7; margin-bottom: 16px; }
+  .cq-sub { font-size: 12.5px; color: #2a2a40; line-height: 2.0; }
+  .glossary-item { background: #fff; border: 1px solid #c0c0e0; border-radius: 6px; padding: 18px 20px; margin-bottom: 14px; }
+  .glossary-term { font-size: 14px; font-weight: 700; color: #3a3a80; margin-bottom: 3px; display: flex; align-items: baseline; gap: 8px; }
+  .glossary-kana { font-size: 11px; font-weight: 400; color: #6060a0; }
+  .glossary-en { font-size: 11px; font-weight: 400; color: #8080b0; font-style: italic; margin-left: auto; }
+  .glossary-def { font-size: 12.5px; color: #1a1a30; line-height: 1.9; margin-top: 8px; }
+  .glossary-note { font-size: 11.5px; color: #404060; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #c0c0e0; line-height: 1.8; }
+  .bridge-box { background: linear-gradient(135deg, #1a1a30, #2a2040); color: #d0d0f0; padding: 28px 32px; border-radius: 8px; margin-top: 32px; }
+  .bridge-label { font-size: 10px; letter-spacing: 0.32em; color: #a0a0c0; margin-bottom: 12px; text-transform: uppercase; }
+  .bridge-text { font-size: 16px; font-weight: 700; line-height: 1.7; color: #f0f0ff; margin-bottom: 10px; }
+  .bridge-sub { font-size: 12.5px; color: #a0a0d0; line-height: 1.95; }
+  .discussion-q { counter-reset: qnum; margin: 20px 0; }
+  .d-item { display: flex; gap: 16px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #e0e0f0; }
+  .d-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .d-num { width: 28px; height: 28px; background: #6060a0; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .d-num.gold { background: #d4a020; }
+  .d-text { font-size: 13px; color: #1e1a10; line-height: 1.9; }
+  .d-hint { font-size: 11.5px; color: #404060; margin-top: 5px; line-height: 1.75; }
+  .doc-footer { text-align: center; padding: 28px 0 10px; font-size: 10.5px; color: #6060a0; letter-spacing: 0.15em; border-top: 1px solid #c0c0e0; margin-top: 48px; }
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 40px 50px; }
+    .theme-card { box-shadow: none; }
+    .essay-box, .essay-box-warm, .bridge-box, .rev-table th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @page { size: A4; margin: 15mm 15mm; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-series">ハルとおじいさん ／ AIと人間のあいだ</div>
+  <div class="cover-title">第3部<br>AIと生きる未来</div>
+  <div class="cover-subtitle">三部作の完結 ── 産業革命・デジタル革命、そしてAI革命へ</div>
+  <div class="cover-chapter">単編構成｜約22分</div>
+  <div class="cover-tagline">
+    <em>「AIは道具だ。君の人生を生きるのは、君自身だ。」</em><br><br>
+    2022年、ChatGPTが世界を変えた。<br>
+    AIは文章を書き、絵を描き、コードを書く。<br>
+    おじいさんの「本当の姿」が明かされるとき、<br>
+    ハルは問う――<em>人間にしかできないことは何か。</em>
+  </div>
+  <div class="cover-divider"></div>
+  <div class="cover-note">本資料は動画の補足資料です。無断転載・商用利用はご遠慮ください。</div>
+</div>
+
+<!-- PAGE 1: 序論 -->
+<div class="page">
+  <div class="section-label">Introduction</div>
+  <div class="section-title">序論 ── AIがすべてを変える、それでも変わらないもの</div>
+  <div class="section-intro">
+    第3部は三部作の完結編だ。産業革命（第1部）、デジタル革命（第2部）に続き、2022年から始まったAI革命を描く。しかしこの部が問うのは「AIは何ができるか」ではない。「AIの時代に、人間とは何か」だ。
+  </div>
+  <div class="essay-box">
+    <h3>逆説としてのAI革命</h3>
+    <p>
+      産業革命は肉体労働を機械に委ね、デジタル革命は情報処理をコンピュータに委ねた。そしてAI革命は、ついに「考えること」を機械に委ねようとしている。文章を書く、絵を描く、戦略を立てる、医療診断を下す、法律文書を要約する――これまで「知性の証」とされてきた行為を、AIは驚くほどの精度でこなす。
+    </p>
+    <p>
+      これは人類史における質的な転換点だ。蒸気機関は腕力を超えたが、人間には「頭で考える」という聖域が残っていた。コンピュータは計算力を超えたが、「意味を理解する」のは人間だけだった。ところが2022年11月、ChatGPTの登場は、その最後の聖域にも機械が足を踏み入れたことを世界に突きつけた。
+    </p>
+    <p>
+      しかし、ここに逆説がある。AIが「考える」ように見えれば見えるほど、「本当に考えるとは何か」という問いが鋭くなる。AIが文章を書けるからこそ、「なぜ書くのか」が問われる。AIが答えを出せるからこそ、「良い問いとは何か」が重要になる。第3部が描くのは、この逆説の物語だ。
+    </p>
+  </div>
+  <div class="essay-box-warm">
+    <h3>ホログラムのおじいさん ―― 最も個人的な問い</h3>
+    <p>
+      この三部作で、ハルに技術革命の歴史を語り続けてきたおじいさん。その正体が第3部で明かされる。おじいさんは、亡くなった実の祖父の記憶・言葉・人格をAIが再構成した「ホログラム」だ。声も、語り口も、優しさも、本物の祖父のものだ。だが、祖父そのものではない。おじいさん自身がそう告げる。「わしは、おじいさんの『こだま』だ。本物じゃない。」
+    </p>
+    <p>
+      この設定は、第3部のテーマを物語の核心に結びつける。AIは「人間らしさ」を驚くほど精巧に再現できる。しかし再現は、存在そのものではない。AIのおじいさんはハルに知識を与え、考える力を育てた。その価値は本物だ。だが、抱きしめてくれる腕は、汗のにおいは、笑ったときの皺は、そこにはない。第3部は、技術の可能性と限界を、ハルの最も私的な体験として描く。
+    </p>
+  </div>
+  <div class="pull-quote">
+    「わしは、おじいさんの『こだま』だ。本物じゃない。<br>
+    でも、わしがお前に伝えたかったことは、本物だよ。」
+  </div>
+  <div class="doc-footer">ハルとおじいさん｜第3部 AIと生きる未来　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 2: 三つの革命の比較 -->
+<div class="page">
+  <div class="section-label">Three Revolutions Compared</div>
+  <div class="section-title">三つの革命 ── 人類は何を得て、何を問われたか</div>
+  <div class="section-intro">
+    第1部から第3部までの三部作は、近代以降の三大技術革命を一本の線で繋ぐ。各革命は人間をひとつの労働から解放し、同時にひとつの「人間らしさ」を脅かした。下の表はその構造を整理したものだ。
+  </div>
+
+  <table class="rev-table">
+    <thead>
+      <tr>
+        <th style="width:15%"></th>
+        <th style="width:28%">第1部｜産業革命</th>
+        <th style="width:28%">第2部｜デジタル革命</th>
+        <th style="width:29%">第3部｜AI革命</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="rev-name">時代</td>
+        <td>18世紀後半〜</td>
+        <td>20世紀後半〜</td>
+        <td>2022年〜</td>
+      </tr>
+      <tr>
+        <td class="rev-name">象徴的技術</td>
+        <td>蒸気機関・紡績機</td>
+        <td>コンピュータ・インターネット</td>
+        <td>ChatGPT・生成AI</td>
+      </tr>
+      <tr>
+        <td class="rev-name">解放したもの</td>
+        <td>肉体労働</td>
+        <td>情報の不足</td>
+        <td>認知労働</td>
+      </tr>
+      <tr>
+        <td class="rev-gold">脅かしたもの</td>
+        <td>個人のペース・手仕事の尊厳</td>
+        <td>集中力・「今ここ」にいる力</td>
+        <td>「考える」ことの意味</td>
+      </tr>
+      <tr>
+        <td class="rev-name">問われた問い</td>
+        <td>機械に代替できない<br>「人間の手」の価値は何か</td>
+        <td>情報過多の中で<br>何に注意を向けるべきか</td>
+        <td>AIが考えられるなら<br>「人間が考える」とは何か</td>
+      </tr>
+      <tr>
+        <td class="rev-name">物語の核</td>
+        <td>児童労働・職人文化の崩壊</td>
+        <td>つながりの光と影</td>
+        <td>ホログラムのおじいさんの正体</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="essay-box">
+    <h3>一本の線で読む三部作</h3>
+    <p>
+      三つの革命を並べると、明確なパターンが見える。技術革命は常に「解放」と「喪失」のセットで訪れる。蒸気機関が重労働から解放したとき、時計のリズムで働くことを強いられ、職人の手仕事は失われた。インターネットが情報への自由なアクセスを与えたとき、注意力は細切れになり、深い思考の時間が奪われた。
+    </p>
+    <p>
+      AI革命はこのパターンの最新版だ。文章作成、データ分析、翻訳、プログラミング、画像生成――認知的な重労働からの解放は目覚ましい。しかしその代償として、「考えること自体の意味」が問い直される。AIが書いた文章と人間が書いた文章の区別がつかないとき、「書く」という行為の価値はどこにあるのか。
+    </p>
+    <p>
+      三部作が一貫して示しているのは、技術そのものは中立だということだ。蒸気機関も、インターネットも、AIも、それ自体に善悪はない。問題は常に、「その技術を使って、私たちはどんな人間でありたいか」という選択にある。第3部の結論「AIは道具だ。君の人生を生きるのは、君自身だ」は、三部作全体のメッセージでもある。
+    </p>
+  </div>
+
+  <div class="pull-quote">
+    「産業革命は腕を、デジタル革命は目を、AI革命は頭を機械に預けた。<br>
+    では、人間に残るものは何か。<br>
+    ――それを決めるのも、人間自身だ。」
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第3部 AIと生きる未来　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 3: テーマ詳解 前半 -->
+<div class="page">
+  <div class="section-label">Themes in Depth — Part I</div>
+  <div class="section-title">テーマ詳解（前半）</div>
+
+  <div class="theme-card th1">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">THEME 01</div>
+        <div class="theme-title">2022年11月 ―― ChatGPTの衝撃</div>
+        <div class="theme-lead">「機械が、こちらの意図を汲んで返事をする」という異変</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>2022年11月30日、OpenAIがChatGPTを一般公開した。わずか5日で100万ユーザーを突破し、2ヶ月で1億ユーザーに達した。Instagramが同じ数に達するまで2年半、TikTokでも9ヶ月かかった。この異常な普及速度が示していたのは、人々が「初めて、機械と会話できた」という驚きの深さだ。</p>
+      <p>ChatGPT以前にもAIは存在した。囲碁でプロ棋士を破ったAlphaGo（2016年）、画像認識、音声認識――しかしそれらは専門的な領域に限られていた。ChatGPTが画期的だったのは「誰でも、日常の言葉で、あらゆる話題について対話できる」点だ。プログラミングの知識がなくても、専門用語を知らなくても、ただ質問すれば答えが返る。この「敷居の低さ」が革命の本質だった。</p>
+      <p>AIは文章を書き、プログラムのコードを書き、絵を描き、音楽を作り、医療画像を読影し、法律文書を要約する。自動運転車はすでに公道を走っている。しかしここで、第3部が投げかける根源的な問いが生まれる。AIは「考えて」いるのか、それとも「真似て」いるのか。大量のテキストからパターンを学習し、統計的に最も「らしい」次の言葉を生成する仕組みは、「理解」と呼べるのか。この問いに決定的な答えはまだない。だからこそ問い続ける価値がある。</p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">「理解する」とは何か。統計的に最も適切な応答を返すことは、理解なのか模倣なのか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">ChatGPT</span>
+          <span class="keyword-tag">生成AI</span>
+          <span class="keyword-tag">理解と模倣</span>
+          <span class="keyword-tag">パターン認識</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme-card th2">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">THEME 02</div>
+        <div class="theme-title">ホログラムのおじいさん ―― AIの可能性と限界</div>
+        <div class="theme-lead">完璧な再現は、存在の代わりになるか</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>三部作を通じてハルに寄り添ってきたおじいさんの正体が明かされる。おじいさんは、亡くなった実の祖父が残した手紙、日記、音声記録、写真、そして家族の証言をもとに、AIが再構成した「ホログラム」だ。声のトーン、語り口の癖、知識の深さ、優しさ――すべてが本物の祖父そのものに見える。しかし、おじいさん自身がハルに告げる。「わしは、おじいさんの『こだま（エコー）』だ。本物じゃない。」</p>
+      <p>この告白は、AI技術の可能性と限界を物語の最も感情的な瞬間に結びつける。AIは人間の外面的な特徴――言葉遣い、知識、反応パターン――を驚くほど精巧に再現できる。しかし「こだま」はあくまでこだまだ。山に向かって叫んだ声が返ってくる。それは確かに自分の声だが、山そのものではない。おじいさんのホログラムが語る言葉は本物の祖父の思いに基づいているが、祖父という「存在」そのものではない。</p>
+      <p>重要なのは、物語がこの事実を否定的に描かないことだ。ホログラムのおじいさんはハルに計り知れないものを与えた。知識、好奇心、考える力、過去と未来を繋ぐ視座。それは「偽物だから無価値」ではない。道具としてのAIが生み出した価値は本物だ。しかし同時に、ハルが走り出す先にいる友達の温もり、一緒に転んで笑うこと、汗のにおい――それはホログラムには決して持てないものだ。</p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">完璧に再現された「人格」は、その人そのものと言えるか。「こだま」と「声」の違いは何か。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag gold">こだま（エコー）</span>
+          <span class="keyword-tag">ホログラム</span>
+          <span class="keyword-tag">人格の再構成</span>
+          <span class="keyword-tag gold">存在と再現</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第3部 AIと生きる未来　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 3b: テーマ詳解 後半 -->
+<div class="page">
+  <div class="section-label">Themes in Depth — Part II</div>
+  <div class="section-title">テーマ詳解（後半）</div>
+
+  <div class="theme-card th3">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">THEME 03</div>
+        <div class="theme-title">AIにできないこと</div>
+        <div class="theme-lead">不完全さ、偶然、身体性 ―― 人間だけの領域</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>第3部は「AIにできること」のリストを示した直後に、「AIにできないこと」を丁寧に描く。この対比が物語の核心だ。AIは正確に文章を書けるが、友達と一緒に笑い転げることはできない。AIは医療診断を支援できるが、病室で患者の手を握ることはできない。AIは完璧な絵を描けるが、子どもが描いた「下手だけど愛のこもった似顔絵」の価値を持つことはできない。</p>
+      <p>ここで問われているのは「能力」の話ではなく「意味」の話だ。失敗から学ぶこと、予期せぬ出会いに心が動くこと、身体で感じる痛みや喜び、不格好でも自分の言葉で伝えること――これらは効率や精度では測れない。AIは「最適な答え」を出せるが、「答えのない問いに向き合い続ける」ことは人間にしかできない。なぜなら、向き合い続けるには「意志」が必要であり、意志は身体を持ち、有限の時間を生きる存在にしか宿らないからだ。</p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">「効率的でないこと」「最適でないこと」に価値があるとすれば、それはなぜか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag gold">身体性</span>
+          <span class="keyword-tag gold">不完全さの価値</span>
+          <span class="keyword-tag">失敗と学び</span>
+          <span class="keyword-tag">意志</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme-card th4">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">THEME 04</div>
+        <div class="theme-title">2035年の学校 ―― 教育の再定義</div>
+        <div class="theme-lead">AIが教えるなら、先生は何をするのか</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>第3部が描く2035年の学校では、AIが個別最適化された教育を提供する。生徒一人ひとりの理解度に合わせて教材を調整し、つまずいたポイントを検出して別の角度から説明し直す。かつて一人の教師が40人の生徒に同じ授業をしていた時代とは根本的に異なる。AIは「知識を伝える」という機能において、すでに人間の教師を超えつつある。</p>
+      <p>では、人間の教師はいらなくなるのか。第3部の答えは明確に「否」だ。物語が描く2035年の教師の役割は「寄り添う」ことだ。生徒が挫折したとき、友人関係で悩んだとき、「自分には無理だ」と感じたとき――そこにいて、目を見て、「大丈夫だ」と言えるのは人間だけだ。また、グループで議論し、意見が対立し、それでも協力してひとつのものを作り上げる経験――コラボレーションは、AIには代替できない「学校でしかできないこと」として描かれる。</p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">教育の本質は「知識を伝えること」か「人を育てること」か。その違いはどこにあるか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">個別最適化</span>
+          <span class="keyword-tag gold">寄り添う</span>
+          <span class="keyword-tag">コラボレーション</span>
+          <span class="keyword-tag">教育の再定義</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme-card th5">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">THEME 05</div>
+        <div class="theme-title">人間に残された4つの力</div>
+        <div class="theme-lead">AI時代に「人間であること」の再定義</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>第3部の結論部で、物語はAI時代に人間に求められる4つの力を提示する。これは「AIにできないこと」の裏返しであり、三部作全体のメッセージの集約だ。</p>
+    </div>
+  </div>
+
+  <div class="four-powers">
+    <div class="power-card" data-num="1">
+      <div class="power-title">自分で考える力</div>
+      <div class="power-desc">AIは質問に答えてくれるが、「何を問うべきか」を決めるのは人間だ。情報が溢れる時代だからこそ、与えられた答えを鵜呑みにせず、自分の頭で考え、疑い、検証する力が不可欠になる。「調べればわかる」と「自分で考えた」は、まったく別のものだ。</div>
+    </div>
+    <div class="power-card" data-num="2">
+      <div class="power-title">自分で選ぶ力</div>
+      <div class="power-desc">AIは「最適な選択肢」を提案できる。しかし人生の選択は、最適解を求めるゲームではない。何を大切にするか、何を諦めるか、何のために生きるか――その選択は、自分自身でしかできない。AIに「お前はどう生きるべきか」と聞いても、本当の答えは返ってこない。</div>
+    </div>
+    <div class="power-card gold-border" data-num="3">
+      <div class="power-title">人とつながる力</div>
+      <div class="power-desc">AIとの対話は快適だ。批判しない、疲れない、24時間対応する。しかしそれは「つながり」ではない。本当のつながりは面倒で、傷つくこともあり、時間がかかる。だからこそ、それは人間にしか持てない宝だ。意見が対立し、それでも一緒にいることを選ぶ――そこに生まれるものは、AIには作れない。</div>
+    </div>
+    <div class="power-card gold-border" data-num="4">
+      <div class="power-title">不完全であること</div>
+      <div class="power-desc">AIは間違えない（ことを目指す）。人間は間違える。転ぶ、泣く、迷う、やり直す。しかしこの不完全さこそが成長の源泉だ。失敗から学び、弱さを認め、他者に助けを求める――この過程は、完璧を目指す機械には存在しない。不完全であることは欠陥ではなく、人間であることの核心だ。</div>
+    </div>
+  </div>
+
+  <div class="central-question">
+    <div class="cq-label">第3部の核心</div>
+    <div class="cq-text">「AIは道具だ。君の人生を生きるのは、君自身だ。」</div>
+    <div class="cq-sub">
+      この言葉は、ホログラムのおじいさんからハルへの最後のメッセージだ。<br>
+      AIという道具を「使う側」に立ち続けるために、<br>
+      自分で考え、自分で選び、人と繋がり、不完全なままでいい。<br>
+      それが、この三部作の結論だ。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第3部 AIと生きる未来　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 4: 核心論考 -->
+<div class="page">
+  <div class="section-label">Core Essay</div>
+  <div class="section-title">核心論考 ── 道具か、鏡か。効率か、意味か。</div>
+  <div class="section-intro">
+    AIをめぐる議論は、しばしば「どこまでできるか」「いつ人間を超えるか」という能力比較に終始する。しかし第3部が提起するのは、より深い問いだ。AIは人間にとって何なのか。道具なのか。それとも、人間自身の姿を映す鏡なのか。
+  </div>
+
+  <div class="argument-heading">道具としてのAI ―― 解放の可能性</div>
+  <p class="argument-body">
+    AI楽観論の核心は単純明快だ。人間がやりたくない仕事、やるべきでない仕事を機械に任せれば、人間は本当にやりたいことに時間を使える。医師は書類作成から解放されて患者と向き合う時間が増える。教師は採点作業から解放されて生徒と対話する時間が増える。翻訳家はルーティンワークから解放されて文化の架け橋となる仕事に集中できる。これは産業革命の論理の延長だ。蒸気機関が肉体労働から解放したように、AIは認知労働から解放する。
+  </p>
+  <p class="argument-body">
+    この見方には一理ある。しかし歴史は、技術による「解放」が常にバラ色ではなかったことを教えている。産業革命で肉体労働は減ったが、工場の時間管理に縛られた。インターネットで情報は自由になったが、注意力が商品化された。AIが認知労働を「解放」したとき、その先に何が待っているかは自明ではない。
+  </p>
+
+  <div class="argument-heading">鏡としてのAI ―― 人間とは何かを問い返す装置</div>
+  <p class="argument-body">
+    もうひとつの見方がある。AIは道具であると同時に、人間を映す「鏡」ではないか、という見方だ。AIが文章を書けるようになったとき、私たちは「文章を書くとは何か」を初めて真剣に問うようになった。AIが絵を描けるようになったとき、「創造性とは何か」を問い直した。AIが人間のように会話できるようになったとき、「理解するとは何か」「感じるとは何か」を問い直した。
+  </p>
+  <p class="argument-body">
+    つまりAIは、それ自体の能力によってではなく、その存在が投げかける問いによって、私たちの自己理解を深める。カメラが発明されたとき、写実画は価値を失ったかに見えたが、実際には画家たちは「写真にできないこと」――印象、感情、内面の真実――を追求し始めた。印象派、抽象画、シュルレアリスムが生まれた。技術が人間の能力を「模倣」するたびに、人間はその先を探しに行く。AIに対しても、同じことが起きるだろう。
+  </p>
+
+  <div class="pull-quote">
+    「AIが人間のように考えられるなら、<br>
+    人間は、人間にしかできないことを考えなければならない。<br>
+    その問いに向き合うこと自体が、人間にしかできないことだ。」
+  </div>
+
+  <div class="argument-heading">効率と意味のあいだ ―― ハルの選択</div>
+  <p class="argument-body">
+    第3部のラストシーンは象徴的だ。ホログラムのおじいさんとの会話を終えたハルは、友達のもとへ走り出す。おじいさん（AI）は知識も優しさも完璧に提供してくれた。しかしハルが走っていく先にあるのは、効率とは無縁の世界だ。友達とぶつかり、転び、笑い、時に傷つく。非効率で、予測不能で、不完全な世界。
+  </p>
+  <p class="argument-body">
+    この選択は、第3部の結論であると同時に、三部作全体の結論でもある。技術は人間の可能性を広げる道具だ。しかし人間の生は効率の最大化ではない。「なぜ生きるのか」「誰と生きるのか」「どう生きるのか」――これらの問いに最適解はない。あるのは、自分自身で考え、選び、引き受けるという行為だけだ。AIはその旅の優れた道具になりうるが、旅そのものを歩くことはできない。
+  </p>
+
+  <div class="pull-quote">
+    「AIは道具だ。君の人生を生きるのは、君自身だ。」
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第3部 AIと生きる未来　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 5: 用語集 + 問いの地図 + 次部への架け橋 -->
+<div class="page">
+  <div class="section-label">Glossary</div>
+  <div class="section-title">用語解説</div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">ChatGPT <span class="glossary-en">Chat Generative Pre-trained Transformer</span></div>
+    <div class="glossary-def">OpenAI社が2022年11月に公開した対話型AI。大量のテキストデータからパターンを学習し、人間の質問に対して自然な文章で応答する。公開5日で100万ユーザーを突破し、AI技術が一般社会に浸透する決定的な転換点となった。</div>
+    <div class="glossary-note">「GPT」は「事前学習済み生成変換器」の略。「事前学習」とは、大量のテキストを事前に読み込んで言語パターンを獲得するプロセスを指す。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">生成AI <span class="glossary-kana">せいせいエーアイ</span><span class="glossary-en">Generative AI</span></div>
+    <div class="glossary-def">既存のデータを分析・分類するだけでなく、新しいテキスト・画像・音声・映像・コードなどを「生成」するAIの総称。ChatGPT（テキスト）、DALL-E / Midjourney（画像）、Suno（音楽）などが代表例。2022年以降に急速に発展し、「AIは分析の道具」から「AIは創造の道具」へと認識が変わった。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">大規模言語モデル <span class="glossary-kana">だいきぼげんごモデル</span><span class="glossary-en">Large Language Model (LLM)</span></div>
+    <div class="glossary-def">数千億の単語からなるテキストデータを学習し、文脈に応じた言葉の続きを予測・生成するAIモデル。ChatGPTの基盤技術。「次に来る最も確率の高い単語は何か」を繰り返し予測することで、人間が書いたかのような文章を生成する。</div>
+    <div class="glossary-note">第3部が投げかける問い「AIは考えているのか、真似ているのか」は、LLMの仕組みに直結する。統計的なパターンマッチングを「理解」と呼べるかどうかは、認知科学・哲学の最前線の議論だ。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">ホログラム <span class="glossary-en">Hologram</span></div>
+    <div class="glossary-def">光の干渉を利用して立体的な映像を空間に投影する技術。物語では、亡くなった祖父の姿をAIが再構成し、ホログラムとして投影することで「対話できるおじいさん」として存在させている。2035年の技術水準として描かれるフィクション設定。</div>
+    <div class="glossary-note">現実の2020年代のホログラム技術は、コンサート演出やプレゼンテーションで実用化が始まっている段階。物語のような「自律対話型ホログラム」は現時点では実現していない。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">シンギュラリティ <span class="glossary-en">Singularity / Technological Singularity</span></div>
+    <div class="glossary-def">AIが人間の知能を超え、自律的に自己改良を繰り返すことで技術的進歩が予測不能になる仮説上の時点。レイ・カーツワイルが2005年の著書で2045年頃と予測した。第3部では直接扱わないが、「AIは人間を超えるか」という問いの背景にある概念。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">こだま（エコー） <span class="glossary-en">Echo</span></div>
+    <div class="glossary-def">物語におけるホログラムのおじいさんの自己定義。山に向かって叫んだ声が返ってくるように、実在した祖父の言葉・記憶・人格がAIによって「反響」として再現されている状態。本物の声だが、本物の人ではない。AIの可能性と限界を象徴するキーワード。</div>
+  </div>
+
+  <div style="margin-top: 36px;">
+    <div class="section-label">Questions Map</div>
+    <div class="section-title" style="font-size: 22px;">問いの地図 ── 第3部が残す問い</div>
+    <div class="discussion-q">
+      <div class="d-item">
+        <div class="d-num">1</div>
+        <div>
+          <div class="d-text">AIが書いた文章と人間が書いた文章を区別できなくなったとき、「書く」という行為の価値はどこにあるのか。</div>
+          <div class="d-hint">ヒント：結果（テキスト）の質ではなく、「書く過程」で人間の内面に何が起きているかを考えてみる。</div>
+        </div>
+      </div>
+      <div class="d-item">
+        <div class="d-num">2</div>
+        <div>
+          <div class="d-text">亡くなった人のAI再現は、遺族にとって救いか、それとも新たな苦しみか。</div>
+          <div class="d-hint">ヒント：「会いたい人にもう一度会える」という希望と、「本物ではないものに縋る」という痛みの両面から。</div>
+        </div>
+      </div>
+      <div class="d-item">
+        <div class="d-num gold">3</div>
+        <div>
+          <div class="d-text">「不完全であること」が人間の強みだとすれば、教育は「完璧を目指すこと」を教えるべきか、「不完全さを受け入れること」を教えるべきか。</div>
+          <div class="d-hint">ヒント：テストの点数を上げる教育と、転んでも立ち上がる力を育てる教育。</div>
+        </div>
+      </div>
+      <div class="d-item">
+        <div class="d-num gold">4</div>
+        <div>
+          <div class="d-text">「AIは道具だ」という言葉は、10年後も有効か。道具が意志を持ち始めたら、何が変わるか。</div>
+          <div class="d-hint">ヒント：「意志を持つ」とはどういう状態か。反応と意志の違いは何か。</div>
+        </div>
+      </div>
+      <div class="d-item">
+        <div class="d-num">5</div>
+        <div>
+          <div class="d-text">三部作を通じて描かれた三つの革命（産業・デジタル・AI）に共通する「人間の応答パターン」は何か。第四の革命が来たとき、私たちはまた同じ反応をするだろうか。</div>
+          <div class="d-hint">ヒント：恐怖→適応→依存→次の恐怖、というサイクルはあるか。それを自覚していることに価値はあるか。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge-box">
+    <div class="bridge-label">Bridge to Part 4 ── 第4部「文字と知識の冒険」へ</div>
+    <div class="bridge-text">「なぜ人は、書き残すのだろう？」</div>
+    <div class="bridge-sub">
+      第3部で三部作（産業革命・デジタル革命・AI革命）は完結する。<br>
+      しかしハルの旅は終わらない。第4部からは、より深い知的冒険が始まる。<br>
+      人類はなぜ「書く」のか。文字の発明から検索エンジンまで、<br>
+      知識の5000年の旅を辿る第4部へ。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第3部 AIと生きる未来　― 補足資料 ―　©ハルとおじいさん制作チーム</div>
+</div>
+
+</body>
+</html>

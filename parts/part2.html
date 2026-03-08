@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハルとおじいさん｜第2部 学びの地図</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+    background: #f0f4f8;
+    color: #0e1a2a;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .cover {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    background: linear-gradient(160deg, #0a1628 0%, #1a3060 45%, #2060a0 100%);
+    color: #d0e8ff;
+    text-align: center;
+    padding: 60px 40px;
+    page-break-after: always;
+  }
+  .cover-series { font-size: 11px; letter-spacing: 0.35em; color: #40c0e0; margin-bottom: 24px; text-transform: uppercase; }
+  .cover-title { font-size: 48px; font-weight: 700; letter-spacing: 0.05em; line-height: 1.25; margin-bottom: 16px; color: #e8f4ff; }
+  .cover-subtitle { font-size: 15px; color: #40c0e0; margin-bottom: 52px; letter-spacing: 0.12em; }
+  .cover-chapter { border: 1px solid #40c0e0; padding: 14px 44px; font-size: 13px; color: #40c0e0; letter-spacing: 0.2em; margin-bottom: 52px; }
+  .cover-tagline { font-size: 14px; color: #90c8e8; max-width: 560px; line-height: 2.2; }
+  .cover-tagline em { font-style: normal; color: #40c0e0; font-weight: 700; }
+  .cover-divider { width: 60px; height: 1px; background: #1a5080; margin: 36px auto; }
+  .cover-note { font-size: 10px; color: #1a5080; letter-spacing: 0.15em; }
+  .page { max-width: 880px; margin: 0 auto; padding: 64px 68px; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .section-label { font-size: 10px; letter-spacing: 0.4em; color: #00a0d0; text-transform: uppercase; margin-bottom: 6px; }
+  .section-title { font-size: 26px; font-weight: 700; color: #0e1a2a; margin-bottom: 6px; border-bottom: 2px solid #00a0d0; padding-bottom: 12px; }
+  .section-intro { font-size: 13px; color: #1a2a40; margin: 20px 0 32px; line-height: 2.0; }
+  .essay-box { background: linear-gradient(135deg, #e8f4ff 0%, #d0e8ff 100%); border-left: 5px solid #00a0d0; padding: 28px 32px; margin-bottom: 28px; border-radius: 0 6px 6px 0; }
+  .essay-box h3 { font-size: 14px; color: #0060a0; margin-bottom: 14px; font-weight: 700; letter-spacing: 0.08em; }
+  .essay-box p { font-size: 13px; color: #0a1a30; line-height: 2.0; margin-bottom: 12px; }
+  .essay-box p:last-child { margin-bottom: 0; }
+  .argument-heading { font-size: 17px; font-weight: 700; color: #0e1a2a; margin: 36px 0 12px; padding-bottom: 8px; border-bottom: 1px solid #00a0d0; }
+  .argument-body { font-size: 13px; color: #0e1a2a; line-height: 2.1; margin-bottom: 20px; }
+  .pull-quote { border-left: 4px solid #00a0d0; margin: 24px 0 24px 16px; padding: 12px 20px; font-size: 14px; font-style: italic; color: #1a3060; line-height: 1.9; background: #e8f4ff; }
+  .timeline { margin: 28px 0; }
+  .tl-item { display: grid; grid-template-columns: 120px 1fr; gap: 0; margin-bottom: 2px; }
+  .tl-year { font-size: 12px; font-weight: 700; color: #0060a0; padding: 14px 16px 14px 0; text-align: right; border-right: 3px solid #00a0d0; position: relative; white-space: nowrap; }
+  .tl-year::after { content: ''; position: absolute; right: -7px; top: 50%; transform: translateY(-50%); width: 11px; height: 11px; background: #00a0d0; border-radius: 50%; border: 2px solid #fff; }
+  .tl-content { padding: 14px 0 14px 20px; border-bottom: 1px solid #d0e4f0; }
+  .tl-event { font-size: 12.5px; font-weight: 700; color: #0e1a2a; margin-bottom: 4px; }
+  .tl-desc { font-size: 12px; color: #1a3050; line-height: 1.85; }
+  .tl-tag { display: inline-block; background: #d0e8ff; border: 1px solid #00a0d0; border-radius: 3px; font-size: 10px; color: #0060a0; padding: 2px 7px; margin-right: 5px; margin-top: 4px; }
+  .tl-tag.green { background: #d8f0e0; border-color: #40b080; color: #1a6040; }
+  .tl-tag.red { background: #ffe0e0; border-color: #e08080; color: #802020; }
+  .tl-tag.cyan { background: #d0f4ff; border-color: #00a0d0; color: #006090; }
+  .theme-card { background: #fff; border: 1px solid #a0d0e8; border-radius: 8px; margin-bottom: 28px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,80,160,0.08); }
+  .theme-header { padding: 16px 24px; }
+  .th1 .theme-header { background: linear-gradient(100deg, #0a1628, #1a3060); }
+  .th2 .theme-header { background: linear-gradient(100deg, #0a2040, #1a4080); }
+  .th3 .theme-header { background: linear-gradient(100deg, #102030, #203858); }
+  .th4 .theme-header { background: linear-gradient(100deg, #0a1830, #182848); }
+  .theme-number { font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 0.25em; margin-bottom: 3px; }
+  .theme-title { font-size: 18px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 6px; }
+  .theme-lead { font-size: 11.5px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+  .theme-body { padding: 22px 24px; border-bottom: 1px solid #d0e8ff; }
+  .theme-body p { font-size: 12.5px; color: #0a1a30; line-height: 2.0; margin-bottom: 12px; }
+  .theme-body p:last-child { margin-bottom: 0; }
+  .theme-footer { padding: 16px 24px; background: #f4f9ff; display: flex; gap: 24px; align-items: flex-start; }
+  .footer-section { flex: 1; }
+  .footer-label { font-size: 9.5px; letter-spacing: 0.22em; color: #00a0d0; text-transform: uppercase; margin-bottom: 6px; font-weight: 700; }
+  .question-text { font-size: 12.5px; color: #0e1a2a; line-height: 1.8; font-style: italic; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 5px; }
+  .keyword-tag { background: #d0e8ff; border: 1px solid #00a0d0; border-radius: 20px; font-size: 11px; color: #0060a0; padding: 3px 10px; }
+  .central-question { background: linear-gradient(135deg, #e8f4ff, #d0e8ff); border: 2px solid #00a0d0; border-radius: 8px; padding: 32px 36px; text-align: center; margin: 32px 0; }
+  .cq-label { font-size: 10px; letter-spacing: 0.35em; color: #00a0d0; text-transform: uppercase; margin-bottom: 14px; }
+  .cq-text { font-size: 20px; font-weight: 700; color: #0e1a2a; line-height: 1.7; margin-bottom: 16px; }
+  .cq-sub { font-size: 12.5px; color: #1a3050; line-height: 2.0; }
+  .glossary-item { background: #fff; border: 1px solid #a0d0e8; border-radius: 6px; padding: 18px 20px; margin-bottom: 14px; }
+  .glossary-term { font-size: 14px; font-weight: 700; color: #0060a0; margin-bottom: 3px; display: flex; align-items: baseline; gap: 8px; }
+  .glossary-kana { font-size: 11px; font-weight: 400; color: #3080b0; }
+  .glossary-en { font-size: 11px; font-weight: 400; color: #5090b0; font-style: italic; margin-left: auto; }
+  .glossary-def { font-size: 12.5px; color: #0a1a30; line-height: 1.9; margin-top: 8px; }
+  .glossary-note { font-size: 11.5px; color: #2a4060; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #a0d0e8; line-height: 1.8; }
+  .bridge-box { background: linear-gradient(135deg, #0a1628, #1a3060); color: #b0d4f0; padding: 28px 32px; border-radius: 8px; margin-top: 32px; }
+  .bridge-label { font-size: 10px; letter-spacing: 0.32em; color: #40c0e0; margin-bottom: 12px; text-transform: uppercase; }
+  .bridge-text { font-size: 16px; font-weight: 700; line-height: 1.7; color: #e8f4ff; margin-bottom: 10px; }
+  .bridge-sub { font-size: 12.5px; color: #80b8d8; line-height: 1.95; }
+  .discussion-q { counter-reset: qnum; margin: 20px 0; }
+  .d-item { display: flex; gap: 16px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #d0e4f0; }
+  .d-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .d-num { width: 28px; height: 28px; background: #00a0d0; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .d-text { font-size: 13px; color: #0e1a2a; line-height: 1.9; }
+  .d-hint { font-size: 11.5px; color: #2a4060; margin-top: 5px; line-height: 1.75; }
+  .doc-footer { text-align: center; padding: 28px 0 10px; font-size: 10.5px; color: #00a0d0; letter-spacing: 0.15em; border-top: 1px solid #a0d0e8; margin-top: 48px; }
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 40px 50px; }
+    .theme-card { box-shadow: none; }
+    .essay-box, .bridge-box, .theme-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @page { size: A4; margin: 15mm 15mm; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-series">ハルとおじいさん ／ AIと人間のあいだ</div>
+  <div class="cover-title">第2部<br>つながる世界</div>
+  <div class="cover-subtitle">1940年代〜2020年代 ── デジタル革命が変えた「人と人のあいだ」</div>
+  <div class="cover-chapter">単編構成｜約18分の総合フィルム</div>
+  <div class="cover-tagline">
+    <em>「道具が人を自由にする。でも、使い方を間違えると道具に使われる。」</em><br>
+    <em>「つながっているのに、孤独なのはなぜだろう。」</em><br>
+    <em>「画面の向こう側に、本当に人はいるのか。」</em><br>
+    <br>
+    部屋いっぱいの計算機から、手のひらのスマートフォンまで。<br>
+    デジタル革命の80年を、一本の線でつなぐ旅です。
+  </div>
+  <div class="cover-divider"></div>
+  <div class="cover-note">本資料は動画の補足資料です。無断転載・商用利用はご遠慮ください。</div>
+</div>
+
+<!-- PAGE 1: 序論 -->
+<div class="page">
+  <div class="section-label">Introduction</div>
+  <div class="section-title">この部で問われていること</div>
+  <div class="section-intro">
+    「つながる」とは何か——第2部は、コンピュータの誕生からスマートフォン時代まで、デジタル技術が人間の「つながり方」をどう変えてきたかを問う。第1部が産業革命（身体の拡張）を描いたのに対し、第2部は情報革命（知性と関係性の拡張）を描く。そして第3部のAI時代へとつながる三部作の要だ。
+  </div>
+  <div class="essay-box">
+    <h3>情報革命の本質——「距離の消滅」と「注意の希少化」</h3>
+    <p>
+      産業革命が「身体の限界」を機械で超えたように、情報革命は「距離の限界」をデジタル技術で超えた。かつて手紙は数日、電報は数時間かかった情報伝達が、インターネットではミリ秒単位になった。地球の裏側にいる人と、まるで隣にいるかのように会話できる。これは人類史上、電信（1844年）以来の最大の変化だ。
+    </p>
+    <p>
+      しかし、距離が消えたことで新たな問題が生まれた。ハーバート・サイモンが1971年に予言したように、「情報の豊かさは注意の貧困を生む」。私たちは一日に数千もの情報に触れ、そのどれにも深く向き合えない。SNSの通知、ニュースのプッシュ、メッセージの既読——デジタル技術は私たちの「注意（attention）」を奪い合う経済をつくり出した。
+    </p>
+    <p>
+      第2部が描くのは、このパラドクスだ。デジタル技術は人をつなぐ道具として生まれた。しかし同時に、人の注意を断片化し、「つながっているのに孤独」という現代特有の状況を生み出した。道具は中立だ。問題は、道具を使うのか、道具に使われるのか——その選択にある。
+    </p>
+  </div>
+  <div class="argument-heading">三部作における位置づけ</div>
+  <p class="argument-body">
+    「ハルとおじいさん」の第1部〜第3部は、人類の技術革命を三つの段階で捉える三部作だ。第1部「動き出す世界」は産業革命——蒸気機関・電気・大量生産が人間の「身体」を拡張した時代を描いた。機械が解放したのは「労働力」であり、失われたのは「職人の手仕事」だった。第2部「つながる世界」は情報革命——コンピュータ・インターネット・スマートフォンが人間の「知性と関係性」を拡張した時代だ。デジタルが解放したのは「情報へのアクセス」であり、失われたのは「集中する力、目の前の人と向き合う時間」だ。
+  </p>
+  <p class="argument-body">
+    そして第3部「考えるということ」はAI革命——生成AIが人間の「思考そのもの」を拡張（あるいは代替）しようとする現在進行形の物語だ。三部作を通じて見えてくるのは、技術は常に「何かを解放し、何かを奪う」という両義性を持つということ。第2部はその両義性が最も日常的に実感される——なぜなら、いま私たちの手の中にあるスマートフォンこそが、その両義性の結晶だからだ。
+  </p>
+  <div class="pull-quote">
+    「産業革命は身体を解放し、職人の手を奪った。<br>
+    情報革命は情報を解放し、集中する力を奪った。<br>
+    AI革命は思考を解放するだろう——では何を奪うのか。<br>
+    第2部は、その問いへの序章だ。」
+  </div>
+  <div class="doc-footer">ハルとおじいさん｜第2部 つながる世界　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 2: 歴史年表 -->
+<div class="page">
+  <div class="section-label">Historical Timeline</div>
+  <div class="section-title">デジタル革命の軌跡 ── 1940年代〜2020年代</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">1936年</div>
+      <div class="tl-content">
+        <div class="tl-event">チューリングマシンの概念（アラン・チューリング）</div>
+        <div class="tl-desc">英国の数学者アラン・チューリングが「計算可能性」を定義する論文を発表。テープに記号を読み書きする仮想的な機械——チューリングマシンは、すべてのコンピュータの理論的原型となった。「機械は考えることができるか」という問いを最初に真剣に考えた人物でもある。</div>
+        <div><span class="tl-tag">計算の理論</span><span class="tl-tag">コンピュータの父</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1945年</div>
+      <div class="tl-content">
+        <div class="tl-event">ENIAC——世界初の汎用電子計算機</div>
+        <div class="tl-desc">ペンシルベニア大学で開発されたENIACは、重さ27トン、部屋一つ分の大きさで、17,468本の真空管を使用した。弾道計算のために作られたこの巨大な機械の計算能力は、現在のスマートフォンの100万分の1以下。フォン・ノイマンがプログラム内蔵方式を提案し、現代コンピュータの原型が確立された。</div>
+        <div><span class="tl-tag red">コンピュータの誕生</span><span class="tl-tag">真空管時代</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1947年</div>
+      <div class="tl-content">
+        <div class="tl-event">トランジスタの発明（ベル研究所）</div>
+        <div class="tl-desc">ショックレー、バーディーン、ブラッテンが半導体を使ったトランジスタを発明。真空管に代わる小型・省電力の電子部品が、コンピュータの小型化への道を開いた。1958年にはジャック・キルビーが集積回路（IC）を発明し、さらなる飛躍が始まる。</div>
+        <div><span class="tl-tag">半導体革命</span><span class="tl-tag green">小型化の始まり</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1969年</div>
+      <div class="tl-content">
+        <div class="tl-event">ARPANET——インターネットの原型</div>
+        <div class="tl-desc">米国国防総省の研究機関DARPAが、大学間のコンピュータをネットワークで接続するARPANETを稼働。最初の通信はUCLAからスタンフォードへの「LOGIN」（「LO」の段階でクラッシュした）。核攻撃下でも機能する分散型通信網として設計された。</div>
+        <div><span class="tl-tag">ネットワークの起源</span><span class="tl-tag">分散型設計</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1976年</div>
+      <div class="tl-content">
+        <div class="tl-event">Apple I——ガレージから始まった革命</div>
+        <div class="tl-desc">スティーブ・ジョブズとスティーブ・ウォズニアックが、カリフォルニアのガレージでApple Iを製作。コンピュータを企業や研究機関だけのものから「個人のもの」にするという革命的なビジョン。1977年のApple IIで一般家庭にまでパーソナルコンピュータが広がり始めた。</div>
+        <div><span class="tl-tag red">パーソナルコンピュータ革命</span><span class="tl-tag">ガレージ起業</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1989–1991年</div>
+      <div class="tl-content">
+        <div class="tl-event">World Wide Web の発明（ティム・バーナーズ＝リー）</div>
+        <div class="tl-desc">CERNの物理学者バーナーズ＝リーが、ハイパーテキストで文書をリンクするWebを発明。彼はこの技術の特許を取らず、全人類に無償で公開した。「Webは万人のためのものだ」という理念が、インターネットの爆発的普及を可能にした。</div>
+        <div><span class="tl-tag red">WWWの誕生</span><span class="tl-tag green">無償公開の決断</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1998年</div>
+      <div class="tl-content">
+        <div class="tl-event">Google創業——「世界の情報を整理する」</div>
+        <div class="tl-desc">ラリー・ペイジとセルゲイ・ブリンがPageRankアルゴリズムでGoogleを設立。「被リンク数で重要性を判断する」という発想が、膨大なウェブ情報への「地図」を提供した。知りたいことがあれば、図書館ではなく検索窓に打ち込む時代が始まった。</div>
+        <div><span class="tl-tag">検索革命</span><span class="tl-tag">知識へのアクセス</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2004–2006年</div>
+      <div class="tl-content">
+        <div class="tl-event">SNSの台頭——Facebook、YouTube、Twitter</div>
+        <div class="tl-desc">Facebook（2004）、YouTube（2005）、Twitter（2006）が相次いで登場。情報の発信者がメディア企業から「個人」に移行し、誰もが発信者になれる時代が到来した。「メディアの民主化」と呼ばれた一方で、フィルターバブル・フェイクニュース・分断の温床にもなった。</div>
+        <div><span class="tl-tag cyan">発信の民主化</span><span class="tl-tag red">分断のリスク</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2007年</div>
+      <div class="tl-content">
+        <div class="tl-event">iPhone発売——「すべてが手のひらに」</div>
+        <div class="tl-desc">スティーブ・ジョブズが「電話を再発明する」と宣言して発表したiPhoneは、携帯電話・音楽プレーヤー・インターネット端末を一台に統合した。タッチスクリーンの直感的操作が「コンピュータを使う」という意識すら消し、デジタル技術を空気のような存在にした。</div>
+        <div><span class="tl-tag red">スマートフォン革命</span><span class="tl-tag">UXの転換</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2020年</div>
+      <div class="tl-content">
+        <div class="tl-event">COVID-19——デジタルが「選択肢」から「生命線」へ</div>
+        <div class="tl-desc">世界的なパンデミックにより、リモートワーク・オンライン授業・遠隔医療が一夜にして「必需品」になった。Zoomの利用者は1000万人から3億人へ急増。しかし同時に、「画面越しでは伝わらないもの」——体温・空気感・偶然の出会い——の価値も浮き彫りになった。</div>
+        <div><span class="tl-tag red">デジタル依存の臨界点</span><span class="tl-tag">存在の価値</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2020年代</div>
+      <div class="tl-content">
+        <div class="tl-event">注意経済の飽和——「つながり疲れ」の時代</div>
+        <div class="tl-desc">平均的なスマートフォン利用者は一日に150回以上画面を確認し、SNSに2時間以上を費やす。デジタル・デトックスやスクリーンタイム制限が社会的テーマになった。「つながること」自体が目的化し、「何のためにつながるのか」が問われている。</div>
+        <div><span class="tl-tag">注意経済</span><span class="tl-tag cyan">デジタル・ウェルビーイング</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="doc-footer">ハルとおじいさん｜第2部 つながる世界　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 3: テーマ詳解（4章） -->
+<div class="page">
+  <div class="section-label">Thematic Analysis</div>
+  <div class="section-title">テーマ詳解 ── 四つの章</div>
+  <div class="section-intro">
+    第2部は単編構成の総合フィルム（約18分）だが、内容は四つの章に分かれる。コンピュータの誕生から現代のデジタル社会まで、各章が問いかけるテーマを詳しく読み解く。
+  </div>
+
+  <div class="theme-card th1">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">CHAPTER 01</div>
+        <div class="theme-title">コンピュータの誕生</div>
+        <div class="theme-lead">部屋いっぱいの計算機が、やがて手のひらに収まるまで</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>1945年のENIACは、部屋一つを占拠する巨大な機械だった。17,468本の真空管が並び、一日に何本も焼き切れた。プログラムの変更にはケーブルの差し替えが必要で、数日がかりの作業だった。この怪物のような機械の計算能力は、現在の電卓にも遠く及ばない。しかしこの不格好な巨人こそが、現代のスマートフォン・自動運転車・生成AIのすべての起源だ。</p>
+      <p>アラン・チューリングとジョン・フォン・ノイマンという二人の天才が、コンピュータの理論的基盤を築いた。チューリングは「計算とは何か」を数学的に定義し、フォン・ノイマンは「プログラムをデータとしてメモリに格納する」という内蔵プログラム方式を提案した。この方式は70年以上経った現在も、ほぼすべてのコンピュータの基本構造として使われている。</p>
+      <p>1970年代、スティーブ・ジョブズとスティーブ・ウォズニアックはカリフォルニアのガレージでApple Iを組み立てた。「コンピュータは企業のものではなく、個人のものだ」——この確信が、パーソナルコンピュータ革命を起こした。物語の中で、ハルの父親が少年時代に初めてコードを書くシーンが描かれる。画面に自分の指示通りに文字が表示される——その「対話」の感動は、コンピュータが単なる計算機ではなく「応答する道具」であることを象徴している。</p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">部屋を埋め尽くした計算機が手のひらに収まるまで、変わったのは「大きさ」だけか。何がもっとも本質的に変わったのか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">ENIAC</span>
+          <span class="keyword-tag">チューリング</span>
+          <span class="keyword-tag">フォン・ノイマン</span>
+          <span class="keyword-tag">パーソナルコンピュータ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme-card th2">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">CHAPTER 02</div>
+        <div class="theme-title">インターネット革命</div>
+        <div class="theme-lead">世界がひとつの網でつながった——そして「知る」の意味が変わった</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>1989年、CERNの物理学者ティム・バーナーズ＝リーは、研究者間で情報を共有するための仕組みとしてWorld Wide Webを発明した。文書と文書をハイパーリンクで結ぶこの仕組みを、彼は特許も取らず全世界に無償で公開した。もし彼が利益を追求していたら、今日のインターネットは存在しなかったかもしれない。「Webは万人のためのものだ」というバーナーズ＝リーの信念は、デジタル革命における最も重要な倫理的決断の一つだ。</p>
+      <p>1998年に登場したGoogleは、爆発的に増え続けるウェブ上の情報に「地図」を与えた。それ以前の検索エンジンはキーワードの出現頻度で結果を並べていたが、PageRankは「他のサイトから多くリンクされているページは信頼できる」という画期的な発想で精度を飛躍させた。「検索する」という行為自体が動詞になった（"to google"）——これは技術が文化そのものを変えた証拠だ。</p>
+      <p>2000年代半ば、Facebook・YouTube・Twitterが登場し、情報の流れは決定的に変わった。それまでは新聞社やテレビ局という「門番（ゲートキーパー）」が情報を選別していた。SNSはこの門番を取り払い、誰もが発信者になれる世界をつくった。市民ジャーナリズムの可能性が開かれた一方、フェイクニュースの拡散、エコーチェンバー、フィルターバブルという新たな問題が生まれた。「情報の民主化」は、同時に「情報の混沌化」でもあった。</p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">「誰もが発信できる」世界は、本当に民主的か。情報の門番がいなくなったとき、何がその役割を果たすのか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">WWW</span>
+          <span class="keyword-tag">Google</span>
+          <span class="keyword-tag">SNS</span>
+          <span class="keyword-tag">フィルターバブル</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme-card th3">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">CHAPTER 03</div>
+        <div class="theme-title">スマートフォンと加速する世界</div>
+        <div class="theme-lead">手のひらの中のコンピュータが、「いつでも・どこでも」を当たり前にした</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>2007年1月9日、スティーブ・ジョブズはMacworldの壇上で「今日、Appleは電話を再発明する」と宣言した。iPhoneは携帯電話・iPod・インターネット端末を一つに統合しただけではない。タッチスクリーンによる直感的操作が、「コンピュータを操作している」という意識そのものを消した。子どもも高齢者も、指で画面に触れるだけでデジタル世界にアクセスできる。技術が「透明」になった瞬間だ。</p>
+      <p>スマートフォンの普及は、「オンライン」と「オフライン」の境界を溶かした。かつてインターネットは「パソコンの前に座って接続するもの」だった。スマートフォン以降、私たちは歩きながら、食事をしながら、ベッドの中でも「つながっている」状態になった。常時接続は利便性をもたらしたが、同時に「切断する権利」という新しい概念を必要にした。</p>
+      <p>そして2020年、COVID-19のパンデミックが到来した。リモートワーク・オンライン授業・遠隔診療——デジタル技術が「便利な選択肢」から「生存のための必需品」に変わった。Zoomの利用者は数ヶ月で30倍に膨れ上がった。しかしこの経験は同時に、「画面越しでは伝わらないもの」の存在を突きつけた。廊下でのすれ違い、教室の空気、握手の温度——デジタルは「代替」ではなく「補完」であるという認識が、パンデミックの最大の教訓だ。</p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">デジタル技術は人間の「存在」を置き換えられるか。画面越しの会話と、隣に座る会話の違いは、何の違いか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">iPhone</span>
+          <span class="keyword-tag">常時接続</span>
+          <span class="keyword-tag">COVID-19</span>
+          <span class="keyword-tag">存在の不可代替性</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="theme-card th4">
+    <div class="theme-header">
+      <div>
+        <div class="theme-number">CHAPTER 04</div>
+        <div class="theme-title">デジタルの光と影</div>
+        <div class="theme-lead">つながることの代償——注意・孤独・操作の構造</div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p>元GoogleデザイナーのトリスタN・ハリスは「スマートフォンはスロットマシンだ」と警告した。SNSの「いいね」やプッシュ通知は、脳のドーパミン回路を刺激するように設計されている。ユーザーの「注意」を引きつけ、保持し、広告主に売る——これが注意経済（Attention Economy）の構造だ。私たちは「ユーザー」だと思っているが、実は「商品」なのかもしれない。</p>
+      <p>情報過多（Information Overload）も深刻だ。現代人が一日に接触する情報量は、15世紀の人間が一生で接触する情報量を超えるとも言われる。しかし脳の処理能力は数万年前からほとんど変わっていない。結果として、「広く浅く」が常態化し、一つのことに深く集中する能力が損なわれている。ニコラス・カーの『ネット・バカ』が指摘したように、インターネットは私たちの「読む力」「考える力」を構造的に変えつつある。</p>
+      <p>物語の結末で、ハルはスマートフォンを置き、一冊の本を手に取る。この行為は「デジタルを否定する」のではなく、「デジタルとの距離を自分で選ぶ」ことの象徴だ。道具を使うのか、道具に使われるのか。おじいさんの「道具は使い方次第だよ」という言葉は、第1部の産業革命の教訓と同じ構造を持つ。技術そのものに善悪はない。問われているのは、常に人間の側の「選択」だ。</p>
+    </div>
+    <div class="theme-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">「道具を使う」と「道具に使われる」の境界は、どこにあるのか。あなたは今日、何回スマートフォンを「自分の意思で」開いたか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">注意経済</span>
+          <span class="keyword-tag">情報過多</span>
+          <span class="keyword-tag">デジタル・デトックス</span>
+          <span class="keyword-tag">選択の主体性</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第2部 つながる世界　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 4: 核心論考 -->
+<div class="page">
+  <div class="section-label">Core Argument</div>
+  <div class="section-title">核心論考 ── デジタル革命という両刃の剣</div>
+  <div class="section-intro">
+    第2部が描くデジタル革命の80年は、人類が手にした最も強力な「つながりの道具」の物語であり、同時にその代償の物語でもある。ここでは、フィルム全体を貫く構造を論考として整理する。
+  </div>
+
+  <div class="essay-box">
+    <h3>「つながる」のパラドクス</h3>
+    <p>
+      社会学者シェリー・タークルは著書『一緒にいてもスマホいじってる人のことをぼくらは知っている（Alone Together）』で、デジタル時代の核心的矛盾を描いた。私たちはかつてないほど多くの人と「つながって」いる。SNSのフォロワーは数百人、LINEの友だちは数十人。しかし同時に、若者の孤独感は過去最高水準にある。「つながり」の量は増えたが、「つながり」の質——相手の表情を読み、沈黙を共有し、身体的に存在を感じる——は希薄化した。
+    </p>
+    <p>
+      これは技術の「設計思想」の問題でもある。SNSは「つながりを維持する」ことを最優先に設計されている。しかし人間関係には「つながらない時間」——一人で考える時間、距離を置く時間——も不可欠だ。常時接続は「関係のメンテナンス」を強制し、かえって関係を消耗させる。「既読スルー」が人間関係の問題になる社会——これはデジタル以前には存在しなかった種類の緊張だ。
+    </p>
+  </div>
+
+  <div class="argument-heading">解放と喪失の構造</div>
+  <p class="argument-body">
+    デジタル革命が「解放したもの」と「奪ったもの」を対比すると、その両義性が鮮明になる。解放されたのは、情報へのアクセスだ。図書館に行かなくても、専門家に会わなくても、スマートフォンひとつで世界中の知識にアクセスできる。地理的・経済的・社会的な壁を越えて、「知る権利」が史上最も広く保障されている。発信の権利も同様で、大手メディアを通さなくても、個人が世界に向けて声を上げられる。
+  </p>
+  <p class="argument-body">
+    奪われたのは、「集中する力」と「目の前の人と向き合う力」だ。マイクロソフトの2015年の研究では、人間の平均的な注意持続時間は8秒——金魚（9秒）より短いと報告された。数字の正確性は議論があるが、方向性は多くの研究者が認めている。通知のたびに中断される思考、スクロールし続けるフィード、次のコンテンツへと駆り立てるアルゴリズム。私たちの注意は、常に「次」に向かうように設計された環境の中にある。
+  </p>
+
+  <div class="pull-quote">
+    「スマートフォンはポケットの中のスロットマシンだ。<br>
+    あなたは毎回、無意識にレバーを引いている。」<br>
+    ——トリスタン・ハリス（元Googleデザイナー）
+  </div>
+
+  <div class="argument-heading">第3部（AI革命）への架橋</div>
+  <p class="argument-body">
+    第2部の最後に、ハルはスマートフォンを静かに置き、本を手に取る。この行為は「デジタルを拒絶する」のではなく、「道具との距離を自分で決める」ことの宣言だ。そしてこの問いは、第3部のAI時代にさらに先鋭化する。生成AIは情報を「検索する」段階を超え、「生成する」段階に入った。コンピュータが「答えを見つける」だけでなく「答えを作る」とき、人間の側に必要なのは何か。
+  </p>
+  <p class="argument-body">
+    第1部で産業革命が問うたのは「身体の拡張」、第2部で情報革命が問うたのは「関係性の拡張」。第3部が問うのは「思考の拡張」だ。AIが人間に代わって考え、書き、判断するとき——それでもなお人間に固有なものは何か。第2部の「道具に使われるな」という教訓は、AI時代においてこそ、最も切実な意味を持つ。
+  </p>
+
+  <div class="central-question">
+    <div class="cq-label">第2部を貫く問い</div>
+    <div class="cq-text">「つながることは、近づくことと同じか。」</div>
+    <div class="cq-sub">
+      デジタル技術は距離を消し、世界をひとつに結んだ。<br>
+      しかし「つながっている」ことと「わかり合っている」ことは同じではない。<br>
+      画面の向こうに人がいる。でも、その人の温度は伝わらない。<br>
+      道具は選べる。使い方も選べる。その選択が、人間を人間たらしめる。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第2部 つながる世界　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 5: 用語解説 + 問いの地図 + Bridge -->
+<div class="page">
+  <div class="section-label">Glossary</div>
+  <div class="section-title">用語解説</div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">ENIAC <span class="glossary-kana">エニアック</span><span class="glossary-en">Electronic Numerical Integrator and Computer</span></div>
+    <div class="glossary-def">1945年にペンシルベニア大学で完成した世界初の汎用電子計算機。重さ27トン、消費電力150キロワット。弾道計算を目的に開発されたが、汎用プログラムが可能だった点で画期的。真空管17,468本を使用し、頻繁に故障したが、人間の手計算より1000倍速かった。</div>
+    <div class="glossary-note">現在のスマートフォンはENIACの数百万倍の計算能力を持ち、重さは百万分の一以下。この80年間の進化速度こそが、デジタル革命の本質だ。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">パーソナルコンピュータ <span class="glossary-en">Personal Computer (PC)</span></div>
+    <div class="glossary-def">企業や研究機関専用だったコンピュータを「個人が所有し使う」ものにしたカテゴリ。1976年のApple I、1981年のIBM PCが代表。スティーブ・ジョブズの「自転車のようなもの——人間の知的能力を拡張する」という比喩が有名。</div>
+    <div class="glossary-note">「パーソナル」という言葉自体が革命だった。それまでコンピュータは組織のものであり、個人が所有するという発想そのものが異端視されていた。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">インターネット <span class="glossary-en">Internet</span></div>
+    <div class="glossary-def">世界中のコンピュータネットワークを相互接続する通信基盤。1969年のARPANET（4台のコンピュータの接続）に始まり、TCP/IPプロトコルの標準化（1983年）を経て、1990年代のWorld Wide Webの登場で爆発的に普及した。物理的な場所を持たず、中央管理者もいない分散型構造が特徴。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">検索エンジン <span class="glossary-kana">けんさくエンジン</span><span class="glossary-en">Search Engine</span></div>
+    <div class="glossary-def">ウェブ上の情報を自動収集（クロール）し、索引化（インデックス）し、利用者の検索語に応じて関連性の高い順に結果を表示するシステム。Google（1998年）のPageRankアルゴリズムが画期的だった。現在は一日あたり約85億回の検索が行われている。</div>
+    <div class="glossary-note">検索エンジンは「すでにどこかに書かれた情報を見つける」道具。生成AIは「問いに応じて情報を再構成する」道具。この違いが第3部のテーマにつながる。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">SNS <span class="glossary-en">Social Networking Service</span></div>
+    <div class="glossary-def">インターネット上で人と人のつながりを構築・維持するためのサービス。Facebook（2004年）、YouTube（2005年）、Twitter（2006年）、Instagram（2010年）、TikTok（2016年）など。利用者自身がコンテンツを生成する「UGC（User Generated Content）」が特徴。</div>
+    <div class="glossary-note">SNSのビジネスモデルは「利用者の注意を集め、広告主に売る」構造。利用者は「客」ではなく「商品」だという指摘がある。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">注意経済 <span class="glossary-kana">ちゅういけいざい</span><span class="glossary-en">Attention Economy</span></div>
+    <div class="glossary-def">情報が過剰な社会において、人間の「注意（attention）」が最も希少な資源となり、それ自体が経済的価値を持つようになった状態。ハーバート・サイモンが1971年に提唱した概念。SNSや動画プラットフォームのアルゴリズムは、利用者の注意を最大限引きつけるよう最適化されている。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">フィルターバブル <span class="glossary-en">Filter Bubble</span></div>
+    <div class="glossary-def">検索エンジンやSNSのアルゴリズムが、利用者の過去の行動履歴に基づいて情報を選別し、利用者が「見たい情報」だけを表示する現象。イーライ・パリサーが2011年に命名。自分と異なる意見に触れる機会が減り、「自分の考えが世界の多数派だ」という錯覚が生まれやすくなる。</div>
+    <div class="glossary-note">関連概念に「エコーチェンバー（反響室）」がある。同じ意見の人々が集まるコミュニティ内で意見が増幅・強化される現象を指す。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">デジタル・デトックス <span class="glossary-en">Digital Detox</span></div>
+    <div class="glossary-def">一定期間、スマートフォンやSNSなどのデジタル機器・サービスの使用を意識的に控えること。2010年代後半から社会的運動として広がった。「つながらない権利（Right to Disconnect）」は、フランスで2017年に法制化されるなど、労働法の文脈でも議論が進んでいる。</div>
+  </div>
+
+  <!-- 問いの地図 -->
+  <div style="margin-top: 36px;">
+    <div class="section-label">Questions Map</div>
+    <div class="section-title" style="font-size: 22px;">問いの地図 ── 視聴後に考えるために</div>
+  </div>
+  <div class="discussion-q">
+    <div class="d-item">
+      <div class="d-num">1</div>
+      <div>
+        <div class="d-text">あなたが今日、スマートフォンを「自分の意思で」開いた回数と、「通知に反応して」開いた回数はどちらが多いか。</div>
+        <div class="d-hint">ヒント：スクリーンタイムの記録を見てみると、自分の認識との差に驚くかもしれない。</div>
+      </div>
+    </div>
+    <div class="d-item">
+      <div class="d-num">2</div>
+      <div>
+        <div class="d-text">「つながっているのに孤独」という感覚を覚えたことはあるか。それはどんな場面だったか。</div>
+        <div class="d-hint">ヒント：シェリー・タークルの「Alone Together（一緒にいても一人）」の概念を参照。</div>
+      </div>
+    </div>
+    <div class="d-item">
+      <div class="d-num">3</div>
+      <div>
+        <div class="d-text">もしインターネットが一週間停止したら、あなたの生活で最も困ることは何か。逆に、意外と困らないものは何か。</div>
+        <div class="d-hint">ヒント：COVID-19のとき、デジタルが「なくなったら困るもの」と「なくても意外と大丈夫だったもの」を思い出してみよう。</div>
+      </div>
+    </div>
+    <div class="d-item">
+      <div class="d-num">4</div>
+      <div>
+        <div class="d-text">ティム・バーナーズ＝リーがWebの特許を取らなかった決断について、あなたはどう思うか。同じ立場ならどうするか。</div>
+        <div class="d-hint">ヒント：オープンソースの精神と、知的財産権のバランスを考えてみよう。</div>
+      </div>
+    </div>
+    <div class="d-item">
+      <div class="d-num">5</div>
+      <div>
+        <div class="d-text">ハルが最後にスマートフォンを置いて本を手に取る場面。この行為は「退行」か「前進」か。</div>
+        <div class="d-hint">ヒント：「道具を使う」ことと「道具との距離を選ぶ」ことは矛盾しない。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bridge -->
+  <div class="bridge-box">
+    <div class="bridge-label">Bridge to Part 3 ── 第3部「考えるということ」へ</div>
+    <div class="bridge-text">「機械が考えるとき、人間は何をすればいいんだろう？」</div>
+    <div class="bridge-sub">
+      第1部が描いたのは「身体の拡張」、第2部が描いたのは「関係性の拡張」。<br>
+      第3部が問うのは、最も根源的な問い——「思考の拡張」だ。<br>
+      生成AIが文章を書き、絵を描き、コードを生成する時代。<br>
+      それでもなお、人間にしかできないことはあるのか。<br>
+      三部作の最終章が始まる。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第2部 つながる世界　― 補足資料 ―　©ハルとおじいさん制作チーム</div>
+</div>
+
+</body>
+</html>

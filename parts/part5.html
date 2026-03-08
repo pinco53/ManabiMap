@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハルとおじいさん｜第5部 学びの地図</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+    background: #f7f5f8;
+    color: #1e1a28;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .cover {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    background: linear-gradient(160deg, #1a0f2a 0%, #3a2060 45%, #6040a0 100%);
+    color: #ede0ff;
+    text-align: center;
+    padding: 60px 40px;
+    page-break-after: always;
+  }
+  .cover-series { font-size: 11px; letter-spacing: 0.35em; color: #b090e0; margin-bottom: 24px; text-transform: uppercase; }
+  .cover-title { font-size: 48px; font-weight: 700; line-height: 1.25; margin-bottom: 16px; color: #f5eeff; }
+  .cover-subtitle { font-size: 15px; color: #b090e0; margin-bottom: 52px; letter-spacing: 0.12em; }
+  .cover-chapter { border: 1px solid #b090e0; padding: 14px 44px; font-size: 13px; color: #b090e0; letter-spacing: 0.2em; margin-bottom: 52px; }
+  .cover-tagline { font-size: 14px; color: #d0b8f0; max-width: 560px; line-height: 2.2; }
+  .cover-tagline em { font-style: normal; color: #e8d0ff; font-weight: 700; }
+  .cover-divider { width: 60px; height: 1px; background: #604090; margin: 36px auto; }
+  .cover-note { font-size: 10px; color: #604090; letter-spacing: 0.15em; }
+  .page { max-width: 880px; margin: 0 auto; padding: 64px 68px; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .section-label { font-size: 10px; letter-spacing: 0.4em; color: #7050b0; text-transform: uppercase; margin-bottom: 6px; }
+  .section-title { font-size: 26px; font-weight: 700; color: #1e1a28; margin-bottom: 6px; border-bottom: 2px solid #b090e0; padding-bottom: 12px; }
+  .section-intro { font-size: 13px; color: #2a2038; margin: 20px 0 32px; line-height: 2.0; }
+  .essay-box { background: linear-gradient(135deg, #f8f0ff 0%, #ede0ff 100%); border-left: 5px solid #7050b0; padding: 28px 32px; margin-bottom: 28px; border-radius: 0 6px 6px 0; }
+  .essay-box h3 { font-size: 14px; color: #4030a0; margin-bottom: 14px; font-weight: 700; }
+  .essay-box p { font-size: 13px; color: #1a1028; line-height: 2.0; margin-bottom: 12px; }
+  .essay-box p:last-child { margin-bottom: 0; }
+  .argument-heading { font-size: 17px; font-weight: 700; color: #1a1028; margin: 36px 0 12px; padding-bottom: 8px; border-bottom: 1px solid #b090e0; }
+  .argument-body { font-size: 13px; color: #1e1a28; line-height: 2.1; margin-bottom: 20px; }
+  .pull-quote { border-left: 4px solid #7050b0; margin: 24px 0 24px 16px; padding: 12px 20px; font-size: 14px; font-style: italic; color: #3a2060; line-height: 1.9; background: #f5eeff; }
+  .episode-card { background: #fff; border: 1px solid #d0b8f0; border-radius: 8px; margin-bottom: 28px; overflow: hidden; box-shadow: 0 2px 10px rgba(100,60,160,0.08); }
+  .episode-header { padding: 16px 24px; }
+  .ep1 .episode-header { background: linear-gradient(100deg, #2a1060, #4a2090); }
+  .ep2 .episode-header { background: linear-gradient(100deg, #201050, #3a2070); }
+  .ep3 .episode-header { background: linear-gradient(100deg, #301860, #5030a0); }
+  .ep4 .episode-header { background: linear-gradient(100deg, #180840, #381870); }
+  .ep5 .episode-header { background: linear-gradient(100deg, #281060, #4a2090); }
+  .ep6 .episode-header { background: linear-gradient(100deg, #1a1840, #302870); }
+  .ep7 .episode-header { background: linear-gradient(100deg, #101838, #203058); }
+  .episode-number { font-size: 10px; color: rgba(255,255,255,0.6); letter-spacing: 0.25em; margin-bottom: 3px; }
+  .episode-title { font-size: 18px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 6px; }
+  .episode-lead { font-size: 11.5px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+  .episode-body { padding: 22px 24px; border-bottom: 1px solid #ede0ff; }
+  .episode-body p { font-size: 12.5px; color: #1a1028; line-height: 2.0; margin-bottom: 12px; }
+  .episode-body p:last-child { margin-bottom: 0; }
+  .episode-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; padding-top: 16px; border-top: 1px dashed #d0b8f0; }
+  .col-label { font-size: 9.5px; letter-spacing: 0.25em; color: #7050b0; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+  .col-content { font-size: 12px; color: #1a1028; line-height: 1.9; }
+  .col-content li { list-style: none; padding-left: 1em; position: relative; margin-bottom: 5px; }
+  .col-content li::before { content: '・'; position: absolute; left: 0; color: #7050b0; }
+  .episode-footer { padding: 16px 24px; background: #fbf8ff; display: flex; gap: 24px; align-items: flex-start; }
+  .footer-section { flex: 1; }
+  .footer-label { font-size: 9.5px; letter-spacing: 0.22em; color: #7050b0; text-transform: uppercase; margin-bottom: 6px; font-weight: 700; }
+  .question-text { font-size: 12.5px; color: #1e1a28; line-height: 1.8; font-style: italic; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 5px; }
+  .keyword-tag { background: #ede0ff; border: 1px solid #b090e0; border-radius: 20px; font-size: 11px; color: #4030a0; padding: 3px 10px; }
+  .central-question { background: linear-gradient(135deg, #f8f0ff, #ede0ff); border: 2px solid #b090e0; border-radius: 8px; padding: 32px 36px; text-align: center; margin: 32px 0; }
+  .cq-label { font-size: 10px; letter-spacing: 0.35em; color: #7050b0; text-transform: uppercase; margin-bottom: 14px; }
+  .cq-text { font-size: 20px; font-weight: 700; color: #1e1a28; line-height: 1.7; margin-bottom: 16px; }
+  .cq-sub { font-size: 12.5px; color: #2a1a40; line-height: 2.0; }
+  .glossary-item { background: #fff; border: 1px solid #d0b8f0; border-radius: 6px; padding: 18px 20px; margin-bottom: 14px; }
+  .glossary-term { font-size: 14px; font-weight: 700; color: #4030a0; margin-bottom: 3px; display: flex; align-items: baseline; gap: 8px; }
+  .glossary-kana { font-size: 11px; font-weight: 400; color: #7050b0; }
+  .glossary-en { font-size: 11px; font-weight: 400; color: #9070c0; font-style: italic; margin-left: auto; }
+  .glossary-def { font-size: 12.5px; color: #1a1028; line-height: 1.9; margin-top: 8px; }
+  .glossary-note { font-size: 11.5px; color: #3a2060; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #d0b8f0; line-height: 1.8; }
+  .bridge-box { background: linear-gradient(135deg, #101828, #1a2840); color: #c8d8f8; padding: 28px 32px; border-radius: 8px; margin-top: 32px; }
+  .bridge-label { font-size: 10px; letter-spacing: 0.32em; color: #7090c0; margin-bottom: 12px; text-transform: uppercase; }
+  .bridge-text { font-size: 16px; font-weight: 700; line-height: 1.7; color: #e0f0ff; margin-bottom: 10px; }
+  .bridge-sub { font-size: 12.5px; color: #8090b0; line-height: 1.95; }
+  .d-item { display: flex; gap: 16px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #ede0ff; }
+  .d-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .d-num { width: 28px; height: 28px; background: #7050b0; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .d-text { font-size: 13px; color: #1e1a28; line-height: 1.9; }
+  .d-hint { font-size: 11.5px; color: #3a2060; margin-top: 5px; line-height: 1.75; }
+  .doc-footer { text-align: center; padding: 28px 0 10px; font-size: 10.5px; color: #7050b0; letter-spacing: 0.15em; border-top: 1px solid #d0b8f0; margin-top: 48px; }
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 40px 50px; }
+    .episode-card { box-shadow: none; }
+    .essay-box, .bridge-box, .central-question { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @page { size: A4; margin: 15mm 15mm; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-series">ハルとおじいさん ／ AIと人間のあいだ</div>
+  <div class="cover-title">第5部<br>言葉と思考の旅</div>
+  <div class="cover-subtitle">言語とは何か ── 言葉は思考を作るのか、思考が言葉を作るのか</div>
+  <div class="cover-chapter">第1話〜第7話｜全13本（前編・後編）</div>
+  <div class="cover-tagline">
+    <em>「言葉がなければ、考えられないのか。」</em><br>
+    <em>「内なる声は、思考そのものなのか。」</em><br>
+    <em>「AIは、言葉の意味を理解しているのか。」</em><br>
+    <br>
+    言語学・認知科学・哲学・AIが交差する旅。<br>
+    「考える」ということの根本を問い直します。
+  </div>
+  <div class="cover-divider"></div>
+  <div class="cover-note">本資料は動画の補足資料です。無断転載・商用利用はご遠慮ください。</div>
+</div>
+
+<!-- PAGE 1: 序論 -->
+<div class="page">
+  <div class="section-label">Introduction</div>
+  <div class="section-title">この部で問われていること</div>
+  <div class="section-intro">
+    「言葉がなければ、考えることはできないか」——これは哲学・言語学・認知科学が何世紀も格闘してきた問いだ。第5部は、言語の本質と思考の関係を、人類の知的歴史と最新のAI研究の両面から追う。
+  </div>
+  <div class="essay-box">
+    <h3>「内なる声」は思考の正体か</h3>
+    <p>
+      多くの人は「考えるとき、頭の中で言葉がしゃべっている」と感じる。この「内なる声（Inner Speech）」は思考そのものなのか、それとも思考を表現したものなのか——これが第5部第2話の核心的な問いだ。
+    </p>
+    <p>
+      神経科学の研究では、言語を司るブローカ野を損傷した失語症患者でも、感情・空間認識・論理的推論の一部は保たれることがわかっている。また、生まれつき言語を持たない聾（ろう）の人々も、手話という視覚的言語を通じて高度な思考を行う。言葉の「音」や「文字」がなくても、思考の構造は成立する。
+    </p>
+    <p>
+      一方で、新しい概念を獲得すると世界の見え方が変わる体験は、誰もがしている。「認知バイアス」という言葉を知ると、それまで気づかなかった自分の思考の歪みが見えてくる。言葉は思考の「器」を作る。器がなければ、入れられるものも変わる。
+    </p>
+  </div>
+  <div class="argument-heading">第5部の4つの問い</div>
+  <p class="argument-body">第5部を貫く問いは4つある。第一は「言語の起源」——人類はいつ、どのように言語を持ったのか。第二は「言語と思考の関係」——言葉は思考を形成するのか、それとも思考の後から言葉が来るのか。第三は「言語の多様性」——異なる言語を話す人々は、異なる世界を見ているのか。第四は「AIと言語」——機械は「言葉の意味」を理解できるのか。</p>
+  <p class="argument-body">これらは独立した問いではなく、深く絡み合っている。言語の起源を問うことは、思考の起源を問うことだ。言語多様性を問うことは、人間の認知の可能性を問うことだ。そしてAIと言語の問いは、「理解とは何か」という哲学的問題に正面から向き合う。</p>
+  <div class="pull-quote">
+    「言葉は思考の衣ではない——それは思考そのものの一部だ。<br>
+    しかし、言葉にならない思考もある。<br>
+    その境界線を探ることが、この旅の本質だ。」
+  </div>
+  <div class="doc-footer">ハルとおじいさん｜第5部 言葉と思考の旅　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 2: 各話詳解（前半） -->
+<div class="page">
+  <div class="section-label">Episodes 01 – 04</div>
+  <div class="section-title">各話の詳解（前半）</div>
+
+  <div class="episode-card ep1">
+    <div class="episode-header">
+      <div>
+        <div class="episode-number">EPISODE 01</div>
+        <div class="episode-title">言葉がない世界 / 音が意味を持つ瞬間</div>
+        <div class="episode-lead">言語はいつ生まれたか——沈黙からコミュニケーションへ</div>
+      </div>
+    </div>
+    <div class="episode-body">
+      <p>「言葉がない世界」を想像することは、実は非常に難しい。なぜなら私たちは、言葉で「言葉がない世界」を想像しようとするからだ。人類が言語を持ったのはいつか——化石からは骨格や脳の形しかわからず、「最初の言語」は痕跡を残さない。研究者の推定では30万〜10万年前の間だが、確定はしていない。</p>
+      <p>後編「音が意味を持つ瞬間」は、音声が「意味を持つ記号」になる瞬間を探る。犬の吠え声や鳥の警戒音は「信号」だが、人間の言語はそれとは根本的に違う。恣意性（「犬」という音と犬の動物の間に必然的な関係はない）・生産性（有限の音から無限の表現ができる）・置換性（今ここにないものについて話せる）——これらが人間言語の特性だ。</p>
+    </div>
+    <div class="episode-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">「意味を持つ音」と「ただの音」の違いはどこにあるか。最初の「言葉」が生まれた瞬間、何が変わったか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">言語の起源</span>
+          <span class="keyword-tag">恣意性</span>
+          <span class="keyword-tag">生産性</span>
+          <span class="keyword-tag">置換性</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="episode-card ep2">
+    <div class="episode-header">
+      <div>
+        <div class="episode-number">EPISODE 02</div>
+        <div class="episode-title">内なる声の発見 / 言葉が思考を作る</div>
+        <div class="episode-lead">「頭の中でしゃべっている」のは誰か</div>
+      </div>
+    </div>
+    <div class="episode-body">
+      <p>「今、頭の中でこの文章を読んでいる声は、あなたの声か」——多くの人は「内なる声」で思考している。発達心理学者ヴィゴツキーは、幼児が声に出して独り言を言いながら考える現象（「外言語→内言語」）を観察し、思考と言語の密接な関係を示した。ピアジェはこの独り言を「自己中心的言語」と呼び、思考の前の言語混乱とみなしたが、後にヴィゴツキーの解釈が支持されるようになった。</p>
+      <p>後編「言葉が思考を作る」は、サピア＝ウォーフ仮説（言語が思考を規定する、という仮説）を検討する。強い形では「言語が違えば思考自体が違う」、弱い形では「言語は思考に影響を与える」となる。今日では弱い形（言語相対性）が広く支持されており、実験研究によって「言語によって色の識別・時間の認知・空間感覚が変わる」ことが示されている。</p>
+    </div>
+    <div class="episode-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">「内なる声」で考えない人は「考えていない」のか。思考と言語の関係は、一方向か双方向か。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">内なる声</span>
+          <span class="keyword-tag">ヴィゴツキー</span>
+          <span class="keyword-tag">サピア＝ウォーフ仮説</span>
+          <span class="keyword-tag">言語相対性</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="episode-card ep3">
+    <div class="episode-header">
+      <div>
+        <div class="episode-number">EPISODE 03</div>
+        <div class="episode-title">具体から抽象へ / カテゴリーと数の誕生</div>
+        <div class="episode-lead">「りんご」と「2個のりんご」——抽象化という知性の跳躍</div>
+      </div>
+    </div>
+    <div class="episode-body">
+      <p>「抽象化（Abstraction）」は人間の言語と思考の核心的な能力だ。目の前の特定のリンゴを「りんご」と呼ぶとき、私たちは個別の物体から「りんご一般」という概念を抽出している。さらに「2個のリンゴ」と言うとき、「2」という数が特定の物質から独立した抽象概念として存在していることを示している。</p>
+      <p>後編「カテゴリーと数の誕生」は、この抽象化能力がいかに革命的かを探る。犬は「ほかの犬」と「猫」を区別できるが、「犬類全般」というカテゴリーを言語なしに扱えるかは疑わしい。言語はカテゴリーを作り、カテゴリーは世界を整理し、整理された世界は計画・推論・科学を可能にする。数の概念も、この抽象化の延長線上にある。</p>
+    </div>
+    <div class="episode-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">抽象概念（愛・正義・自由）は、言葉なしに存在できるか。言葉が増えるほど思考の範囲は広がるか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">抽象化</span>
+          <span class="keyword-tag">カテゴリー</span>
+          <span class="keyword-tag">概念と言語</span>
+          <span class="keyword-tag">数の起源</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="episode-card ep4">
+    <div class="episode-header">
+      <div>
+        <div class="episode-number">EPISODE 04</div>
+        <div class="episode-title">因果関係と仮定の力 / 論理の限界</div>
+        <div class="episode-lead">「もし〜だったら」——仮定法が持つ革命的な力</div>
+      </div>
+    </div>
+    <div class="episode-body">
+      <p>「もし雨が降ったら、傘を持っていく」——この「もし〜なら」（仮定法）は、人間言語の最も独特な特性の一つだ。現在起きていないこと、過去に起きなかったこと、未来の可能性について話せる——これを言語学では「置換性」と呼ぶ。この能力があるからこそ、人間は計画を立て、反事実的な推論をし、科学的な仮説を立てられる。</p>
+      <p>後編「論理の限界」は、言語で構築された論理体系の力と限界を探る。アリストテレスの三段論法から始まり、カントの純粋理性批判、ゲーデルの不完全性定理まで——論理は思考の強力な道具だが、論理自身の限界を論理で証明できることも、20世紀の数学が示した。「この文は証明できない」という文を、論理体系は扱えるか。</p>
+    </div>
+    <div class="episode-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">「論理的に正しい」と「真実だ」は同じか。論理が届かない領域に、言語は何を差し向けられるか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">仮定法</span>
+          <span class="keyword-tag">因果推論</span>
+          <span class="keyword-tag">論理</span>
+          <span class="keyword-tag">ゲーデルの不完全性定理</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第5部 言葉と思考の旅　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 3: 各話詳解（後半） -->
+<div class="page">
+  <div class="section-label">Episodes 05 – 07</div>
+  <div class="section-title">各話の詳解（後半）── 言語・世界・AI</div>
+
+  <div class="episode-card ep5">
+    <div class="episode-header">
+      <div>
+        <div class="episode-number">EPISODE 05</div>
+        <div class="episode-title">色と時間の切り分け方 / 言語が思考に与える影響</div>
+        <div class="episode-lead">ロシア人は青を2色に見る——言語が世界を切り分ける</div>
+      </div>
+    </div>
+    <div class="episode-body">
+      <p>ロシア語には、「明るい青（goluboy）」と「暗い青（siniy）」という2つの基本的な青の言葉がある。英語話者にとってはどちらも「blue」だ。実験では、ロシア語話者は2種類の青の色差を英語話者より速く検出することが示されている——これが「言語相対性」の具体的な証拠だ。</p>
+      <p>時間の概念も言語によって異なる。英語は時間を水平軸（「前に」「後に」）で表現するが、マンダリン語では垂直軸（「上の月」「下の月」）でも表現する。アイマラ語（ペルーの先住民言語）は過去を「前」、未来を「後ろ」に置く——英語とは逆だ。言語が違えば、時間の空間的イメージが変わる。「異なる言語を話す人は、文字通り異なる世界に生きている」——これは誇張ではないかもしれない。</p>
+    </div>
+    <div class="episode-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">異なる言語を話す人々が「同じ世界」を見ているという保証はあるか。複数言語を話す人は複数の世界を生きているか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">言語相対性</span>
+          <span class="keyword-tag">色の知覚</span>
+          <span class="keyword-tag">時間認知</span>
+          <span class="keyword-tag">多言語と思考</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="episode-card ep6">
+    <div class="episode-header">
+      <div>
+        <div class="episode-number">EPISODE 06</div>
+        <div class="episode-title">AIと言語処理 / 中国語の部屋と理解の問題</div>
+        <div class="episode-lead">AIは「りんご」を知っているのか——理解の哲学的難問</div>
+      </div>
+    </div>
+    <div class="episode-body">
+      <p>現代の大規模言語モデルは、「りんご」という単語を驚くほど的確な文脈で使いこなす。「りんごが木から落ちた」「ニュートンはりんごに着想を得た」「りんごを一日一個食べると医者要らず」——これらすべてを自然に生成できる。しかしモデルは「りんご」の色・味・匂い・触感を経験したことがない。あるのは「りんご」というトークンが他の言語単位と共起するパターンの統計だけだ。</p>
+      <p>哲学者ジョン・サールは1980年に「中国語の部屋」という思考実験を発表した。英語しか知らない人が部屋に閉じこもり、中国語の質問が届くたびに規則書に従って中国語で答えを書く——外から見ると中国語を「理解している」ように見えるが、部屋の人は中国語を全く理解していない。これがAIの言語処理と何が違うか——この問いが第6話の核心だ。AIは「理解している」のか、それとも「中国語の部屋」なのか。</p>
+    </div>
+    <div class="episode-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">「言葉を正しく使えること」と「言葉の意味を理解していること」は同じか。「理解」の定義次第で答えは変わるか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">中国語の部屋</span>
+          <span class="keyword-tag">ジョン・サール</span>
+          <span class="keyword-tag">意味理解</span>
+          <span class="keyword-tag">シンボルグラウンディング</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="episode-card ep7">
+    <div class="episode-header">
+      <div>
+        <div class="episode-number">EPISODE 07</div>
+        <div class="episode-title">エピローグ「言葉は思考の翼」</div>
+        <div class="episode-lead">旅の終わり——そして数字の世界へ</div>
+      </div>
+    </div>
+    <div class="episode-body">
+      <p>第5部のエピローグは、旅全体を振り返る統合の回だ。言語は思考の道具だが、同時に思考そのものを形成する。言葉がなければ思考できない部分もあるが、言葉にならない思考もある。AIは言語を驚くほど巧みに使うが、それが「理解」かどうかは今も問われ続けている。</p>
+      <p>ハルが旅を通して気づくのは、「考える」という行為の奥深さだ。言葉を知ることは世界を広げる。問いを立てることは可能性を開く。言葉は翼——しかし翼があっても飛ぶのは自分自身だ。エピローグはハルが「数って……何だろう？」と問う場面で終わり、第6部「数字と世界」への扉を開ける。</p>
+    </div>
+    <div class="episode-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">言葉は「思考の道具」か「思考の一部」か。この問いに今の自分はどう答えるか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">言語と思考の統合</span>
+          <span class="keyword-tag">問いを持ち続けること</span>
+          <span class="keyword-tag">第6部への橋</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge-box">
+    <div class="bridge-label">Bridge to Part 6 ── 第6部「数字と世界」へ</div>
+    <div class="bridge-text">「数って……何だろう？」</div>
+    <div class="bridge-sub">
+      第5部が問ったのは「言葉と思考の関係」。第6部が問うのは「数と文明の関係」だ。<br>
+      数は言語よりも純粋に抽象的だ——それ自体は音も形も持たない。<br>
+      しかし数は、国を作り、科学を生み、統計で未来を予測し、AIの判断基準を決める。<br>
+      人類はどうやって「数える」ことを発明し、数に支配されるようになったか。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第5部 言葉と思考の旅　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 4: 用語集 -->
+<div class="page">
+  <div class="section-label">Glossary</div>
+  <div class="section-title">用語解説</div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">サピア＝ウォーフ仮説 <span class="glossary-en">Sapir-Whorf Hypothesis</span></div>
+    <div class="glossary-def">言語が思考を規定する、という仮説。言語学者エドワード・サピアと弟子のベンジャミン・ウォーフが主唱した。強い形（言語なしには特定の思考は不可能）は現在否定されているが、弱い形（言語は思考に影響を与える）は「言語相対性」として広く支持されている。</div>
+    <div class="glossary-note">具体例：色の語彙が多い言語を話す人は色の識別が速い。時間を垂直方向で表現する言語の話者は時間を空間として水平ではなく垂直に想像する傾向がある。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">中国語の部屋 <span class="glossary-en">Chinese Room Argument</span></div>
+    <div class="glossary-def">哲学者ジョン・サールが1980年に発表した思考実験。「規則書に従って中国語を処理できる人でも、中国語を理解していない」ことを示し、構文処理（Syntax）だけでは意味理解（Semantics）は生まれないと主張した。AIの「本当の知能」問題に直接関係する。</div>
+    <div class="glossary-note">反論：「システム全体が理解している」という見方（System Reply）もある。部屋の人ではなく、「部屋の人＋規則書＋手順全体」のシステムが理解していると言えるのではないか。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">内なる声 <span class="glossary-kana">うちなるこえ</span><span class="glossary-en">Inner Speech</span></div>
+    <div class="glossary-def">思考の際に内部で発生する言語的な音声イメージ。研究によると多くの人が思考に内なる声を使うが、全員ではない。「アファンタジア（視覚的イメージが生じない状態）」と同様、「内なる声のない思考者」も存在する。これは思考の多様性を示す。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">恣意性 <span class="glossary-kana">しいせい</span><span class="glossary-en">Arbitrariness</span></div>
+    <div class="glossary-def">言語学者フェルディナン・ド・ソシュールが提唱した概念。「犬」という音（記号表現）と犬という動物（記号内容）の間には、必然的な関係がない、という性質。「dog」「Hund」「chien」とも呼べる。この恣意性が言語の多様性を生む一方、社会的な合意によって意味が成立することを示す。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">シンボルグラウンディング <span class="glossary-en">Symbol Grounding Problem</span></div>
+    <div class="glossary-def">記号（シンボル）が現実世界の意味（グラウンド）と繋がる仕組みの問題。AIは「りんご」という記号を学習するが、それを実際のりんごの感覚経験と繋げていない。この「浮いた記号」問題が、AIの「意味理解」の根本的な難問だ。人間は身体を通じた経験でシンボルをグラウンドしているが、デジタルAIにはその経路がない。</div>
+  </div>
+
+  <div class="central-question" style="margin-top: 32px;">
+    <div class="cq-label">第5部を貫く問い</div>
+    <div class="cq-text">「言葉は思考の翼か、それとも檻か。」</div>
+    <div class="cq-sub">
+      言葉は思考を広げる——新しい概念を知ると世界が広がる。<br>
+      同時に言葉は思考を制限する——言葉のない思考は表現できない。<br>
+      AIが言葉を完璧に扱う時代に、「言葉を超えた何か」は残るか。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第5部 言葉と思考の旅　― 補足資料 ―　©ハルとおじいさん制作チーム</div>
+</div>
+
+</body>
+</html>
