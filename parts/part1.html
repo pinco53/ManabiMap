@@ -1276,5 +1276,156 @@
   <div class="doc-footer">ハルとおじいさん｜第1部 蒸気の時代　― 補足資料 ―</div>
 </div>
 
+
+<style>
+/* ========== YOUTUBE SECTION ========== */
+.yt-section {
+  max-width: 880px;
+  margin: 60px auto 0;
+  padding: 48px 40px;
+  background: #09090f;
+  border-top: 3px solid #ff6b2b;
+  font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+}
+.yt-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.yt-section-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.yt-section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background: #ff6b2b;
+  border-radius: 2px;
+}
+.yt-playlist-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: #ff6b2b;
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s;
+}
+.yt-playlist-btn:hover { opacity: 0.85; }
+.yt-playlist-btn svg { width: 16px; height: 16px; fill: #000; }
+.yt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+.yt-card {
+  background: #13131f;
+  border: 1px solid #2a2a40;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s;
+}
+.yt-card:hover {
+  border-color: #ff6b2b;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+.yt-thumb-wrap {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #000;
+}
+.yt-thumb-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+.yt-card:hover .yt-thumb-wrap img { transform: scale(1.06); }
+.yt-play-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.yt-play-dot::after {
+  content: '';
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 2px;
+}
+.yt-card:hover .yt-play-dot { opacity: 1; }
+.yt-card-label {
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ccc;
+  line-height: 1.4;
+}
+.yt-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #666;
+  text-decoration: none;
+  margin-top: 32px;
+  letter-spacing: 0.05em;
+}
+.yt-back-link:hover { color: #aaa; }
+@media (max-width: 600px) {
+  .yt-section { padding: 32px 20px; }
+  .yt-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+}
+</style>
+
+<div class="yt-section">
+  <div class="yt-section-header">
+    <div class="yt-section-title">動画で見る</div>
+    
+  </div>
+  <div class="yt-grid">
+    
+    <a href="https://youtu.be/WOGeJkSUkz0" target="_blank" rel="noopener" class="yt-card">
+      <div class="yt-thumb-wrap">
+        <img src="https://img.youtube.com/vi/WOGeJkSUkz0/hqdefault.jpg" alt="第1部 蒸気の時代" loading="lazy">
+        <div class="yt-play-dot"></div>
+      </div>
+      <div class="yt-card-label">第1部 蒸気の時代</div>
+    </a>
+  </div>
+  <a href="../index.html" class="yt-back-link">← 学びの地図トップに戻る</a>
+</div>
+
 </body>
 </html>
