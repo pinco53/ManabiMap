@@ -424,6 +424,148 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(180deg, var(--border), transparent);
 }
 
+/* ========== INTRO FEATURE SECTION ========== */
+.intro-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 24px 20px;
+}
+
+.intro-award {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,107,43,0.08));
+  border: 1px solid rgba(255,215,0,0.3);
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--neon-gold);
+  margin-bottom: 28px;
+}
+
+.intro-award::before {
+  content: '🏆';
+  font-size: 16px;
+}
+
+.intro-header {
+  margin-bottom: 36px;
+}
+
+.intro-label {
+  font-size: 11px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--neon-gold);
+  margin-bottom: 12px;
+}
+
+.intro-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--text-bright);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.intro-desc {
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 2;
+  max-width: 680px;
+}
+
+.intro-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,215,0,0.2);
+  box-shadow: 0 0 40px rgba(255,215,0,0.08);
+  margin-bottom: 32px;
+}
+
+.intro-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.intro-parts-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.intro-part-mini {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.intro-part-mini:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,215,0,0.3);
+  box-shadow: 0 8px 24px rgba(255,215,0,0.1);
+}
+
+.intro-part-mini a {
+  display: block;
+}
+
+.intro-part-mini img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+}
+
+.intro-part-mini-body {
+  padding: 12px 14px;
+}
+
+.intro-part-mini-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--neon-gold);
+  margin-bottom: 4px;
+}
+
+.intro-part-mini-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+
+.intro-part-mini-link {
+  font-size: 11px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.intro-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+  margin-bottom: 80px;
+}
+
+@media (max-width: 600px) {
+  .intro-parts-row { grid-template-columns: 1fr; }
+  .intro-section { padding: 60px 16px 20px; }
+}
+
 /* ========== COMING SOON STATE ========== */
 .card-thumbnail.placeholder {
   display: flex;
@@ -506,8 +648,78 @@ a { color: inherit; text-decoration: none; }
   <div class="hero-scroll">SCROLL</div>
 </section>
 
+<!-- ========== INTRO / PROMOTION ========== -->
+<section class="intro-section" id="intro">
+  <div class="intro-header">
+    <div class="intro-award">MulmoCast AI Short Film Fes 2025　プロモーション部門　最終ノミネート作品</div>
+    <div class="intro-label">INTRODUCTION</div>
+    <h2 class="intro-title">三部作 紹介映像</h2>
+    <p class="intro-desc">
+      産業革命・デジタル革命・AI革命──<br>
+      おじいさんとハルの対話で描く、人類の学びの旅。<br>
+      第1回 MulmoCast AI Short Film Fes 2025 のプロモーション部門で<br>
+      最終ノミネートに選ばれた世界観を、まずここから。
+    </p>
+  </div>
+
+  <div class="intro-video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/BwUM3mDsvPY"
+      title="ハルとおじいさん 三部作紹介"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="intro-parts-row">
+    <div class="intro-part-mini">
+      <a href="https://youtu.be/WOGeJkSUkz0" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/WOGeJkSUkz0/hqdefault.jpg" alt="第1部" loading="lazy">
+        <div class="intro-part-mini-body">
+          <div class="intro-part-mini-num">PART 01</div>
+          <div class="intro-part-mini-title">蒸気の時代</div>
+          <div class="intro-part-mini-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
+            YouTubeで見る
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="intro-part-mini">
+      <a href="https://youtu.be/kpMfSCAVHD8" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/kpMfSCAVHD8/hqdefault.jpg" alt="第2部" loading="lazy">
+        <div class="intro-part-mini-body">
+          <div class="intro-part-mini-num">PART 02</div>
+          <div class="intro-part-mini-title">つながる世界</div>
+          <div class="intro-part-mini-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
+            YouTubeで見る
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="intro-part-mini">
+      <a href="https://youtu.be/VtfGezzADME" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/VtfGezzADME/hqdefault.jpg" alt="第3部" loading="lazy">
+        <div class="intro-part-mini-body">
+          <div class="intro-part-mini-num">PART 03</div>
+          <div class="intro-part-mini-title">AIと生きる未来</div>
+          <div class="intro-part-mini-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
+            YouTubeで見る
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="intro-divider"></div>
+</section>
+
 <!-- ========== NAVIGATION ========== -->
 <nav class="nav-bar">
+  <a href="#intro" style="color:var(--neon-gold); border-color:var(--neon-gold)">紹介</a>
   <a href="#part1" data-part="1">第1部</a>
   <a href="#part2" data-part="2">第2部</a>
   <a href="#part3" data-part="3">第3部</a>
@@ -535,9 +747,12 @@ a { color: inherit; text-decoration: none; }
 
     <!-- Part 1 -->
     <div class="part-card" data-part="1" id="part1">
-      <div class="card-thumbnail placeholder">
-        <span class="placeholder-text">PART 1</span>
-      </div>
+      <a href="https://youtu.be/WOGeJkSUkz0" target="_blank" rel="noopener">
+        <div class="card-thumbnail">
+          <img src="https://img.youtube.com/vi/WOGeJkSUkz0/hqdefault.jpg" alt="第1部 サムネイル" loading="lazy">
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+      </a>
       <div class="card-body">
         <div class="card-part-num">PART 01</div>
         <h3 class="card-title">蒸気の時代</h3>
@@ -549,19 +764,23 @@ a { color: inherit; text-decoration: none; }
           <span class="keyword">手仕事から工場へ</span>
         </div>
         <div class="card-links">
-          <a href="parts/part1.html" class="card-link primary" style="color:var(--neon-orange)">
-            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4m7-2v18m0 0l-4-4m4 4l4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-            学びの地図を見る
+          <a href="https://youtu.be/WOGeJkSUkz0" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-orange)">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
+            YouTubeで見る
           </a>
+          <a href="parts/part1.html" class="card-link" style="color:var(--neon-orange)">学びの地図</a>
         </div>
       </div>
     </div>
 
     <!-- Part 2 -->
     <div class="part-card" data-part="2" id="part2">
-      <div class="card-thumbnail placeholder">
-        <span class="placeholder-text">PART 2</span>
-      </div>
+      <a href="https://youtu.be/kpMfSCAVHD8" target="_blank" rel="noopener">
+        <div class="card-thumbnail">
+          <img src="https://img.youtube.com/vi/kpMfSCAVHD8/hqdefault.jpg" alt="第2部 サムネイル" loading="lazy">
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+      </a>
       <div class="card-body">
         <div class="card-part-num">PART 02</div>
         <h3 class="card-title">つながる世界</h3>
@@ -573,19 +792,23 @@ a { color: inherit; text-decoration: none; }
           <span class="keyword">つながりの光と影</span>
         </div>
         <div class="card-links">
-          <a href="parts/part2.html" class="card-link primary" style="color:var(--neon-blue)">
-            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4m7-2v18m0 0l-4-4m4 4l4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-            学びの地図を見る
+          <a href="https://youtu.be/kpMfSCAVHD8" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-blue)">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
+            YouTubeで見る
           </a>
+          <a href="parts/part2.html" class="card-link" style="color:var(--neon-blue)">学びの地図</a>
         </div>
       </div>
     </div>
 
     <!-- Part 3 -->
     <div class="part-card" data-part="3" id="part3">
-      <div class="card-thumbnail placeholder">
-        <span class="placeholder-text">PART 3</span>
-      </div>
+      <a href="https://youtu.be/VtfGezzADME" target="_blank" rel="noopener">
+        <div class="card-thumbnail">
+          <img src="https://img.youtube.com/vi/VtfGezzADME/hqdefault.jpg" alt="第3部 サムネイル" loading="lazy">
+          <div class="play-overlay"><div class="play-icon"></div></div>
+        </div>
+      </a>
       <div class="card-body">
         <div class="card-part-num">PART 03</div>
         <h3 class="card-title">AIと生きる未来</h3>
@@ -597,10 +820,11 @@ a { color: inherit; text-decoration: none; }
           <span class="keyword">未来の選択</span>
         </div>
         <div class="card-links">
-          <a href="parts/part3.html" class="card-link primary" style="color:var(--neon-cyan)">
-            <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4m7-2v18m0 0l-4-4m4 4l4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-            学びの地図を見る
+          <a href="https://youtu.be/VtfGezzADME" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-cyan)">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
+            YouTubeで見る
           </a>
+          <a href="parts/part3.html" class="card-link" style="color:var(--neon-cyan)">学びの地図</a>
         </div>
       </div>
     </div>
