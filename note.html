@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>note記事一覧 | 学びの地図 ─ ハルとおじいさん</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #08080d;
+  --bg-card: #10101a;
+  --bg-card-hover: #18182a;
+  --text: #e0e0e8;
+  --text-dim: #8888a0;
+  --text-bright: #ffffff;
+  --border: #2a2a40;
+  --note-green: #41c9b4;
+  --note-green-dim: rgba(65,201,180,0.15);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── NAV ── */
+.nav-bar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(8,8,13,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  display: flex; align-items: center; gap: 8px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-bar::-webkit-scrollbar { display: none; }
+.nav-bar a {
+  flex-shrink: 0;
+  padding: 14px 16px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--text-dim);
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s; white-space: nowrap;
+}
+.nav-bar a:hover { color: var(--text-bright); }
+.nav-bar a.active {
+  color: var(--note-green);
+  border-color: var(--note-green);
+}
+.nav-bar a:not(.active):hover { color: var(--note-green); border-color: var(--note-green); }
+
+/* ── HERO ── */
+.hero {
+  padding: 80px 24px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 30% 50%, rgba(65,201,180,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 300px at 70% 50%, rgba(65,201,180,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-label {
+  font-size: 11px; letter-spacing: 0.4em;
+  color: var(--note-green); text-transform: uppercase;
+  margin-bottom: 20px; position: relative;
+}
+.hero-title {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 900; letter-spacing: 0.06em;
+  line-height: 1.25; margin-bottom: 16px;
+  position: relative;
+  background: linear-gradient(135deg, #fff 0%, var(--note-green) 60%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-subtitle {
+  font-size: 14px; font-weight: 300;
+  color: var(--text-dim); max-width: 560px;
+  margin: 0 auto 40px; line-height: 2;
+  position: relative;
+}
+.hero-count {
+  display: inline-block;
+  border: 1px solid rgba(65,201,180,0.3);
+  padding: 6px 20px; border-radius: 20px;
+  font-size: 12px; letter-spacing: 0.15em;
+  color: var(--note-green);
+  position: relative;
+}
+
+/* ── GRID ── */
+.grid-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* ── CARD ── */
+.note-card {
+  display: flex; flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.note-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(65,201,180,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(65,201,180,0.1);
+}
+.card-num {
+  font-size: 11px; letter-spacing: 0.3em;
+  color: var(--note-green); margin-bottom: 10px;
+}
+.card-title {
+  font-size: 15px; font-weight: 700;
+  color: var(--text-bright); line-height: 1.6;
+  margin-bottom: 12px;
+}
+.card-excerpt {
+  font-size: 13px; color: var(--text-dim);
+  line-height: 1.8; flex-grow: 1;
+  margin-bottom: 16px;
+}
+.card-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-bottom: 16px;
+}
+.tag {
+  font-size: 11px; padding: 3px 10px;
+  border-radius: 12px;
+  background: var(--note-green-dim);
+  color: var(--note-green);
+  letter-spacing: 0.05em;
+}
+.card-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 12px; margin-top: auto;
+}
+.card-date {
+  font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em;
+}
+.card-link {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--note-green);
+}
+
+/* ── FOOTER ── */
+.page-footer {
+  text-align: center; padding: 40px 24px;
+  border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+.page-footer a { color: var(--note-green); }
+</style>
+</head>
+<body>
+
+<nav class="nav-bar">
+  <a href="index.html">学びの地図</a>
+  <a href="parts/part1.html" data-part="1">第1部</a>
+  <a href="parts/part2.html" data-part="2">第2部</a>
+  <a href="parts/part3.html" data-part="3">第3部</a>
+  <a href="parts/part4.html" data-part="4">第4部</a>
+  <a href="parts/part5.html" data-part="5">第5部</a>
+  <a href="parts/part6.html" data-part="6">第6部</a>
+  <a href="parts/part7.html" data-part="7">第7部</a>
+  <a href="parts/part8.html" data-part="8">第8部</a>
+  <a href="note.html" class="active">note記事</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-label">note articles</div>
+  <h1 class="hero-title">問いを広げる記事</h1>
+  <p class="hero-subtitle">
+    動画では語りきれない問いを、文章で掘り下げています。<br>
+    「ハルとおじいさん」の世界観を、もう少し遠くまで。
+  </p>
+  <div class="hero-count">26 articles</div>
+</section>
+
+<section class="grid-section">
+  <div class="note-grid">
+    
+    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#26</div>
+      <h3 class="card-title">神社に数学を奉納した民族がいた</h3>
+      <p class="card-excerpt">数学の授業で、問題が解けた瞬間が好きでした。</p>
+      <div class="card-tags"><span class="tag">第5部第3話テーマ（数・抽象化）フリースタンディング</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-11</span>
+        <span class="card-link">noteで読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/nac7c30f224ac" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#25</div>
+      <h3 class="card-title">棒の刻み目で、帝国は動いていた</h3>
+      <p class="card-excerpt">毎月、給与明細が届きます。</p>
+      <div class="card-tags"><span class="tag">第5部第3話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-11</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/n2ab78a655e6d" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#24</div>
+      <h3 class="card-title">数の言葉を持たない民族が、いた</h3>
+      <p class="card-excerpt">スーパーのレジで、小銭を数えました。</p>
+      <div class="card-tags"><span class="tag">第5部第3話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-11</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/n180a0b52e8f6" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#23</div>
+      <h3 class="card-title">頭の中で、あなたは誰と話しているのか</h3>
+      <p class="card-excerpt">考えるとき、全部声に出す人がいます。 「えーっと、まずこれをやって……あ、でもこっちが先か……」</p>
+      <div class="card-tags"><span class="tag">第5部第2話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-10</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/nd91398b2e60b" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#22</div>
+      <h3 class="card-title">人類最古の名前は、英雄のものではなかった。</h3>
+      <p class="card-excerpt">5000年後に、あなたの名前だけが残るとしたら。 それはどんな場面に刻まれているでしょう。</p>
+      <div class="card-tags"><span class="tag">第5部第1話（前編・後編）続々編テーマ</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-06</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/n1cc11159159c" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#21</div>
+      <h3 class="card-title">名前をつける前、世界はひとつながりだった。</h3>
+      <p class="card-excerpt">赤ちゃんが生まれた瞬間、親が最初にすることがある。 名前をつけることだ。</p>
+      <div class="card-tags"><span class="tag">第5部第1話（前編・後編）続編テーマ</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-06</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/n5556f35e43b5" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#20</div>
+      <h3 class="card-title">音はずっとあった。では、いつ「意味」になったのか。</h3>
+      <p class="card-excerpt">赤ちゃんは泣く。鳥は鳴く。犬は吠える。 音はずっと、そこにあった。</p>
+      <div class="card-tags"><span class="tag">第5部第1話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-06</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/n3f2187946e15" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#19</div>
+      <h3 class="card-title">「見たいものしか見えない」は、2000年前から変わっていない</h3>
+      <p class="card-excerpt">今朝、道を歩きながら、気がつけば花を探していました。 「今頃、あの角にシバザクラが咲いているはず」 そう思いながら歩くと、確かに見えてきます。</p>
+      <div class="card-tags"><span class="tag">第4部第7話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-05</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/nb1531205470c" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#18</div>
+      <h3 class="card-title">本を途中から読むと、なぜか罪悪感がある</h3>
+      <p class="card-excerpt">本を手に取るとき、自然と1ページ目を開く。</p>
+      <div class="card-tags"><span class="tag">第4部第6話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-04</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/n8a3b5689ab7f" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#17</div>
+      <h3 class="card-title">6,350トンのケーブルが運んだのは、何グラムの情報だったか</h3>
+      <p class="card-excerpt">LINEで写真を送っても、手元の写真は消えない。</p>
+      <div class="card-tags"><span class="tag">第4部第5話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-03</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/naecb9a6237db" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#16</div>
+      <h3 class="card-title">「知りたい」と思った瞬間、それは誰かが作った道かもしれない</h3>
+      <p class="card-excerpt">何かを調べていると、気づくと別のことが知りたくなっている。</p>
+      <div class="card-tags"><span class="tag">第4部第4話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-02</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/n9c00c715d369" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#15</div>
+      <h3 class="card-title">「読む楽しみ」は、いつ誰のものになったのか</h3>
+      <p class="card-excerpt">今日、本を読みたいと思えば、すぐ読めます。 図書館へ行けばタダ。スマホでも読める。</p>
+      <div class="card-tags"><span class="tag">第4部第3話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-04-02</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/n1e582531d82f" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#14</div>
+      <h3 class="card-title">なぜ人は、石に印をつけずにいられなかったのか</h3>
+      <p class="card-excerpt">スマホを開くと、文字より先に絵文字を選んでいる自分がいます。</p>
+      <div class="card-tags"><span class="tag">第4部第2話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-03-31</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/n3446a5ccce61" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#13</div>
+      <h3 class="card-title">「AIを使うと考えなくなる」——ソクラテスも、2400年前に言っていた</h3>
+      <p class="card-excerpt">「AIを使うと、考えなくなる」</p>
+      <div class="card-tags"><span class="tag">第4部第1話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-03-30</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/nc670691839e8" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#12</div>
+      <h3 class="card-title">記憶の中の人は、いつ「消える」のか</h3>
+      <p class="card-excerpt">ふとした瞬間に、思い出す。</p>
+      <div class="card-tags"><span class="tag">第3部「AIと生きる未来」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-03-28</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/nbf644c80243f" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#11</div>
+      <h3 class="card-title">世界はつながったのに、なぜ孤独なのか</h3>
+      <p class="card-excerpt">スマホを開けば、誰かの近況が流れてくる。 メッセージを送れば、すぐに返信が来る。 何百人もの「友達」と、いつでもつながれる。</p>
+      <div class="card-tags"><span class="tag">第2部「つながる世界」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-03-26</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/n1195ea4b52e4" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#10</div>
+      <h3 class="card-title">体の時間は、今も35億年前のままだ</h3>
+      <p class="card-excerpt">休日の朝、目覚ましをかけ忘れた。 でも、ふと目が覚めた。 窓の外が、明るくなっていた。</p>
+      <div class="card-tags"><span class="tag">第1部「蒸気の時代」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-03-25</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/nb299d49cfdd2" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#09</div>
+      <h3 class="card-title">AIに、何を問えばいいのか</h3>
+      <p class="card-excerpt">何かを調べようとして、検索窓の前で止まったことがある。 知りたいことはある。でも——なんて入力すればいいのか、わからない。</p>
+      <div class="card-tags"><span class="tag">第8部第5話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-03-25</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator/n/n669e2df9e9e9" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#08</div>
+      <h3 class="card-title">あのアイデア、本当に自分が思いついたのか</h3>
+      <p class="card-excerpt">会議で何かを言った。 「いいね」と言われた。</p>
+      <div class="card-tags"><span class="tag">第8部第4話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-03-24</span>
+        <span class="card-link">記事を読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#07</div>
+      <h3 class="card-title">「わかってもらえた」は、ただの確率かもしれない</h3>
+      <p class="card-excerpt">テスト前夜、教科書をひたすら眺めた記憶がある。 「よし、覚えた」と思って、翌日答えを書いた。 正解だった。</p>
+      <div class="card-tags"><span class="tag">第8部第3話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-03-24</span>
+        <span class="card-link">noteで読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#06</div>
+      <h3 class="card-title">追い出された場所から、次の時代が生まれる。</h3>
+      <p class="card-excerpt">タグ: #AI #機械学習 #ディープラーニング #進化 #学び #歴史 #人類史</p>
+      <div class="card-tags"><span class="tag">第8部第2話「ルールから確率へ」前編・後編</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-03-24</span>
+        <span class="card-link">noteで読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#05</div>
+      <h3 class="card-title">生成AIは、いったい何を「生成」しているのか。</h3>
+      <p class="card-excerpt">タグ: #生成AI #AI #人工知能 #学び #哲学 #人類史 #教育</p>
+      <div class="card-tags"><span class="tag">第8部第1話（前編・後編）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-03-23</span>
+        <span class="card-link">noteで読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#04</div>
+      <h3 class="card-title">スマホの中に、80年分の革命が詰まっている。</h3>
+      <p class="card-excerpt">スマホを毎日使っていますか？</p>
+      <div class="card-tags"><span class="tag">#デジタル革命</span><span class="tag">#インターネット</span><span class="tag">#歴史</span><span class="tag">#テクノロジー</span><span class="tag">#教育</span><span class="tag">#学び</span><span class="tag">#人類史</span></div>
+      <div class="card-footer">
+        
+        <span class="card-link">noteで読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#03</div>
+      <h3 class="card-title">ChatGPTに同じことを聞くと、なぜ毎回答えが違うのか。</h3>
+      <p class="card-excerpt">ChatGPTに同じ質問を2回したことはありますか？</p>
+      <div class="card-tags"><span class="tag">#生成AI</span><span class="tag">#ChatGPT</span><span class="tag">#検索</span><span class="tag">#AI</span><span class="tag">#教育</span><span class="tag">#学び</span></div>
+      <div class="card-footer">
+        
+        <span class="card-link">noteで読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#02</div>
+      <h3 class="card-title">「機械に仕事を奪われる」という恐怖は、200年前にもあった。</h3>
+      <p class="card-excerpt">「AIに仕事を奪われる」という言葉を、最近よく耳にします。</p>
+      <div class="card-tags"><span class="tag">#産業革命</span><span class="tag">#歴史</span><span class="tag">#AI</span><span class="tag">#教育</span><span class="tag">#仕事</span><span class="tag">#人類史</span><span class="tag">#学び</span></div>
+      <div class="card-footer">
+        
+        <span class="card-link">noteで読む →</span>
+      </div>
+    </a>
+
+    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
+      <div class="card-num">#01</div>
+      <h3 class="card-title">ChatGPTが登場するまで、人類に何があったのか。</h3>
+      <p class="card-excerpt">「なぜ学ぶのか」という問いに、うまく答えられますか？</p>
+      <div class="card-tags"><span class="tag">#生成AI</span><span class="tag">#ChatGPT</span><span class="tag">#教育</span><span class="tag">#人類史</span><span class="tag">#学び</span><span class="tag">#AI</span></div>
+      <div class="card-footer">
+        
+        <span class="card-link">noteで読む →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer class="page-footer">
+  <p>
+    <a href="https://note.com/manabimapcreator" target="_blank" rel="noopener noreferrer">note @manabimapcreator</a>
+    &nbsp;|&nbsp;
+    <a href="index.html">学びの地図トップ</a>
+  </p>
+</footer>
+
+</body>
+</html>
