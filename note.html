@@ -170,6 +170,27 @@ a { color: inherit; text-decoration: none; }
   color: var(--note-green);
 }
 
+/* ── UNPUBLISHED ── */
+.note-card--unpublished {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
+}
+.badge-unpublished {
+  display: inline-block;
+  font-size: 9px; padding: 2px 7px;
+  border-radius: 8px;
+  background: rgba(136,136,160,0.2);
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.card-link--dim {
+  color: var(--text-dim) !important;
+  font-weight: 400 !important;
+}
+
 /* ── FOOTER ── */
 .page-footer {
   text-align: center; padding: 40px 24px;
@@ -208,18 +229,18 @@ a { color: inherit; text-decoration: none; }
 <section class="grid-section">
   <div class="note-grid">
     
-    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
-      <div class="card-num">#26</div>
+    <div class="note-card note-card--unpublished">
+      <div class="card-num">#26 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">神社に数学を奉納した民族がいた</h3>
       <p class="card-excerpt">数学の授業で、問題が解けた瞬間が好きでした。</p>
       <div class="card-tags"><span class="tag">第5部第3話テーマ（数・抽象化）フリースタンディング</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-11</span>
-        <span class="card-link">noteで読む →</span>
+        <span class="card-link card-link--dim">近日公開</span>
       </div>
-    </a>
+    </div>
 
-    <a href="https://note.com/manabimapcreator/n/nac7c30f224ac" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/nac7c30f224ac" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#25</div>
       <h3 class="card-title">棒の刻み目で、帝国は動いていた</h3>
       <p class="card-excerpt">毎月、給与明細が届きます。</p>
@@ -230,7 +251,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/n2ab78a655e6d" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/n2ab78a655e6d" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#24</div>
       <h3 class="card-title">数の言葉を持たない民族が、いた</h3>
       <p class="card-excerpt">スーパーのレジで、小銭を数えました。</p>
@@ -241,7 +262,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/n180a0b52e8f6" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/n180a0b52e8f6" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#23</div>
       <h3 class="card-title">頭の中で、あなたは誰と話しているのか</h3>
       <p class="card-excerpt">考えるとき、全部声に出す人がいます。 「えーっと、まずこれをやって……あ、でもこっちが先か……」</p>
@@ -252,7 +273,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/nd91398b2e60b" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/nd91398b2e60b" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#22</div>
       <h3 class="card-title">人類最古の名前は、英雄のものではなかった。</h3>
       <p class="card-excerpt">5000年後に、あなたの名前だけが残るとしたら。 それはどんな場面に刻まれているでしょう。</p>
@@ -263,7 +284,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/n1cc11159159c" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/n1cc11159159c" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#21</div>
       <h3 class="card-title">名前をつける前、世界はひとつながりだった。</h3>
       <p class="card-excerpt">赤ちゃんが生まれた瞬間、親が最初にすることがある。 名前をつけることだ。</p>
@@ -274,7 +295,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/n5556f35e43b5" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/n5556f35e43b5" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#20</div>
       <h3 class="card-title">音はずっとあった。では、いつ「意味」になったのか。</h3>
       <p class="card-excerpt">赤ちゃんは泣く。鳥は鳴く。犬は吠える。 音はずっと、そこにあった。</p>
@@ -285,7 +306,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/n3f2187946e15" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/n3f2187946e15" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#19</div>
       <h3 class="card-title">「見たいものしか見えない」は、2000年前から変わっていない</h3>
       <p class="card-excerpt">今朝、道を歩きながら、気がつけば花を探していました。 「今頃、あの角にシバザクラが咲いているはず」 そう思いながら歩くと、確かに見えてきます。</p>
@@ -296,7 +317,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/nb1531205470c" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/nb1531205470c" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#18</div>
       <h3 class="card-title">本を途中から読むと、なぜか罪悪感がある</h3>
       <p class="card-excerpt">本を手に取るとき、自然と1ページ目を開く。</p>
@@ -307,7 +328,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/n8a3b5689ab7f" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/n8a3b5689ab7f" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#17</div>
       <h3 class="card-title">6,350トンのケーブルが運んだのは、何グラムの情報だったか</h3>
       <p class="card-excerpt">LINEで写真を送っても、手元の写真は消えない。</p>
@@ -318,7 +339,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/naecb9a6237db" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/naecb9a6237db" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#16</div>
       <h3 class="card-title">「知りたい」と思った瞬間、それは誰かが作った道かもしれない</h3>
       <p class="card-excerpt">何かを調べていると、気づくと別のことが知りたくなっている。</p>
@@ -329,7 +350,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/n9c00c715d369" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/n9c00c715d369" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#15</div>
       <h3 class="card-title">「読む楽しみ」は、いつ誰のものになったのか</h3>
       <p class="card-excerpt">今日、本を読みたいと思えば、すぐ読めます。 図書館へ行けばタダ。スマホでも読める。</p>
@@ -340,7 +361,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/n1e582531d82f" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/n1e582531d82f" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#14</div>
       <h3 class="card-title">なぜ人は、石に印をつけずにいられなかったのか</h3>
       <p class="card-excerpt">スマホを開くと、文字より先に絵文字を選んでいる自分がいます。</p>
@@ -351,7 +372,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/n3446a5ccce61" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/n3446a5ccce61" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#13</div>
       <h3 class="card-title">「AIを使うと考えなくなる」——ソクラテスも、2400年前に言っていた</h3>
       <p class="card-excerpt">「AIを使うと、考えなくなる」</p>
@@ -362,7 +383,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/nc670691839e8" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/nc670691839e8" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#12</div>
       <h3 class="card-title">記憶の中の人は、いつ「消える」のか</h3>
       <p class="card-excerpt">ふとした瞬間に、思い出す。</p>
@@ -373,7 +394,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/nbf644c80243f" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/nbf644c80243f" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#11</div>
       <h3 class="card-title">世界はつながったのに、なぜ孤独なのか</h3>
       <p class="card-excerpt">スマホを開けば、誰かの近況が流れてくる。 メッセージを送れば、すぐに返信が来る。 何百人もの「友達」と、いつでもつながれる。</p>
@@ -384,7 +405,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/n1195ea4b52e4" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/n1195ea4b52e4" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#10</div>
       <h3 class="card-title">体の時間は、今も35億年前のままだ</h3>
       <p class="card-excerpt">休日の朝、目覚ましをかけ忘れた。 でも、ふと目が覚めた。 窓の外が、明るくなっていた。</p>
@@ -395,7 +416,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/nb299d49cfdd2" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/nb299d49cfdd2" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#09</div>
       <h3 class="card-title">AIに、何を問えばいいのか</h3>
       <p class="card-excerpt">何かを調べようとして、検索窓の前で止まったことがある。 知りたいことはある。でも——なんて入力すればいいのか、わからない。</p>
@@ -406,7 +427,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator/n/n669e2df9e9e9" target=_blank rel="noopener noreferrer" class="note-card">
+    <a href="https://note.com/manabimapcreator/n/n669e2df9e9e9" target="_blank" rel="noopener noreferrer" class="note-card">
       <div class="card-num">#08</div>
       <h3 class="card-title">あのアイデア、本当に自分が思いついたのか</h3>
       <p class="card-excerpt">会議で何かを言った。 「いいね」と言われた。</p>
@@ -417,82 +438,82 @@ a { color: inherit; text-decoration: none; }
       </div>
     </a>
 
-    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
-      <div class="card-num">#07</div>
+    <div class="note-card note-card--unpublished">
+      <div class="card-num">#07 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">「わかってもらえた」は、ただの確率かもしれない</h3>
       <p class="card-excerpt">テスト前夜、教科書をひたすら眺めた記憶がある。 「よし、覚えた」と思って、翌日答えを書いた。 正解だった。</p>
       <div class="card-tags"><span class="tag">第8部第3話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-24</span>
-        <span class="card-link">noteで読む →</span>
+        <span class="card-link card-link--dim">近日公開</span>
       </div>
-    </a>
+    </div>
 
-    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
-      <div class="card-num">#06</div>
+    <div class="note-card note-card--unpublished">
+      <div class="card-num">#06 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">追い出された場所から、次の時代が生まれる。</h3>
       <p class="card-excerpt">タグ: #AI #機械学習 #ディープラーニング #進化 #学び #歴史 #人類史</p>
       <div class="card-tags"><span class="tag">第8部第2話「ルールから確率へ」前編・後編</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-24</span>
-        <span class="card-link">noteで読む →</span>
+        <span class="card-link card-link--dim">近日公開</span>
       </div>
-    </a>
+    </div>
 
-    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
-      <div class="card-num">#05</div>
+    <div class="note-card note-card--unpublished">
+      <div class="card-num">#05 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">生成AIは、いったい何を「生成」しているのか。</h3>
       <p class="card-excerpt">タグ: #生成AI #AI #人工知能 #学び #哲学 #人類史 #教育</p>
       <div class="card-tags"><span class="tag">第8部第1話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-23</span>
-        <span class="card-link">noteで読む →</span>
+        <span class="card-link card-link--dim">近日公開</span>
       </div>
-    </a>
+    </div>
 
-    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
-      <div class="card-num">#04</div>
+    <div class="note-card note-card--unpublished">
+      <div class="card-num">#04 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">スマホの中に、80年分の革命が詰まっている。</h3>
       <p class="card-excerpt">スマホを毎日使っていますか？</p>
       <div class="card-tags"><span class="tag">#デジタル革命</span><span class="tag">#インターネット</span><span class="tag">#歴史</span><span class="tag">#テクノロジー</span><span class="tag">#教育</span><span class="tag">#学び</span><span class="tag">#人類史</span></div>
       <div class="card-footer">
         
-        <span class="card-link">noteで読む →</span>
+        <span class="card-link card-link--dim">近日公開</span>
       </div>
-    </a>
+    </div>
 
-    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
-      <div class="card-num">#03</div>
+    <div class="note-card note-card--unpublished">
+      <div class="card-num">#03 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">ChatGPTに同じことを聞くと、なぜ毎回答えが違うのか。</h3>
       <p class="card-excerpt">ChatGPTに同じ質問を2回したことはありますか？</p>
       <div class="card-tags"><span class="tag">#生成AI</span><span class="tag">#ChatGPT</span><span class="tag">#検索</span><span class="tag">#AI</span><span class="tag">#教育</span><span class="tag">#学び</span></div>
       <div class="card-footer">
         
-        <span class="card-link">noteで読む →</span>
+        <span class="card-link card-link--dim">近日公開</span>
       </div>
-    </a>
+    </div>
 
-    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
-      <div class="card-num">#02</div>
+    <div class="note-card note-card--unpublished">
+      <div class="card-num">#02 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">「機械に仕事を奪われる」という恐怖は、200年前にもあった。</h3>
       <p class="card-excerpt">「AIに仕事を奪われる」という言葉を、最近よく耳にします。</p>
       <div class="card-tags"><span class="tag">#産業革命</span><span class="tag">#歴史</span><span class="tag">#AI</span><span class="tag">#教育</span><span class="tag">#仕事</span><span class="tag">#人類史</span><span class="tag">#学び</span></div>
       <div class="card-footer">
         
-        <span class="card-link">noteで読む →</span>
+        <span class="card-link card-link--dim">近日公開</span>
       </div>
-    </a>
+    </div>
 
-    <a href="https://note.com/manabimapcreator" target=_blank rel="noopener noreferrer" class="note-card">
-      <div class="card-num">#01</div>
+    <div class="note-card note-card--unpublished">
+      <div class="card-num">#01 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">ChatGPTが登場するまで、人類に何があったのか。</h3>
       <p class="card-excerpt">「なぜ学ぶのか」という問いに、うまく答えられますか？</p>
       <div class="card-tags"><span class="tag">#生成AI</span><span class="tag">#ChatGPT</span><span class="tag">#教育</span><span class="tag">#人類史</span><span class="tag">#学び</span><span class="tag">#AI</span></div>
       <div class="card-footer">
         
-        <span class="card-link">noteで読む →</span>
+        <span class="card-link card-link--dim">近日公開</span>
       </div>
-    </a>
+    </div>
   </div>
 </section>
 
