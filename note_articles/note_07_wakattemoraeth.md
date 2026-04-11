@@ -3,7 +3,7 @@
 **対象**: 第8部第3話（前編・後編）
 **保存日**: 2026-03-24
 
-**URL**:
+**URL**: https://note.com/manabimapcreator/n/n92652d8bad4c
 ---
 
 ## 記事

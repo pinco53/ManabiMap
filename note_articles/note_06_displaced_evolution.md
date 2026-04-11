@@ -3,7 +3,7 @@
 **対象**: 第8部第2話「ルールから確率へ」前編・後編
 **保存日**: 2026-03-24
 
-**URL**:
+**URL**: https://note.com/manabimapcreator/n/nf03fbdb50e71
 ---
 
 ## 記事
