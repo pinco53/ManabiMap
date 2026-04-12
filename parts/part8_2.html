@@ -9,8 +9,8 @@
 
   body {
     font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif;
-    background: #faf8f2;
-    color: #2a1f0e;
+    background: #f4faf6;
+    color: #1a2a1a;
     font-size: 13px;
     line-height: 1.85;
   }
@@ -23,10 +23,12 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(160deg, #0a1a0f 0%, #1a3a20 45%, #2a5a30 100%);
-    color: #f0f5e8;
+    color: #e8f5ec;
     text-align: center;
     padding: 60px 40px;
+    page-break-after: always;
   }
+
   .cover-series {
     font-size: 11px;
     letter-spacing: 0.35em;
@@ -34,20 +36,23 @@
     margin-bottom: 24px;
     text-transform: uppercase;
   }
+
   .cover-title {
     font-size: 48px;
     font-weight: 700;
     letter-spacing: 0.05em;
     line-height: 1.25;
     margin-bottom: 16px;
-    color: #f0f5e8;
+    color: #e8f5ec;
   }
+
   .cover-subtitle {
     font-size: 15px;
     color: #7ec87e;
     margin-bottom: 52px;
     letter-spacing: 0.12em;
   }
+
   .cover-chapter {
     border: 1px solid #7ec87e;
     padding: 14px 44px;
@@ -56,151 +61,638 @@
     letter-spacing: 0.2em;
     margin-bottom: 52px;
   }
+
   .cover-tagline {
     font-size: 14px;
-    color: #c8e8c8;
+    color: #b8dcb8;
     max-width: 560px;
     line-height: 2.2;
   }
+
   .cover-tagline em {
     font-style: normal;
     color: #7ec87e;
     font-weight: 700;
   }
+
   .cover-divider {
     width: 60px;
     height: 1px;
-    background: #7ec87e;
-    margin: 40px auto;
-    opacity: 0.4;
+    background: #4a8a5a;
+    margin: 36px auto;
   }
+
   .cover-note {
     font-size: 10px;
-    color: rgba(126,200,126,0.5);
-    letter-spacing: 0.1em;
+    color: #4a6a4a;
+    letter-spacing: 0.15em;
   }
 
-  /* ========== PAGE ========== */
+  /* ========== PAGES ========== */
   .page {
-    max-width: 860px;
+    max-width: 880px;
     margin: 0 auto;
-    padding: 60px 40px;
-    border-bottom: 1px solid #e8e0d0;
+    padding: 64px 68px;
+    page-break-after: always;
   }
-  .page:last-of-type { border-bottom: none; }
 
+  .page:last-child { page-break-after: auto; }
+
+  /* ========== SECTION HEADER ========== */
   .section-label {
     font-size: 10px;
     letter-spacing: 0.4em;
-    color: #7ec87e;
+    color: #2a6040;
     text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .page-title {
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    line-height: 1.4;
-    margin-bottom: 24px;
-    color: #1a3a20;
-  }
-  .lead {
-    font-size: 14px;
-    line-height: 2.1;
-    color: #3a2f1e;
-    margin-bottom: 32px;
-    max-width: 700px;
+    margin-bottom: 6px;
   }
 
-  /* ========== EPISODE CARDS ========== */
-  .episode-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
-    margin: 32px 0;
-  }
-  .episode-card {
-    background: #fff;
-    border: 1px solid #e0d8c8;
-    border-radius: 10px;
-    padding: 24px;
-    position: relative;
-  }
-  .episode-card--upcoming {
-    opacity: 0.55;
-  }
-  .ep-num {
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    color: #7ec87e;
-    margin-bottom: 8px;
-  }
-  .ep-title {
-    font-size: 15px;
+  .section-title {
+    font-size: 26px;
     font-weight: 700;
-    color: #1a3a20;
-    line-height: 1.5;
-    margin-bottom: 10px;
+    color: #1a2a1a;
+    margin-bottom: 6px;
+    border-bottom: 2px solid #4a9a60;
+    padding-bottom: 12px;
   }
-  .ep-theme {
-    font-size: 11px;
-    color: #888;
+
+  .section-intro {
+    font-size: 13px;
+    color: #2a3a2a;
+    margin: 20px 0 32px;
+    line-height: 2.0;
+  }
+
+  /* ========== ESSAY BOX ========== */
+  .essay-box {
+    background: linear-gradient(135deg, #f2faf4 0%, #e8f4ec 100%);
+    border-left: 5px solid #2a8050;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .essay-box h3 {
+    font-size: 14px;
+    color: #1a4a28;
+    margin-bottom: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .essay-box p {
+    font-size: 13px;
+    color: #1a2a18;
+    line-height: 2.0;
     margin-bottom: 12px;
   }
-  .ep-parts {
-    list-style: none;
-    font-size: 12px;
-    color: #555;
-    line-height: 1.9;
-    border-top: 1px solid #e8e0d0;
-    padding-top: 10px;
-    margin-top: 10px;
+
+  .essay-box p:last-child { margin-bottom: 0; }
+
+  /* ========== FAULT LINE VISUAL ========== */
+  .fault-visual {
+    margin: 36px 0;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: 0 4px 20px rgba(20,70,40,0.12);
+    border-radius: 8px;
+    overflow: hidden;
   }
-  .ep-parts li::before { content: "▶ "; color: #7ec87e; font-size: 9px; }
-  .badge-upcoming {
+
+  .fault-left {
+    flex: 1;
+    background: linear-gradient(160deg, #f5ead0, #e4d090);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .fault-right {
+    flex: 1;
+    background: linear-gradient(160deg, #d0ecd8, #90c8a8);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .fault-center {
+    width: 72px;
+    background: linear-gradient(180deg, #50a870, #208050, #50a870);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    box-shadow: -4px 0 16px rgba(30,130,70,0.35), 4px 0 16px rgba(30,130,70,0.35);
+    z-index: 1;
+  }
+
+  .fault-side-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2a1f0e;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  .fault-side-desc {
+    font-size: 12px;
+    color: #3a2a10;
+    line-height: 2.0;
+    text-align: left;
+  }
+
+  .fault-side-desc li {
+    list-style: none;
+    padding-left: 1.2em;
+    position: relative;
+    margin-bottom: 4px;
+  }
+
+  .fault-side-desc li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #2a7040;
+    font-size: 10px;
+    top: 2px;
+  }
+
+  /* ========== CENTRAL QUESTION ========== */
+  .central-question {
+    background: linear-gradient(135deg, #f0faf4, #e4f4e8);
+    border: 2px solid #4a9a60;
+    border-radius: 8px;
+    padding: 32px 36px;
+    text-align: center;
+    margin: 32px 0;
+  }
+
+  .cq-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    color: #2a6040;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .cq-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a2a1a;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .cq-sub {
+    font-size: 12.5px;
+    color: #2a4020;
+    line-height: 2.0;
+  }
+
+  /* ========== HISTORY TIMELINE ========== */
+  .timeline {
+    margin: 28px 0;
+    position: relative;
+    padding-left: 0;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 0;
+    margin-bottom: 2px;
+  }
+
+  .tl-year {
+    font-size: 12px;
+    font-weight: 700;
+    color: #2a6040;
+    padding: 14px 16px 14px 0;
+    text-align: right;
+    border-right: 3px solid #4a9a60;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .tl-year::after {
+    content: '';
+    position: absolute;
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 11px;
+    background: #2a8050;
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+
+  .tl-content {
+    padding: 14px 0 14px 20px;
+    border-bottom: 1px solid #d8ece0;
+  }
+
+  .tl-content:last-child { border-bottom: none; }
+
+  .tl-event {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #1a2a1a;
+    margin-bottom: 4px;
+  }
+
+  .tl-desc {
+    font-size: 12px;
+    color: #2a4020;
+    line-height: 1.85;
+  }
+
+  .tl-tag {
+    display: inline-block;
+    background: #e8f4ec;
+    border: 1px solid #80c8a0;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #1a5030;
+    padding: 2px 7px;
+    margin-right: 5px;
+    margin-top: 4px;
+  }
+
+  .tl-tag.blue { background: #e0f0f8; border-color: #90c4e8; color: #2060a0; }
+  .tl-tag.amber { background: #fef4d8; border-color: #e8c87a; color: #8a5010; }
+  .tl-tag.red { background: #f8e0e0; border-color: #e89090; color: #a02020; }
+
+  /* ========== EPISODE CARDS ========== */
+  .episode-card {
+    background: #fff;
+    border: 1px solid #a0c8b0;
+    border-radius: 8px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(20,90,40,0.08);
+  }
+
+  .episode-header {
+    padding: 16px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .ep6 .episode-header { background: linear-gradient(100deg, #143a20, #246a38); }
+  .ep7 .episode-header { background: linear-gradient(100deg, #0a2a3a, #1a4a5a); }
+
+  .episode-number {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.25em;
+    margin-bottom: 3px;
+  }
+
+  .episode-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .episode-lead {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+  }
+
+  .episode-body {
+    padding: 22px 24px;
+    border-bottom: 1px solid #d8ece0;
+  }
+
+  .episode-body p {
+    font-size: 12.5px;
+    color: #1a2a18;
+    line-height: 2.0;
+    margin-bottom: 12px;
+  }
+
+  .episode-body p:last-child { margin-bottom: 0; }
+
+  .episode-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed #b8d8c0;
+  }
+
+  .col-label {
+    font-size: 9.5px;
+    letter-spacing: 0.25em;
+    color: #2a6040;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .col-content {
+    font-size: 12px;
+    color: #1a2a18;
+    line-height: 1.9;
+  }
+
+  .col-content li {
+    list-style: none;
+    padding-left: 1em;
+    position: relative;
+    margin-bottom: 5px;
+  }
+
+  .col-content li::before {
+    content: '・';
+    position: absolute;
+    left: 0;
+    color: #2a8050;
+  }
+
+  .episode-footer {
+    padding: 16px 24px;
+    background: #f4faf6;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .footer-section { flex: 1; }
+
+  .footer-label {
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    color: #2a6040;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  .question-text {
+    font-size: 12.5px;
+    color: #1a2a1a;
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .keyword-tag {
+    background: #e0f0e8;
+    border: 1px solid #80c8a0;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #1a5030;
+    padding: 3px 10px;
+  }
+
+  /* ========== ARGUMENT SECTION ========== */
+  .argument-heading {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a3020;
+    margin: 36px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #4a9a60;
+  }
+
+  .argument-body {
+    font-size: 13px;
+    color: #1a2a1a;
+    line-height: 2.1;
+    margin-bottom: 20px;
+  }
+
+  .pull-quote {
+    border-left: 4px solid #2a8050;
+    margin: 24px 0 24px 16px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-style: italic;
+    color: #1a4028;
+    line-height: 1.9;
+    background: #f4faf6;
+  }
+
+  /* ========== GLOSSARY ========== */
+  .glossary-item {
+    background: #fff;
+    border: 1px solid #a0c8b0;
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    break-inside: avoid;
+  }
+
+  .glossary-term {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a4a28;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .glossary-kana {
+    font-size: 11px;
+    font-weight: 400;
+    color: #3a7050;
+    letter-spacing: 0.05em;
+  }
+
+  .glossary-en {
+    font-size: 11px;
+    font-weight: 400;
+    color: #2a6040;
+    font-style: italic;
+    margin-left: auto;
+  }
+
+  .glossary-def {
+    font-size: 12.5px;
+    color: #1a2a18;
+    line-height: 1.9;
+    margin-top: 8px;
+  }
+
+  .glossary-note {
+    font-size: 11.5px;
+    color: #3a5a30;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #b8d8c0;
+    line-height: 1.8;
+  }
+
+  /* ========== DISCUSSION QUESTIONS ========== */
+  .discussion-q {
+    counter-reset: qnum;
+    margin: 20px 0;
+  }
+
+  .d-item {
+    counter-increment: qnum;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #d8ece0;
+  }
+
+  .d-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .d-num {
+    width: 28px;
+    height: 28px;
+    background: #2a8050;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .d-text {
+    font-size: 13px;
+    color: #1a2a1a;
+    line-height: 1.9;
+  }
+
+  .d-hint {
+    font-size: 11.5px;
+    color: #3a5a30;
+    margin-top: 5px;
+    line-height: 1.75;
+  }
+
+  /* ========== BRIDGE BOX ========== */
+  .bridge-box {
+    background: linear-gradient(135deg, #1a3a2a, #2a5a40);
+    color: #d4f0e8;
+    padding: 28px 32px;
+    border-radius: 8px;
+    margin-top: 32px;
+  }
+
+  .bridge-label {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    color: #80c8a8;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .bridge-text {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.7;
+    color: #e8f8f0;
+    margin-bottom: 10px;
+  }
+
+  .bridge-sub {
+    font-size: 12.5px;
+    color: #90c8b0;
+    line-height: 1.95;
+  }
+
+  /* ========== UPCOMING CARDS ========== */
+  .upcoming-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    margin: 24px 0;
+  }
+
+  .upcoming-card {
+    background: #f4faf6;
+    border: 1px dashed #80c8a0;
+    border-radius: 8px;
+    padding: 20px;
+    opacity: 0.72;
+  }
+
+  .upcoming-badge {
     display: inline-block;
     font-size: 9px;
     padding: 2px 8px;
     border-radius: 10px;
-    background: #f0f0e8;
-    color: #aaa;
+    background: #d0e8d8;
+    color: #2a6040;
     letter-spacing: 0.1em;
-    margin-left: 6px;
-    vertical-align: middle;
+    margin-bottom: 10px;
   }
 
-  /* ========== CHAPTER AXIS ========== */
-  .axis-box {
-    background: linear-gradient(135deg, #0a1a0f, #1a3a20);
-    color: #c8e8c8;
-    border-radius: 12px;
-    padding: 32px 36px;
-    margin: 32px 0;
+  .upcoming-num {
+    font-size: 10px;
+    color: #2a6040;
+    letter-spacing: 0.3em;
+    margin-bottom: 6px;
   }
-  .axis-box h3 {
+
+  .upcoming-title {
     font-size: 14px;
-    color: #7ec87e;
-    letter-spacing: 0.2em;
-    margin-bottom: 16px;
-  }
-  .axis-box p {
-    font-size: 13px;
-    line-height: 2;
-    color: #c8e8c8;
-  }
-  .axis-box em {
-    font-style: normal;
-    color: #7ec87e;
     font-weight: 700;
+    color: #1a3a20;
+    margin-bottom: 8px;
   }
 
-  /* ========== NAV LINKS ========== */
+  .upcoming-theme {
+    font-size: 11px;
+    color: #3a5a40;
+    margin-bottom: 10px;
+  }
+
+  .upcoming-parts {
+    list-style: none;
+    font-size: 11px;
+    color: #3a5a40;
+    line-height: 1.9;
+    border-top: 1px solid #c0d8c8;
+    padding-top: 8px;
+  }
+
+  .upcoming-parts li::before { content: "▶ "; color: #4a9a60; font-size: 9px; }
+
+  /* ========== FOOTER ========== */
+  .doc-footer {
+    text-align: center;
+    padding: 28px 0 10px;
+    font-size: 10.5px;
+    color: #2a6040;
+    letter-spacing: 0.15em;
+    border-top: 1px solid #a0c8b0;
+    margin-top: 48px;
+  }
+
+  /* ========== CHAPTER NAV ========== */
   .chapter-nav {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
     padding: 40px 40px 20px;
-    max-width: 860px;
+    max-width: 880px;
     margin: 0 auto;
   }
   .chapter-nav a {
@@ -210,8 +702,8 @@
     letter-spacing: 0.05em;
     transition: color 0.2s;
   }
-  .chapter-nav a:hover { color: #1a3a20; }
-  .chapter-nav a.prev { color: #7ec87e; }
+  .chapter-nav a:hover { color: #1a4028; }
+  .chapter-nav a.prev { color: #4a9a60; }
 
   /* ========== YT SECTION ========== */
   .yt-section {
@@ -316,11 +808,27 @@
     letter-spacing: 0.05em;
   }
   .yt-back-link:hover { color: #aaa; }
+
+  /* ========== PRINT ========== */
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 40px 50px; }
+    .episode-card { box-shadow: none; }
+    .fault-visual { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .essay-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .bridge-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @page { size: A4; margin: 15mm 15mm; }
+
   @media (max-width: 600px) {
     .yt-section { padding: 32px 20px; }
     .yt-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .cover-title { font-size: 32px; }
     .page { padding: 40px 24px; }
+    .upcoming-grid { grid-template-columns: 1fr; }
+    .episode-cols { grid-template-columns: 1fr; }
   }
 </style>
 <!-- Google Analytics -->
@@ -352,86 +860,466 @@
   <div class="cover-note">本資料は動画の補足資料です。無断転載・商用利用はご遠慮ください。</div>
 </div>
 
-<!-- ================ PAGE 1: 第二章の軸 ================ -->
-<div class="page">
-  <div class="section-label">Chapter II Overview</div>
-  <h1 class="page-title">第二章が問うこと</h1>
-  <p class="lead">
-    第一章では、AIがどう生まれたかを辿った。生成という仕組み、確率という言語、「考えているように見える」という謎。<br><br>
-    第二章では、その問いを社会へと持ち出す。AIが日常に入り込んだとき、私たちの「考える」はどう変わるのか。
-    宿題、試験、創作、仕事。これまで「人間がやること」だと思われていた領域で、何が起きているのか。
-  </p>
 
-  <div class="axis-box">
-    <h3>第二章の軸：教育・学力・思考の所有</h3>
+<!-- ================ PAGE 1: 序論 ================ -->
+<div class="page">
+  <div class="section-label">Introduction</div>
+  <div class="section-title">この章で問われていること</div>
+
+  <div class="section-intro">
+    第一章では、AIがどう生まれたかを辿った。1950年代の記号処理から、機械学習の台頭、ディープラーニング革命、そして「生成という断層」へ。しかし歴史の問いは、現在を生きる問いに接続されなければならない。第二章は、そのバトンを受け取る。
+  </div>
+
+  <div class="essay-box">
+    <h3>なぜ「社会」から問うのか</h3>
     <p>
-      「AIを使うと考えなくなる」という恐れは本当か。<br>
-      「学力」という概念は、AIの登場でどう揺らいだのか。<br>
-      「これは誰の考えか」という問いは、どこまで深くなるのか。<br><br>
-      散漫に広がらず、<em>教育と思考の所有</em>という一本の軸で、5話を貫く。
+      技術の変化がどれほど深いものであっても、それが問題になるのは「人間の営みに触れる」瞬間だ。ChatGPTが登場した2022年から、学校の宿題、企業の採用、医療の診断、文学の創作——これまで人間が「自分の仕事」だと思ってきた領域に、AIが静かに入り込んだ。
+    </p>
+    <p>
+      第二章が「教育」から問いを立てるのには理由がある。学校は社会の縮図だ。「何を学ぶか」「何を評価するか」という問いは、「社会が何に価値を置くか」という問いに直結している。AIが読書感想文を書き、AIが共通テストで高得点を出す時代に、私たちは何を子どもたちに伝えるべきか——この問いは、誰にとっても他人事ではない。
+    </p>
+    <p>
+      5つのエピソードを貫く軸は一本だ。「思考の所有」。考えることが、ますます外部化されていく世界で、「自分で考える」ことの意味をどう再定義するか。
     </p>
   </div>
+
+  <div class="argument-heading">第一章から第二章へ ── バトンの在り処</div>
+  <p class="argument-body">
+    第一章の最後に、おじいさんはこう言った。「知識が外へ出たとき、世界は変わったのか。」この問いは、技術の問いでもあるが、同時に人間の問いだ。印刷機が登場したとき、書物は希少品から日用品へと変わった。インターネットが普及したとき、知識へのアクセスは特権から権利へと変わった。そして今、生成AIが登場した。
+  </p>
+  <p class="argument-body">
+    変化するたびに、社会は同じ問いに直面してきた。「考えること」の核心はどこにあるのか。写本僧が不要になっても、書くことの価値は消えなかった。図書館が普及しても、記憶する価値は消えなかった。では、AIが生成する時代に——何が残るか。
+  </p>
+
+  <div class="pull-quote">
+    「指示したのはぼく」という声と、「感じたのはぼくだ」という声が、<br>
+    同時に胸の中にあった。どちらも本当だった。<br>
+    だから——どちらが正しいかではなく、どちらがぼくを動かすかを、<br>
+    ハルは、まだ知らなかった。
+  </div>
+
+  <p class="argument-body">
+    第二章は、その「知らなかった」からはじまる。答えを教える章ではない。問いを深くする章だ。
+  </p>
+
+  <div class="doc-footer">ハルとおじいさん｜第8部 第二章 学びの地図　― 補足資料 ―</div>
 </div>
 
-<!-- ================ PAGE 2: 話別マップ ================ -->
+
+<!-- ================ PAGE 2: 第二章の軸 ================ -->
 <div class="page">
-  <div class="section-label">Episode Map</div>
-  <h2 class="page-title">第二章 全5話の構成</h2>
+  <div class="section-label">Chapter Axis</div>
+  <div class="section-title">第二章の軸 ── 思考の所有という問題</div>
 
-  <div class="episode-grid">
+  <div class="section-intro">
+    第二章を貫く一本の問い：AIが「代わりに考える」とき、そこに何が起きているのか。代替か、拡張か。この問いを、教育・学力・社会の文脈で展開する。
+  </div>
 
-    <div class="episode-card">
-      <div class="ep-num">#8-6</div>
-      <div class="ep-title">宿題の違和感</div>
-      <div class="ep-theme">思考の所有という問題</div>
-      <ul class="ep-parts">
-        <li>前編：AIとの共作で何が起きるのか</li>
-        <li>後編：これは誰の考えか</li>
-      </ul>
+  <div class="fault-visual">
+    <div class="fault-left">
+      <div class="fault-side-title">代替（Replacement）</div>
+      <div class="fault-side-desc">
+        <ul>
+          <li>AIが「やってくれる」</li>
+          <li>考えるプロセスをスキップ</li>
+          <li>結果は得られる</li>
+          <li>しかし、ハルは変わらない</li>
+          <li>苦労しないから——扉が開かない</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fault-center">境界線</div>
+    <div class="fault-right">
+      <div class="fault-side-title">拡張（Augmentation）</div>
+      <div class="fault-side-desc">
+        <ul>
+          <li>AIを「先生として使う」</li>
+          <li>考えるプロセスを補助</li>
+          <li>結果も、ハルも育つ</li>
+          <li>「どう書けばいい？」と問う</li>
+          <li>問いを立てながら、自分で書く</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="argument-heading">「先生は、あなたの代わりに考えない」</div>
+  <p class="argument-body">
+    第6話後編でおじいさんが言ったこの言葉は、AIの使い方を問い直す核心だ。先生の役割は「答えを渡すこと」ではなく、「考えることを助けること」だ。ならばAIも、同じように使えるはずだ——しかし、そのためには使い手の側に「問いを立てる意志」が必要になる。
+  </p>
+  <p class="argument-body">
+    この構造は、試験の問題にも接続する。認知能力（測れる思考）と非認知能力（測れない思考）のあいだに、橋を架けるものは何か。第7話のおじいさんは「問いを立てる力」と呼んだ。それは認知能力のように形式化できない。しかし、非認知能力のように感情的でもない。問いを立てることは——考えることの核心に近い何かだ。
+  </p>
+
+  <div class="central-question">
+    <div class="cq-label">Central Question of Chapter II</div>
+    <div class="cq-text">
+      AIが「考える」を担う時代に、<br>人間が「考える」ことの意味はどこにあるか。
+    </div>
+    <div class="cq-sub">
+      宿題・試験・学力——これらは評価の手段から、存在の問いへと変わりつつある。<br>
+      「使いこなす力」だけでなく、「問いを立てる力」が、これからの時代の鍵になる。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第8部 第二章 学びの地図　― 補足資料 ―</div>
+</div>
+
+
+<!-- ================ PAGE 3: EPISODE 6 ================ -->
+<div class="page">
+  <div class="section-label">Episode 06</div>
+  <div class="section-title">各話の詳解 ── 第6話</div>
+  <div class="section-intro">第二章の最初の問いは、最も身近な場所から始まる。宿題の机の上で。</div>
+
+  <div class="episode-card ep6">
+    <div class="episode-header">
+      <div>
+        <div class="episode-number">EPISODE 06</div>
+        <div class="episode-title">宿題の違和感</div>
+        <div class="episode-lead">「これは誰の考えか」——ハルの机に、問いが落ちた</div>
+      </div>
+    </div>
+    <div class="episode-body">
+      <p>
+        放課後、ハルの机の上には真っ白な原稿用紙があった。読書感想文の宿題だ。本は読んだ。でも——何を書けばいいのかわからない。そのとき、ハルの頭にある考えが浮かんだ。「AIに聞いてみよう。」
+      </p>
+      <p>
+        画面に文章が流れた。なめらかに、よどみなく。ハルはAIの書いた文章を読んで、思わず「天才？」と声を漏らした。感動している。AIの文章に——自分が。少しだけ直して、提出した。同じころ、日本中の子どもたちが、同じ夜に、同じことをしていた。
+      </p>
+      <p>
+        おじいさんが問いかけた。「ほう。宿題かね。……これは誰が書いたのかね？」ハルは答えた。「指示したのは私だから、私が書いたと思う。」おじいさんは、すぐには答えなかった。その沈黙の中に、第6話の問いが宿っている。
+      </p>
+      <p>
+        後編で翌朝、ハルは自分で書き直した紙を前に、おじいさんに問う。「全部AIに頼むのって——悪いこと？」おじいさんは「悪い——とは言えない」と答えながら、別の問いを立てた。「自分で書き直しているとき——どんなことが、起きたかね？」ハルは思い返す。また本を読み返した。好きだった場面を、もう一回確かめたくなって。「AIのときは——そうならなかった。」
+      </p>
+      <div class="episode-cols">
+        <div>
+          <div class="col-label">前編の焦点</div>
+          <div class="col-content">
+            <ul>
+              <li>AIで感想文を書くハルの一夜</li>
+              <li>日本中の子どもが同じことをした日</li>
+              <li>「指示したのは私」——思考の所有の問い</li>
+              <li>おじいさんの沈黙が意味するもの</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="col-label">後編の焦点</div>
+          <div class="col-content">
+            <ul>
+              <li>自分で書き直したとき何が起きたか</li>
+              <li>苦労が開く扉、楽さが閉ざす扉</li>
+              <li>「代替」vs「拡張」の構造</li>
+              <li>「どう書けばいい？」と聞きながら書く</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="episode-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">「考えること」は結果か、プロセスか。どちらが「ハルを変えた」のか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">思考の所有</span>
+          <span class="keyword-tag">代替 vs 拡張</span>
+          <span class="keyword-tag">苦労と成長</span>
+          <span class="keyword-tag">問いを立てる</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="argument-heading">「苦労したとき、扉が開いた」という構造</div>
+  <p class="argument-body">
+    第6話後編でナレーターが語る一節は印象的だ。「苦労したとき——扉が開いた。うまくいったとき——扉は、開かなかった。」これは道徳的な教訓ではない。認知科学の知見に近い。人間は困難に直面したとき、既存の思考の枠組みを能動的に更新する。ハルが本を読み返し、好きな場面を確かめたくなったのは、感想文を書くという問いが、本との関係を組み替えたからだ。
+  </p>
+  <p class="argument-body">
+    AIが感想文を書いたとき、この「組み替え」は起きなかった。結果は同じでも、ハルの中で起きたことが違う。これが「代替」と「拡張」の分岐点だ。道具としてのAIの使い方は、使う前に「問いを立てるか否か」で決まる。「書いて」と命じるのか、「どう書けばいい？」と問うのか——その差が、考えることと考えさせることの差になる。
+  </p>
+
+  <div class="pull-quote">
+    「先生は——あなたの代わりに考えない。考えるのを、助けてくれる。」<br>
+    <span style="font-size:11px; display:block; margin-top:8px; color:#2a6040; font-style:normal;">——おじいさん（第8部 第6話後編）</span>
+  </div>
+
+  <p class="argument-body">
+    この言葉は、AIの使い方への問いかけでもある。AIを「先生として使う」とき、それは拡張になる。AIを「代わりに考えてもらう存在」として使うとき、それは代替になる。どちらでも使えるからこそ——どちらで使うかが、問われる。
+  </p>
+
+  <div class="doc-footer">ハルとおじいさん｜第8部 第二章 学びの地図　― 補足資料 ―</div>
+</div>
+
+
+<!-- ================ PAGE 4: EPISODE 7 ================ -->
+<div class="page">
+  <div class="section-label">Episode 07</div>
+  <div class="section-title">各話の詳解 ── 第7話</div>
+  <div class="section-intro">第6話の問いは、次の問いへとつながる。百点のテストが突きつけたこと——「測れるもの」と「測れないもの」の間に、何があるのか。</div>
+
+  <div class="episode-card ep7">
+    <div class="episode-header">
+      <div>
+        <div class="episode-number">EPISODE 07</div>
+        <div class="episode-title">学力とは何か</div>
+        <div class="episode-lead">百点のテストが問いかけてきた——「これは賢さなのか」</div>
+      </div>
+    </div>
+    <div class="episode-body">
+      <p>
+        翌週、ハルは国語のテストで百点を取った。赤い数字を見つめながら、先週の問いがよぎった。「ねえ、おじいさん。テストで百点取ったら、その人って賢いってこと？」おじいさんが応える。「百点、か。面白い問いだね。そもそも試験って、何を測るために作られたんだろう？」
+      </p>
+      <p>
+        試験の歴史は思いのほか古い。約1400年前、中国の隋・唐で始まった科挙——官僚を選ぶために知識を問い続けた最初の標準化試験。20世紀には、フランスのビネーとシモンが知能検査を開発（1905年）し、アメリカでIQスコアが普及した。「人間の能力を数字で示す」という発想の始まりだ。
+      </p>
+      <p>
+        しかし、おじいさんは言う。「試験が得意なのは、決まったルールで表せる思考だ。」言語、計算、記憶——形にできるもの。これが「認知能力」だ。一方、やる気、粘り強さ、協調性——これらは「非認知能力」と呼ばれ、点数にはなりにくい。ハルが問う：「測れないもの、大事じゃないってこと？」おじいさんの答えは静かだった——「どちらが上ではなく、どちらも必要なんだよ。」
+      </p>
+      <p>
+        後編で話は核心へ向かう。ハルが問う：「人間がテストを受ける意味って、何なんだろう。」おじいさんが、ゆっくりと答える——「問いの答えを出す力、じゃないかもしれない。問いを立てる力——そっちのほうが、大事なのかも。」そして自ら付け加えた：「……でも、それも、証明はできないね。」
+      </p>
+      <div class="episode-cols">
+        <div>
+          <div class="col-label">前編の焦点</div>
+          <div class="col-content">
+            <ul>
+              <li>試験の歴史（科挙→IQ→標準化テスト）</li>
+              <li>認知能力と非認知能力の二分法</li>
+              <li>試験が「照らせる部分」と「影の部分」</li>
+              <li>道具には得意なことと苦手なことがある</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="col-label">後編の焦点</div>
+          <div class="col-content">
+            <ul>
+              <li>測れないものを知る方法——体験</li>
+              <li>AIは試験が「得意」という問いかけ</li>
+              <li>人間がテストを受ける意味</li>
+              <li>「問いを立てる力」という答えと自己否定</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="episode-footer">
+      <div class="footer-section">
+        <div class="footer-label">核心の問い</div>
+        <div class="question-text">AIが試験で高得点を出せるなら、人間が試験を受ける意味はどこにあるのか。「問いを立てる力」は、測れるものか。</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-label">キーワード</div>
+        <div class="keywords">
+          <span class="keyword-tag">認知能力</span>
+          <span class="keyword-tag">非認知能力</span>
+          <span class="keyword-tag">試験の歴史</span>
+          <span class="keyword-tag">問いを立てる力</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="argument-heading">試験という「光の当て方」の歴史</div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">7世紀</div>
+      <div class="tl-content">
+        <div class="tl-event">科挙の始まり（中国・隋唐）</div>
+        <div class="tl-desc">
+          家柄ではなく知識で官僚を選ぶ制度。四書五経の暗記・作詩能力を問う。「測れる知識で人を評価する」という発想の原型。約1300年続いた（清朝末期廃止）。
+        </div>
+        <div><span class="tl-tag">記述式</span><span class="tl-tag">知識の形式化</span></div>
+      </div>
     </div>
 
-    <div class="episode-card">
-      <div class="ep-num">#8-7</div>
-      <div class="ep-title">学力とは何か</div>
-      <div class="ep-theme">測定の限界と人間の価値</div>
-      <ul class="ep-parts">
-        <li>前編：試験が測るものとは何か</li>
-        <li>後編：測れないものの価値</li>
-      </ul>
+    <div class="tl-item">
+      <div class="tl-year">1905年</div>
+      <div class="tl-content">
+        <div class="tl-event">ビネー＝シモン知能検査（フランス）</div>
+        <div class="tl-desc">
+          特別な教育支援が必要な子どもを識別するために開発。「精神年齢」という概念を導入。知能を数値化する最初の試み。その後アメリカでIQ（知能指数）概念に発展した。
+        </div>
+        <div><span class="tl-tag blue">知能測定</span><span class="tl-tag blue">IQ</span></div>
+      </div>
     </div>
 
-    <div class="episode-card episode-card--upcoming">
-      <div class="ep-num">#8-8 <span class="badge-upcoming">制作予定</span></div>
-      <div class="ep-title">共通テストの衝撃</div>
-      <div class="ep-theme">社会的震撼</div>
-      <ul class="ep-parts">
+    <div class="tl-item">
+      <div class="tl-year">20世紀前半</div>
+      <div class="tl-content">
+        <div class="tl-event">標準化テストの普及（アメリカ）</div>
+        <div class="tl-desc">
+          第一次世界大戦の兵士選別（アーミーα・βテスト）をきっかけに、大規模集団への標準化試験が普及。大学入試・職業適性検査への応用が広がる。「大勢を効率的に比較する道具」としてのテストが確立した。
+        </div>
+        <div><span class="tl-tag blue">標準化</span><span class="tl-tag blue">集団比較</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1960年代〜</div>
+      <div class="tl-content">
+        <div class="tl-event">非認知能力研究の台頭</div>
+        <div class="tl-desc">
+          ジェームズ・ヘックマンらの研究で、幼少期の非認知的スキル（やり抜く力・協調性・自己制御）が将来の所得・健康・幸福を左右することが示される。「テストで測れるものがすべてではない」という認識が広まった。
+        </div>
+        <div><span class="tl-tag">非認知能力</span><span class="tl-tag">グリット</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">2023年〜</div>
+      <div class="tl-content">
+        <div class="tl-event">AIが高得点を出す時代</div>
+        <div class="tl-desc">
+          GPT-4が司法試験・医師国家試験・共通テストなど多くの標準化試験で人間の上位10〜30%の水準に到達。「形式化できる思考」の評価手段としての試験が、AIの得意領域と重なった。問いを立てる側には——まだなれない。
+        </div>
+        <div><span class="tl-tag red">歴史的転換点</span><span class="tl-tag blue">GPT-4</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    「問いの答えを出す力、じゃないかもしれない。<br>
+    問いを立てる力——そっちのほうが、大事なのかも。」<br>
+    <span style="font-size:11px; display:block; margin-top:8px; color:#2a6040; font-style:normal;">——おじいさん（第8部 第7話後編）</span>
+  </div>
+
+  <p class="argument-body">
+    この言葉の後で、おじいさんはすぐに「……でも、それも、証明はできないね」と付け加えた。証明できない言葉を、証明できないと言いながら言う——その誠実さが、問いの深さを保証している。アインシュタインはその瞬間、部屋の隅で大きくあくびをして、また消えた。
+  </p>
+
+  <div class="doc-footer">ハルとおじいさん｜第8部 第二章 学びの地図　― 補足資料 ―</div>
+</div>
+
+
+<!-- ================ PAGE 5: UPCOMING + QUESTIONS + GLOSSARY ================ -->
+<div class="page">
+  <div class="section-label">Episodes 08 – 10 / Core Questions</div>
+  <div class="section-title">第二章の残り ── 制作中のエピソードと核心の問い</div>
+
+  <div class="section-intro">
+    第8〜10話は現在制作中です。ここでは第二章の全体像と、章を貫く問いを整理します。
+  </div>
+
+  <div class="upcoming-grid">
+    <div class="upcoming-card">
+      <div class="upcoming-badge">制作予定</div>
+      <div class="upcoming-num">EPISODE 08</div>
+      <div class="upcoming-title">共通テストの衝撃</div>
+      <div class="upcoming-theme">社会的震撼</div>
+      <ul class="upcoming-parts">
         <li>前編：AIが高得点を出した日</li>
         <li>後編：人間が解く意味</li>
       </ul>
     </div>
-
-    <div class="episode-card episode-card--upcoming">
-      <div class="ep-num">#8-9 <span class="badge-upcoming">制作予定</span></div>
-      <div class="ep-title">思考は奪われたのか</div>
-      <div class="ep-theme">思考の変化と拡張</div>
-      <ul class="ep-parts">
+    <div class="upcoming-card">
+      <div class="upcoming-badge">制作予定</div>
+      <div class="upcoming-num">EPISODE 09</div>
+      <div class="upcoming-title">思考は奪われたのか</div>
+      <div class="upcoming-theme">思考の変化と拡張</div>
+      <ul class="upcoming-parts">
         <li>前編：創作・研究・仕事の変化</li>
         <li>後編：思考の半径が広がる</li>
       </ul>
     </div>
-
-    <div class="episode-card episode-card--upcoming">
-      <div class="ep-num">#8-10 <span class="badge-upcoming">制作予定</span></div>
-      <div class="ep-title">社会は何を大切にするか</div>
-      <div class="ep-theme">価値の再構築</div>
-      <ul class="ep-parts">
+    <div class="upcoming-card">
+      <div class="upcoming-badge">制作予定</div>
+      <div class="upcoming-num">EPISODE 10</div>
+      <div class="upcoming-title">社会は何を大切にするか</div>
+      <div class="upcoming-theme">価値の再構築</div>
+      <ul class="upcoming-parts">
         <li>前編：教育の再設計</li>
         <li>後編：人間に残るものとは</li>
       </ul>
     </div>
-
   </div>
+
+  <div class="argument-heading">第二章を貫く問い</div>
+
+  <div class="discussion-q">
+    <div class="d-item">
+      <div class="d-num">1</div>
+      <div>
+        <div class="d-text">AIに「書いて」と頼むことと「どう書けばいい？」と問うことは、どう違うか。</div>
+        <div class="d-hint">ヒント：プロセスを委ねるのか、考えることを助けてもらうのか。どちらがハルを変えたか。</div>
+      </div>
+    </div>
+    <div class="d-item">
+      <div class="d-num">2</div>
+      <div>
+        <div class="d-text">試験が「認知能力」しか測れないとすれば、私たちは今まで「何を」評価してきたのか。</div>
+        <div class="d-hint">ヒント：試験は便利な道具だが、道具は得意なことと苦手なことがある。光の当たらない部分に何があるか。</div>
+      </div>
+    </div>
+    <div class="d-item">
+      <div class="d-num">3</div>
+      <div>
+        <div class="d-text">AIが試験で高得点を出せるなら、人間が試験を受けることの意味はどこにあるか。</div>
+        <div class="d-hint">ヒント：「答えを出す力」と「問いを立てる力」のどちらが、人間固有の能力に近いか。</div>
+      </div>
+    </div>
+    <div class="d-item">
+      <div class="d-num">4</div>
+      <div>
+        <div class="d-text">「問いを立てる力」は、測れるか。測れないとしたら、それはどう育てるか。</div>
+        <div class="d-hint">ヒント：おじいさんは「それも証明できない」と言った。証明できないことの価値とは何か。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="argument-heading">第二章のキーワード</div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">
+      思考の所有
+      <span class="glossary-kana">しこうのしょゆう</span>
+      <span class="glossary-en">Ownership of Thought</span>
+    </div>
+    <div class="glossary-def">「これは誰の考えか」という問い。AIが関与した思考や表現物が、どこまで自分のものと言えるかという哲学的・教育的問題。指示・判断・感情のどれが「所有」の基準になるかは定まっていない。</div>
+    <div class="glossary-note">第6話の核心。「指示したのは私」という主張と「書いたのはAI」という事実が同時に成り立つ。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">
+      認知能力
+      <span class="glossary-kana">にんちのうりょく</span>
+      <span class="glossary-en">Cognitive Ability</span>
+    </div>
+    <div class="glossary-def">言語・数学・論理・記憶など、形式化・数値化しやすい知的能力。IQや標準化テストで測定される。AIが現在最も得意とする領域と重なる。</div>
+  </div>
+
+  <div class="glossary-item">
+    <div class="glossary-term">
+      非認知能力
+      <span class="glossary-kana">ひにんちのうりょく</span>
+      <span class="glossary-en">Non-cognitive Ability</span>
+    </div>
+    <div class="glossary-def">やり抜く力（グリット）・好奇心・協調性・自己制御など、テストでは測りにくい能力群。ヘックマンらの研究で、将来の成功に強く相関することが示されている。</div>
+    <div class="glossary-note">第7話の軸。認知能力と対比的に語られるが「どちらが大切か」ではなく「どちらも必要」。</div>
+  </div>
+
+  <div class="bridge-box">
+    <div class="bridge-label">Bridge to Chapter III</div>
+    <div class="bridge-text">
+      社会から、本質へ。<br>
+      第三章は「統計」という言語で、AIを解剖する。
+    </div>
+    <div class="bridge-sub">
+      第二章が問うたのは「人間の側の変化」だった。思考を外部化したとき、人間に何が残るか。<br>
+      第三章は問いを反転させる。AIの側から見ると——それは何を「知っている」のか。<br>
+      確率・統計・ハルシネーション。数式の向こうに、何が見えるか。
+    </div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第8部 第二章 学びの地図　― 補足資料 ―</div>
 </div>
+
 
 <!-- ================ CHAPTER NAV ================ -->
 <div class="chapter-nav">
