@@ -1691,6 +1691,8 @@ function loadThemeVideo(el) {
 
   let particles = [];
   let mouse = { x: -9999, y: -9999 };
+  let mouseVelocity = 0;
+  let lastMouseX = 0, lastMouseY = 0, lastMouseTime = 0;
   let scrollVelocity = 0;
   let lastScrollY = window.scrollY;
 
@@ -1710,12 +1712,14 @@ function loadThemeVideo(el) {
     );
     particles = [];
     for (let i = 0; i < density; i++) {
+      const baseR = Math.random() * 2.2 + 1.0;
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.15,
         vy: (Math.random() - 0.5) * 0.1,
-        r: Math.random() * 2.2 + 1.0,
+        baseR: baseR,
+        r: baseR,
         depth: Math.random() * 0.8 + 0.2,
         opacity: Math.random() * 0.5 + 0.4,
         color: COLORS[Math.floor(Math.random() * COLORS.length)]
@@ -1725,32 +1729,57 @@ function loadThemeVideo(el) {
 
   function drawParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // スクロール速度を減衰
+    // 減衰
     scrollVelocity *= 0.9;
+    mouseVelocity *= 0.88;
+
+    const burstMode = mouseVelocity > 3;
 
     particles.forEach(function(p) {
+      // 慣性（速度）減衰
+      p.vx *= 0.96;
+      p.vy *= 0.96;
+
       p.x += p.vx;
       p.y += p.vy + scrollVelocity * p.depth * 0.5;
-      // マウス方向へ吸引
+
       const dx = mouse.x - p.x, dy = mouse.y - p.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 220 && dist > 0) {
-        const pull = (1 - dist / 220) * 1.2;
-        p.x += (dx / dist) * pull;
-        p.y += (dy / dist) * pull;
+
+      if (dist < 260 && dist > 0) {
+        if (burstMode) {
+          // カーソル急移動時：弾けて外へ飛ぶ
+          const push = Math.min(mouseVelocity, 30) * (1 - dist / 260) * 0.18;
+          p.vx -= (dx / dist) * push;
+          p.vy -= (dy / dist) * push;
+        } else {
+          // カーソル停止時：集まってくる
+          const pull = (1 - dist / 260) * 0.9;
+          p.x += (dx / dist) * pull;
+          p.y += (dy / dist) * pull;
+        }
       }
+
+      // サイズアニメ：カーソルが止まって近いと拡大
+      let targetR = p.baseR;
+      if (!burstMode && dist < 180) {
+        targetR = p.baseR + (1 - dist / 180) * 3.5;
+      }
+      p.r += (targetR - p.r) * 0.12;
+
       // 画面端でラップ
       if (p.x < -10) p.x = canvas.width + 10;
       if (p.x > canvas.width + 10) p.x = -10;
       if (p.y < -10) p.y = canvas.height + 10;
       if (p.y > canvas.height + 10) p.y = -10;
 
-      // グロー効果（明るく見せる）
+      // グロー
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r * 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = p.color + (p.opacity * 0.18) + ')';
+      ctx.fillStyle = p.color + (p.opacity * 0.2) + ')';
       ctx.fill();
 
+      // 本体
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = p.color + p.opacity + ')';
@@ -1762,7 +1791,16 @@ function loadThemeVideo(el) {
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
   window.addEventListener('mousemove', function(e) {
+    const now = performance.now();
+    const dt = now - lastMouseTime;
+    if (dt > 0 && dt < 200) {
+      const dx = e.clientX - lastMouseX;
+      const dy = e.clientY - lastMouseY;
+      const speed = Math.sqrt(dx * dx + dy * dy) / dt * 16; // ~60fps基準
+      mouseVelocity = Math.max(mouseVelocity, speed);
+    }
     mouse.x = e.clientX; mouse.y = e.clientY;
+    lastMouseX = e.clientX; lastMouseY = e.clientY; lastMouseTime = now;
   }, { passive: true });
   window.addEventListener('scroll', function() {
     scrollVelocity = (window.scrollY - lastScrollY) * 0.15;
