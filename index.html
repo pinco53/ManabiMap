@@ -1814,7 +1814,7 @@ function loadThemeVideo(el) {
     );
     particles = [];
     for (let i = 0; i < density; i++) {
-      const baseR = Math.random() * 1.4 + 0.8;
+      const baseR = Math.random() * 1.3 + 0.7;
       const ang = Math.random() * Math.PI * 2;
       const driftSpeed = 0.08 + Math.random() * 0.12;
       particles.push({
@@ -1823,14 +1823,12 @@ function loadThemeVideo(el) {
         vx: Math.cos(ang) * driftSpeed,
         vy: Math.sin(ang) * driftSpeed,
         baseR: baseR,
-        r: baseR,
         depth: Math.random() * 0.8 + 0.2,
-        opacity: Math.random() * 0.4 + 0.5,
+        opacity: Math.random() * 0.35 + 0.6,
         color: COLORS[Math.floor(Math.random() * COLORS.length)],
-        bursting: false,
-        burstTimer: 0,
         twinklePhase: Math.random() * Math.PI * 2,
-        twinkleSpeed: 0.02 + Math.random() * 0.035
+        twinkleSpeed: 0.025 + Math.random() * 0.045,
+        flashTimer: 0
       });
     }
   }
@@ -1841,71 +1839,28 @@ function loadThemeVideo(el) {
     mouseVelocity *= 0.88;
 
     const mouseOnScreen = mouse.x > -9000;
-    const ATTRACT_RADIUS = 240;
-    const BURST_SIZE_GAIN = 3.2; // この分拡大したら弾ける
 
     particles.forEach(function(p) {
-      if (p.bursting) {
-        /* ── 弾ける（新しいアイデアが生まれた）── */
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vx *= 0.95;
-        p.vy *= 0.95;
-        p.r *= 0.92; // 縮む
-        p.burstTimer--;
-        if (p.r <= p.baseR * 1.05 || p.burstTimer <= 0) {
-          // 漂いに戻る
-          p.bursting = false;
-          p.r = p.baseR;
-          const ang = Math.random() * Math.PI * 2;
-          const speed = 0.08 + Math.random() * 0.12;
-          p.vx = Math.cos(ang) * speed;
-          p.vy = Math.sin(ang) * speed;
-        }
-      } else {
-        /* ── 漂う（知識の粒子）── */
-        // わずかな揺らぎでオーガニックな動き
-        p.vx += (Math.random() - 0.5) * 0.015;
-        p.vy += (Math.random() - 0.5) * 0.015;
-        // 速度上限（漂いを保つ）
-        const vmag = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-        if (vmag > 0.35) {
-          p.vx = (p.vx / vmag) * 0.35;
-          p.vy = (p.vy / vmag) * 0.35;
-        }
+      /* ── 漂う（ランダム揺らぎ） ── */
+      p.vx += (Math.random() - 0.5) * 0.015;
+      p.vy += (Math.random() - 0.5) * 0.015;
+      const vmag = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+      if (vmag > 0.35) {
+        p.vx = (p.vx / vmag) * 0.35;
+        p.vy = (p.vy / vmag) * 0.35;
+      }
 
-        p.x += p.vx;
-        p.y += p.vy + scrollVelocity * p.depth * 0.5;
+      p.x += p.vx;
+      p.y += p.vy + scrollVelocity * p.depth * 0.5;
 
-        /* ── カーソル（旅人）が近づいた：繋がる ── */
-        if (mouseOnScreen) {
-          const dx = mouse.x - p.x, dy = mouse.y - p.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < ATTRACT_RADIUS && dist > 0) {
-            const factor = 1 - dist / ATTRACT_RADIUS;
-            // 吸引：距離が近いほど強く
-            const pull = factor * factor * 0.9;
-            p.x += (dx / dist) * pull;
-            p.y += (dy / dist) * pull;
-            // 成長：近いほど大きくなる（蓄積）
-            p.r += factor * 0.045;
-
-            // 弾ける条件：十分大きく、かつカーソルに近づいた
-            if (p.r - p.baseR > BURST_SIZE_GAIN && dist < 50) {
-              p.bursting = true;
-              p.burstTimer = 80;
-              const outAng = Math.atan2(p.y - mouse.y, p.x - mouse.x) + (Math.random() - 0.5) * 0.6;
-              const burstSpeed = 2.8 + Math.random() * 2.5;
-              p.vx = Math.cos(outAng) * burstSpeed;
-              p.vy = Math.sin(outAng) * burstSpeed;
-            }
-          } else {
-            // 圏外：ベースサイズに徐々に戻る
-            p.r += (p.baseR - p.r) * 0.04;
-          }
-        } else {
-          p.r += (p.baseR - p.r) * 0.04;
+      /* ── カーソル反応：軽く流される程度 ── */
+      if (mouseOnScreen) {
+        const dx = mouse.x - p.x, dy = mouse.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 180 && dist > 0) {
+          const factor = (1 - dist / 180) * 0.35;
+          p.x += (dx / dist) * factor;
+          p.y += (dy / dist) * factor;
         }
       }
 
@@ -1915,47 +1870,66 @@ function loadThemeVideo(el) {
       if (p.y < -10) p.y = canvas.height + 10;
       if (p.y > canvas.height + 10) p.y = -10;
 
-      // ── キラキラ輝き（twinkle） ──
+      /* ── キラキラ輝き演出 ── */
       p.twinklePhase += p.twinkleSpeed;
-      const twinkle = 0.55 + Math.sin(p.twinklePhase) * 0.45; // 0.1 ~ 1.0
-      const gatheredRatio = (p.r / p.baseR - 1); // 0〜：集まるほど強く輝く
-      const brightness = 1 + gatheredRatio * 0.6;
+      const twinkle = 0.35 + (Math.sin(p.twinklePhase) * 0.5 + 0.5) * 0.65; // 0.35〜1.0
 
-      // 外側ソフトハロー（広範囲の柔らかい光）
+      // ランダムな瞬き（稀にパッと強く光る）
+      if (p.flashTimer > 0) {
+        p.flashTimer--;
+      } else if (Math.random() < 0.0015) {
+        p.flashTimer = 40;
+      }
+      const flashRatio = p.flashTimer > 0 ? (p.flashTimer / 40) : 0;
+      const flashBoost = 1 + Math.sin(flashRatio * Math.PI) * 2.2; // 1〜3.2倍
+      const r = p.baseR * (1 + flashRatio * 0.5);
+
+      // 外側の大きなハロー
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r * 4.5, 0, Math.PI * 2);
-      ctx.fillStyle = p.color + (p.opacity * 0.05 * twinkle * brightness) + ')';
+      ctx.arc(p.x, p.y, r * 6, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + (p.opacity * 0.06 * twinkle * flashBoost) + ')';
       ctx.fill();
 
       // 中間グロー
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r * 2.2, 0, Math.PI * 2);
-      ctx.fillStyle = p.color + (p.opacity * 0.2 * twinkle * brightness) + ')';
+      ctx.arc(p.x, p.y, r * 3, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + (p.opacity * 0.22 * twinkle * flashBoost) + ')';
       ctx.fill();
 
-      // 本体（色付き核）
+      // 色付き核
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.color + (p.opacity * twinkle) + ')';
+      ctx.arc(p.x, p.y, r * 1.3, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + (p.opacity * 0.85 * twinkle) + ')';
       ctx.fill();
 
-      // 中央の白い光核（キラッと輝く）
-      const coreSize = p.r * 0.45;
-      const coreAlpha = Math.min(0.85, 0.35 + gatheredRatio * 0.4) * twinkle;
+      // 白い中心核（宝石のキラキラ）
+      const coreAlpha = Math.min(1, (0.5 + flashRatio * 0.5) * twinkle);
       ctx.beginPath();
-      ctx.arc(p.x, p.y, coreSize, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, r * 0.55, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(255,255,255,' + coreAlpha + ')';
       ctx.fill();
 
-      // 集まった粒子には十字の光線（大きい時だけ）
-      if (gatheredRatio > 1.2) {
-        const rayLen = p.r * 3.5 * twinkle;
-        const rayAlpha = Math.min(0.5, gatheredRatio * 0.2) * twinkle;
-        ctx.strokeStyle = 'rgba(255,255,255,' + rayAlpha + ')';
-        ctx.lineWidth = 0.6;
+      // 十字光線：フラッシュ中または強く輝いている時
+      if (flashRatio > 0.2 || twinkle > 0.85) {
+        const intensity = Math.max(flashRatio, (twinkle - 0.85) * 6);
+        const rayLen = r * (6 + flashRatio * 6);
+        const rayAlpha = intensity * 0.55;
+        const grad = ctx.createLinearGradient(p.x - rayLen, p.y, p.x + rayLen, p.y);
+        grad.addColorStop(0, 'rgba(255,255,255,0)');
+        grad.addColorStop(0.5, 'rgba(255,255,255,' + rayAlpha + ')');
+        grad.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 0.7;
         ctx.beginPath();
         ctx.moveTo(p.x - rayLen, p.y);
         ctx.lineTo(p.x + rayLen, p.y);
+        ctx.stroke();
+        const gradV = ctx.createLinearGradient(p.x, p.y - rayLen, p.x, p.y + rayLen);
+        gradV.addColorStop(0, 'rgba(255,255,255,0)');
+        gradV.addColorStop(0.5, 'rgba(255,255,255,' + rayAlpha + ')');
+        gradV.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.strokeStyle = gradV;
+        ctx.beginPath();
         ctx.moveTo(p.x, p.y - rayLen);
         ctx.lineTo(p.x, p.y + rayLen);
         ctx.stroke();
