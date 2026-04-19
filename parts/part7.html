@@ -31,6 +31,63 @@
   .cover-tagline em { font-style: normal; color: #e0c8ff; font-weight: 700; }
   .cover-divider { width: 60px; height: 1px; background: #402880; margin: 36px auto; }
   .cover-note { font-size: 10px; color: #402880; letter-spacing: 0.15em; }
+/* ========== OPENING THEME MINI ========== */
+.theme-mini {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.theme-mini-player {
+  position: relative;
+  width: 120px;
+  height: 68px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.3s;
+}
+.theme-mini-player:hover { border-color: rgba(255,255,255,0.5); transform: scale(1.04); }
+.theme-mini-player img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.theme-mini-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.65);
+  display: flex; align-items: center; justify-content: center;
+}
+.theme-mini-play::after {
+  content: '';
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 2px;
+}
+.theme-mini-label { text-align: left; }
+.theme-mini-label p {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 4px;
+}
+.theme-mini-label a {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.theme-mini-label a:hover { color: #fff; }
+
   .cover-yt-cta {
     display: inline-flex;
     align-items: center;

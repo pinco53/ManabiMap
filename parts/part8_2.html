@@ -87,6 +87,63 @@
     color: #4a6a4a;
     letter-spacing: 0.15em;
   }
+/* ========== OPENING THEME MINI ========== */
+.theme-mini {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.theme-mini-player {
+  position: relative;
+  width: 120px;
+  height: 68px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.3s;
+}
+.theme-mini-player:hover { border-color: rgba(255,255,255,0.5); transform: scale(1.04); }
+.theme-mini-player img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.theme-mini-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.65);
+  display: flex; align-items: center; justify-content: center;
+}
+.theme-mini-play::after {
+  content: '';
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 2px;
+}
+.theme-mini-label { text-align: left; }
+.theme-mini-label p {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 4px;
+}
+.theme-mini-label a {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.theme-mini-label a:hover { color: #fff; }
+
   .cover-yt-cta {
     display: inline-flex;
     align-items: center;
@@ -907,6 +964,16 @@
     <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="#cc0000"/></svg>
     YouTubeで動画を見る
   </a>
+  <div class="theme-mini">
+    <div class="theme-mini-player" id="theme-mini-box" onclick="this.innerHTML='<iframe src=&quot;https://www.youtube.com/embed/TYnTySeqACY?autoplay=1&quot; frameborder=&quot;0&quot; allow=&quot;autoplay;encrypted-media&quot; allowfullscreen style=&quot;width:100%;height:100%;display:block;&quot;></iframe>';this.onclick=null;this.style.cursor='default';">
+      <img src="https://img.youtube.com/vi/TYnTySeqACY/hqdefault.jpg" alt="オープニングテーマ" loading="lazy">
+      <div class="theme-mini-play"></div>
+    </div>
+    <div class="theme-mini-label">
+      <p>OPENING THEME</p>
+      <a href="https://youtu.be/TYnTySeqACY" target="_blank" rel="noopener">ハルとおじいさんの物語<br>テーマソング ▶</a>
+    </div>
+  </div>
 </div>
 
 
