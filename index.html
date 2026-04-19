@@ -612,7 +612,7 @@ body::before {
   height: 100%;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.75;
+  opacity: 1;
 }
 
 /* ========== ヒーロー視差 ========== */
@@ -1715,9 +1715,9 @@ function loadThemeVideo(el) {
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.15,
         vy: (Math.random() - 0.5) * 0.1,
-        r: Math.random() * 1.6 + 0.4,
+        r: Math.random() * 2.2 + 1.0,
         depth: Math.random() * 0.8 + 0.2,
-        opacity: Math.random() * 0.45 + 0.15,
+        opacity: Math.random() * 0.5 + 0.4,
         color: COLORS[Math.floor(Math.random() * COLORS.length)]
       });
     }
@@ -1731,18 +1731,25 @@ function loadThemeVideo(el) {
     particles.forEach(function(p) {
       p.x += p.vx;
       p.y += p.vy + scrollVelocity * p.depth * 0.5;
-      // マウスで反発
+      // マウス方向へ吸引
       const dx = mouse.x - p.x, dy = mouse.y - p.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 100 && dist > 0) {
-        p.x -= (dx / dist) * 0.8;
-        p.y -= (dy / dist) * 0.8;
+      if (dist < 220 && dist > 0) {
+        const pull = (1 - dist / 220) * 1.2;
+        p.x += (dx / dist) * pull;
+        p.y += (dy / dist) * pull;
       }
       // 画面端でラップ
       if (p.x < -10) p.x = canvas.width + 10;
       if (p.x > canvas.width + 10) p.x = -10;
       if (p.y < -10) p.y = canvas.height + 10;
       if (p.y > canvas.height + 10) p.y = -10;
+
+      // グロー効果（明るく見せる）
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + (p.opacity * 0.18) + ')';
+      ctx.fill();
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
