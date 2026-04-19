@@ -144,8 +144,8 @@ https://www.youtube.com/watch?v=8dySbSKpZNU
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "深みのある黄金（#ffd600）から明るい白（#fffde7）へ。2400年前のソクラテスの問いが今も輝く（ゴールデンドーン）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜クリームゴールド基調。アクセントにウォームサンドとルミナスゴールド。2400年前のソクラテスの問いが今も輝く。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -177,13 +177,25 @@ https://www.youtube.com/watch?v=8dySbSKpZNU
       "background_element": "左下に、ごく薄く古代の粘土板を思わせる矩形の質感がサンドベージュで浮かぶ。不透明度15%程度、背景に溶け込む程度に"
     }
   },
-  "scene_description": "Soft sky blue at top gradually fading into warm cream ivory at bottom — like an ancient parchment held up to gentle light. The black cat silhouette sits center-right, outlined with a faint golden rimlight, its amber-gold eyes gazing quietly at ancient wedge-shaped marks scattered nearby — as if pondering a question written 2,400 years ago. Around the frame, abstract cuneiform-like symbols and marks drift softly in warm stone-beige at 20-35% opacity — not quite legible, hovering between image and language. In the lower-left, barely visible, a faint rectangular clay tablet texture appears in sand-beige at 15% opacity. The mood: philosophical, contemplative, quietly astonished — the feeling of realizing the same question has been asked across millennia. Crayon + oil pastel strokes on rough paper texture. Top area kept clear for title text.",
+  "scene_description": "Soft sky blue at top gradually fading into warm cream ivory at bottom — like an ancient parchment held up to gentle light. The black cat silhouette sits center-right, outlined with a faint golden rimlight, its amber-gold eyes gazing quietly at ancient wedge-shaped marks scattered nearby — as if pondering a question written 2,400 years ago. Around the frame, abstract cuneiform-like symbols and marks drift softly in warm stone-beige at 20-35% opacity — not quite legible, hovering between image and language. In the lower-left, barely visible, a faint rectangular clay tablet texture appears in sand-beige at 15% opacity. The mood: philosophical, contemplative, quietly astonished — the feeling of realizing the same question has been asked across millennia. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "important_notes": [
     "黒猫シルエット以外のキャラクター（ハル・おじいさん）は絶対に入れない",
     "背景はスカイブルー〜クリームアイボリー。暗くならず、明るく保つ",
     "楔形文字風の記号は「文字かどうかわからない」抽象度に留める。具体的な文字列にしない",
     "古代感を出しつつも重厚にしすぎない。クレヨンタッチで軽やかに",
     "スマホ縮小でも黒猫シルエットがくっきり認識できるコントラストを確保"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

@@ -99,8 +99,8 @@ https://youtu.be/gIOypSyJwMs
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "明るいクリームアイボリー（#fffde7）から淡いスカイブルー（#e3f2fd）へ。名前が世界を切り分けるイメージを、やわらかな色の境界線で表現する",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜ペリウィンクル基調。アクセントにルミナスゴールドとミントグリーン。名前が世界を分ける境界線の神秘。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -132,6 +132,7 @@ https://youtu.be/gIOypSyJwMs
       "depth": "手前に黒猫、中景に境界線、奥に広がる連続したグラデーション空間。暗くしすぎない"
     }
   },
+  "scene_description": "Visionary digital painting — lavender-periwinkle luminous mist with a soft rainbow gradient running along the horizon. The black cat silhouette perches center on a gently glowing boundary line that divides the frame into two subtly different hues — each side a different named world. Amber eyes move slowly between left and right with quiet curiosity. Sparkling orbs drift above and below the line. The mood: philosophical wonder, the feeling that naming creates worlds — and also severs them. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "do_not_include": [
     "ハルのキャラクター",
     "おじいさんのキャラクター",
@@ -139,6 +140,18 @@ https://youtu.be/gIOypSyJwMs
     "暗い背景・重い色調",
     "日本語テキスト（タイトル帯以外）",
     "リアルな人物・顔"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

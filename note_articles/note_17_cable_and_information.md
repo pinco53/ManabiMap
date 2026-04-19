@@ -177,8 +177,8 @@ https://www.youtube.com/watch?v=BiNnbsp7nRs
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "鮮やかな青緑（#1de9b6）から淡い水色白（#e0f7fa）へ。大西洋の底を走るケーブルと情報の流れ（ディープシアン）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜オーシャンブルー基調。アクセントにルミナスゴールドとスティールブルー。大西洋を越えた6,350トンの努力と重さゼロの信号。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -210,6 +210,7 @@ https://www.youtube.com/watch?v=BiNnbsp7nRs
       "depth": "猫の足元から細い黄金色のケーブルラインが海中へ伸びる。空の右上に一つだけ小さく青白く輝く星（スピカをイメージした光点）。暗くしすぎない"
     }
   },
+  "scene_description": "Visionary digital painting — lavender-ocean-blue luminous mist, soft as sea fog at dawn. The black cat silhouette sits at a cliff edge center-right, gazing across a vast luminous expanse. A thin golden cable line trails from beneath the cat into the glowing mist below — 6,350 tons carrying weightless signals. In the upper right, one tiny blue-white star glows at 30% opacity — Spica, light sent 250 years ago by no one. Amber eyes deep and contemplative. Sparkling orbs drift. The mood: vast, quietly astonished, the paradox of weight carrying weightlessness. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "do_not_include": [
     "ハルのキャラクター",
     "おじいさんのキャラクター",
@@ -217,6 +218,18 @@ https://www.youtube.com/watch?v=BiNnbsp7nRs
     "エピソード番号ラベル",
     "暗い背景・重い色調",
     "複数の星や複雑な夜空"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

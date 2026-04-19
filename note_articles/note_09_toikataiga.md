@@ -115,8 +115,8 @@ https://youtu.be/Jw0gq87XaXY（後編）
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "鮮やかなオレンジ黄（#ffab40）から明るいレモン（#fff9c4）へ。AIに問いを立てる好奇心の温もり（マンゴーサンライズ）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜ゴールデンアンバー基調。アクセントにルミナスゴールドとウォームピーチ。AIへの問いが灯るひらめきの温もり。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -148,13 +148,25 @@ https://youtu.be/Jw0gq87XaXY（後編）
       "floating_elements": "大小さまざまな「？」マークが画面右上〜中央にかけて上へ漂う。アンバーゴールド〜ライトオレンジ、不透明度30-40%。最も大きな「？」は黒猫が見上げる先に、ぼんやりと光るように"
     }
   },
-  "scene_description": "Warm cream-to-peach-orange background with a glowing amber light at the center — like the moment a question suddenly ignites inside you. The black cat silhouette sits center-lower beside a small stack of crayon-style books (suggesting Vannevar Bush's memex, the dream of retrieving knowledge in your own way). The cat gazes upward at a large softly glowing question mark (？) floating above — its amber-gold eyes wide with curiosity. Around it, more question marks of varying sizes drift upward like sparks, in warm amber-gold tones at 30-40% opacity. The overall mood: the warm glow of intellectual ignition, the pleasure of not yet knowing the answer, like standing at the entrance of a vast knowledge sea. Crayon + oil pastel strokes on rough paper texture. Top area kept clear for title text.",
+  "scene_description": "Warm cream-to-peach-orange background with a glowing amber light at the center — like the moment a question suddenly ignites inside you. The black cat silhouette sits center-lower beside a small stack of softly rendered books (suggesting Vannevar Bush's memex, the dream of retrieving knowledge in your own way). The cat gazes upward at a large softly glowing question mark (？) floating above — its amber-gold eyes wide with curiosity. Around it, more question marks of varying sizes drift upward like sparks, in warm amber-gold tones at 30-40% opacity. The overall mood: the warm glow of intellectual ignition, the pleasure of not yet knowing the answer, like standing at the entrance of a vast knowledge sea. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "important_notes": [
     "黒猫シルエット以外のキャラクター（ハル・おじいさん）は絶対に入れない",
     "背景はクリーム〜ピーチオレンジ〜アンバーの温かいトーン。青系に流れないよう注意",
     "「？」マークは黒猫が見上げる先に1つ大きく光るものを配置。他は小さく控えめに",
     "本の積み重ねは小さくシルエット風に。主役は黒猫と「？」マーク",
     "スマホ縮小でも黒猫シルエットと目が認識できるコントラストを維持"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

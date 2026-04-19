@@ -127,8 +127,8 @@ https://youtu.be/kpMfSCAVHD8
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "鮮やかな青緑（#1de9b6）から淡い水色白（#e0f7fa）へ。デジタルでつながりながらも感じる孤独（ディープシアン）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜ローズピンク基調。アクセントにペールスカイブルーとルミナスゴールド。つながりと孤独の間に漂う感覚。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -160,13 +160,25 @@ https://youtu.be/kpMfSCAVHD8
       "floating_elements": "左下側にごく小さな温かいハートが1〜2個、ローズピンクで柔らかく浮かぶ（不透明度30%）。「体のつながり」の象徴として"
     }
   },
-  "scene_description": "Rose-pink-to-lavender-blue gradient background — warm on the left, cool and misty on the right. The black cat silhouette stands center-lower, rimlit with warm rose on the left and cool lavender on the right — caught between two kinds of connection. Above the cat, a delicate constellation-like network of glowing dots and lines fills the sky, and from the upper right corner, a single thin trail of light extends outward — like Voyager traveling into the unknown, reaching toward something that may never reply. In the lower-left, one or two tiny glowing hearts drift gently in rose tones at 30% opacity. The overall mood: bittersweet, quietly vast, the feeling of reaching out across an infinite distance and wondering if anything reaches back. Crayon + oil pastel strokes on rough paper texture. Top area kept clear for title text.",
+  "scene_description": "Rose-pink-to-lavender-blue gradient background — warm on the left, cool and misty on the right. The black cat silhouette stands center-lower, rimlit with warm rose on the left and cool lavender on the right — caught between two kinds of connection. Above the cat, a delicate constellation-like network of glowing dots and lines fills the sky, and from the upper right corner, a single thin trail of light extends outward — like Voyager traveling into the unknown, reaching toward something that may never reply. In the lower-left, one or two tiny glowing hearts drift gently in rose tones at 30% opacity. The overall mood: bittersweet, quietly vast, the feeling of reaching out across an infinite distance and wondering if anything reaches back. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "important_notes": [
     "黒猫シルエット以外のキャラクター（ハル・おじいさん）は絶対に入れない",
     "背景はローズピンク〜ラベンダーブルー。暗くなりすぎず、明るく甘い色調を維持",
     "右上への光の軌跡（ボイジャーのイメージ）は細く繊細に。主役は黒猫のシルエット",
     "黒猫の両サイドのリムライト（暖色・寒色）がこの記事の核心を視覚化する",
     "スマホ縮小でも黒猫シルエットがくっきり認識できるコントラストを確保"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

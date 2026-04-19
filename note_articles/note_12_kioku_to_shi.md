@@ -118,8 +118,8 @@ https://youtu.be/VtfGezzADME
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "鮮やかな紫（#ab47bc）から淡いピンク白（#fce4ec）へ。記憶の中の人が消えていく瞬間の静かな問い（ビビッドラベンダー）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜パールアイボリー基調。アクセントにサクラピンクとペールゴールド。記憶の中に残り続ける人の温もり。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -151,13 +151,25 @@ https://youtu.be/VtfGezzADME
       "background_element": "遠景にごく薄く、幾何学的な鏡面のような光の断片（null²へのオマージュ）がラベンダーグレーで浮かぶ。不透明度15%程度、存在するかしないかわからない程度に"
     }
   },
-  "scene_description": "Pale cherry blossom white to pearl ivory to misty sage green gradient background — like an old photograph that has faded but still holds warmth. The black cat silhouette sits center-lower, outlined with a faint sakura-pink rimlight, its amber-gold eyes gazing quietly into the distance — as if looking toward a memory. Around the cat, flower petals and autumn leaves drift softly throughout the frame in pale sakura pink, ivory, and soft gold at 25-40% opacity — not falling violently but floating gently, like memories that never quite disappear. In the far background, barely visible geometric mirror-like light fragments (an homage to null²) shimmer at 15% opacity in lavender-gray — present but almost not. The mood: quiet, tender, bittersweet — the feeling of someone who is gone but not yet gone from memory. Crayon + oil pastel strokes on rough paper texture. Top area kept clear for title text.",
+  "scene_description": "Pale cherry blossom white to pearl ivory to misty sage green gradient background — like an old photograph that has faded but still holds warmth. The black cat silhouette sits center-lower, outlined with a faint sakura-pink rimlight, its amber-gold eyes gazing quietly into the distance — as if looking toward a memory. Around the cat, flower petals and autumn leaves drift softly throughout the frame in pale sakura pink, ivory, and soft gold at 25-40% opacity — not falling violently but floating gently, like memories that never quite disappear. In the far background, barely visible geometric mirror-like light fragments (an homage to null²) shimmer at 15% opacity in lavender-gray — present but almost not. The mood: quiet, tender, bittersweet — the feeling of someone who is gone but not yet gone from memory. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "important_notes": [
     "黒猫シルエット以外のキャラクター（ハル・おじいさん）は絶対に入れない",
     "背景はサクラホワイト〜パールアイボリー〜ミスティセージ。暗くならず、淡く明るく保つ",
     "花びら・葉は「散っているが消えていない」軽やかさで。重くならないよう不透明度を低めに",
     "遠景のnull²オマージュ断片は存在感を出しすぎない。あくまで背景のかすかな気配として",
     "スマホ縮小でも黒猫シルエットがくっきり認識できるコントラストを確保"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

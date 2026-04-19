@@ -142,8 +142,8 @@ https://youtu.be/sjmgvrAfzdU（後編）
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "深みのある黄金（#ffd600）から明るい白（#fffde7）へ。閃きのアイデアが照らす瞬間の輝き（ゴールデンドーン）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜ゴールデンホワイト基調。アクセントにルミナスゴールドとペールスカイブルー。ひらめきのアイデアが照らす瞬間の輝き。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -171,13 +171,25 @@ https://youtu.be/sjmgvrAfzdU（後編）
       }
     }
   },
-  "scene_description": "Bright cream-to-sky-blue background with a warm lemon-yellow glow at the center — like a lightbulb moment caught in warm light. Around the black cat silhouette, softly floating elements suggest the theme of creativity and originality: a few musical notes drifting lightly (Yesterday), a faint Go board stone, a glowing question mark. All at 30-40% opacity, playful and airy. The cat sits center-lower with glowing amber eyes and a slightly tilted head, a thinking pose — as if pondering the very question in the title. The overall mood: warm curiosity, intellectual delight, the pleasure of a question you cannot stop thinking about. Crayon + oil pastel strokes on rough paper texture. Top area kept clear for title text.",
+  "scene_description": "Visionary digital painting — lavender-golden-white luminous mist with a warm gold glow at the center like a lightbulb moment. Around the black cat silhouette: a few musical notes (Yesterday), a faint Go stone, a glowing question mark — all at 25-30% opacity, soft and airy, like half-dissolved memories. The cat sits center-lower, edges bioluminescent with gold-violet rimlight, amber eyes wide with intellectual curiosity — the thinking pose. Sparkling orbs drift gently. The mood: warm wonder, the pleasure of a question you cannot stop thinking about. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "important_notes": [
     "黒猫シルエット以外のキャラクター（ハル・おじいさん）は絶対に入れない",
     "背景は明るく保つ。暗くなりすぎたらクリーム〜レモンイエローに引き戻す",
     "浮かぶ要素（音符・碁石・？）は小さく控えめに、不透明度30-40%",
     "黒猫の「考えるポーズ」が伝わるよう、全体的にゆったりした余白を確保",
     "スマホ縮小でも黒猫シルエットと目が認識できるコントラストを維持"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

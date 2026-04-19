@@ -143,8 +143,8 @@ https://www.youtube.com/watch?v=K8WEjRFofjY
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "鮮やかなコーラル（#ff7043）から明るいクリーム（#fff8e1）へ。人類が最初に石に印をつけた衝動の熱さ（サンセットオレンジ）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜テラコッタウォーム基調。アクセントにアースゴールドとアンバー。石に印をつけた人類7万年の衝動。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -176,13 +176,25 @@ https://www.youtube.com/watch?v=K8WEjRFofjY
       "background_element": "背景全体にごく薄く、粗い石の岩肌テクスチャをアースベージュで重ねる。不透明度10-15%。洞窟の壁を思わせるが、重くならないよう極めて控えめに"
     }
   },
-  "scene_description": "Warm terracotta orange fading through cream ivory to earthy beige — like sunlight on an ancient cave wall. The black cat silhouette crouches center-left, one paw gently reaching toward the surface as if about to leave a mark, its amber-gold eyes focused and intent — the same impulse that drove humans 73,000 years ago. In the right half of the background, faint geometric symbols drift at 20-30% opacity: hashtag grids, dots, lines, abstract shapes in red ochre and earth brown — traces of the 32 recurring symbols found across 52 prehistoric sites. A barely-there stone texture underlies the whole scene at 10-15% opacity. The mood: ancient curiosity, the quiet compulsion to leave a trace, tender and timeless. Crayon + oil pastel strokes on rough paper texture. Top area kept clear for title text.",
+  "scene_description": "Warm terracotta orange fading through cream ivory to earthy beige — like sunlight on an ancient cave wall. The black cat silhouette crouches center-left, one paw gently reaching toward the surface as if about to leave a mark, its amber-gold eyes focused and intent — the same impulse that drove humans 73,000 years ago. In the right half of the background, faint geometric symbols drift at 20-30% opacity: hashtag grids, dots, lines, abstract shapes in red ochre and earth brown — traces of the 32 recurring symbols found across 52 prehistoric sites. A barely-there stone texture underlies the whole scene at 10-15% opacity. The mood: ancient curiosity, the quiet compulsion to leave a trace, tender and timeless. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "important_notes": [
     "黒猫シルエット以外のキャラクター（ハル・おじいさん）は絶対に入れない",
     "背景はテラコッタ〜クリームアイボリー〜アースベージュ。洞窟的な暗さにしない。明るく温かく保つ",
     "幾何学記号は洞窟壁画風だが、具体的な文字・絵にしない。点・線・格子・三角の抽象的な組み合わせで",
     "岩肌テクスチャは存在感を出しすぎない。あくまで背景の質感として",
     "スマホ縮小でも黒猫シルエットがくっきり認識できるコントラストを確保"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

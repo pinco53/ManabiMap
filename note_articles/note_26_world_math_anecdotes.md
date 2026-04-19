@@ -3,7 +3,7 @@
 **対象**: 第5部第3話テーマ（数・抽象化）フリースタンディング
 **保存日**: 2026-04-11
 
-**URL**:
+**URL**: https://note.com/manabimapcreator/n/n3103a25ac2c4
 ---
 
 ## 記事
@@ -151,8 +151,8 @@ https://youtu.be/TAKaeLfMf-A（後編）
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "マンゴーサンライズ：鮮やかなオレンジ黄（#ffab40）から明るいレモン（#fff9c4）へ。好奇心・発見・学びをイメージした温かく明るいグラデーション",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜ペリウィンクル〜ソフトバイオレット基調。アクセントにルミナスゴールド・ペールスカイブルー・ウォームピーチ。パステル重視、ハイキー輝度。暗くしすぎない",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -174,15 +174,36 @@ https://youtu.be/TAKaeLfMf-A（後編）
       "einstein_cat": {
         "position": "中央やや右寄り・下寄り",
         "size": "画面の38-44%",
-        "style": "黒猫シルエット、オレンジ黄背景にくっきりと映えるシルエット、目はアンバーゴールドに静かに光る",
-        "pose": "鳥居のシルエットの前に座り、周りに世界各地の数学記号（√・∞・貝の記号・幾何学図形）が霧のように漂う中、静かに見上げている",
+        "style": "黒猫シルエット。エーテリアルな逆光とバイオレット〜ゴールドのリムライトで輪郭がふんわり発光する。目はアンバーゴールドに輝く",
+        "lighting": "Bioluminescent backlighting — ラベンダーとゴールドの光がシルエット背後から滲み出るように広がる。スパークリングオーブが周囲に数粒浮かぶ",
+        "pose": "鳥居のシルエットの前に座り、周りに世界各地の数学記号（√・∞・貝の記号・幾何学図形）がミストのように漂う中、静かに見上げている",
         "expression": "穏やかな驚きと深い好奇心。世界の不思議を受け止めるような落ち着いた佇まい"
       }
     },
     "background": {
-      "description": "鮮やかなオレンジ黄（#ffab40）から明るいレモン（#fff9c4）へのやわらかいグラデーション。うっすらと算額の幾何学模様・貝の形・∞記号が霧のように溶け込む。世界各地の知的営みを感じさせる明るく温かい空間",
-      "depth": "手前に黒猫と鳥居シルエット、中景に世界の数学記号が漂う、奥に広がる明るいオレンジの空間。暗くしすぎない"
+      "description": "ラベンダー〜ペリウィンクルへの夢幻的なグラデーション。算額の幾何学模様・貝の形・∞記号・√が25-30%の不透明度でミストに溶け込むように浮かぶ。鳥居のシルエットはソフトフォーカスで薄く滲む。スパークリングオーブが静かに散らばる",
+      "depth": "手前に黒猫と鳥居シルエット（ソフトフォーカス）、中景に世界の数学記号がミストのように漂う、奥に広がるルミナスな空間。レイヤード透明感"
     }
+  },
+  "scene_description": "Visionary digital painting — a dreamlike shrine gate (torii) silhouette softly dissolving into a luminous lavender-periwinkle mist. The black cat silhouette sits center-right before the gate, edges softly diffused with bioluminescent backlighting in gold and violet. Floating around the cat at 25-30% opacity: a geometric sanzan-gaku pattern, a shell-shaped zero, a √ symbol, an ∞ sign, a faint geometric circle — each like a half-dissolved memory from a different civilization. Sparkling orbs drift gently. The overall mood: quiet wonder, intellectual transcendence, the feeling of mathematics as something sacred and playful at once. Soft-focus edges, no harsh outlines, grainy painterly velvety texture, layered transparency, pastel dreamscape. Top area kept luminously clear for title text.",
+  "important_notes": [
+    "黒猫シルエット以外のキャラクター（ハル・おじいさん）は絶対に入れない",
+    "輪郭はソフトでぼかされたまま — harsh outlineは使わない",
+    "浮かぶ記号（√・∞・貝・幾何学）は小さく控えめに、不透明度25-30%以下",
+    "バイオレット〜ラベンダーが暗く沈んだらペールスカイブルー・ピーチで引き上げる",
+    "スマホ縮小でも黒猫シルエットと目が認識できるコントラストを維持"
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
   },
   "do_not_include": [
     "ハルのキャラクター",

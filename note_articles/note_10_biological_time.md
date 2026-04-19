@@ -116,8 +116,8 @@ https://youtu.be/WOGeJkSUkz0
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "鮮やかなライム（#76ff03）から明るい黄緑（#f9fbe7）へ。35億年の生命の時間が今も動いている（ライムグリーン）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜アンバーゴールド基調。アクセントにサーモンピンクとウォームゴールド。35億年の生命のリズムが今も動く夜明け。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -149,13 +149,25 @@ https://youtu.be/WOGeJkSUkz0
       "floating_elements": "小さな時計のシルエット（アナログ時計）が2〜3個、右側に薄く浮かぶ。不透明度20-30%、サーモンピンク系。「機械の時間」のかすかな存在を示す対比として"
     }
   },
-  "scene_description": "Dawn sky gradient — amber-gold at the horizon rising to salmon-pink and soft lavender above. The black cat silhouette sits centered on what feels like a hilltop or rooftop, gazing toward a large softly glowing sun disc on the horizon. The cat's outline is rimlit with warm gold. The sun is not harsh but gentle — the ancient, biological alarm clock that has been waking life on Earth for 3.5 billion years. On the right side of the frame, two or three tiny analog clock silhouettes float lightly at 20-30% opacity in salmon tones — a quiet contrast to the ancient sun. The mood: timeless, ancient, quietly magnificent, the feeling of waking before an alarm goes off. Crayon + oil pastel strokes on rough paper texture. Top area kept clear for title text.",
+  "scene_description": "Dawn sky gradient — amber-gold at the horizon rising to salmon-pink and soft lavender above. The black cat silhouette sits centered on what feels like a hilltop or rooftop, gazing toward a large softly glowing sun disc on the horizon. The cat's outline is rimlit with warm gold. The sun is not harsh but gentle — the ancient, biological alarm clock that has been waking life on Earth for 3.5 billion years. On the right side of the frame, two or three tiny analog clock silhouettes float lightly at 20-30% opacity in salmon tones — a quiet contrast to the ancient sun. The mood: timeless, ancient, quietly magnificent, the feeling of waking before an alarm goes off. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "important_notes": [
     "黒猫シルエット以外のキャラクター（ハル・おじいさん）は絶対に入れない",
     "背景は夜明けのアンバー〜サーモン〜ラベンダーのグラデーション。暗い夜空にならないよう注意",
     "太陽は大きくぼんやりと。リアルな太陽ではなく、クレヨン風のやわらかい光の円",
     "浮かぶ時計は小さく控えめに。主役は黒猫と太陽の構図",
     "スマホ縮小でも黒猫シルエットが地平線の前にくっきり認識できるコントラストを確保"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

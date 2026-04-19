@@ -138,8 +138,8 @@ https://youtu.be/nOfd1dc2TPs
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "鮮やかなサーモン（#ff5252）から明るいクリーム（#fff8e1）へ。本を途中から読む罪悪感という不思議な感情（ホットコーラル）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜サーモンピーチ基調。アクセントにルミナスゴールドとソフトブルー。線形と非線形の境界に立つ不思議な罪悪感。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -171,6 +171,7 @@ https://youtu.be/nOfd1dc2TPs
       "depth": "本のページと光のネットワークの境界は曖昧に溶け合わせ、どちらが正しいとも言わない空気感"
     }
   },
+  "scene_description": "Visionary digital painting — lavender-salmon-peach luminous mist. The black cat silhouette sits center-right atop an open book, amber eyes watching where ordered page lines on the left dissolve into a floating network of glowing nodes and links on the right at 25-30% opacity. The boundary between them softly blurs — neither wrong, both necessary. Sparkling orbs drift. The mood: curious, gently torn between depth and discovery, the bittersweet guilt of opening to the middle. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "do_not_include": [
     "ハルのキャラクター",
     "おじいさんのキャラクター",
@@ -178,6 +179,18 @@ https://youtu.be/nOfd1dc2TPs
     "エピソード番号ラベル",
     "暗い背景・重い色調",
     "文字化けや記号の羅列"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

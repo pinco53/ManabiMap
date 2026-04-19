@@ -136,8 +136,8 @@ https://youtu.be/1VK_O39KpkE
   "task": "note記事サムネイル画像生成",
   "specifications": {
     "size": "1280x670px（note推奨比率 16:8.4）",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "鮮やかなコーラル（#ff7043）から明るいクリーム（#fff8e1）へ。追い出された場所から次の時代が燃え上がる（サンセットオレンジ）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜コーラルピーチ基調。アクセントにルミナスゴールド（縁から光が差し込む瞬間）。パステル重視、ハイキー輝度。暗くしすぎない",
     "visibility_rules": [
       "タイトルテキストは上部25%内に収め、ビジュアルと重ならない",
       "中央の主役ビジュアルを最大化（画面の55-60%）",
@@ -177,15 +177,25 @@ https://youtu.be/1VK_O39KpkE
       "style": "黒猫のシルエット。金色の目だけが光る。岩の縁に静かに座り、光の方向を見つめている。存在感は控えめに、でも画面に緊張感を与える"
     }
   },
-  "scene_description": "大地の縁（岩や崖の端）に立つ小さな鳥が、暗い密林を背に、霧の向こうの光に向かっている場面。「追い出された」という状況が、実は新しい世界への扉だった——という逆説をビジュアル化。黒猫アインシュタインが右下に静かに佇み、光の方向を見つめる。人物は登場しない。",
+  "scene_description": "Visionary digital painting — a dreamy cliff edge in lavender-peach mist. A small bird silhouette stands at the edge, a soft dark forest behind rendered as diffused dark lavender shapes, and ahead a luminous golden-peach glow radiating through the mist. The black cat silhouette crouches lower-right, bioluminescent gold-violet rimlight softly diffusing its edges, amber eyes turned toward the light. Sparkling orbs drift in the atmospheric haze. The mood: quiet wonder, the paradox of being pushed out as a door to the next world. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "important_notes": [
     "ハル・おじいさんは登場しない。黒猫アインシュタインのシルエットのみ",
-    "鳥（小動物）は具体的な種より「小さく、でも前を向いている」シルエット感を重視",
-    "暗い背後（中心・安定・強者）と光の前方（周縁・可能性）の対比を明確に",
+    "輪郭はソフトでぼかされたまま — harsh outlineは使わない",
+    "暗い背後（密林）と光の前方の対比は色調で表現。暗くしすぎない",
     "「怖い・暗い」印象にしない。縁に立つことへの希望と好奇心を表現",
-    "ジブリ・手描き感を維持。写実的・3DCGにしない",
-    "日本語テキストのみ。英語表記不要",
-    "テキスト帯の背景に薄い半透明グラデーションオーバーレイを入れて可読性を確保"
-  ]
+    "スマホ縮小でも黒猫シルエットと目が認識で���るコントラストを維持"
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

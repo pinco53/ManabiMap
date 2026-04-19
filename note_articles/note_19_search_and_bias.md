@@ -1,4 +1,4 @@
-# note_19｜「見たいものしか見えない」は、2000年前から変わっていない
+# note_19｜人は世界を同じように捉えている？
 
 **対象**: 第4部第7話（前編・後編）
 **保存日**: 2026-04-05
@@ -126,8 +126,8 @@ https://www.youtube.com/watch?v=diaFCn9elEw
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "鮮やかな紫（#ab47bc）から淡いピンク白（#fce4ec）へ。認知・思考・バイアスをイメージした目を引くグラデーション（ビビッドラベンダー）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜ペールピンク基調。アクセントにルミナスゴールドとパープル。2000年変わらない認知バイアスの静かな謎。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -137,8 +137,7 @@ https://www.youtube.com/watch?v=diaFCn9elEw
   },
   "layout": {
     "text": {
-      "line1": "「見たいものしか見えない」は、",
-      "line2": "2000年前から変わっていない",
+      "line1": "人は世界を同じように捉えている？",
       "position": "上部（上部25%の文字帯内）、中央揃え",
       "font": "太字ゴシック",
       "color": "深いネイビー（#1a237e）+ 白縁（2-3px）",
@@ -159,6 +158,7 @@ https://www.youtube.com/watch?v=diaFCn9elEw
       "depth": "手前に黒猫、中景に虫眼鏡、奥にカードが散らばる奥行き感。暗くしすぎない"
     }
   },
+  "scene_description": "Visionary digital painting — lavender-pale pink luminous mist. The black cat silhouette sits center-right, gazing up at a softly glowing magnifying glass floating at mid-frame, its amber eyes focused and quietly questioning. Around the lens, small luminous search-result cards radiate outward at 25-30% opacity in pale gold — each one showing the viewer what they already want to see. Sparkling orbs drift. The mood: philosophical curiosity, the gentle unease of realizing the map was drawn for us. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "do_not_include": [
     "ハルのキャラクター",
     "おじいさんのキャラクター",
@@ -166,6 +166,18 @@ https://www.youtube.com/watch?v=diaFCn9elEw
     "暗い背景・重い色調",
     "日本語テキスト（タイトル帯以外）",
     "リアルな人物・顔"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

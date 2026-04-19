@@ -104,8 +104,8 @@ https://youtu.be/gIOypSyJwMs
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "明るいクリームアイボリー（#fffde7）から淡いアンバーゴールド（#fff8e1）へ。5000年前の粘土板をイメージした温かみのある古代的なグラデーション",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜アンバーゴールド基調。アクセントにウォームサンドとルミナスゴールド。5000年前の粘土板の上に今も残る名前の温もり。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -137,6 +137,7 @@ https://youtu.be/gIOypSyJwMs
       "depth": "手前に黒猫と粘土板、中景に楔形文字の模様、奥に広がる温かい空間。暗くしすぎない"
     }
   },
+  "scene_description": "Visionary digital painting — lavender-amber-gold luminous mist, warm as ancient torchlight. The black cat silhouette crouches center-right before a softly glowing clay tablet fragment, one paw resting gently near it. Around the frame, cuneiform-like marks drift at 20-25% opacity in warm sand tones — records of barley, not glory. Amber eyes reverent and quietly astonished. Sparkling orbs drift. The mood: tender surprise, the warmth of discovering that history's oldest name belongs to an accountant. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "do_not_include": [
     "ハルのキャラクター",
     "おじいさんのキャラクター",
@@ -144,6 +145,18 @@ https://youtu.be/gIOypSyJwMs
     "暗い背景・重い色調",
     "日本語テキスト（タイトル帯以外）",
     "リアルな人物・顔"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

@@ -3,7 +3,7 @@
 **対象**: 第5部第3話（前編・後編）
 **保存日**: 2026-04-11
 
-**URL**: https://note.com/manabimapcreator/n/n2ab78a655e6d
+**URL**: https://note.com/manabimapcreator/n/n11ad03fc63ef
 ---
 
 ## 記事
@@ -147,8 +147,8 @@ https://youtu.be/TAKaeLfMf-A（後編）
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "ゴールデンドーン：深みのある黄金（#ffd600）から明るい白（#fffde7）へ。知識・発明・啓蒙をイメージした輝くグラデーション",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜ゴールデンホワイト基調。アクセントにルミナスゴールドとウォームアンバー。数の言葉を持たない世界の静かな驚き。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -180,6 +180,7 @@ https://youtu.be/TAKaeLfMf-A（後編）
       "depth": "手前に黒猫、中景に古代の数の記号が漂う、奥に広がる黄金の空間。暗くしすぎない"
     }
   },
+  "scene_description": "Visionary digital painting — lavender-golden-white luminous mist. The black cat silhouette sits center, surrounded by floating primitive counting symbols — tally marks, knotted cord shapes, early numerals — at 25-30% opacity in warm gold tones, drifting like ancient dreams. Amber eyes wide with quiet astonishment at the strangeness of '3' existing at all. Sparkling orbs drift. The mood: contemplative wonder, the strange miracle of abstract thought taking form. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept clear for title text.",
   "do_not_include": [
     "ハルのキャラクター",
     "おじいさんのキャラクター",
@@ -187,6 +188,18 @@ https://youtu.be/TAKaeLfMf-A（後編）
     "暗い背景・重い色調",
     "現代的なデジタル数字・フォント風の文字",
     "リアルな人物・顔"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

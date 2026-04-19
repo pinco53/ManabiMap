@@ -125,8 +125,8 @@ https://youtu.be/9aM0NP_5S1w（後編）
   "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "鮮やかなサーモン（#ff5252）から明るいクリーム（#fff8e1）へ。「わかってもらえた」という感情の熱さ（ホットコーラル）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜ウォームピーチ基調。アクセントにルミナスゴールドとサーモンピンク。「わかってもらえた」という感情の温もりと確率の神秘。パステル重視、ハイキー輝度",
     "visibility_rules": [
       "主役は黒猫アインシュタイン（シルエット）1体のみ",
       "上部25%はタイトルテキスト専用帯（何も置かない）",
@@ -154,14 +154,24 @@ https://youtu.be/9aM0NP_5S1w（後編）
       }
     }
   },
-  "scene_description": "Bright cream-to-sky-blue background, like a sunlit study room or open notebook. Softly floating word fragments and probability numbers — 「0.82」「わかった?」「通じる」「確率」— drift like dust motes in morning light, warm gold tones at 30-40% opacity, playful and light rather than ominous. The black cat silhouette sits center-lower with glowing amber-gold eyes, a clear focal point against the bright background. A few open book pages or softly floating letters nearby suggest the world of language and curiosity. The overall mood: curious, intellectual, warm, inviting — like the moment just before understanding clicks. Crayon + oil pastel strokes on rough paper texture. Top area kept clear for title text.",
+  "scene_description": "Visionary digital painting — lavender-peach mist with word fragments and probability numbers 「0.82」「わかった?」「確率」drifting at 25-30% opacity in warm gold tones, like thoughts dissolving into the air. The black cat silhouette sits center-lower, edges softly diffused with bioluminescent gold-violet rimlight, amber eyes glowing with quiet curiosity — a slight tilt of the head as if listening. Sparkling orbs drift gently. The mood: curious, intellectual, warm — the moment just before understanding clicks. Soft-focus edges, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept luminously clear for title text.",
   "important_notes": [
     "黒猫シルエット以外のキャラクター（ハル・おじいさん）は絶対に入れない",
-    "背景は明るく保つ。暗くなりすぎたらクリーム〜スカイブルーに引き戻す",
-    "浮かぶ文字・数字は「不気味」でなく「軽やか」に、不透明度30-40%・暖色で",
-    "黒猫シルエットと明るい背景のコントラストをしっかり確保する",
-    "タイトルが2行になるため、上部25%を確実に確保すること",
+    "輪郭はソフトでぼかされたまま — harsh outlineは使わない",
+    "浮かぶ文字・数字は「軽やか」に、不透明度25-30%",
     "スマホ縮小でも黒猫シルエットと目が認識できるコントラストを維持"
-  ]
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```

@@ -165,8 +165,8 @@ https://youtu.be/979DSjYsE-o
   "task": "note記事サムネイル画像生成",
   "specifications": {
     "size": "1280x670px（note推奨比率 16:8.4）",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "鮮やかなターコイズ（#00bcd4）から淡いミント白（#e0f7fa）へ。AIが何かを「生成」する瞬間の未知の輝き（ターコイズブラスト）",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical — grainy painterly feel resembling soft pastel or airbrushing, layered transparency, misty atmosphere",
+    "color_palette": "ラベンダー〜コスミックバイオレット基調。アクセントにルミナスターコイズとウォームゴールド。生成AIが何かを生み出す瞬間の神秘的な輝き。パステル重視、ハイキー輝度。暗くしすぎない",
     "visibility_rules": [
       "タイトルテキストは上部25%内に収め、ビジュアルと重ならない",
       "中央の謎ビジュアルを最大化（画面の55-60%）",
@@ -206,15 +206,25 @@ https://youtu.be/979DSjYsE-o
       "style": "黒猫のシルエット。金色の目だけが光る。光球の方向をじっと見つめている。存在感は控えめに、でも画面に緊張感を与える"
     }
   },
-  "scene_description": "夕暮れから夜の境目の空を背景に、宙に浮かぶ光のビジョンが広がっている。光球の中では言葉のパターンが渦を巻き、何かが生まれようとしている。黒猫アインシュタインが右下に静かに佇み、その光を見つめる。人物は登場しない。「生成とは何か」という問いそのものをビジュアル化したシーン。",
+  "scene_description": "Visionary digital painting — a cosmic lavender-violet mist with a glowing luminous orb at the center, word fragments and pattern spirals swirling outward from it in pale gold and teal at 30% opacity, bioluminescent backlighting radiating from the orb. The black cat silhouette crouches lower-right, edges softly diffused with violet-gold rimlight, amber eyes gazing at the orb — watching something being born. Sparkling orbs drift in the atmospheric haze. Soft-focus edges, no harsh outlines, velvety grainy texture, layered transparency, pastel dreamscape. Top area kept luminously clear for title text.",
   "important_notes": [
     "ハル・おじいさんは登場しない。黒猫アインシュタインのシルエットのみ",
-    "「？」マークは主役ビジュアルの中に自然に溶け込む形で（大きく書かない）",
-    "「生成」のビジュアル化：光の粒子・言葉の断片・渦巻くパターンで表現。コードや数式は使わない",
-    "テキスト帯の背景に薄い半透明グラデーションオーバーレイを入れて可読性を確保",
-    "ジブリ・手描き感を維持。写実的・3DCGにしない",
-    "日本語テキストのみ。英語表記不要",
-    "全体トーンは「不思議さ」と「好奇心」。暗く怖い印象にしない"
-  ]
+    "輪郭はソフトでぼかされたまま — harsh outlineは使わない",
+    "「生成」のビジュアル化：光の粒子・言葉の断片・渦巻くパターン。コードや数式は使わない",
+    "全体トーンは「不思議さ」と「好奇心」。暗く怖い印象にしない",
+    "スマホ縮小でも黒猫シルエットと目が認識できるコントラストを維持"
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused (no harsh outlines)",
+      "lighting": "Bioluminescent glow, ethereal backlighting, sparkling orbs",
+      "texture": "Grainy painterly feel, resembling soft pastel or airbrushing",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "magical realism", "concept art", "diffused light", "pastel dreamscape", "intricate details in soft focus"]
+  }
 }
 ```
