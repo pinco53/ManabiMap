@@ -651,6 +651,92 @@ body::before {
 .group-beyond .group-header::before { filter: drop-shadow(0 4px 12px rgba(255,45,149,0.4)); }
 .group-now .group-header::before { filter: drop-shadow(0 4px 12px rgba(0,212,255,0.45)); }
 
+/* ========== Phase 3: インタラクション ========== */
+
+/* カードホバー時の発光強化 + 後続カードへの連鎖ヒント */
+.part-card {
+  transition: all 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.part-card:hover {
+  box-shadow: 0 14px 40px rgba(0,0,0,0.55), 0 0 28px rgba(0,212,255,0.18);
+}
+.parts-grid .part-card:hover ~ .part-card {
+  border-color: rgba(0,212,255,0.28);
+  transition-delay: 0.08s;
+}
+
+/* ナビバー現在地ハイライト */
+.nav-bar a.nav-active {
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.6) !important;
+  background: rgba(0,212,255,0.08);
+  box-shadow: 0 0 14px rgba(0,212,255,0.25);
+}
+
+/* サイドミニマップ（旅路図） */
+.mini-map {
+  position: fixed;
+  right: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 22px 14px;
+}
+@media (max-width: 1100px) { .mini-map { display: none; } }
+.mini-map::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: 0;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg,
+    transparent 0%, rgba(0,212,255,0.2) 15%,
+    rgba(0,212,255,0.2) 85%, transparent 100%);
+}
+.mm-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,212,255,0.35);
+  background: #0a0a14;
+  display: block;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  z-index: 1;
+  text-decoration: none;
+}
+.mm-dot:hover {
+  transform: scale(1.6);
+  background: var(--neon-sky);
+  box-shadow: 0 0 14px rgba(0,212,255,0.7);
+}
+.mm-dot.mm-active {
+  background: var(--neon-sky);
+  border-color: var(--neon-sky);
+  box-shadow: 0 0 16px rgba(0,212,255,0.9);
+  transform: scale(1.4);
+}
+.mm-dot::before {
+  content: attr(data-label);
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+.mm-dot:hover::before { opacity: 1; color: var(--neon-sky); right: 26px; }
+.mm-dot.mm-active::before { opacity: 1; color: var(--neon-sky); }
+
 /* ========== アクセシビリティ：モーション軽減設定の尊重 ========== */
 @media (prefers-reduced-motion: reduce) {
   .bg-canvas { display: none; }
@@ -1114,6 +1200,22 @@ body::before {
 <body>
 
 <!-- ========== HERO ========== -->
+<!-- ========== SIDE MINI-MAP ========== -->
+<aside class="mini-map" aria-label="ページ内ナビゲーション">
+  <a href="#top" class="mm-dot" data-label="START"></a>
+  <a href="#theme" class="mm-dot" data-label="テーマ曲"></a>
+  <a href="#intro" class="mm-dot" data-label="紹介"></a>
+  <a href="#part1" class="mm-dot" data-label="第1部 蒸気"></a>
+  <a href="#part2" class="mm-dot" data-label="第2部 接続"></a>
+  <a href="#part3" class="mm-dot" data-label="第3部 AI"></a>
+  <a href="#part4" class="mm-dot" data-label="第4部 文字"></a>
+  <a href="#part5" class="mm-dot" data-label="第5部 言葉"></a>
+  <a href="#part6" class="mm-dot" data-label="第6部 数字"></a>
+  <a href="#part7" class="mm-dot" data-label="第7部 前提"></a>
+  <a href="#part8" class="mm-dot" data-label="第8部 歴史編"></a>
+  <a href="#part8-2" class="mm-dot" data-label="第8部 社会編"></a>
+</aside>
+
 <section class="hero" id="top">
   <div class="hero-series">ハルとおじいさんの物語</div>
   <h1 class="hero-title">学びの地図</h1>
@@ -1847,7 +1949,51 @@ function loadThemeVideo(el) {
   }, { passive: true });
   drawParticles();
 
-  // 5. ヒーロー視差効果
+  // 6. ナビバー + ミニマップ 現在地ハイライト
+  const navLinks = document.querySelectorAll('.nav-bar a[href^="#"]');
+  const mmDots = document.querySelectorAll('.mm-dot');
+  const trackedIds = ['top', 'theme', 'intro', 'part1', 'part2', 'part3', 'part4', 'part5', 'part6', 'part7', 'part8', 'part8-2'];
+
+  function setActive(id) {
+    navLinks.forEach(function(link) {
+      link.classList.toggle('nav-active', link.getAttribute('href') === '#' + id);
+    });
+    mmDots.forEach(function(dot) {
+      dot.classList.toggle('mm-active', dot.getAttribute('href') === '#' + id);
+    });
+  }
+
+  const activeObs = new IntersectionObserver(function(entries) {
+    // 一番大きく見えているセクションを選ぶ
+    let best = null, bestRatio = 0;
+    entries.forEach(function(entry) {
+      if (entry.intersectionRatio > bestRatio) {
+        best = entry.target.id;
+        bestRatio = entry.intersectionRatio;
+      }
+    });
+    if (best) setActive(best);
+  }, { threshold: [0.2, 0.4, 0.6], rootMargin: '-20% 0px -40% 0px' });
+
+  trackedIds.forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) activeObs.observe(el);
+  });
+
+  // スムーズスクロール（アンカーリンク共通）
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      const hash = a.getAttribute('href');
+      if (hash === '#' || hash.length < 2) return;
+      const target = document.getElementById(hash.slice(1));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // 7. ヒーロー視差効果
   const heroLayers = [
     { el: document.querySelector('.hero-series'), speed: 0.15 },
     { el: document.querySelector('.hero-title'), speed: 0.25 },
