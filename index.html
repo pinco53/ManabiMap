@@ -125,6 +125,126 @@ a { color: inherit; text-decoration: none; }
   50% { opacity: 1; }
 }
 
+/* ========== OPENING THEME ========== */
+.theme-section {
+  padding: 100px 24px;
+  background: radial-gradient(ellipse at center, #0d0d1a 0%, var(--bg) 70%);
+  text-align: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.theme-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.theme-label {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--neon-sky);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+.theme-title {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+.theme-subtitle {
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: var(--text-dim);
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+.theme-player {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto 32px;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000;
+  box-shadow: 0 0 60px rgba(0,212,255,0.15), 0 8px 32px rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,212,255,0.2);
+  transition: all 0.4s;
+  z-index: 1;
+}
+.theme-player:hover {
+  box-shadow: 0 0 80px rgba(0,212,255,0.3), 0 12px 40px rgba(0,0,0,0.6);
+  transform: translateY(-3px);
+  border-color: var(--neon-sky);
+}
+.theme-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s;
+}
+.theme-player:hover .theme-poster { transform: scale(1.04); }
+.theme-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(0,212,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(0,212,255,0.5);
+  transition: all 0.3s;
+}
+.theme-player:hover .theme-play-btn {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: var(--neon-sky);
+  box-shadow: 0 0 60px rgba(0,212,255,0.8);
+}
+.theme-play-btn::after {
+  content: '';
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 14px 0 14px 22px;
+  border-color: transparent transparent transparent #000;
+  margin-left: 4px;
+}
+.theme-tagline {
+  font-size: 13px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  position: relative;
+  z-index: 1;
+}
+.theme-tagline em {
+  font-style: normal;
+  color: var(--neon-sky);
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .theme-section { padding: 60px 16px; }
+  .theme-title { font-size: 18px; }
+  .theme-play-btn { width: 60px; height: 60px; }
+  .theme-play-btn::after { border-width: 10px 0 10px 16px; }
+}
+
 /* ========== NAVIGATION ========== */
 .nav-bar {
   position: sticky;
@@ -883,6 +1003,22 @@ a { color: inherit; text-decoration: none; }
   <div class="hero-scroll">SCROLL</div>
 </section>
 
+<!-- ========== OPENING THEME ========== -->
+<section class="theme-section" id="theme">
+  <div class="theme-label">OPENING THEME</div>
+  <div class="theme-title">ハルとおじいさんの物語</div>
+  <div class="theme-subtitle">── Theme Song ──</div>
+  <div class="theme-player" id="theme-player-box" onclick="loadThemeVideo(this)">
+    <img src="https://img.youtube.com/vi/TYnTySeqACY/maxresdefault.jpg"
+         onerror="this.src='https://img.youtube.com/vi/TYnTySeqACY/hqdefault.jpg'"
+         alt="オープニングテーマ サムネイル" class="theme-poster" loading="lazy">
+    <div class="theme-play-btn"></div>
+  </div>
+  <p class="theme-tagline">
+    <em>この物語の世界を、まず音で感じてください。</em>
+  </p>
+</section>
+
 <!-- ========== INTRO / PROMOTION ========== -->
 <section class="intro-section" id="intro">
   <div class="intro-header">
@@ -1356,6 +1492,11 @@ a { color: inherit; text-decoration: none; }
 <script>
 function loadIntroVideo(el) {
   el.innerHTML = '<iframe src="https://www.youtube.com/embed/BwUM3mDsvPY?autoplay=1" title="ハルとおじいさん 三部作紹介" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;display:block;"></iframe>';
+  el.style.cursor = 'default';
+  el.onclick = null;
+}
+function loadThemeVideo(el) {
+  el.innerHTML = '<iframe src="https://www.youtube.com/embed/TYnTySeqACY?autoplay=1" title="ハルとおじいさんの物語 オープニングテーマ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;display:block;"></iframe>';
   el.style.cursor = 'default';
   el.onclick = null;
 }
