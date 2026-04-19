@@ -2,6 +2,7 @@
 
 **対象**: 第5部第5話（前編・後編）
 **保存日**: 2026-04-14
+**URL**: https://note.com/manabimapcreator/n/n253a052aba94
 
 ---
 

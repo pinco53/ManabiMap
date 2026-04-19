@@ -2,6 +2,7 @@
 
 **対象**: 第5部第7話「言葉は思考の翼」（エピローグ）
 **保存日**: 2026-04-17
+**URL**: https://note.com/manabimapcreator/n/n5796b158faa3
 
 ---
 

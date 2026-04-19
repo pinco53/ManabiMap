@@ -2,6 +2,7 @@
 
 **対象**: 第6部第1話（前編・後編）
 **保存日**: 2026-04-18
+**URL**: https://note.com/manabimapcreator/n/na8308189337b
 
 ---
 

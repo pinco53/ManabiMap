@@ -2,6 +2,7 @@
 
 **対象**: コンクール作品「#AIと始めてみた」（Google Gemini × note）
 **保存日**: 2026-04-16
+**URL**: https://note.com/manabimapcreator/n/nb43ff699126c
 
 ---
 
