@@ -700,6 +700,63 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.2em;
 }
 
+/* ========== YOUTUBE SUBSCRIBE CTA ========== */
+.yt-cta-section {
+  max-width: 640px;
+  margin: 100px auto 0;
+  padding: 56px 32px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+}
+.yt-cta-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.35em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.yt-cta-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+.yt-cta-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.9;
+  margin-bottom: 32px;
+}
+.yt-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background: #cc0000;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: 0 4px 16px rgba(204,0,0,0.3);
+}
+.yt-cta-btn:hover {
+  background: #ff1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(204,0,0,0.5);
+}
+.yt-cta-btn svg { width: 22px; height: 16px; fill: #fff; }
+@media (max-width: 600px) {
+  .yt-cta-section { margin: 60px 16px 0; padding: 40px 20px; }
+  .yt-cta-title { font-size: 18px; }
+}
+
 /* ========== FOOTER ========== */
 .site-footer {
   text-align: center;
@@ -1175,6 +1232,20 @@ a { color: inherit; text-decoration: none; }
     </div>
 
   </div>
+</section>
+
+<!-- ========== YOUTUBE SUBSCRIBE CTA ========== -->
+<section class="yt-cta-section">
+  <div class="yt-cta-label">YouTube</div>
+  <div class="yt-cta-title">次の物語を、見逃さないために</div>
+  <p class="yt-cta-desc">
+    毎週土曜・日曜に新しい対話を公開しています。<br>
+    チャンネル登録で、ハルとおじいさんの次の問いをお届けします。
+  </p>
+  <a href="https://www.youtube.com/channel/UCWzwmiGI53Py4uSBY1Iuwcw?sub_confirmation=1" target="_blank" rel="noopener" class="yt-cta-btn">
+    <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="#cc0000"/></svg>
+    チャンネル登録する
+  </a>
 </section>
 
 <!-- ========== FOOTER ========== -->

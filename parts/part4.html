@@ -31,6 +31,29 @@
   .cover-tagline em { font-style: normal; color: #d0e8ff; font-weight: 700; }
   .cover-divider { width: 60px; height: 1px; background: #406080; margin: 36px auto; }
   .cover-note { font-size: 10px; color: #406080; letter-spacing: 0.15em; }
+  .cover-yt-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 36px;
+    padding: 14px 32px;
+    background: #cc0000;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 4px 16px rgba(204,0,0,0.3);
+  }
+  .cover-yt-cta:hover {
+    background: #ff1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(204,0,0,0.5);
+  }
+  .cover-yt-cta svg { width: 20px; height: 14px; fill: #fff; }
+
   .page { max-width: 880px; margin: 0 auto; padding: 64px 68px; page-break-after: always; }
   .page:last-child { page-break-after: auto; }
   .section-label { font-size: 10px; letter-spacing: 0.4em; color: #4080b0; text-transform: uppercase; margin-bottom: 6px; }
@@ -136,6 +159,10 @@
   </div>
   <div class="cover-divider"></div>
   <div class="cover-note">本資料は動画の補足資料です。無断転載・商用利用はご遠慮ください。</div>
+  <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2WxoHkQX1M6VJCrFKtdxXx8Z" target="_blank" rel="noopener" class="cover-yt-cta">
+    <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="#cc0000"/></svg>
+    YouTubeで動画を見る
+  </a>
 </div>
 
 <!-- PAGE 1: 序論 -->
@@ -609,6 +636,28 @@
 }
 .yt-playlist-btn:hover { opacity: 0.85; }
 .yt-playlist-btn svg { width: 16px; height: 16px; fill: #000; }
+.yt-subscribe-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #cc0000;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  margin-left: 10px;
+}
+.yt-subscribe-btn:hover {
+  background: #cc0000;
+  color: #fff;
+}
+.yt-subscribe-btn svg { width: 14px; height: 14px; fill: currentColor; }
+
 .yt-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -654,7 +703,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
+  opacity: 0.75;
   transition: opacity 0.3s;
 }
 .yt-play-dot::after {
@@ -665,7 +714,7 @@
   border-color: transparent transparent transparent #fff;
   margin-left: 2px;
 }
-.yt-card:hover .yt-play-dot { opacity: 1; }
+.yt-card:hover .yt-play-dot { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
 .yt-card-label {
   padding: 10px 12px;
   font-size: 12px;
@@ -697,6 +746,10 @@
       <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2WxoHkQX1M6VJCrFKtdxXx8Z" target="_blank" rel="noopener" class="yt-playlist-btn">
         <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="#000"/></svg>
         再生リストで見る
+      </a>
+      <a href="https://www.youtube.com/channel/UCWzwmiGI53Py4uSBY1Iuwcw?sub_confirmation=1" target="_blank" rel="noopener" class="yt-subscribe-btn">
+        <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+        チャンネル登録
       </a>
   </div>
   <div class="yt-grid">
