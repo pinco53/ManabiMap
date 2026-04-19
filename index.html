@@ -528,20 +528,86 @@ a { color: inherit; text-decoration: none; }
   fill: currentColor;
 }
 
-/* ========== TIMELINE CONNECTOR ========== */
+/* ========== TIMELINE CONNECTOR（地図ルート演出） ========== */
 .timeline-connector {
   text-align: center;
-  padding: 20px 0;
+  padding: 30px 0;
   position: relative;
+  height: 140px;
+}
+.timeline-connector svg {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 140px;
+  overflow: visible;
+}
+.timeline-connector svg.mirror { transform: translateX(-50%) scaleX(-1); }
+.timeline-path {
+  fill: none;
+  stroke: url(#pathGradient);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.timeline-connector svg.drawn .timeline-path { stroke-dashoffset: 0; }
+.timeline-dot {
+  fill: var(--neon-sky);
+  opacity: 0;
+  transition: opacity 0.5s 1.3s, transform 0.5s 1.3s;
+  transform-origin: center;
+  filter: drop-shadow(0 0 4px rgba(0,212,255,0.9));
+}
+.timeline-connector svg.drawn .timeline-dot {
+  opacity: 1;
+  animation: pulseDot 2.4s ease-in-out 1.8s infinite;
+}
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(0,212,255,0.9)); }
+  50% { transform: scale(1.4); filter: drop-shadow(0 0 8px rgba(0,212,255,1)); }
 }
 
-.timeline-connector::before {
-  content: '';
-  display: block;
-  width: 1px;
-  height: 60px;
-  margin: 0 auto;
-  background: linear-gradient(180deg, var(--border), transparent);
+/* ========== SCROLL PROGRESS BAR（旅の進捗） ========== */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--neon-sky) 0%, var(--neon-cyan) 50%, var(--neon-gold) 100%);
+  z-index: 9999;
+  box-shadow: 0 0 8px rgba(0,212,255,0.6);
+  pointer-events: none;
+  transition: width 0.08s linear;
+}
+
+/* ========== REVEAL ON SCROLL（カード段階表示） ========== */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal-init.reveal-on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== アクセシビリティ：モーション軽減設定の尊重 ========== */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init, .reveal-init.reveal-on {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .timeline-path,
+  .timeline-connector svg.drawn .timeline-path { stroke-dashoffset: 0; transition: none; }
+  .timeline-dot,
+  .timeline-connector svg.drawn .timeline-dot { opacity: 1; animation: none; transition: none; }
+  .scroll-progress { transition: none; }
 }
 
 /* ========== INTRO FEATURE SECTION ========== */
@@ -1240,7 +1306,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
-<div class="timeline-connector"></div>
+<div class="timeline-connector"><svg viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pathGradient" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(0,212,255,0)"/><stop offset="25%" stop-color="rgba(0,212,255,0.8)"/><stop offset="75%" stop-color="rgba(0,212,255,0.8)"/><stop offset="100%" stop-color="rgba(0,212,255,0)"/></linearGradient></defs><path class="timeline-path" d="M 130 0 Q 210 70 130 140"/><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
 
 <!-- ============================================================ -->
 <!-- CHAPTER GROUP 2: 文明の道具 (Parts 4-6)                       -->
@@ -1344,7 +1410,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
-<div class="timeline-connector"></div>
+<div class="timeline-connector"><svg class="mirror" viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><path class="timeline-path" d="M 130 0 Q 210 70 130 140"/><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
 
 <!-- ============================================================ -->
 <!-- CHAPTER GROUP 3: 前提を超える (Part 7)                        -->
@@ -1392,7 +1458,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
-<div class="timeline-connector"></div>
+<div class="timeline-connector"><svg viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><path class="timeline-path" d="M 130 0 Q 210 70 130 140"/><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
 
 <!-- ============================================================ -->
 <!-- CHAPTER GROUP 4: いま、ここ (Part 8)                          -->
@@ -1500,6 +1566,66 @@ function loadThemeVideo(el) {
   el.style.cursor = 'default';
   el.onclick = null;
 }
+
+/* ========== 学びの地図：動的演出 ========== */
+(function() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 1. スクロール進捗バー
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  document.body.appendChild(progressBar);
+  let ticking = false;
+  function updateProgress() {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const ratio = max > 0 ? h.scrollTop / max : 0;
+    progressBar.style.width = (ratio * 100) + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function() {
+    if (!ticking) { requestAnimationFrame(updateProgress); ticking = true; }
+  }, { passive: true });
+  updateProgress();
+
+  if (reduceMotion) return;
+
+  // 2. カード段階表示
+  const revealTargets = document.querySelectorAll(
+    '.part-card, .group-header, .intro-part-mini, .intro-video-wrap, ' +
+    '.theme-section, .yt-cta-section, .fes-badge'
+  );
+  revealTargets.forEach(function(el) { el.classList.add('reveal-init'); });
+
+  const revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      const target = entry.target;
+      const siblings = Array.prototype.filter.call(
+        target.parentElement.children,
+        function(c) { return c.classList.contains('reveal-init'); }
+      );
+      const idx = siblings.indexOf(target);
+      target.style.transitionDelay = (idx * 0.1) + 's';
+      target.classList.add('reveal-on');
+      revealObs.unobserve(target);
+    });
+  }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+  revealTargets.forEach(function(el) { revealObs.observe(el); });
+
+  // 3. Timeline SVGパスの描画アニメ
+  const pathObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('drawn');
+        pathObs.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -30px 0px', threshold: 0.3 });
+  document.querySelectorAll('.timeline-connector svg').forEach(function(svg) {
+    pathObs.observe(svg);
+  });
+})();
 </script>
 </body>
 </html>
