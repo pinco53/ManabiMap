@@ -103,6 +103,40 @@ a { color: inherit; text-decoration: none; }
   color: var(--note-green);
   position: relative;
 }
+.theme-mini {
+  margin-top: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+.theme-mini-player {
+  position: relative;
+  width: 110px; height: 62px;
+  border-radius: 5px; overflow: hidden;
+  cursor: pointer; flex-shrink: 0;
+  border: 1px solid rgba(65,201,180,0.25);
+  transition: all 0.3s;
+}
+.theme-mini-player:hover { border-color: var(--note-green); transform: scale(1.04); }
+.theme-mini-player img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.theme-mini-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(0,0,0,0.65);
+  display: flex; align-items: center; justify-content: center;
+}
+.theme-mini-play::after {
+  content: ''; width: 0; height: 0;
+  border-style: solid; border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 2px;
+}
+.theme-mini-label { text-align: left; }
+.theme-mini-label p { font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); margin-bottom: 4px; }
+.theme-mini-label a { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: var(--note-green); text-decoration: none; transition: opacity 0.2s; }
+.theme-mini-label a:hover { opacity: 0.75; }
 
 /* ── GRID ── */
 .grid-section {
@@ -224,6 +258,16 @@ a { color: inherit; text-decoration: none; }
     「ハルとおじいさん」の世界観を、もう少し遠くまで。
   </p>
   <div class="hero-count">33 articles</div>
+  <div class="theme-mini">
+    <div class="theme-mini-player" onclick="this.innerHTML='<iframe src=&quot;https://www.youtube.com/embed/TYnTySeqACY?autoplay=1&quot; frameborder=&quot;0&quot; allow=&quot;autoplay;encrypted-media&quot; allowfullscreen style=&quot;width:100%;height:100%;display:block;&quot;></iframe>';this.onclick=null;this.style.cursor='default';">
+      <img src="https://img.youtube.com/vi/TYnTySeqACY/hqdefault.jpg" alt="オープニングテーマ" loading="lazy">
+      <div class="theme-mini-play"></div>
+    </div>
+    <div class="theme-mini-label">
+      <p>OPENING THEME</p>
+      <a href="https://youtu.be/TYnTySeqACY" target="_blank" rel="noopener">ハルとおじいさんの物語<br>テーマソング ▶</a>
+    </div>
+  </div>
 </section>
 
 <section class="grid-section">
