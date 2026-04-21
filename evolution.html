@@ -1,0 +1,3222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>進化の年表 ── 138億年から、まだ見ぬ未来まで｜ハルとおじいさん</title>
+<meta name="description" content="宇宙誕生から人類の歩み、そして未来まで。約100の転換点で俯瞰する、進化の年表。ハルとおじいさんの学びの地図と接続する、人類史の大観。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #05050c;
+  --bg-deep: #02020a;
+  --bg-card: #0c0c18;
+  --bg-card-hover: #141428;
+  --text: #dcdce8;
+  --text-dim: #7a7a95;
+  --text-bright: #ffffff;
+  --border: #24243a;
+  --neon-orange: #ff6b2b;
+  --neon-blue: #4da6ff;
+  --neon-cyan: #00e5ff;
+  --neon-green: #39ff14;
+  --neon-purple: #bf5fff;
+  --neon-gold: #ffd700;
+  --neon-magenta: #ff2d95;
+  --neon-sky: #00d4ff;
+  --neon-white: #f0f0ff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.85;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: -2;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ========== BG CANVAS ========== */
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* ========== TOP BAR ========== */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  padding: 14px 24px;
+  background: rgba(5,5,12,0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-bar a.back-link {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  transition: color 0.3s;
+}
+.top-bar a.back-link:hover { color: var(--neon-sky); }
+.top-bar a.back-link::before {
+  content: '← ';
+  display: inline-block;
+  margin-right: 4px;
+}
+.top-bar .top-series {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+@media (max-width: 600px) {
+  .top-series { display: none; }
+}
+
+/* ========== SCROLL PROGRESS ========== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 9999;
+  background: transparent;
+}
+.scroll-progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg,
+    var(--neon-purple) 0%,
+    var(--neon-green) 20%,
+    var(--neon-orange) 40%,
+    var(--neon-gold) 55%,
+    var(--neon-blue) 75%,
+    var(--neon-cyan) 90%,
+    var(--neon-white) 100%);
+  box-shadow: 0 0 10px rgba(0,212,255,0.5);
+  transition: width 0.08s linear;
+}
+
+/* ========== HERO ========== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 900px 600px at 50% 40%, rgba(191,95,255,0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 700px 500px at 30% 70%, rgba(0,229,255,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 70% 80%, rgba(255,215,0,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-series {
+  font-size: 11px;
+  letter-spacing: 0.5em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  position: relative;
+}
+.hero-title {
+  font-family: 'Cinzel', 'Noto Sans JP', serif;
+  font-size: clamp(44px, 9vw, 100px);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  position: relative;
+  background: linear-gradient(135deg, #fff 0%, #bf5fff 25%, #00e5ff 55%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 80px rgba(191,95,255,0.3);
+}
+.hero-subtitle-jp {
+  font-size: clamp(20px, 3.2vw, 32px);
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: var(--text-bright);
+  margin-bottom: 32px;
+  position: relative;
+}
+.hero-tagline {
+  font-size: clamp(13px, 1.8vw, 17px);
+  color: var(--text-dim);
+  max-width: 600px;
+  line-height: 2.1;
+  margin-bottom: 48px;
+  position: relative;
+}
+.hero-tagline strong {
+  color: var(--neon-sky);
+  font-weight: 400;
+}
+.hero-divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent, var(--neon-sky), transparent);
+  margin-bottom: 32px;
+  position: relative;
+}
+.hero-scroll {
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--text-dim);
+  position: relative;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+.hero-scroll::after {
+  content: '↓';
+  display: block;
+  font-size: 18px;
+  margin-top: 10px;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ========== ERA NAV SIDEBAR ========== */
+.era-nav {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px 12px;
+}
+@media (max-width: 1100px) { .era-nav { display: none; } }
+.era-nav::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  bottom: 10px;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(191,95,255,0.4) 10%,
+    rgba(57,255,20,0.4) 25%,
+    rgba(255,107,43,0.4) 45%,
+    rgba(255,215,0,0.4) 60%,
+    rgba(0,229,255,0.4) 80%,
+    rgba(0,212,255,0.4) 90%,
+    transparent 100%);
+}
+.era-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: var(--bg);
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.era-dot:hover {
+  transform: scale(1.6);
+  box-shadow: 0 0 14px currentColor;
+}
+.era-dot.active {
+  transform: scale(1.5);
+  box-shadow: 0 0 16px currentColor;
+  background: currentColor;
+  border-color: currentColor;
+}
+.era-dot[data-era="cosmos"] { color: var(--neon-purple); }
+.era-dot[data-era="dawn"] { color: var(--neon-green); }
+.era-dot[data-era="civilization"] { color: var(--neon-orange); }
+.era-dot[data-era="ancient"] { color: var(--neon-gold); }
+.era-dot[data-era="science"] { color: var(--neon-white); }
+.era-dot[data-era="industrial"] { color: var(--neon-orange); }
+.era-dot[data-era="20c"] { color: var(--neon-blue); }
+.era-dot[data-era="digital"] { color: var(--neon-cyan); }
+.era-dot[data-era="mobile"] { color: var(--neon-magenta); }
+.era-dot[data-era="ai"] { color: var(--neon-sky); }
+.era-dot[data-era="future"] { color: var(--neon-white); }
+
+.era-dot::before {
+  content: attr(data-label);
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+.era-dot:hover::before,
+.era-dot.active::before { opacity: 1; color: currentColor; right: 26px; }
+
+/* ========== TIMELINE CORE ========== */
+.timeline-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+}
+
+.timeline-axis {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg,
+    rgba(191,95,255,0.9) 0%,
+    rgba(191,95,255,0.9) 8%,
+    rgba(57,255,20,0.9) 18%,
+    rgba(255,107,43,0.9) 32%,
+    rgba(255,215,0,0.9) 45%,
+    rgba(255,255,255,0.8) 55%,
+    rgba(255,107,43,0.9) 62%,
+    rgba(77,166,255,0.9) 72%,
+    rgba(0,229,255,0.9) 82%,
+    rgba(255,45,149,0.9) 88%,
+    rgba(0,212,255,1) 93%,
+    rgba(240,240,255,0.7) 100%);
+  box-shadow: 0 0 20px rgba(0,212,255,0.3);
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .timeline-axis {
+    left: 28px;
+    transform: none;
+  }
+}
+
+/* ========== ERA SECTIONS ========== */
+.era {
+  position: relative;
+  padding: 100px 0 40px;
+}
+
+.era-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2;
+}
+.era-header::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: var(--era-color, var(--neon-sky));
+  box-shadow: 0 0 30px var(--era-color, var(--neon-sky));
+  position: relative;
+  z-index: 1;
+}
+.era-number {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 0.5em;
+  color: var(--era-color, var(--text-dim));
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.era-title {
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: var(--text-bright);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.era-range {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--era-color, var(--text-dim));
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.era-summary {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 2;
+}
+
+.era[data-era="cosmos"] { --era-color: var(--neon-purple); }
+.era[data-era="dawn"] { --era-color: var(--neon-green); }
+.era[data-era="civilization"] { --era-color: var(--neon-orange); }
+.era[data-era="ancient"] { --era-color: var(--neon-gold); }
+.era[data-era="science"] { --era-color: var(--neon-white); }
+.era[data-era="industrial"] { --era-color: var(--neon-orange); }
+.era[data-era="20c"] { --era-color: var(--neon-blue); }
+.era[data-era="digital"] { --era-color: var(--neon-cyan); }
+.era[data-era="mobile"] { --era-color: var(--neon-magenta); }
+.era[data-era="ai"] { --era-color: var(--neon-sky); }
+.era[data-era="future"] { --era-color: var(--neon-white); }
+
+/* Era background accent */
+.era::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(800px, 90%);
+  height: 320px;
+  background: radial-gradient(ellipse at center, var(--era-color) 0%, transparent 65%);
+  opacity: 0.06;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* ========== EVENT ========== */
+.event {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  margin-bottom: 36px;
+  z-index: 2;
+}
+.event-left .event-card { grid-column: 1; text-align: right; padding-right: 12px; }
+.event-right .event-card { grid-column: 3; text-align: left; padding-left: 12px; }
+.event-node { grid-column: 2; justify-self: center; position: relative; }
+.event-connector {
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  background: var(--era-color, var(--neon-sky));
+  opacity: 0.4;
+}
+.event-left .event-connector { right: 60%; width: 40%; }
+.event-right .event-connector { left: 60%; width: 40%; }
+
+.event-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--era-color, var(--neon-sky));
+  box-shadow: 0 0 10px var(--era-color, var(--neon-sky)), inset 0 0 6px rgba(255,255,255,0.1);
+  position: relative;
+  z-index: 2;
+}
+.event-dot.major {
+  width: 22px;
+  height: 22px;
+  background: var(--era-color, var(--neon-sky));
+  box-shadow: 0 0 25px var(--era-color, var(--neon-sky)), 0 0 8px rgba(255,255,255,0.6) inset;
+}
+.event-dot.minor {
+  width: 10px;
+  height: 10px;
+  border-width: 1px;
+}
+
+.event-card {
+  display: inline-block;
+  max-width: 500px;
+}
+.event-date {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--era-color, var(--neon-sky));
+  margin-bottom: 6px;
+}
+.event-left .event-date { text-align: right; }
+.event-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.event-title .icon {
+  font-size: 18px;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+.event-left .event-title .icon { margin-right: 0; margin-left: 6px; }
+.event-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.95;
+  margin-bottom: 10px;
+}
+.event-link-row {
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.event-left .event-link-row { justify-content: flex-end; width: 100%; }
+.event-right .event-link-row { justify-content: flex-start; width: 100%; }
+.event-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  transition: all 0.3s;
+  opacity: 0.85;
+}
+.event-link:hover { background: currentColor; color: #000 !important; opacity: 1; }
+.event-link[data-part="1"] { color: var(--neon-orange); }
+.event-link[data-part="2"] { color: var(--neon-blue); }
+.event-link[data-part="3"] { color: var(--neon-cyan); }
+.event-link[data-part="4"] { color: var(--neon-green); }
+.event-link[data-part="5"] { color: var(--neon-purple); }
+.event-link[data-part="6"] { color: var(--neon-gold); }
+.event-link[data-part="7"] { color: var(--neon-magenta); }
+.event-link[data-part="8"] { color: var(--neon-sky); }
+
+/* ========== MOBILE LAYOUT ========== */
+@media (max-width: 768px) {
+  .event {
+    grid-template-columns: 56px 1fr;
+    margin-bottom: 30px;
+  }
+  .event-left .event-card,
+  .event-right .event-card {
+    grid-column: 2;
+    text-align: left;
+    padding-left: 12px;
+    padding-right: 0;
+  }
+  .event-node { grid-column: 1; }
+  .event-left .event-date,
+  .event-right .event-date { text-align: left; }
+  .event-left .event-title .icon { margin-left: 0; margin-right: 6px; }
+  .event-left .event-link-row,
+  .event-right .event-link-row { justify-content: flex-start; }
+  .event-left .event-connector,
+  .event-right .event-connector {
+    left: 100%;
+    right: auto;
+    width: 12px;
+  }
+  .timeline-container { padding: 0 16px; }
+  .era { padding: 70px 0 30px; }
+}
+
+/* ========== REVEAL ========== */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal-on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== ERA DIVIDER ========== */
+.era-divider {
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+  z-index: 2;
+}
+.era-divider-text {
+  display: inline-block;
+  padding: 6px 24px;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+}
+
+/* ========== FOOTER CTA ========== */
+.footer-cta {
+  max-width: 900px;
+  margin: 80px auto 0;
+  padding: 80px 24px 60px;
+  text-align: center;
+  position: relative;
+  border-top: 1px solid var(--border);
+}
+.footer-cta-label {
+  font-size: 11px;
+  letter-spacing: 0.5em;
+  color: var(--neon-sky);
+  margin-bottom: 14px;
+}
+.footer-cta-title {
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.footer-cta-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  max-width: 620px;
+  margin: 0 auto 36px;
+  line-height: 2;
+}
+.footer-cta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  max-width: 780px;
+  margin: 0 auto 40px;
+}
+.footer-cta-btn {
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  transition: all 0.3s;
+  font-size: 13px;
+  font-weight: 700;
+}
+.footer-cta-btn:hover { transform: translateY(-3px); background: rgba(255,255,255,0.05); }
+.footer-cta-btn .pnum {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
+.footer-cta-btn[data-part="1"] { color: var(--neon-orange); border-color: rgba(255,107,43,0.4); }
+.footer-cta-btn[data-part="2"] { color: var(--neon-blue); border-color: rgba(77,166,255,0.4); }
+.footer-cta-btn[data-part="3"] { color: var(--neon-cyan); border-color: rgba(0,229,255,0.4); }
+.footer-cta-btn[data-part="4"] { color: var(--neon-green); border-color: rgba(57,255,20,0.4); }
+.footer-cta-btn[data-part="5"] { color: var(--neon-purple); border-color: rgba(191,95,255,0.4); }
+.footer-cta-btn[data-part="6"] { color: var(--neon-gold); border-color: rgba(255,215,0,0.4); }
+.footer-cta-btn[data-part="7"] { color: var(--neon-magenta); border-color: rgba(255,45,149,0.4); }
+.footer-cta-btn[data-part="8"] { color: var(--neon-sky); border-color: rgba(0,212,255,0.4); }
+
+.site-footer {
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 11px;
+  color: #333;
+  letter-spacing: 0.1em;
+  border-top: 1px solid var(--border);
+}
+
+/* ========== ACCELERATION SECTION ========== */
+.acceleration {
+  max-width: 1100px;
+  margin: 60px auto 0;
+  padding: 80px 24px 40px;
+  position: relative;
+}
+.accel-header {
+  text-align: center;
+  margin-bottom: 80px;
+  padding: 0 10px;
+}
+.accel-label {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  color: var(--neon-gold);
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+.accel-title {
+  font-size: clamp(32px, 5.5vw, 56px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  margin-bottom: 22px;
+  background: linear-gradient(120deg, #fff 0%, #ffd700 40%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.accel-intro {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 2;
+}
+
+.accel-panel {
+  margin-bottom: 80px;
+  padding: 44px 40px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse 800px 400px at 50% 0%, rgba(0,212,255,0.04) 0%, transparent 70%),
+    rgba(12,12,24,0.6);
+  backdrop-filter: blur(4px);
+  position: relative;
+}
+.panel-num {
+  position: absolute;
+  top: -18px;
+  left: 30px;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: #000;
+  background: var(--neon-gold);
+  padding: 6px 14px;
+  border-radius: 4px;
+}
+.panel-title {
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 10px;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+.panel-desc {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 2;
+  margin-bottom: 36px;
+}
+.panel-insight {
+  margin-top: 30px;
+  padding: 18px 22px;
+  border-left: 3px solid var(--neon-gold);
+  background: rgba(255,215,0,0.04);
+  font-size: 14px;
+  line-height: 2;
+  color: var(--text);
+  border-radius: 0 6px 6px 0;
+}
+.panel-insight strong { color: var(--neon-gold); font-weight: 700; }
+.panel-insight .sky { color: var(--neon-sky); }
+
+@media (max-width: 640px) {
+  .accel-panel { padding: 38px 20px 32px; }
+  .panel-num { left: 18px; }
+}
+
+/* ========== LINEAR BAR VIEW ========== */
+.linear-bar-wrap {
+  padding: 100px 10px 80px;
+  position: relative;
+}
+.linear-bar {
+  position: relative;
+  height: 22px;
+  border-radius: 12px;
+  background: linear-gradient(90deg,
+    rgba(191,95,255,0.6) 0%,
+    rgba(191,95,255,0.6) 20%,
+    rgba(57,255,20,0.5) 50%,
+    rgba(255,215,0,0.5) 75%,
+    rgba(255,107,43,0.6) 92%,
+    rgba(0,212,255,0.9) 99%,
+    #fff 100%);
+  box-shadow: 0 0 20px rgba(0,212,255,0.2), inset 0 0 12px rgba(255,255,255,0.1);
+  margin-bottom: 72px;
+}
+.linear-bar::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: -10px;
+  width: 8px;
+  height: 42px;
+  background: var(--neon-sky);
+  border-radius: 3px;
+  box-shadow: 0 0 20px var(--neon-sky);
+}
+.linear-event {
+  position: absolute;
+  top: -14px;
+  bottom: -14px;
+  width: 1.5px;
+  background: rgba(255,255,255,0.7);
+  transform: translateX(-50%);
+}
+/* Label is always closest to the bar, year is further out. Both on the same side (above or below).
+   --tier offsets both away from the bar in steps of 34px. */
+.linear-event::before {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-bright);
+  line-height: 1.1;
+  bottom: calc(100% + 6px + var(--tier, 0) * 34px);
+}
+.linear-event::after {
+  content: attr(data-year);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  line-height: 1.1;
+  bottom: calc(100% + 20px + var(--tier, 0) * 34px);
+}
+.linear-event.alt::before {
+  bottom: auto;
+  top: calc(100% + 6px + var(--tier, 0) * 34px);
+}
+.linear-event.alt::after {
+  bottom: auto;
+  top: calc(100% + 20px + var(--tier, 0) * 34px);
+}
+/* Connector gradient line (visible when --tier > 0) */
+.linear-event {
+  background: linear-gradient(to top,
+    rgba(255,255,255,0.85) 0%,
+    rgba(255,255,255,0.85) calc(50% - 1px),
+    rgba(255,255,255,0.85) calc(50% + 1px),
+    rgba(255,255,255,0.2) 100%);
+}
+.linear-event.alt {
+  background: linear-gradient(to bottom,
+    rgba(255,255,255,0.85) 0%,
+    rgba(255,255,255,0.85) calc(50% - 1px),
+    rgba(255,255,255,0.85) calc(50% + 1px),
+    rgba(255,255,255,0.2) 100%);
+}
+.linear-event:not(.alt) {
+  top: calc(-14px - var(--tier, 0) * 34px);
+  bottom: -14px;
+}
+.linear-event.alt {
+  top: -14px;
+  bottom: calc(-14px - var(--tier, 0) * 34px);
+}
+
+.linear-callout {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--neon-sky);
+}
+.linear-callout::before { content: '↑'; font-size: 16px; }
+
+.linear-zoom-note {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--text-dim);
+  margin: 30px 0 14px;
+  padding: 8px 0;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+}
+
+/* ========== COSMIC CALENDAR ========== */
+.cosmic-wrap {
+  padding: 10px 0;
+}
+.cosmic-bar {
+  position: relative;
+  height: 40px;
+  border-radius: 6px;
+  background: linear-gradient(90deg,
+    #1a0d2e 0%,
+    #2d1651 10%,
+    #4a2878 30%,
+    #3a4080 50%,
+    #306070 70%,
+    #40a090 88%,
+    #60c0a0 94%,
+    #ffd88a 99%,
+    #fff 100%);
+  margin: 110px 70px 110px 0;
+  box-shadow: 0 0 30px rgba(191,95,255,0.15);
+}
+.cosmic-bar.day { margin: 140px 70px 160px 0; }
+.cosmic-bar.minute { margin: 180px 70px 200px 0; }
+.cosmic-bar.day {
+  background: linear-gradient(90deg,
+    #0a0a1a 0%,
+    #14142a 10%,
+    #1a1a35 30%,
+    #252550 60%,
+    #3a4070 80%,
+    #6a5080 92%,
+    #c08060 98%,
+    #fff 100%);
+}
+.cosmic-bar.minute {
+  background: linear-gradient(90deg,
+    #1a1a30 0%,
+    #252550 40%,
+    #4a4080 70%,
+    #a06040 85%,
+    #ffa040 94%,
+    #ffee40 98%,
+    #fff 100%);
+}
+
+/* Month grid overlay for year bar */
+.cosmic-months {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  pointer-events: none;
+}
+.cosmic-month {
+  flex: 1;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+}
+.cosmic-month:last-child { border-right: none; }
+.cosmic-month::after {
+  content: attr(data-name);
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  font-weight: 700;
+  opacity: 0.5;
+}
+
+.cosmic-bar.day .cosmic-month,
+.cosmic-bar.minute .cosmic-month {
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.cosmic-event {
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  width: 2px;
+  background: rgba(255,255,255,0.9);
+  transform: translateX(-50%);
+  box-shadow: 0 0 6px rgba(255,255,255,0.8);
+  z-index: 2;
+}
+/* Connector line from the bar tick to the label stack (grows with --tier) */
+.cosmic-event::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  height: calc(6px + var(--tier, 0) * 48px);
+  pointer-events: none;
+  z-index: 1;
+}
+.cosmic-event:not(.alt)::before {
+  bottom: 100%;
+  background: linear-gradient(to top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.12) 100%);
+}
+.cosmic-event.alt::before {
+  top: 100%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.12) 100%);
+}
+/* Shared label styling */
+.cosmic-event .cev-label,
+.cosmic-event .cev-date,
+.cosmic-event .cev-real {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  line-height: 1.15;
+  z-index: 3;
+}
+.cosmic-event .cev-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: 0.02em;
+}
+.cosmic-event .cev-date {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--neon-sky);
+  font-family: 'Cinzel', serif;
+}
+.cosmic-event .cev-real {
+  font-size: 8px;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+}
+/* Default (not alt): all three items stacked above the bar. Order from bar: label → date → real */
+.cosmic-event:not(.alt) .cev-label { bottom: calc(100% + 10px + var(--tier, 0) * 48px); top: auto; }
+.cosmic-event:not(.alt) .cev-date { bottom: calc(100% + 25px + var(--tier, 0) * 48px); top: auto; }
+.cosmic-event:not(.alt) .cev-real { bottom: calc(100% + 37px + var(--tier, 0) * 48px); top: auto; }
+/* Alt: all three stacked below the bar */
+.cosmic-event.alt .cev-label { top: calc(100% + 10px + var(--tier, 0) * 48px); bottom: auto; }
+.cosmic-event.alt .cev-date { top: calc(100% + 25px + var(--tier, 0) * 48px); bottom: auto; }
+.cosmic-event.alt .cev-real { top: calc(100% + 37px + var(--tier, 0) * 48px); bottom: auto; }
+
+.cosmic-event.hi { background: var(--neon-gold); box-shadow: 0 0 12px var(--neon-gold); }
+.cosmic-event.hi .cev-date { color: var(--neon-gold); }
+
+/* "Now" marker: label + date to the right of the marker, vertically centered on the bar */
+.cosmic-event.now { background: var(--neon-sky); box-shadow: 0 0 18px var(--neon-sky); width: 3px; }
+.cosmic-event.now::before { display: none; }
+.cosmic-event.now .cev-label,
+.cosmic-event.now .cev-date,
+.cosmic-event.now .cev-real {
+  left: calc(100% + 10px);
+  right: auto;
+  transform: none;
+  bottom: auto;
+}
+.cosmic-event.now .cev-label {
+  top: 50%;
+  transform: translateY(-100%);
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--neon-sky);
+  text-shadow: 0 0 10px rgba(0,212,255,0.6);
+  letter-spacing: 0.08em;
+  padding-bottom: 2px;
+}
+.cosmic-event.now .cev-date {
+  top: 50%;
+  transform: translateY(4px);
+  font-size: 8px;
+  color: var(--neon-sky);
+  opacity: 0.75;
+}
+.cosmic-event.now .cev-real { display: none; }
+
+.cosmic-zoom-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 70px 0 30px;
+  padding: 14px 0;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--neon-gold);
+  border-top: 1px dashed rgba(255,215,0,0.3);
+  border-bottom: 1px dashed rgba(255,215,0,0.3);
+  text-transform: uppercase;
+}
+.cosmic-zoom-link::before,
+.cosmic-zoom-link::after {
+  content: '▾';
+  font-size: 14px;
+  animation: pulseArrow 2s ease-in-out infinite;
+}
+@keyframes pulseArrow {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(3px); }
+}
+
+.cosmic-scale-label {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .cosmic-event .cev-label { font-size: 9px; }
+  .cosmic-event .cev-date { font-size: 8px; }
+  .cosmic-event .cev-real { font-size: 8px; }
+  .cosmic-bar { height: 30px; }
+  .cosmic-month::after { font-size: 7px; }
+}
+
+/* ========== INTERVAL CHART ========== */
+.interval-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+.interval-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 260px) 1fr;
+  align-items: center;
+  gap: 14px;
+}
+.interval-label {
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 700;
+  text-align: right;
+  line-height: 1.4;
+}
+.interval-label .arrow {
+  color: var(--text-dim);
+  font-weight: 400;
+  margin: 0 3px;
+}
+.interval-bar-wrap {
+  position: relative;
+  height: 30px;
+}
+.interval-bar {
+  height: 100%;
+  border-radius: 0 6px 6px 0;
+  background: var(--int-color, var(--neon-sky));
+  position: relative;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 14px var(--int-color, var(--neon-sky));
+  opacity: 0.85;
+}
+.interval-bar::after {
+  content: attr(data-val);
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--int-color, var(--neon-sky));
+  letter-spacing: 0.05em;
+}
+.interval-row[data-color="purple"] { --int-color: var(--neon-purple); }
+.interval-row[data-color="green"] { --int-color: var(--neon-green); }
+.interval-row[data-color="orange"] { --int-color: var(--neon-orange); }
+.interval-row[data-color="gold"] { --int-color: var(--neon-gold); }
+.interval-row[data-color="blue"] { --int-color: var(--neon-blue); }
+.interval-row[data-color="cyan"] { --int-color: var(--neon-cyan); }
+.interval-row[data-color="magenta"] { --int-color: var(--neon-magenta); }
+.interval-row[data-color="sky"] { --int-color: var(--neon-sky); }
+.interval-row.future .interval-bar {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--neon-white) 0 6px,
+    transparent 6px 12px);
+  opacity: 0.6;
+  box-shadow: none;
+}
+.interval-row.future .interval-bar::after { color: var(--neon-white); }
+
+.interval-axis {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  padding: 0 8px 0 260px;
+}
+@media (max-width: 768px) {
+  .interval-row { grid-template-columns: 1fr; gap: 4px; }
+  .interval-label { text-align: left; font-size: 11px; }
+  .interval-axis { padding: 0 8px; }
+  .interval-bar::after { font-size: 10px; }
+}
+
+/* ========== ACCEL SUMMARY ========== */
+.accel-summary {
+  margin: 80px 0 40px;
+  padding: 60px 36px;
+  border-radius: 18px;
+  border: 1px solid rgba(0,212,255,0.3);
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255,215,0,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse at 70% 80%, rgba(0,212,255,0.08) 0%, transparent 70%),
+    rgba(10,10,20,0.7);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.accel-summary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    transparent 0%,
+    rgba(191,95,255,0.03) 40%,
+    rgba(0,212,255,0.05) 60%,
+    transparent 100%);
+  pointer-events: none;
+}
+.summary-icon {
+  font-size: 36px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px rgba(0,212,255,0.6));
+}
+.summary-title {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 24px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+.summary-text {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 2.2;
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+}
+.summary-text strong { color: var(--neon-sky); font-weight: 700; }
+.summary-text em { font-style: normal; color: var(--neon-gold); font-weight: 700; }
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+  .bg-canvas { display: none; }
+  .reveal-init, .reveal-on { opacity: 1; transform: none; transition: none; }
+  .hero-scroll { animation: none; }
+}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QL1PVK5PRF');
+</script>
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div class="scroll-progress"><div class="scroll-progress-bar" id="progressBar"></div></div>
+
+<!-- Top bar -->
+<div class="top-bar">
+  <a href="index.html" class="back-link">学びの地図へ戻る</a>
+  <div class="top-series">HARU × OJI — EVOLUTION</div>
+</div>
+
+<!-- Era navigation (desktop only) -->
+<aside class="era-nav" aria-label="時代ナビゲーション">
+  <a href="#top" class="era-dot" data-era="cosmos" data-label="START"></a>
+  <a href="#era-cosmos" class="era-dot" data-era="cosmos" data-label="宇宙・生命"></a>
+  <a href="#era-dawn" class="era-dot" data-era="dawn" data-label="人類のあけぼの"></a>
+  <a href="#era-civilization" class="era-dot" data-era="civilization" data-label="文明の始まり"></a>
+  <a href="#era-ancient" class="era-dot" data-era="ancient" data-label="古代・中世"></a>
+  <a href="#era-science" class="era-dot" data-era="science" data-label="科学革命"></a>
+  <a href="#era-industrial" class="era-dot" data-era="industrial" data-label="産業革命"></a>
+  <a href="#era-20c" class="era-dot" data-era="20c" data-label="20世紀"></a>
+  <a href="#era-digital" class="era-dot" data-era="digital" data-label="デジタル革命"></a>
+  <a href="#era-mobile" class="era-dot" data-era="mobile" data-label="モバイル・SNS"></a>
+  <a href="#era-ai" class="era-dot" data-era="ai" data-label="AI時代"></a>
+  <a href="#era-future" class="era-dot" data-era="future" data-label="未来"></a>
+  <a href="#acceleration" class="era-dot" data-era="future" data-label="加速する進化"></a>
+</aside>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="top">
+  <div class="hero-series">ハルとおじいさんの物語 — 学びの地図</div>
+  <h1 class="hero-title">Evolution</h1>
+  <div class="hero-subtitle-jp">進 化 の 年 表</div>
+  <p class="hero-tagline">
+    <strong>138億年前</strong>、宇宙がはじまった。<br>
+    <strong>700万年前</strong>、最初の人類が立ち上がった。<br>
+    <strong>いま</strong>、AIと人間が問いを交わしている。<br>
+    <strong>その先</strong>は、まだ誰も知らない。
+  </p>
+  <div class="hero-divider"></div>
+  <div class="hero-scroll">JOURNEY BEGINS</div>
+</section>
+
+<!-- ========== TIMELINE ========== -->
+<div class="timeline-container">
+  <div class="timeline-axis"></div>
+
+  <!-- ============================================================ -->
+  <!-- ERA 1: 宇宙と生命 -->
+  <!-- ============================================================ -->
+  <section class="era" id="era-cosmos" data-era="cosmos">
+    <header class="era-header">
+      <div class="era-number">CHAPTER I</div>
+      <h2 class="era-title">宇宙と生命のはじまり</h2>
+      <div class="era-range">138億年前 ── 700万年前</div>
+      <p class="era-summary">
+        すべての始まり。時間も、空間も、物質も、生命も──<br>
+        まだ何もなかったところから、「ある」が生まれた記録。
+      </p>
+    </header>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">138億年前</div>
+        <h3 class="event-title"><span class="icon">✨</span>ビッグバン</h3>
+        <p class="event-desc">宇宙の誕生。1点よりも小さな一粒から、時間と空間、物質とエネルギーが膨張しはじめた。すべてはこの瞬間に始まる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">約3分後</div>
+        <h3 class="event-title"><span class="icon">⚛️</span>最初の元素</h3>
+        <p class="event-desc">水素・ヘリウムが誕生。のちに星の中で炭素・酸素・鉄がつくられ、私たちの体の材料が用意されていく。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">46億年前</div>
+        <h3 class="event-title"><span class="icon">🌍</span>地球の誕生</h3>
+        <p class="event-desc">太陽系の形成とともに、原始地球が誕生。マグマの海から、やがて海と大陸が姿を現す。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">45億年前</div>
+        <h3 class="event-title"><span class="icon">🌙</span>月の誕生</h3>
+        <p class="event-desc">火星サイズの天体が原始地球に衝突（ジャイアント・インパクト）。飛び散った破片が集まって月になった。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">38億年前</div>
+        <h3 class="event-title"><span class="icon">🧬</span>最初の生命</h3>
+        <p class="event-desc">原始海洋の中で、自己複製する分子が生まれる。単細胞生物としての生命の歴史がここから始まった。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">27億年前</div>
+        <h3 class="event-title"><span class="icon">🌱</span>光合成の発明</h3>
+        <p class="event-desc">シアノバクテリアが光合成を始め、地球大気に大量の酸素が蓄積。のちの動物の誕生を準備した。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">21億年前</div>
+        <h3 class="event-title"><span class="icon">🔬</span>真核生物の登場</h3>
+        <p class="event-desc">核をもつ細胞が出現。細胞の中に「小さな共生者」ミトコンドリアを取り込み、複雑な生き物への道が開いた。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot minor"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">5.4億年前</div>
+        <h3 class="event-title"><span class="icon">🦐</span>カンブリア爆発</h3>
+        <p class="event-desc">わずかな期間で動物の多様な設計図が一気に出揃う。眼をもつ捕食者と、逃げる者の軍拡競争が始まった。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">4.3億年前</div>
+        <h3 class="event-title"><span class="icon">🌿</span>陸上に生命が上陸</h3>
+        <p class="event-desc">植物、続いて節足動物が海から陸へ進出。乾いた大地に光合成する緑が広がり、陸の生態系が始まる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot minor"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">2.3億年前</div>
+        <h3 class="event-title"><span class="icon">🦖</span>恐竜の時代</h3>
+        <p class="event-desc">中生代、爬虫類の頂点として恐竜が地球を支配。哺乳類はまだ小さな夜行性の脇役だった。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">6600万年前</div>
+        <h3 class="event-title"><span class="icon">☄️</span>恐竜の絶滅</h3>
+        <p class="event-desc">巨大隕石の衝突（K-Pg境界）。地表はちりに覆われ、恐竜の時代が終わる。生き残った哺乳類が表舞台へ。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">5500万年前</div>
+        <h3 class="event-title"><span class="icon">🐒</span>霊長類の登場</h3>
+        <p class="event-desc">樹上で暮らす小型の霊長類が出現。立体視と器用な手が、やがて人類の特徴につながる。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="era-divider"><span class="era-divider-text">CHAPTER II ── HUMANITY</span></div>
+
+  <!-- ============================================================ -->
+  <!-- ERA 2: 人類のあけぼの -->
+  <!-- ============================================================ -->
+  <section class="era" id="era-dawn" data-era="dawn">
+    <header class="era-header">
+      <div class="era-number">CHAPTER II</div>
+      <h2 class="era-title">人類のあけぼの</h2>
+      <div class="era-range">700万年前 ── 1万年前</div>
+      <p class="era-summary">
+        二足歩行、道具、火、言葉、物語──<br>
+        一匹の生き物が「人間」になっていった長い長い時間。
+      </p>
+    </header>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">700万年前</div>
+        <h3 class="event-title"><span class="icon">🦴</span>最初の人類</h3>
+        <p class="event-desc">サヘラントロプス・チャデンシス。チンパンジーとの系統が分かれ、やがて立ち上がる者たちの歴史が始まる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">400万年前</div>
+        <h3 class="event-title"><span class="icon">👣</span>アウストラロピテクス</h3>
+        <p class="event-desc">「ルーシー」に代表される猿人。直立二足歩行を確立し、手は道具を持つために解放された。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">240万年前</div>
+        <h3 class="event-title"><span class="icon">🪨</span>石器の使用</h3>
+        <p class="event-desc">ホモ・ハビリス（道具を使うヒト）が打製石器を作る。身体の外側に「道具」という延長が生まれた最初の瞬間。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">180万年前</div>
+        <h3 class="event-title"><span class="icon">🌍</span>アフリカを出る</h3>
+        <p class="event-desc">ホモ・エレクトスが初めてアフリカを離れ、ユーラシア大陸へ拡散。人類は「旅する種」となった。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">100万年前</div>
+        <h3 class="event-title"><span class="icon">🔥</span>火の制御</h3>
+        <p class="event-desc">火を使い、調理し、暖をとり、獣を寄せつけない。加熱された食物は脳を大きくし、夜は物語の時間になった。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">30万年前</div>
+        <h3 class="event-title"><span class="icon">🧠</span>ホモ・サピエンス誕生</h3>
+        <p class="event-desc">モロッコの地層から最古の化石。私たちの直接の祖先が、アフリカのどこかで静かに歩き始めた。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">7万年前</div>
+        <h3 class="event-title"><span class="icon">💭</span>認知革命</h3>
+        <p class="event-desc">存在しないものを語る能力──神、法律、国家、お金。「虚構」を信じ合うことで、見知らぬ者どうしが協力できるようになった。</p>
+        <div class="event-link-row">
+          <a href="parts/part5.html" class="event-link" data-part="5">第5部 言葉と思考</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">6.5万年前</div>
+        <h3 class="event-title"><span class="icon">🚶</span>世界への大拡散</h3>
+        <p class="event-desc">サピエンスがアフリカから世界へ。オーストラリア、ユーラシア、やがてアメリカ大陸まで。人類は全地球規模の種になった。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">4.5万年前</div>
+        <h3 class="event-title"><span class="icon">🎨</span>洞窟壁画・装飾品</h3>
+        <p class="event-desc">ラスコーやショーヴェ洞窟の壁に、生き生きとした動物たち。目に見えない何かを、形にして残す欲求が生まれた。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot minor"></div></div>
+      <div class="event-card">
+        <div class="event-date">4万年前</div>
+        <h3 class="event-title"><span class="icon">💀</span>ネアンデルタール人の絶滅</h3>
+        <p class="event-desc">数十万年続いた別の人類が消えた。サピエンスだけが残り、私たちのDNAには今も彼らの痕跡が数%残っている。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1.5万年前</div>
+        <h3 class="event-title"><span class="icon">🐕</span>犬の家畜化</h3>
+        <p class="event-desc">オオカミのうち、人懐こいものが火のそばに近づいた。人類の最古の「家族」になる関係が生まれる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot minor"></div></div>
+    </div>
+  </section>
+
+  <div class="era-divider"><span class="era-divider-text">CHAPTER III ── CIVILIZATION</span></div>
+
+  <!-- ============================================================ -->
+  <!-- ERA 3: 文明の始まり -->
+  <!-- ============================================================ -->
+  <section class="era" id="era-civilization" data-era="civilization">
+    <header class="era-header">
+      <div class="era-number">CHAPTER III</div>
+      <h2 class="era-title">文明の始まり</h2>
+      <div class="era-range">1万年前 ── 紀元前後</div>
+      <p class="era-summary">
+        農業、都市、文字、数字、法、哲学──<br>
+        「文明」と呼ばれるしくみが、次々に発明された1万年。
+      </p>
+    </header>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">紀元前8000年頃</div>
+        <h3 class="event-title"><span class="icon">🌾</span>農業革命</h3>
+        <p class="event-desc">肥沃な三日月地帯で、人類は野生の麦を栽培し始める。狩りと採集から「育てて待つ」生き方へ。土地に縛られる代わりに、人口は爆発的に増えた。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">紀元前9500年頃</div>
+        <h3 class="event-title"><span class="icon">🗿</span>ギョベクリ・テペ</h3>
+        <p class="event-desc">現在のトルコ南東部、現存する最古の巨大石造建築。農耕より先に「神殿」があった可能性が、定説を揺るがしている。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">紀元前7000年頃</div>
+        <h3 class="event-title"><span class="icon">🏘️</span>定住と家畜化</h3>
+        <p class="event-desc">羊・山羊・牛が家畜化され、村がつくられる。所有、分業、貧富の差──人間社会の基本要素がここで出揃う。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">紀元前4000年頃</div>
+        <h3 class="event-title"><span class="icon">🏛️</span>最古の都市ウルク</h3>
+        <p class="event-desc">メソポタミア南部、数万人が暮らす人類最古の都市。神殿、官僚、法、税金が生まれ、複雑な社会の実験が始まる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">紀元前3500年頃</div>
+        <h3 class="event-title"><span class="icon">☸️</span>車輪の発明</h3>
+        <p class="event-desc">単なる丸いもの──しかしその発想は人類を何千キロも遠くへ運ぶ。軸と車輪の組み合わせが世界を変えた。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">紀元前3200年頃</div>
+        <h3 class="event-title"><span class="icon">📜</span>文字の発明</h3>
+        <p class="event-desc">シュメール人の楔形文字。最初は税の記録だった。人類は「記憶を外に出す」方法を手に入れ、歴史が始まった。</p>
+        <div class="event-link-row">
+          <a href="parts/part4.html" class="event-link" data-part="4">第4部 文字と知識</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">紀元前3000年頃</div>
+        <h3 class="event-title"><span class="icon">🔺</span>エジプト文明・ヒエログリフ</h3>
+        <p class="event-desc">ナイルの恵みの上に、ファラオの王朝が花開く。ピラミッドと神聖文字が、永遠を目指した人々の思想を今に伝える。</p>
+        <div class="event-link-row">
+          <a href="parts/part4.html" class="event-link" data-part="4">第4部 文字と知識</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">紀元前1750年頃</div>
+        <h3 class="event-title"><span class="icon">⚖️</span>ハンムラビ法典</h3>
+        <p class="event-desc">「目には目を」で知られる世界最古級の成文法。人間の行動を「ことば」で縛るしくみが生まれた。</p>
+        <div class="event-link-row">
+          <a href="parts/part6.html" class="event-link" data-part="6">第6部 数字と世界</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">紀元前1200年頃</div>
+        <h3 class="event-title"><span class="icon">⚒️</span>鉄器時代</h3>
+        <p class="event-desc">青銅に代わって鉄が広まる。強く硬い道具と武器は、農業と戦争の両方の姿を変えた。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">紀元前1050年頃</div>
+        <h3 class="event-title"><span class="icon">🔤</span>アルファベット</h3>
+        <p class="event-desc">フェニキア人が発明した音を表す文字。少ない記号で全ての言葉を書けるこの仕組みは、世界中の文字の祖先となる。</p>
+        <div class="event-link-row">
+          <a href="parts/part4.html" class="event-link" data-part="4">第4部 文字と知識</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">紀元前600年頃</div>
+        <h3 class="event-title"><span class="icon">🕊️</span>枢軸時代のはじまり</h3>
+        <p class="event-desc">ソクラテス・孔子・ブッダ・ゾロアスター・旧約の預言者──世界の各地でほぼ同時に、人間の生き方を問い直す思想家たちが現れる。</p>
+        <div class="event-link-row">
+          <a href="parts/part5.html" class="event-link" data-part="5">第5部 言葉と思考</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">紀元前508年</div>
+        <h3 class="event-title"><span class="icon">🏛️</span>アテネの民主政</h3>
+        <p class="event-desc">市民が直接議論し投票する政治制度が誕生。「みんなで決める」という実験は、今も形を変えて続いている。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">紀元前5世紀頃</div>
+        <h3 class="event-title"><span class="icon">🔢</span>ゼロの萌芽</h3>
+        <p class="event-desc">インドで「位取り」の概念が育つ。のちに「何もない」を書き記す記号ゼロが体系化され、数学と世界観が一変する。</p>
+        <div class="event-link-row">
+          <a href="parts/part6.html" class="event-link" data-part="6">第6部 数字と世界</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">紀元前221年</div>
+        <h3 class="event-title"><span class="icon">🐉</span>秦の中国統一</h3>
+        <p class="event-desc">始皇帝が群雄割拠の中国をまとめる。文字・度量衡・貨幣の統一が、東アジアの文明の骨格をつくった。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">紀元前27年</div>
+        <h3 class="event-title"><span class="icon">🏛️</span>ローマ帝国成立</h3>
+        <p class="event-desc">アウグストゥスが初代皇帝に。道路、水道、法──今も西洋社会の基礎となるしくみが、この帝国で鍛えられる。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="era-divider"><span class="era-divider-text">CHAPTER IV ── ANCIENT & MEDIEVAL</span></div>
+
+  <!-- ============================================================ -->
+  <!-- ERA 4: 古代・中世 -->
+  <!-- ============================================================ -->
+  <section class="era" id="era-ancient" data-era="ancient">
+    <header class="era-header">
+      <div class="era-number">CHAPTER IV</div>
+      <h2 class="era-title">古代と中世</h2>
+      <div class="era-range">紀元105年 ── 1492年</div>
+      <p class="era-summary">
+        紙・火薬・宗教・大学・疫病──<br>
+        ゆっくりと、しかし確実に、世界がつながっていった時代。
+      </p>
+    </header>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">105年</div>
+        <h3 class="event-title"><span class="icon">📃</span>紙の発明</h3>
+        <p class="event-desc">後漢の蔡倫が紙の製法を確立。重い粘土板・高価な羊皮紙に代わる「軽くて安い書く媒体」が世界中を旅しはじめる。</p>
+        <div class="event-link-row">
+          <a href="parts/part4.html" class="event-link" data-part="4">第4部 文字と知識</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">313年</div>
+        <h3 class="event-title"><span class="icon">✝️</span>キリスト教公認</h3>
+        <p class="event-desc">コンスタンティヌス帝のミラノ勅令。一宗派が国家と結びつき、やがて世界最大級の信仰共同体になる。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">7世紀〜</div>
+        <h3 class="event-title"><span class="icon">📖</span>イスラム黄金期</h3>
+        <p class="event-desc">バグダードの「知恵の館」でギリシャ・インド・ペルシャの知が翻訳・融合。代数学・医学・天文学が花開く。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">9世紀頃</div>
+        <h3 class="event-title"><span class="icon">💥</span>火薬の発明</h3>
+        <p class="event-desc">中国で道士が不老不死の薬を求めて発見した物質。のちに戦争の形、そして権力のあり方までを変えてしまう。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1088年</div>
+        <h3 class="event-title"><span class="icon">🎓</span>最古の大学</h3>
+        <p class="event-desc">ボローニャ大学設立。知識を教え、学び、証明する専門の共同体が生まれ、近代の学問のしくみが育ち始める。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1215年</div>
+        <h3 class="event-title"><span class="icon">📜</span>マグナ・カルタ</h3>
+        <p class="event-desc">イングランド貴族が王の権力を文書で制限。「王でも法に従う」という考えが、近代立憲主義の種となる。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1347年</div>
+        <h3 class="event-title"><span class="icon">🦠</span>黒死病パンデミック</h3>
+        <p class="event-desc">ヨーロッパ人口の1/3が失われた大厄災。しかしその後の労働力不足が封建制を揺るがし、ルネサンスへの地ならしになる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">1450年頃</div>
+        <h3 class="event-title"><span class="icon">🖨️</span>グーテンベルク活版印刷</h3>
+        <p class="event-desc">金属活字による大量印刷。書物の値段が一気に下がり、知識は修道院から市井へ。宗教改革、科学革命、近代のすべての扉を開いた。</p>
+        <div class="event-link-row">
+          <a href="parts/part4.html" class="event-link" data-part="4">第4部 文字と知識</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1492年</div>
+        <h3 class="event-title"><span class="icon">⛵</span>コロンブスの航海</h3>
+        <p class="event-desc">コロンブスが「新大陸」に到達。人・植物・病・文化が大洋を越えて交換され、世界は一つの舞台へと変わっていく。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1517年</div>
+        <h3 class="event-title"><span class="icon">⛪</span>宗教改革</h3>
+        <p class="event-desc">ルターの「95か条の論題」。印刷されたビラが瞬く間に広まり、一枚岩だった西方キリスト教世界に亀裂が入る。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="era-divider"><span class="era-divider-text">CHAPTER V ── SCIENCE</span></div>
+
+  <!-- ============================================================ -->
+  <!-- ERA 5: 科学革命と啓蒙 -->
+  <!-- ============================================================ -->
+  <section class="era" id="era-science" data-era="science">
+    <header class="era-header">
+      <div class="era-number">CHAPTER V</div>
+      <h2 class="era-title">科学革命と啓蒙</h2>
+      <div class="era-range">1543年 ── 1789年</div>
+      <p class="era-summary">
+        地球は動く。人間はどう生きるべきか。<br>
+        世界は「権威」から「証明」と「理性」へと軸足を移した250年。
+      </p>
+    </header>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1543年</div>
+        <h3 class="event-title"><span class="icon">🌞</span>コペルニクスの地動説</h3>
+        <p class="event-desc">『天球の回転について』。地球は宇宙の中心ではない──その後500年かけて私たちは「特別でない」ことを学び続ける。</p>
+        <div class="event-link-row">
+          <a href="parts/part7.html" class="event-link" data-part="7">第7部 前提を外す</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1609年</div>
+        <h3 class="event-title"><span class="icon">🔭</span>ガリレオの望遠鏡</h3>
+        <p class="event-desc">木星の衛星、月のクレーター、金星の満ち欠け。肉眼では見えないものを「道具で見る」科学が生まれた。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1637年</div>
+        <h3 class="event-title"><span class="icon">🤔</span>デカルト『方法序説』</h3>
+        <p class="event-desc">「我思う、ゆえに我あり」。あらゆるものを疑ったあとに残る「考えている私」から、近代哲学の基礎が始まる。</p>
+        <div class="event-link-row">
+          <a href="parts/part5.html" class="event-link" data-part="5">第5部 言葉と思考</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">1687年</div>
+        <h3 class="event-title"><span class="icon">🍎</span>ニュートン『プリンキピア』</h3>
+        <p class="event-desc">りんごと月を同じ法則で説明する万有引力。世界は「神の気まぐれ」ではなく、数式で動いていることが示された。</p>
+        <div class="event-link-row">
+          <a href="parts/part6.html" class="event-link" data-part="6">第6部 数字と世界</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1735年</div>
+        <h3 class="event-title"><span class="icon">🌿</span>リンネの分類学</h3>
+        <p class="event-desc">生き物に学名をつけ、体系的に並べる。自然を「整理できる対象」として見るまなざしが定着した。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1751年</div>
+        <h3 class="event-title"><span class="icon">📚</span>ディドロ『百科全書』</h3>
+        <p class="event-desc">人類の知を1冊にまとめる壮大な挑戦。知識は特権ではなく「誰もがアクセスできる公共財」だという思想が育つ。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1776年</div>
+        <h3 class="event-title"><span class="icon">🗽</span>アメリカ独立宣言</h3>
+        <p class="event-desc">「すべての人は平等につくられている」。王でも貴族でもない市民が、自分たちの国を宣言した。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">1789年</div>
+        <h3 class="event-title"><span class="icon">⚔️</span>フランス革命</h3>
+        <p class="event-desc">自由・平等・友愛。絶対王政が崩れ、「国民」という新しい単位が歴史の主役に躍り出る。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="era-divider"><span class="era-divider-text">CHAPTER VI ── INDUSTRIAL</span></div>
+
+  <!-- ============================================================ -->
+  <!-- ERA 6: 産業革命 -->
+  <!-- ============================================================ -->
+  <section class="era" id="era-industrial" data-era="industrial">
+    <header class="era-header">
+      <div class="era-number">CHAPTER VI</div>
+      <h2 class="era-title">産業革命</h2>
+      <div class="era-range">1769年 ── 1903年</div>
+      <p class="era-summary">
+        蒸気、電気、鋼、無線──<br>
+        人間の「力」と「速さ」が桁違いに増幅された130年。
+      </p>
+    </header>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1769年</div>
+        <h3 class="event-title"><span class="icon">🚂</span>ワットの蒸気機関</h3>
+        <p class="event-desc">ジェームズ・ワットが効率的な蒸気機関を完成。工場、鉄道、船舶──人類は「筋肉を超えた動力」を手に入れた。</p>
+        <div class="event-link-row">
+          <a href="parts/part1.html" class="event-link" data-part="1">第1部 蒸気の時代</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1804年</div>
+        <h3 class="event-title"><span class="icon">🚆</span>蒸気機関車</h3>
+        <p class="event-desc">トレヴィシックの蒸気機関車。やがてスチーブンソンが実用化し、世界は「時速」という単位で縮まり始める。</p>
+        <div class="event-link-row">
+          <a href="parts/part1.html" class="event-link" data-part="1">第1部 蒸気の時代</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1837年</div>
+        <h3 class="event-title"><span class="icon">⚡</span>電信機</h3>
+        <p class="event-desc">モールスの電信が瞬時に言葉を運ぶ。人類史上はじめて、情報の移動速度が人間や馬車を超えた。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">1859年</div>
+        <h3 class="event-title"><span class="icon">🐒</span>ダーウィン『種の起源』</h3>
+        <p class="event-desc">生き物は「変わってきた」。人間も例外ではない。自然選択という考えが、私たち自身の見え方を変えた。</p>
+        <div class="event-link-row">
+          <a href="parts/part7.html" class="event-link" data-part="7">第7部 前提を外す</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1865年</div>
+        <h3 class="event-title"><span class="icon">🧬</span>メンデルの法則</h3>
+        <p class="event-desc">エンドウ豆の実験から、遺伝の法則が発見される。のちに「遺伝子」という概念が生命科学の基礎になる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1869年</div>
+        <h3 class="event-title"><span class="icon">🧪</span>周期表</h3>
+        <p class="event-desc">メンデレーエフが元素を並べてできた表に、「まだ見つかっていない元素」の居場所があった。予言する科学が誕生する。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1876年</div>
+        <h3 class="event-title"><span class="icon">📞</span>電話の発明</h3>
+        <p class="event-desc">ベルが特許を取得。遠くの人の「声」が、線を伝って届くようになる。会うことなしに語り合う時代の幕開け。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1879年</div>
+        <h3 class="event-title"><span class="icon">💡</span>エジソンの白熱電球</h3>
+        <p class="event-desc">夜が明るくなった。人々の労働時間、娯楽、生活のリズムそのものが塗り替えられていく。</p>
+        <div class="event-link-row">
+          <a href="parts/part1.html" class="event-link" data-part="1">第1部 蒸気の時代</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1895年</div>
+        <h3 class="event-title"><span class="icon">📷</span>X線・映画・無線</h3>
+        <p class="event-desc">レントゲンがX線を発見、リュミエール兄弟が映画を公開、マルコーニが無線通信を実演。見えないものを見る、記録する、飛ばす。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">1903年</div>
+        <h3 class="event-title"><span class="icon">✈️</span>ライト兄弟の初飛行</h3>
+        <p class="event-desc">12秒、36メートル。たったこれだけの飛行が、やがて大陸を1日で越え、月に人を運ぶ時代につながっていく。</p>
+        <div class="event-link-row">
+          <a href="parts/part1.html" class="event-link" data-part="1">第1部 蒸気の時代</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="era-divider"><span class="era-divider-text">CHAPTER VII ── 20TH CENTURY</span></div>
+
+  <!-- ============================================================ -->
+  <!-- ERA 7: 20世紀 科学と大戦 -->
+  <!-- ============================================================ -->
+  <section class="era" id="era-20c" data-era="20c">
+    <header class="era-header">
+      <div class="era-number">CHAPTER VII</div>
+      <h2 class="era-title">20世紀 ── 科学と大戦</h2>
+      <div class="era-range">1905年 ── 1968年</div>
+      <p class="era-summary">
+        相対性理論、不確定性原理、原爆、DNA、コンピュータ──<br>
+        「前提を外す」発見が、光と影の両方を人類にもたらした。
+      </p>
+    </header>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1905年</div>
+        <h3 class="event-title"><span class="icon">🕰️</span>アインシュタインの特殊相対性理論</h3>
+        <p class="event-desc">時間は人によって違う速さで流れる──当たり前だった「絶対時間」が崩れた奇跡の1年。</p>
+        <div class="event-link-row">
+          <a href="parts/part7.html" class="event-link" data-part="7">第7部 前提を外す</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1914-1918年</div>
+        <h3 class="event-title"><span class="icon">🌍</span>第一次世界大戦</h3>
+        <p class="event-desc">産業革命の力が軍事に向いた時、何が起こるかが示された戦争。機関銃、毒ガス、戦車、飛行機。約1700万人が犠牲に。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1915年</div>
+        <h3 class="event-title"><span class="icon">🌌</span>一般相対性理論</h3>
+        <p class="event-desc">重力は「力」ではなく、時空のゆがみだった。宇宙論、GPS、ブラックホール──現代物理の土台がここに。</p>
+        <div class="event-link-row">
+          <a href="parts/part7.html" class="event-link" data-part="7">第7部 前提を外す</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">1927年</div>
+        <h3 class="event-title"><span class="icon">🎲</span>不確定性原理</h3>
+        <p class="event-desc">ハイゼンベルク。ミクロの世界では位置と速度を同時には知りえない。世界は「確率」でできているという衝撃。</p>
+        <div class="event-link-row">
+          <a href="parts/part7.html" class="event-link" data-part="7">第7部 前提を外す</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1928年</div>
+        <h3 class="event-title"><span class="icon">💊</span>ペニシリンの発見</h3>
+        <p class="event-desc">フレミングが偶然見つけた青カビ。抗生物質の時代が始まり、人類の平均寿命が急激に伸びた。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1936年</div>
+        <h3 class="event-title"><span class="icon">🧠</span>チューリング・マシン</h3>
+        <p class="event-desc">アラン・チューリングが論文で示した「計算する機械」の数学的モデル。すべてのコンピュータの祖先が、紙の上に現れた。</p>
+        <div class="event-link-row">
+          <a href="parts/part7.html" class="event-link" data-part="7">第7部 前提を外す</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1939-1945年</div>
+        <h3 class="event-title"><span class="icon">💣</span>第二次世界大戦</h3>
+        <p class="event-desc">約7000万人が犠牲になった人類史上最大の戦争。レーダー、ロケット、コンピュータ──科学の最前線が戦場で鍛えられた。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">1945年8月</div>
+        <h3 class="event-title"><span class="icon">☢️</span>広島・長崎</h3>
+        <p class="event-desc">原子爆弾の投下。人類は「自分自身を滅ぼせる力」を手にした。科学と倫理の距離がゼロに近づいた瞬間。</p>
+        <div class="event-link-row">
+          <a href="parts/part7.html" class="event-link" data-part="7">第7部 前提を外す</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1946年</div>
+        <h3 class="event-title"><span class="icon">💻</span>ENIAC</h3>
+        <p class="event-desc">真空管17,000本、重さ30トン。世界最初の汎用電子計算機。今あなたが持っているスマホの祖先がここから始まった。</p>
+        <div class="event-link-row">
+          <a href="parts/part2.html" class="event-link" data-part="2">第2部 つながる世界</a>
+          <a href="parts/part7.html" class="event-link" data-part="7">第7部</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1947年</div>
+        <h3 class="event-title"><span class="icon">⚙️</span>トランジスタの発明</h3>
+        <p class="event-desc">ベル研究所。真空管を置き換える小さな半導体素子が、のちのマイクロチップ、集積回路、すべての電子機器の心臓になる。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1948年</div>
+        <h3 class="event-title"><span class="icon">📡</span>シャノンの情報理論</h3>
+        <p class="event-desc">情報は数えられる──ビットという単位が生まれた。あらゆる通信・符号化・暗号・圧縮の基礎になる。</p>
+        <div class="event-link-row">
+          <a href="parts/part2.html" class="event-link" data-part="2">第2部 つながる世界</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1950年</div>
+        <h3 class="event-title"><span class="icon">🤖</span>チューリング・テスト</h3>
+        <p class="event-desc">「機械は考えるか？」を問う代わりに、「人間と区別できない対話ができるか？」を問うテスト。AIの出発点となる思考実験。</p>
+        <div class="event-link-row">
+          <a href="parts/part7.html" class="event-link" data-part="7">第7部 前提を外す</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1953年</div>
+        <h3 class="event-title"><span class="icon">🧬</span>DNA二重らせん</h3>
+        <p class="event-desc">ワトソンとクリック（そしてロザリンド・フランクリン）。生命の設計図は「文字列」であることが明らかになる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1957年</div>
+        <h3 class="event-title"><span class="icon">🛰️</span>スプートニク</h3>
+        <p class="event-desc">ソ連が人類初の人工衛星を打ち上げ。冷戦下の宇宙開発競争が始まり、やがて人類を月まで運ぶことになる。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1968年</div>
+        <h3 class="event-title"><span class="icon">🌏</span>地球の出</h3>
+        <p class="event-desc">アポロ8号が月から撮った青い地球。国境のない一つの星。環境運動・地球市民意識はここから始まった。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+  </section>
+
+  <div class="era-divider"><span class="era-divider-text">CHAPTER VIII ── DIGITAL</span></div>
+
+  <!-- ============================================================ -->
+  <!-- ERA 8: デジタル革命 -->
+  <!-- ============================================================ -->
+  <section class="era" id="era-digital" data-era="digital">
+    <header class="era-header">
+      <div class="era-number">CHAPTER VIII</div>
+      <h2 class="era-title">デジタル革命</h2>
+      <div class="era-range">1969年 ── 2001年</div>
+      <p class="era-summary">
+        パーソナルコンピュータ、インターネット、ウェブ──<br>
+        「計算する力」が個人の机に降りてきて、世界が繋がり始めた30年。
+      </p>
+    </header>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">1969年7月</div>
+        <h3 class="event-title"><span class="icon">🌕</span>アポロ11号 月面着陸</h3>
+        <p class="event-desc">アームストロングの「個人にとっては小さな一歩」。人類が地球以外の天体に立った日。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1969年10月</div>
+        <h3 class="event-title"><span class="icon">🌐</span>ARPANETの誕生</h3>
+        <p class="event-desc">米国の4つの大学がネットワークで結ばれる。最初のメッセージは "LO" で途切れた。インターネットの始まり。</p>
+        <div class="event-link-row">
+          <a href="parts/part2.html" class="event-link" data-part="2">第2部 つながる世界</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1971年</div>
+        <h3 class="event-title"><span class="icon">🔲</span>マイクロプロセッサ</h3>
+        <p class="event-desc">インテル4004。1つのチップの上にCPUが収まった。これ以後、計算機は小さく安くなり続ける。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1975-76年</div>
+        <h3 class="event-title"><span class="icon">🖥️</span>マイクロソフトとアップル</h3>
+        <p class="event-desc">ゲイツとアレンがマイクロソフトを、ジョブズとウォズニアックがアップルを創業。個人にコンピュータを届ける、という夢が始まる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">1981年</div>
+        <h3 class="event-title"><span class="icon">💾</span>IBM PC発売</h3>
+        <p class="event-desc">オフィスの机の上にコンピュータが置かれる時代の幕開け。PC/互換機市場が爆発的に広がっていく。</p>
+        <div class="event-link-row">
+          <a href="parts/part2.html" class="event-link" data-part="2">第2部 つながる世界</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1989年</div>
+        <h3 class="event-title"><span class="icon">🧱</span>ベルリンの壁崩壊</h3>
+        <p class="event-desc">東西冷戦の象徴が崩れる。翌年にはドイツ統一、2年後にはソ連崩壊。「歴史は終わった」と一部の人々は語った。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">1989年</div>
+        <h3 class="event-title"><span class="icon">🌐</span>World Wide Web</h3>
+        <p class="event-desc">CERNのティム・バーナーズ=リーがWWWを提案。HTMLとURLでインターネットの上に「ウェブ」が織られ始める。</p>
+        <div class="event-link-row">
+          <a href="parts/part2.html" class="event-link" data-part="2">第2部 つながる世界</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1991年</div>
+        <h3 class="event-title"><span class="icon">🐧</span>Linux公開</h3>
+        <p class="event-desc">リーナス・トーバルズが無料のOSカーネルを公開。「みんなで作って、みんなで使う」オープンソース文化が広まる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">1995年</div>
+        <h3 class="event-title"><span class="icon">🪟</span>Windows 95・Amazon・Yahoo</h3>
+        <p class="event-desc">一般家庭にインターネットが入ってきた年。「調べる」「買う」「つながる」が、電話線の向こうに広がり始める。</p>
+        <div class="event-link-row">
+          <a href="parts/part2.html" class="event-link" data-part="2">第2部 つながる世界</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">1998年</div>
+        <h3 class="event-title"><span class="icon">🔍</span>Google創業</h3>
+        <p class="event-desc">「世界中の情報を整理する」。検索の精度は情報との関係を変え、やがて「調べる=Google」となる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">2001年</div>
+        <h3 class="event-title"><span class="icon">📖</span>Wikipedia / 9.11</h3>
+        <p class="event-desc">誰もが編集できる百科事典が誕生した同じ年、世界貿易センタービルが崩壊。開かれるウェブと閉じていく安全保障。21世紀が本格的に始まる。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="era-divider"><span class="era-divider-text">CHAPTER IX ── MOBILE & SNS</span></div>
+
+  <!-- ============================================================ -->
+  <!-- ERA 9: モバイル・SNS時代 -->
+  <!-- ============================================================ -->
+  <section class="era" id="era-mobile" data-era="mobile">
+    <header class="era-header">
+      <div class="era-number">CHAPTER IX</div>
+      <h2 class="era-title">モバイル・SNSの時代</h2>
+      <div class="era-range">2003年 ── 2011年</div>
+      <p class="era-summary">
+        ゲノム、iPhone、フェイスブック、ツイッター──<br>
+        画面が手のひらに収まり、人と情報のあいだに新しい距離が生まれた。
+      </p>
+    </header>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2003年</div>
+        <h3 class="event-title"><span class="icon">🧬</span>ヒトゲノム解読完了</h3>
+        <p class="event-desc">約30億文字の「人間の設計図」が読み解かれる。医学・遺伝学が新しい次元に突入する。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">2004年</div>
+        <h3 class="event-title"><span class="icon">👥</span>Facebook</h3>
+        <p class="event-desc">大学生向けの名簿サービスとして始まり、数年で世界最大のSNSに。「友達」と「つながり」が数値化される時代が始まる。</p>
+        <div class="event-link-row">
+          <a href="parts/part2.html" class="event-link" data-part="2">第2部 つながる世界</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2005年</div>
+        <h3 class="event-title"><span class="icon">📺</span>YouTube</h3>
+        <p class="event-desc">誰もが「放送局」になれる時代。映像は、テレビ局だけのものではなくなった。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">2006年</div>
+        <h3 class="event-title"><span class="icon">🐦</span>Twitter</h3>
+        <p class="event-desc">140字の「いま」を世界と共有する。情報の速度が桁違いに上がり、ニュースの流れ方そのものが変わった。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2007年</div>
+        <h3 class="event-title"><span class="icon">📱</span>iPhone発売</h3>
+        <p class="event-desc">電話・ネット・音楽・カメラが1枚のガラスの下に。「スマートフォン」というカテゴリが地球を席巻する。</p>
+        <div class="event-link-row">
+          <a href="parts/part2.html" class="event-link" data-part="2">第2部 つながる世界</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">2008年</div>
+        <h3 class="event-title"><span class="icon">📉</span>リーマンショック</h3>
+        <p class="event-desc">金融工学の暴走が世界恐慌を引き起こす。アルゴリズム取引、サブプライム──「数字の世界」が現実経済を壊しうることが示された。</p>
+        <div class="event-link-row">
+          <a href="parts/part6.html" class="event-link" data-part="6">第6部 数字と世界</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2008年</div>
+        <h3 class="event-title"><span class="icon">🪙</span>ビットコイン論文</h3>
+        <p class="event-desc">サトシ・ナカモトの論文。政府や銀行を介さない電子通貨の設計が提案され、ブロックチェーン時代が始まる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">2011年</div>
+        <h3 class="event-title"><span class="icon">🌊</span>東日本大震災</h3>
+        <p class="event-desc">地震、津波、原発事故。テクノロジー文明の脆さと、同時にSNSが救援・情報共有の生命線になる両方が示された。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2011年</div>
+        <h3 class="event-title"><span class="icon">🧠</span>IBM Watson がクイズ王に勝利</h3>
+        <p class="event-desc">米国クイズ番組『Jeopardy!』で、IBMの人工知能が人間チャンピオンを破る。言葉を理解する機械の時代が、静かに視界に入ってきた。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+  </section>
+
+  <div class="era-divider"><span class="era-divider-text">CHAPTER X ── AI ERA</span></div>
+
+  <!-- ============================================================ -->
+  <!-- ERA 10: AI時代 -->
+  <!-- ============================================================ -->
+  <section class="era" id="era-ai" data-era="ai">
+    <header class="era-header">
+      <div class="era-number">CHAPTER X</div>
+      <h2 class="era-title">AIの時代</h2>
+      <div class="era-range">2012年 ── いま、ここ</div>
+      <p class="era-summary">
+        見る・聞く・書く・考える──<br>
+        人間だけのものと思われていた能力を、機械が学び始めた15年。
+      </p>
+    </header>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">2012年</div>
+        <h3 class="event-title"><span class="icon">🧠</span>AlexNet ── ディープラーニング覚醒</h3>
+        <p class="event-desc">画像認識コンペでニューラルネットが圧勝。冬の時代を越えたAIが、爆発的な性能向上期に突入する。</p>
+        <div class="event-link-row">
+          <a href="parts/part3.html" class="event-link" data-part="3">第3部 AIと生きる未来</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2014年</div>
+        <h3 class="event-title"><span class="icon">🎨</span>GAN登場</h3>
+        <p class="event-desc">敵対的生成ネットワーク。AIが「偽物」と「判別者」を同時に学び合うことで、リアルな画像を生成できるようになる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">2016年3月</div>
+        <h3 class="event-title"><span class="icon">♟️</span>AlphaGo vs イ・セドル</h3>
+        <p class="event-desc">囲碁の世界トッププロが、AIに4勝1敗で敗北。組み合わせが宇宙の原子数より多いと言われた世界で、機械が人間を超えた。</p>
+        <div class="event-link-row">
+          <a href="parts/part3.html" class="event-link" data-part="3">第3部 AIと生きる未来</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2017年</div>
+        <h3 class="event-title"><span class="icon">📄</span>Transformer論文</h3>
+        <p class="event-desc">「Attention Is All You Need」。Googleの8人の研究者が発表した新アーキテクチャが、のちに全ての大規模言語モデルの基盤となる。</p>
+        <div class="event-link-row">
+          <a href="parts/part8.html" class="event-link" data-part="8">第8部 AIと人間のあいだ</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">2018年</div>
+        <h3 class="event-title"><span class="icon">🔤</span>BERT / GPT-1</h3>
+        <p class="event-desc">GoogleのBERT、OpenAIのGPT-1。大量のテキストで事前学習された言語モデルが、次々と性能記録を塗り替えていく。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2020年</div>
+        <h3 class="event-title"><span class="icon">🦠</span>COVID-19パンデミック</h3>
+        <p class="event-desc">100年に1度の世界的疫病。在宅勤務、オンライン授業、mRNAワクチン──社会のデジタル化が一気に数年分加速した。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">2020年</div>
+        <h3 class="event-title"><span class="icon">📝</span>GPT-3</h3>
+        <p class="event-desc">1750億パラメータの言語モデルが、人間のような文章を生成。少ない例示だけで新しいタスクを学ぶ能力を見せつけた。</p>
+        <div class="event-link-row">
+          <a href="parts/part8.html" class="event-link" data-part="8">第8部 AIと人間のあいだ</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2022年11月</div>
+        <h3 class="event-title"><span class="icon">💬</span>ChatGPT公開</h3>
+        <p class="event-desc">5日で100万ユーザー、2か月で1億。AIが研究室を出て、誰もが使える「対話する存在」として日常に入ってきた瞬間。</p>
+        <div class="event-link-row">
+          <a href="parts/part8.html" class="event-link" data-part="8">第8部 AIと人間のあいだ</a>
+          <a href="parts/part8_2.html" class="event-link" data-part="8">第8部 第二章</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">2023年</div>
+        <h3 class="event-title"><span class="icon">🖼️</span>マルチモーダルAI</h3>
+        <p class="event-desc">GPT-4、Midjourney、Stable Diffusion、ChatGPT Voice──文字だけでなく、画像・音声・動画を理解し生成するAIが普及。</p>
+        <div class="event-link-row">
+          <a href="parts/part8.html" class="event-link" data-part="8">第8部</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2024年</div>
+        <h3 class="event-title"><span class="icon">🎬</span>動画生成と推論モデル</h3>
+        <p class="event-desc">Sora、Veo、o1──映像を生成し、ステップ・バイ・ステップで推論するAI。「考える時間」を使う機械が登場する。</p>
+        <div class="event-link-row">
+          <a href="parts/part8.html" class="event-link" data-part="8">第8部</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">2025年</div>
+        <h3 class="event-title"><span class="icon">🕹️</span>AIエージェント時代</h3>
+        <p class="event-desc">ブラウザを操作し、コードを書き、タスクを自動でこなすAI。Claude Code、ChatGPT Agent、Geminiなど。「AIが動く」段階へ。</p>
+        <div class="event-link-row">
+          <a href="parts/part8_2.html" class="event-link" data-part="8">第8部 第二章</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2026年 ── いま</div>
+        <h3 class="event-title"><span class="icon">🕰️</span>あなたがこの年表を読んでいる</h3>
+        <p class="event-desc">学校にAI、仕事にAI、家族のように話すAI。共通テストも、創作も、医療も──「人間とは何か」がもう一度問い直されている、その只中。</p>
+        <div class="event-link-row">
+          <a href="parts/part8_2.html" class="event-link" data-part="8">第8部 第二章</a>
+        </div>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+    </div>
+  </section>
+
+  <div class="era-divider"><span class="era-divider-text">CHAPTER XI ── FUTURE</span></div>
+
+  <!-- ============================================================ -->
+  <!-- ERA 11: 未来 -->
+  <!-- ============================================================ -->
+  <section class="era" id="era-future" data-era="future">
+    <header class="era-header">
+      <div class="era-number">CHAPTER XI</div>
+      <h2 class="era-title">未 来</h2>
+      <div class="era-range">2030年代 ── ?</div>
+      <p class="era-summary">
+        ここから先は、まだ誰も書いていない年表。<br>
+        あなたとAIとが、一緒に書き加えていく空白の章。
+      </p>
+    </header>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">2030年代</div>
+        <h3 class="event-title"><span class="icon">🌐</span>AGI（汎用人工知能）？</h3>
+        <p class="event-desc">「ほとんどの知的タスクで人間を超える」AIが現れるかもしれない年代。仕事・教育・科学のあり方が根本から問い直される。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2040年代</div>
+        <h3 class="event-title"><span class="icon">🧬</span>生命編集の拡大</h3>
+        <p class="event-desc">CRISPR、合成生物学、脳とコンピュータの接続──「人間の体そのもの」が設計の対象になる時代。倫理と可能性の両輪が問われる。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+      <div class="event-card">
+        <div class="event-date">2045年</div>
+        <h3 class="event-title"><span class="icon">∞</span>技術的特異点？</h3>
+        <p class="event-desc">カーツワイルが予言した「シンギュラリティ」。AIがAIを改良し始め、進歩の速度が人間の理解を超える──と語られてきた年。</p>
+      </div>
+    </div>
+
+    <div class="event event-left">
+      <div class="event-card">
+        <div class="event-date">2100年〜</div>
+        <h3 class="event-title"><span class="icon">🪐</span>地球の外へ？</h3>
+        <p class="event-desc">月・火星への本格的な進出、宇宙太陽光、気候制御──。人類は「複数の惑星に住む種」になるのか、それともこの星に踏みとどまるのか。</p>
+      </div>
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot"></div></div>
+    </div>
+
+    <div class="event event-right">
+      <div class="event-node"><div class="event-connector"></div><div class="event-dot major"></div></div>
+      <div class="event-card">
+        <div class="event-date">?</div>
+        <h3 class="event-title"><span class="icon">❔</span>空白のまま</h3>
+        <p class="event-desc">ここから先は、まだ書かれていない。何を加え、何を残すかは、いま生きている私たちとこれから生まれる世代の問い。ハルとおじいさんは、そのための「問いの道具」を探し続けている。</p>
+        <div class="event-link-row">
+          <a href="index.html" class="event-link" data-part="8">学びの地図へ戻る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ========== ACCELERATION / 加速する進化 ========== -->
+<section class="acceleration" id="acceleration">
+  <header class="accel-header">
+    <div class="accel-label">INSIGHT</div>
+    <h2 class="accel-title">進化は、<br>加速している</h2>
+    <p class="accel-intro">
+      ここまで見てきた出来事を、視点を変えて眺めてみる。<br>
+      すると、私たちがとても特別な時代を生きていることが、<br>ぼんやりと輪郭をもって見えてくる。
+    </p>
+  </header>
+
+  <!-- ── Panel 1: Linear Scale View ── -->
+  <div class="accel-panel">
+    <div class="panel-num">VIEW 01</div>
+    <h3 class="panel-title">線形軸で見る ── 人類史は「最後の一瞬」に詰まっている</h3>
+    <p class="panel-desc">
+      138億年を1本の線で表すと、人類のすべて（農業・文字・産業革命・インターネット・AI）は、<br>
+      右端の点にも満たない「一瞬」に押し込まれている。
+    </p>
+
+    <div class="linear-bar-wrap">
+      <div class="linear-bar">
+        <div class="linear-event" style="left: 0%;" data-label="ビッグバン" data-year="138億年前"></div>
+        <div class="linear-event alt" style="left: 66.7%;" data-label="地球誕生" data-year="46億年前"></div>
+        <div class="linear-event" style="left: 72.5%;" data-label="生命誕生" data-year="38億年前"></div>
+        <div class="linear-event alt" style="left: 96.1%;" data-label="カンブリア爆発" data-year="5.4億年前"></div>
+        <div class="linear-event" style="left: 99.52%; --tier: 1;" data-label="恐竜絶滅" data-year="6600万年前"></div>
+        <div class="linear-event alt" style="left: 99.95%; --tier: 1;" data-label="最初の人類" data-year="700万年前"></div>
+      </div>
+      <div class="linear-callout">この右端に、人類のすべてが詰まっている</div>
+    </div>
+
+    <div class="linear-zoom-note">── 右端「最後の0.05%」を拡大すると ──</div>
+
+    <div class="linear-bar-wrap">
+      <div class="linear-bar">
+        <div class="linear-event" style="left: 0%;" data-label="最初の人類" data-year="700万年前"></div>
+        <div class="linear-event alt" style="left: 95.7%;" data-label="ホモ・サピエンス" data-year="30万年前"></div>
+        <div class="linear-event" style="left: 99.0%;" data-label="認知革命" data-year="7万年前"></div>
+        <div class="linear-event alt" style="left: 99.86%; --tier: 1;" data-label="農業革命" data-year="1万年前"></div>
+        <div class="linear-event" style="left: 99.93%; --tier: 1;" data-label="文字" data-year="5000年前"></div>
+        <div class="linear-event alt" style="left: 99.996%; --tier: 2;" data-label="産業革命" data-year="260年前"></div>
+        <div class="linear-event" style="left: 99.9995%; --tier: 2;" data-label="AI時代" data-year="いま"></div>
+      </div>
+      <div class="linear-callout">ここでも、産業革命〜AIは右端に圧縮される</div>
+    </div>
+
+    <div class="panel-insight">
+      <strong>1万年前の農業革命</strong>も、<strong>2022年のChatGPT</strong>も、<br>
+      この線の右端のほんの一点 ──「いま」に同じくらい埋もれている。<br>
+      <span class="sky">人類のスケールで見ても、私たちは「加速する何か」の最先端に立っている。</span>
+    </div>
+  </div>
+
+  <!-- ── Panel 2: Cosmic Calendar ── -->
+  <div class="accel-panel">
+    <div class="panel-num">VIEW 02</div>
+    <h3 class="panel-title">宇宙暦 ── 138億年を1年に圧縮すると</h3>
+    <p class="panel-desc">
+      カール・セーガンが考案した「宇宙カレンダー」。ビッグバンを<strong style="color:var(--text-bright)">1月1日 00:00</strong>、<br>
+      いまこの瞬間を<strong style="color:var(--text-bright)">12月31日 24:00</strong>とすると──
+    </p>
+
+    <!-- Year view -->
+    <div class="cosmic-wrap">
+      <div class="cosmic-scale-label">▶ 1年 = 138億年</div>
+      <div class="cosmic-bar">
+        <div class="cosmic-months">
+          <div class="cosmic-month" data-name="1月"></div>
+          <div class="cosmic-month" data-name="2月"></div>
+          <div class="cosmic-month" data-name="3月"></div>
+          <div class="cosmic-month" data-name="4月"></div>
+          <div class="cosmic-month" data-name="5月"></div>
+          <div class="cosmic-month" data-name="6月"></div>
+          <div class="cosmic-month" data-name="7月"></div>
+          <div class="cosmic-month" data-name="8月"></div>
+          <div class="cosmic-month" data-name="9月"></div>
+          <div class="cosmic-month" data-name="10月"></div>
+          <div class="cosmic-month" data-name="11月"></div>
+          <div class="cosmic-month" data-name="12月"></div>
+        </div>
+        <div class="cosmic-event hi" style="left: 0%;">
+          <span class="cev-date">1/1 00:00</span>
+          <span class="cev-label">ビッグバン</span>
+          <span class="cev-real">138億年前</span>
+        </div>
+        <div class="cosmic-event alt" style="left: 20.3%;">
+          <span class="cev-date">3/15</span>
+          <span class="cev-label">銀河の形成</span>
+          <span class="cev-real">110億年前</span>
+        </div>
+        <div class="cosmic-event" style="left: 66.8%;">
+          <span class="cev-date">9/2</span>
+          <span class="cev-label">地球の誕生</span>
+          <span class="cev-real">46億年前</span>
+        </div>
+        <div class="cosmic-event alt" style="left: 72.4%;">
+          <span class="cev-date">9/21</span>
+          <span class="cev-label">生命の誕生</span>
+          <span class="cev-real">38億年前</span>
+        </div>
+        <div class="cosmic-event" style="left: 85.5%;">
+          <span class="cev-date">11/9</span>
+          <span class="cev-label">真核生物</span>
+          <span class="cev-real">21億年前</span>
+        </div>
+        <div class="cosmic-event alt" style="left: 96.1%;">
+          <span class="cev-date">12/17</span>
+          <span class="cev-label">カンブリア爆発</span>
+          <span class="cev-real">5.4億年前</span>
+        </div>
+        <div class="cosmic-event" style="left: 98.6%; --tier: 1;">
+          <span class="cev-date">12/24</span>
+          <span class="cev-label">恐竜</span>
+          <span class="cev-real">2.3億年前</span>
+        </div>
+        <div class="cosmic-event alt hi" style="left: 99.5%; --tier: 1;">
+          <span class="cev-date">12/30</span>
+          <span class="cev-label">恐竜絶滅</span>
+          <span class="cev-real">6600万年前</span>
+        </div>
+        <div class="cosmic-event now" style="left: 100%;">
+          <span class="cev-date">12/31 24:00</span>
+          <span class="cev-label">いま</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cosmic-zoom-link">12月31日 を拡大する</div>
+
+    <!-- Day view (Dec 31) -->
+    <div class="cosmic-wrap">
+      <div class="cosmic-scale-label">▶ 12月31日（24時間）= 3770万年</div>
+      <div class="cosmic-bar day">
+        <div class="cosmic-months">
+          <div class="cosmic-month" data-name="0時"></div>
+          <div class="cosmic-month" data-name="4時"></div>
+          <div class="cosmic-month" data-name="8時"></div>
+          <div class="cosmic-month" data-name="12時"></div>
+          <div class="cosmic-month" data-name="16時"></div>
+          <div class="cosmic-month" data-name="20時"></div>
+        </div>
+        <div class="cosmic-event hi" style="left: 55.8%;">
+          <span class="cev-date">13:24</span>
+          <span class="cev-label">最初の人類</span>
+          <span class="cev-real">700万年前</span>
+        </div>
+        <div class="cosmic-event alt" style="left: 93.3%;">
+          <span class="cev-date">22:24</span>
+          <span class="cev-label">石器の使用</span>
+          <span class="cev-real">240万年前</span>
+        </div>
+        <div class="cosmic-event" style="left: 95.0%;">
+          <span class="cev-date">22:48</span>
+          <span class="cev-label">ホモ・エレクトス</span>
+          <span class="cev-real">180万年前</span>
+        </div>
+        <div class="cosmic-event alt" style="left: 99.03%; --tier: 1;">
+          <span class="cev-date">23:46</span>
+          <span class="cev-label">火の制御</span>
+          <span class="cev-real">40万年前</span>
+        </div>
+        <div class="cosmic-event" style="left: 99.44%; --tier: 1;">
+          <span class="cev-date">23:52</span>
+          <span class="cev-label">ホモ・サピエンス</span>
+          <span class="cev-real">30万年前</span>
+        </div>
+        <div class="cosmic-event alt hi" style="left: 99.85%; --tier: 2;">
+          <span class="cev-date">23:59</span>
+          <span class="cev-label">認知革命</span>
+          <span class="cev-real">7万年前</span>
+        </div>
+        <div class="cosmic-event now" style="left: 100%;">
+          <span class="cev-date">24:00</span>
+          <span class="cev-label">いま</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cosmic-zoom-link">最後の1分間 を拡大する</div>
+
+    <!-- Minute view (23:59:00 - 24:00:00) -->
+    <div class="cosmic-wrap">
+      <div class="cosmic-scale-label">▶ 最後の1分間 = 約26,000年</div>
+      <div class="cosmic-bar minute">
+        <div class="cosmic-months">
+          <div class="cosmic-month" data-name="23:59:00"></div>
+          <div class="cosmic-month" data-name="23:59:15"></div>
+          <div class="cosmic-month" data-name="23:59:30"></div>
+          <div class="cosmic-month" data-name="23:59:45"></div>
+        </div>
+        <div class="cosmic-event hi" style="left: 61.9%;">
+          <span class="cev-date">23:59:37</span>
+          <span class="cev-label">農業革命</span>
+          <span class="cev-real">1万年前</span>
+        </div>
+        <div class="cosmic-event alt" style="left: 80.2%;">
+          <span class="cev-date">23:59:48</span>
+          <span class="cev-label">文字の発明</span>
+          <span class="cev-real">5000年前</span>
+        </div>
+        <div class="cosmic-event" style="left: 89.4%;">
+          <span class="cev-date">23:59:54</span>
+          <span class="cev-label">哲学の誕生</span>
+          <span class="cev-real">2500年前</span>
+        </div>
+        <div class="cosmic-event alt" style="left: 98.3%; --tier: 1;">
+          <span class="cev-date">23:59:59.0</span>
+          <span class="cev-label">グーテンベルク印刷</span>
+          <span class="cev-real">580年前</span>
+        </div>
+        <div class="cosmic-event hi" style="left: 99.01%; --tier: 1;">
+          <span class="cev-date">23:59:59.4</span>
+          <span class="cev-label">産業革命</span>
+          <span class="cev-real">260年前</span>
+        </div>
+        <div class="cosmic-event alt" style="left: 99.70%; --tier: 2;">
+          <span class="cev-date">23:59:59.8</span>
+          <span class="cev-label">ENIAC</span>
+          <span class="cev-real">80年前</span>
+        </div>
+        <div class="cosmic-event" style="left: 99.87%; --tier: 2;">
+          <span class="cev-date">23:59:59.92</span>
+          <span class="cev-label">WWW</span>
+          <span class="cev-real">37年前</span>
+        </div>
+        <div class="cosmic-event alt" style="left: 99.96%; --tier: 3;">
+          <span class="cev-date">23:59:59.96</span>
+          <span class="cev-label">iPhone</span>
+          <span class="cev-real">19年前</span>
+        </div>
+        <div class="cosmic-event hi" style="left: 99.99%; --tier: 3;">
+          <span class="cev-date">23:59:59.99</span>
+          <span class="cev-label">ChatGPT</span>
+          <span class="cev-real">3年半前</span>
+        </div>
+        <div class="cosmic-event now" style="left: 100%;">
+          <span class="cev-date">24:00:00</span>
+          <span class="cev-label">いま</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-insight" style="margin-top: 80px;">
+      <strong>文字ができてから今まで</strong>は、宇宙暦では <strong>わずか12秒</strong>。<br>
+      <strong>産業革命から今まで</strong>は、<strong>0.6秒</strong>。<br>
+      <strong>ChatGPTから今まで</strong>は、<strong>0.008秒</strong>。<br>
+      <span class="sky">ほとんど「点」のような時間に、私たちの世界のほぼすべてが詰まっている。</span>
+    </div>
+  </div>
+
+  <!-- ── Panel 3: Interval Shrinkage ── -->
+  <div class="accel-panel">
+    <div class="panel-num">VIEW 03</div>
+    <h3 class="panel-title">革命から革命までの「間隔」 ── 短くなり続けている</h3>
+    <p class="panel-desc">
+      次の大きな転換点までの「待ち時間」が、桁違いに縮まっている。<br>
+      これが「加速」の正体 ──人類は、自分が変える速度そのものを変えている。
+    </p>
+
+    <div class="interval-chart">
+      <div class="interval-row" data-color="purple">
+        <div class="interval-label">生命誕生 <span class="arrow">→</span> 認知革命</div>
+        <div class="interval-bar-wrap">
+          <div class="interval-bar" style="width: 100%;" data-val="約 38億年"></div>
+        </div>
+      </div>
+      <div class="interval-row" data-color="green">
+        <div class="interval-label">認知革命 <span class="arrow">→</span> 農業革命</div>
+        <div class="interval-bar-wrap">
+          <div class="interval-bar" style="width: 45%;" data-val="約 6万年"></div>
+        </div>
+      </div>
+      <div class="interval-row" data-color="orange">
+        <div class="interval-label">農業革命 <span class="arrow">→</span> 文字の発明</div>
+        <div class="interval-bar-wrap">
+          <div class="interval-bar" style="width: 35%;" data-val="約 5,000年"></div>
+        </div>
+      </div>
+      <div class="interval-row" data-color="gold">
+        <div class="interval-label">文字 <span class="arrow">→</span> 活版印刷</div>
+        <div class="interval-bar-wrap">
+          <div class="interval-bar" style="width: 34%;" data-val="約 4,650年"></div>
+        </div>
+      </div>
+      <div class="interval-row" data-color="orange">
+        <div class="interval-label">活版印刷 <span class="arrow">→</span> 産業革命</div>
+        <div class="interval-bar-wrap">
+          <div class="interval-bar" style="width: 24%;" data-val="約 320年"></div>
+        </div>
+      </div>
+      <div class="interval-row" data-color="blue">
+        <div class="interval-label">産業革命 <span class="arrow">→</span> コンピュータ</div>
+        <div class="interval-bar-wrap">
+          <div class="interval-bar" style="width: 21%;" data-val="約 180年"></div>
+        </div>
+      </div>
+      <div class="interval-row" data-color="cyan">
+        <div class="interval-label">コンピュータ <span class="arrow">→</span> WWW</div>
+        <div class="interval-bar-wrap">
+          <div class="interval-bar" style="width: 15%;" data-val="約 43年"></div>
+        </div>
+      </div>
+      <div class="interval-row" data-color="magenta">
+        <div class="interval-label">WWW <span class="arrow">→</span> スマートフォン</div>
+        <div class="interval-bar-wrap">
+          <div class="interval-bar" style="width: 11%;" data-val="約 18年"></div>
+        </div>
+      </div>
+      <div class="interval-row" data-color="sky">
+        <div class="interval-label">スマートフォン <span class="arrow">→</span> ChatGPT</div>
+        <div class="interval-bar-wrap">
+          <div class="interval-bar" style="width: 10%;" data-val="約 15年"></div>
+        </div>
+      </div>
+      <div class="interval-row" data-color="sky">
+        <div class="interval-label">ChatGPT <span class="arrow">→</span> AIエージェント</div>
+        <div class="interval-bar-wrap">
+          <div class="interval-bar" style="width: 4%;" data-val="約 3年"></div>
+        </div>
+      </div>
+      <div class="interval-row future">
+        <div class="interval-label">AIエージェント <span class="arrow">→</span> 次の革命</div>
+        <div class="interval-bar-wrap">
+          <div class="interval-bar" style="width: 1.5%;" data-val="？"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="interval-axis">
+      <span>← 短い（3年）</span>
+      <span>長い（38億年） →</span>
+    </div>
+
+    <div class="panel-insight">
+      38億年 → 6万年 → 5,000年 → 320年 → 180年 → 43年 → 18年 → 15年 → <strong>3年</strong>。<br>
+      この数字の並びは、<strong>人類が自らの時計の針を速めてきた履歴書</strong>。<br>
+      <span class="sky">次の「？」は、どれくらい短くなるだろう？</span>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="accel-summary">
+    <div class="summary-icon">✨</div>
+    <h3 class="summary-title">いまこの瞬間は、<br>138億年で最も変化が激しい一点</h3>
+    <p class="summary-text">
+      宇宙カレンダーで言えば、あなたがこのページを読んでいる「いま」は、<br>
+      <strong>12月31日 23時59分59秒台</strong>のほんの一コマ。<br>
+      <br>
+      しかもその一コマに、ChatGPTも、AIエージェントも、動画生成AIも、<br>
+      すべてが収まっている。<br>
+      <br>
+      <strong>これから起こる数十年の変化は、過去の数千年分に匹敵するかもしれない。</strong><br>
+      <br>
+      ハルとおじいさんが探しているのは、この加速の中で<br>
+      <em>何を手放さず、何を問い直すのか</em> ── その羅針盤です。
+    </p>
+  </div>
+
+</section>
+
+<!-- ========== FOOTER CTA ========== -->
+<section class="footer-cta">
+  <div class="footer-cta-label">LEARNING MAP</div>
+  <h2 class="footer-cta-title">気になる時代から、<br>物語のなかへ</h2>
+  <p class="footer-cta-desc">
+    年表で見えた節目は、ハルとおじいさんの対話の中でもっと深く掘り下げられています。<br>
+    各部の「学びの地図」から、一話ずつ探索してみてください。
+  </p>
+  <div class="footer-cta-grid">
+    <a href="parts/part1.html" class="footer-cta-btn" data-part="1"><span class="pnum">PART 01</span>蒸気の時代</a>
+    <a href="parts/part2.html" class="footer-cta-btn" data-part="2"><span class="pnum">PART 02</span>つながる世界</a>
+    <a href="parts/part3.html" class="footer-cta-btn" data-part="3"><span class="pnum">PART 03</span>AIと生きる未来</a>
+    <a href="parts/part4.html" class="footer-cta-btn" data-part="4"><span class="pnum">PART 04</span>文字と知識</a>
+    <a href="parts/part5.html" class="footer-cta-btn" data-part="5"><span class="pnum">PART 05</span>言葉と思考</a>
+    <a href="parts/part6.html" class="footer-cta-btn" data-part="6"><span class="pnum">PART 06</span>数字と世界</a>
+    <a href="parts/part7.html" class="footer-cta-btn" data-part="7"><span class="pnum">PART 07</span>前提を外す</a>
+    <a href="parts/part8.html" class="footer-cta-btn" data-part="8"><span class="pnum">PART 08 — 歴史編</span>AIと人間のあいだ</a>
+    <a href="parts/part8_2.html" class="footer-cta-btn" data-part="8"><span class="pnum">PART 08 — 社会編</span>AIが日常に入る日</a>
+  </div>
+  <div style="text-align:center;margin-top:40px;">
+    <a href="index.html" class="event-link" style="color:var(--neon-sky); padding:12px 28px; font-size:13px;">← 学びの地図トップへ</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div>ハルとおじいさん ── 進化の年表</div>
+  <div style="margin-top:8px;">&copy; 2025-2026 ハルとおじいさん</div>
+</footer>
+
+<canvas class="bg-canvas" id="bgCanvas"></canvas>
+
+<script>
+(function() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ========== Scroll progress ========== */
+  const progressBar = document.getElementById('progressBar');
+  let ticking = false;
+  function updateProgress() {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const ratio = max > 0 ? h.scrollTop / max : 0;
+    progressBar.style.width = (ratio * 100) + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function() {
+    if (!ticking) { requestAnimationFrame(updateProgress); ticking = true; }
+  }, { passive: true });
+  updateProgress();
+
+  /* ========== Smooth scroll ========== */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      const hash = a.getAttribute('href');
+      if (hash === '#' || hash.length < 2) return;
+      const target = document.getElementById(hash.slice(1));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  if (reduceMotion) return;
+
+  /* ========== Reveal on scroll ========== */
+  const revealTargets = document.querySelectorAll('.event, .era-header, .era-divider, .footer-cta-btn');
+  revealTargets.forEach(function(el) { el.classList.add('reveal-init'); });
+  const revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-on');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+  revealTargets.forEach(function(el) { revealObs.observe(el); });
+
+  /* ========== Era-nav active state ========== */
+  const eraDots = document.querySelectorAll('.era-dot');
+  const erasById = {};
+  document.querySelectorAll('.era[id]').forEach(function(el) {
+    erasById[el.id] = el;
+  });
+  const heroEl = document.getElementById('top');
+
+  const activeObs = new IntersectionObserver(function(entries) {
+    let best = null, bestRatio = 0;
+    entries.forEach(function(entry) {
+      if (entry.intersectionRatio > bestRatio) {
+        best = entry.target.id;
+        bestRatio = entry.intersectionRatio;
+      }
+    });
+    if (best) {
+      eraDots.forEach(function(dot) {
+        dot.classList.toggle('active', dot.getAttribute('href') === '#' + best);
+      });
+    }
+  }, { threshold: [0.1, 0.3, 0.5], rootMargin: '-25% 0px -45% 0px' });
+
+  Object.values(erasById).forEach(function(el) { activeObs.observe(el); });
+  if (heroEl) activeObs.observe(heroEl);
+  const accelEl = document.getElementById('acceleration');
+  if (accelEl) activeObs.observe(accelEl);
+
+  /* ========== Particle background (starfield) ========== */
+  const canvas = document.getElementById('bgCanvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let scrollVelocity = 0;
+  let lastScrollY = window.scrollY;
+
+  const COLORS = [
+    'rgba(0,212,255,',
+    'rgba(255,215,0,',
+    'rgba(191,95,255,',
+    'rgba(255,107,43,',
+    'rgba(57,255,20,',
+    'rgba(255,45,149,'
+  ];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const density = Math.min(
+      window.innerWidth < 600 ? 50 : 110,
+      Math.floor((window.innerWidth * window.innerHeight) / 14000)
+    );
+    particles = [];
+    for (let i = 0; i < density; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.18,
+        vy: (Math.random() - 0.5) * 0.18,
+        r: Math.random() * 1.1 + 0.5,
+        depth: Math.random() * 0.8 + 0.2,
+        opacity: Math.random() * 0.5 + 0.4,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.02 + Math.random() * 0.04,
+        flash: 0
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    scrollVelocity *= 0.9;
+    particles.forEach(function(p) {
+      p.x += p.vx;
+      p.y += p.vy + scrollVelocity * p.depth * 0.5;
+      if (p.x < -5) p.x = canvas.width + 5;
+      if (p.x > canvas.width + 5) p.x = -5;
+      if (p.y < -5) p.y = canvas.height + 5;
+      if (p.y > canvas.height + 5) p.y = -5;
+
+      p.phase += p.speed;
+      const tw = 0.35 + (Math.sin(p.phase) * 0.5 + 0.5) * 0.65;
+
+      if (p.flash > 0) p.flash--;
+      else if (Math.random() < 0.0012) p.flash = 36;
+      const fl = p.flash > 0 ? p.flash / 36 : 0;
+      const flashBoost = 1 + Math.sin(fl * Math.PI) * 2.2;
+      const r = p.r * (1 + fl * 0.5);
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, r * 5, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + (p.opacity * 0.05 * tw * flashBoost) + ')';
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, r * 2.4, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + (p.opacity * 0.2 * tw * flashBoost) + ')';
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, r * 1.2, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + (p.opacity * 0.8 * tw) + ')';
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, r * 0.5, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,' + Math.min(1, (0.5 + fl * 0.5) * tw) + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  window.addEventListener('scroll', function() {
+    scrollVelocity = (window.scrollY - lastScrollY) * 0.15;
+    lastScrollY = window.scrollY;
+  }, { passive: true });
+  draw();
+})();
+</script>
+
+</body>
+</html>

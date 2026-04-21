@@ -125,6 +125,143 @@ a { color: inherit; text-decoration: none; }
   50% { opacity: 1; }
 }
 
+/* ========== EVOLUTION BANNER ========== */
+.evolution-banner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 24px 10px;
+}
+.evo-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  padding: 48px 44px;
+  border-radius: 18px;
+  border: 1px solid rgba(191,95,255,0.35);
+  background:
+    radial-gradient(ellipse 600px 300px at 20% 30%, rgba(191,95,255,0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 280px at 80% 70%, rgba(0,212,255,0.12) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(191,95,255,0.04), rgba(0,212,255,0.04));
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.evo-card:hover {
+  border-color: rgba(0,212,255,0.6);
+  box-shadow: 0 0 60px rgba(191,95,255,0.15), 0 12px 40px rgba(0,0,0,0.4);
+  transform: translateY(-3px);
+}
+.evo-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(191,95,255,0.06) 20%,
+    rgba(0,229,255,0.06) 50%,
+    rgba(255,215,0,0.05) 80%,
+    transparent 100%);
+  pointer-events: none;
+  opacity: 0.5;
+}
+.evo-label {
+  font-family: 'Cinzel', 'Noto Sans JP', serif;
+  font-size: 11px;
+  letter-spacing: 0.5em;
+  color: #bf5fff;
+  margin-bottom: 12px;
+  font-weight: 700;
+  position: relative;
+}
+.evo-title {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  color: var(--text-bright);
+  margin-bottom: 14px;
+  position: relative;
+  background: linear-gradient(120deg, #fff 0%, #bf5fff 40%, #00e5ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.evo-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 2.05;
+  margin-bottom: 24px;
+  position: relative;
+}
+.evo-desc strong { color: var(--neon-sky); font-weight: 400; }
+.evo-timeline-mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.evo-marker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: rgba(0,0,0,0.3);
+  font-weight: 700;
+}
+.evo-marker::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+}
+.evo-marker.purple { color: #bf5fff; }
+.evo-marker.green { color: #39ff14; }
+.evo-marker.orange { color: #ff6b2b; }
+.evo-marker.cyan { color: #00e5ff; }
+.evo-marker.sky { color: #00d4ff; }
+.evo-marker.arrow { border: none; background: none; color: var(--text-dim); opacity: 0.5; font-size: 12px; }
+.evo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 34px;
+  background: linear-gradient(135deg, #bf5fff 0%, #00d4ff 100%);
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 6px 24px rgba(191,95,255,0.25);
+  position: relative;
+}
+.evo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(0,212,255,0.4);
+  filter: brightness(1.1);
+}
+.evo-btn::after {
+  content: '→';
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+.evo-btn:hover::after { transform: translateX(4px); }
+@media (max-width: 640px) {
+  .evolution-banner { padding: 40px 14px 0; }
+  .evo-card { padding: 32px 22px; }
+  .evo-timeline-mini { gap: 6px; }
+  .evo-marker { font-size: 9px; padding: 4px 8px; }
+}
+
 /* ========== OPENING THEME ========== */
 .theme-section {
   padding: 100px 24px;
@@ -1203,6 +1340,7 @@ body::before {
 <!-- ========== SIDE MINI-MAP ========== -->
 <aside class="mini-map" aria-label="ページ内ナビゲーション">
   <a href="#top" class="mm-dot" data-label="START"></a>
+  <a href="#evolution" class="mm-dot" data-label="進化の年表"></a>
   <a href="#theme" class="mm-dot" data-label="テーマ曲"></a>
   <a href="#intro" class="mm-dot" data-label="紹介"></a>
   <a href="#part1" class="mm-dot" data-label="第1部 蒸気"></a>
@@ -1226,6 +1364,35 @@ body::before {
   </p>
   <div class="hero-divider"></div>
   <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ========== EVOLUTION BANNER ========== -->
+<section class="evolution-banner" id="evolution">
+  <a href="evolution.html" style="display:block;">
+    <div class="evo-card">
+      <div>
+        <div class="evo-label">EVOLUTION ── 進化の年表</div>
+        <h2 class="evo-title">138億年前から、<br class="sp-only">まだ見ぬ未来まで</h2>
+        <p class="evo-desc">
+          宇宙の誕生、生命の進化、人類のあけぼの、農業、文明、科学革命、産業革命、<br>
+          インターネット、そしてAI時代──<strong>100の転換点</strong>で俯瞰する人類史。<br>
+          ここから各部の学びの地図へと、枝のように広がっていきます。
+        </p>
+        <div class="evo-timeline-mini">
+          <span class="evo-marker purple">宇宙・生命</span>
+          <span class="evo-marker arrow">→</span>
+          <span class="evo-marker green">人類のあけぼの</span>
+          <span class="evo-marker arrow">→</span>
+          <span class="evo-marker orange">文明の始まり</span>
+          <span class="evo-marker arrow">→</span>
+          <span class="evo-marker cyan">デジタル革命</span>
+          <span class="evo-marker arrow">→</span>
+          <span class="evo-marker sky">AIの時代</span>
+        </div>
+        <div class="evo-btn">進化の年表をひらく</div>
+      </div>
+    </div>
+  </a>
 </section>
 
 <!-- ========== OPENING THEME ========== -->
@@ -1331,6 +1498,7 @@ body::before {
 
 <!-- ========== NAVIGATION ========== -->
 <nav class="nav-bar">
+  <a href="evolution.html" style="color:#bf5fff; border-color:#bf5fff">進化の年表</a>
   <a href="#intro" style="color:var(--neon-gold); border-color:var(--neon-gold)">紹介</a>
   <a href="#part1" data-part="1">第1部</a>
   <a href="#part2" data-part="2">第2部</a>
@@ -1961,7 +2129,7 @@ function loadThemeVideo(el) {
   // 6. ナビバー + ミニマップ 現在地ハイライト
   const navLinks = document.querySelectorAll('.nav-bar a[href^="#"]');
   const mmDots = document.querySelectorAll('.mm-dot');
-  const trackedIds = ['top', 'theme', 'intro', 'part1', 'part2', 'part3', 'part4', 'part5', 'part6', 'part7', 'part8', 'part8-2'];
+  const trackedIds = ['top', 'evolution', 'theme', 'intro', 'part1', 'part2', 'part3', 'part4', 'part5', 'part6', 'part7', 'part8', 'part8-2'];
 
   function setActive(id) {
     navLinks.forEach(function(link) {
