@@ -173,6 +173,18 @@
   .bridge-sub { font-size: 12.5px; color: #80a890; line-height: 1.95; }
   /* Footer */
   .doc-footer { text-align: center; padding: 28px 0 10px; font-size: 10.5px; color: #6040a0; letter-spacing: 0.15em; border-top: 1px solid #d0b0f0; margin-top: 48px; }
+  .timeline { margin: 28px 0; position: relative; padding-left: 0; }
+  .tl-item { display: grid; grid-template-columns: 96px 1fr; gap: 0; margin-bottom: 2px; }
+  .tl-year { font-size: 12px; font-weight: 700; color: #4020a0; padding: 14px 16px 14px 0; text-align: right; border-right: 3px solid #8060c0; position: relative; white-space: nowrap; }
+  .tl-year::after { content: ''; position: absolute; right: -7px; top: 50%; transform: translateY(-50%); width: 11px; height: 11px; background: #6040a0; border-radius: 50%; border: 2px solid #fff; }
+  .tl-content { padding: 14px 0 14px 20px; border-bottom: 1px solid #e8d8f8; }
+  .tl-content:last-child { border-bottom: none; }
+  .tl-event { font-size: 12.5px; font-weight: 700; color: #180830; margin-bottom: 4px; }
+  .tl-desc { font-size: 12px; color: #281840; line-height: 1.85; }
+  .tl-tag { display: inline-block; background: #f0e8ff; border: 1px solid #b898e0; border-radius: 3px; font-size: 10px; color: #4020a0; padding: 2px 7px; margin-right: 5px; margin-top: 4px; }
+  .tl-tag.blue { background: #e0eeff; border-color: #90b8e8; color: #204080; }
+  .tl-tag.red { background: #f8e0e0; border-color: #e89090; color: #a02020; }
+  .tl-tag.green { background: #e0f0e8; border-color: #80c8a0; color: #206040; }
   @media print {
     body { background: #fff; font-size: 12px; }
     .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -279,7 +291,99 @@
   <div class="doc-footer">ハルとおじいさん｜第7部 人間の前提を外す　― 補足資料 ―</div>
 </div>
 
-<!-- PAGE 2: Scientists 1 & 2 -->
+<!-- ================ PAGE 2: 歴史年表 ================ -->
+<div class="page">
+  <div class="section-label">Historical Timeline</div>
+  <div class="section-title">4人の科学者と「外した前提」の系譜</div>
+  <div class="section-intro">
+    20世紀の物理・数学・コンピュータ科学が積み重ねた転換点を、4人の科学者の業績を軸に整理する。各発見は「人間の当たり前」をひとつずつ解体し、新たな問いを生み出した。
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-year">1905年</div>
+      <div class="tl-content">
+        <div class="tl-event">アインシュタインの特殊相対性理論（第1話）</div>
+        <div class="tl-desc">
+          「光の速度はどの観測者にとっても一定である」という原理から、時間・空間が観測者によって伸び縮みすることを導いた。「自分の感覚・直感は世界の真実を保証しない」という衝撃。私たちが「当たり前」と感じる時空間の感覚は、低速日常スケールでの近似に過ぎなかった。
+        </div>
+        <div><span class="tl-tag">相対性理論</span><span class="tl-tag red">感覚の限界</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1920年代</div>
+      <div class="tl-content">
+        <div class="tl-event">量子力学の確立とハイゼンベルクの不確定性原理</div>
+        <div class="tl-desc">
+          電子の位置と運動量を同時に確定できないという不確定性原理（1927）。観測行為そのものが対象を変えるという量子の世界は、「観察すれば真実がわかる」という古典的常識を根底から覆した。
+        </div>
+        <div><span class="tl-tag">量子力学</span><span class="tl-tag">不確定性原理</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1940年代〜</div>
+      <div class="tl-content">
+        <div class="tl-event">ファインマンの経路積分と「理解なき計算」（第2話）</div>
+        <div class="tl-desc">
+          リチャード・ファインマンは量子電磁力学（QED）の計算法を開発し、ノーベル賞を受賞（1965）。「なぜそうなるかはわからないが、計算すると正しい」という姿勢を貫いた。「理解しなくても前に進める」という発想が、後のAI研究にも影響を与える。
+        </div>
+        <div><span class="tl-tag blue">量子電磁力学</span><span class="tl-tag">理解と計算の分離</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1936年</div>
+      <div class="tl-content">
+        <div class="tl-event">チューリングの「計算可能性」論文（第3話）</div>
+        <div class="tl-desc">
+          アラン・チューリングが「計算可能な問題は機械的手順で解ける」という「チューリングマシン」の概念を発表。「論理的思考は規則の適用である」という洞察が、コンピュータとAIの理論的基盤を作った。
+        </div>
+        <div><span class="tl-tag red">チューリングマシン</span><span class="tl-tag">計算可能性</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1950年</div>
+      <div class="tl-content">
+        <div class="tl-event">チューリングテスト ── 「思考する機械」の問い</div>
+        <div class="tl-desc">
+          論文「計算機械と知性」でチューリングは「機械が人間と区別できないほど会話できるなら、それを思考と呼んでよいのでは」と提起。「考えることは人間の特権ではない」という可能性を世に問うた。
+        </div>
+        <div><span class="tl-tag red">チューリングテスト</span><span class="tl-tag">AIの起点</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1945年〜</div>
+      <div class="tl-content">
+        <div class="tl-event">フォン・ノイマン型コンピュータアーキテクチャ（第4話）</div>
+        <div class="tl-desc">
+          ジョン・フォン・ノイマンがプログラム内蔵方式（ノイマン型）コンピュータを設計。「思考の手順をデータとして保存し、機械で実行する」という構造を確立した。「思考は物質的に実装できる」という宣言。
+        </div>
+        <div><span class="tl-tag blue">ノイマン型</span><span class="tl-tag green">思考の物質化</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1956年</div>
+      <div class="tl-content">
+        <div class="tl-event">ダートマス会議 ── AI研究の誕生</div>
+        <div class="tl-desc">
+          マッカーシー・ミンスキー・シャノンらが集結したダートマス会議で「Artificial Intelligence」という名称が確立。チューリング・フォン・ノイマンが開いた道の上に、AI研究という分野が正式に誕生した。
+        </div>
+        <div><span class="tl-tag">AI研究の誕生</span><span class="tl-tag green">4人の遺産</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第7部 人間の前提を外す　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 3: Scientists 1 & 2 -->
 <div class="page">
   <div class="section-label">Episodes 01 – 02</div>
   <div class="section-title">アインシュタインとファインマン</div>

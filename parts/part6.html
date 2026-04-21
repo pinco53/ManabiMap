@@ -165,6 +165,18 @@
   .bridge-text { font-size: 16px; font-weight: 700; line-height: 1.7; color: #d8f0e8; margin-bottom: 10px; }
   .bridge-sub { font-size: 12.5px; color: #80a898; line-height: 1.95; }
   .doc-footer { text-align: center; padding: 28px 0 10px; font-size: 10.5px; color: #a06800; letter-spacing: 0.15em; border-top: 1px solid #e0c880; margin-top: 48px; }
+  .timeline { margin: 28px 0; position: relative; padding-left: 0; }
+  .tl-item { display: grid; grid-template-columns: 96px 1fr; gap: 0; margin-bottom: 2px; }
+  .tl-year { font-size: 12px; font-weight: 700; color: #8a5800; padding: 14px 16px 14px 0; text-align: right; border-right: 3px solid #c8a040; position: relative; white-space: nowrap; }
+  .tl-year::after { content: ''; position: absolute; right: -7px; top: 50%; transform: translateY(-50%); width: 11px; height: 11px; background: #a06800; border-radius: 50%; border: 2px solid #fff; }
+  .tl-content { padding: 14px 0 14px 20px; border-bottom: 1px solid #f0e8c8; }
+  .tl-content:last-child { border-bottom: none; }
+  .tl-event { font-size: 12.5px; font-weight: 700; color: #2a1a00; margin-bottom: 4px; }
+  .tl-desc { font-size: 12px; color: #503800; line-height: 1.85; }
+  .tl-tag { display: inline-block; background: #fff8e0; border: 1px solid #d8b840; border-radius: 3px; font-size: 10px; color: #8a5800; padding: 2px 7px; margin-right: 5px; margin-top: 4px; }
+  .tl-tag.blue { background: #e0f0f8; border-color: #90c4e8; color: #2060a0; }
+  .tl-tag.red { background: #f8e0e0; border-color: #e89090; color: #a02020; }
+  .tl-tag.green { background: #e0f0e8; border-color: #80c8a0; color: #206040; }
   @media print {
     body { background: #fff; font-size: 12px; }
     .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -230,7 +242,99 @@
   <div class="doc-footer">ハルとおじいさん｜第6部 数字と世界　― 補足資料 ―</div>
 </div>
 
-<!-- PAGE 2: Episodes 1-4 -->
+<!-- ================ PAGE 2: 歴史年表 ================ -->
+<div class="page">
+  <div class="section-label">Historical Timeline</div>
+  <div class="section-title">数の歴史 ── 骨の刻み目から現代の数字支配まで</div>
+  <div class="section-intro">
+    人類が「数える」ことを始めてから、数は道具であり続けた。しかしやがて数が人間を「測る」存在へと転じていく。その変遷を主要な転換点とともに辿る。
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-year">約4万年前</div>
+      <div class="tl-content">
+        <div class="tl-event">レボンボの骨 ── 最古の数の記録（第1話）</div>
+        <div class="tl-desc">
+          南アフリカで発見された「レボンボの骨」（約4万3000年前）には29本の刻み目が残る。これが現在確認されている最古の「数の記録」。人類はまず「身体の延長」として数を刻んだ。
+        </div>
+        <div><span class="tl-tag">最古の数</span><span class="tl-tag">身体と数</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">紀元前3500年〜</div>
+      <div class="tl-content">
+        <div class="tl-event">シュメールの粘土板 ── 数が「記録」になった日（第2話）</div>
+        <div class="tl-desc">
+          メソポタミアのシュメール文明が粘土板に数を刻み、農産物・交易品の管理に使い始めた。「数える」ことが「保存する」ことになり、記憶の外に数を置ける時代が来た。国家の萌芽がここにある。
+        </div>
+        <div><span class="tl-tag">シュメール</span><span class="tl-tag">記録の誕生</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">紀元前3000年〜</div>
+      <div class="tl-content">
+        <div class="tl-event">エジプト・バビロニアの数体系と大規模建設（第3話）</div>
+        <div class="tl-desc">
+          ピラミッド建設には何万人もの労働力・食料・資材の管理が必要だった。「大きな数を扱う能力」が組織を、そして国家を可能にした。数は支配と管理の道具として機能し始める。
+        </div>
+        <div><span class="tl-tag">古代文明</span><span class="tl-tag red">国家と数</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">628年</div>
+      <div class="tl-content">
+        <div class="tl-event">ブラーマグプタによる「ゼロ」の数学的定義（第4話）</div>
+        <div class="tl-desc">
+          インドの数学者ブラーマグプタが「ゼロ」を数として定義し、演算規則を整備。「何もない」という概念を数に変えたこの発明は、位取り記数法を完成させ、近代数学・コンピュータの基盤となった。
+        </div>
+        <div><span class="tl-tag blue">ゼロの発明</span><span class="tl-tag">位取り記数法</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">16〜17世紀</div>
+      <div class="tl-content">
+        <div class="tl-event">確率論の誕生 ── 未来を「数」で語る（第5話）</div>
+        <div class="tl-desc">
+          パスカルとフェルマーの往復書簡（1654）がカードゲームの問題を契機に確率論を確立。「不確かな未来に数字を割り当てる」という発想は、保険・金融・現代のリスク管理すべての祖となった。
+        </div>
+        <div><span class="tl-tag blue">確率論</span><span class="tl-tag">未来の数値化</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">19〜20世紀</div>
+      <div class="tl-content">
+        <div class="tl-event">統計学と「測られる人間」の時代（第6話）</div>
+        <div class="tl-desc">
+          フランシス・ゴルトンらが統計的手法を人間の能力測定に応用し始めた。IQテスト（1905）、偏差値、標準化テストが広まり、人間が「数値で評価される存在」へと変わっていく。
+        </div>
+        <div><span class="tl-tag red">人間の数値化</span><span class="tl-tag">偏差値・IQ</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">21世紀〜</div>
+      <div class="tl-content">
+        <div class="tl-event">ビッグデータと数字が世界を支配する時代（第7〜8話）</div>
+        <div class="tl-desc">
+          SNSのいいね数・評価スコア・KPI・アルゴリズムによる信用スコア。数字は「測る道具」から「人を選別する権力」へと変質した。「何を測るかを誰が決めるのか」が問われる時代。
+        </div>
+        <div><span class="tl-tag red">データ権力</span><span class="tl-tag green">主体性の問い</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第6部 数字と世界　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 3: Episodes 1-4 -->
 <div class="page">
   <div class="section-label">Episodes 01 – 04</div>
   <div class="section-title">各話の詳解（前半）── 数の誕生から国家まで</div>

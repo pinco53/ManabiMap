@@ -169,6 +169,18 @@
   .d-text { font-size: 13px; color: #1e1a28; line-height: 1.9; }
   .d-hint { font-size: 11.5px; color: #3a2060; margin-top: 5px; line-height: 1.75; }
   .doc-footer { text-align: center; padding: 28px 0 10px; font-size: 10.5px; color: #7050b0; letter-spacing: 0.15em; border-top: 1px solid #d0b8f0; margin-top: 48px; }
+  .timeline { margin: 28px 0; position: relative; padding-left: 0; }
+  .tl-item { display: grid; grid-template-columns: 96px 1fr; gap: 0; margin-bottom: 2px; }
+  .tl-year { font-size: 12px; font-weight: 700; color: #5030a0; padding: 14px 16px 14px 0; text-align: right; border-right: 3px solid #9870d0; position: relative; white-space: nowrap; }
+  .tl-year::after { content: ''; position: absolute; right: -7px; top: 50%; transform: translateY(-50%); width: 11px; height: 11px; background: #7050b0; border-radius: 50%; border: 2px solid #fff; }
+  .tl-content { padding: 14px 0 14px 20px; border-bottom: 1px solid #ede0f8; }
+  .tl-content:last-child { border-bottom: none; }
+  .tl-event { font-size: 12.5px; font-weight: 700; color: #1a1028; margin-bottom: 4px; }
+  .tl-desc { font-size: 12px; color: #2a1a40; line-height: 1.85; }
+  .tl-tag { display: inline-block; background: #f4e8ff; border: 1px solid #c0a0e0; border-radius: 3px; font-size: 10px; color: #5030a0; padding: 2px 7px; margin-right: 5px; margin-top: 4px; }
+  .tl-tag.blue { background: #e0eeff; border-color: #90b8e8; color: #204080; }
+  .tl-tag.red { background: #f8e0e0; border-color: #e89090; color: #a02020; }
+  .tl-tag.green { background: #e0f0e8; border-color: #80c8a0; color: #206040; }
   @media print {
     body { background: #fff; font-size: 12px; }
     .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -241,7 +253,99 @@
   <div class="doc-footer">ハルとおじいさん｜第5部 言葉と思考の旅　― 補足資料 ―</div>
 </div>
 
-<!-- PAGE 2: 各話詳解（前半） -->
+<!-- ================ PAGE 2: 歴史年表 ================ -->
+<div class="page">
+  <div class="section-label">Historical Timeline</div>
+  <div class="section-title">言語・思考・AIをめぐる知の歴史</div>
+  <div class="section-intro">
+    「言葉と思考の関係」は古代から問われ続けてきた。哲学・言語学・認知科学・AI研究が交差するこの問いの系譜を、主要な転換点とともに整理する。
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-year">紀元前4世紀</div>
+      <div class="tl-content">
+        <div class="tl-event">アリストテレスの論理学と言語の関係</div>
+        <div class="tl-desc">
+          アリストテレスは「言語は思考の記号である」と論じ、論理的思考の構造を形式化した（命題・三段論法）。言葉と思考を分離して考える「記号論」の原点がここにある。
+        </div>
+        <div><span class="tl-tag">論理学</span><span class="tl-tag">言語哲学の起点</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1690年</div>
+      <div class="tl-content">
+        <div class="tl-event">ロックの「白紙の心（タブラ・ラサ）」</div>
+        <div class="tl-desc">
+          ジョン・ロックは人間の心を白紙とし、すべての知識は経験から生まれると主張。「生まれつきの概念」を否定し、言語習得と思考形成は学習によると論じた。
+        </div>
+        <div><span class="tl-tag">経験論</span><span class="tl-tag blue">認識論</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1859年〜</div>
+      <div class="tl-content">
+        <div class="tl-event">ダーウィンの進化論と言語起源への問い</div>
+        <div class="tl-desc">
+          進化論（1859）が「言語はどのように生まれたか」という問いを科学の俎上に乗せた。言語は神が与えたものでも人間の本質でもなく、進化の産物として問い直される。
+        </div>
+        <div><span class="tl-tag">進化論</span><span class="tl-tag">言語起源</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1957年</div>
+      <div class="tl-content">
+        <div class="tl-event">チョムスキーの生成文法と「普遍文法」</div>
+        <div class="tl-desc">
+          ノーム・チョムスキーが生成文法理論を発表し、「人間には言語を習得する生得的能力が備わっている」と主張。言語は文化的学習だけではなく、脳の構造に組み込まれているという考え方が広まった。
+        </div>
+        <div><span class="tl-tag">生成文法</span><span class="tl-tag blue">普遍文法</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1950年</div>
+      <div class="tl-content">
+        <div class="tl-event">チューリングテスト ── 「思考する機械」の問い</div>
+        <div class="tl-desc">
+          アラン・チューリングが「計算機械と知性」を発表。「機械が人間と区別できないほど話せるなら、それを思考と呼んでよいのでは」と問いを立てた。言語能力を「知性の代理指標」とする発想がここから始まる。
+        </div>
+        <div><span class="tl-tag red">チューリングテスト</span><span class="tl-tag">AI思想の起点</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1980年</div>
+      <div class="tl-content">
+        <div class="tl-event">サールの「中国語の部屋」思考実験（第5話）</div>
+        <div class="tl-desc">
+          哲学者ジョン・サールが「完璧に答えながら何も理解していない人」という思考実験を発表。AIは言語を「処理」できても「理解」しているとは言えないと論じた。チューリングへの直接的な反論。
+        </div>
+        <div><span class="tl-tag red">中国語の部屋</span><span class="tl-tag">理解と処理</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">2017年〜</div>
+      <div class="tl-content">
+        <div class="tl-event">Transformerと大規模言語モデルの登場</div>
+        <div class="tl-desc">
+          「Attention Is All You Need」論文（2017）でTransformerアーキテクチャが提唱され、GPT・BERT等の大規模言語モデルへ発展。「言葉を理解しているように振る舞う」AIが現実になり、「中国語の部屋」の問いが改めて問われている。
+        </div>
+        <div><span class="tl-tag blue">大規模言語モデル</span><span class="tl-tag red">問いの再燃</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第5部 言葉と思考の旅　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 3: 各話詳解（前半） -->
 <div class="page">
   <div class="section-label">Episodes 01 – 04</div>
   <div class="section-title">各話の詳解（前半）</div>

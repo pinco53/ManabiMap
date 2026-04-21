@@ -183,6 +183,18 @@
   .d-text { font-size: 13px; color: #1e1a10; line-height: 1.9; }
   .d-hint { font-size: 11.5px; color: #404060; margin-top: 5px; line-height: 1.75; }
   .doc-footer { text-align: center; padding: 28px 0 10px; font-size: 10.5px; color: #6060a0; letter-spacing: 0.15em; border-top: 1px solid #c0c0e0; margin-top: 48px; }
+  .timeline { margin: 28px 0; position: relative; padding-left: 0; }
+  .tl-item { display: grid; grid-template-columns: 96px 1fr; gap: 0; margin-bottom: 2px; }
+  .tl-year { font-size: 12px; font-weight: 700; color: #4040a0; padding: 14px 16px 14px 0; text-align: right; border-right: 3px solid #7070b0; position: relative; white-space: nowrap; }
+  .tl-year::after { content: ''; position: absolute; right: -7px; top: 50%; transform: translateY(-50%); width: 11px; height: 11px; background: #5050a0; border-radius: 50%; border: 2px solid #fff; }
+  .tl-content { padding: 14px 0 14px 20px; border-bottom: 1px solid #dcdcf0; }
+  .tl-content:last-child { border-bottom: none; }
+  .tl-event { font-size: 12.5px; font-weight: 700; color: #1a1a30; margin-bottom: 4px; }
+  .tl-desc { font-size: 12px; color: #2a2a50; line-height: 1.85; }
+  .tl-tag { display: inline-block; background: #eeeeff; border: 1px solid #a0a0d0; border-radius: 3px; font-size: 10px; color: #4040a0; padding: 2px 7px; margin-right: 5px; margin-top: 4px; }
+  .tl-tag.gold { background: #fff4e0; border-color: #d4a020; color: #8a6010; }
+  .tl-tag.red { background: #f8e0e0; border-color: #e89090; color: #a02020; }
+  .tl-tag.green { background: #e0f0e8; border-color: #80c8a0; color: #206040; }
   @media print {
     body { background: #fff; font-size: 12px; }
     .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -259,7 +271,99 @@
   <div class="doc-footer">ハルとおじいさん｜第3部 AIと生きる未来　― 補足資料 ―</div>
 </div>
 
-<!-- PAGE 2: 三つの革命の比較 -->
+<!-- ================ PAGE 2: 歴史年表 ================ -->
+<div class="page">
+  <div class="section-label">Historical Timeline</div>
+  <div class="section-title">三つの革命の歩み ── 1760年代から現代へ</div>
+  <div class="section-intro">
+    第3部が描くAI革命は、産業革命・デジタル革命という二つの前段なしには理解できない。三部作全体が辿る歴史の主要な転換点を、一本のタイムラインで整理する。
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-year">1769年</div>
+      <div class="tl-content">
+        <div class="tl-event">ワットの改良蒸気機関（第1部）</div>
+        <div class="tl-desc">
+          ジェームズ・ワットが蒸気機関を汎用動力源へ改良。人類は初めて「筋力」以外の動力を手に入れた。工場制度が確立され、労働のリズムが自然から機械の時計へと移行する。
+        </div>
+        <div><span class="tl-tag">産業革命</span><span class="tl-tag">蒸気機関</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1840年代〜</div>
+      <div class="tl-content">
+        <div class="tl-event">電信の発明と情報伝達の革命</div>
+        <div class="tl-desc">
+          モールス電信（1844）により、物理的移動なしに情報が伝わる時代が始まった。産業革命が「身体の労働」を機械に委ねたとすれば、電信は「情報の運搬」を機械に委ねた最初の一歩。
+        </div>
+        <div><span class="tl-tag">電信</span><span class="tl-tag green">情報革命の萌芽</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1940年代</div>
+      <div class="tl-content">
+        <div class="tl-event">電子コンピュータの誕生（第2部）</div>
+        <div class="tl-desc">
+          ENIAC（1945）に代表される電子計算機が登場。計算という「知的作業の一部」が機械で処理可能になった。この転換が、デジタル革命の技術的起点となる。
+        </div>
+        <div><span class="tl-tag">コンピュータ</span><span class="tl-tag">デジタル革命</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">1969年〜</div>
+      <div class="tl-content">
+        <div class="tl-event">インターネット前身ARPANETと接続の時代</div>
+        <div class="tl-desc">
+          米国防総省のARPANET（1969）が世界規模ネットワークの原型を作り、1991年のWWW公開で爆発的に普及。「つながること」が人間の日常になっていく。
+        </div>
+        <div><span class="tl-tag">インターネット</span><span class="tl-tag">WWW</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">2007年〜</div>
+      <div class="tl-content">
+        <div class="tl-event">スマートフォンとSNSの普及（第2部後半）</div>
+        <div class="tl-desc">
+          iPhone登場（2007）とFacebook・Twitter等SNSの爆発的普及。「人と人のつながり」がデジタルに移行し、情報の生産と消費の構造が根本的に変わった。
+        </div>
+        <div><span class="tl-tag">スマートフォン</span><span class="tl-tag">SNS</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">2012年〜</div>
+      <div class="tl-content">
+        <div class="tl-event">ディープラーニング革命の始まり</div>
+        <div class="tl-desc">
+          ImageNet競技でAlexNetが圧勝（2012）し、ディープラーニング時代が幕を開ける。画像・音声・言語の認識精度が人間を超え始め、「判断する」という知的作業も機械が担える可能性が現実味を帯びた。
+        </div>
+        <div><span class="tl-tag">ディープラーニング</span><span class="tl-tag red">質的転換点</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-year">2022年11月</div>
+      <div class="tl-content">
+        <div class="tl-event">ChatGPTの登場 ── AI革命の幕開け（第3部）</div>
+        <div class="tl-desc">
+          OpenAIがChatGPTを公開し、2ヶ月でユーザー1億人を突破。「文章を書く・絵を描く・コードを組む」という創造的とされてきた作業を機械が担い始める。産業革命が腕力を、デジタル革命が情報処理を機械に委ねたとすれば、AI革命はついに「思考すること」の一端を委ねようとした。
+        </div>
+        <div><span class="tl-tag red">AI革命</span><span class="tl-tag">生成AI</span><span class="tl-tag gold">現在進行形</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第3部 AIと生きる未来　― 補足資料 ―</div>
+</div>
+
+<!-- PAGE 3: 三つの革命の比較 -->
 <div class="page">
   <div class="section-label">Three Revolutions Compared</div>
   <div class="section-title">三つの革命 ── 人類は何を得て、何を問われたか</div>
