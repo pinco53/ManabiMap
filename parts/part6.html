@@ -192,6 +192,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  if (localStorage.getItem('manabimap_owner') === '1') { gtag('set', {'traffic_type': 'internal'}); }
   gtag('config', 'G-QL1PVK5PRF');
 </script>
 </head>
