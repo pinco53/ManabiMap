@@ -305,6 +305,311 @@ a { color: inherit; text-decoration: none; }
   .evo-marker { font-size: 9px; padding: 4px 8px; }
 }
 
+/* ========== MAP BASE ========== */
+.map-base-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 90px 24px 40px;
+}
+.map-base-header {
+  text-align: center;
+  margin-bottom: 34px;
+}
+.map-base-label {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--neon-sky);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.map-base-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  line-height: 1.35;
+  margin-bottom: 14px;
+  color: var(--text-bright);
+}
+.map-base-desc {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 2.05;
+}
+.map-gateways {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.map-gateway {
+  border: 1px solid rgba(255,255,255,0.12);
+  background:
+    radial-gradient(ellipse 280px 180px at 15% 10%, rgba(0,212,255,0.08), transparent 70%),
+    linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
+  border-radius: 8px;
+  padding: 22px 20px;
+  min-height: 154px;
+}
+.map-gateway:nth-child(2) {
+  background:
+    radial-gradient(ellipse 280px 180px at 20% 10%, rgba(191,95,255,0.1), transparent 70%),
+    linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
+}
+.map-gateway:nth-child(3) {
+  background:
+    radial-gradient(ellipse 280px 180px at 20% 10%, rgba(255,215,0,0.08), transparent 70%),
+    linear-gradient(160deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
+}
+.gateway-kicker {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.gateway-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+.gateway-text {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.85;
+}
+.map-console {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+  gap: 18px;
+  align-items: stretch;
+}
+.map-panel,
+.route-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(16,16,26,0.78);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.24);
+  overflow: hidden;
+}
+.map-panel-head,
+.route-panel-head {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+.map-panel-title,
+.route-panel-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: 0.08em;
+}
+.map-panel-note {
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.map-node-grid {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.map-node {
+  min-height: 76px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.025);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.25s, border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  font-family: inherit;
+}
+.map-node:hover,
+.map-node.active {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.055);
+  border-color: currentColor;
+  box-shadow: 0 0 24px rgba(0,212,255,0.12);
+}
+.map-node-num {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: currentColor;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+.map-node-title {
+  display: block;
+  font-size: 13px;
+  color: var(--text-bright);
+  font-weight: 700;
+  line-height: 1.45;
+}
+.map-node-group {
+  display: block;
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+.map-node[data-color="orange"] { color: var(--neon-orange); }
+.map-node[data-color="blue"] { color: var(--neon-blue); }
+.map-node[data-color="cyan"] { color: var(--neon-cyan); }
+.map-node[data-color="green"] { color: var(--neon-green); }
+.map-node[data-color="purple"] { color: var(--neon-purple); }
+.map-node[data-color="gold"] { color: var(--neon-gold); }
+.map-node[data-color="magenta"] { color: var(--neon-magenta); }
+.map-node[data-color="sky"] { color: var(--neon-sky); }
+.map-detail {
+  padding: 20px;
+  border-top: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse 420px 180px at 20% 0%, rgba(0,212,255,0.06), transparent 70%),
+    rgba(0,0,0,0.18);
+}
+.map-detail-kicker {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.map-detail-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text-bright);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.map-detail-subtitle {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+.map-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.map-detail-tag {
+  font-size: 10px;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3px 9px;
+}
+.map-detail-question {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.85;
+  padding: 14px 16px;
+  border-left: 2px solid var(--neon-sky);
+  background: rgba(0,212,255,0.045);
+  margin-bottom: 16px;
+}
+.map-detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.map-detail-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid currentColor;
+  color: var(--neon-sky);
+  font-size: 12px;
+  font-weight: 700;
+}
+.route-list {
+  padding: 18px;
+  display: grid;
+  gap: 10px;
+}
+.route-button {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.025);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 14px;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.25s, background 0.25s;
+}
+.route-button:hover,
+.route-button.active {
+  border-color: var(--neon-purple);
+  background: rgba(191,95,255,0.08);
+}
+.route-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 4px;
+}
+.route-desc {
+  display: block;
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+.route-path {
+  padding: 0 18px 18px;
+}
+.route-path-title {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.route-path-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.route-path-item {
+  font-size: 11px;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 10px;
+  background: rgba(0,0,0,0.24);
+}
+@media (max-width: 900px) {
+  .map-gateways,
+  .map-console {
+    grid-template-columns: 1fr;
+  }
+  .map-node-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 520px) {
+  .map-base-section { padding: 64px 14px 28px; }
+  .map-node-grid { grid-template-columns: 1fr; }
+  .map-panel-head,
+  .route-panel-head {
+    display: block;
+  }
+  .map-panel-note { margin-top: 4px; }
+}
+
 /* ========== OPENING THEME ========== */
 .theme-section {
   padding: 100px 24px;
@@ -1405,6 +1710,7 @@ body::before {
   <a href="#evolution" class="mm-dot" data-label="進化の年表"></a>
   <a href="#theme" class="mm-dot" data-label="テーマ曲"></a>
   <a href="#intro" class="mm-dot" data-label="紹介"></a>
+  <a href="#map-base" class="mm-dot" data-label="地図基地"></a>
   <a href="#part1" class="mm-dot" data-label="第1部 蒸気"></a>
   <a href="#part2" class="mm-dot" data-label="第2部 接続"></a>
   <a href="#part3" class="mm-dot" data-label="第3部 AI"></a>
@@ -1566,10 +1872,61 @@ body::before {
   <div class="intro-divider"></div>
 </section>
 
+<!-- ========== MANABI MAP BASE ========== -->
+<section class="map-base-section" id="map-base">
+  <div class="map-base-header">
+    <div class="map-base-label">MANABI MAP BASE</div>
+    <h2 class="map-base-title">問いから、旅を始める</h2>
+    <p class="map-base-desc">
+      動画、学びの地図、note記事をひとつの地図として結びます。
+      気になる部やルートを選ぶと、関連する問いと次の入口が見えてきます。
+    </p>
+  </div>
+
+  <div class="map-gateways" aria-label="学びの入口">
+    <div class="map-gateway">
+      <div class="gateway-kicker">GATE 01</div>
+      <div class="gateway-title">動画で入る</div>
+      <p class="gateway-text">物語の空気をつかんでから、補足資料で背景を読む入口です。</p>
+    </div>
+    <div class="map-gateway">
+      <div class="gateway-kicker">GATE 02</div>
+      <div class="gateway-title">地図で探す</div>
+      <p class="gateway-text">産業革命、言葉、数、AI、教育など、関心のある場所から進めます。</p>
+    </div>
+    <div class="map-gateway">
+      <div class="gateway-kicker">GATE 03</div>
+      <div class="gateway-title">問いから入る</div>
+      <p class="gateway-text">答えではなく、考え続けたい問いを起点に動画と記事へ向かいます。</p>
+    </div>
+  </div>
+
+  <div class="map-console">
+    <div class="map-panel">
+      <div class="map-panel-head">
+        <div class="map-panel-title">地図ノード</div>
+        <div class="map-panel-note">気になる場所を選ぶ</div>
+      </div>
+      <div class="map-node-grid" id="map-node-grid"></div>
+      <div class="map-detail" id="map-detail" aria-live="polite"></div>
+    </div>
+
+    <div class="route-panel">
+      <div class="route-panel-head">
+        <div class="route-panel-title">おすすめルート</div>
+        <div class="map-panel-note">迷ったらここから</div>
+      </div>
+      <div class="route-list" id="route-list"></div>
+      <div class="route-path" id="route-path"></div>
+    </div>
+  </div>
+</section>
+
 <!-- ========== NAVIGATION ========== -->
 <nav class="nav-bar">
   <a href="evolution.html" style="color:#bf5fff; border-color:#bf5fff">進化の年表</a>
   <a href="#intro" style="color:var(--neon-gold); border-color:var(--neon-gold)">紹介</a>
+  <a href="#map-base" style="color:var(--neon-sky); border-color:var(--neon-sky)">地図</a>
   <a href="#part1" data-part="1">第1部</a>
   <a href="#part2" data-part="2">第2部</a>
   <a href="#part3" data-part="3">第3部</a>
@@ -1986,12 +2343,115 @@ function loadThemeVideo(el) {
   }, { passive: true });
   updateProgress();
 
+  // 2. 学びの地図ベース
+  const mapData = window.ManabiMapData;
+  const nodeGrid = document.getElementById('map-node-grid');
+  const mapDetail = document.getElementById('map-detail');
+  const routeList = document.getElementById('route-list');
+  const routePath = document.getElementById('route-path');
+
+  function resolveNodeTitle(id) {
+    if (id === 'evolution') return '進化の年表';
+    if (id === 'note') return 'note記事';
+    const item = mapData && mapData.findById ? mapData.findById(id) : null;
+    return item ? item.title : id;
+  }
+
+  function setActiveButton(container, selector, id) {
+    container.querySelectorAll(selector).forEach(function(button) {
+      button.classList.toggle('active', button.dataset.id === id);
+    });
+  }
+
+  function renderMapDetail(part) {
+    if (!mapDetail || !part) return;
+    const videoUrl = part.youtubeUrl || part.playlistUrl;
+    const notes = mapData.notesForPart(part.id).slice(0, 3);
+    const noteLinks = notes.map(function(note) {
+      if (!note.url) return '';
+      return '<a class="map-detail-link" href="' + note.url + '" target="_blank" rel="noopener">note #' + note.number + '</a>';
+    }).join('');
+    mapDetail.innerHTML = [
+      '<div class="map-detail-kicker">PART ' + part.number + ' / ' + part.group + '</div>',
+      '<div class="map-detail-title">' + part.title + '</div>',
+      '<div class="map-detail-subtitle">' + part.subtitle + '</div>',
+      '<div class="map-detail-tags">' + part.tags.slice(0, 6).map(function(tag) {
+        return '<span class="map-detail-tag">' + tag + '</span>';
+      }).join('') + '</div>',
+      '<div class="map-detail-question">' + part.questions[0] + '</div>',
+      '<div class="map-detail-links">',
+      '<a class="map-detail-link" href="' + part.pageUrl + '">学びの地図</a>',
+      videoUrl ? '<a class="map-detail-link" href="' + videoUrl + '" target="_blank" rel="noopener">YouTube</a>' : '',
+      noteLinks,
+      '</div>'
+    ].join('');
+  }
+
+  function renderRoute(route) {
+    if (!routePath || !route) return;
+    routePath.innerHTML = [
+      '<div class="route-path-title">ROUTE</div>',
+      '<div class="route-path-items">',
+      route.nodes.map(function(id) {
+        return '<span class="route-path-item">' + resolveNodeTitle(id) + '</span>';
+      }).join(''),
+      '</div>'
+    ].join('');
+  }
+
+  if (mapData && nodeGrid && mapDetail && routeList && routePath) {
+    mapData.parts.forEach(function(part) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'map-node';
+      button.dataset.id = part.id;
+      button.dataset.color = part.color;
+      button.innerHTML = [
+        '<span class="map-node-num">PART ' + part.number + '</span>',
+        '<span class="map-node-title">' + part.title + '</span>',
+        '<span class="map-node-group">' + part.group + '</span>'
+      ].join('');
+      button.addEventListener('click', function() {
+        setActiveButton(nodeGrid, '.map-node', part.id);
+        renderMapDetail(part);
+      });
+      nodeGrid.appendChild(button);
+    });
+
+    mapData.routes.forEach(function(route) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'route-button';
+      button.dataset.id = route.id;
+      button.innerHTML = [
+        '<span class="route-title">' + route.title + '</span>',
+        '<span class="route-desc">' + route.description + '</span>'
+      ].join('');
+      button.addEventListener('click', function() {
+        setActiveButton(routeList, '.route-button', route.id);
+        renderRoute(route);
+      });
+      routeList.appendChild(button);
+    });
+
+    const firstPart = mapData.findById('part1');
+    const firstRoute = mapData.routes[0];
+    if (firstPart) {
+      setActiveButton(nodeGrid, '.map-node', firstPart.id);
+      renderMapDetail(firstPart);
+    }
+    if (firstRoute) {
+      setActiveButton(routeList, '.route-button', firstRoute.id);
+      renderRoute(firstRoute);
+    }
+  }
+
   if (reduceMotion) return;
 
-  // 2. カード段階表示
+  // 3. カード段階表示
   const revealTargets = document.querySelectorAll(
     '.part-card, .group-header, .intro-part-mini, .intro-video-wrap, ' +
-    '.theme-section, .yt-cta-section, .fes-badge'
+    '.theme-section, .map-base-section, .map-gateway, .map-panel, .route-panel, .yt-cta-section, .fes-badge'
   );
   revealTargets.forEach(function(el) { el.classList.add('reveal-init'); });
 
@@ -2011,7 +2471,7 @@ function loadThemeVideo(el) {
   }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
   revealTargets.forEach(function(el) { revealObs.observe(el); });
 
-  // 3. Timeline SVGパスの描画アニメ
+  // 4. Timeline SVGパスの描画アニメ
   const pathObs = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -2024,7 +2484,7 @@ function loadThemeVideo(el) {
     pathObs.observe(svg);
   });
 
-  // 4. 背景パーティクル（時空を旅する演出）
+  // 5. 背景パーティクル（時空を旅する演出）
   const canvas = document.createElement('canvas');
   canvas.className = 'bg-canvas';
   document.body.insertBefore(canvas, document.body.firstChild);
@@ -2200,7 +2660,7 @@ function loadThemeVideo(el) {
   // 6. ナビバー + ミニマップ 現在地ハイライト
   const navLinks = document.querySelectorAll('.nav-bar a[href^="#"]');
   const mmDots = document.querySelectorAll('.mm-dot');
-  const trackedIds = ['top', 'evolution', 'theme', 'intro', 'part1', 'part2', 'part3', 'part4', 'part5', 'part6', 'part7', 'part8', 'part8-2'];
+  const trackedIds = ['top', 'evolution', 'theme', 'intro', 'map-base', 'part1', 'part2', 'part3', 'part4', 'part5', 'part6', 'part7', 'part8', 'part8-2'];
 
   function setActive(id) {
     navLinks.forEach(function(link) {
