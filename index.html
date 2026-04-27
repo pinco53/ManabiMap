@@ -393,27 +393,28 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   inset: 0;
   min-height: 740px;
-  background:
-    linear-gradient(180deg, rgba(4,7,14,0.22), rgba(4,7,14,0.82)),
-    radial-gradient(ellipse 580px 360px at 50% 42%, rgba(0,212,255,0.08), transparent 70%),
-    url('assets/hero-proposals/hero-proposal-01-celestial-parchment-map.png?v=202604261627') center center / cover no-repeat;
+  background: transparent;
 }
 .atlas-map::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 20%, rgba(191,95,255,0.18), transparent 18%),
-    radial-gradient(circle at 82% 28%, rgba(0,212,255,0.16), transparent 20%),
-    radial-gradient(circle at 60% 78%, rgba(255,215,0,0.12), transparent 24%),
-    linear-gradient(90deg, rgba(2,5,10,0.34), transparent 42%, rgba(2,5,10,0.38));
+    url('assets/hero-proposals/hero-proposal-02-orbital-learning-atlas.png?v=202604261627') center center / cover no-repeat;
+  opacity: 0.34;
   pointer-events: none;
 }
 .atlas-map::after {
   content: '';
   position: absolute;
   inset: 0;
-  box-shadow: inset 0 0 120px rgba(0,0,0,0.72);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(191,95,255,0.12), transparent 18%),
+    radial-gradient(circle at 82% 28%, rgba(0,212,255,0.12), transparent 20%),
+    radial-gradient(circle at 60% 78%, rgba(255,215,0,0.08), transparent 24%),
+    linear-gradient(180deg, rgba(8,8,13,0.2), rgba(8,8,13,0.76)),
+    linear-gradient(90deg, rgba(8,8,13,0.6), rgba(8,8,13,0.14) 48%, rgba(8,8,13,0.58));
+  box-shadow: inset 0 0 130px rgba(0,0,0,0.78);
   pointer-events: none;
 }
 .atlas-routes {
@@ -440,9 +441,11 @@ a { color: inherit; text-decoration: none; }
   padding: 22px 11px 12px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.25s, border-color 0.25s, background 0.25s, box-shadow 0.25s, opacity 0.25s;
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s, opacity 0.25s;
   font-family: inherit;
   box-shadow: 0 0 24px currentColor, 0 18px 44px rgba(0,0,0,0.34), inset -12px -18px 28px rgba(0,0,0,0.28);
+  animation: mapNodeFloat 7.5s ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
 }
 .map-node::before {
   content: '';
@@ -456,10 +459,32 @@ a { color: inherit; text-decoration: none; }
 }
 .map-node:hover,
 .map-node.active {
-  transform: translate(-50%, -56%) scale(1.08);
   border-color: currentColor;
   box-shadow: 0 0 0 1px currentColor, 0 0 38px currentColor, 0 22px 52px rgba(0,0,0,0.42), inset -12px -18px 28px rgba(0,0,0,0.28);
   z-index: 3;
+}
+@keyframes mapNodeFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0) scale(1);
+  }
+  32% {
+    transform: translate(-50%, -50%) translate3d(5px, -8px, 0) scale(1.025);
+  }
+  66% {
+    transform: translate(-50%, -50%) translate3d(-4px, 5px, 0) scale(0.992);
+  }
+}
+.map-node:nth-child(2n) {
+  --float-delay: -1.8s;
+  animation-duration: 8.4s;
+}
+.map-node:nth-child(3n) {
+  --float-delay: -3.1s;
+  animation-duration: 6.8s;
+}
+.map-node:nth-child(4n) {
+  --float-delay: -4.4s;
+  animation-duration: 9.2s;
 }
 .map-node-num {
   display: block;
