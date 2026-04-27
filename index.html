@@ -6,7 +6,6 @@
 <title>学びの地図 ── ハルとおじいさんの物語</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/my-map.css">
 <style>
 /* ========== RESET & BASE ========== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -505,81 +504,6 @@ a { color: inherit; text-decoration: none; }
 .map-node[data-color="gold"] { color: var(--neon-gold); }
 .map-node[data-color="magenta"] { color: var(--neon-magenta); }
 .map-node[data-color="sky"] { color: var(--neon-sky); }
-.map-detail {
-  position: absolute;
-  left: 24px;
-  right: auto;
-  bottom: 24px;
-  width: min(440px, calc(100% - 48px));
-  z-index: 4;
-  padding: 20px;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 12px;
-  background:
-    radial-gradient(ellipse 420px 180px at 20% 0%, rgba(0,212,255,0.06), transparent 70%),
-    rgba(4,10,18,0.86);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 18px 50px rgba(0,0,0,0.28);
-}
-.map-detail-kicker {
-  font-size: 10px;
-  letter-spacing: 0.25em;
-  color: var(--text-dim);
-  margin-bottom: 6px;
-  font-weight: 700;
-}
-.map-detail-title {
-  font-size: 22px;
-  font-weight: 900;
-  color: var(--text-bright);
-  margin-bottom: 6px;
-  line-height: 1.35;
-}
-.map-detail-subtitle {
-  font-size: 13px;
-  color: var(--text-dim);
-  line-height: 1.8;
-  margin-bottom: 14px;
-}
-.map-detail-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 14px;
-}
-.map-detail-tag {
-  font-size: 10px;
-  color: var(--text-dim);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 3px 9px;
-}
-.map-detail-question {
-  font-size: 13px;
-  color: var(--text);
-  line-height: 1.85;
-  padding: 14px 16px;
-  border-left: 2px solid var(--neon-sky);
-  background: rgba(0,212,255,0.045);
-  margin-bottom: 16px;
-}
-.map-detail-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.map-detail-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  padding: 8px 16px;
-  border-radius: 6px;
-  border: 1px solid currentColor;
-  color: var(--neon-sky);
-  font-size: 12px;
-  font-weight: 700;
-}
 .route-list {
   padding: 18px 18px 0;
   display: grid;
@@ -801,13 +725,6 @@ a { color: inherit; text-decoration: none; }
   }
   .map-node-title {
     font-size: 10px;
-  }
-  .map-detail {
-    left: 12px;
-    right: 12px;
-    width: auto;
-    bottom: 12px;
-    padding: 16px;
   }
   .route-controls {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2097,7 +2014,6 @@ body::before {
         <div class="atlas-map" id="atlas-map" aria-label="学びの地図ノード">
           <div class="map-node-grid" id="map-node-grid"></div>
         </div>
-        <div class="map-detail" id="map-detail" aria-live="polite"></div>
       </div>
     </div>
   </div>
@@ -2491,7 +2407,6 @@ body::before {
 </footer>
 
 <script src="assets/js/manabimap-data.js"></script>
-<script src="assets/js/my-map.js"></script>
 <script>
 function loadIntroVideo(el) {
   el.innerHTML = '<iframe src="https://www.youtube.com/embed/BwUM3mDsvPY?autoplay=1" title="ハルとおじいさん 三部作紹介" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;display:block;"></iframe>';
@@ -2528,7 +2443,6 @@ function loadThemeVideo(el) {
   // 2. 学びの地図ベース
   const mapData = window.ManabiMapData;
   const nodeGrid = document.getElementById('map-node-grid');
-  const mapDetail = document.getElementById('map-detail');
   const routeList = document.getElementById('route-list');
   const routePath = document.getElementById('route-path');
   const atlasRoutes = document.getElementById('atlas-routes');
@@ -2718,58 +2632,6 @@ function loadThemeVideo(el) {
     return !!target;
   }
 
-  function renderMapDetailById(id) {
-    if (!mapDetail) return;
-    const info = atlasNodeInfo(id);
-    if (!info) return;
-    if (info.type === 'part') {
-      const videoUrl = info.youtubeUrl || info.playlistUrl;
-      const notes = mapData.notesForPart(info.id).slice(0, 3);
-      const noteLinks = notes.map(function(note) {
-        if (!note.url) return '';
-        return '<a class="map-detail-link" href="' + note.url + '" target="_blank" rel="noopener">note #' + note.number + '</a>';
-      }).join('');
-      mapDetail.innerHTML = [
-        '<div class="map-detail-kicker">PART ' + info.number + ' / ' + info.group + '</div>',
-        '<div class="map-detail-title">' + info.title + '</div>',
-        '<div class="map-detail-subtitle">' + info.subtitle + '</div>',
-        '<div class="map-detail-tags">' + info.tags.slice(0, 6).map(function(tag) {
-          return '<span class="map-detail-tag">' + tag + '</span>';
-        }).join('') + '</div>',
-        '<div class="map-detail-question">' + info.questions[0] + '</div>',
-        '<div class="map-detail-links">',
-        '<a class="map-detail-link" href="' + info.pageUrl + '">学びの地図</a>',
-        videoUrl ? '<a class="map-detail-link" href="' + videoUrl + '" target="_blank" rel="noopener">YouTube</a>' : '',
-        noteLinks,
-        '</div>'
-      ].join('');
-      return;
-    }
-    const relatedLinks = (info.relatedParts || []).slice(0, 3).map(function(partId) {
-      const part = mapData.findById(partId);
-      if (!part || !part.pageUrl) return '';
-      return '<a class="map-detail-link" href="' + part.pageUrl + '">' + part.title + '</a>';
-    }).join('');
-    mapDetail.innerHTML = [
-      '<div class="map-detail-kicker">' + info.number + ' / ' + info.group + '</div>',
-      '<div class="map-detail-title">' + info.title + '</div>',
-      '<div class="map-detail-subtitle">' + info.subtitle + '</div>',
-      '<div class="map-detail-tags">' + info.tags.slice(0, 6).map(function(tag) {
-        return '<span class="map-detail-tag">' + tag + '</span>';
-      }).join('') + '</div>',
-      '<div class="map-detail-question">' + info.question + '</div>',
-      '<div class="map-detail-links">',
-      '<a class="map-detail-link" href="' + info.primaryUrl + '"' + (info.primaryUrl.indexOf('http') === 0 ? ' target="_blank" rel="noopener"' : '') + '>' + info.primaryLabel + '</a>',
-      relatedLinks,
-      '</div>'
-    ].join('');
-  }
-
-  function renderMapDetail(part) {
-    if (!part) return;
-    renderMapDetailById(part.id);
-  }
-
   function renderRoute(route) {
     if (!routePath || !route) return;
     currentRoute = route;
@@ -2816,7 +2678,6 @@ function loadThemeVideo(el) {
     setActiveButton(routeList, '.route-button', currentRoute.id);
     const activeId = currentRoute.nodes[currentRouteIndex];
     setAtlasActive(activeId);
-    renderMapDetailById(activeId);
     if (behavior === 'travel') {
       goToRouteStop(activeId, { scroll: true, openExternal: true });
     } else {
@@ -2824,7 +2685,7 @@ function loadThemeVideo(el) {
     }
   }
 
-  if (mapData && nodeGrid && mapDetail) {
+  if (mapData && nodeGrid) {
     renderAtlasRoutes(null);
 
     const atlasNodes = [
@@ -2849,9 +2710,7 @@ function loadThemeVideo(el) {
         '<span class="map-node-group">' + node.group + '</span>'
       ].join('');
       button.addEventListener('click', function() {
-        setAtlasActive(node.id);
-        renderMapDetailById(node.id);
-        spotlightStop(node.id, resolveNodeTitle(node.id));
+        window.location.href = hrefForNode(node.id);
       });
       nodeGrid.appendChild(button);
     });
@@ -2878,7 +2737,6 @@ function loadThemeVideo(el) {
     const firstPart = mapData.findById('part1');
     if (firstPart) {
       setAtlasActive(firstPart.id);
-      renderMapDetail(firstPart);
     }
 
     if (routePath) {
