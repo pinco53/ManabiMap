@@ -6,6 +6,26 @@
 
   const STORAGE_KEY = 'manabimap_user_map_v1';
   const PART_PAGE_RE = /\/parts\/part[0-9_]*\.html$/;
+  const NETWORK_POINTS = {
+    hub: { x: 50, y: 50 },
+    part1: { x: 18, y: 70 },
+    part2: { x: 30, y: 34 },
+    part3: { x: 50, y: 20 },
+    part4: { x: 39, y: 78 },
+    part5: { x: 59, y: 64 },
+    part6: { x: 77, y: 76 },
+    part7: { x: 73, y: 34 },
+    part8: { x: 88, y: 20 },
+    'part8-2': { x: 88, y: 55 }
+  };
+  const NETWORK_LINKS = [
+    ['hub', 'part1'], ['hub', 'part3'], ['hub', 'part5'], ['hub', 'part8-2'],
+    ['part1', 'part2'], ['part2', 'part3'], ['part2', 'part4'],
+    ['part3', 'part8'], ['part3', 'part8-2'],
+    ['part4', 'part5'], ['part4', 'part8'],
+    ['part5', 'part6'], ['part5', 'part7'],
+    ['part6', 'part8-2'], ['part7', 'part8'], ['part8', 'part8-2']
+  ];
 
   function loadState() {
     try {
@@ -100,13 +120,20 @@
       '  </div>',
       '  <div class="my-map-panel__body">',
       '    <div class="my-map-panel__progress">',
-      '      <div class="my-map-panel__small">読んだ場所は金の到達印、あとで読む場所は青い航路印として残ります。</div>',
-      '      <div class="my-map-board-wrap">',
-      '        <div class="my-map-board-head">',
-      '          <span>TRAVEL LOG</span>',
-      '          <span data-my-map-board-count>0 / 9</span>',
+      '      <div class="my-map-panel__small">読んだ場所、あとで読む場所、まだ見ていない場所が、問いを中心に結び直されます。</div>',
+      '      <div class="my-map-network-wrap">',
+      '        <img class="my-map-network-image" src="' + pathPrefix() + 'assets/hero-proposals/hero-proposal-02-orbital-learning-atlas.png" alt="" loading="lazy">',
+      '        <div class="my-map-network-shade"></div>',
+      '        <div class="my-map-network-head">',
+      '          <span>CONNECTION ATLAS</span>',
+      '          <span data-my-map-network-count>0 / 9</span>',
       '        </div>',
-      '        <div class="my-map-board" data-my-map-board></div>',
+      '        <svg class="my-map-network-lines" viewBox="0 0 100 100" preserveAspectRatio="none" data-my-map-network-lines aria-hidden="true"></svg>',
+      '        <a class="my-map-hub" href="' + pathPrefix() + 'index.html#map-base">',
+      '          <span class="my-map-hub__label">問い</span>',
+      '          <span class="my-map-hub__title">どこから<br>つながるか</span>',
+      '        </a>',
+      '        <div class="my-map-network" data-my-map-network></div>',
       '      </div>',
       '      <div class="my-map-progressbar"><div class="my-map-progressbar__fill" data-my-map-fill></div></div>',
       '      <div class="my-map-panel__small" data-my-map-detail></div>',
@@ -151,27 +178,68 @@
     return { className: 'is-open', label: '未踏', action: '探索する' };
   }
 
+  function lineClassFor(state, fromId, toId) {
+    const ids = [fromId, toId].filter(function(id) { return id !== 'hub'; });
+    if (ids.length && ids.every(function(id) { return state.done.includes(id); })) return ' is-done';
+    if (ids.some(function(id) { return state.later.includes(id); })) return ' is-later';
+    return '';
+  }
+
+  function drawNetworkLines(state) {
+    document.querySelectorAll('[data-my-map-network-lines]').forEach(function(svg) {
+      svg.innerHTML = [
+        '<defs>',
+        '<marker id="my-map-arrow" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="4" markerHeight="4" orient="auto-start-reverse">',
+        '<path d="M 0 0 L 8 4 L 0 8 Z"></path>',
+        '</marker>',
+        '</defs>'
+      ].join('');
+      NETWORK_LINKS.forEach(function(pair, index) {
+        const from = NETWORK_POINTS[pair[0]];
+        const to = NETWORK_POINTS[pair[1]];
+        if (!from || !to) return;
+        const dx = to.x - from.x;
+        const dy = to.y - from.y;
+        const curve = index % 2 === 0 ? 9 : -9;
+        const c1x = from.x + dx * 0.34 - dy * curve / 100;
+        const c1y = from.y + dy * 0.34 + dx * curve / 100;
+        const c2x = from.x + dx * 0.66 - dy * curve / 100;
+        const c2y = from.y + dy * 0.66 + dx * curve / 100;
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M ' + from.x + ' ' + from.y + ' C ' + c1x + ' ' + c1y + ', ' + c2x + ' ' + c2y + ', ' + to.x + ' ' + to.y);
+        path.setAttribute('class', 'my-map-network-link' + lineClassFor(state, pair[0], pair[1]));
+        path.setAttribute('marker-start', 'url(#my-map-arrow)');
+        path.setAttribute('marker-end', 'url(#my-map-arrow)');
+        svg.appendChild(path);
+      });
+    });
+  }
+
   function renderJourneyBoard(state) {
-    document.querySelectorAll('[data-my-map-board]').forEach(function(container) {
+    drawNetworkLines(state);
+    document.querySelectorAll('[data-my-map-network]').forEach(function(container) {
       container.innerHTML = '';
       data.parts.forEach(function(part, index) {
+        const point = NETWORK_POINTS[part.id];
+        if (!point) return;
         const status = statusForPart(state, part);
         const card = document.createElement('a');
-        card.className = 'my-map-place ' + status.className;
+        card.className = 'my-map-node ' + status.className;
         card.href = hrefFor(part.id);
-        card.style.setProperty('--step', index + 1);
+        card.style.left = point.x + '%';
+        card.style.top = point.y + '%';
         card.innerHTML = [
-          '<span class="my-map-place__status">' + status.label + '</span>',
-          '<span class="my-map-place__num">PART ' + part.number + '</span>',
-          '<span class="my-map-place__title">' + part.title + '</span>',
-          '<span class="my-map-place__group">' + part.group + '</span>',
-          '<span class="my-map-place__action">' + status.action + '</span>'
+          '<span class="my-map-node__pin"></span>',
+          '<span class="my-map-node__status">' + status.label + '</span>',
+          '<span class="my-map-node__num">PART ' + part.number + '</span>',
+          '<span class="my-map-node__title">' + part.title + '</span>',
+          '<span class="my-map-node__action">' + status.action + '</span>'
         ].join('');
         container.appendChild(card);
       });
     });
 
-    document.querySelectorAll('[data-my-map-board-count]').forEach(function(el) {
+    document.querySelectorAll('[data-my-map-network-count]').forEach(function(el) {
       const doneParts = state.done.filter(function(id) {
         const item = data.findById(id);
         return item && item.type === 'part';
