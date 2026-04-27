@@ -248,7 +248,7 @@
     { id: 'note-35', number: 35, title: '計算が生まれた日、人類は「試す」のをやめた', url: 'https://note.com/manabimapcreator/n/n9a89ce1888e3', tags: ['計算', '予測', '数'], relatedParts: ['part6'] },
     { id: 'note-36', number: 36, title: 'YouTubeと特設サイトで学ぶ--「ハルとおじいさん」が他にない理由', status: 'draft', tags: ['サイト紹介', 'YouTube', '学びの地図'], relatedParts: ['note'] },
     { id: 'note-37', number: 37, title: 'プロンプトを書くことが、デザインになった--GeminiでYouTube・noteのサムネをつくる', url: 'https://note.com/manabimapcreator/n/n90cb4cd059df', tags: ['Gemini', 'デザイン', 'サムネイル'], relatedParts: ['note'] },
-    { id: 'note-38', number: 38, title: 'すべての答えが手に入る時代に、「問い」だけを届けるコンテンツを始めた', url: 'https://note.com/manabimapcreator/n/nf61a2cb5617d', tags: ['学び', '問い', '制作'], relatedParts: ['note'] },
+    { id: 'note-38', number: 38, title: '「学びの種」をまく仕事--教育20年目に、生成AIが変えたもの', url: 'https://note.com/manabimapcreator/n/nf61a2cb5617d', tags: ['学び', '問い', '制作', '教育', '生成AI'], relatedParts: ['note', 'part8-2'] },
     { id: 'note-39', number: 39, title: '誰も「平均人」ではなかった。', url: 'https://note.com/manabimapcreator/n/n75ad2b140de4', tags: ['平均', '統計', '教育'], relatedParts: ['part6'] },
     { id: 'note-40', number: 40, title: '「内から生まれた言葉」とは、何だろう', url: 'https://note.com/manabimapcreator/n/n10281e399b72', tags: ['AI', '言葉', '創作'], relatedParts: ['part8', 'part8-2'] },
     { id: 'note-41', number: 41, title: 'テストで高得点を取ると、幸せになれるのか', url: 'https://note.com/manabimapcreator/n/ndc68c0112605', tags: ['学力', '幸福度', '教育'], relatedParts: ['part8-2'] },
