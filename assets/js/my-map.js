@@ -6,27 +6,6 @@
 
   const STORAGE_KEY = 'manabimap_user_map_v1';
   const PART_PAGE_RE = /\/parts\/part[0-9_]*\.html$/;
-  const CONSTELLATION_POINTS = {
-    part1: { x: 18, y: 72 },
-    part2: { x: 32, y: 44 },
-    part3: { x: 50, y: 24 },
-    part4: { x: 36, y: 76 },
-    part5: { x: 56, y: 56 },
-    part6: { x: 74, y: 70 },
-    part7: { x: 72, y: 34 },
-    part8: { x: 88, y: 18 },
-    'part8-2': { x: 88, y: 54 }
-  };
-  const CONSTELLATION_LINES = [
-    ['part1', 'part2'],
-    ['part2', 'part3'],
-    ['part2', 'part4'],
-    ['part4', 'part5'],
-    ['part5', 'part6'],
-    ['part5', 'part7'],
-    ['part7', 'part8'],
-    ['part8', 'part8-2']
-  ];
 
   function loadState() {
     try {
@@ -121,10 +100,13 @@
       '  </div>',
       '  <div class="my-map-panel__body">',
       '    <div class="my-map-panel__progress">',
-      '      <div class="my-map-panel__small">読んだ部が増えるほど、星図が光ります。あとで読む部は青い航路として残します。</div>',
-      '      <div class="my-map-constellation">',
-      '        <svg viewBox="0 0 100 100" preserveAspectRatio="none" data-my-map-lines></svg>',
-      '        <div class="my-map-starfield" data-my-map-stars></div>',
+      '      <div class="my-map-panel__small">読んだ場所は金の到達印、あとで読む場所は青い航路印として残ります。</div>',
+      '      <div class="my-map-board-wrap">',
+      '        <div class="my-map-board-head">',
+      '          <span>TRAVEL LOG</span>',
+      '          <span data-my-map-board-count>0 / 9</span>',
+      '        </div>',
+      '        <div class="my-map-board" data-my-map-board></div>',
       '      </div>',
       '      <div class="my-map-progressbar"><div class="my-map-progressbar__fill" data-my-map-fill></div></div>',
       '      <div class="my-map-panel__small" data-my-map-detail></div>',
@@ -163,43 +145,38 @@
     bridge.appendChild(box);
   }
 
-  function renderConstellation(state) {
-    document.querySelectorAll('[data-my-map-stars]').forEach(function(container) {
+  function statusForPart(state, part) {
+    if (state.done.includes(part.id)) return { className: 'is-done', label: '到達済み', action: 'もう一度開く' };
+    if (state.later.includes(part.id)) return { className: 'is-later', label: '航路に保存', action: '続きへ進む' };
+    return { className: 'is-open', label: '未踏', action: '探索する' };
+  }
+
+  function renderJourneyBoard(state) {
+    document.querySelectorAll('[data-my-map-board]').forEach(function(container) {
       container.innerHTML = '';
-      data.parts.forEach(function(part) {
-        const point = CONSTELLATION_POINTS[part.id];
-        if (!point) return;
-        const star = document.createElement('a');
-        star.className = 'my-map-star';
-        if (state.done.includes(part.id)) star.classList.add('is-done');
-        else if (state.later.includes(part.id)) star.classList.add('is-later');
-        star.href = hrefFor(part.id);
-        star.style.left = point.x + '%';
-        star.style.top = point.y + '%';
-        star.innerHTML = [
-          '<span class="my-map-star__dot"></span>',
-          '<span class="my-map-star__label">' + part.title + '</span>'
+      data.parts.forEach(function(part, index) {
+        const status = statusForPart(state, part);
+        const card = document.createElement('a');
+        card.className = 'my-map-place ' + status.className;
+        card.href = hrefFor(part.id);
+        card.style.setProperty('--step', index + 1);
+        card.innerHTML = [
+          '<span class="my-map-place__status">' + status.label + '</span>',
+          '<span class="my-map-place__num">PART ' + part.number + '</span>',
+          '<span class="my-map-place__title">' + part.title + '</span>',
+          '<span class="my-map-place__group">' + part.group + '</span>',
+          '<span class="my-map-place__action">' + status.action + '</span>'
         ].join('');
-        container.appendChild(star);
+        container.appendChild(card);
       });
     });
 
-    document.querySelectorAll('[data-my-map-lines]').forEach(function(svg) {
-      svg.innerHTML = '';
-      CONSTELLATION_LINES.forEach(function(pair) {
-        const from = CONSTELLATION_POINTS[pair[0]];
-        const to = CONSTELLATION_POINTS[pair[1]];
-        if (!from || !to) return;
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', from.x);
-        line.setAttribute('y1', from.y);
-        line.setAttribute('x2', to.x);
-        line.setAttribute('y2', to.y);
-        if (state.done.includes(pair[0]) && state.done.includes(pair[1])) {
-          line.setAttribute('class', 'is-lit');
-        }
-        svg.appendChild(line);
-      });
+    document.querySelectorAll('[data-my-map-board-count]').forEach(function(el) {
+      const doneParts = state.done.filter(function(id) {
+        const item = data.findById(id);
+        return item && item.type === 'part';
+      }).length;
+      el.textContent = doneParts + ' / ' + data.parts.length;
     });
   }
 
@@ -241,7 +218,7 @@
     }).length;
     const percent = totalParts ? Math.round((doneParts / totalParts) * 100) : 0;
 
-    renderConstellation(state);
+    renderJourneyBoard(state);
 
     document.querySelectorAll('[data-my-map-status]').forEach(function(el) {
       el.textContent = doneParts + ' / ' + totalParts + ' parts';

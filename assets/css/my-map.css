@@ -63,81 +63,174 @@
   background: rgba(255,255,255,0.025);
 }
 
-.my-map-constellation {
+.my-map-board-wrap {
   position: relative;
-  min-height: 290px;
+  min-height: 330px;
   margin: 16px 0 10px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,215,0,0.16);
   border-radius: 10px;
   background:
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0, transparent 24%),
-    radial-gradient(circle at 78% 28%, rgba(0,212,255,0.12) 0, transparent 22%),
-    radial-gradient(circle at 56% 78%, rgba(255,215,0,0.08) 0, transparent 22%),
-    linear-gradient(145deg, rgba(4,8,16,0.92), rgba(12,16,28,0.9));
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+    radial-gradient(ellipse 360px 180px at 18% 12%, rgba(255,215,0,0.13), transparent 70%),
+    radial-gradient(ellipse 320px 200px at 86% 82%, rgba(0,212,255,0.12), transparent 72%),
+    linear-gradient(145deg, rgba(7,10,18,0.96), rgba(16,18,30,0.92));
+  background-size: 34px 34px, 34px 34px, auto, auto, auto;
   overflow: hidden;
 }
 
-.my-map-constellation svg {
+.my-map-board-wrap::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: 18px;
+  border: 1px dashed rgba(255,255,255,0.1);
+  border-radius: 8px;
+  pointer-events: none;
 }
 
-.my-map-constellation line {
-  stroke: rgba(255,255,255,0.12);
-  stroke-width: 1;
-}
-
-.my-map-constellation line.is-lit {
-  stroke: rgba(0,212,255,0.55);
-}
-
-.my-map-starfield {
-  position: absolute;
-  inset: 0;
-}
-
-.my-map-star {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  display: grid;
-  gap: 6px;
-  justify-items: center;
-  width: 88px;
-  text-align: center;
-}
-
-.my-map-star__dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.24);
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow: 0 0 0 rgba(0,0,0,0);
-  transition: all 0.25s ease;
-}
-
-.my-map-star__label {
+.my-map-board-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px 10px;
+  color: rgba(255,255,255,0.58);
   font-size: 10px;
-  line-height: 1.45;
-  color: #93a0ba;
+  font-weight: 700;
+  letter-spacing: 0.22em;
 }
 
-.my-map-star.is-done .my-map-star__dot {
+.my-map-board {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 8px 16px 16px;
+}
+
+.my-map-place {
+  position: relative;
+  min-height: 116px;
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  padding: 13px 12px 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(255,255,255,0.08), transparent 28%),
+    rgba(0,0,0,0.22);
+  color: #dfe8f8;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease, box-shadow 0.24s ease;
+}
+
+.my-map-place::before {
+  content: counter(my-map-step, decimal-leading-zero);
+  counter-increment: my-map-step;
+  position: absolute;
+  right: 10px;
+  bottom: 7px;
+  color: rgba(255,255,255,0.08);
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.my-map-board {
+  counter-reset: my-map-step;
+}
+
+.my-map-place::after {
+  content: '';
+  position: absolute;
+  right: -24px;
+  top: -24px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.035);
+  transform: rotate(-12deg);
+}
+
+.my-map-place:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.26);
+  background: rgba(255,255,255,0.055);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+}
+
+.my-map-place__status {
+  width: fit-content;
+  padding: 3px 7px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  color: #aab4c8;
+  background: rgba(0,0,0,0.22);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.my-map-place__num {
+  color: #ffd700;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+}
+
+.my-map-place__title {
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+
+.my-map-place__group {
+  color: #8f9bb3;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.my-map-place__action {
+  margin-top: auto;
+  color: #aab4c8;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.my-map-place.is-done {
+  border-color: rgba(255,215,0,0.62);
+  background:
+    linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,255,255,0.025)),
+    rgba(0,0,0,0.24);
+  box-shadow: inset 0 0 22px rgba(255,215,0,0.08);
+}
+
+.my-map-place.is-done .my-map-place__status,
+.my-map-place.is-done .my-map-place__action {
+  color: #08080d;
   background: #ffd700;
   border-color: #ffd700;
-  box-shadow: 0 0 18px rgba(255,215,0,0.55), 0 0 34px rgba(0,212,255,0.18);
 }
 
-.my-map-star.is-done .my-map-star__label {
-  color: #fff4bc;
+.my-map-place.is-later {
+  border-color: rgba(0,212,255,0.55);
+  background:
+    linear-gradient(135deg, rgba(0,212,255,0.14), rgba(255,255,255,0.025)),
+    rgba(0,0,0,0.22);
 }
 
-.my-map-star.is-later .my-map-star__dot {
+.my-map-place.is-later .my-map-place__status,
+.my-map-place.is-later .my-map-place__action {
+  color: #06121b;
   background: #00d4ff;
   border-color: #00d4ff;
-  box-shadow: 0 0 16px rgba(0,212,255,0.45);
 }
 
 .my-map-summary {
@@ -312,7 +405,22 @@
     grid-template-columns: 1fr;
   }
 
-  .my-map-constellation {
-    min-height: 260px;
+  .my-map-board-wrap {
+    min-height: auto;
+  }
+
+  .my-map-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 8px 12px 12px;
+  }
+
+  .my-map-place {
+    min-height: 112px;
+  }
+}
+
+@media (max-width: 460px) {
+  .my-map-board {
+    grid-template-columns: 1fr;
   }
 }
