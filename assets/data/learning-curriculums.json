@@ -1,0 +1,395 @@
+{
+  "version": "2026-04-28",
+  "title": "学びのカリキュラム案",
+  "description": "動画、note記事、学びの地図を横断して、問いを起点に学ぶためのコース案。各itemのidは assets/js/manabimap-data.js の part / note / route / question のID、または localDrafts のIDを参照する。",
+  "sourceFiles": [
+    "assets/js/manabimap-data.js",
+    "parts/*.html",
+    "note.html",
+    "note_articles/*.md"
+  ],
+  "resourceTypes": {
+    "part": "動画シリーズと各部の学びの地図",
+    "note": "note記事",
+    "localDraft": "ローカル下書き記事",
+    "question": "問い",
+    "evolution": "進化の年表"
+  },
+  "localDrafts": [
+    {
+      "id": "note-43",
+      "type": "localDraft",
+      "title": "AIが東大首席を超えた日に、何が終わったのか",
+      "path": "note_articles/note_43_ai_surpassed_human_knowledge.md",
+      "relatedParts": ["part8-2"],
+      "tags": ["AI", "教育", "受験", "知識", "評価"]
+    }
+  ],
+  "curriculums": [
+    {
+      "id": "ai-history-foundation",
+      "title": "生成AIの歴史をたどる",
+      "angle": "技術史",
+      "audience": "生成AIを歴史から理解したい人",
+      "coreQuestion": "生成AIは、どんな歴史の流れの先に現れたのか。",
+      "estimatedSteps": 7,
+      "items": [
+        { "type": "evolution", "id": "evolution", "role": "人類史全体の時間軸を先に見る" },
+        { "type": "part", "id": "part2", "role": "デジタル革命とネットワーク化を押さえる" },
+        { "type": "part", "id": "part3", "role": "AI革命の入口をつかむ" },
+        { "type": "part", "id": "part8", "role": "生成AIの歴史編へ進む" },
+        { "type": "note", "id": "note-01", "role": "ChatGPT登場までの人類史を補足する" },
+        { "type": "note", "id": "note-05", "role": "生成とは何かを考える" },
+        { "type": "note", "id": "note-07", "role": "確率と言葉の関係へ進む" }
+      ],
+      "nextOptions": ["ai-education-assessment", "language-ai-understanding"]
+    },
+    {
+      "id": "ai-education-assessment",
+      "title": "AI時代の教育と評価を考える",
+      "angle": "教育",
+      "audience": "学校、学力、宿題、評価に関心がある人",
+      "coreQuestion": "AIが答えを出せる時代に、学力とは何か。",
+      "estimatedSteps": 8,
+      "items": [
+        { "type": "part", "id": "part8-2", "role": "AIが日常と教育に入る場面を見る" },
+        { "type": "part", "id": "part3", "role": "AI革命の大きな問いに戻る" },
+        { "type": "note", "id": "note-29", "role": "理解とパフォーマンスの違いを考える" },
+        { "type": "note", "id": "note-41", "role": "テストで測ることの意味を問う" },
+        { "type": "localDraft", "id": "note-43", "role": "AIが知識再現の頂点を超えた意味を考える" },
+        { "type": "note", "id": "note-38", "role": "教育現場と生成AIの変化を制作側から見る" },
+        { "type": "question", "id": "q-thinking", "role": "人間が考えるとは何かに戻す" },
+        { "type": "question", "id": "q-learning", "role": "学ぶとは何かを締めに置く" }
+      ],
+      "nextOptions": ["measurement-and-happiness", "ai-human-creativity"]
+    },
+    {
+      "id": "ai-human-creativity",
+      "title": "AIと人間の創造性を考える",
+      "angle": "創造性",
+      "audience": "AIで創作する人、表現と主体性を考えたい人",
+      "coreQuestion": "AIと一緒に生まれたアイデアは、誰のものなのか。",
+      "estimatedSteps": 7,
+      "items": [
+        { "type": "part", "id": "part3", "role": "AIと人間に残るものを考える" },
+        { "type": "part", "id": "part8-2", "role": "日常にAIが入る変化を見る" },
+        { "type": "note", "id": "note-08", "role": "アイデアの所有を問う" },
+        { "type": "note", "id": "note-40", "role": "内から生まれた言葉とは何かを考える" },
+        { "type": "note", "id": "note-37", "role": "AIを使ったデザイン制作へ接続する" },
+        { "type": "note", "id": "note-05", "role": "生成の正体を問い直す" },
+        { "type": "question", "id": "q-thinking", "role": "考える主体の問いに戻る" }
+      ],
+      "nextOptions": ["language-ai-understanding", "creator-manabimap-meta"]
+    },
+    {
+      "id": "language-ai-understanding",
+      "title": "言葉とAI理解のコース",
+      "angle": "言語と思考",
+      "audience": "AIが言葉を扱うことの意味を知りたい人",
+      "coreQuestion": "言葉を扱えることは、理解していることなのか。",
+      "estimatedSteps": 8,
+      "items": [
+        { "type": "part", "id": "part5", "role": "言葉と思考の関係を土台にする" },
+        { "type": "part", "id": "part4", "role": "文字と記録の歴史へ広げる" },
+        { "type": "part", "id": "part8", "role": "AIが言葉を扱う現在へ接続する" },
+        { "type": "note", "id": "note-20", "role": "音が意味になる瞬間を考える" },
+        { "type": "note", "id": "note-23", "role": "内なる声と思考へ進む" },
+        { "type": "note", "id": "note-28", "role": "言語は窓か牢獄かを問う" },
+        { "type": "note", "id": "note-07", "role": "AIの理解らしさを確率から考える" },
+        { "type": "question", "id": "q-language", "role": "言葉と思考の根本問いに戻す" }
+      ],
+      "nextOptions": ["ai-human-creativity", "writing-memory-knowledge"]
+    },
+    {
+      "id": "writing-memory-knowledge",
+      "title": "文字・記憶・知識ネットワーク",
+      "angle": "知識の保存",
+      "audience": "文字、読書、検索、知識の外部化に関心がある人",
+      "coreQuestion": "知識を外に残せるようになったとき、人間は何を失い、何を得たのか。",
+      "estimatedSteps": 9,
+      "items": [
+        { "type": "part", "id": "part4", "role": "文字と知識の歴史をたどる" },
+        { "type": "part", "id": "part2", "role": "検索とネットワーク化に接続する" },
+        { "type": "part", "id": "part8", "role": "AI時代の知識へつなぐ" },
+        { "type": "note", "id": "note-13", "role": "ソクラテスの文字批判から考える" },
+        { "type": "note", "id": "note-14", "role": "記号を残す衝動を見る" },
+        { "type": "note", "id": "note-15", "role": "読む楽しみの歴史へ進む" },
+        { "type": "note", "id": "note-16", "role": "知りたいという道が作られることを考える" },
+        { "type": "note", "id": "note-18", "role": "非線形な読み方へ広げる" },
+        { "type": "question", "id": "q-learning", "role": "学ぶとは何かに戻す" }
+      ],
+      "nextOptions": ["digital-connection-loneliness", "language-ai-understanding"]
+    },
+    {
+      "id": "digital-connection-loneliness",
+      "title": "つながった世界と孤独",
+      "angle": "デジタル社会",
+      "audience": "SNS、ネット、注意経済、孤独に関心がある人",
+      "coreQuestion": "つながることは、近づくことと同じなのか。",
+      "estimatedSteps": 7,
+      "items": [
+        { "type": "part", "id": "part2", "role": "デジタル革命の全体像を見る" },
+        { "type": "part", "id": "part4", "role": "情報と知識の流れに広げる" },
+        { "type": "part", "id": "part8-2", "role": "AIが日常へ入る現在へ進む" },
+        { "type": "note", "id": "note-04", "role": "スマホに詰まった革命を見る" },
+        { "type": "note", "id": "note-11", "role": "つながりと孤独を考える" },
+        { "type": "note", "id": "note-17", "role": "情報を運ぶインフラから考える" },
+        { "type": "note", "id": "note-19", "role": "検索とバイアスへ接続する" }
+      ],
+      "nextOptions": ["writing-memory-knowledge", "attention-and-agency"]
+    },
+    {
+      "id": "attention-and-agency",
+      "title": "注意を奪われる時代の主体性",
+      "angle": "現代の問い",
+      "audience": "スマホ、SNS、AIとの付き合い方を考えたい人",
+      "coreQuestion": "情報が増えた時代に、私たちは何に注意を向けるべきか。",
+      "estimatedSteps": 6,
+      "items": [
+        { "type": "part", "id": "part2", "role": "注意経済の前提を見る" },
+        { "type": "part", "id": "part3", "role": "AIと選択の問題へ接続する" },
+        { "type": "part", "id": "part8-2", "role": "日常に入るAIの影響を見る" },
+        { "type": "note", "id": "note-11", "role": "孤独とつながりを考える" },
+        { "type": "note", "id": "note-09", "role": "AIに何を問うかを考える" },
+        { "type": "question", "id": "q-thinking", "role": "人間が考えることへ戻る" }
+      ],
+      "nextOptions": ["ai-human-creativity", "digital-connection-loneliness"]
+    },
+    {
+      "id": "industrial-revolution-to-ai",
+      "title": "産業革命からAI革命へ",
+      "angle": "三大革命",
+      "audience": "大きな歴史の流れから理解したい人",
+      "coreQuestion": "機械、ネット、AIは、人間の何を変えてきたのか。",
+      "estimatedSteps": 8,
+      "items": [
+        { "type": "evolution", "id": "evolution", "role": "人類史のスケールを置く" },
+        { "type": "part", "id": "part1", "role": "産業革命で人間の時間が変わる" },
+        { "type": "part", "id": "part2", "role": "デジタル革命で人間同士の距離が変わる" },
+        { "type": "part", "id": "part3", "role": "AI革命で思考の境界が変わる" },
+        { "type": "part", "id": "part8", "role": "生成AIの歴史に進む" },
+        { "type": "note", "id": "note-02", "role": "機械に仕事を奪われる恐怖を歴史から見る" },
+        { "type": "note", "id": "note-04", "role": "デジタル革命を身近な道具から見る" },
+        { "type": "note", "id": "note-01", "role": "ChatGPTまでの流れで締める" }
+      ],
+      "nextOptions": ["ai-history-foundation", "education-time-body"]
+    },
+    {
+      "id": "education-time-body",
+      "title": "学校・時間・身体のリズム",
+      "angle": "教育史",
+      "audience": "学校制度や時間割に違和感がある人",
+      "coreQuestion": "時計のリズムで生きることは、学びをどう変えたのか。",
+      "estimatedSteps": 6,
+      "items": [
+        { "type": "part", "id": "part1", "role": "産業革命と時間の規律を見る" },
+        { "type": "part", "id": "part3", "role": "AI時代に人間の身体性へ戻る" },
+        { "type": "part", "id": "part8-2", "role": "学校とAIの現在へ接続する" },
+        { "type": "note", "id": "note-10", "role": "身体の時間を進化から考える" },
+        { "type": "note", "id": "note-41", "role": "テストと幸福を考える" },
+        { "type": "question", "id": "q-learning", "role": "学ぶ意味を問い直す" }
+      ],
+      "nextOptions": ["ai-education-assessment", "measurement-and-happiness"]
+    },
+    {
+      "id": "measurement-and-happiness",
+      "title": "数字で測る社会と幸せ",
+      "angle": "数と評価",
+      "audience": "点数、偏差値、平均、ランキングに関心がある人",
+      "coreQuestion": "数字で測れるものだけが、価値あるものなのか。",
+      "estimatedSteps": 9,
+      "items": [
+        { "type": "part", "id": "part6", "role": "数と世界の歴史を学ぶ" },
+        { "type": "part", "id": "part8-2", "role": "学力とAIの評価問題へ進む" },
+        { "type": "note", "id": "note-32", "role": "数える力の起源を考える" },
+        { "type": "note", "id": "note-33", "role": "数が身体から離れる流れを見る" },
+        { "type": "note", "id": "note-35", "role": "計算と予測の力を考える" },
+        { "type": "note", "id": "note-39", "role": "平均人という発想を疑う" },
+        { "type": "note", "id": "note-41", "role": "点数と幸福を問う" },
+        { "type": "note", "id": "note-42", "role": "物差しを誰が作ったのか考える" },
+        { "type": "question", "id": "q-number", "role": "数字で測れない価値へ戻る" }
+      ],
+      "nextOptions": ["ai-education-assessment", "math-civilization-tools"]
+    },
+    {
+      "id": "math-civilization-tools",
+      "title": "数は文明の道具か、支配者か",
+      "angle": "数の歴史",
+      "audience": "数学、記録、文明、統計の歴史に関心がある人",
+      "coreQuestion": "数は世界を見やすくしたのか、それとも世界を狭くしたのか。",
+      "estimatedSteps": 7,
+      "items": [
+        { "type": "part", "id": "part6", "role": "数の5000年をたどる" },
+        { "type": "part", "id": "part5", "role": "言葉と抽象化に戻る" },
+        { "type": "note", "id": "note-24", "role": "数の言葉を持たない民族から考える" },
+        { "type": "note", "id": "note-25", "role": "棒の刻み目と帝国を見る" },
+        { "type": "note", "id": "note-26", "role": "数学文化の広がりを見る" },
+        { "type": "note", "id": "note-34", "role": "ゼロ、無限、抽象化へ進む" },
+        { "type": "note", "id": "note-42", "role": "測る基準の問題で締める" }
+      ],
+      "nextOptions": ["measurement-and-happiness", "language-ai-understanding"]
+    },
+    {
+      "id": "human-assumptions-science",
+      "title": "人間の当たり前を外す科学者たち",
+      "angle": "科学と前提",
+      "audience": "相対性理論、量子、計算機科学の見方を学びたい人",
+      "coreQuestion": "知識の追加ではなく、見方の転換はどう起きるのか。",
+      "estimatedSteps": 6,
+      "items": [
+        { "type": "part", "id": "part7", "role": "4人の天才が外した前提を見る" },
+        { "type": "part", "id": "part3", "role": "AI時代の前提の崩れへ進む" },
+        { "type": "part", "id": "part8", "role": "生成AIの歴史とつなぐ" },
+        { "type": "evolution", "id": "evolution", "role": "科学も進化の流れの中で見る" },
+        { "type": "note", "id": "note-06", "role": "追い出された場所から次の時代が生まれる視点を入れる" },
+        { "type": "question", "id": "q-thinking", "role": "人間の思考の前提へ戻る" }
+      ],
+      "nextOptions": ["ai-history-foundation", "creator-manabimap-meta"]
+    },
+    {
+      "id": "evolution-big-history",
+      "title": "人類史から学びの地図へ入る",
+      "angle": "ビッグヒストリー",
+      "audience": "宇宙、生命、文明、AIを一本の流れで見たい人",
+      "coreQuestion": "今の問いは、人類史のどこから来たのか。",
+      "estimatedSteps": 8,
+      "items": [
+        { "type": "evolution", "id": "evolution", "role": "138億年から現在までを俯瞰する" },
+        { "type": "part", "id": "part1", "role": "産業革命へ入る" },
+        { "type": "part", "id": "part4", "role": "文字と記録へ進む" },
+        { "type": "part", "id": "part6", "role": "数と文明へ進む" },
+        { "type": "part", "id": "part8", "role": "生成AIの現在地へ進む" },
+        { "type": "note", "id": "note-06", "role": "進化と追放の視点を補う" },
+        { "type": "note", "id": "note-10", "role": "身体の時間を補う" },
+        { "type": "question", "id": "q-tool", "role": "道具と人間の境界へ戻る" }
+      ],
+      "nextOptions": ["industrial-revolution-to-ai", "writing-memory-knowledge"]
+    },
+    {
+      "id": "question-design-ai",
+      "title": "AIに何を問うかを学ぶ",
+      "angle": "問いの技術",
+      "audience": "AIを使う側の問い方を鍛えたい人",
+      "coreQuestion": "答えが出る時代に、どんな問いを持てばいいのか。",
+      "estimatedSteps": 7,
+      "items": [
+        { "type": "part", "id": "part3", "role": "AIと人間に残るものを見る" },
+        { "type": "part", "id": "part8", "role": "生成AIの仕組みと歴史を見る" },
+        { "type": "part", "id": "part5", "role": "言葉と思考の関係へ戻る" },
+        { "type": "note", "id": "note-09", "role": "AIに何を問えばいいかを読む" },
+        { "type": "note", "id": "note-30", "role": "問いだけを届けるコンテンツ思想を見る" },
+        { "type": "note", "id": "note-31", "role": "学ぶほど知らないことが増える感覚を置く" },
+        { "type": "question", "id": "q-learning", "role": "問いを増やす学びへ接続する" }
+      ],
+      "nextOptions": ["creator-manabimap-meta", "ai-human-creativity"]
+    },
+    {
+      "id": "creator-manabimap-meta",
+      "title": "学びの地図というコンセプトを学ぶ",
+      "angle": "制作思想",
+      "audience": "このサイトや発信全体の思想を知りたい人",
+      "coreQuestion": "なぜ動画、note、地図をつなぐ必要があるのか。",
+      "estimatedSteps": 6,
+      "items": [
+        { "type": "part", "id": "part3", "role": "AI時代の学びの土台を見る" },
+        { "type": "part", "id": "part8-2", "role": "教育と日常への影響を見る" },
+        { "type": "note", "id": "note-30", "role": "問いを届ける思想を読む" },
+        { "type": "note", "id": "note-36", "role": "YouTubeと特設サイトで学ぶ理由を整理する" },
+        { "type": "note", "id": "note-38", "role": "教育20年目の制作視点を見る" },
+        { "type": "note", "id": "note-37", "role": "AIを使った制作プロセスを見る" }
+      ],
+      "nextOptions": ["question-design-ai", "ai-human-creativity"]
+    },
+    {
+      "id": "reading-nonlinear-learning",
+      "title": "本を途中から読むように学ぶ",
+      "angle": "非線形学習",
+      "audience": "順番通りに学ぶことに窮屈さを感じる人",
+      "coreQuestion": "学びは一本道でなければいけないのか。",
+      "estimatedSteps": 6,
+      "items": [
+        { "type": "part", "id": "part4", "role": "知識と読書の歴史を見る" },
+        { "type": "part", "id": "part5", "role": "言葉と思考へ寄り道する" },
+        { "type": "note", "id": "note-18", "role": "本を途中から読む罪悪感を考える" },
+        { "type": "note", "id": "note-16", "role": "知りたい道が作られることを見る" },
+        { "type": "note", "id": "note-31", "role": "知らないことが増える学びへ進む" },
+        { "type": "question", "id": "q-learning", "role": "学びの形そのものを問う" }
+      ],
+      "nextOptions": ["creator-manabimap-meta", "writing-memory-knowledge"]
+    },
+    {
+      "id": "meaning-sound-name-world",
+      "title": "音、名前、意味が世界を分ける",
+      "angle": "言語の起源",
+      "audience": "言葉の始まりから思考を考えたい人",
+      "coreQuestion": "名前をつける前、世界はどのように見えていたのか。",
+      "estimatedSteps": 7,
+      "items": [
+        { "type": "part", "id": "part5", "role": "言語と思考の全体像を見る" },
+        { "type": "note", "id": "note-20", "role": "音が意味になる瞬間を見る" },
+        { "type": "note", "id": "note-21", "role": "名前をつける前の世界を考える" },
+        { "type": "note", "id": "note-22", "role": "人類最古の名前から文明を見る" },
+        { "type": "note", "id": "note-23", "role": "内なる声へ進む" },
+        { "type": "note", "id": "note-27", "role": "なぜという因果の起源へ広げる" },
+        { "type": "question", "id": "q-language", "role": "言葉と思考の問いに戻す" }
+      ],
+      "nextOptions": ["language-ai-understanding", "math-civilization-tools"]
+    },
+    {
+      "id": "death-memory-ai",
+      "title": "記憶、存在、AIと死",
+      "angle": "存在論",
+      "audience": "AIと人間の存在、記憶、喪失を考えたい人",
+      "coreQuestion": "記憶の中の人は、いつ消えるのか。",
+      "estimatedSteps": 5,
+      "items": [
+        { "type": "part", "id": "part3", "role": "AIと人間に残るものを考える" },
+        { "type": "part", "id": "part8", "role": "生成AIの歴史と仕組みに接続する" },
+        { "type": "note", "id": "note-12", "role": "記憶と存在の問いを読む" },
+        { "type": "note", "id": "note-08", "role": "思いつきと自己の境界を考える" },
+        { "type": "note", "id": "note-40", "role": "内から生まれた言葉の問いへ進む" }
+      ],
+      "nextOptions": ["ai-human-creativity", "question-design-ai"]
+    },
+    {
+      "id": "search-bias-worldview",
+      "title": "検索、バイアス、世界の見え方",
+      "angle": "認知とメディア",
+      "audience": "検索やAIの答えが世界観を作ることに関心がある人",
+      "coreQuestion": "検索できることと、理解していることは同じなのか。",
+      "estimatedSteps": 7,
+      "items": [
+        { "type": "part", "id": "part4", "role": "検索以前の知識の歴史を見る" },
+        { "type": "part", "id": "part2", "role": "ネットワーク化された情報を見る" },
+        { "type": "part", "id": "part8", "role": "AIが答える時代へ進む" },
+        { "type": "note", "id": "note-16", "role": "知りたい道が作られることを考える" },
+        { "type": "note", "id": "note-19", "role": "人が世界を同じように捉えているかを問う" },
+        { "type": "note", "id": "note-03", "role": "検索と生成の違いへ進む" },
+        { "type": "question", "id": "q-thinking", "role": "人間が考えることへ戻る" }
+      ],
+      "nextOptions": ["attention-and-agency", "writing-memory-knowledge"]
+    }
+  ],
+  "suggestedHomepageGroups": [
+    {
+      "label": "生成AIから入る",
+      "curriculumIds": ["ai-history-foundation", "ai-education-assessment", "ai-human-creativity", "question-design-ai"]
+    },
+    {
+      "label": "教育から入る",
+      "curriculumIds": ["ai-education-assessment", "education-time-body", "measurement-and-happiness", "creator-manabimap-meta"]
+    },
+    {
+      "label": "言葉・思考から入る",
+      "curriculumIds": ["language-ai-understanding", "meaning-sound-name-world", "death-memory-ai", "reading-nonlinear-learning"]
+    },
+    {
+      "label": "文明史から入る",
+      "curriculumIds": ["evolution-big-history", "industrial-revolution-to-ai", "writing-memory-knowledge", "math-civilization-tools"]
+    },
+    {
+      "label": "現代社会から入る",
+      "curriculumIds": ["digital-connection-loneliness", "attention-and-agency", "search-bias-worldview", "measurement-and-happiness"]
+    }
+  ]
+}
