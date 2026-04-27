@@ -97,6 +97,12 @@
 - 各部ページから次の学びへ迷わず進める。
 - YouTubeとnoteへの導線が文脈付きになる。
 
+実装方針:
+
+- 共通CSS `assets/css/part-connector.css` と共通JS `assets/js/part-connector.js` で実装する。
+- 各部ページには読み込み行のみ追加し、パネル本文は `assets/js/manabimap-data.js` から自動生成する。
+- パネルは各ページのカバー直後に表示し、「現在地」「問い」「YouTube」「note」「次に進むなら」を出す。
+
 ### Phase 4: note一覧のテーマ別再設計
 
 目的: note記事を単なる記事一覧から、地図の枝道に変える。
