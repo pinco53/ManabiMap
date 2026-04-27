@@ -592,6 +592,145 @@ a { color: inherit; text-decoration: none; }
   padding: 4px 10px;
   background: rgba(0,0,0,0.24);
 }
+.route-stage {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  background:
+    radial-gradient(ellipse 280px 180px at 15% 0%, rgba(0,212,255,0.08), transparent 70%),
+    rgba(255,255,255,0.02);
+}
+.route-stage-kicker {
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--neon-sky);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.route-stage-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-bright);
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+.route-stage-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+.route-stage-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.route-stage-meta span {
+  font-size: 10px;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 3px 8px;
+  background: rgba(0,0,0,0.18);
+}
+.route-controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+.route-control {
+  min-height: 38px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.route-control:hover {
+  border-color: var(--neon-sky);
+  color: var(--text-bright);
+}
+.route-control--primary {
+  border-color: var(--neon-sky);
+  color: var(--neon-sky);
+}
+.route-control--open {
+  border-color: var(--neon-gold);
+  color: var(--neon-gold);
+}
+.route-step-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  background: rgba(0,0,0,0.18);
+  color: var(--text-dim);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.route-step-button::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 10px currentColor;
+}
+.route-step-button:hover,
+.route-step-button.active {
+  border-color: var(--neon-sky);
+  color: var(--neon-sky);
+  background: rgba(0,212,255,0.1);
+}
+.route-flight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.route-flight::-webkit-scrollbar {
+  display: none;
+}
+.route-flight-line {
+  flex: 0 0 20px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0,212,255,0.1), rgba(0,212,255,0.55));
+}
+.route-spotlight {
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0 1px rgba(0,212,255,0.55), 0 0 44px rgba(0,212,255,0.22) !important;
+  transform: translateY(-4px);
+}
+.route-spotlight::after {
+  content: attr(data-route-label);
+  position: absolute;
+  left: 18px;
+  top: 14px;
+  padding: 5px 8px;
+  border-radius: 14px;
+  background: rgba(0,212,255,0.14);
+  border: 1px solid rgba(0,212,255,0.45);
+  color: #dffaff;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  pointer-events: none;
+}
 @media (max-width: 900px) {
   .map-gateways,
   .map-console {
@@ -609,6 +748,9 @@ a { color: inherit; text-decoration: none; }
     display: block;
   }
   .map-panel-note { margin-top: 4px; }
+  .route-controls {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ========== OPENING THEME ========== */
@@ -2359,10 +2501,61 @@ function loadThemeVideo(el) {
     return item ? item.title : id;
   }
 
+  function hrefForNode(id) {
+    if (id === 'evolution') return 'evolution.html';
+    if (id === 'note') return 'note.html';
+    const item = mapData && mapData.findById ? mapData.findById(id) : null;
+    if (!item) return '#map-base';
+    if (item.type === 'part' && item.pageUrl) return item.pageUrl;
+    if (item.url) return item.url;
+    return '#map-base';
+  }
+
+  function findLocalTarget(id) {
+    if (id === 'evolution') return document.getElementById('evolution');
+    if (id === 'part8-2') return document.getElementById('part8-2');
+    if (id === 'note') return null;
+    return document.getElementById(id);
+  }
+
   function setActiveButton(container, selector, id) {
     container.querySelectorAll(selector).forEach(function(button) {
       button.classList.toggle('active', button.dataset.id === id);
     });
+  }
+
+  let currentRoute = null;
+  let currentRouteIndex = 0;
+  let currentSpotlight = null;
+
+  function clearSpotlight() {
+    if (!currentSpotlight) return;
+    currentSpotlight.classList.remove('route-spotlight');
+    currentSpotlight.removeAttribute('data-route-label');
+    currentSpotlight = null;
+  }
+
+  function spotlightStop(id, label) {
+    clearSpotlight();
+    const target = findLocalTarget(id);
+    if (!target) return null;
+    currentSpotlight = target;
+    target.classList.add('route-spotlight');
+    target.setAttribute('data-route-label', label || resolveNodeTitle(id));
+    return target;
+  }
+
+  function goToRouteStop(id, options) {
+    const target = spotlightStop(id, resolveNodeTitle(id));
+    if (target && options && options.scroll !== false) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return true;
+    }
+    if (!target && options && options.openExternal) {
+      window.location.href = hrefForNode(id);
+      return true;
+    }
+    return !!target;
   }
 
   function renderMapDetail(part) {
@@ -2391,14 +2584,58 @@ function loadThemeVideo(el) {
 
   function renderRoute(route) {
     if (!routePath || !route) return;
+    currentRoute = route;
+    if (currentRouteIndex >= route.nodes.length) currentRouteIndex = 0;
+    const currentId = route.nodes[currentRouteIndex];
+    const currentNode = mapData.findById(currentId);
+    const currentTitle = resolveNodeTitle(currentId);
+    const currentDesc = currentNode && currentNode.description ? currentNode.description : route.description;
     routePath.innerHTML = [
-      '<div class="route-path-title">ROUTE</div>',
-      '<div class="route-path-items">',
-      route.nodes.map(function(id) {
-        return '<span class="route-path-item">' + resolveNodeTitle(id) + '</span>';
+      '<div class="route-path-title">ROUTE FLIGHT</div>',
+      '<div class="route-flight">',
+      route.nodes.map(function(id, index) {
+        return [
+          index > 0 ? '<span class="route-flight-line"></span>' : '',
+          '<button type="button" class="route-step-button' + (index === currentRouteIndex ? ' active' : '') + '" data-route-step="' + index + '" data-route-node="' + id + '">',
+          resolveNodeTitle(id),
+          '</button>'
+        ].join('');
       }).join(''),
+      '</div>',
+      '<div class="route-stage">',
+      '<div class="route-stage-kicker">CURRENT STOP ' + String(currentRouteIndex + 1).padStart(2, '0') + ' / ' + String(route.nodes.length).padStart(2, '0') + '</div>',
+      '<div class="route-stage-title">' + currentTitle + '</div>',
+      '<div class="route-stage-desc">' + currentDesc + '</div>',
+      '<div class="route-stage-meta">',
+      '<span>' + route.title + '</span>',
+      '<span>' + (findLocalTarget(currentId) ? 'このページ内を移動' : '別ページへ開く') + '</span>',
+      '</div>',
+      '<div class="route-controls">',
+      '<button type="button" class="route-control route-control--primary" data-route-action="start">旅を開始</button>',
+      '<button type="button" class="route-control" data-route-action="prev">前へ</button>',
+      '<button type="button" class="route-control" data-route-action="next">次へ</button>',
+      '<button type="button" class="route-control route-control--open" data-route-action="open">開く</button>',
+      '</div>',
       '</div>'
     ].join('');
+  }
+
+  function activateRouteStep(index, behavior) {
+    if (!currentRoute) return;
+    currentRouteIndex = Math.max(0, Math.min(index, currentRoute.nodes.length - 1));
+    renderRoute(currentRoute);
+    setActiveButton(routeList, '.route-button', currentRoute.id);
+    const activeId = currentRoute.nodes[currentRouteIndex];
+    const part = mapData.findById(activeId);
+    if (part && part.type === 'part') {
+      setActiveButton(nodeGrid, '.map-node', part.id);
+      renderMapDetail(part);
+    }
+    if (behavior === 'travel') {
+      goToRouteStop(activeId, { scroll: true, openExternal: true });
+    } else {
+      spotlightStop(activeId, resolveNodeTitle(activeId));
+    }
   }
 
   if (mapData && nodeGrid && mapDetail && routeList && routePath) {
@@ -2431,7 +2668,9 @@ function loadThemeVideo(el) {
       ].join('');
       button.addEventListener('click', function() {
         setActiveButton(routeList, '.route-button', route.id);
+        currentRouteIndex = 0;
         renderRoute(route);
+        spotlightStop(route.nodes[0], resolveNodeTitle(route.nodes[0]));
       });
       routeList.appendChild(button);
     });
@@ -2445,7 +2684,30 @@ function loadThemeVideo(el) {
     if (firstRoute) {
       setActiveButton(routeList, '.route-button', firstRoute.id);
       renderRoute(firstRoute);
+      spotlightStop(firstRoute.nodes[0], resolveNodeTitle(firstRoute.nodes[0]));
     }
+
+    routePath.addEventListener('click', function(event) {
+      const stepButton = event.target.closest('[data-route-step]');
+      if (stepButton) {
+        activateRouteStep(Number(stepButton.dataset.routeStep), 'travel');
+        return;
+      }
+      const actionButton = event.target.closest('[data-route-action]');
+      if (!actionButton || !currentRoute) return;
+      if (actionButton.dataset.routeAction === 'start') {
+        activateRouteStep(currentRouteIndex, 'travel');
+      } else if (actionButton.dataset.routeAction === 'prev') {
+        activateRouteStep(currentRouteIndex - 1, 'travel');
+      } else if (actionButton.dataset.routeAction === 'next') {
+        activateRouteStep(currentRouteIndex + 1, 'travel');
+      } else if (actionButton.dataset.routeAction === 'open') {
+        const id = currentRoute.nodes[currentRouteIndex];
+        if (!goToRouteStop(id, { scroll: true, openExternal: false })) {
+          window.location.href = hrefForNode(id);
+        }
+      }
+    });
   }
 
   if (reduceMotion) return;
