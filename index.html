@@ -401,7 +401,7 @@ a { color: inherit; text-decoration: none; }
   inset: 0;
   background:
     url('assets/hero-proposals/hero-proposal-04-knowledge-paths-landscape.png?v=202604261627') center center / cover no-repeat;
-  opacity: 0.28;
+  opacity: 0.44;
   pointer-events: none;
 }
 .atlas-map::after {
@@ -412,8 +412,8 @@ a { color: inherit; text-decoration: none; }
     radial-gradient(circle at 20% 20%, rgba(191,95,255,0.12), transparent 18%),
     radial-gradient(circle at 82% 28%, rgba(0,212,255,0.12), transparent 20%),
     radial-gradient(circle at 60% 78%, rgba(255,215,0,0.08), transparent 24%),
-    linear-gradient(180deg, rgba(8,8,13,0.12), rgba(8,8,13,0.62)),
-    linear-gradient(90deg, rgba(8,8,13,0.48), rgba(8,8,13,0.08) 48%, rgba(8,8,13,0.46));
+    linear-gradient(180deg, rgba(8,8,13,0.04), rgba(8,8,13,0.48)),
+    linear-gradient(90deg, rgba(8,8,13,0.36), rgba(8,8,13,0.02) 48%, rgba(8,8,13,0.34));
   box-shadow: inset 0 0 130px rgba(0,0,0,0.78);
   pointer-events: none;
 }
@@ -1151,28 +1151,53 @@ a { color: inherit; text-decoration: none; }
 /* ========== TIMELINE CONNECTOR（地図ルート演出） ========== */
 .timeline-connector {
   text-align: center;
-  padding: 30px 0;
+  padding: 24px 0;
   position: relative;
-  height: 140px;
+  height: 154px;
+  overflow: hidden;
+}
+.timeline-connector::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: min(72vw, 620px);
+  height: 128px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(circle at 50% 100%, rgba(0,212,255,0.24), transparent 9%),
+    radial-gradient(ellipse at 50% 52%, rgba(0,212,255,0.12), transparent 58%),
+    linear-gradient(90deg, transparent, rgba(0,212,255,0.18), transparent);
+  filter: blur(0.2px);
+  opacity: 0.9;
+  pointer-events: none;
 }
 .timeline-connector svg {
   position: absolute;
   left: 50%;
-  top: 0;
+  top: 4px;
   transform: translateX(-50%);
-  width: 260px;
-  height: 140px;
+  width: min(72vw, 620px);
+  height: 146px;
   overflow: visible;
 }
 .timeline-connector svg.mirror { transform: translateX(-50%) scaleX(-1); }
 .timeline-path {
   fill: none;
   stroke: url(#pathGradient);
-  stroke-width: 1.5;
+  stroke-width: 2.6;
   stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(0,212,255,0.8)) drop-shadow(0 0 18px rgba(191,95,255,0.32));
   stroke-dasharray: 400;
   stroke-dashoffset: 400;
   transition: stroke-dashoffset 1.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.timeline-path-glow {
+  fill: none;
+  stroke: rgba(0,212,255,0.2);
+  stroke-width: 10;
+  stroke-linecap: round;
+  filter: blur(6px);
 }
 .timeline-connector svg.drawn .timeline-path { stroke-dashoffset: 0; }
 .timeline-dot {
@@ -1845,7 +1870,7 @@ body::before {
   <a href="#evolution" class="mm-dot" data-label="進化の年表"></a>
   <a href="#theme" class="mm-dot" data-label="テーマ曲"></a>
   <a href="#intro" class="mm-dot" data-label="紹介"></a>
-  <a href="#map-base" class="mm-dot" data-label="地図基地"></a>
+  <a href="#map-base" class="mm-dot" data-label="ManabiMap"></a>
   <a href="#part1" class="mm-dot" data-label="第1部 蒸気"></a>
   <a href="#part2" class="mm-dot" data-label="第2部 接続"></a>
   <a href="#part3" class="mm-dot" data-label="第3部 AI"></a>
@@ -2010,7 +2035,7 @@ body::before {
 <!-- ========== MANABI MAP BASE ========== -->
 <section class="map-base-section" id="map-base">
   <div class="map-base-header">
-    <div class="map-base-label">MANABI MAP BASE</div>
+    <div class="map-base-label">Manabi Map</div>
     <h2 class="map-base-title">問いから、旅を始める</h2>
     <p class="map-base-desc">
       動画、学びの地図、note記事をひとつの地図として結びます。
@@ -2021,10 +2046,6 @@ body::before {
   <div class="map-atlas-shell">
     <div class="map-console">
       <div class="map-panel">
-        <div class="map-panel-head">
-          <div class="map-panel-title">学びの地図盤</div>
-          <div class="map-panel-note">星を選ぶ。入口がひらく。</div>
-        </div>
         <div class="atlas-map" id="atlas-map" aria-label="学びの地図ノード">
           <div class="map-node-grid" id="map-node-grid"></div>
         </div>
@@ -2171,7 +2192,7 @@ body::before {
   </div>
 </section>
 
-<div class="timeline-connector"><svg viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pathGradient" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(0,212,255,0)"/><stop offset="25%" stop-color="rgba(0,212,255,0.8)"/><stop offset="75%" stop-color="rgba(0,212,255,0.8)"/><stop offset="100%" stop-color="rgba(0,212,255,0)"/></linearGradient></defs><path class="timeline-path" d="M 130 0 Q 210 70 130 140"/><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
+<div class="timeline-connector"><svg viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pathGradient" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(0,212,255,0)"/><stop offset="25%" stop-color="rgba(0,212,255,0.8)"/><stop offset="75%" stop-color="rgba(191,95,255,0.82)"/><stop offset="100%" stop-color="rgba(0,212,255,0)"/></linearGradient></defs><path class="timeline-path-glow" d="M 130 0 C 224 38 42 92 130 140"/><path class="timeline-path" d="M 130 0 C 224 38 42 92 130 140"/><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
 
 <!-- ============================================================ -->
 <!-- CHAPTER GROUP 2: 文明の道具 (Parts 4-6)                       -->
@@ -2275,7 +2296,7 @@ body::before {
   </div>
 </section>
 
-<div class="timeline-connector"><svg class="mirror" viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><path class="timeline-path" d="M 130 0 Q 210 70 130 140"/><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
+<div class="timeline-connector"><svg class="mirror" viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><path class="timeline-path-glow" d="M 130 0 C 224 38 42 92 130 140"/><path class="timeline-path" d="M 130 0 C 224 38 42 92 130 140"/><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
 
 <!-- ============================================================ -->
 <!-- CHAPTER GROUP 3: 前提を超える (Part 7)                        -->
@@ -2323,7 +2344,7 @@ body::before {
   </div>
 </section>
 
-<div class="timeline-connector"><svg viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><path class="timeline-path" d="M 130 0 Q 210 70 130 140"/><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
+<div class="timeline-connector"><svg viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><path class="timeline-path-glow" d="M 130 0 C 224 38 42 92 130 140"/><path class="timeline-path" d="M 130 0 C 224 38 42 92 130 140"/><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
 
 <!-- ============================================================ -->
 <!-- CHAPTER GROUP 4: いま、ここ (Part 8)                          -->
