@@ -54,7 +54,7 @@
       '<div class="part-map-bridge__subtitle">' + part.subtitle + '</div>'
     ].join('');
 
-    const topLink = createLink('part-map-bridge__top-link', '../index.html#map-base', '地図基地へ戻る', false);
+    const topLink = createLink('part-map-bridge__top-link', '../index.html#map-base', 'Manabi Mapへ戻る', false);
     head.appendChild(headText);
     head.appendChild(topLink);
 
@@ -133,11 +133,85 @@
     return panel;
   }
 
+  function initShootingStars() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (document.querySelector('.shooting-star-canvas')) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.className = 'shooting-star-canvas';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    const stars = [];
+    let nextSpawn = 90;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function spawnStar() {
+      const fromLeft = Math.random() > 0.18;
+      const speed = 9 + Math.random() * 5;
+      stars.push({
+        x: fromLeft ? -80 : canvas.width + 80,
+        y: Math.random() * canvas.height * 0.48 + 20,
+        vx: (fromLeft ? 1 : -1) * speed,
+        vy: speed * (0.22 + Math.random() * 0.18),
+        life: 0,
+        maxLife: 54 + Math.random() * 18,
+        len: 120 + Math.random() * 80,
+        hue: Math.random() > 0.5 ? '0,212,255' : '255,215,0'
+      });
+      nextSpawn = 180 + Math.random() * 260;
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      nextSpawn--;
+      if (nextSpawn <= 0) spawnStar();
+
+      for (let i = stars.length - 1; i >= 0; i--) {
+        const s = stars[i];
+        s.x += s.vx;
+        s.y += s.vy;
+        s.life++;
+        const alpha = Math.sin((s.life / s.maxLife) * Math.PI);
+        const backX = s.x - s.vx / Math.abs(s.vx) * s.len;
+        const backY = s.y - s.vy / Math.abs(s.vx) * s.len;
+        const grad = ctx.createLinearGradient(backX, backY, s.x, s.y);
+        grad.addColorStop(0, 'rgba(' + s.hue + ',0)');
+        grad.addColorStop(0.72, 'rgba(' + s.hue + ',' + (0.24 * alpha) + ')');
+        grad.addColorStop(1, 'rgba(255,255,255,' + (0.88 * alpha) + ')');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(backX, backY);
+        ctx.lineTo(s.x, s.y);
+        ctx.stroke();
+
+        ctx.fillStyle = 'rgba(255,255,255,' + (0.9 * alpha) + ')';
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, 1.6, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (s.life > s.maxLife || s.x < -220 || s.x > canvas.width + 220 || s.y > canvas.height + 120) {
+          stars.splice(i, 1);
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    requestAnimationFrame(draw);
+  }
+
   function init() {
     const part = data.findById(currentPartId());
     const cover = document.querySelector('.cover');
     if (!part || !cover || document.querySelector('.part-map-bridge')) return;
     cover.insertAdjacentElement('afterend', buildPanel(part));
+    initShootingStars();
   }
 
   if (document.readyState === 'loading') {
