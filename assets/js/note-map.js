@@ -98,15 +98,57 @@
     if (heroCount && theme) heroCount.textContent = visible + ' articles';
   }
 
+  function renderFilterResults(cards) {
+    const results = document.getElementById('note-filter-results');
+    if (!results) return;
+    results.innerHTML = '';
+
+    if (!cards.length) {
+      const empty = document.createElement('div');
+      empty.className = 'note-filter-empty';
+      empty.textContent = 'このテーマの記事はまだありません。';
+      results.appendChild(empty);
+      return;
+    }
+
+    cards.forEach(function(card) {
+      const note = data.notes.find(function(item) { return item.number === numberFromCard(card); });
+      if (!note) return;
+      const href = card.getAttribute('href') || '#';
+      const link = document.createElement('a');
+      link.className = 'note-filter-link';
+      if (href === '#') {
+        link.href = '#' + card.id;
+      } else {
+        link.href = href;
+        link.target = card.target || '_blank';
+        link.rel = card.rel || 'noopener noreferrer';
+      }
+      const number = document.createElement('span');
+      number.className = 'note-filter-link__num';
+      number.textContent = '#' + note.number;
+      const title = document.createElement('span');
+      title.className = 'note-filter-link__title';
+      title.textContent = note.title;
+      link.appendChild(number);
+      link.appendChild(title);
+      results.appendChild(link);
+    });
+  }
+
   function applyFilter(theme) {
     const rule = themeRules[theme] || themeRules.all;
+    const visibleCards = [];
     document.querySelectorAll('.note-card').forEach(function(card) {
       const note = data.notes.find(function(item) { return item.number === numberFromCard(card); });
-      card.hidden = note ? !rule(note) : theme !== 'all';
+      const shouldShow = note ? rule(note) : theme === 'all';
+      card.hidden = !shouldShow;
+      if (shouldShow) visibleCards.push(card);
     });
     document.querySelectorAll('.note-theme-button').forEach(function(button) {
       button.classList.toggle('active', button.dataset.theme === theme);
     });
+    renderFilterResults(visibleCards);
     updateCount(theme);
   }
 
@@ -114,6 +156,7 @@
     document.querySelectorAll('.note-card').forEach(function(card) {
       const note = data.notes.find(function(item) { return item.number === numberFromCard(card); });
       if (!note) return;
+      card.id = 'note-card-' + note.number;
       card.dataset.noteId = note.id;
       card.dataset.relatedParts = (note.relatedParts || []).join(',');
       card.dataset.tags = (note.tags || []).join(',');
