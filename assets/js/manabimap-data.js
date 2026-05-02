@@ -17,8 +17,7 @@
       era: '18世紀後半から',
       color: 'orange',
       pageUrl: 'parts/part1.html',
-      youtubeUrl: 'https://youtu.be/WOGeJkSUkz0',
-      remakeUrl: 'https://youtu.be/HrQnEL6hi4w',
+      youtubeUrl: 'https://youtu.be/HrQnEL6hi4w',
       tags: ['産業革命', '蒸気機関', '労働', '時間', '教育', '手仕事'],
       concepts: ['industrial-revolution', 'steam-engine', 'labor-time', 'school-clock'],
       questions: [
@@ -38,8 +37,7 @@
       era: '1940年代から2020年代',
       color: 'blue',
       pageUrl: 'parts/part2.html',
-      youtubeUrl: 'https://youtu.be/kpMfSCAVHD8',
-      remakeUrl: 'https://youtu.be/MZSwaQr27NI',
+      youtubeUrl: 'https://youtu.be/MZSwaQr27NI',
       tags: ['コンピュータ', 'インターネット', 'SNS', '注意経済', '孤独'],
       concepts: ['digital-revolution', 'internet', 'sns', 'attention-economy'],
       questions: [
@@ -59,7 +57,7 @@
       era: '2022年から未来',
       color: 'cyan',
       pageUrl: 'parts/part3.html',
-      youtubeUrl: 'https://youtu.be/VtfGezzADME',
+      youtubeUrl: 'https://youtu.be/70vHG6evr6E',
       tags: ['AI', '生成AI', 'ChatGPT', '教育', '身体性', '選択'],
       concepts: ['ai-revolution', 'generative-ai', 'chatgpt', 'human-agency'],
       questions: [

@@ -19,7 +19,7 @@ YouTube動画を見ても、次の日には忘れている。
 「産業革命もAIも、一本の線でつながっている」
 ——そういう感覚で学べる場所を、探したことはありましたか。
 
-https://youtu.be/WOGeJkSUkz0
+https://youtu.be/HrQnEL6hi4w
 
 ---
 
@@ -120,7 +120,7 @@ YouTubeで動画を見て、
 
 ---
 
-https://youtu.be/WOGeJkSUkz0
+https://youtu.be/HrQnEL6hi4w
 
 → **[ハルとおじいさん 学びの地図｜特設サイト](https://pinco53.github.io/ManabiMap/)**
 

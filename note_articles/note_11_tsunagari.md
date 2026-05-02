@@ -19,7 +19,7 @@
 
 これは、気のせいだろうか。
 
-https://youtu.be/kpMfSCAVHD8
+https://youtu.be/MZSwaQr27NI
 
 ---
 
@@ -98,7 +98,7 @@ AIと私たちは、本当につながることができるのでしょうか。
 
 ---
 
-https://youtu.be/kpMfSCAVHD8
+https://youtu.be/MZSwaQr27NI
 
 → **[ハルとおじいさん 第2部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part2.html)**
 

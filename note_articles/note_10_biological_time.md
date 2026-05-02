@@ -18,7 +18,7 @@
 「自然に」起きてしまった。
 これは、体が覚えている時間だ。
 
-https://youtu.be/WOGeJkSUkz0
+https://youtu.be/HrQnEL6hi4w
 
 ---
 
@@ -88,7 +88,7 @@ https://youtu.be/WOGeJkSUkz0
 
 ---
 
-https://youtu.be/WOGeJkSUkz0
+https://youtu.be/HrQnEL6hi4w
 
 → **[ハルとおじいさん 第1部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part1.html)**
 

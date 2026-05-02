@@ -961,6 +961,35 @@ a { color: inherit; text-decoration: none; }
   line-height: 2;
 }
 
+.group-feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 10px 18px;
+  border: 1px solid rgba(0,229,255,0.38);
+  border-radius: 6px;
+  color: var(--neon-cyan);
+  background: rgba(0,229,255,0.05);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  transition: all 0.3s;
+}
+
+.group-feature-link:hover {
+  border-color: rgba(0,229,255,0.72);
+  background: rgba(0,229,255,0.1);
+  box-shadow: 0 0 18px rgba(0,229,255,0.18);
+  transform: translateY(-2px);
+}
+
+.group-feature-link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
 /* Group color themes */
 .group-revolutions .group-label { color: var(--neon-cyan); }
 .group-revolutions .group-title { color: var(--text-bright); }
@@ -1707,43 +1736,7 @@ body::before {
   letter-spacing: 0.2em;
 }
 
-/* ========== REMAKE BADGE ========== */
-.card-remake {
-  border-top: 1px solid var(--border);
-  margin-top: 14px;
-  padding-top: 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.remake-label {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: #000;
-  padding: 3px 8px;
-  border-radius: 2px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.remake-thumb {
-  width: 72px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 3px;
-  flex-shrink: 0;
-  display: block;
-}
-.remake-link {
-  font-size: 11px;
-  font-weight: 700;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: opacity 0.2s;
-}
-.remake-link:hover { opacity: 0.75; }
+/* ========== NEW BADGE ========== */
 .card-new-badge {
   display: inline-block;
   font-size: 9px;
@@ -2005,8 +1998,8 @@ body::before {
 
   <div class="intro-parts-row">
     <div class="intro-part-mini">
-      <a href="https://youtu.be/WOGeJkSUkz0" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/WOGeJkSUkz0/hqdefault.jpg" alt="第1部" loading="lazy">
+      <a href="https://youtu.be/HrQnEL6hi4w" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/HrQnEL6hi4w/hqdefault.jpg" alt="第1部" loading="lazy">
         <div class="intro-part-mini-body">
           <div class="intro-part-mini-num">PART 01</div>
           <div class="intro-part-mini-title">蒸気の時代</div>
@@ -2018,8 +2011,8 @@ body::before {
       </a>
     </div>
     <div class="intro-part-mini">
-      <a href="https://youtu.be/kpMfSCAVHD8" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/kpMfSCAVHD8/hqdefault.jpg" alt="第2部" loading="lazy">
+      <a href="https://youtu.be/MZSwaQr27NI" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/MZSwaQr27NI/hqdefault.jpg" alt="第2部" loading="lazy">
         <div class="intro-part-mini-body">
           <div class="intro-part-mini-num">PART 02</div>
           <div class="intro-part-mini-title">つながる世界</div>
@@ -2031,8 +2024,8 @@ body::before {
       </a>
     </div>
     <div class="intro-part-mini">
-      <a href="https://youtu.be/VtfGezzADME" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/VtfGezzADME/hqdefault.jpg" alt="第3部" loading="lazy">
+      <a href="https://youtu.be/70vHG6evr6E" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/70vHG6evr6E/hqdefault.jpg" alt="第3部" loading="lazy">
         <div class="intro-part-mini-body">
           <div class="intro-part-mini-num">PART 03</div>
           <div class="intro-part-mini-title">AIと生きる未来</div>
@@ -2092,6 +2085,7 @@ body::before {
   <a href="evolution.html" style="color:#bf5fff; border-color:#bf5fff">進化の年表</a>
   <a href="#intro" style="color:var(--neon-gold); border-color:var(--neon-gold)">紹介</a>
   <a href="#map-base" style="color:var(--neon-sky); border-color:var(--neon-sky)">地図</a>
+  <a href="revolutions.html" style="color:var(--neon-cyan); border-color:var(--neon-cyan)">三大革命特集</a>
   <a href="#part1" data-part="1">第1部</a>
   <a href="#part2" data-part="2">第2部</a>
   <a href="#part3" data-part="3">第3部</a>
@@ -2114,15 +2108,19 @@ body::before {
       産業革命、デジタル革命、AI革命──<br>
       人間の暮らしを根底から変えた三つの転換点を俯瞰する
     </p>
+    <a href="revolutions.html" class="group-feature-link">
+      <svg viewBox="0 0 24 24"><path d="M13.5 5.5 20 12l-6.5 6.5-1.4-1.4 4.1-4.1H4v-2h12.2l-4.1-4.1 1.4-1.4z"/></svg>
+      人類の3つの革命を深く学ぶ
+    </a>
   </div>
 
   <div class="parts-grid">
 
     <!-- Part 1 -->
     <div class="part-card" data-part="1" id="part1">
-      <a href="https://youtu.be/WOGeJkSUkz0" target="_blank" rel="noopener">
+      <a href="https://youtu.be/HrQnEL6hi4w" target="_blank" rel="noopener">
         <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/WOGeJkSUkz0/hqdefault.jpg" alt="第1部 サムネイル" loading="lazy">
+          <img src="https://img.youtube.com/vi/HrQnEL6hi4w/hqdefault.jpg" alt="第1部 サムネイル" loading="lazy">
           <div class="play-overlay"><div class="play-icon"></div></div>
         </div>
       </a>
@@ -2137,30 +2135,20 @@ body::before {
           <span class="keyword">手仕事から工場へ</span>
         </div>
         <div class="card-links">
-          <a href="https://youtu.be/WOGeJkSUkz0" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-orange)">
+          <a href="https://youtu.be/HrQnEL6hi4w" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-orange)">
             <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
             YouTubeで見る
           </a>
           <a href="parts/part1.html" class="card-link" style="color:var(--neon-orange)">学びの地図</a>
-        </div>
-        <div class="card-remake">
-          <span class="remake-label" style="background:var(--neon-orange)">REMAKE</span>
-          <a href="https://youtu.be/HrQnEL6hi4w" target="_blank" rel="noopener">
-            <img class="remake-thumb" src="https://img.youtube.com/vi/HrQnEL6hi4w/hqdefault.jpg" alt="第1部リメイク">
-          </a>
-          <a href="https://youtu.be/HrQnEL6hi4w" target="_blank" rel="noopener" class="remake-link" style="color:var(--neon-orange)">
-            <svg width="10" height="10" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
-            リメイク版で見る
-          </a>
         </div>
       </div>
     </div>
 
     <!-- Part 2 -->
     <div class="part-card" data-part="2" id="part2">
-      <a href="https://youtu.be/kpMfSCAVHD8" target="_blank" rel="noopener">
+      <a href="https://youtu.be/MZSwaQr27NI" target="_blank" rel="noopener">
         <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/kpMfSCAVHD8/hqdefault.jpg" alt="第2部 サムネイル" loading="lazy">
+          <img src="https://img.youtube.com/vi/MZSwaQr27NI/hqdefault.jpg" alt="第2部 サムネイル" loading="lazy">
           <div class="play-overlay"><div class="play-icon"></div></div>
         </div>
       </a>
@@ -2175,30 +2163,20 @@ body::before {
           <span class="keyword">つながりの光と影</span>
         </div>
         <div class="card-links">
-          <a href="https://youtu.be/kpMfSCAVHD8" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-blue)">
+          <a href="https://youtu.be/MZSwaQr27NI" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-blue)">
             <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
             YouTubeで見る
           </a>
           <a href="parts/part2.html" class="card-link" style="color:var(--neon-blue)">学びの地図</a>
-        </div>
-        <div class="card-remake">
-          <span class="remake-label" style="background:var(--neon-blue)">REMAKE</span>
-          <a href="https://youtu.be/MZSwaQr27NI" target="_blank" rel="noopener">
-            <img class="remake-thumb" src="https://img.youtube.com/vi/MZSwaQr27NI/hqdefault.jpg" alt="第2部リメイク">
-          </a>
-          <a href="https://youtu.be/MZSwaQr27NI" target="_blank" rel="noopener" class="remake-link" style="color:var(--neon-blue)">
-            <svg width="10" height="10" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
-            リメイク版で見る
-          </a>
         </div>
       </div>
     </div>
 
     <!-- Part 3 -->
     <div class="part-card" data-part="3" id="part3">
-      <a href="https://youtu.be/VtfGezzADME" target="_blank" rel="noopener">
+      <a href="https://youtu.be/70vHG6evr6E" target="_blank" rel="noopener">
         <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/VtfGezzADME/hqdefault.jpg" alt="第3部 サムネイル" loading="lazy">
+          <img src="https://img.youtube.com/vi/70vHG6evr6E/hqdefault.jpg" alt="第3部 サムネイル" loading="lazy">
           <div class="play-overlay"><div class="play-icon"></div></div>
         </div>
       </a>
@@ -2213,7 +2191,7 @@ body::before {
           <span class="keyword">未来の選択</span>
         </div>
         <div class="card-links">
-          <a href="https://youtu.be/VtfGezzADME" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-cyan)">
+          <a href="https://youtu.be/70vHG6evr6E" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-cyan)">
             <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
             YouTubeで見る
           </a>

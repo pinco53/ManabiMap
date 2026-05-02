@@ -90,7 +90,7 @@
 
 動画の補足として「学びの地図」という読み物ページも用意しています。
 
-https://youtu.be/WOGeJkSUkz0
+https://youtu.be/HrQnEL6hi4w
 
 → **[ハルとおじいさん 第1部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part1.html)**
 

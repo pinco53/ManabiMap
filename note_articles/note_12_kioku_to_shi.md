@@ -20,7 +20,7 @@
 もう何十年も経つのに。
 それなのに、あの人がそこにいたような気がした。
 
-https://youtu.be/VtfGezzADME
+https://youtu.be/70vHG6evr6E
 
 ---
 
@@ -89,7 +89,7 @@ AIは、2度目の死を変えることができるのでしょうか。
 
 ---
 
-https://youtu.be/VtfGezzADME
+https://youtu.be/70vHG6evr6E
 
 → **[ハルとおじいさん 第3部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part3.html)**
 

@@ -20,7 +20,7 @@ YouTubeのサムネイルは、誰が作るのでしょう。
 「世界観を統一しながら、毎回ゼロからデザインする」
 ——それをGeminiへのプロンプトで代替することにしました。
 
-https://youtu.be/WOGeJkSUkz0
+https://youtu.be/HrQnEL6hi4w
 
 ---
 
@@ -120,7 +120,7 @@ https://pinco53.github.io/ManabiMap/
 
 ---
 
-https://youtu.be/WOGeJkSUkz0
+https://youtu.be/HrQnEL6hi4w
 
 → **[ハルとおじいさん 学びの地図｜特設サイト](https://pinco53.github.io/ManabiMap/)**
 

@@ -140,7 +140,7 @@ https://pinco53.github.io/ManabiMap/
 
 ---
 
-https://youtu.be/WOGeJkSUkz0
+https://youtu.be/HrQnEL6hi4w
 
 → **[ハルとおじいさん 学びの地図｜特設サイト](https://pinco53.github.io/ManabiMap/)**
 
