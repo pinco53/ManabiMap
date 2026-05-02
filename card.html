@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学びの地図｜デジタル名刺</title>
+<meta name="description" content="産業革命からAIまでを、おじいさんとハルの対話でたどる学びの地図。スマホで渡せる紹介カードです。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="学びの地図">
+<meta property="og:title" content="学びの地図｜デジタル名刺">
+<meta property="og:description" content="産業革命からAIまでを、おじいさんとハルの対話でたどる学びの地図。">
+<meta property="og:url" content="https://pinco53.github.io/ManabiMap/card.html">
+<meta property="og:image" content="https://pinco53.github.io/ManabiMap/assets/social/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="学びの地図｜デジタル名刺">
+<meta name="twitter:description" content="産業革命からAIまでを、おじいさんとハルの対話でたどる学びの地図。">
+<meta name="twitter:image" content="https://pinco53.github.io/ManabiMap/assets/social/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #08080d;
+  --panel: #101018;
+  --panel-2: #171722;
+  --line: rgba(255,255,255,0.12);
+  --text: #f3f3f7;
+  --muted: #a5a5b7;
+  --cyan: #00e5ff;
+  --gold: #ffd36a;
+  --orange: #ff7a32;
+  --green: #6ce37e;
+}
+
+html { min-height: 100%; }
+
+body {
+  min-height: 100vh;
+  font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(0,229,255,0.16), transparent 32%),
+    radial-gradient(circle at 90% 20%, rgba(255,122,50,0.12), transparent 28%),
+    linear-gradient(180deg, #0b0b12 0%, var(--bg) 100%);
+  color: var(--text);
+  line-height: 1.75;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.page {
+  width: min(100%, 520px);
+  margin: 0 auto;
+  padding: 18px 16px 28px;
+}
+
+.top-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.card {
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(16,16,24,0.9);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.34);
+}
+
+.visual {
+  position: relative;
+  min-height: 170px;
+  background: #000;
+  overflow: hidden;
+}
+
+.visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 170px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.56;
+  filter: saturate(1.08) brightness(0.88);
+}
+
+.visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,8,13,0.08), rgba(8,8,13,0.86));
+}
+
+.visual-copy {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+h1 {
+  font-size: clamp(32px, 10vw, 52px);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.body {
+  padding: 22px 20px 20px;
+}
+
+.tagline {
+  color: #dedee8;
+  font-size: 15px;
+  line-height: 1.95;
+  margin-bottom: 18px;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 999px;
+  color: #d8d8e5;
+  background: rgba(255,255,255,0.04);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.primary-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 54px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.action:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0,229,255,0.42);
+  background: rgba(0,229,255,0.07);
+}
+
+.action strong {
+  display: block;
+  line-height: 1.35;
+}
+
+.action small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.action svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: currentColor;
+  color: var(--cyan);
+}
+
+.action.feature svg { color: var(--gold); }
+.action.youtube svg { color: #ff4d4d; }
+.action.note svg { color: var(--green); }
+
+.share-panel {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid rgba(0,229,255,0.18);
+  border-radius: 12px;
+  background: rgba(0,229,255,0.045);
+  margin-bottom: 16px;
+}
+
+.qr {
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.qr img {
+  width: 108px;
+  height: 108px;
+  display: block;
+}
+
+.share-copy h2 {
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.share-copy p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.utility-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+button.utility,
+a.utility {
+  appearance: none;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 9px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  min-height: 44px;
+  padding: 9px 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+button.utility:active,
+a.utility:active { transform: translateY(1px); }
+
+.url-box {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: rgba(0,0,0,0.24);
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.toast {
+  min-height: 24px;
+  margin-top: 10px;
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.footer {
+  padding: 18px 4px 0;
+  color: rgba(255,255,255,0.42);
+  font-size: 11px;
+  text-align: center;
+}
+
+@media (min-width: 460px) {
+  .page { padding-top: 30px; }
+  .primary-actions { grid-template-columns: 1fr 1fr; }
+  .action.main { grid-column: 1 / -1; }
+}
+
+@media (max-width: 370px) {
+  .share-panel { grid-template-columns: 1fr; }
+  .qr img { width: 132px; height: 132px; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <a class="top-link" href="index.html">← 学びの地図トップ</a>
+
+  <section class="card" aria-label="学びの地図 デジタル名刺">
+    <div class="visual">
+      <img src="assets/social/og-image.jpg" alt="学びの地図 イメージ" loading="eager">
+      <div class="visual-copy">
+        <div class="eyebrow">Manabi Map</div>
+        <h1>学びの地図</h1>
+      </div>
+    </div>
+
+    <div class="body">
+      <p class="tagline">
+        産業革命からAIまで。おじいさんとハルの対話で、人類の知の旅をたどる学習サイトです。
+      </p>
+
+      <div class="chips" aria-label="テーマ">
+        <span class="chip">産業革命</span>
+        <span class="chip">デジタル革命</span>
+        <span class="chip">AI革命</span>
+        <span class="chip">教育</span>
+        <span class="chip">問いから学ぶ</span>
+      </div>
+
+      <div class="primary-actions">
+        <a class="action main" href="index.html">
+          <span>
+            <strong>学びの地図を開く</strong>
+            <small>シリーズ全体の入口</small>
+          </span>
+          <svg viewBox="0 0 24 24"><path d="M13.5 5.5 20 12l-6.5 6.5-1.4-1.4 4.1-4.1H4v-2h12.2l-4.1-4.1 1.4-1.4z"/></svg>
+        </a>
+        <a class="action feature" href="revolutions.html">
+          <span>
+            <strong>三大革命特集</strong>
+            <small>まず紹介するならここ</small>
+          </span>
+          <svg viewBox="0 0 24 24"><path d="M12 2 15.1 8.6 22 9.5l-5 5 1.2 7L12 18.1 5.8 21.5l1.2-7-5-5 6.9-.9L12 2z"/></svg>
+        </a>
+        <a class="action" href="evolution.html">
+          <span>
+            <strong>進化の年表</strong>
+            <small>人類史の流れを見る</small>
+          </span>
+          <svg viewBox="0 0 24 24"><path d="M5 3h14v2H5V3zm1 5h12v2H6V8zm-2 5h16v2H4v-2zm3 5h10v2H7v-2z"/></svg>
+        </a>
+        <a class="action youtube" href="https://www.youtube.com/@ManabiMap" target="_blank" rel="noopener">
+          <span>
+            <strong>YouTube</strong>
+            <small>動画で見る</small>
+          </span>
+          <svg viewBox="0 0 24 24"><path d="M22.5 7.1a3 3 0 0 0-2.1-2.1C18.6 4.5 12 4.5 12 4.5s-6.6 0-8.4.5a3 3 0 0 0-2.1 2.1A31 31 0 0 0 1 12a31 31 0 0 0 .5 4.9 3 3 0 0 0 2.1 2.1c1.8.5 8.4.5 8.4.5s6.6 0 8.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23 12a31 31 0 0 0-.5-4.9zM9.8 15.4V8.6l5.9 3.4-5.9 3.4z"/></svg>
+        </a>
+        <a class="action note" href="https://note.com/manabimapcreator" target="_blank" rel="noopener">
+          <span>
+            <strong>note</strong>
+            <small>読み物・制作背景</small>
+          </span>
+          <svg viewBox="0 0 24 24"><path d="M5 4h10.2L19 7.8V20H5V4zm2 2v12h10V9h-3V6H7zm2 6h6v2H9v-2zm0 3h6v2H9v-2z"/></svg>
+        </a>
+      </div>
+
+      <div class="share-panel">
+        <a class="qr" href="https://pinco53.github.io/ManabiMap/card.html" aria-label="デジタル名刺URL">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=216x216&margin=10&data=https%3A%2F%2Fpinco53.github.io%2FManabiMap%2Fcard.html" alt="学びの地図 デジタル名刺のQRコード" loading="lazy">
+        </a>
+        <div class="share-copy">
+          <h2>スマホで見せて、そのまま渡せる紹介カード</h2>
+          <p>QRコード、共有、URLコピーから相手に渡せます。</p>
+        </div>
+      </div>
+
+      <div class="utility-actions">
+        <button class="utility" type="button" id="shareButton">共有する</button>
+        <button class="utility" type="button" id="copyButton">URLコピー</button>
+      </div>
+
+      <div class="url-box" id="cardUrl">https://pinco53.github.io/ManabiMap/card.html</div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <div class="footer">© Manabi Map / ハルとおじいさん</div>
+</main>
+
+<script>
+(function() {
+  'use strict';
+
+  const cardUrl = 'https://pinco53.github.io/ManabiMap/card.html';
+  const shareButton = document.getElementById('shareButton');
+  const copyButton = document.getElementById('copyButton');
+  const toast = document.getElementById('toast');
+
+  function showToast(message) {
+    toast.textContent = message;
+    window.clearTimeout(showToast.timer);
+    showToast.timer = window.setTimeout(function() {
+      toast.textContent = '';
+    }, 2600);
+  }
+
+  function copyUrl() {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(cardUrl).then(function() {
+        showToast('URLをコピーしました。');
+      }).catch(function() {
+        showToast(cardUrl);
+      });
+      return;
+    }
+    showToast(cardUrl);
+  }
+
+  copyButton.addEventListener('click', copyUrl);
+
+  shareButton.addEventListener('click', function() {
+    if (navigator.share) {
+      navigator.share({
+        title: '学びの地図',
+        text: '産業革命からAIまでを、おじいさんとハルの対話でたどる学習サイトです。',
+        url: cardUrl
+      }).catch(function() {});
+      return;
+    }
+    copyUrl();
+  });
+})();
+</script>
+</body>
+</html>
