@@ -104,11 +104,121 @@ a { color: inherit; text-decoration: none; }
   position: relative;
 }
 
+/* ── MAP FILTER ── */
+.note-map-console {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 24px;
+}
+.note-map-panel {
+  border: 1px solid rgba(65,201,180,0.24);
+  border-radius: 10px;
+  background:
+    radial-gradient(ellipse 520px 220px at 16% 0%, rgba(65,201,180,0.11), transparent 70%),
+    linear-gradient(145deg, rgba(16,16,26,0.9), rgba(10,10,18,0.92));
+  padding: 24px;
+}
+.note-map-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+.note-map-label {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--note-green);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.note-map-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-bright);
+  line-height: 1.4;
+}
+.note-map-status {
+  font-size: 12px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.note-theme-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.note-theme-button {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: rgba(255,255,255,0.025);
+  color: var(--text-dim);
+  min-height: 34px;
+  padding: 7px 13px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.note-theme-button:hover,
+.note-theme-button.active {
+  color: var(--note-green);
+  border-color: var(--note-green);
+  background: rgba(65,201,180,0.09);
+}
+.note-filter-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 9px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.note-filter-link {
+  display: block;
+  min-height: 58px;
+  padding: 11px 12px;
+  border: 1px solid rgba(65,201,180,0.16);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.18);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.22s, background 0.22s, transform 0.22s;
+}
+.note-filter-link:hover {
+  border-color: rgba(65,201,180,0.54);
+  background: rgba(65,201,180,0.08);
+  transform: translateY(-2px);
+}
+.note-filter-link__num {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--note-green);
+}
+.note-filter-link__title {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.55;
+  color: var(--text-bright);
+}
+.note-filter-empty {
+  grid-column: 1 / -1;
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
 /* ── GRID ── */
 .grid-section {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: 22px 24px 80px;
 }
 .note-grid {
   display: grid;
@@ -125,6 +235,9 @@ a { color: inherit; text-decoration: none; }
   padding: 24px;
   transition: all 0.3s;
   cursor: pointer;
+}
+.note-card[hidden] {
+  display: none !important;
 }
 .note-card:hover {
   background: var(--bg-card-hover);
@@ -224,6 +337,30 @@ a { color: inherit; text-decoration: none; }
     「ハルとおじいさん」の世界観を、もう少し遠くまで。
   </p>
   <div class="hero-count">47 articles</div>
+</section>
+
+<section class="note-map-console" aria-label="note記事のテーマ別フィルター">
+  <div class="note-map-panel">
+    <div class="note-map-head">
+      <div>
+        <div class="note-map-label">NOTE MAP</div>
+        <div class="note-map-title">地図の枝道を、テーマで探す</div>
+      </div>
+      <div class="note-map-status">
+        <span id="note-filter-label">すべて</span> / <span id="note-filter-count">47 articles</span>
+      </div>
+    </div>
+    <div class="note-theme-buttons">
+      <button type="button" class="note-theme-button active" data-theme="all">すべて</button>
+      <button type="button" class="note-theme-button" data-theme="ai">AI</button>
+      <button type="button" class="note-theme-button" data-theme="education">教育</button>
+      <button type="button" class="note-theme-button" data-theme="language">言葉と思考</button>
+      <button type="button" class="note-theme-button" data-theme="number">数字と世界</button>
+      <button type="button" class="note-theme-button" data-theme="knowledge">知識と検索</button>
+      <button type="button" class="note-theme-button" data-theme="learning">学びそのもの</button>
+    </div>
+    <div class="note-filter-results" id="note-filter-results" aria-live="polite"></div>
+  </div>
 </section>
 
 <section class="grid-section">
@@ -756,5 +893,7 @@ a { color: inherit; text-decoration: none; }
   </p>
 </footer>
 
+<script src="assets/js/manabimap-data.js"></script>
+<script src="assets/js/note-map.js"></script>
 </body>
 </html>

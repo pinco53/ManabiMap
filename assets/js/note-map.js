@@ -43,6 +43,26 @@
     return match ? Number(match[1]) : null;
   }
 
+  function noteFromCard(card) {
+    const number = numberFromCard(card);
+    const fromData = data.notes.find(function(item) { return item.number === number; });
+    if (fromData) return fromData;
+
+    const title = card.querySelector('.card-title');
+    const tags = Array.from(card.querySelectorAll('.tag')).map(function(tag) {
+      return tag.textContent.replace(/^#/, '').trim();
+    }).filter(Boolean);
+
+    return {
+      id: 'card-note-' + number,
+      number: number,
+      title: title ? title.textContent.trim() : 'note article',
+      url: card.getAttribute('href') || '',
+      tags: tags,
+      relatedParts: []
+    };
+  }
+
   function partLabel(id) {
     if (id === 'note') return '制作・学び';
     if (id === 'evolution') return '進化の年表';
@@ -112,7 +132,7 @@
     }
 
     cards.forEach(function(card) {
-      const note = data.notes.find(function(item) { return item.number === numberFromCard(card); });
+      const note = noteFromCard(card);
       if (!note) return;
       const href = card.getAttribute('href') || '#';
       const link = document.createElement('a');
@@ -140,7 +160,7 @@
     const rule = themeRules[theme] || themeRules.all;
     const visibleCards = [];
     document.querySelectorAll('.note-card').forEach(function(card) {
-      const note = data.notes.find(function(item) { return item.number === numberFromCard(card); });
+      const note = noteFromCard(card);
       const shouldShow = note ? rule(note) : theme === 'all';
       card.hidden = !shouldShow;
       if (shouldShow) visibleCards.push(card);
@@ -154,7 +174,7 @@
 
   function init() {
     document.querySelectorAll('.note-card').forEach(function(card) {
-      const note = data.notes.find(function(item) { return item.number === numberFromCard(card); });
+      const note = noteFromCard(card);
       if (!note) return;
       card.id = 'note-card-' + note.number;
       card.dataset.noteId = note.id;
