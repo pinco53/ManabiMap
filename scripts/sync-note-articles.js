@@ -154,6 +154,7 @@ function parseArticle(file) {
 
 function cardHtml(note) {
   const num = '#' + String(note.number).padStart(2, '0');
+  const cardId = 'note-card-' + note.number;
   const tags = (note.target ? [note.target] : note.tags.map((tag) => '#' + tag))
     .slice(0, 8)
     .map((tag) => '<span class="tag">' + escapeHtml(tag) + '</span>')
@@ -179,14 +180,14 @@ function cardHtml(note) {
 
   if (note.url) {
     return [
-      '    <a href="' + escapeHtml(note.url) + '" target="_blank" rel="noopener noreferrer" class="note-card">',
+      '    <a id="' + cardId + '" href="' + escapeHtml(note.url) + '" target="_blank" rel="noopener noreferrer" class="note-card">',
       inner,
       '    </a>'
     ].join('\n');
   }
 
   return [
-    '    <div class="note-card note-card--unpublished">',
+    '    <div id="' + cardId + '" class="note-card note-card--unpublished">',
     inner,
     '    </div>'
   ].join('\n');
