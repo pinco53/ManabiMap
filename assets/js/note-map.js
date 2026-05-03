@@ -45,10 +45,16 @@
 
   function noteFromCard(card) {
     const number = numberFromCard(card);
+    const noteId = card.dataset.noteId;
+    if (noteId) {
+      const byId = data.notes.find(function(item) { return item.id === noteId; });
+      if (byId) return byId;
+    }
     const fromData = data.notes.find(function(item) { return item.number === number; });
     if (fromData) return fromData;
 
     const title = card.querySelector('.card-title');
+    const readLink = card.querySelector('[data-note-read-link]');
     const tags = Array.from(card.querySelectorAll('.tag')).map(function(tag) {
       return tag.textContent.replace(/^#/, '').trim();
     }).filter(Boolean);
@@ -57,7 +63,7 @@
       id: 'card-note-' + number,
       number: number,
       title: title ? title.textContent.trim() : 'note article',
-      url: card.getAttribute('href') || '',
+      url: readLink ? readLink.getAttribute('href') : '',
       tags: tags,
       relatedParts: []
     };
@@ -79,6 +85,7 @@
 
   function attachPartChips(card, note) {
     if (!note || card.querySelector('.note-map-links')) return;
+    if (card.querySelector('.card-branch')) return;
     const related = (note.relatedParts || []).filter(function(id) {
       return id !== 'note';
     }).slice(0, 3);

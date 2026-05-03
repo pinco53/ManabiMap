@@ -9,6 +9,34 @@ const noteDir = path.join(root, 'note_articles');
 const noteHtmlPath = path.join(root, 'note.html');
 const dataPath = path.join(root, 'assets/js/manabimap-data.js');
 
+const partMeta = {
+  part1: { orbit: 'PART 01 ORBIT', label: '第1部 蒸気の時代', href: 'parts/part1.html', relation: '機械と時間の枝道' },
+  part2: { orbit: 'PART 02 ORBIT', label: '第2部 つながる世界', href: 'parts/part2.html', relation: 'つながりと思考の枝道' },
+  part3: { orbit: 'PART 03 ORBIT', label: '第3部 AIと生きる未来', href: 'parts/part3.html', relation: 'AIと人間の枝道' },
+  part4: { orbit: 'PART 04 ORBIT', label: '第4部 文字と知識の冒険', href: 'parts/part4.html', relation: '知識と記録の枝道' },
+  part5: { orbit: 'PART 05 ORBIT', label: '第5部 言葉と思考の旅', href: 'parts/part5.html', relation: '言葉と思考の枝道' },
+  part6: { orbit: 'PART 06 ORBIT', label: '第6部 数字と世界', href: 'parts/part6.html', relation: '数と社会の枝道' },
+  part7: { orbit: 'PART 07 ORBIT', label: '第7部 人間の前提を外す', href: 'parts/part7.html', relation: '前提を外す枝道' },
+  part8: { orbit: 'PART 08 ORBIT', label: '第8部 AIと人間のあいだ', href: 'parts/part8.html', relation: '生成AIの枝道' },
+  'part8-2': { orbit: 'PART 08 ORBIT', label: '第8部 AIが日常に入る日', href: 'parts/part8_2.html', relation: '教育と日常の枝道' },
+  evolution: { orbit: 'HISTORY ORBIT', label: '進化の年表', href: 'evolution.html', relation: '人類史から伸びる枝道' },
+  note: { orbit: 'NOTE ORBIT', label: 'note記事群', href: 'note.html', relation: '制作と学びの枝道' }
+};
+
+const questionByPart = {
+  part1: '機械は人間を何から解放し、何に縛ったのか。',
+  part2: 'つながることは、近づくことと同じなのか。',
+  part3: 'AIが考えているように見えるとき、人間が考えるとは何か。',
+  part4: '検索できることと、理解していることは同じなのか。',
+  part5: '言葉がない世界では、思考はどのように存在するのか。',
+  part6: '数字で測れるものだけが、価値あるものなのか。',
+  part7: '人間の当たり前を外すと、世界はどう見え直すのか。',
+  part8: '生成AIは、何を生成しているのか。',
+  'part8-2': 'AIが宿題を解ける時代に、学力とは何か。',
+  evolution: 'いま見ている問いは、人類史のどこから来たのか。',
+  note: '学ぶとは、答えを増やすことか、問いを増やすことか。'
+};
+
 function read(file) {
   return fs.readFileSync(file, 'utf8');
 }
@@ -124,6 +152,24 @@ function relatedParts(target, tags) {
   return Array.from(new Set(parts));
 }
 
+function primaryPartId(note) {
+  const parts = note.relatedParts || [];
+  return parts.find((id) => partMeta[id] && id !== 'note') || parts.find((id) => partMeta[id]) || 'note';
+}
+
+function branchInfo(note) {
+  const partId = primaryPartId(note);
+  const meta = partMeta[partId] || partMeta.note;
+  return {
+    partId,
+    orbitLabel: meta.orbit,
+    mapNodeLabel: meta.label,
+    mapNodeUrl: meta.href,
+    relation: meta.relation,
+    question: questionByPart[partId] || note.title
+  };
+}
+
 function parseArticle(file) {
   const text = read(file);
   const base = path.basename(file);
@@ -153,43 +199,41 @@ function parseArticle(file) {
 }
 
 function cardHtml(note) {
+  const branch = branchInfo(note);
   const num = '#' + String(note.number).padStart(2, '0');
   const cardId = 'note-card-' + note.number;
   const tags = (note.target ? [note.target] : note.tags.map((tag) => '#' + tag))
     .slice(0, 8)
     .map((tag) => '<span class="tag">' + escapeHtml(tag) + '</span>')
     .join('');
-  const footer = note.url
-    ? [
-        note.date ? '        <span class="card-date">' + escapeHtml(note.date) + '</span>' : '        <span></span>',
-        '        <span class="card-link">記事を読む →</span>'
-      ].join('\n')
-    : [
-        '        <span></span>',
-        '        <span class="card-link card-link--dim">近日公開</span>'
-      ].join('\n');
+  const readAction = note.url
+    ? '        <a class="card-action card-action--read" href="' + escapeHtml(note.url) + '" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>'
+    : '        <span class="card-action card-action--disabled">近日公開</span>';
   const inner = [
+    '      <div class="card-orbit-label">' + escapeHtml(branch.orbitLabel) + '</div>',
     '      <div class="card-num">' + num + (note.url ? '' : ' <span class="badge-unpublished">準備中</span>') + '</div>',
     '      <h3 class="card-title">' + escapeHtml(note.title) + '</h3>',
+    '      <div class="card-branch">',
+    '        <span class="card-branch__eyebrow">この地図ノードから</span>',
+    '        <a class="card-branch__node" href="' + escapeHtml(branch.mapNodeUrl) + '">' + escapeHtml(branch.mapNodeLabel) + '</a>',
+    '        <span class="card-branch__tail">伸びる枝道</span>',
+    '      </div>',
+    '      <p class="card-question">問：' + escapeHtml(branch.question) + '</p>',
     '      <p class="card-excerpt">' + escapeHtml(note.excerpt) + '</p>',
     '      <div class="card-tags">' + tags + '</div>',
     '      <div class="card-footer">',
-    footer,
+    '        ' + (note.date ? '<span class="card-date">' + escapeHtml(note.date) + '</span>' : '<span></span>'),
+    '        <div class="card-actions">',
+    readAction,
+    '          <a class="card-action card-action--map" href="' + escapeHtml(branch.mapNodeUrl) + '">地図で見る</a>',
+    '        </div>',
     '      </div>'
   ].join('\n');
 
-  if (note.url) {
-    return [
-      '    <a id="' + cardId + '" href="' + escapeHtml(note.url) + '" target="_blank" rel="noopener noreferrer" class="note-card">',
-      inner,
-      '    </a>'
-    ].join('\n');
-  }
-
   return [
-    '    <div id="' + cardId + '" class="note-card note-card--unpublished">',
+    '    <article id="' + cardId + '" class="note-card' + (note.url ? '' : ' note-card--unpublished') + '" data-note-id="' + escapeHtml(note.id) + '" data-primary-part="' + escapeHtml(branch.partId) + '">',
     inner,
-    '    </div>'
+    '    </article>'
   ].join('\n');
 }
 
@@ -219,6 +263,7 @@ function jsValue(value) {
 }
 
 function noteObject(note) {
+  const branch = branchInfo(note);
   const props = [
     "id: 'note-" + String(note.number).padStart(2, '0') + "'",
     'number: ' + note.number,
@@ -226,8 +271,14 @@ function noteObject(note) {
   ];
   if (note.url) props.push('url: ' + jsValue(note.url));
   if (note.status) props.push('status: ' + jsValue(note.status));
+  if (note.date) props.push('date: ' + jsValue(note.date));
+  if (note.target) props.push('target: ' + jsValue(note.target));
   props.push('tags: ' + jsValue(note.tags));
   props.push('relatedParts: ' + jsValue(note.relatedParts));
+  props.push('question: ' + jsValue(branch.question));
+  props.push('relation: ' + jsValue(branch.relation));
+  props.push('primaryPart: ' + jsValue(branch.partId));
+  props.push('excerpt: ' + jsValue(note.excerpt));
   return '    { ' + props.join(', ') + ' }';
 }
 

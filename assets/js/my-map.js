@@ -257,7 +257,8 @@
         return;
       }
 
-      const noteCard = event.target.closest('.note-card[href]');
+      const noteReadLink = event.target.closest('[data-note-read-link]');
+      const noteCard = noteReadLink ? noteReadLink.closest('.note-card') : event.target.closest('.note-card[href]');
       if (noteCard && noteCard.dataset.noteId) {
         markDone(noteCard.dataset.noteId);
       }

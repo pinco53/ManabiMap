@@ -209,53 +209,53 @@
   ];
 
   const notes = [
-    { id: 'note-01', number: 1, title: "ChatGPTが登場するまで、人類に何があったのか。", url: "https://note.com/manabimapcreator/n/n00c3101a661e", tags: ["生成AI","ChatGPT","教育","人類史","学び","AI"], relatedParts: ["part3","part8-2","part8","evolution"] },
-    { id: 'note-02', number: 2, title: "「機械に仕事を奪われる」という恐怖は、200年前にもあった。", status: "local-draft", tags: ["産業革命","歴史","AI","教育","仕事","人類史","学び"], relatedParts: ["part1","part8-2","part8","evolution"] },
-    { id: 'note-03', number: 3, title: "ChatGPTに同じことを聞くと、なぜ毎回答えが違うのか。", status: "local-draft", tags: ["生成AI","ChatGPT","検索","AI","教育","学び"], relatedParts: ["part3","part4","part8-2","part8"] },
-    { id: 'note-04', number: 4, title: "スマホの中に、80年分の革命が詰まっている。", status: "local-draft", tags: ["デジタル革命","インターネット","歴史","テクノロジー","教育","学び","人類史"], relatedParts: ["part2","part8-2","part8","evolution"] },
-    { id: 'note-05', number: 5, title: "生成AIは、いったい何を「生成」しているのか。", url: "https://note.com/manabimapcreator/n/n05c7f8f23fc4", tags: ["第8部第1話（前編","後編）"], relatedParts: ["part8"] },
-    { id: 'note-06', number: 6, title: "追い出された場所から、次の時代が生まれる。", url: "https://note.com/manabimapcreator/n/nf03fbdb50e71", tags: ["第8部第2話「ルールから確率へ」前編","後編"], relatedParts: ["part8"] },
-    { id: 'note-07', number: 7, title: "「わかってもらえた」は、ただの確率かもしれない", url: "https://note.com/manabimapcreator/n/n92652d8bad4c", tags: ["第8部第3話（前編","後編）"], relatedParts: ["part8"] },
-    { id: 'note-08', number: 8, title: "あのアイデア、本当に自分が思いついたのか", url: "https://note.com/manabimapcreator/n/n669e2df9e9e9", tags: ["第8部第4話（前編","後編）"], relatedParts: ["part8"] },
-    { id: 'note-09', number: 9, title: "AIに、何を問えばいいのか", url: "https://note.com/manabimapcreator/n/nb299d49cfdd2", tags: ["第8部第5話（前編","後編）"], relatedParts: ["part8"] },
-    { id: 'note-10', number: 10, title: "体の時間は、今も35億年前のままだ", url: "https://note.com/manabimapcreator/n/n1195ea4b52e4", tags: ["第1部「蒸気の時代」"], relatedParts: ["part1"] },
-    { id: 'note-11', number: 11, title: "世界はつながったのに、なぜ孤独なのか", url: "https://note.com/manabimapcreator/n/nbf644c80243f", tags: ["第2部「つながる世界」"], relatedParts: ["part2"] },
-    { id: 'note-12', number: 12, title: "記憶の中の人は、いつ「消える」のか", url: "https://note.com/manabimapcreator/n/nc670691839e8", tags: ["第3部「AIと生きる未来」"], relatedParts: ["part3","part8"] },
-    { id: 'note-13', number: 13, title: "「AIを使うと考えなくなる」——ソクラテスも、2400年前に言っていた", url: "https://note.com/manabimapcreator/n/n3446a5ccce61", tags: ["第4部第1話（前編","後編）"], relatedParts: ["part4"] },
-    { id: 'note-14', number: 14, title: "なぜ人は、石に印をつけずにいられなかったのか", url: "https://note.com/manabimapcreator/n/n1e582531d82f", tags: ["第4部第2話（前編","後編）"], relatedParts: ["part4"] },
-    { id: 'note-15', number: 15, title: "「読む楽しみ」は、いつ誰のものになったのか", url: "https://note.com/manabimapcreator/n/n9c00c715d369", tags: ["第4部第3話（前編","後編）"], relatedParts: ["part4"] },
-    { id: 'note-16', number: 16, title: "「知りたい」と思った瞬間、それは誰かが作った道かもしれない", url: "https://note.com/manabimapcreator/n/naecb9a6237db", tags: ["第4部第4話（前編","後編）"], relatedParts: ["part4"] },
-    { id: 'note-17', number: 17, title: "6,350トンのケーブルが運んだのは、何グラムの情報だったか", url: "https://note.com/manabimapcreator/n/n8a3b5689ab7f", tags: ["第4部第5話（前編","後編）"], relatedParts: ["part4"] },
-    { id: 'note-18', number: 18, title: "本を途中から読むと、なぜか罪悪感がある", url: "https://note.com/manabimapcreator/n/nb1531205470c", tags: ["第4部第6話（前編","後編）"], relatedParts: ["part4"] },
-    { id: 'note-19', number: 19, title: "人は世界を同じように捉えている？", url: "https://note.com/manabimapcreator/n/n3f2187946e15", tags: ["第4部第7話（前編","後編）"], relatedParts: ["part4"] },
-    { id: 'note-20', number: 20, title: "音はずっとあった。では、いつ「意味」になったのか。", url: "https://note.com/manabimapcreator/n/n5556f35e43b5", tags: ["第5部第1話（前編","後編）"], relatedParts: ["part5"] },
-    { id: 'note-21', number: 21, title: "名前をつける前、世界はひとつながりだった。", url: "https://note.com/manabimapcreator/n/n1cc11159159c", tags: ["第5部第1話（前編","後編）続編テーマ"], relatedParts: ["part5"] },
-    { id: 'note-22', number: 22, title: "人類最古の名前は、英雄のものではなかった。", url: "https://note.com/manabimapcreator/n/nd91398b2e60b", tags: ["第5部第1話（前編","後編）続々編テーマ"], relatedParts: ["part5"] },
-    { id: 'note-23', number: 23, title: "頭の中で、あなたは誰と話しているのか", url: "https://note.com/manabimapcreator/n/n180a0b52e8f6", tags: ["第5部第2話（前編","後編）"], relatedParts: ["part5"] },
-    { id: 'note-24', number: 24, title: "数の言葉を持たない民族が、いた", url: "https://note.com/manabimapcreator/n/n11ad03fc63ef", tags: ["第5部第3話（前編","後編）"], relatedParts: ["part5"] },
-    { id: 'note-25', number: 25, title: "棒の刻み目で、帝国は動いていた", url: "https://note.com/manabimapcreator/n/nac7c30f224ac", tags: ["第5部第3話（前編","後編）"], relatedParts: ["part5"] },
-    { id: 'note-26', number: 26, title: "神社に数学を奉納した民族がいた", url: "https://note.com/manabimapcreator/n/n3103a25ac2c4", tags: ["第5部第3話テーマ（数","抽象化）フリースタンディング"], relatedParts: ["part5","part6"] },
-    { id: 'note-27', number: 27, title: "「なぜ？」は、もともと逃げるためにあった", url: "https://note.com/manabimapcreator/n/n89c60fb760af", tags: ["第5部第4話（前編","後編）"], relatedParts: ["part5"] },
-    { id: 'note-28', number: 28, title: "言語は、思考の牢獄か。それとも窓か", url: "https://note.com/manabimapcreator/n/n253a052aba94", tags: ["第5部第5話（前編","後編）"], relatedParts: ["part5"] },
-    { id: 'note-29', number: 29, title: "完璧に答えられる人が、何もわかっていないとしたら", url: "https://note.com/manabimapcreator/n/nd2075692b089", tags: ["第5部第6話（前編","後編）"], relatedParts: ["part5"] },
-    { id: 'note-30', number: 30, title: "すべての答えが手に入る時代に、「問い」だけを届けるコンテンツを始めた", url: "https://note.com/manabimapcreator/n/nb43ff699126c", tags: ["Gemini","note）"], relatedParts: ["part8","note"] },
-    { id: 'note-31', number: 31, title: "学べば学ぶほど、知らないことが増えていく", url: "https://note.com/manabimapcreator/n/n5796b158faa3", tags: [], relatedParts: ["part5"] },
-    { id: 'note-32', number: 32, title: "数える力は、生まれ持ったものだろうか", url: "https://note.com/manabimapcreator/n/na8308189337b", tags: ["第6部第1話（前編","後編）"], relatedParts: ["part6"] },
-    { id: 'note-33', number: 33, title: "数は、指を離れてどこへ行ったのか", url: "https://note.com/manabimapcreator/n/n387ce13418ba", tags: ["第6部第2話（前編","後編）"], relatedParts: ["part6"] },
-    { id: 'note-34', number: 34, title: "数が指を離れた夜、無限が生まれた", url: "https://note.com/manabimapcreator/n/n4da46f1a9bde", tags: ["第6部第3話（前編","後編）"], relatedParts: ["part6"] },
-    { id: 'note-35', number: 35, title: "計算が生まれた日、人類は「試す」のをやめた", url: "https://note.com/manabimapcreator/n/n9a89ce1888e3", tags: ["第6部第4話（前編","後編）"], relatedParts: ["part6"] },
-    { id: 'note-37', number: 37, title: "プロンプトを書くことが、デザインになった──GeminiでYouTube・noteのサムネをつくる", url: "https://note.com/manabimapcreator/n/n90cb4cd059df", tags: ["Geminiサムネ制作プロセス紹介","ManabiMapサイト紹介"], relatedParts: ["note"] },
-    { id: 'note-38', number: 38, title: "「学びの種」をまく仕事——教育20年目に、生成AIが変えたもの", url: "https://note.com/manabimapcreator/n/nf61a2cb5617d", tags: ["制作者の個人視点","教育20年","生成AI","ManabiMap"], relatedParts: ["part3","part8-2","part8","note"] },
-    { id: 'note-39', number: 39, title: "誰も「平均人」ではなかった。", url: "https://note.com/manabimapcreator/n/n75ad2b140de4", tags: ["第6部第5話（前編","後編）"], relatedParts: ["part6"] },
-    { id: 'note-40', number: 40, title: "「内から生まれた言葉」とは、何だろう", url: "https://note.com/manabimapcreator/n/n10281e399b72", tags: ["第8部第6話（前編","後編）"], relatedParts: ["part8"] },
-    { id: 'note-41', number: 41, title: "テストで高得点を取ると、幸せになれるのか", url: "https://note.com/manabimapcreator/n/ndc68c0112605", tags: ["学力テスト","幸福度","点数主義","日本の教育","教育の問い","エビデンス","共通テストの衝撃","AI時代の教育","ウェルビーイング","自己決定","教育改革","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part6","part8-2","part8","note"] },
-    { id: 'note-42', number: 42, title: "あなたを測る物差しは、誰が作ったのか", url: "https://note.com/manabimapcreator/n/n6c7f5847c20c", tags: ["第6部第6話（前編","後編）"], relatedParts: ["part6"] },
-    { id: 'note-43', number: 43, title: "AIが東大首席を超えた日に、何が終わったのか", url: "https://note.com/manabimapcreator/n/n79167fdcd136", tags: ["東大入試","AI受験","共通テスト","知識の限界","AI時代の教育","受験勉強","教育の問い","学力とは何か","問いを立てる力","これからの学び","教育改革","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part8-2","part8","note"] },
-    { id: 'note-44', number: 44, title: "知れば知るほど、「わからない」が増えるのはなぜか", url: "https://note.com/manabimapcreator/n/nfd9d525140fc", tags: ["知識の地平線","無知の知","ソクラテス","ニュートン","学べば学ぶほど","わからないが増える","学ぶとはなにか","問いを立てる力","好奇心","哲学","数字の歴史","AI時代の学び","これからの教育","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part6","part8-2","part8","note"] },
-    { id: 'note-45', number: 45, title: "「覚えなくていい」時代に、なぜ覚えることに意味があるのか", url: "https://note.com/manabimapcreator/n/n4e98d260513a", tags: ["暗記の意味","チェス名人実験","認知科学","パターン認識","暗黙知","タシットナレッジ","覚えることの意味","AI時代の学び","学力とは何か","基礎知識","脳と学習","ロンドンタクシー","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part8-2","part8","note"] },
-    { id: 'note-46', number: 46, title: "東大入試がAIに超えられた日に、見えなかった問い", url: "https://note.com/manabimapcreator/n/n39e9e74b774f", tags: ["東大入試","AI受験","学力とは何か","チェス名人","パターン認識","暗黙知","AI時代の教育","測られない知識","これからの学び","教育の問い","共通テスト","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part8-2","part8","note"] },
-    { id: 'note-47', number: 47, title: "あなたの見ている世界は、知識で作られている", url: "https://note.com/manabimapcreator/n/n0a0c56f8f5b9", tags: ["知識","思考","言語と思考","世界の見え方","認知科学","ピダハン族","バートレット","スキーマ理論","知覚と認識","学力とは何か","知ることの意味","AI時代の学び","哲学","教育","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part5","part8-2","part8","note"] },
-    { id: 'note-48', number: 48, title: "「腑に落ちる」は、なぜ身体の言葉なのか", url: "https://note.com/manabimapcreator/n/n0c64a3eeb6f8", tags: ["学び","教育","AI","認知科学","身体化認知","思考","宿題"], relatedParts: ["part5","part8-2","part8"] }
+    { id: 'note-01', number: 1, title: "ChatGPTが登場するまで、人類に何があったのか。", url: "https://note.com/manabimapcreator/n/n00c3101a661e", tags: ["生成AI","ChatGPT","教育","人類史","学び","AI"], relatedParts: ["part3","part8-2","part8","evolution"], question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "「なぜ学ぶのか」という問いに、うまく答えられますか？" },
+    { id: 'note-02', number: 2, title: "「機械に仕事を奪われる」という恐怖は、200年前にもあった。", status: "local-draft", tags: ["産業革命","歴史","AI","教育","仕事","人類史","学び"], relatedParts: ["part1","part8-2","part8","evolution"], question: "機械は人間を何から解放し、何に縛ったのか。", relation: "機械と時間の枝道", primaryPart: "part1", excerpt: "「AIに仕事を奪われる」という言葉を、最近よく耳にします。" },
+    { id: 'note-03', number: 3, title: "ChatGPTに同じことを聞くと、なぜ毎回答えが違うのか。", status: "local-draft", tags: ["生成AI","ChatGPT","検索","AI","教育","学び"], relatedParts: ["part3","part4","part8-2","part8"], question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "ChatGPTに同じ質問を2回したことはありますか？" },
+    { id: 'note-04', number: 4, title: "スマホの中に、80年分の革命が詰まっている。", status: "local-draft", tags: ["デジタル革命","インターネット","歴史","テクノロジー","教育","学び","人類史"], relatedParts: ["part2","part8-2","part8","evolution"], question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "スマホを毎日使っていますか？" },
+    { id: 'note-05', number: 5, title: "生成AIは、いったい何を「生成」しているのか。", url: "https://note.com/manabimapcreator/n/n05c7f8f23fc4", date: "2026-03-23", target: "第8部第1話（前編・後編）", tags: ["第8部第1話（前編","後編）"], relatedParts: ["part8"], question: "生成AIは、何を生成しているのか。", relation: "生成AIの枝道", primaryPart: "part8", excerpt: "タグ: #生成AI #AI #人工知能 #学び #哲学 #人類史 #教育" },
+    { id: 'note-06', number: 6, title: "追い出された場所から、次の時代が生まれる。", url: "https://note.com/manabimapcreator/n/nf03fbdb50e71", date: "2026-03-24", target: "第8部第2話「ルールから確率へ」前編・後編", tags: ["第8部第2話「ルールから確率へ」前編","後編"], relatedParts: ["part8"], question: "生成AIは、何を生成しているのか。", relation: "生成AIの枝道", primaryPart: "part8", excerpt: "タグ: #AI #機械学習 #ディープラーニング #進化 #学び #歴史 #人類史" },
+    { id: 'note-07', number: 7, title: "「わかってもらえた」は、ただの確率かもしれない", url: "https://note.com/manabimapcreator/n/n92652d8bad4c", date: "2026-03-24", target: "第8部第3話（前編・後編）", tags: ["第8部第3話（前編","後編）"], relatedParts: ["part8"], question: "生成AIは、何を生成しているのか。", relation: "生成AIの枝道", primaryPart: "part8", excerpt: "テスト前夜、教科書をひたすら眺めた記憶がある。" },
+    { id: 'note-08', number: 8, title: "あのアイデア、本当に自分が思いついたのか", url: "https://note.com/manabimapcreator/n/n669e2df9e9e9", date: "2026-03-24", target: "第8部第4話（前編・後編）", tags: ["第8部第4話（前編","後編）"], relatedParts: ["part8"], question: "生成AIは、何を生成しているのか。", relation: "生成AIの枝道", primaryPart: "part8", excerpt: "会議で何かを言った。" },
+    { id: 'note-09', number: 9, title: "AIに、何を問えばいいのか", url: "https://note.com/manabimapcreator/n/nb299d49cfdd2", date: "2026-03-25", target: "第8部第5話（前編・後編）", tags: ["第8部第5話（前編","後編）"], relatedParts: ["part8"], question: "生成AIは、何を生成しているのか。", relation: "生成AIの枝道", primaryPart: "part8", excerpt: "何かを調べようとして、検索窓の前で止まったことがある。" },
+    { id: 'note-10', number: 10, title: "体の時間は、今も35億年前のままだ", url: "https://note.com/manabimapcreator/n/n1195ea4b52e4", date: "2026-03-25", target: "第1部「蒸気の時代」", tags: ["第1部「蒸気の時代」"], relatedParts: ["part1"], question: "機械は人間を何から解放し、何に縛ったのか。", relation: "機械と時間の枝道", primaryPart: "part1", excerpt: "休日の朝、目覚ましをかけ忘れた。" },
+    { id: 'note-11', number: 11, title: "世界はつながったのに、なぜ孤独なのか", url: "https://note.com/manabimapcreator/n/nbf644c80243f", date: "2026-03-26", target: "第2部「つながる世界」", tags: ["第2部「つながる世界」"], relatedParts: ["part2"], question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "スマホを開けば、誰かの近況が流れてくる。" },
+    { id: 'note-12', number: 12, title: "記憶の中の人は、いつ「消える」のか", url: "https://note.com/manabimapcreator/n/nc670691839e8", date: "2026-03-28", target: "第3部「AIと生きる未来」", tags: ["第3部「AIと生きる未来」"], relatedParts: ["part3","part8"], question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "ふとした瞬間に、思い出す。" },
+    { id: 'note-13', number: 13, title: "「AIを使うと考えなくなる」——ソクラテスも、2400年前に言っていた", url: "https://note.com/manabimapcreator/n/n3446a5ccce61", date: "2026-03-30", target: "第4部第1話（前編・後編）", tags: ["第4部第1話（前編","後編）"], relatedParts: ["part4"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「AIを使うと、考えなくなる」" },
+    { id: 'note-14', number: 14, title: "なぜ人は、石に印をつけずにいられなかったのか", url: "https://note.com/manabimapcreator/n/n1e582531d82f", date: "2026-03-31", target: "第4部第2話（前編・後編）", tags: ["第4部第2話（前編","後編）"], relatedParts: ["part4"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "スマホを開くと、文字より先に絵文字を選んでいる自分がいます。" },
+    { id: 'note-15', number: 15, title: "「読む楽しみ」は、いつ誰のものになったのか", url: "https://note.com/manabimapcreator/n/n9c00c715d369", date: "2026-04-02", target: "第4部第3話（前編・後編）", tags: ["第4部第3話（前編","後編）"], relatedParts: ["part4"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "今日、本を読みたいと思えば、すぐ読めます。" },
+    { id: 'note-16', number: 16, title: "「知りたい」と思った瞬間、それは誰かが作った道かもしれない", url: "https://note.com/manabimapcreator/n/naecb9a6237db", date: "2026-04-02", target: "第4部第4話（前編・後編）", tags: ["第4部第4話（前編","後編）"], relatedParts: ["part4"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "何かを調べていると、気づくと別のことが知りたくなっている。" },
+    { id: 'note-17', number: 17, title: "6,350トンのケーブルが運んだのは、何グラムの情報だったか", url: "https://note.com/manabimapcreator/n/n8a3b5689ab7f", date: "2026-04-03", target: "第4部第5話（前編・後編）", tags: ["第4部第5話（前編","後編）"], relatedParts: ["part4"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "LINEで写真を送っても、手元の写真は消えない。" },
+    { id: 'note-18', number: 18, title: "本を途中から読むと、なぜか罪悪感がある", url: "https://note.com/manabimapcreator/n/nb1531205470c", date: "2026-04-04", target: "第4部第6話（前編・後編）", tags: ["第4部第6話（前編","後編）"], relatedParts: ["part4"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "本を手に取るとき、自然と1ページ目を開く。" },
+    { id: 'note-19', number: 19, title: "人は世界を同じように捉えている？", url: "https://note.com/manabimapcreator/n/n3f2187946e15", date: "2026-04-05", target: "第4部第7話（前編・後編）", tags: ["第4部第7話（前編","後編）"], relatedParts: ["part4"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "今朝、道を歩きながら、気がつけば花を探していました。" },
+    { id: 'note-20', number: 20, title: "音はずっとあった。では、いつ「意味」になったのか。", url: "https://note.com/manabimapcreator/n/n5556f35e43b5", date: "2026-04-06", target: "第5部第1話（前編・後編）", tags: ["第5部第1話（前編","後編）"], relatedParts: ["part5"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "赤ちゃんは泣く。鳥は鳴く。犬は吠える。" },
+    { id: 'note-21', number: 21, title: "名前をつける前、世界はひとつながりだった。", url: "https://note.com/manabimapcreator/n/n1cc11159159c", date: "2026-04-06", target: "第5部第1話（前編・後編）続編テーマ", tags: ["第5部第1話（前編","後編）続編テーマ"], relatedParts: ["part5"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "赤ちゃんが生まれた瞬間、親が最初にすることがある。" },
+    { id: 'note-22', number: 22, title: "人類最古の名前は、英雄のものではなかった。", url: "https://note.com/manabimapcreator/n/nd91398b2e60b", date: "2026-04-06", target: "第5部第1話（前編・後編）続々編テーマ", tags: ["第5部第1話（前編","後編）続々編テーマ"], relatedParts: ["part5"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "5000年後に、あなたの名前だけが残るとしたら。" },
+    { id: 'note-23', number: 23, title: "頭の中で、あなたは誰と話しているのか", url: "https://note.com/manabimapcreator/n/n180a0b52e8f6", date: "2026-04-10", target: "第5部第2話（前編・後編）", tags: ["第5部第2話（前編","後編）"], relatedParts: ["part5"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "考えるとき、全部声に出す人がいます。" },
+    { id: 'note-24', number: 24, title: "数の言葉を持たない民族が、いた", url: "https://note.com/manabimapcreator/n/n11ad03fc63ef", date: "2026-04-11", target: "第5部第3話（前編・後編）", tags: ["第5部第3話（前編","後編）"], relatedParts: ["part5"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "スーパーのレジで、小銭を数えました。" },
+    { id: 'note-25', number: 25, title: "棒の刻み目で、帝国は動いていた", url: "https://note.com/manabimapcreator/n/nac7c30f224ac", date: "2026-04-11", target: "第5部第3話（前編・後編）", tags: ["第5部第3話（前編","後編）"], relatedParts: ["part5"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "毎月、給与明細が届きます。" },
+    { id: 'note-26', number: 26, title: "神社に数学を奉納した民族がいた", url: "https://note.com/manabimapcreator/n/n3103a25ac2c4", date: "2026-04-11", target: "第5部第3話テーマ（数・抽象化）フリースタンディング", tags: ["第5部第3話テーマ（数","抽象化）フリースタンディング"], relatedParts: ["part5","part6"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "数学の授業で、問題が解けた瞬間が好きでした。" },
+    { id: 'note-27', number: 27, title: "「なぜ？」は、もともと逃げるためにあった", url: "https://note.com/manabimapcreator/n/n89c60fb760af", date: "2026-04-12", target: "第5部第4話（前編・後編）", tags: ["第5部第4話（前編","後編）"], relatedParts: ["part5"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "子どもが「なぜ？」を繰り返す時期がある。" },
+    { id: 'note-28', number: 28, title: "言語は、思考の牢獄か。それとも窓か", url: "https://note.com/manabimapcreator/n/n253a052aba94", date: "2026-04-14", target: "第5部第5話（前編・後編）", tags: ["第5部第5話（前編","後編）"], relatedParts: ["part5"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "虹は、何色でしょう。" },
+    { id: 'note-29', number: 29, title: "完璧に答えられる人が、何もわかっていないとしたら", url: "https://note.com/manabimapcreator/n/nd2075692b089", date: "2026-04-15", target: "第5部第6話（前編・後編）", tags: ["第5部第6話（前編","後編）"], relatedParts: ["part5"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "音読の宿題を、声に出して読んだことがあります。" },
+    { id: 'note-30', number: 30, title: "すべての答えが手に入る時代に、「問い」だけを届けるコンテンツを始めた", url: "https://note.com/manabimapcreator/n/nb43ff699126c", date: "2026-04-16", target: "コンクール作品「#AIと始めてみた」（Google Gemini × note）", tags: ["Gemini","note）"], relatedParts: ["part8","note"], question: "生成AIは、何を生成しているのか。", relation: "生成AIの枝道", primaryPart: "part8", excerpt: "何か知りたいことがあれば、YouTubeを開けばいい。" },
+    { id: 'note-31', number: 31, title: "学べば学ぶほど、知らないことが増えていく", url: "https://note.com/manabimapcreator/n/n5796b158faa3", date: "2026-04-17", target: "第5部第7話「言葉は思考の翼」（エピローグ）", tags: [], relatedParts: ["part5"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "AIを使ってみようと思った。" },
+    { id: 'note-32', number: 32, title: "数える力は、生まれ持ったものだろうか", url: "https://note.com/manabimapcreator/n/na8308189337b", date: "2026-04-18", target: "第6部第1話（前編・後編）", tags: ["第6部第1話（前編","後編）"], relatedParts: ["part6"], question: "数字で測れるものだけが、価値あるものなのか。", relation: "数と社会の枝道", primaryPart: "part6", excerpt: "日本語で何かを数えるとき、言葉が変わります。" },
+    { id: 'note-33', number: 33, title: "数は、指を離れてどこへ行ったのか", url: "https://note.com/manabimapcreator/n/n387ce13418ba", date: "2026-04-19", target: "第6部第2話（前編・後編）", tags: ["第6部第2話（前編","後編）"], relatedParts: ["part6"], question: "数字で測れるものだけが、価値あるものなのか。", relation: "数と社会の枝道", primaryPart: "part6", excerpt: "数えるとき、あなたは指を使いますか。" },
+    { id: 'note-34', number: 34, title: "数が指を離れた夜、無限が生まれた", url: "https://note.com/manabimapcreator/n/n4da46f1a9bde", date: "2026-04-19", target: "第6部第3話（前編・後編）", tags: ["第6部第3話（前編","後編）"], relatedParts: ["part6"], question: "数字で測れるものだけが、価値あるものなのか。", relation: "数と社会の枝道", primaryPart: "part6", excerpt: "ある数学者が、新しい数を発見した。" },
+    { id: 'note-35', number: 35, title: "計算が生まれた日、人類は「試す」のをやめた", url: "https://note.com/manabimapcreator/n/n9a89ce1888e3", date: "2026-04-20", target: "第6部第4話（前編・後編）", tags: ["第6部第4話（前編","後編）"], relatedParts: ["part6"], question: "数字で測れるものだけが、価値あるものなのか。", relation: "数と社会の枝道", primaryPart: "part6", excerpt: "コロンブスは、計算を間違えてインドへ向かった。" },
+    { id: 'note-37', number: 37, title: "プロンプトを書くことが、デザインになった──GeminiでYouTube・noteのサムネをつくる", url: "https://note.com/manabimapcreator/n/n90cb4cd059df", date: "2026-04-21", target: "Geminiサムネ制作プロセス紹介 → ManabiMapサイト紹介", tags: ["Geminiサムネ制作プロセス紹介","ManabiMapサイト紹介"], relatedParts: ["note"], question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "コンテスト: #AIと始めてみた（Google/Gemini、締め切り2026-05-15）" },
+    { id: 'note-38', number: 38, title: "「学びの種」をまく仕事——教育20年目に、生成AIが変えたもの", url: "https://note.com/manabimapcreator/n/nf61a2cb5617d", date: "2026-04-21", target: "制作者の個人視点 × 教育20年 × 生成AI × ManabiMap", tags: ["制作者の個人視点","教育20年","生成AI","ManabiMap"], relatedParts: ["part3","part8-2","part8","note"], question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "C# note38｜「学びの種」をまく仕事——教育20年目に、生成AIが変えたもの" },
+    { id: 'note-39', number: 39, title: "誰も「平均人」ではなかった。", url: "https://note.com/manabimapcreator/n/n75ad2b140de4", date: "2026-04-22", target: "第6部第5話（前編・後編）", tags: ["第6部第5話（前編","後編）"], relatedParts: ["part6"], question: "数字で測れるものだけが、価値あるものなのか。", relation: "数と社会の枝道", primaryPart: "part6", excerpt: "テストを返されたとき、最初に何を探しますか。" },
+    { id: 'note-40', number: 40, title: "「内から生まれた言葉」とは、何だろう", url: "https://note.com/manabimapcreator/n/n10281e399b72", date: "2026-04-25", target: "第8部第6話（前編・後編）", tags: ["第8部第6話（前編","後編）"], relatedParts: ["part8"], question: "生成AIは、何を生成しているのか。", relation: "生成AIの枝道", primaryPart: "part8", excerpt: "ある記事が目に入った。" },
+    { id: 'note-41', number: 41, title: "テストで高得点を取ると、幸せになれるのか", url: "https://note.com/manabimapcreator/n/ndc68c0112605", date: "2026-04-25", target: "第8部第8話「共通テストの衝撃」前編・後編", tags: ["学力テスト","幸福度","点数主義","日本の教育","教育の問い","エビデンス","共通テストの衝撃","AI時代の教育","ウェルビーイング","自己決定","教育改革","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part6","part8-2","part8","note"], question: "数字で測れるものだけが、価値あるものなのか。", relation: "数と社会の枝道", primaryPart: "part6", excerpt: "「いい点を取れ。」" },
+    { id: 'note-42', number: 42, title: "あなたを測る物差しは、誰が作ったのか", url: "https://note.com/manabimapcreator/n/n6c7f5847c20c", date: "2026-04-26", target: "第6部第6話（前編・後編）", tags: ["第6部第6話（前編","後編）"], relatedParts: ["part6"], question: "数字で測れるものだけが、価値あるものなのか。", relation: "数と社会の枝道", primaryPart: "part6", excerpt: "今日、何かで測られましたか。" },
+    { id: 'note-43', number: 43, title: "AIが東大首席を超えた日に、何が終わったのか", url: "https://note.com/manabimapcreator/n/n79167fdcd136", date: "2026-04-28", target: "第8部第8話「共通テストの衝撃」前編・後編", tags: ["東大入試","AI受験","共通テスト","知識の限界","AI時代の教育","受験勉強","教育の問い","学力とは何か","問いを立てる力","これからの学び","教育改革","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part8-2","part8","note"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「ここ、出るよ。ちゃんと覚えてきなさい。」" },
+    { id: 'note-44', number: 44, title: "知れば知るほど、「わからない」が増えるのはなぜか", url: "https://note.com/manabimapcreator/n/nfd9d525140fc", date: "2026-04-29", target: "第6部第7話（エピローグ）世界の輪郭", tags: ["知識の地平線","無知の知","ソクラテス","ニュートン","学べば学ぶほど","わからないが増える","学ぶとはなにか","問いを立てる力","好奇心","哲学","数字の歴史","AI時代の学び","これからの教育","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part6","part8-2","part8","note"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "勉強すると、わかることが増えるはずです。" },
+    { id: 'note-45', number: 45, title: "「覚えなくていい」時代に、なぜ覚えることに意味があるのか", url: "https://note.com/manabimapcreator/n/n4e98d260513a", date: "2026-04-30", target: "第8部第6話「宿題の違和感」前編・後編", tags: ["暗記の意味","チェス名人実験","認知科学","パターン認識","暗黙知","タシットナレッジ","覚えることの意味","AI時代の学び","学力とは何か","基礎知識","脳と学習","ロンドンタクシー","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part8-2","part8","note"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「わからなかったら調べればいい。」" },
+    { id: 'note-46', number: 46, title: "東大入試がAIに超えられた日に、見えなかった問い", url: "https://note.com/manabimapcreator/n/n39e9e74b774f", date: "2026-04-30", target: "第8部第8話「共通テストの衝撃」前編・後編", tags: ["東大入試","AI受験","学力とは何か","チェス名人","パターン認識","暗黙知","AI時代の教育","測られない知識","これからの学び","教育の問い","共通テスト","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part8-2","part8","note"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「AIが東大首席を超えた」という知らせは、あっという間に広まりました。" },
+    { id: 'note-47', number: 47, title: "あなたの見ている世界は、知識で作られている", url: "https://note.com/manabimapcreator/n/n0a0c56f8f5b9", date: "2026-05-03", target: "第8部第7話「学力とは何か」前編・後編", tags: ["知識","思考","言語と思考","世界の見え方","認知科学","ピダハン族","バートレット","スキーマ理論","知覚と認識","学力とは何か","知ることの意味","AI時代の学び","哲学","教育","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part5","part8-2","part8","note"], question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "今、あなたがこの文章を「文字」として読めているのは、なぜでしょうか。" },
+    { id: 'note-48', number: 48, title: "「腑に落ちる」は、なぜ身体の言葉なのか", url: "https://note.com/manabimapcreator/n/n0c64a3eeb6f8", tags: ["学び","教育","AI","認知科学","身体化認知","思考","宿題"], relatedParts: ["part5","part8-2","part8"], question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "「腑に落ちる」という言葉があります。" }
   ];
 
   const routes = [
@@ -305,23 +305,101 @@
     { id: 'q-learning', text: '学ぶとは、答えを増やすことか、問いを増やすことか。', related: ['note-30', 'note-31', 'part8-2'] }
   ];
 
+  const mediaTypeMeta = {
+    youtube: { label: 'YouTube', lead: '物語で入る', empty: '物語で入る動画は、今後ここに接続していきます。' },
+    note: { label: 'note', lead: '文章で深める', empty: '文章で深める枝道は、今後ここに接続していきます。' },
+    podcast: { label: 'Podcast', lead: '声で考える', empty: '声で考える枝道は準備中です。' }
+  };
+
+  const extraMediaItems = [
+    // Podcastなどを追加するときは、この配列に同じ形で足す。
+    // { id: 'podcast-part5-01', type: 'podcast', title: '理解は身体で起きるのか', url: '...', relatedParts: ['part5'], question: '腑に落ちるとは何か', relation: '音声で深める補助線' }
+  ];
+
+  function firstQuestionFor(partId) {
+    const part = parts.find((item) => item.id === partId);
+    return part && Array.isArray(part.questions) && part.questions.length ? part.questions[0] : '';
+  }
+
+  function primaryPartFor(note) {
+    const related = Array.isArray(note.relatedParts) ? note.relatedParts : [];
+    return related.find((id) => id !== 'note' && parts.some((part) => part.id === id)) ||
+      related.find((id) => id === 'evolution' || id === 'note') ||
+      'note';
+  }
+
+  function relationForNote(note) {
+    if (note.relation) return note.relation;
+    const partId = primaryPartFor(note);
+    if (partId === 'evolution') return '人類史から伸びる枝道';
+    if (partId === 'note') return '制作と学びの枝道';
+    const part = parts.find((item) => item.id === partId);
+    return part ? part.title + 'から伸びる枝道' : '問いから伸びる枝道';
+  }
+
+  function youtubeMediaForPart(part) {
+    const url = part.youtubeUrl || part.playlistUrl;
+    if (!url) return null;
+    return {
+      id: 'youtube-' + part.id,
+      type: 'youtube',
+      title: part.title,
+      url,
+      relatedParts: [part.id],
+      question: firstQuestionFor(part.id),
+      relation: '物語の入口'
+    };
+  }
+
+  function noteToMediaItem(note) {
+    const partId = primaryPartFor(note);
+    return {
+      id: note.id,
+      type: 'note',
+      title: note.title,
+      url: note.url || '',
+      status: note.status,
+      number: note.number,
+      tags: note.tags || [],
+      relatedParts: note.relatedParts || [],
+      question: note.question || firstQuestionFor(partId) || note.title,
+      relation: relationForNote(note),
+      excerpt: note.excerpt || ''
+    };
+  }
+
+  const mediaItems = parts
+    .map(youtubeMediaForPart)
+    .filter(Boolean)
+    .concat(notes.map(noteToMediaItem), extraMediaItems);
+
   window.ManabiMapData = {
-    version: '2026-04-27-phase1',
+    version: '2026-05-04-media-branches',
     parts,
     concepts,
     notes,
+    mediaItems,
+    mediaTypeMeta,
     routes,
     questions,
     findById(id) {
       return parts.find((item) => item.id === id) ||
         concepts.find((item) => item.id === id) ||
         notes.find((item) => item.id === id) ||
+        mediaItems.find((item) => item.id === id) ||
         routes.find((item) => item.id === id) ||
         questions.find((item) => item.id === id) ||
         null;
     },
     notesForPart(partId) {
       return notes.filter((note) => Array.isArray(note.relatedParts) && note.relatedParts.includes(partId));
+    },
+    mediaForPart(partId, type) {
+      return mediaItems.filter((item) => {
+        const matchesPart = Array.isArray(item.relatedParts) && item.relatedParts.includes(partId);
+        const matchesType = !type || item.type === type;
+        return matchesPart && matchesType;
+      });
     },
     partsForTag(tag) {
       return parts.filter((part) => Array.isArray(part.tags) && part.tags.includes(tag));

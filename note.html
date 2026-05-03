@@ -229,13 +229,24 @@ a { color: inherit; text-decoration: none; }
 /* ── CARD ── */
 .note-card {
   display: flex; flex-direction: column;
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 24px;
   scroll-margin-top: 96px;
   transition: all 0.3s;
-  cursor: pointer;
+  overflow: hidden;
+}
+.note-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 22px;
+  bottom: 22px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(65,201,180,0), rgba(65,201,180,0.76), rgba(0,212,255,0.34), rgba(65,201,180,0));
+  box-shadow: 0 0 18px rgba(65,201,180,0.42);
 }
 .note-card[hidden] {
   display: none !important;
@@ -252,6 +263,18 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 0 0 2px rgba(65,201,180,0.35), 0 16px 44px rgba(65,201,180,0.16);
   background: var(--bg-card-hover);
 }
+.card-orbit-label {
+  width: fit-content;
+  margin-bottom: 13px;
+  padding: 3px 9px;
+  border: 1px solid rgba(0,212,255,0.28);
+  border-radius: 999px;
+  color: #9eeeff;
+  background: rgba(0,212,255,0.06);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
 .card-num {
   font-size: 11px; letter-spacing: 0.3em;
   color: var(--note-green); margin-bottom: 10px;
@@ -260,6 +283,37 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px; font-weight: 700;
   color: var(--text-bright); line-height: 1.6;
   margin-bottom: 12px;
+}
+.card-branch {
+  display: grid;
+  gap: 2px;
+  margin-bottom: 12px;
+  padding: 11px 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.18);
+}
+.card-branch__eyebrow,
+.card-branch__tail {
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+.card-branch__node {
+  width: fit-content;
+  color: var(--note-green);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.55;
+}
+.card-branch__node:hover {
+  color: #9eeeff;
+}
+.card-question {
+  margin-bottom: 12px;
+  color: #c9d8e8;
+  font-size: 12px;
+  line-height: 1.7;
 }
 .card-excerpt {
   font-size: 13px; color: var(--text-dim);
@@ -279,6 +333,7 @@ a { color: inherit; text-decoration: none; }
 }
 .card-footer {
   display: flex; justify-content: space-between; align-items: center;
+  gap: 14px;
   border-top: 1px solid var(--border);
   padding-top: 12px; margin-top: auto;
 }
@@ -289,12 +344,46 @@ a { color: inherit; text-decoration: none; }
   font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
   color: var(--note-green);
 }
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.card-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 6px 11px;
+  border-radius: 6px;
+  border: 1px solid rgba(65,201,180,0.4);
+  color: var(--note-green);
+  background: rgba(65,201,180,0.07);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transition: border-color 0.22s, background 0.22s, color 0.22s;
+}
+.card-action:hover {
+  border-color: var(--note-green);
+  background: rgba(65,201,180,0.13);
+  color: var(--text-bright);
+}
+.card-action--map {
+  border-color: rgba(0,212,255,0.32);
+  color: #9eeeff;
+  background: rgba(0,212,255,0.06);
+}
+.card-action--disabled {
+  border-color: rgba(136,136,160,0.18);
+  color: var(--text-dim);
+  background: rgba(136,136,160,0.08);
+}
 
 /* ── UNPUBLISHED ── */
 .note-card--unpublished {
-  opacity: 0.45;
-  cursor: default;
-  pointer-events: none;
+  opacity: 0.62;
 }
 .badge-unpublished {
   display: inline-block;
@@ -309,6 +398,16 @@ a { color: inherit; text-decoration: none; }
 .card-link--dim {
   color: var(--text-dim) !important;
   font-weight: 400 !important;
+}
+
+@media (max-width: 560px) {
+  .card-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .card-actions {
+    justify-content: flex-start;
+  }
 }
 
 /* ── FOOTER ── */
@@ -373,522 +472,992 @@ a { color: inherit; text-decoration: none; }
 <section class="grid-section">
   <div class="note-grid">
     
-    <a id="note-card-48" href="https://note.com/manabimapcreator/n/n0c64a3eeb6f8" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-48" class="note-card" data-note-id="note-48" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#48</div>
       <h3 class="card-title">「腑に落ちる」は、なぜ身体の言葉なのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">「腑に落ちる」という言葉があります。</p>
       <div class="card-tags"><span class="tag">#学び</span><span class="tag">#教育</span><span class="tag">#AI</span><span class="tag">#認知科学</span><span class="tag">#身体化認知</span><span class="tag">#思考</span><span class="tag">#宿題</span></div>
       <div class="card-footer">
         <span></span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n0c64a3eeb6f8" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-47" href="https://note.com/manabimapcreator/n/n0a0c56f8f5b9" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-47" class="note-card" data-note-id="note-47" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#47</div>
       <h3 class="card-title">あなたの見ている世界は、知識で作られている</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">今、あなたがこの文章を「文字」として読めているのは、なぜでしょうか。</p>
       <div class="card-tags"><span class="tag">第8部第7話「学力とは何か」前編・後編</span></div>
       <div class="card-footer">
         <span class="card-date">2026-05-03</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n0a0c56f8f5b9" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-46" href="https://note.com/manabimapcreator/n/n39e9e74b774f" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-46" class="note-card" data-note-id="note-46" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#46</div>
       <h3 class="card-title">東大入試がAIに超えられた日に、見えなかった問い</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">「AIが東大首席を超えた」という知らせは、あっという間に広まりました。</p>
       <div class="card-tags"><span class="tag">第8部第8話「共通テストの衝撃」前編・後編</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-30</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n39e9e74b774f" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-45" href="https://note.com/manabimapcreator/n/n4e98d260513a" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-45" class="note-card" data-note-id="note-45" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#45</div>
       <h3 class="card-title">「覚えなくていい」時代に、なぜ覚えることに意味があるのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">「わからなかったら調べればいい。」</p>
       <div class="card-tags"><span class="tag">第8部第6話「宿題の違和感」前編・後編</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-30</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n4e98d260513a" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-44" href="https://note.com/manabimapcreator/n/nfd9d525140fc" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-44" class="note-card" data-note-id="note-44" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#44</div>
       <h3 class="card-title">知れば知るほど、「わからない」が増えるのはなぜか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">勉強すると、わかることが増えるはずです。</p>
       <div class="card-tags"><span class="tag">第6部第7話（エピローグ）世界の輪郭</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-29</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nfd9d525140fc" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-43" href="https://note.com/manabimapcreator/n/n79167fdcd136" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-43" class="note-card" data-note-id="note-43" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#43</div>
       <h3 class="card-title">AIが東大首席を超えた日に、何が終わったのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">「ここ、出るよ。ちゃんと覚えてきなさい。」</p>
       <div class="card-tags"><span class="tag">第8部第8話「共通テストの衝撃」前編・後編</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-28</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n79167fdcd136" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-42" href="https://note.com/manabimapcreator/n/n6c7f5847c20c" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-42" class="note-card" data-note-id="note-42" data-primary-part="part6">
+      <div class="card-orbit-label">PART 06 ORBIT</div>
       <div class="card-num">#42</div>
       <h3 class="card-title">あなたを測る物差しは、誰が作ったのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part6.html">第6部 数字と世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：数字で測れるものだけが、価値あるものなのか。</p>
       <p class="card-excerpt">今日、何かで測られましたか。</p>
       <div class="card-tags"><span class="tag">第6部第6話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-26</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n6c7f5847c20c" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part6.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-41" href="https://note.com/manabimapcreator/n/ndc68c0112605" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-41" class="note-card" data-note-id="note-41" data-primary-part="part6">
+      <div class="card-orbit-label">PART 06 ORBIT</div>
       <div class="card-num">#41</div>
       <h3 class="card-title">テストで高得点を取ると、幸せになれるのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part6.html">第6部 数字と世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：数字で測れるものだけが、価値あるものなのか。</p>
       <p class="card-excerpt">「いい点を取れ。」</p>
       <div class="card-tags"><span class="tag">第8部第8話「共通テストの衝撃」前編・後編</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-25</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/ndc68c0112605" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part6.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-40" href="https://note.com/manabimapcreator/n/n10281e399b72" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-40" class="note-card" data-note-id="note-40" data-primary-part="part8">
+      <div class="card-orbit-label">PART 08 ORBIT</div>
       <div class="card-num">#40</div>
       <h3 class="card-title">「内から生まれた言葉」とは、何だろう</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part8.html">第8部 AIと人間のあいだ</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：生成AIは、何を生成しているのか。</p>
       <p class="card-excerpt">ある記事が目に入った。</p>
       <div class="card-tags"><span class="tag">第8部第6話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-25</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n10281e399b72" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part8.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-39" href="https://note.com/manabimapcreator/n/n75ad2b140de4" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-39" class="note-card" data-note-id="note-39" data-primary-part="part6">
+      <div class="card-orbit-label">PART 06 ORBIT</div>
       <div class="card-num">#39</div>
       <h3 class="card-title">誰も「平均人」ではなかった。</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part6.html">第6部 数字と世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：数字で測れるものだけが、価値あるものなのか。</p>
       <p class="card-excerpt">テストを返されたとき、最初に何を探しますか。</p>
       <div class="card-tags"><span class="tag">第6部第5話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-22</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n75ad2b140de4" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part6.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-38" href="https://note.com/manabimapcreator/n/nf61a2cb5617d" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-38" class="note-card" data-note-id="note-38" data-primary-part="part3">
+      <div class="card-orbit-label">PART 03 ORBIT</div>
       <div class="card-num">#38</div>
       <h3 class="card-title">「学びの種」をまく仕事——教育20年目に、生成AIが変えたもの</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
       <p class="card-excerpt">C# note38｜「学びの種」をまく仕事——教育20年目に、生成AIが変えたもの</p>
       <div class="card-tags"><span class="tag">制作者の個人視点 × 教育20年 × 生成AI × ManabiMap</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-21</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nf61a2cb5617d" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-37" href="https://note.com/manabimapcreator/n/n90cb4cd059df" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-37" class="note-card" data-note-id="note-37" data-primary-part="note">
+      <div class="card-orbit-label">NOTE ORBIT</div>
       <div class="card-num">#37</div>
       <h3 class="card-title">プロンプトを書くことが、デザインになった──GeminiでYouTube・noteのサムネをつくる</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="note.html">note記事群</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
       <p class="card-excerpt">コンテスト: #AIと始めてみた（Google/Gemini、締め切り2026-05-15）</p>
       <div class="card-tags"><span class="tag">Geminiサムネ制作プロセス紹介 → ManabiMapサイト紹介</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-21</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n90cb4cd059df" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="note.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-35" href="https://note.com/manabimapcreator/n/n9a89ce1888e3" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-35" class="note-card" data-note-id="note-35" data-primary-part="part6">
+      <div class="card-orbit-label">PART 06 ORBIT</div>
       <div class="card-num">#35</div>
       <h3 class="card-title">計算が生まれた日、人類は「試す」のをやめた</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part6.html">第6部 数字と世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：数字で測れるものだけが、価値あるものなのか。</p>
       <p class="card-excerpt">コロンブスは、計算を間違えてインドへ向かった。</p>
       <div class="card-tags"><span class="tag">第6部第4話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-20</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n9a89ce1888e3" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part6.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-34" href="https://note.com/manabimapcreator/n/n4da46f1a9bde" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-34" class="note-card" data-note-id="note-34" data-primary-part="part6">
+      <div class="card-orbit-label">PART 06 ORBIT</div>
       <div class="card-num">#34</div>
       <h3 class="card-title">数が指を離れた夜、無限が生まれた</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part6.html">第6部 数字と世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：数字で測れるものだけが、価値あるものなのか。</p>
       <p class="card-excerpt">ある数学者が、新しい数を発見した。</p>
       <div class="card-tags"><span class="tag">第6部第3話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-19</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n4da46f1a9bde" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part6.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-33" href="https://note.com/manabimapcreator/n/n387ce13418ba" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-33" class="note-card" data-note-id="note-33" data-primary-part="part6">
+      <div class="card-orbit-label">PART 06 ORBIT</div>
       <div class="card-num">#33</div>
       <h3 class="card-title">数は、指を離れてどこへ行ったのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part6.html">第6部 数字と世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：数字で測れるものだけが、価値あるものなのか。</p>
       <p class="card-excerpt">数えるとき、あなたは指を使いますか。</p>
       <div class="card-tags"><span class="tag">第6部第2話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-19</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n387ce13418ba" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part6.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-32" href="https://note.com/manabimapcreator/n/na8308189337b" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-32" class="note-card" data-note-id="note-32" data-primary-part="part6">
+      <div class="card-orbit-label">PART 06 ORBIT</div>
       <div class="card-num">#32</div>
       <h3 class="card-title">数える力は、生まれ持ったものだろうか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part6.html">第6部 数字と世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：数字で測れるものだけが、価値あるものなのか。</p>
       <p class="card-excerpt">日本語で何かを数えるとき、言葉が変わります。</p>
       <div class="card-tags"><span class="tag">第6部第1話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-18</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/na8308189337b" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part6.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-31" href="https://note.com/manabimapcreator/n/n5796b158faa3" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-31" class="note-card" data-note-id="note-31" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#31</div>
       <h3 class="card-title">学べば学ぶほど、知らないことが増えていく</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">AIを使ってみようと思った。</p>
       <div class="card-tags"><span class="tag">第5部第7話「言葉は思考の翼」（エピローグ）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-17</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n5796b158faa3" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-30" href="https://note.com/manabimapcreator/n/nb43ff699126c" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-30" class="note-card" data-note-id="note-30" data-primary-part="part8">
+      <div class="card-orbit-label">PART 08 ORBIT</div>
       <div class="card-num">#30</div>
       <h3 class="card-title">すべての答えが手に入る時代に、「問い」だけを届けるコンテンツを始めた</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part8.html">第8部 AIと人間のあいだ</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：生成AIは、何を生成しているのか。</p>
       <p class="card-excerpt">何か知りたいことがあれば、YouTubeを開けばいい。</p>
       <div class="card-tags"><span class="tag">コンクール作品「#AIと始めてみた」（Google Gemini × note）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-16</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nb43ff699126c" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part8.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-29" href="https://note.com/manabimapcreator/n/nd2075692b089" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-29" class="note-card" data-note-id="note-29" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#29</div>
       <h3 class="card-title">完璧に答えられる人が、何もわかっていないとしたら</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">音読の宿題を、声に出して読んだことがあります。</p>
       <div class="card-tags"><span class="tag">第5部第6話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-15</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nd2075692b089" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-28" href="https://note.com/manabimapcreator/n/n253a052aba94" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-28" class="note-card" data-note-id="note-28" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#28</div>
       <h3 class="card-title">言語は、思考の牢獄か。それとも窓か</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">虹は、何色でしょう。</p>
       <div class="card-tags"><span class="tag">第5部第5話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-14</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n253a052aba94" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-27" href="https://note.com/manabimapcreator/n/n89c60fb760af" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-27" class="note-card" data-note-id="note-27" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#27</div>
       <h3 class="card-title">「なぜ？」は、もともと逃げるためにあった</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">子どもが「なぜ？」を繰り返す時期がある。</p>
       <div class="card-tags"><span class="tag">第5部第4話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-12</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n89c60fb760af" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-26" href="https://note.com/manabimapcreator/n/n3103a25ac2c4" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-26" class="note-card" data-note-id="note-26" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#26</div>
       <h3 class="card-title">神社に数学を奉納した民族がいた</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">数学の授業で、問題が解けた瞬間が好きでした。</p>
       <div class="card-tags"><span class="tag">第5部第3話テーマ（数・抽象化）フリースタンディング</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-11</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n3103a25ac2c4" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-25" href="https://note.com/manabimapcreator/n/nac7c30f224ac" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-25" class="note-card" data-note-id="note-25" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#25</div>
       <h3 class="card-title">棒の刻み目で、帝国は動いていた</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">毎月、給与明細が届きます。</p>
       <div class="card-tags"><span class="tag">第5部第3話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-11</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nac7c30f224ac" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-24" href="https://note.com/manabimapcreator/n/n11ad03fc63ef" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-24" class="note-card" data-note-id="note-24" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#24</div>
       <h3 class="card-title">数の言葉を持たない民族が、いた</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">スーパーのレジで、小銭を数えました。</p>
       <div class="card-tags"><span class="tag">第5部第3話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-11</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n11ad03fc63ef" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-23" href="https://note.com/manabimapcreator/n/n180a0b52e8f6" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-23" class="note-card" data-note-id="note-23" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#23</div>
       <h3 class="card-title">頭の中で、あなたは誰と話しているのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">考えるとき、全部声に出す人がいます。</p>
       <div class="card-tags"><span class="tag">第5部第2話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-10</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n180a0b52e8f6" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-22" href="https://note.com/manabimapcreator/n/nd91398b2e60b" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-22" class="note-card" data-note-id="note-22" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#22</div>
       <h3 class="card-title">人類最古の名前は、英雄のものではなかった。</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">5000年後に、あなたの名前だけが残るとしたら。</p>
       <div class="card-tags"><span class="tag">第5部第1話（前編・後編）続々編テーマ</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-06</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nd91398b2e60b" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-21" href="https://note.com/manabimapcreator/n/n1cc11159159c" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-21" class="note-card" data-note-id="note-21" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#21</div>
       <h3 class="card-title">名前をつける前、世界はひとつながりだった。</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">赤ちゃんが生まれた瞬間、親が最初にすることがある。</p>
       <div class="card-tags"><span class="tag">第5部第1話（前編・後編）続編テーマ</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-06</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n1cc11159159c" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-20" href="https://note.com/manabimapcreator/n/n5556f35e43b5" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-20" class="note-card" data-note-id="note-20" data-primary-part="part5">
+      <div class="card-orbit-label">PART 05 ORBIT</div>
       <div class="card-num">#20</div>
       <h3 class="card-title">音はずっとあった。では、いつ「意味」になったのか。</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part5.html">第5部 言葉と思考の旅</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：言葉がない世界では、思考はどのように存在するのか。</p>
       <p class="card-excerpt">赤ちゃんは泣く。鳥は鳴く。犬は吠える。</p>
       <div class="card-tags"><span class="tag">第5部第1話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-06</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n5556f35e43b5" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part5.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-19" href="https://note.com/manabimapcreator/n/n3f2187946e15" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-19" class="note-card" data-note-id="note-19" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#19</div>
       <h3 class="card-title">人は世界を同じように捉えている？</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">今朝、道を歩きながら、気がつけば花を探していました。</p>
       <div class="card-tags"><span class="tag">第4部第7話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-05</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n3f2187946e15" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-18" href="https://note.com/manabimapcreator/n/nb1531205470c" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-18" class="note-card" data-note-id="note-18" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#18</div>
       <h3 class="card-title">本を途中から読むと、なぜか罪悪感がある</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">本を手に取るとき、自然と1ページ目を開く。</p>
       <div class="card-tags"><span class="tag">第4部第6話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-04</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nb1531205470c" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-17" href="https://note.com/manabimapcreator/n/n8a3b5689ab7f" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-17" class="note-card" data-note-id="note-17" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#17</div>
       <h3 class="card-title">6,350トンのケーブルが運んだのは、何グラムの情報だったか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">LINEで写真を送っても、手元の写真は消えない。</p>
       <div class="card-tags"><span class="tag">第4部第5話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-03</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n8a3b5689ab7f" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-16" href="https://note.com/manabimapcreator/n/naecb9a6237db" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-16" class="note-card" data-note-id="note-16" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#16</div>
       <h3 class="card-title">「知りたい」と思った瞬間、それは誰かが作った道かもしれない</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">何かを調べていると、気づくと別のことが知りたくなっている。</p>
       <div class="card-tags"><span class="tag">第4部第4話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-02</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/naecb9a6237db" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-15" href="https://note.com/manabimapcreator/n/n9c00c715d369" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-15" class="note-card" data-note-id="note-15" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#15</div>
       <h3 class="card-title">「読む楽しみ」は、いつ誰のものになったのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">今日、本を読みたいと思えば、すぐ読めます。</p>
       <div class="card-tags"><span class="tag">第4部第3話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-02</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n9c00c715d369" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-14" href="https://note.com/manabimapcreator/n/n1e582531d82f" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-14" class="note-card" data-note-id="note-14" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#14</div>
       <h3 class="card-title">なぜ人は、石に印をつけずにいられなかったのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">スマホを開くと、文字より先に絵文字を選んでいる自分がいます。</p>
       <div class="card-tags"><span class="tag">第4部第2話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-31</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n1e582531d82f" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-13" href="https://note.com/manabimapcreator/n/n3446a5ccce61" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-13" class="note-card" data-note-id="note-13" data-primary-part="part4">
+      <div class="card-orbit-label">PART 04 ORBIT</div>
       <div class="card-num">#13</div>
       <h3 class="card-title">「AIを使うと考えなくなる」——ソクラテスも、2400年前に言っていた</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
       <p class="card-excerpt">「AIを使うと、考えなくなる」</p>
       <div class="card-tags"><span class="tag">第4部第1話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-30</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n3446a5ccce61" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-12" href="https://note.com/manabimapcreator/n/nc670691839e8" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-12" class="note-card" data-note-id="note-12" data-primary-part="part3">
+      <div class="card-orbit-label">PART 03 ORBIT</div>
       <div class="card-num">#12</div>
       <h3 class="card-title">記憶の中の人は、いつ「消える」のか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
       <p class="card-excerpt">ふとした瞬間に、思い出す。</p>
       <div class="card-tags"><span class="tag">第3部「AIと生きる未来」</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-28</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nc670691839e8" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-11" href="https://note.com/manabimapcreator/n/nbf644c80243f" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-11" class="note-card" data-note-id="note-11" data-primary-part="part2">
+      <div class="card-orbit-label">PART 02 ORBIT</div>
       <div class="card-num">#11</div>
       <h3 class="card-title">世界はつながったのに、なぜ孤独なのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
       <p class="card-excerpt">スマホを開けば、誰かの近況が流れてくる。</p>
       <div class="card-tags"><span class="tag">第2部「つながる世界」</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-26</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nbf644c80243f" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-10" href="https://note.com/manabimapcreator/n/n1195ea4b52e4" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-10" class="note-card" data-note-id="note-10" data-primary-part="part1">
+      <div class="card-orbit-label">PART 01 ORBIT</div>
       <div class="card-num">#10</div>
       <h3 class="card-title">体の時間は、今も35億年前のままだ</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part1.html">第1部 蒸気の時代</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：機械は人間を何から解放し、何に縛ったのか。</p>
       <p class="card-excerpt">休日の朝、目覚ましをかけ忘れた。</p>
       <div class="card-tags"><span class="tag">第1部「蒸気の時代」</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-25</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n1195ea4b52e4" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part1.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-9" href="https://note.com/manabimapcreator/n/nb299d49cfdd2" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-9" class="note-card" data-note-id="note-09" data-primary-part="part8">
+      <div class="card-orbit-label">PART 08 ORBIT</div>
       <div class="card-num">#09</div>
       <h3 class="card-title">AIに、何を問えばいいのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part8.html">第8部 AIと人間のあいだ</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：生成AIは、何を生成しているのか。</p>
       <p class="card-excerpt">何かを調べようとして、検索窓の前で止まったことがある。</p>
       <div class="card-tags"><span class="tag">第8部第5話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-25</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nb299d49cfdd2" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part8.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-8" href="https://note.com/manabimapcreator/n/n669e2df9e9e9" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-8" class="note-card" data-note-id="note-08" data-primary-part="part8">
+      <div class="card-orbit-label">PART 08 ORBIT</div>
       <div class="card-num">#08</div>
       <h3 class="card-title">あのアイデア、本当に自分が思いついたのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part8.html">第8部 AIと人間のあいだ</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：生成AIは、何を生成しているのか。</p>
       <p class="card-excerpt">会議で何かを言った。</p>
       <div class="card-tags"><span class="tag">第8部第4話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-24</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n669e2df9e9e9" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part8.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-7" href="https://note.com/manabimapcreator/n/n92652d8bad4c" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-7" class="note-card" data-note-id="note-07" data-primary-part="part8">
+      <div class="card-orbit-label">PART 08 ORBIT</div>
       <div class="card-num">#07</div>
       <h3 class="card-title">「わかってもらえた」は、ただの確率かもしれない</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part8.html">第8部 AIと人間のあいだ</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：生成AIは、何を生成しているのか。</p>
       <p class="card-excerpt">テスト前夜、教科書をひたすら眺めた記憶がある。</p>
       <div class="card-tags"><span class="tag">第8部第3話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-24</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n92652d8bad4c" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part8.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-6" href="https://note.com/manabimapcreator/n/nf03fbdb50e71" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-6" class="note-card" data-note-id="note-06" data-primary-part="part8">
+      <div class="card-orbit-label">PART 08 ORBIT</div>
       <div class="card-num">#06</div>
       <h3 class="card-title">追い出された場所から、次の時代が生まれる。</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part8.html">第8部 AIと人間のあいだ</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：生成AIは、何を生成しているのか。</p>
       <p class="card-excerpt">タグ: #AI #機械学習 #ディープラーニング #進化 #学び #歴史 #人類史</p>
       <div class="card-tags"><span class="tag">第8部第2話「ルールから確率へ」前編・後編</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-24</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nf03fbdb50e71" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part8.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <a id="note-card-5" href="https://note.com/manabimapcreator/n/n05c7f8f23fc4" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-5" class="note-card" data-note-id="note-05" data-primary-part="part8">
+      <div class="card-orbit-label">PART 08 ORBIT</div>
       <div class="card-num">#05</div>
       <h3 class="card-title">生成AIは、いったい何を「生成」しているのか。</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part8.html">第8部 AIと人間のあいだ</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：生成AIは、何を生成しているのか。</p>
       <p class="card-excerpt">タグ: #生成AI #AI #人工知能 #学び #哲学 #人類史 #教育</p>
       <div class="card-tags"><span class="tag">第8部第1話（前編・後編）</span></div>
       <div class="card-footer">
         <span class="card-date">2026-03-23</span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n05c7f8f23fc4" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part8.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
 
-    <div id="note-card-4" class="note-card note-card--unpublished">
+    <article id="note-card-4" class="note-card note-card--unpublished" data-note-id="note-04" data-primary-part="part2">
+      <div class="card-orbit-label">PART 02 ORBIT</div>
       <div class="card-num">#04 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">スマホの中に、80年分の革命が詰まっている。</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
       <p class="card-excerpt">スマホを毎日使っていますか？</p>
       <div class="card-tags"><span class="tag">#デジタル革命</span><span class="tag">#インターネット</span><span class="tag">#歴史</span><span class="tag">#テクノロジー</span><span class="tag">#教育</span><span class="tag">#学び</span><span class="tag">#人類史</span></div>
       <div class="card-footer">
         <span></span>
-        <span class="card-link card-link--dim">近日公開</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
+        </div>
       </div>
-    </div>
+    </article>
 
-    <div id="note-card-3" class="note-card note-card--unpublished">
+    <article id="note-card-3" class="note-card note-card--unpublished" data-note-id="note-03" data-primary-part="part3">
+      <div class="card-orbit-label">PART 03 ORBIT</div>
       <div class="card-num">#03 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">ChatGPTに同じことを聞くと、なぜ毎回答えが違うのか。</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
       <p class="card-excerpt">ChatGPTに同じ質問を2回したことはありますか？</p>
       <div class="card-tags"><span class="tag">#生成AI</span><span class="tag">#ChatGPT</span><span class="tag">#検索</span><span class="tag">#AI</span><span class="tag">#教育</span><span class="tag">#学び</span></div>
       <div class="card-footer">
         <span></span>
-        <span class="card-link card-link--dim">近日公開</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
       </div>
-    </div>
+    </article>
 
-    <div id="note-card-2" class="note-card note-card--unpublished">
+    <article id="note-card-2" class="note-card note-card--unpublished" data-note-id="note-02" data-primary-part="part1">
+      <div class="card-orbit-label">PART 01 ORBIT</div>
       <div class="card-num">#02 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">「機械に仕事を奪われる」という恐怖は、200年前にもあった。</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part1.html">第1部 蒸気の時代</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：機械は人間を何から解放し、何に縛ったのか。</p>
       <p class="card-excerpt">「AIに仕事を奪われる」という言葉を、最近よく耳にします。</p>
       <div class="card-tags"><span class="tag">#産業革命</span><span class="tag">#歴史</span><span class="tag">#AI</span><span class="tag">#教育</span><span class="tag">#仕事</span><span class="tag">#人類史</span><span class="tag">#学び</span></div>
       <div class="card-footer">
         <span></span>
-        <span class="card-link card-link--dim">近日公開</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part1.html">地図で見る</a>
+        </div>
       </div>
-    </div>
+    </article>
 
-    <a id="note-card-1" href="https://note.com/manabimapcreator/n/n00c3101a661e" target="_blank" rel="noopener noreferrer" class="note-card">
+    <article id="note-card-1" class="note-card" data-note-id="note-01" data-primary-part="part3">
+      <div class="card-orbit-label">PART 03 ORBIT</div>
       <div class="card-num">#01</div>
       <h3 class="card-title">ChatGPTが登場するまで、人類に何があったのか。</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
       <p class="card-excerpt">「なぜ学ぶのか」という問いに、うまく答えられますか？</p>
       <div class="card-tags"><span class="tag">#生成AI</span><span class="tag">#ChatGPT</span><span class="tag">#教育</span><span class="tag">#人類史</span><span class="tag">#学び</span><span class="tag">#AI</span></div>
       <div class="card-footer">
         <span></span>
-        <span class="card-link">記事を読む →</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n00c3101a661e" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
       </div>
-    </a>
+    </article>
   </div>
 </section>
 
