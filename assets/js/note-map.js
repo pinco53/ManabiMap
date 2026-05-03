@@ -134,16 +134,10 @@
     cards.forEach(function(card) {
       const note = noteFromCard(card);
       if (!note) return;
-      const href = card.getAttribute('href') || '#';
       const link = document.createElement('a');
       link.className = 'note-filter-link';
-      if (href === '#') {
-        link.href = '#' + card.id;
-      } else {
-        link.href = href;
-        link.target = card.target || '_blank';
-        link.rel = card.rel || 'noopener noreferrer';
-      }
+      link.dataset.targetCard = card.id;
+      link.href = '#' + card.id;
       const number = document.createElement('span');
       number.className = 'note-filter-link__num';
       number.textContent = '#' + note.number;
@@ -154,6 +148,19 @@
       link.appendChild(title);
       results.appendChild(link);
     });
+  }
+
+  function focusCard(card) {
+    if (!card) return;
+    card.hidden = false;
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.note-card--focus').forEach(function(item) {
+      item.classList.remove('note-card--focus');
+    });
+    card.classList.add('note-card--focus');
+    window.setTimeout(function() {
+      card.classList.remove('note-card--focus');
+    }, 1800);
   }
 
   function applyFilter(theme) {
@@ -189,7 +196,27 @@
       });
     });
 
+    const results = document.getElementById('note-filter-results');
+    if (results) {
+      results.addEventListener('click', function(event) {
+        const link = event.target.closest('.note-filter-link');
+        if (!link) return;
+        const card = document.getElementById(link.dataset.targetCard);
+        if (!card) return;
+        event.preventDefault();
+        history.replaceState(null, '', '#' + card.id);
+        focusCard(card);
+      });
+    }
+
     applyFilter('all');
+
+    if (window.location.hash) {
+      const target = document.getElementById(window.location.hash.slice(1));
+      if (target && target.classList.contains('note-card')) {
+        window.setTimeout(function() { focusCard(target); }, 120);
+      }
+    }
   }
 
   if (document.readyState === 'loading') {
