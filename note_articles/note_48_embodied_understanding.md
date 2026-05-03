@@ -2,7 +2,7 @@
 
 **タグ**: #学び #教育 #AI #認知科学 #身体化認知 #思考 #宿題
 
-**URL**:
+**URL**: https://note.com/manabimapcreator/n/n0c64a3eeb6f8
 
 ---
 

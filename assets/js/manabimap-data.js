@@ -255,7 +255,7 @@
     { id: 'note-45', number: 45, title: "「覚えなくていい」時代に、なぜ覚えることに意味があるのか", url: "https://note.com/manabimapcreator/n/n4e98d260513a", tags: ["暗記の意味","チェス名人実験","認知科学","パターン認識","暗黙知","タシットナレッジ","覚えることの意味","AI時代の学び","学力とは何か","基礎知識","脳と学習","ロンドンタクシー","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part8-2","part8","note"] },
     { id: 'note-46', number: 46, title: "東大入試がAIに超えられた日に、見えなかった問い", url: "https://note.com/manabimapcreator/n/n39e9e74b774f", tags: ["東大入試","AI受験","学力とは何か","チェス名人","パターン認識","暗黙知","AI時代の教育","測られない知識","これからの学び","教育の問い","共通テスト","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part8-2","part8","note"] },
     { id: 'note-47', number: 47, title: "あなたの見ている世界は、知識で作られている", url: "https://note.com/manabimapcreator/n/n0a0c56f8f5b9", tags: ["知識","思考","言語と思考","世界の見え方","認知科学","ピダハン族","バートレット","スキーマ理論","知覚と認識","学力とは何か","知ることの意味","AI時代の学び","哲学","教育","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part5","part8-2","part8","note"] },
-    { id: 'note-48', number: 48, title: "「腑に落ちる」は、なぜ身体の言葉なのか", status: "local-draft", tags: ["学び","教育","AI","認知科学","身体化認知","思考","宿題"], relatedParts: ["part5","part8-2","part8"] }
+    { id: 'note-48', number: 48, title: "「腑に落ちる」は、なぜ身体の言葉なのか", url: "https://note.com/manabimapcreator/n/n0c64a3eeb6f8", tags: ["学び","教育","AI","認知科学","身体化認知","思考","宿題"], relatedParts: ["part5","part8-2","part8"] }
   ];
 
   const routes = [
