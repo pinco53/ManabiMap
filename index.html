@@ -354,6 +354,34 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-dim);
   line-height: 2.05;
 }
+.map-follow-section {
+  width: min(1120px, calc(100% - 32px));
+  margin: 26px auto 0;
+  padding: 22px 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background:
+    linear-gradient(90deg, rgba(0,212,255,0.06), rgba(255,255,255,0.02), rgba(65,201,180,0.05));
+}
+.map-follow-label {
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: var(--neon-sky);
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.map-follow-title {
+  color: var(--text-bright);
+  font-size: 20px;
+  line-height: 1.45;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+.map-follow-desc {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.9;
+}
 .map-atlas-shell {
   position: relative;
   display: grid;
@@ -938,6 +966,10 @@ a { color: inherit; text-decoration: none; }
 }
 @media (max-width: 520px) {
   .map-base-section { width: min(100% - 18px, 1240px); padding: 64px 0 28px; }
+  .map-follow-section {
+    width: min(100% - 18px, 1120px);
+    padding: 18px 16px;
+  }
   .map-panel-head,
   .route-panel-head {
     display: block;
@@ -2281,12 +2313,21 @@ body::before {
   </div>
 </section>
 
+<section class="map-follow-section" aria-label="Manabi Mapの下に続く各部紹介">
+  <div class="map-follow-label">PART GUIDE</div>
+  <h2 class="map-follow-title">ここから下は、各部の紹介</h2>
+  <p class="map-follow-desc">
+    上の地図は、問いとメディアを横断するための入口です。
+    下では各部を順に紹介し、YouTubeで入るか、学びの地図で深めるかを選べます。
+  </p>
+</section>
+
 <!-- ========== NAVIGATION ========== -->
 <nav class="nav-bar">
   <a href="evolution.html" style="color:#bf5fff; border-color:#bf5fff">進化の年表</a>
   <a href="#intro" style="color:var(--neon-gold); border-color:var(--neon-gold)">紹介</a>
   <a href="#map-base" style="color:var(--neon-sky); border-color:var(--neon-sky)">地図</a>
-  <a href="card.html" style="color:var(--neon-green); border-color:var(--neon-green)">名刺</a>
+  <a href="card.html" style="color:var(--neon-green); border-color:var(--neon-green)">紹介カード</a>
   <a href="revolutions.html" style="color:var(--neon-cyan); border-color:var(--neon-cyan)">三大革命特集</a>
   <a href="#part1" data-part="1">第1部</a>
   <a href="#part2" data-part="2">第2部</a>
