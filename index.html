@@ -2127,8 +2127,6 @@ body::before {
 <aside class="mini-map" aria-label="ページ内ナビゲーション">
   <a href="#top" class="mm-dot" data-label="START"></a>
   <a href="#evolution" class="mm-dot" data-label="進化の年表"></a>
-  <a href="#theme" class="mm-dot" data-label="テーマ曲"></a>
-  <a href="#intro" class="mm-dot" data-label="紹介"></a>
   <a href="#map-base" class="mm-dot" data-label="ManabiMap"></a>
   <a href="#part1" class="mm-dot" data-label="第1部 蒸気"></a>
   <a href="#part2" class="mm-dot" data-label="第2部 接続"></a>
@@ -2139,6 +2137,8 @@ body::before {
   <a href="#part7" class="mm-dot" data-label="第7部 前提"></a>
   <a href="#part8" class="mm-dot" data-label="第8部 歴史編"></a>
   <a href="#part8-2" class="mm-dot" data-label="第8部 社会編"></a>
+  <a href="#intro" class="mm-dot" data-label="三部作紹介"></a>
+  <a href="#theme" class="mm-dot" data-label="テーマ曲"></a>
 </aside>
 
 <section class="hero" id="top">
@@ -2190,107 +2190,6 @@ body::before {
   </a>
 </section>
 
-<!-- ========== OPENING THEME ========== -->
-<section class="theme-section" id="theme">
-  <div class="theme-label">OPENING THEME</div>
-  <div class="theme-title">ハルとおじいさんの物語</div>
-  <div class="theme-subtitle">── Theme Song ──</div>
-  <div class="theme-player" id="theme-player-box" onclick="loadThemeVideo(this)">
-    <img src="https://img.youtube.com/vi/TYnTySeqACY/maxresdefault.jpg"
-         onerror="this.src='https://img.youtube.com/vi/TYnTySeqACY/hqdefault.jpg'"
-         alt="オープニングテーマ サムネイル" class="theme-poster" loading="lazy">
-    <div class="theme-play-btn"></div>
-  </div>
-  <p class="theme-tagline">
-    <em>この物語の世界を、まず音で感じてください。</em>
-  </p>
-</section>
-
-<!-- ========== INTRO / PROMOTION ========== -->
-<section class="intro-section" id="intro">
-  <div class="intro-header">
-    <div class="intro-award">MulmoCast AI Short Film Fes 2025　プロモーション部門　最終ノミネート作品</div>
-    <div class="intro-label">INTRODUCTION</div>
-    <h2 class="intro-title">三部作 紹介映像</h2>
-    <p class="intro-desc">
-      産業革命・デジタル革命・AI革命──<br>
-      おじいさんとハルの対話で描く、人類の学びの旅。<br>
-      第1回 MulmoCast AI Short Film Fes 2025 のプロモーション部門で<br>
-      最終ノミネートに選ばれた世界観を、まずここから。
-    </p>
-  </div>
-
-  <div class="intro-video-wrap" id="intro-video-box" onclick="loadIntroVideo(this)">
-    <img src="https://img.youtube.com/vi/BwUM3mDsvPY/maxresdefault.jpg"
-         onerror="this.src='https://img.youtube.com/vi/BwUM3mDsvPY/hqdefault.jpg'"
-         alt="三部作紹介 サムネイル" class="intro-poster">
-    <div class="intro-play-btn" aria-label="動画を再生">
-      <div class="intro-play-icon"></div>
-    </div>
-  </div>
-
-  <div class="intro-parts-row">
-    <div class="intro-part-mini">
-      <a href="https://youtu.be/HrQnEL6hi4w" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/HrQnEL6hi4w/hqdefault.jpg" alt="第1部" loading="lazy">
-        <div class="intro-part-mini-body">
-          <div class="intro-part-mini-num">PART 01</div>
-          <div class="intro-part-mini-title">蒸気の時代</div>
-          <div class="intro-part-mini-link">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
-            YouTubeで見る
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="intro-part-mini">
-      <a href="https://youtu.be/MZSwaQr27NI" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/MZSwaQr27NI/hqdefault.jpg" alt="第2部" loading="lazy">
-        <div class="intro-part-mini-body">
-          <div class="intro-part-mini-num">PART 02</div>
-          <div class="intro-part-mini-title">つながる世界</div>
-          <div class="intro-part-mini-link">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
-            YouTubeで見る
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="intro-part-mini">
-      <a href="https://youtu.be/70vHG6evr6E" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/70vHG6evr6E/hqdefault.jpg" alt="第3部" loading="lazy">
-        <div class="intro-part-mini-body">
-          <div class="intro-part-mini-num">PART 03</div>
-          <div class="intro-part-mini-title">AIと生きる未来</div>
-          <div class="intro-part-mini-link">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
-            YouTubeで見る
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="intro-fes-link">
-    <a href="https://www.mag2.com/events/ai-film-fes2025/" target="_blank" rel="noopener" class="fes-badge">
-      <span class="fes-badge-icon">🎬</span>
-      <span class="fes-badge-text">
-        <span class="fes-badge-title">MulmoCast AI Short Film Fes 2025</span>
-        <span class="fes-badge-sub">公式イベントページ →</span>
-      </span>
-    </a>
-    <a href="https://singularitysociety.org/projects/mulmocast/mulmocast-ai-short-film-fes-2025/" target="_blank" rel="noopener" class="fes-badge fes-badge-secondary">
-      <span class="fes-badge-icon">📋</span>
-      <span class="fes-badge-text">
-        <span class="fes-badge-title">Singularity Society</span>
-        <span class="fes-badge-sub">フェス詳細・作品情報 →</span>
-      </span>
-    </a>
-  </div>
-
-  <div class="intro-divider"></div>
-</section>
-
 <!-- ========== MANABI MAP BASE ========== -->
 <section class="map-base-section" id="map-base">
   <div class="map-base-header">
@@ -2326,10 +2225,7 @@ body::before {
 <!-- ========== NAVIGATION ========== -->
 <nav class="nav-bar">
   <a href="evolution.html" style="color:#bf5fff; border-color:#bf5fff">進化の年表</a>
-  <a href="#intro" style="color:var(--neon-gold); border-color:var(--neon-gold)">紹介</a>
   <a href="#map-base" style="color:var(--neon-sky); border-color:var(--neon-sky)">地図</a>
-  <a href="card.html" style="color:var(--neon-green); border-color:var(--neon-green)">紹介カード</a>
-  <a href="revolutions.html" style="color:var(--neon-cyan); border-color:var(--neon-cyan)">三大革命特集</a>
   <a href="#part1" data-part="1">第1部</a>
   <a href="#part2" data-part="2">第2部</a>
   <a href="#part3" data-part="3">第3部</a>
@@ -2338,6 +2234,10 @@ body::before {
   <a href="#part6" data-part="6">第6部</a>
   <a href="#part7" data-part="7">第7部</a>
   <a href="#part8" data-part="8">第8部</a>
+  <a href="#intro" style="color:var(--neon-gold); border-color:var(--neon-gold)">三部作紹介</a>
+  <a href="#theme" style="color:#8da2ff; border-color:#8da2ff">オープニング</a>
+  <a href="revolutions.html" style="color:var(--neon-cyan); border-color:var(--neon-cyan)">三大革命特集</a>
+  <a href="card.html" style="color:var(--neon-green); border-color:var(--neon-green)">紹介カード</a>
   <a href="note.html" style="color:#41c9b4; border-color:#41c9b4">note記事</a>
 </nav>
 
@@ -2674,6 +2574,107 @@ body::before {
     </div>
 
   </div>
+</section>
+
+<!-- ========== INTRO / PROMOTION ========== -->
+<section class="intro-section" id="intro">
+  <div class="intro-header">
+    <div class="intro-award">MulmoCast AI Short Film Fes 2025　プロモーション部門　最終ノミネート作品</div>
+    <div class="intro-label">INTRODUCTION</div>
+    <h2 class="intro-title">三部作 紹介映像</h2>
+    <p class="intro-desc">
+      産業革命・デジタル革命・AI革命──<br>
+      おじいさんとハルの対話で描く、人類の学びの旅。<br>
+      各部の学びをたどったあとに、最終ノミネートに選ばれた<br>
+      三部作の世界観を紹介映像で振り返ります。
+    </p>
+  </div>
+
+  <div class="intro-video-wrap" id="intro-video-box" onclick="loadIntroVideo(this)">
+    <img src="https://img.youtube.com/vi/BwUM3mDsvPY/maxresdefault.jpg"
+         onerror="this.src='https://img.youtube.com/vi/BwUM3mDsvPY/hqdefault.jpg'"
+         alt="三部作紹介 サムネイル" class="intro-poster">
+    <div class="intro-play-btn" aria-label="動画を再生">
+      <div class="intro-play-icon"></div>
+    </div>
+  </div>
+
+  <div class="intro-parts-row">
+    <div class="intro-part-mini">
+      <a href="https://youtu.be/HrQnEL6hi4w" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/HrQnEL6hi4w/hqdefault.jpg" alt="第1部" loading="lazy">
+        <div class="intro-part-mini-body">
+          <div class="intro-part-mini-num">PART 01</div>
+          <div class="intro-part-mini-title">蒸気の時代</div>
+          <div class="intro-part-mini-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
+            YouTubeで見る
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="intro-part-mini">
+      <a href="https://youtu.be/MZSwaQr27NI" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/MZSwaQr27NI/hqdefault.jpg" alt="第2部" loading="lazy">
+        <div class="intro-part-mini-body">
+          <div class="intro-part-mini-num">PART 02</div>
+          <div class="intro-part-mini-title">つながる世界</div>
+          <div class="intro-part-mini-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
+            YouTubeで見る
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="intro-part-mini">
+      <a href="https://youtu.be/70vHG6evr6E" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/70vHG6evr6E/hqdefault.jpg" alt="第3部" loading="lazy">
+        <div class="intro-part-mini-body">
+          <div class="intro-part-mini-num">PART 03</div>
+          <div class="intro-part-mini-title">AIと生きる未来</div>
+          <div class="intro-part-mini-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
+            YouTubeで見る
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="intro-fes-link">
+    <a href="https://www.mag2.com/events/ai-film-fes2025/" target="_blank" rel="noopener" class="fes-badge">
+      <span class="fes-badge-icon">🎬</span>
+      <span class="fes-badge-text">
+        <span class="fes-badge-title">MulmoCast AI Short Film Fes 2025</span>
+        <span class="fes-badge-sub">公式イベントページ →</span>
+      </span>
+    </a>
+    <a href="https://singularitysociety.org/projects/mulmocast/mulmocast-ai-short-film-fes-2025/" target="_blank" rel="noopener" class="fes-badge fes-badge-secondary">
+      <span class="fes-badge-icon">📋</span>
+      <span class="fes-badge-text">
+        <span class="fes-badge-title">Singularity Society</span>
+        <span class="fes-badge-sub">フェス詳細・作品情報 →</span>
+      </span>
+    </a>
+  </div>
+
+  <div class="intro-divider"></div>
+</section>
+
+<!-- ========== OPENING THEME ========== -->
+<section class="theme-section" id="theme">
+  <div class="theme-label">OPENING THEME</div>
+  <div class="theme-title">ハルとおじいさんの物語</div>
+  <div class="theme-subtitle">── Theme Song ──</div>
+  <div class="theme-player" id="theme-player-box" onclick="loadThemeVideo(this)">
+    <img src="https://img.youtube.com/vi/TYnTySeqACY/maxresdefault.jpg"
+         onerror="this.src='https://img.youtube.com/vi/TYnTySeqACY/hqdefault.jpg'"
+         alt="オープニングテーマ サムネイル" class="theme-poster" loading="lazy">
+    <div class="theme-play-btn"></div>
+  </div>
+  <p class="theme-tagline">
+    <em>最後に、この物語の世界を音で感じてください。</em>
+  </p>
 </section>
 
 <!-- ========== YOUTUBE SUBSCRIBE CTA ========== -->
