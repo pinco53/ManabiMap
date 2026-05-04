@@ -540,24 +540,67 @@ a { color: inherit; text-decoration: none; }
 .map-node[data-color="magenta"] { color: var(--neon-magenta); }
 .map-node[data-color="sky"] { color: var(--neon-sky); }
 .map-node-detail {
+  --detail-accent: var(--neon-sky);
+  --detail-accent-soft: rgba(0,212,255,0.12);
+  --detail-accent-line: rgba(0,212,255,0.38);
   position: relative;
   z-index: 5;
   width: auto;
   min-height: 700px;
   max-height: 700px;
   margin: 0;
-  border: 1px solid rgba(0,212,255,0.28);
+  border: 1px solid var(--detail-accent-line);
   border-radius: 10px;
   background:
-    radial-gradient(ellipse 320px 180px at 15% 0%, rgba(0,212,255,0.12), transparent 70%),
-    radial-gradient(ellipse 300px 160px at 88% 18%, rgba(255,215,0,0.08), transparent 70%),
+    radial-gradient(ellipse 320px 180px at 15% 0%, var(--detail-accent-soft), transparent 70%),
+    radial-gradient(ellipse 300px 160px at 88% 18%, var(--detail-accent-soft), transparent 70%),
     rgba(8,8,13,0.86);
   backdrop-filter: blur(12px);
   box-shadow: 0 18px 54px rgba(0,0,0,0.4);
   padding: 18px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0,212,255,0.34) rgba(255,255,255,0.06);
+  scrollbar-color: var(--detail-accent-line) rgba(255,255,255,0.06);
+}
+.map-node-detail[data-color="orange"] {
+  --detail-accent: var(--neon-orange);
+  --detail-accent-soft: rgba(255,107,43,0.14);
+  --detail-accent-line: rgba(255,107,43,0.44);
+}
+.map-node-detail[data-color="blue"] {
+  --detail-accent: var(--neon-blue);
+  --detail-accent-soft: rgba(77,166,255,0.14);
+  --detail-accent-line: rgba(77,166,255,0.44);
+}
+.map-node-detail[data-color="cyan"] {
+  --detail-accent: var(--neon-cyan);
+  --detail-accent-soft: rgba(0,212,255,0.14);
+  --detail-accent-line: rgba(0,212,255,0.44);
+}
+.map-node-detail[data-color="green"] {
+  --detail-accent: var(--neon-green);
+  --detail-accent-soft: rgba(57,255,20,0.12);
+  --detail-accent-line: rgba(57,255,20,0.38);
+}
+.map-node-detail[data-color="purple"] {
+  --detail-accent: var(--neon-purple);
+  --detail-accent-soft: rgba(191,95,255,0.14);
+  --detail-accent-line: rgba(191,95,255,0.44);
+}
+.map-node-detail[data-color="gold"] {
+  --detail-accent: var(--neon-gold);
+  --detail-accent-soft: rgba(255,215,0,0.12);
+  --detail-accent-line: rgba(255,215,0,0.42);
+}
+.map-node-detail[data-color="magenta"] {
+  --detail-accent: var(--neon-magenta);
+  --detail-accent-soft: rgba(255,42,109,0.14);
+  --detail-accent-line: rgba(255,42,109,0.44);
+}
+.map-node-detail[data-color="sky"] {
+  --detail-accent: var(--neon-sky);
+  --detail-accent-soft: rgba(0,212,255,0.14);
+  --detail-accent-line: rgba(0,212,255,0.44);
 }
 .map-node-detail::-webkit-scrollbar {
   width: 8px;
@@ -567,13 +610,13 @@ a { color: inherit; text-decoration: none; }
   border-radius: 999px;
 }
 .map-node-detail::-webkit-scrollbar-thumb {
-  background: rgba(0,212,255,0.34);
+  background: var(--detail-accent-line);
   border-radius: 999px;
 }
 .map-node-detail__label {
   font-size: 10px;
   letter-spacing: 0.26em;
-  color: var(--neon-sky);
+  color: var(--detail-accent);
   font-weight: 800;
   margin-bottom: 7px;
 }
@@ -597,7 +640,7 @@ a { color: inherit; text-decoration: none; }
 }
 .map-node-detail__actions {
   grid-template-columns: 1fr;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
 }
 .map-node-detail__button {
   display: inline-flex;
@@ -614,9 +657,9 @@ a { color: inherit; text-decoration: none; }
   text-decoration: none;
 }
 .map-node-detail__button--primary {
-  border-color: rgba(0,212,255,0.46);
-  color: #dffaff;
-  background: rgba(0,212,255,0.08);
+  border-color: var(--detail-accent-line);
+  color: var(--detail-accent);
+  background: var(--detail-accent-soft);
 }
 .map-media-section {
   padding-top: 12px;
@@ -654,8 +697,8 @@ a { color: inherit; text-decoration: none; }
   transition: border-color 0.22s, background 0.22s;
 }
 .map-media-item:hover {
-  border-color: rgba(0,212,255,0.42);
-  background: rgba(0,212,255,0.07);
+  border-color: var(--detail-accent-line);
+  background: var(--detail-accent-soft);
 }
 .map-media-item__title {
   color: var(--text-bright);
@@ -2830,14 +2873,13 @@ function loadThemeVideo(el) {
     if (!node) return;
     const media = mediaForNode(id);
     const mapHref = hrefForNode(id);
-    const videoUrl = node.youtubeUrl || node.playlistUrl || (media.find(function(item) { return item.type === 'youtube'; }) || {}).url;
+    nodeDetail.dataset.color = node.color || 'sky';
     nodeDetail.innerHTML = [
       '<div class="map-node-detail__label">この星から伸びる枝道</div>',
       '<div class="map-node-detail__title">' + escapeHtml(node.title) + '</div>',
       '<div class="map-node-detail__question">' + escapeHtml((node.questions && node.questions[0]) || node.question || node.subtitle || '') + '</div>',
       '<div class="map-node-detail__actions">',
       '<a class="map-node-detail__button map-node-detail__button--primary" href="' + escapeHtml(mapHref) + '">地図を開く</a>',
-      videoUrl ? '<a class="map-node-detail__button" href="' + escapeHtml(videoUrl) + '" target="_blank" rel="noopener">YouTubeへ</a>' : '<span class="map-node-detail__button">入口を選ぶ</span>',
       '</div>',
       mediaSectionHtml('youtube', media),
       mediaSectionHtml('note', media),
