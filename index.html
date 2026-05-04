@@ -356,6 +356,10 @@ a { color: inherit; text-decoration: none; }
 }
 .map-atlas-shell {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 360px);
+  gap: 16px;
+  align-items: stretch;
   background: transparent;
   box-shadow: none;
   overflow: visible;
@@ -378,11 +382,11 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   z-index: 1;
   display: block;
-  min-height: 740px;
+  min-height: 700px;
 }
 .map-panel {
   position: relative;
-  min-height: 740px;
+  min-height: 700px;
 }
 .map-panel-head {
   position: absolute;
@@ -409,7 +413,7 @@ a { color: inherit; text-decoration: none; }
 .atlas-map {
   position: absolute;
   inset: 0;
-  min-height: 740px;
+  min-height: 700px;
   background: transparent;
 }
 .atlas-map::before {
@@ -538,8 +542,10 @@ a { color: inherit; text-decoration: none; }
 .map-node-detail {
   position: relative;
   z-index: 5;
-  width: min(1100px, calc(100% - 48px));
-  margin: 18px auto 0;
+  width: auto;
+  min-height: 700px;
+  max-height: 700px;
+  margin: 0;
   border: 1px solid rgba(0,212,255,0.28);
   border-radius: 10px;
   background:
@@ -548,7 +554,21 @@ a { color: inherit; text-decoration: none; }
     rgba(8,8,13,0.86);
   backdrop-filter: blur(12px);
   box-shadow: 0 18px 54px rgba(0,0,0,0.4);
-  padding: 18px 20px;
+  padding: 18px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,212,255,0.34) rgba(255,255,255,0.06);
+}
+.map-node-detail::-webkit-scrollbar {
+  width: 8px;
+}
+.map-node-detail::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+}
+.map-node-detail::-webkit-scrollbar-thumb {
+  background: rgba(0,212,255,0.34);
+  border-radius: 999px;
 }
 .map-node-detail__label {
   font-size: 10px;
@@ -559,7 +579,7 @@ a { color: inherit; text-decoration: none; }
 }
 .map-node-detail__title {
   color: var(--text-bright);
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.35;
   font-weight: 900;
   margin-bottom: 6px;
@@ -576,7 +596,7 @@ a { color: inherit; text-decoration: none; }
   gap: 8px;
 }
 .map-node-detail__actions {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   margin-bottom: 15px;
 }
 .map-node-detail__button {
@@ -855,6 +875,9 @@ a { color: inherit; text-decoration: none; }
   pointer-events: none;
 }
 @media (max-width: 900px) {
+  .map-atlas-shell {
+    display: block;
+  }
   .map-console {
     min-height: auto;
   }
@@ -864,7 +887,10 @@ a { color: inherit; text-decoration: none; }
   }
   .map-node-detail {
     width: calc(100% - 28px);
+    min-height: 0;
+    max-height: none;
     margin: 16px auto 0;
+    overflow: visible;
   }
 }
 @media (max-width: 520px) {
@@ -2208,8 +2234,8 @@ body::before {
         </div>
       </div>
     </div>
+    <div class="map-node-detail" id="map-node-detail" aria-live="polite"></div>
   </div>
-  <div class="map-node-detail" id="map-node-detail" aria-live="polite"></div>
 </section>
 
 <!-- ========== NAVIGATION ========== -->
