@@ -75,7 +75,7 @@ a { color: inherit; text-decoration: none; }
 
 .visual {
   position: relative;
-  min-height: 170px;
+  min-height: 210px;
   background: #000;
   overflow: hidden;
 }
@@ -83,18 +83,20 @@ a { color: inherit; text-decoration: none; }
 .visual img {
   width: 100%;
   height: 100%;
-  min-height: 170px;
+  min-height: 210px;
   object-fit: cover;
   display: block;
-  opacity: 0.56;
-  filter: saturate(1.08) brightness(0.88);
+  opacity: 0.9;
+  filter: saturate(1.18) contrast(1.08) brightness(1.04);
 }
 
 .visual::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8,8,13,0.08), rgba(8,8,13,0.86));
+  background:
+    linear-gradient(180deg, rgba(8,8,13,0) 0%, rgba(8,8,13,0.08) 42%, rgba(8,8,13,0.7) 100%),
+    linear-gradient(90deg, rgba(8,8,13,0.28), rgba(8,8,13,0.02) 58%);
 }
 
 .visual-copy {
