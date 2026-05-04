@@ -313,7 +313,15 @@
 
   const extraMediaItems = [
     // Podcastなどを追加するときは、この配列に同じ形で足す。
-    // { id: 'podcast-part5-01', type: 'podcast', title: '理解は身体で起きるのか', url: '...', relatedParts: ['part5'], question: '腑に落ちるとは何か', relation: '音声で深める補助線' }
+    {
+      id: 'podcast-part1-01',
+      type: 'podcast',
+      title: '第1部 Podcast 蒸気の時代',
+      url: 'https://youtu.be/-Rfi5O5MMmI',
+      relatedParts: ['part1'],
+      question: '機械は人間を何から解放し、何に縛ったのか。',
+      relation: '声で考える枝道'
+    }
   ];
 
   function firstQuestionFor(partId) {
