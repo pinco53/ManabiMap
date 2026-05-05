@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcast特集 | 学びの地図 ─ ハルとおじいさん</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #08080d;
+  --bg-panel: #10101a;
+  --text: #e8e8f0;
+  --text-dim: #9090aa;
+  --text-bright: #ffffff;
+  --border: #2a2a40;
+  --podcast: #ffb86b;
+  --podcast-soft: rgba(255,184,107,0.14);
+  --voice: #8da2ff;
+  --map: #00d4ff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255,184,107,0.12), transparent 26%),
+    radial-gradient(circle at 78% 0%, rgba(141,162,255,0.13), transparent 28%),
+    radial-gradient(circle at 50% 100%, rgba(0,212,255,0.08), transparent 34%),
+    var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 0 24px;
+  overflow-x: auto;
+  background: rgba(8,8,13,0.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  scrollbar-width: none;
+}
+.nav-bar::-webkit-scrollbar { display: none; }
+.nav-bar a {
+  flex-shrink: 0;
+  padding: 14px 16px;
+  color: var(--text-dim);
+  border-bottom: 2px solid transparent;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  transition: color 0.25s, border-color 0.25s;
+}
+.nav-bar a:hover { color: var(--text-bright); }
+.nav-bar a.active {
+  color: var(--podcast);
+  border-color: var(--podcast);
+}
+
+.hero {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 84px 24px 42px;
+}
+.hero-label {
+  margin-bottom: 16px;
+  color: var(--podcast);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+.hero-title {
+  max-width: 820px;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, #fff 0%, var(--podcast) 48%, var(--voice) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(34px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+}
+.hero-desc {
+  max-width: 720px;
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 2;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+.hero-pill {
+  min-height: 34px;
+  padding: 5px 14px;
+  border: 1px solid rgba(255,184,107,0.34);
+  border-radius: 999px;
+  background: rgba(255,184,107,0.07);
+  color: #ffd8a8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.console {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px 24px;
+}
+.console-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: end;
+  padding: 22px;
+  border: 1px solid rgba(255,184,107,0.24);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255,184,107,0.12), transparent 38%),
+    linear-gradient(145deg, rgba(16,16,26,0.92), rgba(8,8,13,0.92));
+}
+.console-label {
+  margin-bottom: 6px;
+  color: var(--podcast);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+}
+.console-title {
+  color: var(--text-bright);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.filter-button {
+  min-height: 34px;
+  padding: 7px 13px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.025);
+  color: var(--text-dim);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: color 0.22s, border-color 0.22s, background 0.22s;
+}
+.filter-button:hover,
+.filter-button.active {
+  color: var(--podcast);
+  border-color: var(--podcast);
+  background: rgba(255,184,107,0.09);
+}
+
+.grid-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 24px 88px;
+}
+.podcast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+}
+.podcast-card {
+  --accent: var(--podcast);
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  min-height: 100%;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  background:
+    linear-gradient(145deg, rgba(16,16,26,0.96), rgba(8,8,13,0.96)),
+    var(--bg-panel);
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.podcast-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent), white 12%);
+  box-shadow: 0 18px 42px color-mix(in srgb, var(--accent), transparent 82%);
+}
+.podcast-thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #050508;
+}
+.podcast-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.82;
+  filter: saturate(1.08) contrast(1.05);
+  transition: transform 0.35s, opacity 0.35s;
+}
+.podcast-card:hover .podcast-thumb img {
+  transform: scale(1.035);
+  opacity: 0.94;
+}
+.podcast-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8,8,13,0.06), rgba(8,8,13,0.58)),
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent), transparent 62%), transparent 32%);
+}
+.thumb-label {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  z-index: 2;
+  padding: 4px 10px;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 42%);
+  border-radius: 999px;
+  background: rgba(8,8,13,0.56);
+  color: var(--text-bright);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+.play-mark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border: 1px solid rgba(255,255,255,0.48);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent), rgba(8,8,13,0.52) 28%);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--accent), transparent 58%);
+  transform: translate(-50%, -50%);
+}
+.play-mark::before {
+  content: '';
+  margin-left: 4px;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 17px solid #fff;
+}
+.waveform {
+  position: absolute;
+  right: 16px;
+  bottom: 15px;
+  z-index: 2;
+  display: flex;
+  align-items: end;
+  gap: 4px;
+  height: 38px;
+}
+.waveform span {
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--voice), var(--accent));
+  opacity: 0.86;
+}
+.waveform span:nth-child(1) { height: 14px; }
+.waveform span:nth-child(2) { height: 26px; }
+.waveform span:nth-child(3) { height: 18px; }
+.waveform span:nth-child(4) { height: 34px; }
+.waveform span:nth-child(5) { height: 22px; }
+.waveform span:nth-child(6) { height: 30px; }
+
+.podcast-body {
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+}
+.orbit-label {
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 3px 9px;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 54%);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent), transparent 91%);
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+}
+.podcast-title {
+  margin-bottom: 12px;
+  color: var(--text-bright);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+.branch-box {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 13px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.2);
+}
+.branch-eyebrow,
+.branch-tail {
+  color: var(--text-dim);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.branch-node {
+  width: fit-content;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+.question {
+  margin-bottom: 14px;
+  color: #d5d9ea;
+  font-size: 13px;
+  line-height: 1.75;
+}
+.relation {
+  margin-bottom: 18px;
+  color: var(--text-dim);
+  font-size: 12px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 7px 13px;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 44%);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--accent), transparent 91%);
+  color: var(--text-bright);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  transition: background 0.22s, border-color 0.22s;
+}
+.action:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent), transparent 82%);
+}
+.action--map {
+  border-color: rgba(0,212,255,0.34);
+  background: rgba(0,212,255,0.06);
+  color: #9eeeff;
+}
+.empty {
+  padding: 36px;
+  border: 1px dashed rgba(255,184,107,0.32);
+  border-radius: 10px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.page-footer {
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+.page-footer a { color: var(--podcast); }
+
+@media (max-width: 720px) {
+  .hero { padding-top: 62px; }
+  .console-panel { grid-template-columns: 1fr; align-items: start; }
+  .filter-buttons { justify-content: flex-start; }
+  .podcast-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav-bar">
+  <a href="index.html">学びの地図</a>
+  <a href="parts/part1.html" data-part="1">第1部</a>
+  <a href="parts/part2.html" data-part="2">第2部</a>
+  <a href="parts/part3.html" data-part="3">第3部</a>
+  <a href="parts/part4.html" data-part="4">第4部</a>
+  <a href="parts/part5.html" data-part="5">第5部</a>
+  <a href="parts/part6.html" data-part="6">第6部</a>
+  <a href="parts/part7.html" data-part="7">第7部</a>
+  <a href="parts/part8.html" data-part="8">第8部</a>
+  <a href="note.html">note記事</a>
+  <a href="podcast.html" class="active">Podcast</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-label">Podcast branches</div>
+  <h1 class="hero-title">声で考える、学びの枝道</h1>
+  <p class="hero-desc">
+    Manabi Mapの星から伸びるPodcastを、問いごとにたどれます。
+    物語で入ったテーマを、声の余白でもう一度考えるための入口です。
+  </p>
+  <div class="hero-meta">
+    <span class="hero-pill" id="podcast-count">0 episodes</span>
+    <span class="hero-pill">YouTube Podcast</span>
+    <span class="hero-pill">Manabi Map linked</span>
+  </div>
+</section>
+
+<section class="console" aria-label="Podcastフィルター">
+  <div class="console-panel">
+    <div>
+      <div class="console-label">VOICE MAP</div>
+      <div class="console-title">地図の星から、声の枝道を探す</div>
+    </div>
+    <div class="filter-buttons" id="filter-buttons"></div>
+  </div>
+</section>
+
+<section class="grid-section">
+  <div class="podcast-grid" id="podcast-grid" aria-live="polite"></div>
+</section>
+
+<footer class="page-footer">
+  <a href="index.html#map-base">Manabi Mapへ戻る</a>
+</footer>
+
+<script src="assets/js/manabimap-data.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  const data = window.ManabiMapData || {};
+  const parts = Array.isArray(data.parts) ? data.parts : [];
+  const podcasts = Array.isArray(data.mediaItems)
+    ? data.mediaItems.filter(function(item) { return item.type === 'podcast'; })
+    : [];
+  const colorMap = {
+    orange: '#ff6b2b',
+    blue: '#4aa3ff',
+    cyan: '#00d4ff',
+    green: '#39ff39',
+    purple: '#bf5fff',
+    gold: '#ffd700',
+    magenta: '#ff2fa3',
+    sky: '#00d4ff'
+  };
+
+  const grid = document.getElementById('podcast-grid');
+  const count = document.getElementById('podcast-count');
+  const filterButtons = document.getElementById('filter-buttons');
+  let activePart = 'all';
+
+  function escapeHtml(value) {
+    return String(value || '').replace(/[&<>"']/g, function(char) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char];
+    });
+  }
+
+  function findPart(partId) {
+    return parts.find(function(part) { return part.id === partId; }) || null;
+  }
+
+  function firstPartId(item) {
+    const related = Array.isArray(item.relatedParts) ? item.relatedParts : [];
+    return related.find(function(id) { return /^part/.test(id); }) || '';
+  }
+
+  function youtubeId(url) {
+    try {
+      const parsed = new URL(url);
+      if (parsed.hostname === 'youtu.be') return parsed.pathname.replace('/', '');
+      if (parsed.searchParams.get('v')) return parsed.searchParams.get('v');
+      const match = parsed.pathname.match(/\/embed\/([^/?]+)/);
+      return match ? match[1] : '';
+    } catch (error) {
+      return '';
+    }
+  }
+
+  function thumbnailUrl(url) {
+    const id = youtubeId(url);
+    return id ? 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg' : '';
+  }
+
+  function partLabel(part) {
+    if (!part) return 'MAP ORBIT';
+    return 'PART ' + part.number + ' ORBIT';
+  }
+
+  function renderFilters() {
+    const partIds = podcasts
+      .map(firstPartId)
+      .filter(Boolean)
+      .filter(function(id, index, array) { return array.indexOf(id) === index; });
+
+    const buttons = [
+      '<button type="button" class="filter-button active" data-part="all">すべて</button>'
+    ].concat(partIds.map(function(partId) {
+      const part = findPart(partId);
+      const label = part ? '第' + Number(part.number) + '部' : partId;
+      return '<button type="button" class="filter-button" data-part="' + escapeHtml(partId) + '">' + escapeHtml(label) + '</button>';
+    }));
+
+    filterButtons.innerHTML = buttons.join('');
+    filterButtons.querySelectorAll('.filter-button').forEach(function(button) {
+      button.addEventListener('click', function() {
+        activePart = button.dataset.part || 'all';
+        filterButtons.querySelectorAll('.filter-button').forEach(function(item) {
+          item.classList.toggle('active', item === button);
+        });
+        renderCards();
+      });
+    });
+  }
+
+  function renderCards() {
+    const visible = activePart === 'all'
+      ? podcasts
+      : podcasts.filter(function(item) { return firstPartId(item) === activePart; });
+
+    count.textContent = podcasts.length + (podcasts.length === 1 ? ' episode' : ' episodes');
+
+    if (!visible.length) {
+      grid.innerHTML = '<div class="empty">Podcastの枝道は準備中です。</div>';
+      return;
+    }
+
+    grid.innerHTML = visible.map(function(item) {
+      const partId = firstPartId(item);
+      const part = findPart(partId);
+      const accent = part && colorMap[part.color] ? colorMap[part.color] : '#ffb86b';
+      const thumb = thumbnailUrl(item.url);
+      const mapUrl = part && part.pageUrl ? part.pageUrl : 'index.html#map-base';
+      const partTitle = part ? '第' + Number(part.number) + '部 ' + part.title : 'Manabi Map';
+      const imageHtml = thumb
+        ? '<img src="' + escapeHtml(thumb) + '" alt="' + escapeHtml(item.title) + ' サムネイル" loading="lazy">'
+        : '';
+
+      return [
+        '<article class="podcast-card" style="--accent:' + escapeHtml(accent) + '">',
+          '<a class="podcast-thumb" href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">',
+            imageHtml,
+            '<span class="thumb-label">PODCAST / ' + escapeHtml(partLabel(part)) + '</span>',
+            '<span class="play-mark" aria-hidden="true"></span>',
+            '<span class="waveform" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></span>',
+          '</a>',
+          '<div class="podcast-body">',
+            '<div class="orbit-label">' + escapeHtml(partLabel(part)) + '</div>',
+            '<h2 class="podcast-title">' + escapeHtml(item.title) + '</h2>',
+            '<div class="branch-box">',
+              '<span class="branch-eyebrow">この地図ノードから</span>',
+              '<a class="branch-node" href="' + escapeHtml(mapUrl) + '">' + escapeHtml(partTitle) + '</a>',
+              '<span class="branch-tail">伸びる声の枝道</span>',
+            '</div>',
+            '<p class="question">問：' + escapeHtml(item.question || '') + '</p>',
+            '<p class="relation">' + escapeHtml(item.relation || '声で考える枝道') + '</p>',
+            '<div class="actions">',
+              '<a class="action" href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">聴く</a>',
+              '<a class="action action--map" href="' + escapeHtml(mapUrl) + '">地図で見る</a>',
+            '</div>',
+          '</div>',
+        '</article>'
+      ].join('');
+    }).join('');
+  }
+
+  renderFilters();
+  renderCards();
+})();
+</script>
+</body>
+</html>
