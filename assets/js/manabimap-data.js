@@ -330,6 +330,15 @@
       relatedParts: ['part2'],
       question: 'つながることは、近づくことと同じなのか。',
       relation: '声で考える枝道'
+    },
+    {
+      id: 'podcast-part3-01',
+      type: 'podcast',
+      title: '第3部 Podcast AIと生きる未来',
+      url: 'https://youtu.be/Uoy4OZhINHA',
+      relatedParts: ['part3'],
+      question: 'AIが考えているように見えるとき、人間が考えるとは何か。',
+      relation: '声で考える枝道'
     }
   ];
 

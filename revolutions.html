@@ -506,15 +506,16 @@ tr:last-child td { border-bottom: 0; }
 }
 
 .video-links {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
-  flex-wrap: wrap;
   margin-top: auto;
 }
 
 .video-links a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 34px;
   padding: 7px 10px;
   border-radius: 5px;
@@ -522,6 +523,7 @@ tr:last-child td { border-bottom: 0; }
   color: #e8e8ef;
   font-size: 12px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .video-links a:first-child {
@@ -562,6 +564,14 @@ tr:last-child td { border-bottom: 0; }
   .question-grid,
   .video-grid {
     grid-template-columns: 1fr;
+  }
+
+  .video-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .video-links a:last-child {
+    grid-column: 1 / -1;
   }
 
   .side-note {
@@ -846,6 +856,7 @@ tr:last-child td { border-bottom: 0; }
           <p>産業革命を通して、機械が人間の労働、時間、教育をどう変えたのかを学びます。</p>
           <div class="video-links">
             <a href="https://youtu.be/HrQnEL6hi4w" target="_blank" rel="noopener">YouTubeで見る</a>
+            <a href="https://youtu.be/-Rfi5O5MMmI" target="_blank" rel="noopener">Podcastで聴く</a>
             <a href="parts/part1.html">学びの地図</a>
           </div>
         </div>
@@ -859,6 +870,7 @@ tr:last-child td { border-bottom: 0; }
           <p>コンピュータ、インターネット、SNSが、人と情報の距離をどう変えたのかを学びます。</p>
           <div class="video-links">
             <a href="https://youtu.be/MZSwaQr27NI" target="_blank" rel="noopener">YouTubeで見る</a>
+            <a href="https://youtu.be/LHIefpwHCXA" target="_blank" rel="noopener">Podcastで聴く</a>
             <a href="parts/part2.html">学びの地図</a>
           </div>
         </div>
@@ -872,6 +884,7 @@ tr:last-child td { border-bottom: 0; }
           <p>AIが思考、学び、仕事、創作に入り込む時代に、人間に何が残るのかを考えます。</p>
           <div class="video-links">
             <a href="https://youtu.be/70vHG6evr6E" target="_blank" rel="noopener">YouTubeで見る</a>
+            <a href="https://youtu.be/Uoy4OZhINHA" target="_blank" rel="noopener">Podcastで聴く</a>
             <a href="parts/part3.html">学びの地図</a>
           </div>
         </div>
