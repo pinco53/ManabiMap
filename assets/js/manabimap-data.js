@@ -321,6 +321,15 @@
       relatedParts: ['part1'],
       question: '機械は人間を何から解放し、何に縛ったのか。',
       relation: '声で考える枝道'
+    },
+    {
+      id: 'podcast-part2-01',
+      type: 'podcast',
+      title: '第2部 Podcast つながる世界',
+      url: 'https://youtu.be/LHIefpwHCXA',
+      relatedParts: ['part2'],
+      question: 'つながることは、近づくことと同じなのか。',
+      relation: '声で考える枝道'
     }
   ];
 
