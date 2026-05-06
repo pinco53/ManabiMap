@@ -360,6 +360,22 @@
           caption: 'Podcastを聴きながら、AI時代に人間へ残る問いを見る'
         }
       ]
+    },
+    {
+      id: 'podcast-part4-01',
+      type: 'podcast',
+      title: '第4部 Podcast 文字と知識の冒険',
+      url: 'https://youtu.be/aK4cAxWVoKY',
+      relatedParts: ['part4'],
+      question: '検索できることと、理解していることは同じなのか。',
+      relation: '声で考える枝道',
+      infographics: [
+        {
+          title: '第4部 Podcast図解',
+          src: 'infographics/info4-1.png',
+          caption: '文字と記録の起点を俯瞰する'
+        }
+      ]
     }
   ];
 
