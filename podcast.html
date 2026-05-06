@@ -121,6 +121,54 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.12em;
 }
 
+.learning-flow {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px 30px;
+}
+.learning-flow__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.learning-flow__item {
+  min-height: 100%;
+  padding: 18px 18px 17px;
+  border: 1px solid rgba(255,184,107,0.2);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255,184,107,0.12), transparent 42%),
+    rgba(16,16,26,0.68);
+}
+.learning-flow__label {
+  margin-bottom: 8px;
+  color: var(--podcast);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+}
+.learning-flow__title {
+  margin-bottom: 7px;
+  color: var(--text-bright);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+.learning-flow__text {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.85;
+}
+.learning-flow__note {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-left: 2px solid rgba(255,184,107,0.58);
+  color: #c7c7d8;
+  font-size: 12px;
+  line-height: 1.9;
+  background: rgba(255,184,107,0.055);
+}
+
 .console {
   max-width: 1120px;
   margin: 0 auto;
@@ -348,6 +396,84 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-dim);
   font-size: 12px;
 }
+.card-infographic {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 16px;
+  padding: 10px;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 66%);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent), transparent 94%);
+}
+.card-infographic__preview {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 96px;
+  aspect-ratio: 16 / 10;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 6px;
+  background: #050508;
+  color: inherit;
+  cursor: zoom-in;
+  appearance: none;
+}
+.card-infographic__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-infographic__zoom {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(8,8,13,0.74);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+.card-infographic__text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.card-infographic__text span {
+  color: var(--text-dim);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+.card-infographic__text strong {
+  color: var(--text-bright);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.card-infographic__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+.card-infographic__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 46%);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent), transparent 90%);
+  color: var(--text-bright);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -398,11 +524,100 @@ a { color: inherit; text-decoration: none; }
 }
 .page-footer a { color: var(--podcast); }
 
+body.modal-open {
+  overflow: hidden;
+}
+.infographic-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(3,3,8,0.86);
+  backdrop-filter: blur(14px);
+}
+.infographic-modal[hidden] {
+  display: none !important;
+}
+.infographic-modal__panel {
+  width: min(1120px, 100%);
+  max-height: calc(100vh - 56px);
+  overflow: auto;
+  border: 1px solid rgba(255,184,107,0.34);
+  border-radius: 10px;
+  background: #08080d;
+  box-shadow: 0 28px 80px rgba(0,0,0,0.56);
+}
+.infographic-modal__head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  background: rgba(8,8,13,0.94);
+}
+.infographic-modal__title {
+  color: var(--text-bright);
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+.infographic-modal__caption {
+  color: var(--text-dim);
+  font-size: 12px;
+}
+.infographic-modal__close {
+  flex-shrink: 0;
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,184,107,0.38);
+  border-radius: 7px;
+  background: rgba(255,184,107,0.08);
+  color: var(--podcast);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.infographic-modal__download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid rgba(141,162,255,0.38);
+  border-radius: 7px;
+  background: rgba(141,162,255,0.1);
+  color: #c7d2ff;
+  font-size: 12px;
+  font-weight: 900;
+}
+.infographic-modal__controls {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.infographic-modal__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #050508;
+}
+
 @media (max-width: 720px) {
   .hero { padding-top: 62px; }
   .console-panel { grid-template-columns: 1fr; align-items: start; }
+  .learning-flow__grid { grid-template-columns: 1fr; }
   .filter-buttons { justify-content: flex-start; }
   .podcast-grid { grid-template-columns: 1fr; }
+  .card-infographic { grid-template-columns: 84px 1fr; }
+  .card-infographic__preview { width: 84px; }
+  .infographic-modal { padding: 14px; }
 }
 
 @media (min-width: 1024px) {
@@ -430,14 +645,38 @@ a { color: inherit; text-decoration: none; }
   <div class="hero-label">Podcast branches</div>
   <h1 class="hero-title">声で考える、学びの枝道</h1>
   <p class="hero-desc">
-    Manabi Mapの星から伸びるPodcastを、問いごとにたどれます。
-    物語で入ったテーマを、声の余白でもう一度考えるための入口です。
+    全ての部へ広がっていくPodcast版の学習ルートです。
+    移動中や家事中に耳で入り、インフォグラフィックで構造を確かめ、気になった問いは地図・note・動画へ戻って深められます。
   </p>
   <div class="hero-meta">
     <span class="hero-pill" id="podcast-count">0 episodes</span>
-    <span class="hero-pill">YouTube Podcast</span>
-    <span class="hero-pill">Manabi Map linked</span>
+    <span class="hero-pill">ながら学習</span>
+    <span class="hero-pill">図解保存OK</span>
+    <span class="hero-pill">Map / note / video linked</span>
   </div>
+</section>
+
+<section class="learning-flow" aria-label="Podcastの使い方">
+  <div class="learning-flow__grid">
+    <div class="learning-flow__item">
+      <div class="learning-flow__label">LISTEN</div>
+      <h2 class="learning-flow__title">耳でたどる</h2>
+      <p class="learning-flow__text">散歩、移動、家事の時間に。動画を見られない場面でも、各部の問いと歴史の流れを追えます。</p>
+    </div>
+    <div class="learning-flow__item">
+      <div class="learning-flow__label">CHECK</div>
+      <h2 class="learning-flow__title">図解で確かめる</h2>
+      <p class="learning-flow__text">聴きながら見る、あとで振り返る、手元に保存する。インフォグラフィックで背景と構造を整理できます。</p>
+    </div>
+    <div class="learning-flow__item">
+      <div class="learning-flow__label">DEEPEN</div>
+      <h2 class="learning-flow__title">問いで深める</h2>
+      <p class="learning-flow__text">もっと知りたいところは、Manabi Map、note、動画へ。音声・図解・文章・物語を行き来できます。</p>
+    </div>
+  </div>
+  <p class="learning-flow__note">
+    PodcastはAI構成を活用しているため細かな読み違いが残る場合がありますが、動画では流れとして見たテーマを、歴史情報と背景構造からかなり網羅的に整理しています。
+  </p>
 </section>
 
 <section class="console" aria-label="Podcastフィルター">
@@ -453,6 +692,22 @@ a { color: inherit; text-decoration: none; }
 <section class="grid-section">
   <div class="podcast-grid" id="podcast-grid" aria-live="polite"></div>
 </section>
+
+<div class="infographic-modal" id="infographic-modal" role="dialog" aria-modal="true" aria-labelledby="infographic-modal-title" hidden>
+  <div class="infographic-modal__panel">
+    <div class="infographic-modal__head">
+      <div>
+        <div class="infographic-modal__title" id="infographic-modal-title">Podcast図解</div>
+        <div class="infographic-modal__caption" id="infographic-modal-caption"></div>
+      </div>
+      <div class="infographic-modal__controls">
+        <a class="infographic-modal__download" id="infographic-modal-download" href="#" download>図解を保存</a>
+        <button type="button" class="infographic-modal__close" data-infographic-close>閉じる</button>
+      </div>
+    </div>
+    <img class="infographic-modal__image" id="infographic-modal-image" src="" alt="">
+  </div>
+</div>
 
 <footer class="page-footer">
   <a href="index.html#map-base">Manabi Mapへ戻る</a>
@@ -482,7 +737,83 @@ a { color: inherit; text-decoration: none; }
   const grid = document.getElementById('podcast-grid');
   const count = document.getElementById('podcast-count');
   const filterButtons = document.getElementById('filter-buttons');
+  const infographicModal = document.getElementById('infographic-modal');
+  const infographicModalImage = document.getElementById('infographic-modal-image');
+  const infographicModalTitle = document.getElementById('infographic-modal-title');
+  const infographicModalCaption = document.getElementById('infographic-modal-caption');
+  const infographicModalDownload = document.getElementById('infographic-modal-download');
   let activePart = 'all';
+
+  const fallbackInfographicsByPart = {
+    part1: {
+      src: 'infographics/info1-1.png',
+      title: '第1部 Podcast図解',
+      caption: 'Podcastを聴きながら、機械・時間・労働の関係を見る'
+    },
+    part2: {
+      src: 'infographics/info2-1.png',
+      title: '第2部 Podcast図解',
+      caption: 'Podcastを聴きながら、つながりと孤独の構造を見る'
+    },
+    part3: {
+      src: 'infographics/info3-1.png',
+      title: '第3部 Podcast図解',
+      caption: 'Podcastを聴きながら、AI時代に人間へ残る問いを見る'
+    }
+  };
+
+  function infographicForPart(partId) {
+    return fallbackInfographicsByPart[partId] || null;
+  }
+
+  function infographicsForItem(item, partId) {
+    const itemInfographics = Array.isArray(item.infographics) ? item.infographics : [];
+    if (itemInfographics.length) return itemInfographics;
+    const fallback = infographicForPart(partId);
+    return fallback ? [fallback] : [];
+  }
+
+  function infographicFileName(src) {
+    const path = String(src || '').split('?')[0];
+    const segments = path.split('/');
+    return segments[segments.length - 1] || 'podcast-infographic.png';
+  }
+
+  function openInfographic(itemId, partId, index) {
+    const podcast = podcasts.find(function(item) { return item.id === itemId; }) ||
+      podcasts.find(function(item) { return firstPartId(item) === partId; }) ||
+      {};
+    const infographic = infographicsForItem(podcast, partId)[Number(index) || 0];
+    if (!infographic || !infographicModal) return;
+    infographicModalImage.src = infographic.src;
+    infographicModalImage.alt = infographic.title;
+    infographicModalTitle.textContent = infographic.title;
+    infographicModalCaption.textContent = infographic.caption;
+    if (infographicModalDownload) {
+      infographicModalDownload.href = infographic.src;
+      infographicModalDownload.setAttribute('download', infographicFileName(infographic.src));
+    }
+    infographicModal.hidden = false;
+    document.body.classList.add('modal-open');
+  }
+
+  function closeInfographic() {
+    if (!infographicModal) return;
+    infographicModal.hidden = true;
+    infographicModalImage.src = '';
+    if (infographicModalDownload) {
+      infographicModalDownload.href = '#';
+    }
+    document.body.classList.remove('modal-open');
+  }
+
+  function bindInfographicButtons() {
+    grid.querySelectorAll('[data-infographic-open]').forEach(function(button) {
+      button.addEventListener('click', function() {
+        openInfographic(button.dataset.podcastId || '', button.dataset.partId || '', button.dataset.infographicIndex || '0');
+      });
+    });
+  }
 
   function escapeHtml(value) {
     return String(value || '').replace(/[&<>"']/g, function(char) {
@@ -521,6 +852,10 @@ a { color: inherit; text-decoration: none; }
     return 'PART ' + part.number + ' ORBIT';
   }
 
+  function displayPartNumber(part) {
+    return part && part.number ? String(part.number).replace(/^0/, '') : '';
+  }
+
   function renderFilters() {
     const partIds = podcasts
       .map(firstPartId)
@@ -531,7 +866,7 @@ a { color: inherit; text-decoration: none; }
       '<button type="button" class="filter-button active" data-part="all">すべて</button>'
     ].concat(partIds.map(function(partId) {
       const part = findPart(partId);
-      const label = part ? '第' + Number(part.number) + '部' : partId;
+      const label = part ? '第' + displayPartNumber(part) + '部' : partId;
       return '<button type="button" class="filter-button" data-part="' + escapeHtml(partId) + '">' + escapeHtml(label) + '</button>';
     }));
 
@@ -565,9 +900,28 @@ a { color: inherit; text-decoration: none; }
       const accent = part && colorMap[part.color] ? colorMap[part.color] : '#ffb86b';
       const thumb = thumbnailUrl(item.url);
       const mapUrl = part && part.pageUrl ? part.pageUrl : 'index.html#map-base';
-      const partTitle = part ? '第' + Number(part.number) + '部 ' + part.title : 'Manabi Map';
+      const partTitle = part ? '第' + displayPartNumber(part) + '部 ' + part.title : 'Manabi Map';
+      const infographics = infographicsForItem(item, partId);
+      const primaryInfographic = infographics[0] || null;
       const imageHtml = thumb
         ? '<img src="' + escapeHtml(thumb) + '" alt="' + escapeHtml(item.title) + ' サムネイル" loading="lazy">'
+        : '';
+      const infographicHtml = primaryInfographic
+        ? [
+            '<div class="card-infographic">',
+              '<button type="button" class="card-infographic__preview" data-infographic-open data-podcast-id="' + escapeHtml(item.id) + '" data-part-id="' + escapeHtml(partId) + '" data-infographic-index="0" aria-label="' + escapeHtml(primaryInfographic.title) + 'を拡大">',
+                '<img src="' + escapeHtml(primaryInfographic.src) + '" alt="' + escapeHtml(primaryInfographic.title) + '">',
+                '<span class="card-infographic__zoom">拡大</span>',
+              '</button>',
+              '<div class="card-infographic__text">',
+                '<span>聴きながら見る図解</span>',
+                '<strong>' + escapeHtml(primaryInfographic.title) + '</strong>',
+                '<div class="card-infographic__actions">',
+                  '<a class="card-infographic__action" href="' + escapeHtml(primaryInfographic.src) + '" download="' + escapeHtml(infographicFileName(primaryInfographic.src)) + '">図解を保存</a>',
+                '</div>',
+              '</div>',
+            '</div>'
+          ].join('')
         : '';
 
       return [
@@ -588,6 +942,7 @@ a { color: inherit; text-decoration: none; }
             '</div>',
             '<p class="question">問：' + escapeHtml(item.question || '') + '</p>',
             '<p class="relation">' + escapeHtml(item.relation || '声で考える枝道') + '</p>',
+            infographicHtml,
             '<div class="actions">',
               '<a class="action" href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">聴く</a>',
               '<a class="action action--map" href="' + escapeHtml(mapUrl) + '">地図で見る</a>',
@@ -596,7 +951,20 @@ a { color: inherit; text-decoration: none; }
         '</article>'
       ].join('');
     }).join('');
+    bindInfographicButtons();
   }
+
+  if (infographicModal) {
+    infographicModal.addEventListener('click', function(event) {
+      if (event.target === infographicModal) closeInfographic();
+    });
+  }
+  document.querySelectorAll('[data-infographic-close]').forEach(function(button) {
+    button.addEventListener('click', closeInfographic);
+  });
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') closeInfographic();
+  });
 
   renderFilters();
   renderCards();

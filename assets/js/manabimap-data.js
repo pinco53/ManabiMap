@@ -320,7 +320,14 @@
       url: 'https://youtu.be/-Rfi5O5MMmI',
       relatedParts: ['part1'],
       question: '機械は人間を何から解放し、何に縛ったのか。',
-      relation: '声で考える枝道'
+      relation: '声で考える枝道',
+      infographics: [
+        {
+          title: '第1部 Podcast図解',
+          src: 'infographics/info1-1.png',
+          caption: 'Podcastを聴きながら、機械・時間・労働の関係を見る'
+        }
+      ]
     },
     {
       id: 'podcast-part2-01',
@@ -329,7 +336,14 @@
       url: 'https://youtu.be/LHIefpwHCXA',
       relatedParts: ['part2'],
       question: 'つながることは、近づくことと同じなのか。',
-      relation: '声で考える枝道'
+      relation: '声で考える枝道',
+      infographics: [
+        {
+          title: '第2部 Podcast図解',
+          src: 'infographics/info2-1.png',
+          caption: 'Podcastを聴きながら、つながりと孤独の構造を見る'
+        }
+      ]
     },
     {
       id: 'podcast-part3-01',
@@ -338,7 +352,14 @@
       url: 'https://youtu.be/Uoy4OZhINHA',
       relatedParts: ['part3'],
       question: 'AIが考えているように見えるとき、人間が考えるとは何か。',
-      relation: '声で考える枝道'
+      relation: '声で考える枝道',
+      infographics: [
+        {
+          title: '第3部 Podcast図解',
+          src: 'infographics/info3-1.png',
+          caption: 'Podcastを聴きながら、AI時代に人間へ残る問いを見る'
+        }
+      ]
     }
   ];
 
