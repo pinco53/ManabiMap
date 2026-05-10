@@ -2,6 +2,7 @@
 
 **対象**: 第2部ポッドキャスト「つながる世界の深層」
 **保存日**: 2026-05-07
+**URL**: https://note.com/manabimapcreator/n/n2ddcdbff48a1
 
 ---
 

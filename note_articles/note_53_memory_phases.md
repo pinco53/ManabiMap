@@ -2,6 +2,7 @@
 
 **対象**: 第8部第6話「宿題の違和感」（note_45へのコメントから広がった視点）
 **保存日**: 2026-05-10
+**URL**: https://note.com/manabimapcreator/n/n913eb6b8fce3
 
 ---
 

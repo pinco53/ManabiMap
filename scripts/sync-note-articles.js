@@ -8,6 +8,7 @@ const root = path.resolve(__dirname, '..');
 const noteDir = path.join(root, 'note_articles');
 const noteHtmlPath = path.join(root, 'note.html');
 const dataPath = path.join(root, 'assets/js/manabimap-data.js');
+const maxNoteNumber = Number(process.env.MAX_NOTE_NUMBER || 0);
 
 const partMeta = {
   part1: { orbit: 'PART 01 ORBIT', label: '第1部 蒸気の時代', href: 'parts/part1.html', relation: '機械と時間の枝道' },
@@ -295,6 +296,11 @@ function updateData(notes) {
 function main() {
   const files = fs.readdirSync(noteDir)
     .filter((file) => /^note_\d+.*\.md$/.test(file))
+    .filter((file) => {
+      if (!maxNoteNumber) return true;
+      const match = file.match(/^note_(\d+)/);
+      return match && Number(match[1]) <= maxNoteNumber;
+    })
     .map((file) => path.join(noteDir, file));
   const notes = files
     .map(parseArticle)

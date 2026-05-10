@@ -2,6 +2,7 @@
 
 **対象**: 第1部ポッドキャスト「産業革命の深層」(#1P)
 **保存日**: 2026-05-05
+**URL**: https://note.com/manabimapcreator/n/nc6fbb07c59f0
 
 ---
 
