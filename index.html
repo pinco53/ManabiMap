@@ -132,6 +132,181 @@ a { color: inherit; text-decoration: none; }
   margin-right: auto;
 }
 
+.hero-subscribe {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  margin-bottom: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  color: rgba(224,224,232,0.8);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  box-shadow: none;
+}
+
+.hero-subscribe__text {
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+  color: #f4d889;
+  text-shadow:
+    0 0 10px rgba(255,215,0,0.18),
+    0 0 22px rgba(255,215,0,0.08);
+}
+
+.hero-subscribe__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: relative;
+  overflow: hidden;
+  min-height: 30px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,215,0,0.46);
+  border-radius: 999px;
+  color: #fff1b2;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,215,0,0.07)),
+    rgba(8,8,13,0.18);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 0 14px rgba(255,215,0,0.12);
+  transition: border-color 0.28s, background 0.28s, box-shadow 0.28s, color 0.28s, transform 0.28s;
+  z-index: 2;
+}
+
+.hero-subscribe__link::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background:
+    radial-gradient(circle at 24% 50%, rgba(255,245,190,0.34), transparent 34%),
+    radial-gradient(circle at 82% 50%, rgba(255,215,0,0.42), transparent 32%);
+  opacity: 0;
+  transition: opacity 0.28s;
+  pointer-events: none;
+}
+
+.hero-subscribe__link::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  bottom: -60%;
+  left: -45%;
+  width: 38%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.46), transparent);
+  opacity: 0;
+  transform: rotate(18deg) translateX(-120%);
+  transition: opacity 0.28s, transform 0.62s ease;
+  pointer-events: none;
+}
+
+.hero-subscribe__link span,
+.hero-subscribe__link svg {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-subscribe__link svg {
+  width: 15px;
+  height: 11px;
+  fill: currentColor;
+}
+
+.hero-subscribe__link:hover {
+  border-color: rgba(255,229,128,0.84);
+  color: #fff8d6;
+  background:
+    linear-gradient(135deg, rgba(255,248,205,0.08), rgba(255,215,0,0.16)),
+    rgba(8,8,13,0.28);
+  box-shadow:
+    0 0 18px rgba(255,245,190,0.2),
+    0 0 34px rgba(255,215,0,0.24),
+    inset 0 0 18px rgba(255,255,255,0.07);
+  transform: translateY(-1px);
+}
+
+.hero-subscribe__link:hover::before {
+  opacity: 1;
+}
+
+.hero-subscribe__link:hover::after {
+  opacity: 1;
+  transform: rotate(18deg) translateX(430%);
+}
+
+.hero-cta-stars {
+  position: absolute;
+  left: calc(100% - 82px);
+  top: 50%;
+  width: 190px;
+  height: 96px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-cta-star {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--s, 4px);
+  height: var(--s, 4px);
+  border-radius: 50%;
+  background: #fff4b8;
+  box-shadow:
+    0 0 8px rgba(255,245,190,0.65),
+    0 0 18px rgba(255,215,0,0.32);
+  transform: translate(var(--x1), var(--y1)) scale(0.68);
+  opacity: 0;
+  animation: ctaStarFlow 8.8s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  animation-delay: var(--d, 0s);
+}
+
+.hero-cta-star:nth-child(1) { --x1: -104px; --y1: 12px; --x2: -46px; --y2: -20px; --x3: 22px; --y3: -16px; --x4: 98px; --y4: 10px; --s: 3px; --d: 0s; }
+.hero-cta-star:nth-child(2) { --x1: -114px; --y1: -18px; --x2: -54px; --y2: -34px; --x3: 20px; --y3: -28px; --x4: 108px; --y4: -4px; --s: 2px; --d: -0.9s; }
+.hero-cta-star:nth-child(3) { --x1: -96px; --y1: 34px; --x2: -36px; --y2: 18px; --x3: 42px; --y3: 24px; --x4: 104px; --y4: 36px; --s: 4px; --d: -1.7s; }
+.hero-cta-star:nth-child(4) { --x1: -80px; --y1: -42px; --x2: -24px; --y2: -20px; --x3: 40px; --y3: -12px; --x4: 88px; --y4: -34px; --s: 3px; --d: -2.5s; }
+.hero-cta-star:nth-child(5) { --x1: -118px; --y1: 0px; --x2: -62px; --y2: 10px; --x3: 18px; --y3: 4px; --x4: 116px; --y4: -18px; --s: 2px; --d: -3.2s; }
+.hero-cta-star:nth-child(6) { --x1: -70px; --y1: 46px; --x2: -18px; --y2: 32px; --x3: 52px; --y3: 18px; --x4: 82px; --y4: 44px; --s: 3px; --d: -4s; }
+.hero-cta-star:nth-child(7) { --x1: -92px; --y1: -4px; --x2: -30px; --y2: -8px; --x3: 34px; --y3: 8px; --x4: 96px; --y4: 2px; --s: 5px; --d: -4.8s; }
+.hero-cta-star:nth-child(8) { --x1: -110px; --y1: -30px; --x2: -48px; --y2: -14px; --x3: 28px; --y3: 0px; --x4: 112px; --y4: 22px; --s: 2px; --d: -5.6s; }
+.hero-cta-star:nth-child(9) { --x1: -86px; --y1: 24px; --x2: -20px; --y2: -2px; --x3: 46px; --y3: -18px; --x4: 94px; --y4: -26px; --s: 3px; --d: -6.3s; }
+.hero-cta-star:nth-child(10) { --x1: -122px; --y1: 18px; --x2: -64px; --y2: -4px; --x3: 10px; --y3: -6px; --x4: 118px; --y4: 12px; --s: 3px; --d: -7s; }
+
+@keyframes ctaStarFlow {
+  0% {
+    transform: translate(var(--x1), var(--y1)) scale(0.6);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.28;
+  }
+  40% {
+    transform: translate(var(--x2), var(--y2)) scale(0.82);
+    opacity: 0.52;
+  }
+  66% {
+    transform: translate(var(--x3), var(--y3)) scale(1);
+    opacity: 0.62;
+  }
+  88% {
+    opacity: 0.26;
+  }
+  100% {
+    transform: translate(var(--x4), var(--y4)) scale(0.7);
+    opacity: 0;
+  }
+}
+
 .hero-scroll {
   font-size: 11px;
   letter-spacing: 0.3em;
@@ -2221,6 +2396,14 @@ body::before {
     width: min(360px, 100%);
     padding: 24px 18px 20px;
   }
+  .hero-subscribe {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+  }
+  .hero-subscribe__text {
+    white-space: normal;
+  }
   .hero-scroll::after { margin-top: 4px; }
 }
 </style>
@@ -2261,6 +2444,25 @@ body::before {
       <div class="hero-series">ハルとおじいさんの物語</div>
       <h1 class="hero-title">学びの地図</h1>
       <div class="hero-divider"></div>
+      <div class="hero-subscribe" aria-label="YouTubeチャンネル登録">
+        <span class="hero-subscribe__text">人類の叡智へ向かう旅の入口</span>
+        <a href="https://www.youtube.com/channel/UCWzwmiGI53Py4uSBY1Iuwcw?sub_confirmation=1" target="_blank" rel="noopener" class="hero-subscribe__link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="#08080d"/></svg>
+          チャンネル登録
+        </a>
+        <span class="hero-cta-stars" aria-hidden="true">
+          <span class="hero-cta-star"></span>
+          <span class="hero-cta-star"></span>
+          <span class="hero-cta-star"></span>
+          <span class="hero-cta-star"></span>
+          <span class="hero-cta-star"></span>
+          <span class="hero-cta-star"></span>
+          <span class="hero-cta-star"></span>
+          <span class="hero-cta-star"></span>
+          <span class="hero-cta-star"></span>
+          <span class="hero-cta-star"></span>
+        </span>
+      </div>
       <div class="hero-scroll">SCROLL</div>
     </div>
     <div class="hero-visual">
