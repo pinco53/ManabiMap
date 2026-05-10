@@ -6,9 +6,11 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const noteDir = path.join(root, 'note_articles');
+const noteImageDir = path.join(noteDir, 'generated_note_images');
 const noteHtmlPath = path.join(root, 'note.html');
 const dataPath = path.join(root, 'assets/js/manabimap-data.js');
 const maxNoteNumber = Number(process.env.MAX_NOTE_NUMBER || 0);
+const shouldSyncNoteImages = process.env.SYNC_NOTE_IMAGES !== '0';
 
 const partMeta = {
   part1: { orbit: 'PART 01 ORBIT', label: '第1部 蒸気の時代', href: 'parts/part1.html', relation: '機械と時間の枝道' },
@@ -171,6 +173,108 @@ function branchInfo(note) {
   };
 }
 
+function noteImageSrc(number) {
+  const extensions = ['png', 'jpg', 'jpeg', 'webp'];
+  for (const ext of extensions) {
+    const file = path.join(noteImageDir, 'note-' + number + '.' + ext);
+    if (fs.existsSync(file)) {
+      return path.relative(root, file).split(path.sep).join('/');
+    }
+  }
+  return '';
+}
+
+function htmlDecode(value) {
+  return String(value || '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+}
+
+function ogImageUrl(html) {
+  const metaTags = html.match(/<meta\b[^>]*>/gi) || [];
+  for (const tag of metaTags) {
+    const property = attrValue(tag, 'property') || attrValue(tag, 'name');
+    if (!/^(og:image|twitter:image|thumbnail)$/i.test(property)) continue;
+
+    const content = attrValue(tag, 'content');
+    if (content) return htmlDecode(content);
+  }
+  return '';
+}
+
+function attrValue(tag, name) {
+  const match = tag.match(new RegExp('\\s' + name + '=["\']([^"\']+)["\']', 'i'));
+  return match ? match[1] : '';
+}
+
+function imageExtension(contentType, imageUrl) {
+  const type = String(contentType || '').toLowerCase();
+  if (type.includes('png')) return 'png';
+  if (type.includes('webp')) return 'webp';
+  if (type.includes('gif')) return 'gif';
+  if (type.includes('jpeg') || type.includes('jpg')) return 'jpg';
+
+  const cleanUrl = String(imageUrl || '').split('?')[0].toLowerCase();
+  const match = cleanUrl.match(/\.(png|jpe?g|webp|gif)$/);
+  if (!match) return 'jpg';
+  return match[1] === 'jpeg' ? 'jpg' : match[1];
+}
+
+async function fetchText(url) {
+  const response = await fetch(url, {
+    headers: {
+      'user-agent': 'ManabiMap thumbnail sync'
+    }
+  });
+  if (!response.ok) throw new Error('HTTP ' + response.status);
+  return response.text();
+}
+
+async function fetchBuffer(url) {
+  const response = await fetch(url, {
+    headers: {
+      'user-agent': 'ManabiMap thumbnail sync'
+    }
+  });
+  if (!response.ok) throw new Error('HTTP ' + response.status);
+  const contentType = response.headers.get('content-type') || '';
+  const buffer = Buffer.from(await response.arrayBuffer());
+  return { buffer, contentType };
+}
+
+async function syncMissingNoteImage(note) {
+  if (!shouldSyncNoteImages || note.image || !note.url) return false;
+
+  try {
+    const html = await fetchText(note.url);
+    const rawImageUrl = ogImageUrl(html);
+    if (!rawImageUrl) return false;
+
+    const absoluteImageUrl = new URL(rawImageUrl, note.url).toString();
+    const image = await fetchBuffer(absoluteImageUrl);
+    const ext = imageExtension(image.contentType, absoluteImageUrl);
+    fs.mkdirSync(noteImageDir, { recursive: true });
+    fs.writeFileSync(path.join(noteImageDir, 'note-' + note.number + '.' + ext), image.buffer);
+    note.image = noteImageSrc(note.number);
+    return Boolean(note.image);
+  } catch (error) {
+    console.warn('Could not sync note image #' + note.number + ': ' + error.message);
+    return false;
+  }
+}
+
+async function syncMissingNoteImages(notes) {
+  if (!shouldSyncNoteImages) return 0;
+  let synced = 0;
+  for (const note of notes) {
+    if (await syncMissingNoteImage(note)) synced += 1;
+  }
+  return synced;
+}
+
 function parseArticle(file) {
   const text = read(file);
   const base = path.basename(file);
@@ -195,6 +299,7 @@ function parseArticle(file) {
     target,
     tags,
     relatedParts: relatedParts(target, tags),
+    image: noteImageSrc(number),
     excerpt: excerpt(text, title)
   };
 }
@@ -210,7 +315,20 @@ function cardHtml(note) {
   const readAction = note.url
     ? '        <a class="card-action card-action--read" href="' + escapeHtml(note.url) + '" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>'
     : '        <span class="card-action card-action--disabled">近日公開</span>';
+  const mediaTag = note.url ? 'a' : 'div';
+  const mediaAttrs = note.url
+    ? ' href="' + escapeHtml(note.url) + '" target="_blank" rel="noopener noreferrer" data-note-read-link'
+    : '';
+  const mediaHtml = note.image
+    ? [
+        '      <' + mediaTag + ' class="note-card-media"' + mediaAttrs + '>',
+        '        <img src="' + escapeHtml(note.image) + '" alt="' + escapeHtml(note.title) + ' サムネイル" loading="lazy">',
+        '        <span class="note-card-media__label">NOTE THUMBNAIL</span>',
+        '      </' + mediaTag + '>'
+      ].join('\n')
+    : '';
   const inner = [
+    mediaHtml,
     '      <div class="card-orbit-label">' + escapeHtml(branch.orbitLabel) + '</div>',
     '      <div class="card-num">' + num + (note.url ? '' : ' <span class="badge-unpublished">準備中</span>') + '</div>',
     '      <h3 class="card-title">' + escapeHtml(note.title) + '</h3>',
@@ -232,7 +350,7 @@ function cardHtml(note) {
   ].join('\n');
 
   return [
-    '    <article id="' + cardId + '" class="note-card' + (note.url ? '' : ' note-card--unpublished') + '" data-note-id="' + escapeHtml(note.id) + '" data-primary-part="' + escapeHtml(branch.partId) + '">',
+    '    <article id="' + cardId + '" class="note-card' + (note.image ? ' note-card--has-image' : '') + (note.url ? '' : ' note-card--unpublished') + '" data-note-id="' + escapeHtml(note.id) + '" data-primary-part="' + escapeHtml(branch.partId) + '">',
     inner,
     '    </article>'
   ].join('\n');
@@ -276,6 +394,7 @@ function noteObject(note) {
   if (note.target) props.push('target: ' + jsValue(note.target));
   props.push('tags: ' + jsValue(note.tags));
   props.push('relatedParts: ' + jsValue(note.relatedParts));
+  if (note.image) props.push('image: ' + jsValue(note.image));
   props.push('question: ' + jsValue(branch.question));
   props.push('relation: ' + jsValue(branch.relation));
   props.push('primaryPart: ' + jsValue(branch.partId));
@@ -293,7 +412,7 @@ function updateData(notes) {
   write(dataPath, next);
 }
 
-function main() {
+async function main() {
   const files = fs.readdirSync(noteDir)
     .filter((file) => /^note_\d+.*\.md$/.test(file))
     .filter((file) => {
@@ -307,9 +426,14 @@ function main() {
     .filter(Boolean)
     .sort((a, b) => b.number - a.number);
 
+  const syncedImages = await syncMissingNoteImages(notes);
   updateNoteHtml(notes);
   updateData(notes);
   console.log('Synced ' + notes.length + ' note articles.');
+  if (syncedImages) console.log('Synced ' + syncedImages + ' note thumbnails.');
 }
 
-main();
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

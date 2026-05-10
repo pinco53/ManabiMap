@@ -23,8 +23,24 @@
     },
     learning: function(note) {
       return hasAny(note, ['学び', '問い', '制作', 'サイト紹介', 'ManabiMap']) || relatedAny(note, ['note']);
+    },
+    podcast: function(note) {
+      return textAny(note, ['ポッドキャスト', 'Podcast', 'podcast']);
     }
   };
+
+  function textAny(note, words) {
+    const source = [
+      note.title,
+      note.target,
+      note.question,
+      note.relation,
+      note.excerpt
+    ].concat(note.tags || []).join(' ');
+    return words.some(function(word) {
+      return source.indexOf(word) !== -1;
+    });
+  }
 
   function hasAny(note, words) {
     return (note.tags || []).some(function(tag) {
@@ -118,8 +134,8 @@
     const visible = document.querySelectorAll('.note-card:not([hidden])').length;
     if (count) count.textContent = visible + ' articles';
     if (label) {
-      const active = document.querySelector('.note-theme-button.active');
-      label.textContent = active ? active.textContent : 'すべて';
+      const active = document.querySelector('.note-theme-button.active') || document.querySelector('.note-recommend-card.active');
+      label.textContent = active ? (active.dataset.label || active.textContent.trim()) : 'すべて';
     }
     const heroCount = document.querySelector('.hero-count');
     if (heroCount && theme) heroCount.textContent = visible + ' articles';
@@ -182,12 +198,28 @@
     document.querySelectorAll('.note-theme-button').forEach(function(button) {
       button.classList.toggle('active', button.dataset.theme === theme);
     });
+    document.querySelectorAll('.note-recommend-card').forEach(function(button) {
+      button.classList.toggle('active', button.dataset.theme === theme);
+    });
     renderFilterResults(visibleCards);
     updateCount(theme);
   }
 
+  function updateRecommendationCounts(cards) {
+    document.querySelectorAll('[data-theme-count]').forEach(function(item) {
+      const theme = item.dataset.themeCount || 'all';
+      const rule = themeRules[theme] || themeRules.all;
+      const count = cards.filter(function(card) {
+        const note = noteFromCard(card);
+        return note && rule(note);
+      }).length;
+      item.textContent = count + ' articles';
+    });
+  }
+
   function init() {
-    document.querySelectorAll('.note-card').forEach(function(card) {
+    const cards = Array.from(document.querySelectorAll('.note-card'));
+    cards.forEach(function(card) {
       const note = noteFromCard(card);
       if (!note) return;
       card.id = 'note-card-' + note.number;
@@ -202,6 +234,17 @@
         applyFilter(button.dataset.theme || 'all');
       });
     });
+    document.querySelectorAll('.note-recommend-card').forEach(function(button) {
+      button.addEventListener('click', function() {
+        applyFilter(button.dataset.theme || 'all');
+        const consolePanel = document.querySelector('.note-map-console');
+        if (consolePanel) {
+          consolePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    updateRecommendationCounts(cards);
 
     const results = document.getElementById('note-filter-results');
     if (results) {

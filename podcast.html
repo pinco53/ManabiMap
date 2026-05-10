@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Podcast特集 | 学びの地図 ─ ハルとおじいさん</title>
+<title>Podcast | 学びの地図 ─ ハルとおじいさん</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
@@ -642,10 +642,10 @@ body.modal-open {
 </nav>
 
 <section class="hero">
-  <div class="hero-label">Podcast branches</div>
-  <h1 class="hero-title">声で考える、学びの枝道</h1>
+  <div class="hero-label">Podcast</div>
+  <h1 class="hero-title">耳でたどる、学びのPodcast</h1>
   <p class="hero-desc">
-    全ての部へ広がっていくPodcast版の学習ルートです。
+    全ての部へ広がっていく音声版の学習ルートです。
     移動中や家事中に耳で入り、インフォグラフィックで構造を確かめ、気になった問いは地図・note・動画へ戻って深められます。
   </p>
   <div class="hero-meta">
@@ -682,8 +682,8 @@ body.modal-open {
 <section class="console" aria-label="Podcastフィルター">
   <div class="console-panel">
     <div>
-      <div class="console-label">VOICE MAP</div>
-      <div class="console-title">地図の星から、声の枝道を探す</div>
+      <div class="console-label">PODCAST MAP</div>
+      <div class="console-title">部ごとのPodcastを選ぶ</div>
     </div>
     <div class="filter-buttons" id="filter-buttons"></div>
   </div>
@@ -890,7 +890,7 @@ body.modal-open {
     count.textContent = podcasts.length + (podcasts.length === 1 ? ' episode' : ' episodes');
 
     if (!visible.length) {
-      grid.innerHTML = '<div class="empty">Podcastの枝道は準備中です。</div>';
+      grid.innerHTML = '<div class="empty">Podcastは準備中です。</div>';
       return;
     }
 
@@ -938,10 +938,10 @@ body.modal-open {
             '<div class="branch-box">',
               '<span class="branch-eyebrow">この地図ノードから</span>',
               '<a class="branch-node" href="' + escapeHtml(mapUrl) + '">' + escapeHtml(partTitle) + '</a>',
-              '<span class="branch-tail">伸びる声の枝道</span>',
+              '<span class="branch-tail">対応するPodcast</span>',
             '</div>',
             '<p class="question">問：' + escapeHtml(item.question || '') + '</p>',
-            '<p class="relation">' + escapeHtml(item.relation || '声で考える枝道') + '</p>',
+            '<p class="relation">' + escapeHtml(item.relation || 'Podcastで深める') + '</p>',
             infographicHtml,
             '<div class="actions">',
               '<a class="action" href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">聴く</a>',
