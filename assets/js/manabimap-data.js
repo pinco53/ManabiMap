@@ -443,6 +443,42 @@
           caption: '情報が光速になった時代の構造を見る'
         }
       ]
+    },
+    {
+      id: 'podcast-part5-01',
+      type: 'podcast',
+      title: '言葉なしで考えられるか｜まるごと聴く 言葉と思考の深層【ハルとおじいさん #5P-1】',
+      url: 'https://youtu.be/Ej3O4HEuF-Y',
+      relatedParts: ['part5'],
+      question: '言葉がない世界では、思考はどのように存在するのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part5-02',
+      type: 'podcast',
+      title: '頭の中の声はなぜ話すのか｜まるごと聴く 内なる声の深層【ハルとおじいさん #5P-2】',
+      url: 'https://youtu.be/ot98Lqru5K8',
+      relatedParts: ['part5'],
+      question: '言葉がない世界では、思考はどのように存在するのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part5-03',
+      type: 'podcast',
+      title: '「リンゴ」はどこに存在するのか｜まるごと聴く 抽象化の深層【ハルとおじいさん #5P-3】',
+      url: 'https://youtu.be/OdLhuXi96oQ',
+      relatedParts: ['part5'],
+      question: '言葉がない世界では、思考はどのように存在するのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part5-04',
+      type: 'podcast',
+      title: 'アイスが売れると溺死者が増える謎｜まるごと聴く 因果と論理の深層【ハルとおじいさん #5P-4】',
+      url: 'https://youtu.be/ctB1AVK-8Bc',
+      relatedParts: ['part5'],
+      question: '言葉がない世界では、思考はどのように存在するのか。',
+      relation: 'Podcastで深める'
     }
   ];
 
