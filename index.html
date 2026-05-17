@@ -3304,10 +3304,10 @@ function loadThemeVideo(el) {
 
 /* ========== 学びの地図：動的演出 ========== */
 (function() {
-  const mapData = window.ManabiMapData || {};
+  const entryMapData = window.ManabiMapData || {};
   const noteList = document.getElementById('entry-note-list');
-  const publicNotes = Array.isArray(mapData.notes)
-    ? mapData.notes.filter(function(note) { return note.url && note.status !== 'local-draft'; })
+  const publicNotes = Array.isArray(entryMapData.notes)
+    ? entryMapData.notes.filter(function(note) { return note.url && note.status !== 'local-draft'; })
     : [];
   const highlightedNotes = publicNotes.some(function(note) { return note.kind === 'wonder-note'; })
     ? publicNotes.filter(function(note) { return note.kind === 'wonder-note'; })
