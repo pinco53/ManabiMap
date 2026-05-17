@@ -6,6 +6,15 @@
 <title>note記事一覧 | 学びの地図 ─ ハルとおじいさん</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (localStorage.getItem('manabimap_owner') === '1') { gtag('set', {'traffic_type': 'internal'}); }
+  gtag('config', 'G-QL1PVK5PRF');
+</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -19,6 +28,8 @@
   --border: #2a2a40;
   --note-green: #41c9b4;
   --note-green-dim: rgba(65,201,180,0.15);
+  --youtube-red: #ff4d67;
+  --podcast-gold: #ffb86b;
 }
 
 html { scroll-behavior: smooth; }
@@ -283,6 +294,96 @@ a { color: inherit; text-decoration: none; }
   border-color: var(--note-green);
   background: rgba(65,201,180,0.09);
 }
+.note-flow-section {
+  max-width: 1100px;
+  margin: 0 auto 24px;
+  padding: 0 24px;
+}
+.note-flow-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid rgba(65,201,180,0.22);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(65,201,180,0.13), transparent 42%),
+    linear-gradient(145deg, rgba(16,16,26,0.94), rgba(8,8,13,0.94));
+}
+.note-flow-label {
+  margin-bottom: 7px;
+  color: var(--note-green);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+}
+.note-flow-title {
+  margin-bottom: 8px;
+  color: var(--text-bright);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+.note-flow-copy {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.note-flow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  gap: 9px;
+}
+.note-flow-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 999px;
+  color: var(--text-bright);
+  font-size: 12px;
+  font-weight: 800;
+}
+.note-flow-btn--video:hover {
+  border-color: var(--youtube-red);
+  background: rgba(255,77,103,0.1);
+}
+.note-flow-btn--podcast:hover {
+  border-color: var(--podcast-gold);
+  background: rgba(255,184,107,0.1);
+}
+.note-bridge {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 4px;
+}
+.note-bridge__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 31px;
+  padding: 6px 11px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-dim);
+  font-size: 11px;
+  font-weight: 800;
+}
+.note-bridge__link--video:hover {
+  color: #ffd5dc;
+  border-color: var(--youtube-red);
+  background: rgba(255,77,103,0.08);
+}
+.note-bridge__link--podcast:hover {
+  color: #ffe3c1;
+  border-color: var(--podcast-gold);
+  background: rgba(255,184,107,0.08);
+}
+.note-card.is-upcoming {
+  opacity: 0.78;
+}
 .note-filter-results {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -340,6 +441,44 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+}
+.upcoming-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.upcoming-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 18px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.upcoming-label {
+  margin-bottom: 6px;
+  color: var(--podcast-gold);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+}
+.upcoming-title {
+  color: var(--text-bright);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+.upcoming-copy {
+  color: var(--text-dim);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.note-grid--upcoming {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.note-grid--upcoming .note-card {
+  min-height: 100%;
 }
 
 /* ── CARD ── */
@@ -447,6 +586,18 @@ a { color: inherit; text-decoration: none; }
   background: rgba(0,212,255,0.06);
   font-size: 9px;
   font-weight: 800;
+  letter-spacing: 0.22em;
+}
+.card-kind {
+  width: fit-content;
+  margin-bottom: 10px;
+  padding: 3px 9px;
+  border: 1px solid rgba(255,184,107,0.34);
+  border-radius: 999px;
+  color: #ffd8a8;
+  background: rgba(255,184,107,0.08);
+  font-size: 9px;
+  font-weight: 900;
   letter-spacing: 0.22em;
 }
 .card-num {
@@ -597,6 +748,15 @@ a { color: inherit; text-decoration: none; }
   .note-recommend-grid {
     grid-template-columns: 1fr;
   }
+  .note-flow-panel {
+    grid-template-columns: 1fr;
+  }
+  .upcoming-head {
+    display: block;
+  }
+  .upcoming-copy {
+    margin-top: 8px;
+  }
 }
 
 /* ── FOOTER ── */
@@ -632,7 +792,41 @@ a { color: inherit; text-decoration: none; }
     動画では語りきれない問いを、文章で掘り下げています。<br>
     「ハルとおじいさん」の世界観を、もう少し遠くまで。
   </p>
-  <div class="hero-count">66 articles</div>
+  <div class="hero-count">49 articles</div>
+</section>
+
+<section class="note-flow-section" aria-label="noteから次へ進む">
+  <div class="note-flow-panel">
+    <div>
+      <div class="note-flow-label">AFTER READING</div>
+      <h2 class="note-flow-title">読んだ問いを、動画へ戻す</h2>
+      <p class="note-flow-copy">
+        note は枝道で終わらせません。気になった問いは、物語として見るか、背景ごと Podcast で聴くかを選べます。
+      </p>
+    </div>
+    <div class="note-flow-actions">
+      <a
+        class="note-flow-btn note-flow-btn--video"
+        href="https://youtu.be/70vHG6evr6E"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track-event="note_to_youtube_click"
+        data-track-source="note"
+        data-track-content-id="note-hub"
+        data-track-destination-type="youtube_video"
+        data-track-destination-id="70vHG6evr6E"
+      >まず短い動画を見る</a>
+      <a
+        class="note-flow-btn note-flow-btn--podcast"
+        href="podcast.html"
+        data-track-event="note_to_podcast_click"
+        data-track-source="note"
+        data-track-content-id="note-hub"
+        data-track-destination-type="podcast_hub"
+        data-track-destination-id="podcast"
+      >Podcastから選ぶ</a>
+    </div>
+  </div>
 </section>
 
 <section class="note-recommend-section" aria-label="おすすめ視点">
@@ -695,7 +889,7 @@ a { color: inherit; text-decoration: none; }
         <div class="note-map-title">地図の枝道を、テーマで探す</div>
       </div>
       <div class="note-map-status">
-        <span id="note-filter-label">すべて</span> / <span id="note-filter-count">66 articles</span>
+        <span id="note-filter-label">すべて</span> / <span id="note-filter-count">49 articles</span>
       </div>
     </div>
     <div class="note-theme-buttons">
@@ -714,321 +908,13 @@ a { color: inherit; text-decoration: none; }
 
 <section class="grid-section">
   <div class="note-grid">
-    
-    <article id="note-card-67" class="note-card note-card--unpublished" data-note-id="note-67" data-primary-part="part4">
-
-      <div class="card-orbit-label">PART 04 ORBIT</div>
-      <div class="card-num">#67 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">7億人が同じ瞬間を見た</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/mMqJJFmgnoI</p>
-      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-17</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-66" class="note-card note-card--unpublished" data-note-id="note-66" data-primary-part="part2">
-
-      <div class="card-orbit-label">PART 02 ORBIT</div>
-      <div class="card-num">#66 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">海の底のケーブルが、戦争の最初の標的になった</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/mMqJJFmgnoI</p>
-      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-17</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-65" class="note-card note-card--unpublished" data-note-id="note-65" data-primary-part="part4">
-
-      <div class="card-orbit-label">PART 04 ORBIT</div>
-      <div class="card-num">#65 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">「メディアはメッセージだ」って、どういう意味だろう</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/mMqJJFmgnoI</p>
-      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-17</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-64" class="note-card note-card--unpublished" data-note-id="note-64" data-primary-part="part2">
-
-      <div class="card-orbit-label">PART 02 ORBIT</div>
-      <div class="card-num">#64 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">新しいメディアが来るたびに、自由と支配が同時に生まれる</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/mMqJJFmgnoI</p>
-      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-17</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-63" class="note-card note-card--unpublished" data-note-id="note-63" data-primary-part="part2">
-
-      <div class="card-orbit-label">PART 02 ORBIT</div>
-      <div class="card-num">#63 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">情報が早く届くと、何かが消える</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/mMqJJFmgnoI</p>
-      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-17</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-62" class="note-card note-card--unpublished" data-note-id="note-62" data-primary-part="part2">
-
-      <div class="card-orbit-label">PART 02 ORBIT</div>
-      <div class="card-num">#62 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">歴史的な最初のひとことは、なぜ詩のようになるのか</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/mMqJJFmgnoI</p>
-      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-17</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-61" class="note-card note-card--unpublished" data-note-id="note-61" data-primary-part="part2">
-
-      <div class="card-orbit-label">PART 02 ORBIT</div>
-      <div class="card-num">#61 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">「ニュース」という概念は、電信が発明した</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/mMqJJFmgnoI</p>
-      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-17</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-60" class="note-card note-card--unpublished" data-note-id="note-60" data-primary-part="part3">
-
-      <div class="card-orbit-label">PART 03 ORBIT</div>
-      <div class="card-num">#60 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">AIには「なぜやるか」がない。それは何を意味するのか</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/Uoy4OZhINHA</p>
-      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-10</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-59" class="note-card note-card--unpublished" data-note-id="note-59" data-primary-part="part3">
-
-      <div class="card-orbit-label">PART 03 ORBIT</div>
-      <div class="card-num">#59 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">記号を正しく処理することと、意味を理解することは同じか</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/Uoy4OZhINHA</p>
-      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-10</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-58" class="note-card note-card--unpublished" data-note-id="note-58" data-primary-part="part3">
-
-      <div class="card-orbit-label">PART 03 ORBIT</div>
-      <div class="card-num">#58 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">AIは失敗しても傷つかない。それが何を意味するのか</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/Uoy4OZhINHA</p>
-      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-10</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-57" class="note-card note-card--unpublished" data-note-id="note-57" data-primary-part="part3">
-
-      <div class="card-orbit-label">PART 03 ORBIT</div>
-      <div class="card-num">#57 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">技術への熱狂と失望は、なぜ繰り返されるのか</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/Uoy4OZhINHA</p>
-      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-10</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-56" class="note-card note-card--unpublished" data-note-id="note-56" data-primary-part="part3">
-
-      <div class="card-orbit-label">PART 03 ORBIT</div>
-      <div class="card-num">#56 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">公平に見える技術が、不平等を増幅するとき</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/Uoy4OZhINHA</p>
-      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-10</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-55" class="note-card note-card--unpublished" data-note-id="note-55" data-primary-part="part3">
-
-      <div class="card-orbit-label">PART 03 ORBIT</div>
-      <div class="card-num">#55 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">人間はなぜ、機械に心を見てしまうのか</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/Uoy4OZhINHA</p>
-      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-10</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-54" class="note-card note-card--unpublished" data-note-id="note-54" data-primary-part="part3">
-
-      <div class="card-orbit-label">PART 03 ORBIT</div>
-      <div class="card-num">#54 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">自信満々な答えが、一番危ない</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
-      <p class="card-excerpt">YouTube（ポッドキャスト）: https://youtu.be/Uoy4OZhINHA</p>
-      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-05-10</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
     <article id="note-card-53" class="note-card note-card--has-image" data-note-id="note-53" data-primary-part="part4">
       <a class="note-card-media" href="https://note.com/manabimapcreator/n/n913eb6b8fce3" target="_blank" rel="noopener noreferrer" data-note-read-link>
         <img src="note_articles/generated_note_images/note-53.png" alt="思い出すことと、覚えていたと気づくことは、同じではない サムネイル" loading="lazy">
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#53</div>
       <h3 class="card-title">思い出すことと、覚えていたと気づくことは、同じではない</h3>
       <div class="card-branch">
@@ -1054,6 +940,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 02 ORBIT</div>
+
       <div class="card-num">#52</div>
       <h3 class="card-title">核攻撃に耐えるために作られたネットワークが、世界をつないだ</h3>
       <div class="card-branch">
@@ -1079,6 +966,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 02 ORBIT</div>
+
       <div class="card-num">#51</div>
       <h3 class="card-title">知識を手放すと、何が生まれるのか</h3>
       <div class="card-branch">
@@ -1104,6 +992,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 02 ORBIT</div>
+
       <div class="card-num">#50</div>
       <h3 class="card-title">アイデアは、時代が来なければ存在しないのか</h3>
       <div class="card-branch">
@@ -1129,6 +1018,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 01 ORBIT</div>
+
       <div class="card-num">#49</div>
       <h3 class="card-title">「時間を売る」という生き方は、いつ始まったのか</h3>
       <div class="card-branch">
@@ -1154,6 +1044,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#48</div>
       <h3 class="card-title">「腑に落ちる」は、なぜ身体の言葉なのか</h3>
       <div class="card-branch">
@@ -1179,6 +1070,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#47</div>
       <h3 class="card-title">あなたの見ている世界は、知識で作られている</h3>
       <div class="card-branch">
@@ -1204,6 +1096,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#46</div>
       <h3 class="card-title">東大入試がAIに超えられた日に、見えなかった問い</h3>
       <div class="card-branch">
@@ -1229,6 +1122,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#45</div>
       <h3 class="card-title">「覚えなくていい」時代に、なぜ覚えることに意味があるのか</h3>
       <div class="card-branch">
@@ -1254,6 +1148,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#44</div>
       <h3 class="card-title">知れば知るほど、「わからない」が増えるのはなぜか</h3>
       <div class="card-branch">
@@ -1279,6 +1174,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#43</div>
       <h3 class="card-title">AIが東大首席を超えた日に、何が終わったのか</h3>
       <div class="card-branch">
@@ -1304,6 +1200,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 06 ORBIT</div>
+
       <div class="card-num">#42</div>
       <h3 class="card-title">あなたを測る物差しは、誰が作ったのか</h3>
       <div class="card-branch">
@@ -1329,6 +1226,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 06 ORBIT</div>
+
       <div class="card-num">#41</div>
       <h3 class="card-title">テストで高得点を取ると、幸せになれるのか</h3>
       <div class="card-branch">
@@ -1354,6 +1252,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 08 ORBIT</div>
+
       <div class="card-num">#40</div>
       <h3 class="card-title">「内から生まれた言葉」とは、何だろう</h3>
       <div class="card-branch">
@@ -1379,6 +1278,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 06 ORBIT</div>
+
       <div class="card-num">#39</div>
       <h3 class="card-title">誰も「平均人」ではなかった。</h3>
       <div class="card-branch">
@@ -1404,6 +1304,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 03 ORBIT</div>
+
       <div class="card-num">#38</div>
       <h3 class="card-title">「学びの種」をまく仕事——教育20年目に、生成AIが変えたもの</h3>
       <div class="card-branch">
@@ -1429,6 +1330,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">NOTE ORBIT</div>
+
       <div class="card-num">#37</div>
       <h3 class="card-title">プロンプトを書くことが、デザインになった──GeminiでYouTube・noteのサムネをつくる</h3>
       <div class="card-branch">
@@ -1437,7 +1339,7 @@ a { color: inherit; text-decoration: none; }
         <span class="card-branch__tail">伸びる枝道</span>
       </div>
       <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
-      <p class="card-excerpt">コンテスト: #AIと始めてみた（Google/Gemini、締め切り2026-05-15）</p>
+      <p class="card-excerpt">YouTubeのサムネイルは、誰が作るのでしょう。</p>
       <div class="card-tags"><span class="tag">Geminiサムネ制作プロセス紹介 → ManabiMapサイト紹介</span></div>
       <div class="card-footer">
         <span class="card-date">2026-04-21</span>
@@ -1454,6 +1356,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 06 ORBIT</div>
+
       <div class="card-num">#35</div>
       <h3 class="card-title">計算が生まれた日、人類は「試す」のをやめた</h3>
       <div class="card-branch">
@@ -1479,6 +1382,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 06 ORBIT</div>
+
       <div class="card-num">#34</div>
       <h3 class="card-title">数が指を離れた夜、無限が生まれた</h3>
       <div class="card-branch">
@@ -1504,6 +1408,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 06 ORBIT</div>
+
       <div class="card-num">#33</div>
       <h3 class="card-title">数は、指を離れてどこへ行ったのか</h3>
       <div class="card-branch">
@@ -1529,6 +1434,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 06 ORBIT</div>
+
       <div class="card-num">#32</div>
       <h3 class="card-title">数える力は、生まれ持ったものだろうか</h3>
       <div class="card-branch">
@@ -1554,6 +1460,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#31</div>
       <h3 class="card-title">学べば学ぶほど、知らないことが増えていく</h3>
       <div class="card-branch">
@@ -1579,6 +1486,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 08 ORBIT</div>
+
       <div class="card-num">#30</div>
       <h3 class="card-title">すべての答えが手に入る時代に、「問い」だけを届けるコンテンツを始めた</h3>
       <div class="card-branch">
@@ -1604,6 +1512,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#29</div>
       <h3 class="card-title">完璧に答えられる人が、何もわかっていないとしたら</h3>
       <div class="card-branch">
@@ -1629,6 +1538,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#28</div>
       <h3 class="card-title">言語は、思考の牢獄か。それとも窓か</h3>
       <div class="card-branch">
@@ -1654,6 +1564,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#27</div>
       <h3 class="card-title">「なぜ？」は、もともと逃げるためにあった</h3>
       <div class="card-branch">
@@ -1679,6 +1590,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#26</div>
       <h3 class="card-title">神社に数学を奉納した民族がいた</h3>
       <div class="card-branch">
@@ -1704,6 +1616,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#25</div>
       <h3 class="card-title">棒の刻み目で、帝国は動いていた</h3>
       <div class="card-branch">
@@ -1729,6 +1642,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#24</div>
       <h3 class="card-title">数の言葉を持たない民族が、いた</h3>
       <div class="card-branch">
@@ -1754,6 +1668,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#23</div>
       <h3 class="card-title">頭の中で、あなたは誰と話しているのか</h3>
       <div class="card-branch">
@@ -1779,6 +1694,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#22</div>
       <h3 class="card-title">人類最古の名前は、英雄のものではなかった。</h3>
       <div class="card-branch">
@@ -1804,6 +1720,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#21</div>
       <h3 class="card-title">名前をつける前、世界はひとつながりだった。</h3>
       <div class="card-branch">
@@ -1829,6 +1746,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 05 ORBIT</div>
+
       <div class="card-num">#20</div>
       <h3 class="card-title">音はずっとあった。では、いつ「意味」になったのか。</h3>
       <div class="card-branch">
@@ -1854,6 +1772,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#19</div>
       <h3 class="card-title">人は世界を同じように捉えている？</h3>
       <div class="card-branch">
@@ -1879,6 +1798,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#18</div>
       <h3 class="card-title">本を途中から読むと、なぜか罪悪感がある</h3>
       <div class="card-branch">
@@ -1904,6 +1824,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#17</div>
       <h3 class="card-title">6,350トンのケーブルが運んだのは、何グラムの情報だったか</h3>
       <div class="card-branch">
@@ -1929,6 +1850,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#16</div>
       <h3 class="card-title">「知りたい」と思った瞬間、それは誰かが作った道かもしれない</h3>
       <div class="card-branch">
@@ -1954,6 +1876,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#15</div>
       <h3 class="card-title">「読む楽しみ」は、いつ誰のものになったのか</h3>
       <div class="card-branch">
@@ -1979,6 +1902,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#14</div>
       <h3 class="card-title">なぜ人は、石に印をつけずにいられなかったのか</h3>
       <div class="card-branch">
@@ -2004,6 +1928,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 04 ORBIT</div>
+
       <div class="card-num">#13</div>
       <h3 class="card-title">「AIを使うと考えなくなる」——ソクラテスも、2400年前に言っていた</h3>
       <div class="card-branch">
@@ -2029,6 +1954,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 03 ORBIT</div>
+
       <div class="card-num">#12</div>
       <h3 class="card-title">記憶の中の人は、いつ「消える」のか</h3>
       <div class="card-branch">
@@ -2054,6 +1980,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 02 ORBIT</div>
+
       <div class="card-num">#11</div>
       <h3 class="card-title">世界はつながったのに、なぜ孤独なのか</h3>
       <div class="card-branch">
@@ -2079,6 +2006,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 01 ORBIT</div>
+
       <div class="card-num">#10</div>
       <h3 class="card-title">体の時間は、今も35億年前のままだ</h3>
       <div class="card-branch">
@@ -2104,6 +2032,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 08 ORBIT</div>
+
       <div class="card-num">#09</div>
       <h3 class="card-title">AIに、何を問えばいいのか</h3>
       <div class="card-branch">
@@ -2129,6 +2058,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 08 ORBIT</div>
+
       <div class="card-num">#08</div>
       <h3 class="card-title">あのアイデア、本当に自分が思いついたのか</h3>
       <div class="card-branch">
@@ -2154,6 +2084,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 08 ORBIT</div>
+
       <div class="card-num">#07</div>
       <h3 class="card-title">「わかってもらえた」は、ただの確率かもしれない</h3>
       <div class="card-branch">
@@ -2179,6 +2110,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 08 ORBIT</div>
+
       <div class="card-num">#06</div>
       <h3 class="card-title">追い出された場所から、次の時代が生まれる。</h3>
       <div class="card-branch">
@@ -2204,6 +2136,7 @@ a { color: inherit; text-decoration: none; }
         <span class="note-card-media__label">NOTE THUMBNAIL</span>
       </a>
       <div class="card-orbit-label">PART 08 ORBIT</div>
+
       <div class="card-num">#05</div>
       <h3 class="card-title">生成AIは、いったい何を「生成」しているのか。</h3>
       <div class="card-branch">
@@ -2223,9 +2156,369 @@ a { color: inherit; text-decoration: none; }
       </div>
     </article>
 
+    <article id="note-card-1" class="note-card note-card--has-image" data-note-id="note-01" data-primary-part="part3">
+      <a class="note-card-media" href="https://note.com/manabimapcreator/n/n00c3101a661e" target="_blank" rel="noopener noreferrer" data-note-read-link>
+        <img src="note_articles/generated_note_images/note-1.png" alt="ChatGPTが登場するまで、人類に何があったのか。 サムネイル" loading="lazy">
+        <span class="note-card-media__label">NOTE THUMBNAIL</span>
+      </a>
+      <div class="card-orbit-label">PART 03 ORBIT</div>
+
+      <div class="card-num">#01</div>
+      <h3 class="card-title">ChatGPTが登場するまで、人類に何があったのか。</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
+      <p class="card-excerpt">「なぜ学ぶのか」という問いに、うまく答えられますか？</p>
+      <div class="card-tags"><span class="tag">#生成AI</span><span class="tag">#ChatGPT</span><span class="tag">#教育</span><span class="tag">#人類史</span><span class="tag">#学び</span><span class="tag">#AI</span></div>
+      <div class="card-footer">
+        <span></span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n00c3101a661e" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="upcoming-section" aria-label="近日公開のnote記事">
+  <div class="upcoming-head">
+    <div>
+      <div class="upcoming-label">COMING SOON</div>
+      <h2 class="upcoming-title">近日公開</h2>
+    </div>
+    <p class="upcoming-copy">公開前の問いは、ここで静かに育てています。</p>
+  </div>
+  <div class="note-grid note-grid--upcoming">
+    <article id="note-card-67" class="note-card note-card--unpublished" data-note-id="note-67" data-primary-part="part4">
+
+      <div class="card-orbit-label">PART 04 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#67 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">7億人が同じ瞬間を見た</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
+      <p class="card-excerpt">1969年7月20日。</p>
+      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-17</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-66" class="note-card note-card--unpublished" data-note-id="note-66" data-primary-part="part2">
+
+      <div class="card-orbit-label">PART 02 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#66 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">海の底のケーブルが、戦争の最初の標的になった</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
+      <p class="card-excerpt">今日も、あなたのメッセージは海の底を通っています。</p>
+      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-17</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-65" class="note-card note-card--unpublished" data-note-id="note-65" data-primary-part="part4">
+
+      <div class="card-orbit-label">PART 04 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#65 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">「メディアはメッセージだ」って、どういう意味だろう</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part4.html">第4部 文字と知識の冒険</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：検索できることと、理解していることは同じなのか。</p>
+      <p class="card-excerpt">「明日、会えますか」</p>
+      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-17</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part4.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-64" class="note-card note-card--unpublished" data-note-id="note-64" data-primary-part="part2">
+
+      <div class="card-orbit-label">PART 02 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#64 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">新しいメディアが来るたびに、自由と支配が同時に生まれる</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
+      <p class="card-excerpt">SNSで「真実が広まった」と感じたことがありますか。</p>
+      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-17</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-63" class="note-card note-card--unpublished" data-note-id="note-63" data-primary-part="part2">
+
+      <div class="card-orbit-label">PART 02 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#63 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">情報が早く届くと、何かが消える</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
+      <p class="card-excerpt">ある情報を、誰より先に持っていたことがありますか。</p>
+      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-17</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-62" class="note-card note-card--unpublished" data-note-id="note-62" data-primary-part="part2">
+
+      <div class="card-orbit-label">PART 02 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#62 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">歴史的な最初のひとことは、なぜ詩のようになるのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
+      <p class="card-excerpt">1844年。モールスが電信で送った最初の言葉は、こうでした。</p>
+      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-17</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-61" class="note-card note-card--unpublished" data-note-id="note-61" data-primary-part="part2">
+
+      <div class="card-orbit-label">PART 02 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#61 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">「ニュース」という概念は、電信が発明した</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part2.html">第2部 つながる世界</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：つながることは、近づくことと同じなのか。</p>
+      <p class="card-excerpt">今朝、スマホを開いてニュースを確認しましたか。</p>
+      <div class="card-tags"><span class="tag">第4部ポッドキャスト #4P-4「情報が光速になった日」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-17</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part2.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-60" class="note-card note-card--unpublished" data-note-id="note-60" data-primary-part="part3">
+
+      <div class="card-orbit-label">PART 03 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#60 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">AIには「なぜやるか」がない。それは何を意味するのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
+      <p class="card-excerpt">AIは絵を描けます。音楽を作れます。文章を書けます。</p>
+      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-10</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-59" class="note-card note-card--unpublished" data-note-id="note-59" data-primary-part="part3">
+
+      <div class="card-orbit-label">PART 03 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#59 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">記号を正しく処理することと、意味を理解することは同じか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
+      <p class="card-excerpt">「正しい答えを出す」ことと、「わかっている」ことは同じでしょうか。</p>
+      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-10</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-58" class="note-card note-card--unpublished" data-note-id="note-58" data-primary-part="part3">
+
+      <div class="card-orbit-label">PART 03 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#58 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">AIは失敗しても傷つかない。それが何を意味するのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
+      <p class="card-excerpt">AIはどれだけ間違えても、傷つきません。</p>
+      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-10</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-57" class="note-card note-card--unpublished" data-note-id="note-57" data-primary-part="part3">
+
+      <div class="card-orbit-label">PART 03 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#57 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">技術への熱狂と失望は、なぜ繰り返されるのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
+      <p class="card-excerpt">AIの歴史は70年近くあります。</p>
+      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-10</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-56" class="note-card note-card--unpublished" data-note-id="note-56" data-primary-part="part3">
+
+      <div class="card-orbit-label">PART 03 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#56 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">公平に見える技術が、不平等を増幅するとき</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
+      <p class="card-excerpt">コンピュータは、感情も偏見も持っていない。</p>
+      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-10</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-55" class="note-card note-card--unpublished" data-note-id="note-55" data-primary-part="part3">
+
+      <div class="card-orbit-label">PART 03 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#55 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">人間はなぜ、機械に心を見てしまうのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
+      <p class="card-excerpt">掃除ロボット「ルンバ」を使っている人の多くが、</p>
+      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-10</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-54" class="note-card note-card--unpublished" data-note-id="note-54" data-primary-part="part3">
+
+      <div class="card-orbit-label">PART 03 ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#54 <span class="badge-unpublished">準備中</span></div>
+      <h3 class="card-title">自信満々な答えが、一番危ない</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
+      <p class="card-excerpt">AIは嘘をつく。</p>
+      <div class="card-tags"><span class="tag">第3部ポッドキャスト「AIの深層」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-05-10</span>
+        <div class="card-actions">
+        <span class="card-action card-action--disabled">近日公開</span>
+          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
     <article id="note-card-4" class="note-card note-card--unpublished" data-note-id="note-04" data-primary-part="part2">
 
       <div class="card-orbit-label">PART 02 ORBIT</div>
+
       <div class="card-num">#04 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">スマホの中に、80年分の革命が詰まっている。</h3>
       <div class="card-branch">
@@ -2248,6 +2541,7 @@ a { color: inherit; text-decoration: none; }
     <article id="note-card-3" class="note-card note-card--unpublished" data-note-id="note-03" data-primary-part="part3">
 
       <div class="card-orbit-label">PART 03 ORBIT</div>
+
       <div class="card-num">#03 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">ChatGPTに同じことを聞くと、なぜ毎回答えが違うのか。</h3>
       <div class="card-branch">
@@ -2270,6 +2564,7 @@ a { color: inherit; text-decoration: none; }
     <article id="note-card-2" class="note-card note-card--unpublished" data-note-id="note-02" data-primary-part="part1">
 
       <div class="card-orbit-label">PART 01 ORBIT</div>
+
       <div class="card-num">#02 <span class="badge-unpublished">準備中</span></div>
       <h3 class="card-title">「機械に仕事を奪われる」という恐怖は、200年前にもあった。</h3>
       <div class="card-branch">
@@ -2288,31 +2583,6 @@ a { color: inherit; text-decoration: none; }
         </div>
       </div>
     </article>
-
-    <article id="note-card-1" class="note-card note-card--has-image" data-note-id="note-01" data-primary-part="part3">
-      <a class="note-card-media" href="https://note.com/manabimapcreator/n/n00c3101a661e" target="_blank" rel="noopener noreferrer" data-note-read-link>
-        <img src="note_articles/generated_note_images/note-1.png" alt="ChatGPTが登場するまで、人類に何があったのか。 サムネイル" loading="lazy">
-        <span class="note-card-media__label">NOTE THUMBNAIL</span>
-      </a>
-      <div class="card-orbit-label">PART 03 ORBIT</div>
-      <div class="card-num">#01</div>
-      <h3 class="card-title">ChatGPTが登場するまで、人類に何があったのか。</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="parts/part3.html">第3部 AIと生きる未来</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：AIが考えているように見えるとき、人間が考えるとは何か。</p>
-      <p class="card-excerpt">「なぜ学ぶのか」という問いに、うまく答えられますか？</p>
-      <div class="card-tags"><span class="tag">#生成AI</span><span class="tag">#ChatGPT</span><span class="tag">#教育</span><span class="tag">#人類史</span><span class="tag">#学び</span><span class="tag">#AI</span></div>
-      <div class="card-footer">
-        <span></span>
-        <div class="card-actions">
-        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n00c3101a661e" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
-          <a class="card-action card-action--map" href="parts/part3.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
   </div>
 </section>
 
@@ -2325,6 +2595,7 @@ a { color: inherit; text-decoration: none; }
 </footer>
 
 <script src="assets/js/manabimap-data.js"></script>
+<script src="assets/js/cta-tracking.js"></script>
 <script src="assets/js/note-map.js"></script>
 </body>
 </html>

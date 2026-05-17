@@ -69,6 +69,14 @@ function meta(text, label) {
   return match ? match[1].trim() : '';
 }
 
+function firstMeta(text, labels) {
+  for (const label of labels) {
+    const value = meta(text, label);
+    if (value) return value;
+  }
+  return '';
+}
+
 function firstHeading(text, number) {
   const lines = text.split(/\r?\n/);
   const top = lines.find((line) => /^#\s+/.test(line));
@@ -97,7 +105,7 @@ function excerpt(text, title) {
     .filter(Boolean)
     .filter((line) => !/^#\s+/.test(line))
     .filter((line) => !/^##\s+/.test(line))
-    .filter((line) => !/^\*\*(対象|保存日|URL|タグ)\*\*:/.test(line))
+    .filter((line) => !/^\*\*[^*]+\*\*:/.test(line))
     .filter((line) => !/^https?:\/\//.test(line))
     .filter((line) => !/^→/.test(line))
     .filter((line) => stripMarkdown(line) !== title);
@@ -156,6 +164,7 @@ function relatedParts(target, tags) {
 }
 
 function primaryPartId(note) {
+  if (note.primaryPart && partMeta[note.primaryPart]) return note.primaryPart;
   const parts = note.relatedParts || [];
   return parts.find((id) => partMeta[id] && id !== 'note') || parts.find((id) => partMeta[id]) || 'note';
 }
@@ -286,19 +295,35 @@ function parseArticle(file) {
   const target = meta(text, '対象');
   const savedAt = meta(text, '保存日');
   const url = meta(text, 'URL');
+  const explicitStatus = firstMeta(text, ['公開状態', 'status']);
+  const articleKind = firstMeta(text, ['記事種別', '種別', 'type']) || (/^\*\*YouTube（ポッドキャスト）\*\*:/m.test(text) ? 'wonder-note' : '');
+  const primaryPart = firstMeta(text, ['主対象パート', 'primaryPart']);
+  const relatedPodcastId = firstMeta(text, ['関連PodcastID', '関連Podcast']);
+  const relatedPodcastUrl = firstMeta(text, ['関連PodcastURL', 'YouTube（ポッドキャスト）']);
+  const relatedYouTubeId = firstMeta(text, ['関連YouTubeID']);
+  const relatedYouTubeUrl = firstMeta(text, ['関連YouTubeURL']);
+  const ctaCopy = firstMeta(text, ['CTA文言', 'CTA']);
   const tags = parseTags(text, target);
   const published = /^https?:\/\//.test(url);
+  const status = explicitStatus || (published ? 'published' : 'local-draft');
 
   return {
     id: 'note-' + String(number).padStart(2, '0'),
     number,
     title,
     url: published ? url : '',
-    status: published ? undefined : 'local-draft',
+    status,
+    kind: articleKind,
     date: savedAt,
     target,
     tags,
     relatedParts: relatedParts(target, tags),
+    primaryPart,
+    relatedPodcastId,
+    relatedPodcastUrl,
+    relatedYouTubeId,
+    relatedYouTubeUrl,
+    ctaCopy,
     image: noteImageSrc(number),
     excerpt: excerpt(text, title)
   };
@@ -327,9 +352,13 @@ function cardHtml(note) {
         '      </' + mediaTag + '>'
       ].join('\n')
     : '';
+  const kindBadge = note.kind === 'wonder-note'
+    ? '      <div class="card-kind">WONDER NOTE</div>'
+    : '';
   const inner = [
     mediaHtml,
     '      <div class="card-orbit-label">' + escapeHtml(branch.orbitLabel) + '</div>',
+    kindBadge,
     '      <div class="card-num">' + num + (note.url ? '' : ' <span class="badge-unpublished">準備中</span>') + '</div>',
     '      <h3 class="card-title">' + escapeHtml(note.title) + '</h3>',
     '      <div class="card-branch">',
@@ -358,22 +387,39 @@ function cardHtml(note) {
 
 function updateNoteHtml(notes) {
   let html = read(noteHtmlPath);
-  const total = notes.length;
-  html = html.replace(/<div class="hero-count">\d+ articles<\/div>/, '<div class="hero-count">' + total + ' articles</div>');
-  html = html.replace(/<span id="note-filter-count">\d+ articles<\/span>/, '<span id="note-filter-count">' + total + ' articles</span>');
+  const publishedNotes = notes.filter((note) => note.url);
+  const draftNotes = notes.filter((note) => !note.url);
+  html = html.replace(/<div class="hero-count">\d+ articles<\/div>/, '<div class="hero-count">' + publishedNotes.length + ' articles</div>');
+  html = html.replace(/<span id="note-filter-count">\d+ articles<\/span>/, '<span id="note-filter-count">' + publishedNotes.length + ' articles</span>');
 
-  const grid = [
+  const publishedGrid = [
     '<section class="grid-section">',
     '  <div class="note-grid">',
-    '    ',
-    notes.map(cardHtml).join('\n\n'),
+    publishedNotes.map(cardHtml).join('\n\n'),
     '  </div>',
     '</section>'
   ].join('\n');
 
-  const gridPattern = /<section class="grid-section">[\s\S]*?<\/section>/;
+  const draftGrid = draftNotes.length
+    ? [
+        '<section class="upcoming-section" aria-label="近日公開のnote記事">',
+        '  <div class="upcoming-head">',
+        '    <div>',
+        '      <div class="upcoming-label">COMING SOON</div>',
+        '      <h2 class="upcoming-title">近日公開</h2>',
+        '    </div>',
+        '    <p class="upcoming-copy">公開前の問いは、ここで静かに育てています。</p>',
+        '  </div>',
+        '  <div class="note-grid note-grid--upcoming">',
+        draftNotes.map(cardHtml).join('\n\n'),
+        '  </div>',
+        '</section>'
+      ].join('\n')
+    : '';
+
+  const gridPattern = /<section class="grid-section">[\s\S]*?<\/section>(?:\n\n<section class="upcoming-section"[\s\S]*?<\/section>)?/;
   if (!gridPattern.test(html)) throw new Error('Could not replace note grid in note.html');
-  const next = html.replace(gridPattern, grid);
+  const next = html.replace(gridPattern, publishedGrid + (draftGrid ? '\n\n' + draftGrid : ''));
   write(noteHtmlPath, next);
 }
 
@@ -390,10 +436,16 @@ function noteObject(note) {
   ];
   if (note.url) props.push('url: ' + jsValue(note.url));
   if (note.status) props.push('status: ' + jsValue(note.status));
+  if (note.kind) props.push('kind: ' + jsValue(note.kind));
   if (note.date) props.push('date: ' + jsValue(note.date));
   if (note.target) props.push('target: ' + jsValue(note.target));
   props.push('tags: ' + jsValue(note.tags));
   props.push('relatedParts: ' + jsValue(note.relatedParts));
+  if (note.relatedPodcastId) props.push('relatedPodcastId: ' + jsValue(note.relatedPodcastId));
+  if (note.relatedPodcastUrl) props.push('relatedPodcastUrl: ' + jsValue(note.relatedPodcastUrl));
+  if (note.relatedYouTubeId) props.push('relatedYouTubeId: ' + jsValue(note.relatedYouTubeId));
+  if (note.relatedYouTubeUrl) props.push('relatedYouTubeUrl: ' + jsValue(note.relatedYouTubeUrl));
+  if (note.ctaCopy) props.push('ctaCopy: ' + jsValue(note.ctaCopy));
   if (note.image) props.push('image: ' + jsValue(note.image));
   props.push('question: ' + jsValue(branch.question));
   props.push('relation: ' + jsValue(branch.relation));

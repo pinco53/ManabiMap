@@ -128,10 +128,102 @@
     }
   }
 
+  function firstMediaFor(note, type) {
+    if (type === 'podcast') {
+      if (note.relatedPodcastId) {
+        const explicitPodcast = data.findById(note.relatedPodcastId);
+        if (explicitPodcast && explicitPodcast.url) return explicitPodcast;
+      }
+      if (note.relatedPodcastUrl) {
+        const matchedPodcast = data.mediaItems.find(function(item) {
+          return item.type === 'podcast' && item.url === note.relatedPodcastUrl;
+        });
+        if (matchedPodcast) return matchedPodcast;
+        return {
+          id: note.relatedPodcastId || 'podcast-' + note.id,
+          url: note.relatedPodcastUrl
+        };
+      }
+    }
+    if (type === 'youtube') {
+      if (note.relatedYouTubeId) {
+        const explicitVideo = data.findById(note.relatedYouTubeId);
+        if (explicitVideo && explicitVideo.url) return explicitVideo;
+      }
+      if (note.relatedYouTubeUrl) {
+        const matchedVideo = data.mediaItems.find(function(item) {
+          return item.type === 'youtube' && item.url === note.relatedYouTubeUrl;
+        });
+        if (matchedVideo) return matchedVideo;
+        return {
+          id: note.relatedYouTubeId || 'youtube-' + note.id,
+          url: note.relatedYouTubeUrl
+        };
+      }
+    }
+    const partIds = (note.relatedParts || []).filter(function(id) {
+      return /^part/.test(id);
+    });
+    for (let i = 0; i < partIds.length; i++) {
+      const media = data.mediaForPart(partIds[i], type).find(function(item) {
+        return item && item.url;
+      });
+      if (media) return media;
+    }
+    return null;
+  }
+
+  function attachBridgeLinks(card, note) {
+    if (!note || card.querySelector('.note-bridge')) return;
+    const youtube = firstMediaFor(note, 'youtube');
+    const podcast = firstMediaFor(note, 'podcast');
+    if (!youtube && !podcast) return;
+
+    const bridge = document.createElement('div');
+    bridge.className = 'note-bridge';
+
+    if (youtube) {
+      const video = document.createElement('a');
+      video.className = 'note-bridge__link note-bridge__link--video';
+      video.href = youtube.url;
+      video.target = '_blank';
+      video.rel = 'noopener noreferrer';
+      video.textContent = note.ctaCopy || '関連動画を見る';
+      video.dataset.trackEvent = 'note_to_youtube_click';
+      video.dataset.trackSource = 'note';
+      video.dataset.trackContentId = note.id;
+      video.dataset.trackDestinationType = 'youtube_video';
+      video.dataset.trackDestinationId = youtube.id;
+      bridge.appendChild(video);
+    }
+
+    if (podcast) {
+      const audio = document.createElement('a');
+      audio.className = 'note-bridge__link note-bridge__link--podcast';
+      audio.href = podcast.url;
+      audio.target = '_blank';
+      audio.rel = 'noopener noreferrer';
+      audio.textContent = '対応Podcastを聴く';
+      audio.dataset.trackEvent = 'note_to_podcast_click';
+      audio.dataset.trackSource = 'note';
+      audio.dataset.trackContentId = note.id;
+      audio.dataset.trackDestinationType = 'podcast';
+      audio.dataset.trackDestinationId = podcast.id;
+      bridge.appendChild(audio);
+    }
+
+    const footer = card.querySelector('.card-footer');
+    if (footer) {
+      card.insertBefore(bridge, footer);
+    } else {
+      card.appendChild(bridge);
+    }
+  }
+
   function updateCount(theme) {
     const count = document.getElementById('note-filter-count');
     const label = document.getElementById('note-filter-label');
-    const visible = document.querySelectorAll('.note-card:not([hidden])').length;
+    const visible = document.querySelectorAll('.grid-section .note-card:not([hidden])').length;
     if (count) count.textContent = visible + ' articles';
     if (label) {
       const active = document.querySelector('.note-theme-button.active') || document.querySelector('.note-recommend-card.active');
@@ -189,7 +281,7 @@
   function applyFilter(theme) {
     const rule = themeRules[theme] || themeRules.all;
     const visibleCards = [];
-    document.querySelectorAll('.note-card').forEach(function(card) {
+    document.querySelectorAll('.grid-section .note-card').forEach(function(card) {
       const note = noteFromCard(card);
       const shouldShow = note ? rule(note) : theme === 'all';
       card.hidden = !shouldShow;
@@ -218,15 +310,18 @@
   }
 
   function init() {
-    const cards = Array.from(document.querySelectorAll('.note-card'));
-    cards.forEach(function(card) {
+    const allCards = Array.from(document.querySelectorAll('.note-card'));
+    const cards = Array.from(document.querySelectorAll('.grid-section .note-card'));
+    allCards.forEach(function(card) {
       const note = noteFromCard(card);
       if (!note) return;
       card.id = 'note-card-' + note.number;
       card.dataset.noteId = note.id;
       card.dataset.relatedParts = (note.relatedParts || []).join(',');
       card.dataset.tags = (note.tags || []).join(',');
+      if (note.status === 'local-draft') card.classList.add('is-upcoming');
       attachPartChips(card, note);
+      attachBridgeLinks(card, note);
     });
 
     document.querySelectorAll('.note-theme-button').forEach(function(button) {

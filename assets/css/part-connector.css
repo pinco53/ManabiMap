@@ -110,6 +110,66 @@
   gap: 8px;
 }
 
+.part-map-bridge__lanes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.part-map-bridge__lane {
+  display: grid;
+  gap: 8px;
+  min-height: 160px;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.16);
+}
+
+.part-map-bridge__lane-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.part-map-bridge__lane--watch .part-map-bridge__lane-label { color: #ffd700; }
+.part-map-bridge__lane--listen .part-map-bridge__lane-label { color: #ffb86b; }
+.part-map-bridge__lane--read .part-map-bridge__lane-label { color: #41c9b4; }
+
+.part-map-bridge__lane-title {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.part-map-bridge__lane-text {
+  color: #aab4c8;
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.part-map-bridge__lane-action {
+  align-self: end;
+  width: fit-content;
+  margin-top: auto;
+  min-height: 32px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.part-map-bridge__lane--watch .part-map-bridge__lane-action { color: #ffd700; }
+.part-map-bridge__lane--listen .part-map-bridge__lane-action { color: #ffb86b; }
+.part-map-bridge__lane--read .part-map-bridge__lane-action { color: #41c9b4; }
+
+.part-map-bridge__lane--empty {
+  opacity: 0.72;
+}
+
 .part-map-bridge__button,
 .part-map-bridge__pill {
   display: inline-flex;
@@ -189,6 +249,10 @@
   .part-map-bridge__side {
     border-left: 0;
     border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .part-map-bridge__lanes {
+    grid-template-columns: 1fr;
   }
 }
 

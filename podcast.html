@@ -6,6 +6,15 @@
 <title>Podcast | 学びの地図 ─ ハルとおじいさん</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (localStorage.getItem('manabimap_owner') === '1') { gtag('set', {'traffic_type': 'internal'}); }
+  gtag('config', 'G-QL1PVK5PRF');
+</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -119,6 +128,72 @@ a { color: inherit; text-decoration: none; }
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.12em;
+}
+
+.route-choice {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px 28px;
+}
+.route-choice__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.route-choice__card {
+  min-height: 100%;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255,255,255,0.08), transparent 40%),
+    rgba(16,16,26,0.72);
+}
+.route-choice__card--video {
+  border-color: rgba(0,212,255,0.26);
+}
+.route-choice__card--podcast {
+  border-color: rgba(255,184,107,0.28);
+}
+.route-choice__label {
+  margin-bottom: 8px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+}
+.route-choice__card--video .route-choice__label { color: var(--map); }
+.route-choice__card--podcast .route-choice__label { color: var(--podcast); }
+.route-choice__title {
+  margin-bottom: 8px;
+  color: var(--text-bright);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+.route-choice__text {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.route-choice__action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  margin-top: 14px;
+  padding: 7px 13px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 999px;
+  color: var(--text-bright);
+  font-size: 12px;
+  font-weight: 800;
+}
+.route-choice__card--video .route-choice__action:hover {
+  border-color: var(--map);
+  background: rgba(0,212,255,0.08);
+}
+.route-choice__card--podcast .route-choice__action:hover {
+  border-color: var(--podcast);
+  background: rgba(255,184,107,0.08);
 }
 
 .learning-flow {
@@ -363,6 +438,25 @@ a { color: inherit; text-decoration: none; }
   font-weight: 900;
   line-height: 1.45;
 }
+.card-fit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+.card-fit__chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 27px;
+  padding: 4px 9px;
+  border: 1px solid rgba(255,184,107,0.2);
+  border-radius: 999px;
+  background: rgba(255,184,107,0.06);
+  color: #ffd8a8;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
 .branch-box {
   display: grid;
   gap: 4px;
@@ -506,6 +600,42 @@ a { color: inherit; text-decoration: none; }
   background: rgba(0,212,255,0.06);
   color: #9eeeff;
 }
+.action--video {
+  border-color: rgba(141,162,255,0.34);
+  background: rgba(141,162,255,0.06);
+  color: #dfe5ff;
+}
+.card-branches {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.card-branches__label {
+  color: var(--text-dim);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+}
+.card-note-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.card-note-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 31px;
+  padding: 6px 11px;
+  border: 1px solid rgba(65,201,180,0.22);
+  border-radius: 999px;
+  color: #bdeee7;
+  font-size: 11px;
+  font-weight: 800;
+}
+.card-note-link:hover {
+  border-color: rgba(65,201,180,0.62);
+  background: rgba(65,201,180,0.08);
+}
 .empty {
   padding: 36px;
   border: 1px dashed rgba(255,184,107,0.32);
@@ -611,6 +741,7 @@ body.modal-open {
 
 @media (max-width: 720px) {
   .hero { padding-top: 62px; }
+  .route-choice__grid { grid-template-columns: 1fr; }
   .console-panel { grid-template-columns: 1fr; align-items: start; }
   .learning-flow__grid { grid-template-columns: 1fr; }
   .filter-buttons { justify-content: flex-start; }
@@ -656,6 +787,39 @@ body.modal-open {
   </div>
 </section>
 
+<section class="route-choice" aria-label="動画とPodcastの選び方">
+  <div class="route-choice__grid">
+    <article class="route-choice__card route-choice__card--video">
+      <div class="route-choice__label">WATCH FIRST</div>
+      <h2 class="route-choice__title">短くつかむなら、まず動画</h2>
+      <p class="route-choice__text">
+        初めての人、全体像だけ先に掴みたい人は、物語の動画から入る方が軽いです。
+        まず問いの輪郭を見てから、必要ならここへ戻ってきてください。
+      </p>
+      <a
+        class="route-choice__action"
+        href="https://youtu.be/70vHG6evr6E"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-track-event="podcast_to_youtube_click"
+        data-track-source="podcast"
+        data-track-content-id="route-choice-video"
+        data-track-destination-type="youtube_video"
+        data-track-destination-id="70vHG6evr6E"
+      >短い動画から入る</a>
+    </article>
+    <article class="route-choice__card route-choice__card--podcast">
+      <div class="route-choice__label">LISTEN DEEPLY</div>
+      <h2 class="route-choice__title">背景まで知るなら、Podcast</h2>
+      <p class="route-choice__text">
+        すでに関心がある人、移動中に学びたい人、歴史の厚みごと整理したい人向けです。
+        長尺である代わりに、背景と構造を一気に辿れます。
+      </p>
+      <a class="route-choice__action" href="#podcast-list">Podcastを選ぶ</a>
+    </article>
+  </div>
+</section>
+
 <section class="learning-flow" aria-label="Podcastの使い方">
   <div class="learning-flow__grid">
     <div class="learning-flow__item">
@@ -689,7 +853,7 @@ body.modal-open {
   </div>
 </section>
 
-<section class="grid-section">
+<section class="grid-section" id="podcast-list">
   <div class="podcast-grid" id="podcast-grid" aria-live="polite"></div>
 </section>
 
@@ -714,6 +878,7 @@ body.modal-open {
 </footer>
 
 <script src="assets/js/manabimap-data.js"></script>
+<script src="assets/js/cta-tracking.js"></script>
 <script>
 (function() {
   'use strict';
@@ -856,6 +1021,34 @@ body.modal-open {
     return part && part.number ? String(part.number).replace(/^0/, '') : '';
   }
 
+  function publicNotesForPart(partId) {
+    if (!data || typeof data.notesForPart !== 'function') return [];
+    return data.notesForPart(partId).filter(function(note) {
+      return note && note.url && note.status !== 'local-draft';
+    });
+  }
+
+  function shortEntryForPart(part) {
+    if (!part) return null;
+    if (part.youtubeUrl) {
+      return {
+        url: part.youtubeUrl,
+        label: '短い動画から入る',
+        type: 'youtube_video',
+        id: 'youtube-' + part.id
+      };
+    }
+    if (part.playlistUrl) {
+      return {
+        url: part.playlistUrl,
+        label: 'シリーズで見る',
+        type: 'playlist',
+        id: 'playlist-' + part.id
+      };
+    }
+    return null;
+  }
+
   function renderFilters() {
     const partIds = podcasts
       .map(firstPartId)
@@ -903,6 +1096,8 @@ body.modal-open {
       const partTitle = part ? '第' + displayPartNumber(part) + '部 ' + part.title : 'Manabi Map';
       const infographics = infographicsForItem(item, partId);
       const primaryInfographic = infographics[0] || null;
+      const publicNotes = publicNotesForPart(partId).slice(0, 2);
+      const shortEntry = shortEntryForPart(part);
       const imageHtml = thumb
         ? '<img src="' + escapeHtml(thumb) + '" alt="' + escapeHtml(item.title) + ' サムネイル" loading="lazy">'
         : '';
@@ -923,6 +1118,21 @@ body.modal-open {
             '</div>'
           ].join('')
         : '';
+      const noteLinksHtml = publicNotes.length
+        ? [
+            '<div class="card-branches">',
+              '<div class="card-branches__label">文章で補う</div>',
+              '<div class="card-note-links">',
+                publicNotes.map(function(note) {
+                  return '<a class="card-note-link" href="' + escapeHtml(note.url) + '" target="_blank" rel="noopener noreferrer" data-track-event="podcast_to_note_click" data-track-source="podcast" data-track-content-id="' + escapeHtml(item.id) + '" data-track-destination-type="note_article" data-track-destination-id="' + escapeHtml(note.id) + '">#' + escapeHtml(String(note.number).padStart(2, '0')) + ' ' + escapeHtml(note.title) + '</a>';
+                }).join(''),
+              '</div>',
+            '</div>'
+          ].join('')
+        : '';
+      const shortEntryActionHtml = shortEntry
+        ? '<a class="action action--video" href="' + escapeHtml(shortEntry.url) + '" target="_blank" rel="noopener noreferrer" data-track-event="podcast_to_youtube_click" data-track-source="podcast" data-track-content-id="' + escapeHtml(item.id) + '" data-track-destination-type="' + escapeHtml(shortEntry.type) + '" data-track-destination-id="' + escapeHtml(shortEntry.id) + '">' + escapeHtml(shortEntry.label) + '</a>'
+        : '';
 
       return [
         '<article class="podcast-card" style="--accent:' + escapeHtml(accent) + '">',
@@ -935,6 +1145,11 @@ body.modal-open {
           '<div class="podcast-body">',
             '<div class="orbit-label">' + escapeHtml(partLabel(part)) + '</div>',
             '<h2 class="podcast-title">' + escapeHtml(item.title) + '</h2>',
+            '<div class="card-fit">',
+              '<span class="card-fit__chip">移動中</span>',
+              '<span class="card-fit__chip">家事中</span>',
+              '<span class="card-fit__chip">深掘り</span>',
+            '</div>',
             '<div class="branch-box">',
               '<span class="branch-eyebrow">この地図ノードから</span>',
               '<a class="branch-node" href="' + escapeHtml(mapUrl) + '">' + escapeHtml(partTitle) + '</a>',
@@ -943,8 +1158,10 @@ body.modal-open {
             '<p class="question">問：' + escapeHtml(item.question || '') + '</p>',
             '<p class="relation">' + escapeHtml(item.relation || 'Podcastで深める') + '</p>',
             infographicHtml,
+            noteLinksHtml,
             '<div class="actions">',
-              '<a class="action" href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">聴く</a>',
+              '<a class="action" href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer" data-track-event="podcast_to_youtube_click" data-track-source="podcast" data-track-content-id="' + escapeHtml(item.id) + '" data-track-destination-type="podcast" data-track-destination-id="' + escapeHtml(item.id) + '">聴く</a>',
+              shortEntryActionHtml,
               '<a class="action action--map" href="' + escapeHtml(mapUrl) + '">地図で見る</a>',
             '</div>',
           '</div>',

@@ -713,6 +713,142 @@ a { color: inherit; text-decoration: none; }
   font-size: 11px;
   color: var(--text-dim);
 }
+
+/* ========== ENTRY GATES ========== */
+.entry-gate-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px 24px 58px;
+}
+.entry-gate-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+.entry-gate-label {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  color: var(--neon-sky);
+  margin-bottom: 8px;
+}
+.entry-gate-title {
+  color: var(--text-bright);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 900;
+  line-height: 1.35;
+}
+.entry-gate-copy {
+  max-width: 430px;
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.entry-gate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.entry-gate-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 12px;
+  min-height: 236px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255,255,255,0.08), transparent 34%),
+    linear-gradient(145deg, rgba(16,16,26,0.96), rgba(8,8,13,0.96));
+}
+.entry-gate-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.9;
+  pointer-events: none;
+}
+.entry-gate-card--video::before {
+  background: radial-gradient(circle at 0% 0%, rgba(255,45,149,0.16), transparent 48%);
+}
+.entry-gate-card--note::before {
+  background: radial-gradient(circle at 0% 0%, rgba(65,201,180,0.16), transparent 48%);
+}
+.entry-gate-card--podcast::before {
+  background: radial-gradient(circle at 0% 0%, rgba(255,184,107,0.16), transparent 48%);
+}
+.entry-gate-kicker,
+.entry-gate-card h3,
+.entry-gate-card p,
+.entry-gate-actions,
+.entry-gate-list {
+  position: relative;
+}
+.entry-gate-kicker {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+}
+.entry-gate-card--video .entry-gate-kicker { color: var(--neon-magenta); }
+.entry-gate-card--note .entry-gate-kicker { color: #41c9b4; }
+.entry-gate-card--podcast .entry-gate-kicker { color: #ffb86b; }
+.entry-gate-card h3 {
+  color: var(--text-bright);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+.entry-gate-card p {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.entry-gate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: auto;
+}
+.entry-gate-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  color: var(--text-bright);
+  font-size: 12px;
+  font-weight: 800;
+  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+}
+.entry-gate-card--video .entry-gate-btn:hover {
+  border-color: var(--neon-magenta);
+  background: rgba(255,45,149,0.1);
+}
+.entry-gate-card--note .entry-gate-btn:hover {
+  border-color: #41c9b4;
+  background: rgba(65,201,180,0.1);
+}
+.entry-gate-card--podcast .entry-gate-btn:hover {
+  border-color: #ffb86b;
+  background: rgba(255,184,107,0.1);
+}
+.entry-gate-btn:hover { transform: translateY(-2px); }
+.entry-gate-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 2px;
+}
+.entry-gate-note-link {
+  display: block;
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.entry-gate-note-link:hover { color: #86f1df; }
 .atlas-map {
   position: absolute;
   inset: 0;
@@ -1265,6 +1401,12 @@ a { color: inherit; text-decoration: none; }
     display: block;
   }
   .map-panel-note { margin-top: 4px; }
+  .entry-gate-head {
+    display: grid;
+  }
+  .entry-gate-grid {
+    grid-template-columns: 1fr;
+  }
   .map-node {
     width: 76px;
     min-height: 76px;
@@ -2446,7 +2588,17 @@ body::before {
       <div class="hero-divider"></div>
       <div class="hero-subscribe" aria-label="YouTubeチャンネル登録">
         <span class="hero-subscribe__text">人類の叡智へ向かう旅の入口</span>
-        <a href="https://www.youtube.com/channel/UCWzwmiGI53Py4uSBY1Iuwcw?sub_confirmation=1" target="_blank" rel="noopener" class="hero-subscribe__link">
+        <a
+          href="https://www.youtube.com/channel/UCWzwmiGI53Py4uSBY1Iuwcw?sub_confirmation=1"
+          target="_blank"
+          rel="noopener"
+          class="hero-subscribe__link"
+          data-track-event="subscribe_click"
+          data-track-source="index"
+          data-track-content-id="hero"
+          data-track-destination-type="youtube_channel"
+          data-track-destination-id="UCWzwmiGI53Py4uSBY1Iuwcw"
+        >
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="#08080d"/></svg>
           チャンネル登録
         </a>
@@ -2474,6 +2626,83 @@ body::before {
         decoding="async"
       >
     </div>
+  </div>
+</section>
+
+<section class="entry-gate-section" aria-label="最初の入口">
+  <div class="entry-gate-head">
+    <div>
+      <div class="entry-gate-label">START HERE</div>
+      <h2 class="entry-gate-title">いまの温度に合う入口から</h2>
+    </div>
+    <p class="entry-gate-copy">
+      まず短く見る。問いを文章で広げる。腰を据えて耳で深める。
+      同じ世界へ向かう三つの道を、ここで分けます。
+    </p>
+  </div>
+  <div class="entry-gate-grid">
+    <article class="entry-gate-card entry-gate-card--video">
+      <div class="entry-gate-kicker">WATCH FIRST</div>
+      <h3>まず動画で見る</h3>
+      <p>初めてなら、まず物語の輪郭から。短い動画で世界観をつかんでから進めます。</p>
+      <div class="entry-gate-actions">
+        <a
+          class="entry-gate-btn"
+          href="https://youtu.be/70vHG6evr6E"
+          target="_blank"
+          rel="noopener"
+          data-track-event="home_entry_click"
+          data-track-source="index"
+          data-track-content-id="entry-video"
+          data-track-destination-type="youtube_video"
+          data-track-destination-id="70vHG6evr6E"
+        >ChatGPTの物語を見る</a>
+      </div>
+    </article>
+    <article class="entry-gate-card entry-gate-card--note">
+      <div class="entry-gate-kicker">READ A QUESTION</div>
+      <h3>問いを読む</h3>
+      <p>日常の違和感から入りたい人へ。文章で少し遠くまで考える入口です。</p>
+      <div class="entry-gate-list" id="entry-note-list"></div>
+      <div class="entry-gate-actions">
+        <a
+          class="entry-gate-btn"
+          href="note.html"
+          data-track-event="home_entry_click"
+          data-track-source="index"
+          data-track-content-id="entry-note"
+          data-track-destination-type="note_hub"
+          data-track-destination-id="note"
+        >noteを選ぶ</a>
+      </div>
+    </article>
+    <article class="entry-gate-card entry-gate-card--podcast">
+      <div class="entry-gate-kicker">LISTEN DEEPLY</div>
+      <h3>耳で深める</h3>
+      <p>移動中や家事中に。長く聴いて背景ごと整理したい人には Podcast が向いています。</p>
+      <div class="entry-gate-actions">
+        <a
+          class="entry-gate-btn"
+          href="https://youtu.be/Uoy4OZhINHA"
+          target="_blank"
+          rel="noopener"
+          data-track-event="home_entry_click"
+          data-track-source="index"
+          data-track-content-id="entry-podcast"
+          data-track-destination-type="podcast"
+          data-track-destination-id="podcast-part3-01"
+        >AIの深層を聴く</a>
+        <a
+          class="entry-gate-btn"
+          href="podcast.html"
+          data-track-event="home_entry_click"
+          data-track-source="index"
+          data-track-content-id="entry-podcast-hub"
+          data-track-destination-type="podcast_hub"
+          data-track-destination-id="podcast"
+        >Podcast一覧</a>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -2550,7 +2779,15 @@ body::before {
       </p>
     </div>
     <div class="podcast-route-actions">
-      <a class="podcast-route-btn" href="podcast.html">Podcastを見る</a>
+      <a
+        class="podcast-route-btn"
+        href="podcast.html"
+        data-track-event="home_entry_click"
+        data-track-source="index"
+        data-track-content-id="podcast-route"
+        data-track-destination-type="podcast_hub"
+        data-track-destination-id="podcast"
+      >Podcastを見る</a>
     </div>
   </div>
   <div class="podcast-route-grid">
@@ -3052,6 +3289,7 @@ body::before {
 </footer>
 
 <script src="assets/js/manabimap-data.js"></script>
+<script src="assets/js/cta-tracking.js"></script>
 <script>
 function loadIntroVideo(el) {
   el.innerHTML = '<iframe src="https://www.youtube.com/embed/BwUM3mDsvPY?autoplay=1" title="ハルとおじいさん 三部作紹介" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;display:block;"></iframe>';
@@ -3066,6 +3304,36 @@ function loadThemeVideo(el) {
 
 /* ========== 学びの地図：動的演出 ========== */
 (function() {
+  const mapData = window.ManabiMapData || {};
+  const noteList = document.getElementById('entry-note-list');
+  const publicNotes = Array.isArray(mapData.notes)
+    ? mapData.notes.filter(function(note) { return note.url && note.status !== 'local-draft'; })
+    : [];
+  const highlightedNotes = publicNotes.some(function(note) { return note.kind === 'wonder-note'; })
+    ? publicNotes.filter(function(note) { return note.kind === 'wonder-note'; })
+    : publicNotes;
+
+  if (noteList) {
+    highlightedNotes
+      .slice()
+      .sort(function(a, b) { return (b.number || 0) - (a.number || 0); })
+      .slice(0, 3)
+      .forEach(function(note) {
+        const link = document.createElement('a');
+        link.className = 'entry-gate-note-link';
+        link.href = note.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = '#' + String(note.number).padStart(2, '0') + ' ' + note.title;
+        link.dataset.trackEvent = 'home_entry_click';
+        link.dataset.trackSource = 'index';
+        link.dataset.trackContentId = note.id;
+        link.dataset.trackDestinationType = 'note_article';
+        link.dataset.trackDestinationId = note.id;
+        noteList.appendChild(link);
+      });
+  }
+
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // 1. スクロール進捗バー

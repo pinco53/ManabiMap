@@ -39,6 +39,41 @@
     return a;
   }
 
+  function trackLink(link, eventName, contentId, destinationType, destinationId) {
+    link.dataset.trackEvent = eventName;
+    link.dataset.trackSource = currentPartId();
+    link.dataset.trackContentId = contentId;
+    link.dataset.trackDestinationType = destinationType;
+    link.dataset.trackDestinationId = destinationId;
+    return link;
+  }
+
+  function publicNotesForPart(partId) {
+    return data.notesForPart(partId).filter(function(note) {
+      return note && note.url && note.status !== 'local-draft';
+    });
+  }
+
+  function firstPodcastForPart(partId) {
+    return data.mediaForPart(partId, 'podcast').find(function(item) {
+      return item && item.url;
+    }) || null;
+  }
+
+  function buildLane(kind, label, title, text, action) {
+    const lane = document.createElement('div');
+    lane.className = 'part-map-bridge__lane part-map-bridge__lane--' + kind + (action ? '' : ' part-map-bridge__lane--empty');
+    lane.innerHTML = [
+      '<div class="part-map-bridge__lane-label">' + label + '</div>',
+      '<div class="part-map-bridge__lane-title">' + title + '</div>',
+      '<div class="part-map-bridge__lane-text">' + text + '</div>'
+    ].join('');
+    if (action) {
+      lane.appendChild(action);
+    }
+    return lane;
+  }
+
   function buildPanel(part) {
     const panel = document.createElement('section');
     panel.className = 'part-map-bridge';
@@ -77,19 +112,77 @@
     });
     questionBlock.appendChild(questions);
 
-    const linkBlock = document.createElement('div');
-    linkBlock.className = 'part-map-bridge__block';
-    linkBlock.innerHTML = '<div class="part-map-bridge__section-label">この場所から進む</div>';
-    const links = document.createElement('div');
-    links.className = 'part-map-bridge__links';
+    const laneBlock = document.createElement('div');
+    laneBlock.className = 'part-map-bridge__block';
+    laneBlock.innerHTML = '<div class="part-map-bridge__section-label">この場所から進む</div>';
+    const lanes = document.createElement('div');
+    lanes.className = 'part-map-bridge__lanes';
+
     const videoUrl = part.youtubeUrl || part.playlistUrl;
-    if (videoUrl) links.appendChild(createLink('part-map-bridge__button part-map-bridge__button--video', videoUrl, 'YouTubeで見る', true));
-    links.appendChild(createLink('part-map-bridge__button', '../index.html#map-base', 'トップの地図で探す', false));
-    links.appendChild(createLink('part-map-bridge__button part-map-bridge__button--note', '../note.html', 'note記事を探す', false));
-    linkBlock.appendChild(links);
+    const videoAction = videoUrl
+      ? trackLink(
+          createLink('part-map-bridge__lane-action', videoUrl, part.youtubeUrl ? '動画で見る' : '再生リストで見る', true),
+          'part_to_youtube_click',
+          part.id,
+          part.youtubeUrl ? 'youtube_video' : 'playlist',
+          part.youtubeUrl ? 'youtube-' + part.id : 'playlist-' + part.id
+        )
+      : null;
+
+    const podcast = firstPodcastForPart(part.id);
+    const podcastAction = podcast
+      ? trackLink(
+          createLink('part-map-bridge__lane-action', podcast.url, 'Podcastで聴く', true),
+          'part_to_podcast_click',
+          part.id,
+          'podcast',
+          podcast.id
+        )
+      : null;
+
+    const publicNotes = publicNotesForPart(part.id);
+    const firstNote = publicNotes[0] || null;
+    const noteAction = firstNote
+      ? trackLink(
+          createLink('part-map-bridge__lane-action', firstNote.url, 'noteを読む', true),
+          'part_to_note_click',
+          part.id,
+          'note_article',
+          firstNote.id
+        )
+      : trackLink(
+          createLink('part-map-bridge__lane-action', '../note.html', 'noteを探す', false),
+          'part_to_note_click',
+          part.id,
+          'note_hub',
+          'note'
+        );
+
+    lanes.appendChild(buildLane(
+      'watch',
+      'WATCH',
+      'まず見る',
+      part.youtubeUrl ? '初めてなら、まず物語の動画で問いの輪郭をつかむ。' : 'シリーズで流れを追いながら、全体像をつかむ。',
+      videoAction
+    ));
+    lanes.appendChild(buildLane(
+      'listen',
+      'LISTEN',
+      '深く聴く',
+      podcast ? '背景や歴史を、移動中にも耳で深くたどる。' : 'この部のPodcastは、今後ここに接続していきます。',
+      podcastAction
+    ));
+    lanes.appendChild(buildLane(
+      'read',
+      'READ',
+      '問いを読む',
+      firstNote ? '文章で少し遠くまで進み、問いを別角度から眺める。' : '関連するnote記事を探して、枝道へ進む。',
+      noteAction
+    ));
+    laneBlock.appendChild(lanes);
 
     main.appendChild(questionBlock);
-    main.appendChild(linkBlock);
+    main.appendChild(laneBlock);
 
     const side = document.createElement('div');
     side.className = 'part-map-bridge__side';
@@ -99,10 +192,16 @@
     noteBlock.innerHTML = '<div class="part-map-bridge__section-label">関連note</div>';
     const noteList = document.createElement('div');
     noteList.className = 'part-map-bridge__notes';
-    const notes = data.notesForPart(part.id).filter(function(note) { return note.url; }).slice(0, 4);
+    const notes = publicNotesForPart(part.id).slice(0, 4);
     if (notes.length) {
       notes.forEach(function(note) {
-        noteList.appendChild(createLink('part-map-bridge__pill', note.url, '#' + note.number + ' ' + note.title, true));
+        noteList.appendChild(trackLink(
+          createLink('part-map-bridge__pill', note.url, '#' + note.number + ' ' + note.title, true),
+          'part_to_note_click',
+          part.id,
+          'note_article',
+          note.id
+        ));
       });
     } else {
       const empty = document.createElement('div');
