@@ -445,6 +445,38 @@
       ]
     },
     {
+      id: 'podcast-part4-05',
+      type: 'podcast',
+      title: '知識はなぜ「誰でも無料」になったのか｜まるごと聴く 図書館と公教育の深層【ハルとおじいさん #4P-5】',
+      url: 'https://youtu.be/Z0ilADkBAtY',
+      relatedParts: ['part4'],
+      question: '検索できることと、理解していることは同じなのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第4部 Podcast図解 5',
+          src: 'infographics/info4-5.png',
+          caption: '図書館と公教育が知識アクセスをどう変えたかを見る'
+        }
+      ]
+    },
+    {
+      id: 'podcast-part4-06',
+      type: 'podcast',
+      title: '7000の言語が分断する知識の世界｜まるごと聴く 言語と翻訳の深層【ハルとおじいさん #4P-6】',
+      url: 'https://youtu.be/SWvmh6asOzo',
+      relatedParts: ['part4'],
+      question: '検索できることと、理解していることは同じなのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第4部 Podcast図解 6',
+          src: 'infographics/info4-6.png',
+          caption: '言語と翻訳が知識伝達に与える制約と可能性を見る'
+        }
+      ]
+    },
+    {
       id: 'podcast-part5-01',
       type: 'podcast',
       title: '言葉なしで考えられるか｜まるごと聴く 言葉と思考の深層【ハルとおじいさん #5P-1】',
