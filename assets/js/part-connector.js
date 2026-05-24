@@ -112,13 +112,28 @@
     });
     questionBlock.appendChild(questions);
 
+    const videoUrl = part.youtubeUrl || part.playlistUrl;
+    const podcast = firstPodcastForPart(part.id);
+    const publicNotes = publicNotesForPart(part.id);
+    const firstNote = publicNotes[0] || null;
+
+    const routeSummary = document.createElement('div');
+    routeSummary.className = 'part-map-bridge__route-summary';
+    routeSummary.innerHTML = [
+      '<div class="part-map-bridge__section-label">最短ルート</div>',
+      '<div class="part-map-bridge__route-steps">',
+      '<span>1. 動画で輪郭</span>',
+      '<span>2. ' + (firstNote ? 'noteで問いを補強' : '地図で周辺確認') + '</span>',
+      '<span>3. ' + (podcast ? 'Podcastで深掘り' : '次の部へ進む') + '</span>',
+      '</div>'
+    ].join('');
+
     const laneBlock = document.createElement('div');
     laneBlock.className = 'part-map-bridge__block';
     laneBlock.innerHTML = '<div class="part-map-bridge__section-label">この場所から進む</div>';
     const lanes = document.createElement('div');
     lanes.className = 'part-map-bridge__lanes';
 
-    const videoUrl = part.youtubeUrl || part.playlistUrl;
     const videoAction = videoUrl
       ? trackLink(
           createLink('part-map-bridge__lane-action', videoUrl, part.youtubeUrl ? '動画で見る' : '再生リストで見る', true),
@@ -129,7 +144,6 @@
         )
       : null;
 
-    const podcast = firstPodcastForPart(part.id);
     const podcastAction = podcast
       ? trackLink(
           createLink('part-map-bridge__lane-action', podcast.url, 'Podcastで聴く', true),
@@ -140,8 +154,6 @@
         )
       : null;
 
-    const publicNotes = publicNotesForPart(part.id);
-    const firstNote = publicNotes[0] || null;
     const noteAction = firstNote
       ? trackLink(
           createLink('part-map-bridge__lane-action', firstNote.url, 'noteを読む', true),
@@ -182,6 +194,7 @@
     laneBlock.appendChild(lanes);
 
     main.appendChild(questionBlock);
+    main.appendChild(routeSummary);
     main.appendChild(laneBlock);
 
     const side = document.createElement('div');

@@ -849,6 +849,154 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
 }
 .entry-gate-note-link:hover { color: #86f1df; }
+.question-router-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px 66px;
+}
+.question-router {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  gap: 18px;
+  align-items: stretch;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse 640px 260px at 12% 0%, rgba(0,212,255,0.13), transparent 70%),
+    linear-gradient(145deg, rgba(12,15,24,0.96), rgba(8,8,13,0.98));
+  overflow: hidden;
+}
+.question-router__intro {
+  padding: 28px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.question-router__label {
+  color: var(--neon-sky);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  margin-bottom: 10px;
+}
+.question-router__title {
+  color: var(--text-bright);
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+.question-router__copy {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.9;
+  max-width: 440px;
+}
+.question-router__options {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+.question-router__option {
+  width: 100%;
+  text-align: left;
+  padding: 14px 15px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: var(--text);
+  background: rgba(255,255,255,0.035);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.question-router__option:hover,
+.question-router__option.active {
+  border-color: var(--neon-sky);
+  background: rgba(0,212,255,0.08);
+  transform: translateX(2px);
+}
+.question-router__option span {
+  display: block;
+  color: var(--neon-sky);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  margin-bottom: 5px;
+}
+.question-router__option strong {
+  display: block;
+  color: var(--text-bright);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.question-router__result {
+  min-height: 100%;
+  padding: 28px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012));
+}
+.question-router__result-label {
+  color: #ffb86b;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  margin-bottom: 10px;
+}
+.question-router__result-title {
+  color: var(--text-bright);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+.question-router__result-copy {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.85;
+}
+.question-router__route {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+.question-router__step {
+  display: grid;
+  grid-template-columns: 74px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 13px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.18);
+}
+.question-router__step-label {
+  color: #8d99b3;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+.question-router__step-title {
+  color: var(--text-bright);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.55;
+}
+.question-router__step-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 11px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: var(--neon-sky);
+  font-size: 11px;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.question-router__fallback {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.8;
+}
 .atlas-map {
   position: absolute;
   inset: 0;
@@ -1406,6 +1554,31 @@ a { color: inherit; text-decoration: none; }
   }
   .entry-gate-grid {
     grid-template-columns: 1fr;
+  }
+  .question-router-section {
+    padding: 0 9px 44px;
+  }
+  .question-router {
+    grid-template-columns: 1fr;
+    border-radius: 12px;
+  }
+  .question-router__intro {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .question-router__intro,
+  .question-router__result {
+    padding: 22px 18px;
+  }
+  .question-router__step {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+  .question-router__step-link {
+    width: fit-content;
+  }
+  .question-router__title {
+    font-size: 26px;
   }
   .map-node {
     width: 76px;
@@ -2706,6 +2879,38 @@ body::before {
   </div>
 </section>
 
+<section class="question-router-section" aria-label="問いから選ぶ学習ルート">
+  <div class="question-router">
+    <div class="question-router__intro">
+      <div class="question-router__label">QUESTION ROUTER</div>
+      <h2 class="question-router__title">問いから、次の一本を選ぶ</h2>
+      <p class="question-router__copy">
+        いま引っかかっている問いを選ぶと、動画・note・Podcastをひとつの順番に並べます。
+        ManabiMapを、迷路ではなく学習ルートとして使う入口です。
+      </p>
+      <div class="question-router__options">
+        <button type="button" class="question-router__option active" data-question-route="ai">
+          <span>AI / EDUCATION</span>
+          <strong>AIで、人間の学びは何が変わるのか</strong>
+        </button>
+        <button type="button" class="question-router__option" data-question-route="school">
+          <span>SCHOOL / HISTORY</span>
+          <strong>学校はなぜ、今の形になったのか</strong>
+        </button>
+        <button type="button" class="question-router__option" data-question-route="language">
+          <span>LANGUAGE / THINKING</span>
+          <strong>言葉は、思考をどこまで作っているのか</strong>
+        </button>
+        <button type="button" class="question-router__option" data-question-route="body">
+          <span>BODY / HUMAN</span>
+          <strong>AI時代に、身体はなぜ重要なのか</strong>
+        </button>
+      </div>
+    </div>
+    <div class="question-router__result" id="question-router-result" aria-live="polite"></div>
+  </div>
+</section>
+
 <!-- ========== EVOLUTION BANNER ========== -->
 <section class="evolution-banner" id="evolution">
   <a href="evolution.html" style="display:block;">
@@ -3333,6 +3538,115 @@ function loadThemeVideo(el) {
         noteList.appendChild(link);
       });
   }
+
+  const questionRoutes = {
+    ai: {
+      partId: 'part8',
+      label: 'AI / EDUCATION',
+      title: 'AIの仕組みから、学びの変化へ',
+      copy: 'まず生成AIの歴史で全体像をつかみ、問いを文章で補い、最後にPodcastで背景まで整理します。'
+    },
+    school: {
+      partId: 'part1',
+      label: 'SCHOOL / HISTORY',
+      title: '学校と産業革命をつなげて見る',
+      copy: '学校の形を、蒸気機関・時間・労働の変化から読み直すルートです。'
+    },
+    language: {
+      partId: 'part5',
+      label: 'LANGUAGE / THINKING',
+      title: '言葉と思考の関係をたどる',
+      copy: '言葉、抽象化、因果、AIの理解を一本の流れとして追います。'
+    },
+    body: {
+      partId: 'part8-2',
+      label: 'BODY / HUMAN',
+      title: 'AI時代に残る身体の意味へ',
+      copy: 'AIが日常へ入る時代に、人間の身体・感情・一回性がなぜ残るのかを考えるルートです。'
+    }
+  };
+
+  const questionRouter = document.getElementById('question-router-result');
+  const questionRouteButtons = document.querySelectorAll('[data-question-route]');
+
+  function firstPublicNoteForPart(partId) {
+    return publicNotes.find(function(note) {
+      return Array.isArray(note.relatedParts) && note.relatedParts.includes(partId);
+    }) || null;
+  }
+
+  function firstPodcastForEntryPart(partId) {
+    return entryMapData && entryMapData.mediaForPart
+      ? entryMapData.mediaForPart(partId, 'podcast').find(function(item) { return item && item.url; }) || null
+      : null;
+  }
+
+  function stepHtml(label, title, href, actionText, eventName, contentId, destinationType, destinationId) {
+    const external = /^https?:\/\//.test(href || '');
+    return [
+      '<div class="question-router__step">',
+      '<div class="question-router__step-label">' + escapeHtml(label) + '</div>',
+      '<div class="question-router__step-title">' + escapeHtml(title) + '</div>',
+      '<a class="question-router__step-link" href="' + escapeHtml(href) + '"' + (external ? ' target="_blank" rel="noopener"' : '') +
+        ' data-track-event="' + escapeHtml(eventName) + '"' +
+        ' data-track-source="index-question-router"' +
+        ' data-track-content-id="' + escapeHtml(contentId) + '"' +
+        ' data-track-destination-type="' + escapeHtml(destinationType) + '"' +
+        ' data-track-destination-id="' + escapeHtml(destinationId) + '">' +
+        escapeHtml(actionText) +
+      '</a>',
+      '</div>'
+    ].join('');
+  }
+
+  function renderQuestionRoute(routeId) {
+    if (!questionRouter) return;
+    const route = questionRoutes[routeId] || questionRoutes.ai;
+    const part = entryMapData.findById ? entryMapData.findById(route.partId) : null;
+    if (!part) {
+      questionRouter.innerHTML = '<div class="question-router__fallback">この問いのルートは準備中です。</div>';
+      return;
+    }
+    const videoUrl = part.youtubeUrl || part.playlistUrl || part.pageUrl;
+    const note = firstPublicNoteForPart(part.id);
+    const podcast = firstPodcastForEntryPart(part.id);
+    const steps = [
+      stepHtml(
+        'WATCH',
+        part.title + ' -- まず動画で輪郭をつかむ',
+        videoUrl,
+        part.youtubeUrl ? '動画を見る' : 'シリーズを見る',
+        'home_question_route_click',
+        routeId,
+        part.youtubeUrl ? 'youtube_video' : 'playlist',
+        part.youtubeUrl ? 'youtube-' + part.id : 'playlist-' + part.id
+      ),
+      note
+        ? stepHtml('READ', '#' + note.number + ' ' + note.title, note.url, 'noteを読む', 'home_question_route_click', routeId, 'note_article', note.id)
+        : stepHtml('READ', '関連するnote記事を探す', 'note.html', 'note一覧へ', 'home_question_route_click', routeId, 'note_hub', 'note'),
+      podcast
+        ? stepHtml('LISTEN', podcast.title, podcast.url, 'Podcastを聴く', 'home_question_route_click', routeId, 'podcast', podcast.id)
+        : stepHtml('MAP', '学びの地図で周辺を見る', part.pageUrl, '地図を見る', 'home_question_route_click', routeId, 'part_page', part.id)
+    ];
+    questionRouter.innerHTML = [
+      '<div class="question-router__result-label">' + escapeHtml(route.label) + '</div>',
+      '<div class="question-router__result-title">' + escapeHtml(route.title) + '</div>',
+      '<div class="question-router__result-copy">' + escapeHtml(route.copy) + '</div>',
+      '<div class="question-router__route">',
+      steps.join(''),
+      '</div>'
+    ].join('');
+  }
+
+  questionRouteButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      questionRouteButtons.forEach(function(item) {
+        item.classList.toggle('active', item === button);
+      });
+      renderQuestionRoute(button.dataset.questionRoute);
+    });
+  });
+  renderQuestionRoute('ai');
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

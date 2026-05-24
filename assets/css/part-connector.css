@@ -102,6 +102,28 @@
   line-height: 1.85;
 }
 
+.part-map-bridge__route-summary {
+  margin-bottom: 20px;
+}
+
+.part-map-bridge__route-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.part-map-bridge__route-steps span {
+  min-height: 44px;
+  padding: 9px 10px;
+  border: 1px solid rgba(0,212,255,0.18);
+  border-radius: 8px;
+  background: rgba(0,212,255,0.055);
+  color: #dffaff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.55;
+}
+
 .part-map-bridge__links,
 .part-map-bridge__notes,
 .part-map-bridge__next {
@@ -252,6 +274,10 @@
   }
 
   .part-map-bridge__lanes {
+    grid-template-columns: 1fr;
+  }
+
+  .part-map-bridge__route-steps {
     grid-template-columns: 1fr;
   }
 }
