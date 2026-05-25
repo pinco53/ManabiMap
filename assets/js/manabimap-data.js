@@ -192,6 +192,26 @@
       ],
       relatedNotes: ['note-08', 'note-40', 'note-41'],
       next: ['part8', 'part6', 'note']
+    },
+    {
+      id: 'part9',
+      type: 'part',
+      number: '09',
+      title: '身体という時間',
+      subtitle: '進化の身体 -- 旧石器時代の設計で生成AI時代を生きる',
+      group: '身体と進化',
+      era: '700万年前から生成AI時代へ',
+      color: 'orange',
+      pageUrl: 'parts/part9.html',
+      thumbnailVideoId: 'i6mEc0_ftuI',
+      tags: ['身体', '進化', '脳', '報酬系', '不安', '集中', 'AI'],
+      concepts: ['body', 'evolution', 'attention-economy', 'generative-ai'],
+      questions: [
+        '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+        '情報の時間が速くなるほど、身体の時間は何を教えてくれるのか。'
+      ],
+      relatedNotes: ['note-68', 'note-69', 'note-70', 'note-71', 'note-72', 'note-73', 'note-74', 'note-75', 'note-76', 'note-77', 'note-78', 'note-79', 'note-80', 'note-81', 'note-82'],
+      next: ['part8-2', 'part3', 'evolution']
     }
   ];
 
@@ -274,7 +294,29 @@
     { id: 'note-64', number: 64, title: "新しいメディアが来るたびに、自由と支配が同時に生まれる", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["ラジオ","プロパガンダ","印刷革命","グーテンベルク","ルーズベルト","ナチス","インターネット","SNS","フェイクニュース","メディア史","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part2","part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "SNSで「真実が広まった」と感じたことがありますか。" },
     { id: 'note-65', number: 65, title: "「メディアはメッセージだ」って、どういう意味だろう", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["マクルーハン","メディア論","メディアはメッセージ","ケネディ","ニクソン","テレビ討論","スマホ","AI","コミュニケーション","メディア史","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part4","part8","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「明日、会えますか」" },
     { id: 'note-66', number: 66, title: "海の底のケーブルが、戦争の最初の標的になった", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["海底ケーブル","電信","大西洋横断","第一次世界大戦","タイタニック","イギリス帝国","インターネット","地政学","通信インフラ","情報支配","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part2","part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "今日も、あなたのメッセージは海の底を通っています。" },
-    { id: 'note-67', number: 67, title: "7億人が同じ瞬間を見た", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["アポロ11号","月面着陸","テレビ","共有体験","ラジオ","ルーズベルト","ケネディ","国民","放送","メディア史","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "1969年7月20日。" }
+    { id: 'note-67', number: 67, title: "7億人が同じ瞬間を見た", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["アポロ11号","月面着陸","テレビ","共有体験","ラジオ","ルーズベルト","ケネディ","国民","放送","メディア史","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "1969年7月20日。" },
+    { id: 'note-68', number: 68, title: "366万年前、誰かが誰かの足跡を踏んで歩いた", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第9部第1話「二足歩行という革命」", tags: ["第9部第1話「二足歩行という革命」"], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-1", relatedYouTubeId: "youtube-part9-1", ctaCopy: "関連動画を見る", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "歩いているとき、足元を意識することはほとんどありません。" },
+    { id: 'note-69', number: 69, title: "石を割り始める前に、頭の中に完成形があった", status: "local-draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第2話「手と道具」", tags: ["第9部第2話「手と道具」"], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-2", relatedYouTubeId: "youtube-part9-2", ctaCopy: "関連動画を見る", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "ペンを持つとき、包丁を使うとき、スマートフォンを開くとき。" },
+    { id: 'note-70', number: 70, title: "150人を超えると、何かが壊れる", status: "local-draft", date: "2026-05-24", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "フォロワーが増えるほど、なぜか孤独になる。" },
+    { id: 'note-71', number: 71, title: "欲望が止まらないのは、設計通りだった", status: "local-draft", date: "2026-05-24", target: "第9部第5話「報酬系の設計」", tags: ["第9部第5話「報酬系の設計」"], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "お腹いっぱいなのに、まだ食べたくなる。" },
+    { id: 'note-72', number: 72, title: "悪いニュースが良いニュースより速く伝わるのは、なぜだろう", status: "local-draft", date: "2026-05-24", target: "第9部第6話「恐怖と不安」", tags: ["第9部第6話「恐怖と不安」"], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "友達の悪い噂は、良い噂よりずっと速く広まる。" },
+    { id: 'note-73', number: 73, title: "「仲間」と「よそ者」を決めているのは、何だろう", status: "local-draft", date: "2026-05-24", target: "第9部第7話「集団本能」", tags: ["第9部第7話「集団本能」"], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "同じチームのユニフォームを見ると、なぜか親しみがわく。" },
+    { id: 'note-74', number: 74, title: "なぜ「あとで読もう」は、いつも実行されないのか", status: "local-draft", date: "2026-05-24", target: "第9部第8話「即時報酬の罠」", tags: ["第9部第8話「即時報酬の罠」"], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "「あとで読む」ボタンを押した記事が、いつまでも読まれないまま積み上がっている。" },
+    { id: 'note-75', number: 75, title: "江戸時代の人の一生分を、一日で処理している", status: "local-draft", date: "2026-05-24", target: "第9部第9話「情報過多という異常環境」", tags: [], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "何もしていないのに疲れた、という感覚はないでしょうか。" },
+    { id: 'note-76', number: 76, title: "言葉より先に、目があった", status: "local-draft", date: "2026-05-24", target: "第9部第4話「言語以前の身体」", tags: ["第9部第4話「言語以前の身体」"], relatedParts: ["part9","part5"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "目が合うと、何かが伝わる気がする。" },
+    { id: 'note-77', number: 77, title: "マルチタスクが得意な人ほど、実は苦手だった", status: "local-draft", date: "2026-05-24", target: "第9部第10話「集中という希少資源」", tags: ["第9部第10話「集中という希少資源」"], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "複数のことを同時にこなす「マルチタスク」。" },
+    { id: 'note-78', number: 78, title: "写真を撮るほど、あのときが遠くなる", status: "local-draft", date: "2026-05-24", target: "第9部第11話「身体と時間」", tags: ["第9部第11話「身体と時間」"], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "旅行や思い出の場所に行くとき、とにかく写真を撮る。" },
+    { id: 'note-79', number: 79, title: "痛みがなければよかった、は本当のことだろうか", status: "local-draft", date: "2026-05-24", target: "第9部第12話「痛みと意味」", tags: ["第9部第12話「痛みと意味」"], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "転んだとき、歯が痛いとき、誰かに傷つけられたとき。" },
+    { id: 'note-80', number: 80, title: "昔聴いた音楽が今も特別なのは、脳が記憶しているからではない", status: "local-draft", date: "2026-05-24", target: "第9部第13話「感性とは何か」", tags: ["第9部第13話「感性とは何か」"], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "昔よく聴いていた曲がシャッフルで流れてきた瞬間、" },
+    { id: 'note-81', number: 81, title: "「平均的な人間」は、一人も存在しなかった", status: "local-draft", date: "2026-05-24", target: "第9部第14話「身体を持つという条件」", tags: [], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "平均身長。平均体重。平均体温。" },
+    { id: 'note-82', number: 82, title: "生物進化は止まった。でも人類の変化は止まらない", status: "local-draft", date: "2026-05-24", target: "第9部第15話「進化は止まらない」", tags: ["第9部第15話「進化は止まらない」"], relatedParts: ["part9","evolution"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "スマートフォンが世界に普及するまで、10年かかりませんでした。" },
+    { id: 'note-83', number: 83, title: "光より速く伝えようとした人たちがいた", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 1）", tags: ["第4部第5話","第6話関連（1週間企画","Day","1）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-5", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "電気が来る前の話です。" },
+    { id: 'note-84', number: 84, title: "点と線に変えたとき、消えたものがある", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 2）", tags: ["第4部第5話","第6話関連（1週間企画","Day","2）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-5", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「今、大丈夫？」" },
+    { id: 'note-85', number: 85, title: "大西洋ケーブルが世界の「値段」を揃えた日", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 3）", tags: ["第4部第5話","第6話関連（1週間企画","Day","3）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-5", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "ニューヨークの綿花の値段と、" },
+    { id: 'note-86', number: 86, title: "ページの中に、時代を超えた会話があった", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 4）", tags: ["第4部第5話","第6話関連（1週間企画","Day","4）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-6", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "本のページを開く。" },
+    { id: 'note-87', number: 87, title: "誰もが書けるようになるたびに、世界が揺れた", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 5）", tags: ["第4部第5話","第6話関連（1週間企画","Day","5）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-6", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「誰でも書ける」という状態は、" },
+    { id: 'note-88', number: 88, title: "「普通」を決めるのは、誰だろう", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 6）", tags: ["第4部第5話","第6話関連（1週間企画","Day","6）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-6", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "キーボードの「A」は65番。" },
+    { id: 'note-89', number: 89, title: "情報に「重さ」はないと、おじいさんは言った", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 7）", tags: ["第4部第5話","第6話関連（1週間企画","Day","7）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-5", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "本は重い。船で運ぶしかない。" }
   ];
 
   const routes = [
@@ -511,6 +553,141 @@
       relatedParts: ['part5'],
       question: '言葉がない世界では、思考はどのように存在するのか。',
       relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part9-1',
+      type: 'podcast',
+      title: '【Podcast】なぜ人間だけが腰痛になるのか｜ハルとおじいさん #9-1',
+      url: 'https://www.youtube.com/watch?v=i6mEc0_ftuI',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-2',
+      type: 'podcast',
+      title: '【Podcast】道具を作るには、まず頭の中に完成形が必要だった【ハルとおじいさん #9-2】',
+      url: 'https://www.youtube.com/watch?v=8ua--nUd03c',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-3',
+      type: 'podcast',
+      title: '【Podcast】人間の脳は「150人のために」作られていた【ハルとおじいさん #9-3】',
+      url: 'https://www.youtube.com/watch?v=xDCS9n4H2KM',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-4',
+      type: 'podcast',
+      title: '【Podcast】目が合うと伝わるのはなぜか【ハルとおじいさん #9-4】',
+      url: 'https://www.youtube.com/watch?v=R86nwPVCDzw',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-5',
+      type: 'podcast',
+      title: '【Podcast】「もっと食べたい」に終わりがないのは、脳の設計通りだった【ハルとおじいさん #9-5】',
+      url: 'https://www.youtube.com/watch?v=NCJ1O6gZLzs',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-6',
+      type: 'podcast',
+      title: '【Podcast】今感じている不安は、石器時代の警報ではないか【ハルとおじいさん #9-6】',
+      url: 'https://www.youtube.com/watch?v=z-3MMxnLSRk',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-7',
+      type: 'podcast',
+      title: '【Podcast】「いいね」が欲しくなるのは本能だった【ハルとおじいさん #9-7】',
+      url: 'https://www.youtube.com/watch?v=czGu0RBIGIM',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-8',
+      type: 'podcast',
+      title: '【Podcast】スマホはスロットマシンと同じ原理で設計されていた【ハルとおじいさん #9-8】',
+      url: 'https://www.youtube.com/watch?v=oFpwthBeL0Q',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-9',
+      type: 'podcast',
+      title: '【Podcast】何もしていないのになぜ疲れるのか【ハルとおじいさん #9-9】',
+      url: 'https://www.youtube.com/watch?v=7sSOduuyoSU',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-10',
+      type: 'podcast',
+      title: '【Podcast】マルチタスクは神話だった【ハルとおじいさん #9-10】',
+      url: 'https://www.youtube.com/watch?v=39gre1Re9rg',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-11',
+      type: 'podcast',
+      title: '【Podcast】写真は残るのに、あのときの感覚は戻らない【ハルとおじいさん #9-11】',
+      url: 'https://www.youtube.com/watch?v=W1ORlP0fZ70',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-12',
+      type: 'podcast',
+      title: '【Podcast】痛みを感じない人が短命になる理由【ハルとおじいさん #9-12】',
+      url: 'https://www.youtube.com/watch?v=2--1bDSiQyw',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-13',
+      type: 'podcast',
+      title: '【Podcast】十代に聴いた音楽がずっと特別な理由【ハルとおじいさん #9-13】',
+      url: 'https://www.youtube.com/watch?v=qb_K86SNsPY',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-14',
+      type: 'podcast',
+      title: '【Podcast】統計の「平均」に当てはまる人間は存在しない【ハルとおじいさん #9-14】',
+      url: 'https://www.youtube.com/watch?v=TCcVuTrB7PU',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
+    },
+    {
+      id: 'podcast-part9-15',
+      type: 'podcast',
+      title: '【Podcast】生物進化は止まった。でも文化は猛スピードで変わり続ける【ハルとおじいさん #9-15 最終回】',
+      url: 'https://www.youtube.com/watch?v=ntsi0lo-V5g',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: '第9部「身体という時間」Podcast'
     }
   ];
 

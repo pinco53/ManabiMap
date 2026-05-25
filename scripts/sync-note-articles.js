@@ -22,6 +22,7 @@ const partMeta = {
   part7: { orbit: 'PART 07 ORBIT', label: '第7部 人間の前提を外す', href: 'parts/part7.html', relation: '前提を外す枝道' },
   part8: { orbit: 'PART 08 ORBIT', label: '第8部 AIと人間のあいだ', href: 'parts/part8.html', relation: '生成AIの枝道' },
   'part8-2': { orbit: 'PART 08 ORBIT', label: '第8部 AIが日常に入る日', href: 'parts/part8_2.html', relation: '教育と日常の枝道' },
+  part9: { orbit: 'PART 09 ORBIT', label: '第9部 身体という時間', href: 'parts/part9.html', relation: '身体と進化の枝道' },
   evolution: { orbit: 'HISTORY ORBIT', label: '進化の年表', href: 'evolution.html', relation: '人類史から伸びる枝道' },
   note: { orbit: 'NOTE ORBIT', label: 'note記事群', href: 'note.html', relation: '制作と学びの枝道' }
 };
@@ -36,6 +37,7 @@ const questionByPart = {
   part7: '人間の当たり前を外すと、世界はどう見え直すのか。',
   part8: '生成AIは、何を生成しているのか。',
   'part8-2': 'AIが宿題を解ける時代に、学力とは何か。',
+  part9: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
   evolution: 'いま見ている問いは、人類史のどこから来たのか。',
   note: '学ぶとは、答えを増やすことか、問いを増やすことか。'
 };
@@ -147,6 +149,7 @@ function parseTags(text, target) {
 function relatedParts(target, tags) {
   const source = [target].concat(tags).join(' ');
   const parts = [];
+  if (/第9部/.test(source)) parts.push('part9');
   if (/第1部|産業革命|蒸気/.test(source)) parts.push('part1');
   if (/第2部|デジタル|SNS|通信|つながり|孤独/.test(source)) parts.push('part2');
   if (/第3部|AI革命|ChatGPT|生成AI/.test(source)) parts.push('part3');
@@ -161,6 +164,10 @@ function relatedParts(target, tags) {
   if (/サイト|ManabiMap|制作|Gemini|サムネ|学びの地図/.test(source)) parts.push('note');
   if (/進化|人類史|宇宙|生命/.test(source)) parts.push('evolution');
   return Array.from(new Set(parts));
+}
+
+function publicUrl(value) {
+  return /^https?:\/\//.test(String(value || '').trim()) ? String(value).trim() : '';
 }
 
 function primaryPartId(note) {
@@ -299,9 +306,9 @@ function parseArticle(file) {
   const articleKind = firstMeta(text, ['記事種別', '種別', 'type']) || (/^\*\*YouTube（ポッドキャスト）\*\*:/m.test(text) ? 'wonder-note' : '');
   const primaryPart = firstMeta(text, ['主対象パート', 'primaryPart']);
   const relatedPodcastId = firstMeta(text, ['関連PodcastID', '関連Podcast']);
-  const relatedPodcastUrl = firstMeta(text, ['関連PodcastURL', 'YouTube（ポッドキャスト）']);
+  const relatedPodcastUrl = publicUrl(firstMeta(text, ['関連PodcastURL', 'YouTube（ポッドキャスト）']));
   const relatedYouTubeId = firstMeta(text, ['関連YouTubeID']);
-  const relatedYouTubeUrl = firstMeta(text, ['関連YouTubeURL']);
+  const relatedYouTubeUrl = publicUrl(firstMeta(text, ['関連YouTubeURL']));
   const ctaCopy = firstMeta(text, ['CTA文言', 'CTA']);
   const tags = parseTags(text, target);
   const published = /^https?:\/\//.test(url);
