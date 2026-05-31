@@ -5,9 +5,7 @@
 **保存日**: 2026-05-25
 **公開状態**: local-draft
 **主対象パート**: part9
-**関連PodcastID**: podcast-part9-1
 **関連PodcastURL**: （アップロード後に記入）
-**関連YouTubeID**: youtube-part9-1
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: 関連動画を見る
 
