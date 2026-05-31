@@ -1,7 +1,8 @@
 # note_58｜AIは失敗しても傷つかない。それが何を意味するのか
 
 **対象**: 第3部ポッドキャスト「AIの深層」
-**保存日**: 2026-05-10
+**保存日**: 2026-05-15
+**URL**: https://note.com/manabimapcreator/n/nd5048b4aae02
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---

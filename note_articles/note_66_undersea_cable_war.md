@@ -1,7 +1,8 @@
 # note_66｜海の底のケーブルが、戦争の最初の標的になった
 
 **対象**: 第4部ポッドキャスト #4P-4「情報が光速になった日」
-**保存日**: 2026-05-17
+**保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/na05fe2ac4e9a
 **YouTube（ポッドキャスト）**: https://youtu.be/mMqJJFmgnoI
 
 ---

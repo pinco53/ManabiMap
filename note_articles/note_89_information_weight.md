@@ -5,7 +5,7 @@
 **保存日**: 2026-05-25
 **公開状態**: local-draft
 **主対象パート**: part4
-**関連PodcastID**: podcast-part4-5
+**関連PodcastID**: podcast-part4-05
 **関連PodcastURL**: （アップロード後に記入）
 **関連YouTubeID**: youtube-part4
 **関連YouTubeURL**: https://www.youtube.com/watch?v=8dySbSKpZNU

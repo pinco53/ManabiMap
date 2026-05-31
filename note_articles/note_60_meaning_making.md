@@ -1,7 +1,8 @@
 # note_60｜AIには「なぜやるか」がない。それは何を意味するのか
 
 **対象**: 第3部ポッドキャスト「AIの深層」
-**保存日**: 2026-05-10
+**保存日**: 2026-05-18
+**URL**: https://note.com/manabimapcreator/n/na8ce3499e02c
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---

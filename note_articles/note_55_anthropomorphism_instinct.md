@@ -1,7 +1,8 @@
 # note_55｜人間はなぜ、機械に心を見てしまうのか
 
 **対象**: 第3部ポッドキャスト「AIの深層」
-**保存日**: 2026-05-10
+**保存日**: 2026-05-12
+**URL**: https://note.com/manabimapcreator/n/n9c5639b060d9
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---

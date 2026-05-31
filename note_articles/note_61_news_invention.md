@@ -1,7 +1,8 @@
 # note_61｜「ニュース」という概念は、電信が発明した
 
 **対象**: 第4部ポッドキャスト #4P-4「情報が光速になった日」
-**保存日**: 2026-05-17
+**保存日**: 2026-05-19
+**URL**: https://note.com/manabimapcreator/n/n2c3c08ed828d
 **YouTube（ポッドキャスト）**: https://youtu.be/mMqJJFmgnoI
 
 ---

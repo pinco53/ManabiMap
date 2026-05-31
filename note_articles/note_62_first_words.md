@@ -1,7 +1,8 @@
 # note_62｜歴史的な最初のひとことは、なぜ詩のようになるのか
 
 **対象**: 第4部ポッドキャスト #4P-4「情報が光速になった日」
-**保存日**: 2026-05-17
+**保存日**: 2026-05-20
+**URL**: https://note.com/manabimapcreator/n/ne7eb5d01b414
 **YouTube（ポッドキャスト）**: https://youtu.be/mMqJJFmgnoI
 
 ---

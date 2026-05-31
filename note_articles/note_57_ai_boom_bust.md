@@ -1,7 +1,8 @@
 # note_57｜技術への熱狂と失望は、なぜ繰り返されるのか
 
 **対象**: 第3部ポッドキャスト「AIの深層」
-**保存日**: 2026-05-10
+**保存日**: 2026-05-14
+**URL**: https://note.com/manabimapcreator/n/nbc4d04b2a362
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---

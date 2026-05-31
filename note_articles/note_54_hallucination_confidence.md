@@ -1,7 +1,8 @@
 # note_54｜自信満々な答えが、一番危ない
 
 **対象**: 第3部ポッドキャスト「AIの深層」
-**保存日**: 2026-05-10
+**保存日**: 2026-05-11
+**URL**: https://note.com/manabimapcreator/n/n241de742032b
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---

@@ -1,7 +1,8 @@
 # note_59｜記号を正しく処理することと、意味を理解することは同じか
 
 **対象**: 第3部ポッドキャスト「AIの深層」
-**保存日**: 2026-05-10
+**保存日**: 2026-05-16
+**URL**: https://note.com/manabimapcreator/n/n4e81df22c5ca
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---

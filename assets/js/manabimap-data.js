@@ -278,23 +278,23 @@
     { id: 'note-48', number: 48, title: "「腑に落ちる」は、なぜ身体の言葉なのか", url: "https://note.com/manabimapcreator/n/n0c64a3eeb6f8", status: "published", tags: ["学び","教育","AI","認知科学","身体化認知","思考","宿題"], relatedParts: ["part5","part8-2","part8"], image: "note_articles/generated_note_images/note-48.png", question: "言葉がない世界では、思考はどのように存在するのか。", relation: "言葉と思考の枝道", primaryPart: "part5", excerpt: "「腑に落ちる」という言葉があります。" },
     { id: 'note-49', number: 49, title: "「時間を売る」という生き方は、いつ始まったのか", url: "https://note.com/manabimapcreator/n/nc6fbb07c59f0", status: "published", date: "2026-05-05", target: "第1部ポッドキャスト「産業革命の深層」(#1P)", tags: [], relatedParts: ["part1"], image: "note_articles/generated_note_images/note-49.png", question: "機械は人間を何から解放し、何に縛ったのか。", relation: "機械と時間の枝道", primaryPart: "part1", excerpt: "今日も、何時間か働きました。" },
     { id: 'note-50', number: 50, title: "アイデアは、時代が来なければ存在しないのか", url: "https://note.com/manabimapcreator/n/n2ddcdbff48a1", status: "published", date: "2026-05-07", target: "第2部ポッドキャスト「つながる世界の深層」", tags: [], relatedParts: ["part2"], image: "note_articles/generated_note_images/note-50.png", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "今日も、スマホを開きました。" },
-    { id: 'note-51', number: 51, title: "知識を手放すと、何が生まれるのか", url: "https://note.com/manabimapcreator/n/n36485a76557b", status: "published", date: "2026-05-07", target: "第2部ポッドキャスト「つながる世界の深層」", tags: [], relatedParts: ["part2"], image: "note_articles/generated_note_images/note-51.png", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "今日も、ウェブを使いました。" },
-    { id: 'note-52', number: 52, title: "核攻撃に耐えるために作られたネットワークが、世界をつないだ", url: "https://note.com/manabimapcreator/n/nfa68c46c8c7b", status: "published", date: "2026-05-07", target: "第2部ポッドキャスト「つながる世界の深層」", tags: [], relatedParts: ["part2"], image: "note_articles/generated_note_images/note-52.png", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "今日も、LINEでメッセージを送りました。" },
+    { id: 'note-51', number: 51, title: "知識を手放すと、何が生まれるのか", url: "https://note.com/manabimapcreator/n/n36485a76557b", status: "published", date: "2026-05-08", target: "第2部ポッドキャスト「つながる世界の深層」", tags: [], relatedParts: ["part2"], image: "note_articles/generated_note_images/note-51.png", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "今日も、ウェブを使いました。" },
+    { id: 'note-52', number: 52, title: "核攻撃に耐えるために作られたネットワークが、世界をつないだ", url: "https://note.com/manabimapcreator/n/nfa68c46c8c7b", status: "published", date: "2026-05-09", target: "第2部ポッドキャスト「つながる世界の深層」", tags: [], relatedParts: ["part2"], image: "note_articles/generated_note_images/note-52.png", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "今日も、LINEでメッセージを送りました。" },
     { id: 'note-53', number: 53, title: "思い出すことと、覚えていたと気づくことは、同じではない", url: "https://note.com/manabimapcreator/n/n913eb6b8fce3", status: "published", date: "2026-05-10", target: "第8部第6話「宿題の違和感」（note_45へのコメントから広がった視点）", tags: ["記憶","メタ認知","思い出す","学びとは何か","AI時代の学び","哲学","プラトン","アリストテレス","プルースト","ベルクソン","想起","無意志的記憶","アナムネーシス","知識とは何か","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part4","part8-2","part8","note"], image: "note_articles/generated_note_images/note-53.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「それ知ってる。」とつぶやく瞬間がある。" },
-    { id: 'note-54', number: 54, title: "自信満々な答えが、一番危ない", status: "local-draft", kind: "wonder-note", date: "2026-05-10", target: "第3部ポッドキャスト「AIの深層」", tags: ["ハルシネーション","AI","生成AI","ChatGPT","ダニングクルーガー効果","認知バイアス","確信","批判的思考","AI時代の学び","瀉血","歴史","人類史","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part5","part8","note","evolution"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "AIは嘘をつく。" },
-    { id: 'note-55', number: 55, title: "人間はなぜ、機械に心を見てしまうのか", status: "local-draft", kind: "wonder-note", date: "2026-05-10", target: "第3部ポッドキャスト「AIの深層」", tags: ["擬人化","ELIZA","アニミズム","AI","生成AI","エージェント検知","心","人間の本質","パレイドリア","火星の顔","人類史","認知科学","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part8","note","evolution"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "掃除ロボット「ルンバ」を使っている人の多くが、" },
-    { id: 'note-56', number: 56, title: "公平に見える技術が、不平等を増幅するとき", status: "local-draft", kind: "wonder-note", date: "2026-05-10", target: "第3部ポッドキャスト「AIの深層」", tags: ["AIバイアス","差別","公平性","コダック","シャーリーカード","IQテスト","メルカトル図法","AI倫理","技術と社会","データバイアス","人類史","歴史","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part8","note","evolution"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "コンピュータは、感情も偏見も持っていない。" },
-    { id: 'note-57', number: 57, title: "技術への熱狂と失望は、なぜ繰り返されるのか", status: "local-draft", kind: "wonder-note", date: "2026-05-10", target: "第3部ポッドキャスト「AIの深層」", tags: ["AI歴史","AIの冬","ペルセプトロン","チューリップバブル","ドットコムバブル","技術革新","熱狂と失望","生成AI","ChatGPT","テクノロジー","人類史","バブル","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part8","note","evolution"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "AIの歴史は70年近くあります。" },
-    { id: 'note-58', number: 58, title: "AIは失敗しても傷つかない。それが何を意味するのか", status: "local-draft", kind: "wonder-note", date: "2026-05-10", target: "第3部ポッドキャスト「AIの深層」", tags: ["ミラーニューロン","共感","AI","痛み","信頼","共感的苦痛","人間の本質","AI研究","神経科学","リスク","決断","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part8","note"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "AIはどれだけ間違えても、傷つきません。" },
-    { id: 'note-59', number: 59, title: "記号を正しく処理することと、意味を理解することは同じか", status: "local-draft", kind: "wonder-note", date: "2026-05-10", target: "第3部ポッドキャスト「AIの深層」", tags: ["中国語の部屋","ジョンサール","AI","理解","意識","哲学","バベルの塔","翻訳","言語","生成AI","人工知能","認知科学","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part5","part8","note"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "「正しい答えを出す」ことと、「わかっている」ことは同じでしょうか。" },
-    { id: 'note-60', number: 60, title: "AIには「なぜやるか」がない。それは何を意味するのか", status: "local-draft", kind: "wonder-note", date: "2026-05-10", target: "第3部ポッドキャスト「AIの深層」", tags: ["意味への意志","フランクル","ラスコー洞窟","AI","創造性","動機","ウィリアムモリス","アーツアンドクラフツ","人間の本質","生きる意味","生成AI","哲学","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part8","note"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "AIは絵を描けます。音楽を作れます。文章を書けます。" },
-    { id: 'note-61', number: 61, title: "「ニュース」という概念は、電信が発明した", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["電信","ニュース","情報","ロイター通信","モールス","メディア史","通信革命","知識の拡散","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","歴史","AI","情報化社会"], relatedParts: ["part2","part4","part8","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "今朝、スマホを開いてニュースを確認しましたか。" },
-    { id: 'note-62', number: 62, title: "歴史的な最初のひとことは、なぜ詩のようになるのか", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["モールス","電信","電話","ベル","最初の言葉","歴史","アームストロング","通信革命","始まり","言葉","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part2","part4","part5","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "1844年。モールスが電信で送った最初の言葉は、こうでした。" },
-    { id: 'note-63', number: 63, title: "情報が早く届くと、何かが消える", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["電信","情報格差","ロスチャイルド","情報革命","通信","情報非対称性","歴史","テクノロジー","知識の拡散","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","経済史","インターネット"], relatedParts: ["part2","part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "ある情報を、誰より先に持っていたことがありますか。" },
-    { id: 'note-64', number: 64, title: "新しいメディアが来るたびに、自由と支配が同時に生まれる", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["ラジオ","プロパガンダ","印刷革命","グーテンベルク","ルーズベルト","ナチス","インターネット","SNS","フェイクニュース","メディア史","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part2","part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "SNSで「真実が広まった」と感じたことがありますか。" },
-    { id: 'note-65', number: 65, title: "「メディアはメッセージだ」って、どういう意味だろう", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["マクルーハン","メディア論","メディアはメッセージ","ケネディ","ニクソン","テレビ討論","スマホ","AI","コミュニケーション","メディア史","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part4","part8","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「明日、会えますか」" },
-    { id: 'note-66', number: 66, title: "海の底のケーブルが、戦争の最初の標的になった", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["海底ケーブル","電信","大西洋横断","第一次世界大戦","タイタニック","イギリス帝国","インターネット","地政学","通信インフラ","情報支配","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part2","part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "今日も、あなたのメッセージは海の底を通っています。" },
-    { id: 'note-67', number: 67, title: "7億人が同じ瞬間を見た", status: "local-draft", kind: "wonder-note", date: "2026-05-17", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["アポロ11号","月面着陸","テレビ","共有体験","ラジオ","ルーズベルト","ケネディ","国民","放送","メディア史","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "1969年7月20日。" },
+    { id: 'note-54', number: 54, title: "自信満々な答えが、一番危ない", url: "https://note.com/manabimapcreator/n/n241de742032b", status: "published", kind: "wonder-note", date: "2026-05-11", target: "第3部ポッドキャスト「AIの深層」", tags: ["ハルシネーション","AI","生成AI","ChatGPT","ダニングクルーガー効果","認知バイアス","確信","批判的思考","AI時代の学び","瀉血","歴史","人類史","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part5","part8","note","evolution"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", image: "note_articles/generated_note_images/note-54.png", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "AIは嘘をつく。" },
+    { id: 'note-55', number: 55, title: "人間はなぜ、機械に心を見てしまうのか", url: "https://note.com/manabimapcreator/n/n9c5639b060d9", status: "published", kind: "wonder-note", date: "2026-05-12", target: "第3部ポッドキャスト「AIの深層」", tags: ["擬人化","ELIZA","アニミズム","AI","生成AI","エージェント検知","心","人間の本質","パレイドリア","火星の顔","人類史","認知科学","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part8","note","evolution"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", image: "note_articles/generated_note_images/note-55.png", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "掃除ロボット「ルンバ」を使っている人の多くが、" },
+    { id: 'note-56', number: 56, title: "公平に見える技術が、不平等を増幅するとき", url: "https://note.com/manabimapcreator/n/nb4a769d41cde", status: "published", kind: "wonder-note", date: "2026-05-13", target: "第3部ポッドキャスト「AIの深層」", tags: ["AIバイアス","差別","公平性","コダック","シャーリーカード","IQテスト","メルカトル図法","AI倫理","技術と社会","データバイアス","人類史","歴史","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part8","note","evolution"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", image: "note_articles/generated_note_images/note-56.png", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "コンピュータは、感情も偏見も持っていない。" },
+    { id: 'note-57', number: 57, title: "技術への熱狂と失望は、なぜ繰り返されるのか", url: "https://note.com/manabimapcreator/n/nbc4d04b2a362", status: "published", kind: "wonder-note", date: "2026-05-14", target: "第3部ポッドキャスト「AIの深層」", tags: ["AI歴史","AIの冬","ペルセプトロン","チューリップバブル","ドットコムバブル","技術革新","熱狂と失望","生成AI","ChatGPT","テクノロジー","人類史","バブル","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part8","note","evolution"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", image: "note_articles/generated_note_images/note-57.png", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "AIの歴史は70年近くあります。" },
+    { id: 'note-58', number: 58, title: "AIは失敗しても傷つかない。それが何を意味するのか", url: "https://note.com/manabimapcreator/n/nd5048b4aae02", status: "published", kind: "wonder-note", date: "2026-05-15", target: "第3部ポッドキャスト「AIの深層」", tags: ["ミラーニューロン","共感","AI","痛み","信頼","共感的苦痛","人間の本質","AI研究","神経科学","リスク","決断","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part8","note"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", image: "note_articles/generated_note_images/note-58.png", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "AIはどれだけ間違えても、傷つきません。" },
+    { id: 'note-59', number: 59, title: "記号を正しく処理することと、意味を理解することは同じか", url: "https://note.com/manabimapcreator/n/n4e81df22c5ca", status: "published", kind: "wonder-note", date: "2026-05-16", target: "第3部ポッドキャスト「AIの深層」", tags: ["中国語の部屋","ジョンサール","AI","理解","意識","哲学","バベルの塔","翻訳","言語","生成AI","人工知能","認知科学","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part5","part8","note"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", image: "note_articles/generated_note_images/note-59.png", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "「正しい答えを出す」ことと、「わかっている」ことは同じでしょうか。" },
+    { id: 'note-60', number: 60, title: "AIには「なぜやるか」がない。それは何を意味するのか", url: "https://note.com/manabimapcreator/n/na8ce3499e02c", status: "published", kind: "wonder-note", date: "2026-05-18", target: "第3部ポッドキャスト「AIの深層」", tags: ["意味への意志","フランクル","ラスコー洞窟","AI","創造性","動機","ウィリアムモリス","アーツアンドクラフツ","人間の本質","生きる意味","生成AI","哲学","ハルとおじいさん","学びの地図","ManabiMap"], relatedParts: ["part3","part8","note"], relatedPodcastUrl: "https://youtu.be/Uoy4OZhINHA", image: "note_articles/generated_note_images/note-60.png", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "AIは絵を描けます。音楽を作れます。文章を書けます。" },
+    { id: 'note-61', number: 61, title: "「ニュース」という概念は、電信が発明した", url: "https://note.com/manabimapcreator/n/n2c3c08ed828d", status: "published", kind: "wonder-note", date: "2026-05-19", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["電信","ニュース","情報","ロイター通信","モールス","メディア史","通信革命","知識の拡散","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","歴史","AI","情報化社会"], relatedParts: ["part2","part4","part8","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", image: "note_articles/generated_note_images/note-61.png", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "今朝、スマホを開いてニュースを確認しましたか。" },
+    { id: 'note-62', number: 62, title: "歴史的な最初のひとことは、なぜ詩のようになるのか", url: "https://note.com/manabimapcreator/n/ne7eb5d01b414", status: "published", kind: "wonder-note", date: "2026-05-20", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["モールス","電信","電話","ベル","最初の言葉","歴史","アームストロング","通信革命","始まり","言葉","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part2","part4","part5","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", image: "note_articles/generated_note_images/note-62.png", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "1844年。モールスが電信で送った最初の言葉は、こうでした。" },
+    { id: 'note-63', number: 63, title: "情報が早く届くと、何かが消える", url: "https://note.com/manabimapcreator/n/n288b8bb7c3d1", status: "published", kind: "wonder-note", date: "2026-05-21", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["電信","情報格差","ロスチャイルド","情報革命","通信","情報非対称性","歴史","テクノロジー","知識の拡散","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","経済史","インターネット"], relatedParts: ["part2","part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", image: "note_articles/generated_note_images/note-63.png", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "ある情報を、誰より先に持っていたことがありますか。" },
+    { id: 'note-64', number: 64, title: "新しいメディアが来るたびに、自由と支配が同時に生まれる", url: "https://note.com/manabimapcreator/n/n3b3fee4a92da", status: "published", kind: "wonder-note", date: "2026-05-22", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["ラジオ","プロパガンダ","印刷革命","グーテンベルク","ルーズベルト","ナチス","インターネット","SNS","フェイクニュース","メディア史","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part2","part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", image: "note_articles/generated_note_images/note-64.png", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "SNSで「真実が広まった」と感じたことがありますか。" },
+    { id: 'note-65', number: 65, title: "「メディアはメッセージだ」って、どういう意味だろう", url: "https://note.com/manabimapcreator/n/n8f039dbed2a9", status: "published", kind: "wonder-note", date: "2026-05-23", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["マクルーハン","メディア論","メディアはメッセージ","ケネディ","ニクソン","テレビ討論","スマホ","AI","コミュニケーション","メディア史","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part4","part8","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", image: "note_articles/generated_note_images/note-65.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「明日、会えますか」" },
+    { id: 'note-66', number: 66, title: "海の底のケーブルが、戦争の最初の標的になった", url: "https://note.com/manabimapcreator/n/na05fe2ac4e9a", status: "published", kind: "wonder-note", date: "2026-05-24", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["海底ケーブル","電信","大西洋横断","第一次世界大戦","タイタニック","イギリス帝国","インターネット","地政学","通信インフラ","情報支配","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part2","part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", image: "note_articles/generated_note_images/note-66.png", question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "今日も、あなたのメッセージは海の底を通っています。" },
+    { id: 'note-67', number: 67, title: "7億人が同じ瞬間を見た", url: "https://note.com/manabimapcreator/n/n62858ab06d94", status: "published", kind: "wonder-note", date: "2026-05-25", target: "第4部ポッドキャスト #4P-4「情報が光速になった日」", tags: ["アポロ11号","月面着陸","テレビ","共有体験","ラジオ","ルーズベルト","ケネディ","国民","放送","メディア史","ハルとおじいさん","学びの地図","ManabiMap","ポッドキャスト","知識の拡散"], relatedParts: ["part4","note"], relatedPodcastUrl: "https://youtu.be/mMqJJFmgnoI", image: "note_articles/generated_note_images/note-67.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "1969年7月20日。" },
     { id: 'note-68', number: 68, title: "366万年前、誰かが誰かの足跡を踏んで歩いた", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第9部第1話「二足歩行という革命」", tags: ["第9部第1話「二足歩行という革命」"], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-1", relatedYouTubeId: "youtube-part9-1", ctaCopy: "関連動画を見る", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "歩いているとき、足元を意識することはほとんどありません。" },
     { id: 'note-69', number: 69, title: "石を割り始める前に、頭の中に完成形があった", status: "local-draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第2話「手と道具」", tags: ["第9部第2話「手と道具」"], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-2", relatedYouTubeId: "youtube-part9-2", ctaCopy: "関連動画を見る", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "ペンを持つとき、包丁を使うとき、スマートフォンを開くとき。" },
     { id: 'note-70', number: 70, title: "150人を超えると、何かが壊れる", status: "local-draft", date: "2026-05-24", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "フォロワーが増えるほど、なぜか孤独になる。" },
@@ -310,13 +310,28 @@
     { id: 'note-80', number: 80, title: "昔聴いた音楽が今も特別なのは、脳が記憶しているからではない", status: "local-draft", date: "2026-05-24", target: "第9部第13話「感性とは何か」", tags: ["第9部第13話「感性とは何か」"], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "昔よく聴いていた曲がシャッフルで流れてきた瞬間、" },
     { id: 'note-81', number: 81, title: "「平均的な人間」は、一人も存在しなかった", status: "local-draft", date: "2026-05-24", target: "第9部第14話「身体を持つという条件」", tags: [], relatedParts: ["part9"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "平均身長。平均体重。平均体温。" },
     { id: 'note-82', number: 82, title: "生物進化は止まった。でも人類の変化は止まらない", status: "local-draft", date: "2026-05-24", target: "第9部第15話「進化は止まらない」", tags: ["第9部第15話「進化は止まらない」"], relatedParts: ["part9","evolution"], question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "スマートフォンが世界に普及するまで、10年かかりませんでした。" },
-    { id: 'note-83', number: 83, title: "光より速く伝えようとした人たちがいた", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 1）", tags: ["第4部第5話","第6話関連（1週間企画","Day","1）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-5", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "電気が来る前の話です。" },
-    { id: 'note-84', number: 84, title: "点と線に変えたとき、消えたものがある", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 2）", tags: ["第4部第5話","第6話関連（1週間企画","Day","2）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-5", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「今、大丈夫？」" },
-    { id: 'note-85', number: 85, title: "大西洋ケーブルが世界の「値段」を揃えた日", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 3）", tags: ["第4部第5話","第6話関連（1週間企画","Day","3）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-5", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "ニューヨークの綿花の値段と、" },
-    { id: 'note-86', number: 86, title: "ページの中に、時代を超えた会話があった", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 4）", tags: ["第4部第5話","第6話関連（1週間企画","Day","4）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-6", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "本のページを開く。" },
-    { id: 'note-87', number: 87, title: "誰もが書けるようになるたびに、世界が揺れた", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 5）", tags: ["第4部第5話","第6話関連（1週間企画","Day","5）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-6", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「誰でも書ける」という状態は、" },
-    { id: 'note-88', number: 88, title: "「普通」を決めるのは、誰だろう", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 6）", tags: ["第4部第5話","第6話関連（1週間企画","Day","6）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-6", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "キーボードの「A」は65番。" },
-    { id: 'note-89', number: 89, title: "情報に「重さ」はないと、おじいさんは言った", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 7）", tags: ["第4部第5話","第6話関連（1週間企画","Day","7）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-5", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "本は重い。船で運ぶしかない。" }
+    { id: 'note-83', number: 83, title: "光より速く伝えようとした人たちがいた", url: "https://note.com/manabimapcreator/n/n5671d4d69799", status: "published", kind: "wonder-note", date: "2026-05-26", target: "第4部第5話・第6話関連（1週間企画 Day 1）", tags: ["第4部第5話","第6話関連（1週間企画","Day","1）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-05", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", image: "note_articles/generated_note_images/note-83.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "電気が来る前の話です。" },
+    { id: 'note-84', number: 84, title: "点と線に変えたとき、消えたものがある", url: "https://note.com/manabimapcreator/n/n96313f2cf73c", status: "published", kind: "wonder-note", date: "2026-05-27", target: "第4部第5話・第6話関連（1週間企画 Day 2）", tags: ["第4部第5話","第6話関連（1週間企画","Day","2）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-05", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", image: "note_articles/generated_note_images/note-84.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「今、大丈夫？」" },
+    { id: 'note-85', number: 85, title: "大西洋ケーブルが世界の「値段」を揃えた日", url: "https://note.com/manabimapcreator/n/nff7151e8f261", status: "published", kind: "wonder-note", date: "2026-05-28", target: "第4部第5話・第6話関連（1週間企画 Day 3）", tags: ["第4部第5話","第6話関連（1週間企画","Day","3）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-05", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", image: "note_articles/generated_note_images/note-85.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "ニューヨークの綿花の値段と、" },
+    { id: 'note-86', number: 86, title: "ページの中に、時代を超えた会話があった", url: "https://note.com/manabimapcreator/n/nf13aa28aed3a", status: "published", kind: "wonder-note", date: "2026-05-29", target: "第4部第5話・第6話関連（1週間企画 Day 4）", tags: ["第4部第5話","第6話関連（1週間企画","Day","4）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-06", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", image: "note_articles/generated_note_images/note-86.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "本のページを開く。" },
+    { id: 'note-87', number: 87, title: "誰もが書けるようになるたびに、世界が揺れた", url: "https://note.com/manabimapcreator/n/n1cad84195c77", status: "published", kind: "wonder-note", date: "2026-05-30", target: "第4部第5話・第6話関連（1週間企画 Day 5）", tags: ["第4部第5話","第6話関連（1週間企画","Day","5）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-06", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", image: "note_articles/generated_note_images/note-87.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「誰でも書ける」という状態は、" },
+    { id: 'note-88', number: 88, title: "「普通」を決めるのは、誰だろう", url: "https://note.com/manabimapcreator/n/nfeb3bcd968f8", status: "published", kind: "wonder-note", date: "2026-05-31", target: "第4部第5話・第6話関連（1週間企画 Day 6）", tags: ["第4部第5話","第6話関連（1週間企画","Day","6）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-06", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", image: "note_articles/generated_note_images/note-88.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "キーボードの「A」は65番。" },
+    { id: 'note-89', number: 89, title: "情報に「重さ」はないと、おじいさんは言った", status: "local-draft", kind: "wonder-note", date: "2026-05-25", target: "第4部第5話・第6話関連（1週間企画 Day 7）", tags: ["第4部第5話","第6話関連（1週間企画","Day","7）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-05", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "本は重い。船で運ぶしかない。" },
+    { id: 'note-90', number: 90, title: "悲しくないのに、音楽で涙が出る——脳が知っていて、私が知らないこと", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第1話「感動はどこで生まれるのか」", tags: [], relatedParts: [], relatedPodcastId: "podcast-part10-1", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "聴いている途中で、気づいたら目が熱くなっていた。" },
+    { id: 'note-91', number: 91, title: "美しさを数値で決めようとした人々の、2000年の問い", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第2話「美しいとは何か」", tags: ["第10部第2話「美しいとは何か」"], relatedParts: [], relatedPodcastId: "podcast-part10-2", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "数学で「黄金比は美しい」と習う。" },
+    { id: 'note-92', number: 92, title: "アイスクリームを見たサルが、科学を変えた日", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第3話「共感の回路」", tags: ["第10部第3話「共感の回路」"], relatedParts: [], relatedPodcastId: "podcast-part10-3", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "友達が泣いていると、胸が痛くなる。" },
+    { id: 'note-93', number: 93, title: "5秒だけ見た棋士が、答えを知っていた", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第4話「直感とは何か」", tags: ["第10部第4話「直感とは何か」"], relatedParts: [], relatedPodcastId: "podcast-part10-4", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「なんとなく、こっちが正しい気がする」" },
+    { id: 'note-94', number: 94, title: "物語が人を変えた——ゲーテと「なりきる」脳の謎", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第5話", tags: ["第10部第5話"], relatedParts: [], relatedPodcastId: "podcast-part10-5", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "気がついたら泣いていた。" },
+    { id: 'note-95', number: 95, title: "クジャクの羽が教えてくれること——ダーウィンの「夜も眠れない問い」", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第6話", tags: ["第10部第6話"], relatedParts: [], relatedPodcastId: "podcast-part10-6", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「きれい」と感じる。" },
+    { id: 'note-96', number: 96, title: "3万2千年前の壁に「涙が出た」——ショーヴェ洞窟と芸術の謎", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第7話", tags: ["第10部第7話"], relatedParts: [], relatedPodcastId: "podcast-part10-7", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "役に立たない絵を、人間は作り続けてきた。" },
+    { id: 'note-97', number: 97, title: "犬は「指差し」を理解できる——共感の進化と「一緒にやろう」の謎", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第8話", tags: ["第10部第8話"], relatedParts: [], relatedPodcastId: "podcast-part10-8", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "人間が指を差すと、犬はその方向を見る。" },
+    { id: 'note-98', number: 98, title: "アウシュヴィッツで生き残った人に共通したもの——意味を求める動物の謎", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第9話", tags: ["第10部第9話"], relatedParts: [], relatedPodcastId: "podcast-part10-9", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "オリオン座の三ツ星。" },
+    { id: 'note-99', number: 99, title: "誰も設計しなかった三角形が美しくなった——スパンドレルと感性の「余り物」仮説", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第10話", tags: ["第10部第10話"], relatedParts: [], relatedPodcastId: "podcast-part10-10", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "美しいと感じる力は、" },
+    { id: 'note-100', number: 100, title: "AIの絵で感動した自分は正しいのか——「作者の死」と文脈の力", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第11話", tags: ["第10部第11話"], relatedParts: [], relatedPodcastId: "podcast-part10-11", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "きれいだと思った。" },
+    { id: 'note-101', number: 101, title: "1966年のコンピューターに、人は秘密を打ち明けた——AIと共感の60年", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第12話", tags: ["第10部第12話"], relatedParts: [], relatedPodcastId: "podcast-part10-12", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "AIに悩みを話して、「わかってもらえた」と感じたことはあるか。" },
+    { id: 'note-102', number: 102, title: "便器は展示会に隠された——デュシャンと「場所が意味を作る」謎", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第13話", tags: ["第10部第13話"], relatedParts: [], relatedPodcastId: "podcast-part10-13", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "同じ曲なのに、昨日と今日で感じ方が違った。" },
+    { id: 'note-103', number: 103, title: "「この絵は何点？」——フィンランドが教えてくれた、感性を育てる問い", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第14話", tags: ["第10部第14話"], relatedParts: [], relatedPodcastId: "podcast-part10-14", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「この絵は何点ですか？」" },
+    { id: 'note-104', number: 104, title: "スポティファイは「好きになる曲」を知っている——感動は再現できるのか", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第15話", tags: ["第10部第15話"], relatedParts: [], relatedPodcastId: "podcast-part10-15", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "スポティファイのおすすめ曲が、" }
   ];
 
   const routes = [
@@ -555,139 +570,180 @@
       relation: 'Podcastで深める'
     },
     {
-      id: 'podcast-part9-1',
+      id: 'podcast-part5-05',
       type: 'podcast',
-      title: '【Podcast】なぜ人間だけが腰痛になるのか｜ハルとおじいさん #9-1',
-      url: 'https://www.youtube.com/watch?v=i6mEc0_ftuI',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
+      title: '虹は何色かで世界の見え方が変わる｜まるごと聴く 言語と世界観の深層【ハルとおじいさん #5P-5】',
+      url: 'https://youtu.be/OBxDSmxcJsM',
+      relatedParts: ['part5'],
+      question: '言葉がない世界では、思考はどのように存在するのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第5部 Podcast図解 5',
+          src: 'infographics/info5-5.png',
+          caption: '言語と世界観が、見えている世界をどう変えるかを見る'
+        }
+      ]
     },
     {
-      id: 'podcast-part9-2',
+      id: 'podcast-part5-06',
       type: 'podcast',
-      title: '【Podcast】道具を作るには、まず頭の中に完成形が必要だった【ハルとおじいさん #9-2】',
-      url: 'https://www.youtube.com/watch?v=8ua--nUd03c',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
+      title: 'なぜ存在しないキャラクターに涙を流せるのか｜まるごと聴く 感情と共感の深層【ハルとおじいさん #5P-6】',
+      url: 'https://youtu.be/ARa_xlgTPhQ',
+      relatedParts: ['part5'],
+      question: '言葉がない世界では、思考はどのように存在するのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第5部 Podcast図解 6',
+          src: 'infographics/info5-6.png',
+          caption: '物語・感情・共感が人間の理解に与える力を見る'
+        }
+      ]
     },
     {
-      id: 'podcast-part9-3',
+      id: 'podcast-part5-07',
       type: 'podcast',
-      title: '【Podcast】人間の脳は「150人のために」作られていた【ハルとおじいさん #9-3】',
-      url: 'https://www.youtube.com/watch?v=xDCS9n4H2KM',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
+      title: '中国語の部屋が問いかける意識とは｜まるごと聴く AIと理解の深層【ハルとおじいさん #5P-7】',
+      url: 'https://youtu.be/UE2gRTm8XOI',
+      relatedParts: ['part5'],
+      question: '言葉がない世界では、思考はどのように存在するのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第5部 Podcast図解 7',
+          src: 'infographics/info5-7.png',
+          caption: 'AIが言葉を扱うことと、理解することの差を見る'
+        }
+      ]
     },
     {
-      id: 'podcast-part9-4',
+      id: 'podcast-part5-08',
       type: 'podcast',
-      title: '【Podcast】目が合うと伝わるのはなぜか【ハルとおじいさん #9-4】',
-      url: 'https://www.youtube.com/watch?v=R86nwPVCDzw',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
+      title: '言語はなぜ人間を人間にしたのか｜まるごと聴く 言葉と人間の深層【ハルとおじいさん #5P-8】',
+      url: 'https://youtu.be/5slHiZTJp2g',
+      relatedParts: ['part5'],
+      question: '言葉がない世界では、思考はどのように存在するのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第5部 Podcast図解 8',
+          src: 'infographics/info5-8.png',
+          caption: '言葉が人間らしさと文明をどう形作ったかを見る'
+        }
+      ]
     },
     {
-      id: 'podcast-part9-5',
+      id: 'podcast-part6-01a',
       type: 'podcast',
-      title: '【Podcast】「もっと食べたい」に終わりがないのは、脳の設計通りだった【ハルとおじいさん #9-5】',
-      url: 'https://www.youtube.com/watch?v=NCJ1O6gZLzs',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
+      title: '数がないと「3個」が数えられない？｜まるごと聴く 数がない世界の深層【ハルとおじいさん #6P-1a】',
+      url: 'https://youtu.be/y3feUUFvWwM',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第6部 Podcast図解 1a',
+          src: 'infographics/info6-1.png',
+          caption: '数の言葉が世界の見え方をどう変えるかを見る'
+        }
+      ]
     },
     {
-      id: 'podcast-part9-6',
+      id: 'podcast-part6-01b',
       type: 'podcast',
-      title: '【Podcast】今感じている不安は、石器時代の警報ではないか【ハルとおじいさん #9-6】',
-      url: 'https://www.youtube.com/watch?v=z-3MMxnLSRk',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
+      title: '2万年前の骨に刻まれた168本の線——人類は何を数えていたのか｜まるごと聴く 数える感覚の誕生の深層【ハルとおじいさん #6P-1b】',
+      url: 'https://youtu.be/QYpwmqPMZTo',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第6部 Podcast図解 1b',
+          src: 'infographics/info6-2.png',
+          caption: '人類が何を数え、なぜ記録したのかを見る'
+        }
+      ]
     },
     {
-      id: 'podcast-part9-7',
+      id: 'podcast-part6-02a',
       type: 'podcast',
-      title: '【Podcast】「いいね」が欲しくなるのは本能だった【ハルとおじいさん #9-7】',
-      url: 'https://www.youtube.com/watch?v=czGu0RBIGIM',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
+      title: '九九はなぜ「く・く・はちじゅういち」から始まるのか——紀元前305年の竹簡に書かれた秘密｜まるごと聴く 数える歌の深層【ハルとおじいさん #6P-2a】',
+      url: 'https://youtu.be/rLABRAhlSgo',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第6部 Podcast図解 2a',
+          src: 'infographics/info6-3.png',
+          caption: '数える技術が記憶と教育にどう根づいたかを見る'
+        }
+      ]
     },
     {
-      id: 'podcast-part9-8',
+      id: 'podcast-part6-02b',
       type: 'podcast',
-      title: '【Podcast】スマホはスロットマシンと同じ原理で設計されていた【ハルとおじいさん #9-8】',
-      url: 'https://www.youtube.com/watch?v=oFpwthBeL0Q',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
+      title: 'フィレンツェは1299年にアラビア数字を禁止した——「悪魔の数字」と呼ばれた記号の革命｜まるごと聴く 記号の革命の深層【ハルとおじいさん #6P-2b】',
+      url: 'https://youtu.be/xiFaY7iojhA',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第6部 Podcast図解 2b',
+          src: 'infographics/info6-4.png',
+          caption: '数字という記号が社会と信頼を揺らした歴史を見る'
+        }
+      ]
     },
     {
-      id: 'podcast-part9-9',
+      id: 'podcast-part6-03a',
       type: 'podcast',
-      title: '【Podcast】何もしていないのになぜ疲れるのか【ハルとおじいさん #9-9】',
-      url: 'https://www.youtube.com/watch?v=7sSOduuyoSU',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
+      title: '9歳の子どもが宇宙の原子より大きな数に名前をつけた——それがGoogleの語源になった｜まるごと聴く 大きな数への挑戦の深層【ハルとおじいさん #6P-3a】',
+      url: 'https://youtu.be/KeNrUNSg390',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第6部 Podcast図解 3a',
+          src: 'infographics/info6-5.png',
+          caption: '大きな数に名前を与えることで、想像できる世界が広がる構造を見る'
+        }
+      ]
     },
     {
-      id: 'podcast-part9-10',
+      id: 'podcast-part6-03b',
       type: 'podcast',
-      title: '【Podcast】マルチタスクは神話だった【ハルとおじいさん #9-10】',
-      url: 'https://www.youtube.com/watch?v=39gre1Re9rg',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
+      title: '無理数を発見した弟子は海に投げ込まれたのか——ピタゴラス学派の衝撃と数の抽象化｜まるごと聴く 抽象化の力の深層【ハルとおじいさん #6P-3b】',
+      url: 'https://youtu.be/K4kGYDX6kNw',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第6部 Podcast図解 3b',
+          src: 'infographics/info6-6.png',
+          caption: '数の抽象化が世界観をどう変えたかを見る'
+        }
+      ]
     },
     {
-      id: 'podcast-part9-11',
+      id: 'podcast-part6-04a',
       type: 'podcast',
-      title: '【Podcast】写真は残るのに、あのときの感覚は戻らない【ハルとおじいさん #9-11】',
-      url: 'https://www.youtube.com/watch?v=W1ORlP0fZ70',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
-    },
-    {
-      id: 'podcast-part9-12',
-      type: 'podcast',
-      title: '【Podcast】痛みを感じない人が短命になる理由【ハルとおじいさん #9-12】',
-      url: 'https://www.youtube.com/watch?v=2--1bDSiQyw',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
-    },
-    {
-      id: 'podcast-part9-13',
-      type: 'podcast',
-      title: '【Podcast】十代に聴いた音楽がずっと特別な理由【ハルとおじいさん #9-13】',
-      url: 'https://www.youtube.com/watch?v=qb_K86SNsPY',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
-    },
-    {
-      id: 'podcast-part9-14',
-      type: 'podcast',
-      title: '【Podcast】統計の「平均」に当てはまる人間は存在しない【ハルとおじいさん #9-14】',
-      url: 'https://www.youtube.com/watch?v=TCcVuTrB7PU',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
-    },
-    {
-      id: 'podcast-part9-15',
-      type: 'podcast',
-      title: '【Podcast】生物進化は止まった。でも文化は猛スピードで変わり続ける【ハルとおじいさん #9-15 最終回】',
-      url: 'https://www.youtube.com/watch?v=ntsi0lo-V5g',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: '第9部「身体という時間」Podcast'
+      title: '影の角度だけで地球の大きさを計算した男——3700年前のエジプトの問題集から｜まるごと聴く 数字の魔法の深層【ハルとおじいさん #6P-4a】',
+      url: 'https://youtu.be/2ie13Zw-aGQ',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第6部 Podcast図解 4a',
+          src: 'infographics/info6-7.png',
+          caption: '数字が見えない世界を測れる道具になる瞬間を見る'
+        }
+      ]
     }
   ];
 

@@ -1,7 +1,8 @@
 # note_65｜「メディアはメッセージだ」って、どういう意味だろう
 
 **対象**: 第4部ポッドキャスト #4P-4「情報が光速になった日」
-**保存日**: 2026-05-17
+**保存日**: 2026-05-23
+**URL**: https://note.com/manabimapcreator/n/n8f039dbed2a9
 **YouTube（ポッドキャスト）**: https://youtu.be/mMqJJFmgnoI
 
 ---

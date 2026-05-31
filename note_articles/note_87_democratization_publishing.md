@@ -2,10 +2,11 @@
 
 **記事種別**: wonder-note
 **対象**: 第4部第5話・第6話関連（1週間企画 Day 5）
-**保存日**: 2026-05-25
-**公開状態**: local-draft
+**保存日**: 2026-05-30
+**URL**: https://note.com/manabimapcreator/n/n1cad84195c77
+**公開状態**: published
 **主対象パート**: part4
-**関連PodcastID**: podcast-part4-6
+**関連PodcastID**: podcast-part4-06
 **関連PodcastURL**: （アップロード後に記入）
 **関連YouTubeID**: youtube-part4
 **関連YouTubeURL**: https://www.youtube.com/watch?v=8dySbSKpZNU

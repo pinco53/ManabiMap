@@ -1,7 +1,8 @@
 # note_56｜公平に見える技術が、不平等を増幅するとき
 
 **対象**: 第3部ポッドキャスト「AIの深層」
-**保存日**: 2026-05-10
+**保存日**: 2026-05-13
+**URL**: https://note.com/manabimapcreator/n/nb4a769d41cde
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---

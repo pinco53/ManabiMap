@@ -1,7 +1,8 @@
 # note_67｜7億人が同じ瞬間を見た
 
 **対象**: 第4部ポッドキャスト #4P-4「情報が光速になった日」
-**保存日**: 2026-05-17
+**保存日**: 2026-05-25
+**URL**: https://note.com/manabimapcreator/n/n62858ab06d94
 **YouTube（ポッドキャスト）**: https://youtu.be/mMqJJFmgnoI
 
 ---
