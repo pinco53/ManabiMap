@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>学びの地図 ── ハルとおじいさんの物語</title>
+<title>【試案】学びの地図 ── ハルとおじいさんの物語</title>
 <meta name="description" content="蒸気機関からAIまで。人類が歩んだ知の道のりを、おじいさんとハルの対話でたどる学びのサイト。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="学びの地図">
@@ -32,7 +32,7 @@
   --bg-card: #10101a;
   --bg-card-hover: #18182a;
   --text: #e0e0e8;
-  --text-dim: #8888a0;
+  --text-dim: #9b9bb4;
   --text-bright: #ffffff;
   --border: #2a2a40;
   --neon-orange: #ff6b2b;
@@ -2731,6 +2731,13 @@ body::before {
   if (localStorage.getItem('manabimap_owner') === '1') { gtag('set', {'traffic_type': 'internal'}); }
   gtag('config', 'G-QL1PVK5PRF');
 </script>
+<style>
+/* ===== MOCK overrides: 地図をすっきりと ===== */
+.map-atlas-shell { grid-template-columns: 1fr; }
+.atlas-map::before { content: none; }
+.atlas-map::after { box-shadow: none; }
+.map-node { cursor: pointer; }
+</style>
 </head>
 <body>
 
@@ -2754,6 +2761,23 @@ body::before {
   <a href="#theme" class="mm-dot" data-label="テーマ曲"></a>
 </aside>
 
+<nav class="nav-bar" style="position:sticky; top:0;">
+  <a href="#map-base" style="color:var(--neon-sky); border-color:var(--neon-sky)">地図</a>
+  <a href="evolution.html" style="color:#bf5fff; border-color:#bf5fff">進化の年表</a>
+  <a href="parts/part1.html">第1部</a>
+  <a href="parts/part2.html">第2部</a>
+  <a href="parts/part3.html">第3部</a>
+  <a href="parts/part4.html">第4部</a>
+  <a href="parts/part5.html">第5部</a>
+  <a href="parts/part6.html">第6部</a>
+  <a href="parts/part7.html">第7部</a>
+  <a href="parts/part8.html">第8部</a>
+  <a href="parts/part9.html">第9部</a>
+  <a href="note.html" style="color:#41c9b4; border-color:#41c9b4">note記事</a>
+  <a href="podcast.html" style="color:#ffb86b; border-color:#ffb86b">Podcast</a>
+  <a href="infographics.html" style="color:#8da2ff; border-color:#8da2ff">図解</a>
+</nav>
+<div style="position:fixed; right:14px; top:64px; z-index:999; padding:4px 12px; border:1px solid rgba(255,215,0,0.5); border-radius:999px; background:rgba(8,8,13,0.8); color:#ffd700; font-size:11px; font-weight:900; letter-spacing:0.2em;">MOCK</div>
 <section class="hero" id="top">
   <div class="hero-shell">
     <div class="hero-copy">
@@ -2803,144 +2827,6 @@ body::before {
   </div>
 </section>
 
-<section class="entry-gate-section" aria-label="最初の入口">
-  <div class="entry-gate-head">
-    <div>
-      <div class="entry-gate-label">START HERE</div>
-      <h2 class="entry-gate-title">いまの温度に合う入口から</h2>
-    </div>
-    <p class="entry-gate-copy">
-      まず短く見る。問いを文章で広げる。腰を据えて耳で深める。
-      同じ世界へ向かう三つの道を、ここで分けます。
-    </p>
-  </div>
-  <div class="entry-gate-grid">
-    <article class="entry-gate-card entry-gate-card--video">
-      <div class="entry-gate-kicker">WATCH FIRST</div>
-      <h3>まず動画で見る</h3>
-      <p>初めてなら、まず物語の輪郭から。短い動画で世界観をつかんでから進めます。</p>
-      <div class="entry-gate-actions">
-        <a
-          class="entry-gate-btn"
-          href="https://youtu.be/70vHG6evr6E"
-          target="_blank"
-          rel="noopener"
-          data-track-event="home_entry_click"
-          data-track-source="index"
-          data-track-content-id="entry-video"
-          data-track-destination-type="youtube_video"
-          data-track-destination-id="70vHG6evr6E"
-        >ChatGPTの物語を見る</a>
-      </div>
-    </article>
-    <article class="entry-gate-card entry-gate-card--note">
-      <div class="entry-gate-kicker">READ A QUESTION</div>
-      <h3>問いを読む</h3>
-      <p>日常の違和感から入りたい人へ。文章で少し遠くまで考える入口です。</p>
-      <div class="entry-gate-list" id="entry-note-list"></div>
-      <div class="entry-gate-actions">
-        <a
-          class="entry-gate-btn"
-          href="note.html"
-          data-track-event="home_entry_click"
-          data-track-source="index"
-          data-track-content-id="entry-note"
-          data-track-destination-type="note_hub"
-          data-track-destination-id="note"
-        >noteを選ぶ</a>
-      </div>
-    </article>
-    <article class="entry-gate-card entry-gate-card--podcast">
-      <div class="entry-gate-kicker">LISTEN DEEPLY</div>
-      <h3>耳で深める</h3>
-      <p>移動中や家事中に。長く聴いて背景ごと整理したい人には Podcast が向いています。</p>
-      <div class="entry-gate-actions">
-        <a
-          class="entry-gate-btn"
-          href="https://youtu.be/Uoy4OZhINHA"
-          target="_blank"
-          rel="noopener"
-          data-track-event="home_entry_click"
-          data-track-source="index"
-          data-track-content-id="entry-podcast"
-          data-track-destination-type="podcast"
-          data-track-destination-id="podcast-part3-01"
-        >AIの深層を聴く</a>
-        <a
-          class="entry-gate-btn"
-          href="podcast.html"
-          data-track-event="home_entry_click"
-          data-track-source="index"
-          data-track-content-id="entry-podcast-hub"
-          data-track-destination-type="podcast_hub"
-          data-track-destination-id="podcast"
-        >Podcast一覧</a>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="question-router-section" aria-label="問いから選ぶ学習ルート">
-  <div class="question-router">
-    <div class="question-router__intro">
-      <div class="question-router__label">QUESTION ROUTER</div>
-      <h2 class="question-router__title">問いから、次の一本を選ぶ</h2>
-      <p class="question-router__copy">
-        いま引っかかっている問いを選ぶと、動画・note・Podcastをひとつの順番に並べます。
-        ManabiMapを、迷路ではなく学習ルートとして使う入口です。
-      </p>
-      <div class="question-router__options">
-        <button type="button" class="question-router__option active" data-question-route="ai">
-          <span>AI / EDUCATION</span>
-          <strong>AIで、人間の学びは何が変わるのか</strong>
-        </button>
-        <button type="button" class="question-router__option" data-question-route="school">
-          <span>SCHOOL / HISTORY</span>
-          <strong>学校はなぜ、今の形になったのか</strong>
-        </button>
-        <button type="button" class="question-router__option" data-question-route="language">
-          <span>LANGUAGE / THINKING</span>
-          <strong>言葉は、思考をどこまで作っているのか</strong>
-        </button>
-        <button type="button" class="question-router__option" data-question-route="body">
-          <span>BODY / HUMAN</span>
-          <strong>AI時代に、身体はなぜ重要なのか</strong>
-        </button>
-      </div>
-    </div>
-    <div class="question-router__result" id="question-router-result" aria-live="polite"></div>
-  </div>
-</section>
-
-<!-- ========== EVOLUTION BANNER ========== -->
-<section class="evolution-banner" id="evolution">
-  <a href="evolution.html" style="display:block;">
-    <div class="evo-card">
-      <div>
-        <div class="evo-label">EVOLUTION ── 進化の年表</div>
-        <h2 class="evo-title">138億年前から、<br class="sp-only">まだ見ぬ未来まで</h2>
-        <p class="evo-desc">
-          宇宙の誕生、生命の進化、人類のあけぼの、農業、文明、科学革命、産業革命、<br>
-          インターネット、そしてAI時代──<strong>100の転換点</strong>で俯瞰する人類史。<br>
-          ここから各部の学びの地図へと、枝のように広がっていきます。
-        </p>
-        <div class="evo-timeline-mini">
-          <span class="evo-marker purple">宇宙・生命</span>
-          <span class="evo-marker arrow">→</span>
-          <span class="evo-marker green">人類のあけぼの</span>
-          <span class="evo-marker arrow">→</span>
-          <span class="evo-marker orange">文明の始まり</span>
-          <span class="evo-marker arrow">→</span>
-          <span class="evo-marker cyan">デジタル革命</span>
-          <span class="evo-marker arrow">→</span>
-          <span class="evo-marker sky">AIの時代</span>
-        </div>
-        <div class="evo-btn">進化の年表をひらく</div>
-      </div>
-    </div>
-  </a>
-</section>
-
 <!-- ========== MANABI MAP BASE ========== -->
 <section class="map-base-section" id="map-base">
   <div class="map-base-header">
@@ -2948,7 +2834,7 @@ body::before {
     <h2 class="map-base-title">問いから、旅を始める</h2>
     <p class="map-base-desc">
       動画、学びの地図、note記事、Podcastをひとつの地図として結びます。
-      気になる部やルートを選ぶと、関連する問いと次の入口が見えてきます。
+      気になる星を選ぶと、その部へ降り立ちます。
     </p>
   </div>
 
@@ -2960,556 +2846,53 @@ body::before {
         </div>
       </div>
     </div>
-    <div class="map-node-detail" id="map-node-detail" aria-live="polite"></div>
   </div>
 </section>
 
-<section class="map-follow-section" aria-label="Manabi Mapの下に続く各部紹介">
-  <div class="map-follow-label">PART GUIDE</div>
-  <h2 class="map-follow-title">ここから下は、各部の紹介</h2>
-  <p class="map-follow-desc">
-    上の地図は、問いとメディアを横断するための入口です。
-    下では各部を順に紹介し、YouTubeで入るか、学びの地図で深めるかを選べます。
-  </p>
-</section>
 
-<section class="podcast-route-section" aria-label="Podcastで学ぶ">
-  <div class="podcast-route-head">
-    <div>
-      <div class="podcast-route-label">PODCAST ROUTE</div>
-      <h2 class="podcast-route-title">耳で入り、図解で確かめる</h2>
-      <p class="podcast-route-desc">
-        Podcast版は、全ての部へ広がっていくもう一つの学習ルートです。
-        散歩中、移動中、家事中に聴きながら、あとでインフォグラフィックを保存して振り返れます。
-        動画ではふわっと流れた歴史の背景も、構造として整理して学べます。
-      </p>
-    </div>
-    <div class="podcast-route-actions">
-      <a
-        class="podcast-route-btn"
-        href="podcast.html"
-        data-track-event="home_entry_click"
-        data-track-source="index"
-        data-track-content-id="podcast-route"
-        data-track-destination-type="podcast_hub"
-        data-track-destination-id="podcast"
-      >Podcastを見る</a>
-    </div>
-  </div>
-  <div class="podcast-route-grid">
-    <div class="podcast-route-item">
-      <span>01 LISTEN</span>
-      <strong>ながら学習に使う</strong>
-      <p>画面を見られない時間にも、各部の問いと物語の背景を耳でたどれます。</p>
-    </div>
-    <div class="podcast-route-item">
-      <span>02 CHECK</span>
-      <strong>図解で整理する</strong>
-      <p>聴きながら見る、あとで見返す、必要な図解を保存する。理解の輪郭を残せます。</p>
-    </div>
-    <div class="podcast-route-item">
-      <span>03 DEEPEN</span>
-      <strong>地図・note・動画へ戻る</strong>
-      <p>気になった問いは、Manabi Map、note、動画へつなげて別角度から深められます。</p>
-    </div>
-  </div>
-  <p class="podcast-route-note">
-    PodcastはAI構成を活用しているため細かな読み違いが残る場合がありますが、歴史情報と時代背景を広く整理する入口として使えます。
-  </p>
-</section>
-
-<!-- ========== NAVIGATION ========== -->
-<nav class="nav-bar">
-  <a href="evolution.html" style="color:#bf5fff; border-color:#bf5fff">進化の年表</a>
-  <a href="#map-base" style="color:var(--neon-sky); border-color:var(--neon-sky)">地図</a>
-  <a href="#part1" data-part="1">第1部</a>
-  <a href="#part2" data-part="2">第2部</a>
-  <a href="#part3" data-part="3">第3部</a>
-  <a href="#part4" data-part="4">第4部</a>
-  <a href="#part5" data-part="5">第5部</a>
-  <a href="#part6" data-part="6">第6部</a>
-  <a href="#part7" data-part="7">第7部</a>
-  <a href="#part8" data-part="8">第8部</a>
-  <a href="#part9" data-part="9">第9部</a>
-  <a href="#intro" style="color:var(--neon-gold); border-color:var(--neon-gold)">三部作紹介</a>
-  <a href="#theme" style="color:#8da2ff; border-color:#8da2ff">オープニング</a>
-  <a href="revolutions.html" style="color:var(--neon-cyan); border-color:var(--neon-cyan)">三大革命特集</a>
-  <a href="card.html" style="color:var(--neon-green); border-color:var(--neon-green)">紹介カード</a>
-  <a href="note.html" style="color:#41c9b4; border-color:#41c9b4">note記事</a>
-  <a href="podcast.html" style="color:#ffb86b; border-color:#ffb86b">Podcast</a>
-</nav>
-
-<!-- ============================================================ -->
-<!-- CHAPTER GROUP 1: 三大革命 (Parts 1-3)                         -->
-<!-- ============================================================ -->
-<section class="chapter-group group-revolutions">
-  <div class="group-header">
-    <div class="group-label">CHAPTER I</div>
-    <h2 class="group-title">三大革命</h2>
-    <p class="group-desc">
-      産業革命、デジタル革命、AI革命──<br>
-      人間の暮らしを根底から変えた三つの転換点を俯瞰する
-    </p>
-    <a href="revolutions.html" class="group-feature-link">
-      <svg viewBox="0 0 24 24"><path d="M13.5 5.5 20 12l-6.5 6.5-1.4-1.4 4.1-4.1H4v-2h12.2l-4.1-4.1 1.4-1.4z"/></svg>
-      人類の3つの革命を深く学ぶ
+<section class="mock-entrances" aria-label="入口を選ぶ">
+<style>
+.mock-entrances { max-width: 1120px; margin: 0 auto; padding: 30px 24px 90px; }
+.mock-entrances__label { margin-bottom: 8px; color: #9b9bb4; font-size: 11px; font-weight: 900; letter-spacing: 0.32em; }
+.mock-entrances__title { margin-bottom: 20px; color: #fff; font-size: 24px; font-weight: 900; line-height: 1.5; }
+.mock-entrances__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+.mock-entrance { --accent: #00d4ff; display: flex; flex-direction: column; gap: 7px; padding: 20px; border: 1px solid color-mix(in srgb, var(--accent), transparent 68%); border-radius: 10px; background: radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--accent), transparent 90%), transparent 46%), rgba(12,12,20,0.8); text-decoration: none; transition: transform 0.25s, border-color 0.25s; }
+.mock-entrance:hover { transform: translateY(-3px); border-color: var(--accent); }
+.mock-entrance__kicker { color: var(--accent); font-size: 10px; font-weight: 900; letter-spacing: 0.26em; }
+.mock-entrance__title { color: #fff; font-size: 18px; font-weight: 900; }
+.mock-entrance__text { color: #9b9bb4; font-size: 12.5px; line-height: 1.85; }
+.mock-entrance__go { margin-top: auto; padding-top: 10px; color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; }
+@media (max-width: 720px) { .mock-entrances__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .mock-entrances__grid { grid-template-columns: 1fr; } }
+</style>
+  <div class="mock-entrances__label">ENTRANCES</div>
+  <h2 class="mock-entrances__title">入口を、ひとつ選ぶ</h2>
+  <div class="mock-entrances__grid">
+    <a class="mock-entrance" style="--accent:#00d4ff" href="https://youtu.be/70vHG6evr6E" target="_blank" rel="noopener" data-track-event="home_entry_click" data-track-source="index-mock" data-track-content-id="entrance-video" data-track-destination-type="youtube_video" data-track-destination-id="70vHG6evr6E">
+      <span class="mock-entrance__kicker">WATCH</span>
+      <span class="mock-entrance__title">物語で入る</span>
+      <span class="mock-entrance__text">初めてなら、まずこの一本。ハルとおじいさんの物語（約8分）。</span>
+      <span class="mock-entrance__go">動画を見る →</span>
+    </a>
+    <a class="mock-entrance" style="--accent:#ffb86b" href="podcast.html" data-track-event="home_entry_click" data-track-source="index-mock" data-track-content-id="entrance-podcast" data-track-destination-type="podcast_hub" data-track-destination-id="podcast">
+      <span class="mock-entrance__kicker">LISTEN</span>
+      <span class="mock-entrance__title">耳でたどる</span>
+      <span class="mock-entrance__text">移動中や家事中に。歴史の厚みごと聴けるPodcast 24本。</span>
+      <span class="mock-entrance__go">Podcastへ →</span>
+    </a>
+    <a class="mock-entrance" style="--accent:#41c9b4" href="note.html" data-track-event="home_entry_click" data-track-source="index-mock" data-track-content-id="entrance-note" data-track-destination-type="note_hub" data-track-destination-id="note">
+      <span class="mock-entrance__kicker">READ</span>
+      <span class="mock-entrance__title">文章で読む</span>
+      <span class="mock-entrance__text">問いを一歩だけ深く。短い読み物のnote記事。</span>
+      <span class="mock-entrance__go">noteへ →</span>
+    </a>
+    <a class="mock-entrance" style="--accent:#8da2ff" href="infographics.html" data-track-event="home_entry_click" data-track-source="index-mock" data-track-content-id="entrance-zukai" data-track-destination-type="infographic_hub" data-track-destination-id="infographics">
+      <span class="mock-entrance__kicker">SEE</span>
+      <span class="mock-entrance__title">目で見わたす</span>
+      <span class="mock-entrance__text">眺めるだけでもいい。構造を一枚に折りたたんだ図解の間。</span>
+      <span class="mock-entrance__go">図解の間へ →</span>
     </a>
   </div>
-
-  <div class="parts-grid">
-
-    <!-- Part 1 -->
-    <div class="part-card" data-part="1" id="part1">
-      <a href="https://youtu.be/HrQnEL6hi4w" target="_blank" rel="noopener">
-        <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/HrQnEL6hi4w/hqdefault.jpg" alt="第1部 サムネイル" loading="lazy">
-          <div class="play-overlay"><div class="play-icon"></div></div>
-        </div>
-      </a>
-      <div class="card-body">
-        <div class="card-part-num">PART 01</div>
-        <h3 class="card-title">蒸気の時代</h3>
-        <p class="card-subtitle">産業革命 ── 機械が人間のリズムを変えた日</p>
-        <div class="card-keywords">
-          <span class="keyword">産業革命</span>
-          <span class="keyword">蒸気機関</span>
-          <span class="keyword">労働と時間</span>
-          <span class="keyword">手仕事から工場へ</span>
-        </div>
-        <div class="card-links">
-          <a href="https://youtu.be/HrQnEL6hi4w" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-orange)">
-            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
-            YouTubeで見る
-          </a>
-          <a href="parts/part1.html" class="card-link" style="color:var(--neon-orange)">学びの地図</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Part 2 -->
-    <div class="part-card" data-part="2" id="part2">
-      <a href="https://youtu.be/MZSwaQr27NI" target="_blank" rel="noopener">
-        <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/MZSwaQr27NI/hqdefault.jpg" alt="第2部 サムネイル" loading="lazy">
-          <div class="play-overlay"><div class="play-icon"></div></div>
-        </div>
-      </a>
-      <div class="card-body">
-        <div class="card-part-num">PART 02</div>
-        <h3 class="card-title">つながる世界</h3>
-        <p class="card-subtitle">1940年代〜2020年代 ── デジタル革命が変えた「人と人のあいだ」</p>
-        <div class="card-keywords">
-          <span class="keyword">コンピュータ</span>
-          <span class="keyword">インターネット</span>
-          <span class="keyword">SNS</span>
-          <span class="keyword">つながりの光と影</span>
-        </div>
-        <div class="card-links">
-          <a href="https://youtu.be/MZSwaQr27NI" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-blue)">
-            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
-            YouTubeで見る
-          </a>
-          <a href="parts/part2.html" class="card-link" style="color:var(--neon-blue)">学びの地図</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Part 3 -->
-    <div class="part-card" data-part="3" id="part3">
-      <a href="https://youtu.be/70vHG6evr6E" target="_blank" rel="noopener">
-        <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/70vHG6evr6E/hqdefault.jpg" alt="第3部 サムネイル" loading="lazy">
-          <div class="play-overlay"><div class="play-icon"></div></div>
-        </div>
-      </a>
-      <div class="card-body">
-        <div class="card-part-num">PART 03</div>
-        <h3 class="card-title">AIと生きる未来</h3>
-        <p class="card-subtitle">三部作の完結 ── 産業革命・デジタル革命、そしてAI革命へ</p>
-        <div class="card-keywords">
-          <span class="keyword">AI</span>
-          <span class="keyword">機械学習</span>
-          <span class="keyword">共存</span>
-          <span class="keyword">未来の選択</span>
-        </div>
-        <div class="card-links">
-          <a href="https://youtu.be/70vHG6evr6E" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-cyan)">
-            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
-            YouTubeで見る
-          </a>
-          <a href="parts/part3.html" class="card-link" style="color:var(--neon-cyan)">学びの地図</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Part 9 -->
-    <div class="part-card" data-part="9" id="part9">
-      <a href="parts/part9.html">
-        <div class="card-thumbnail placeholder">
-          <div class="placeholder-text">PART 09 MAP</div>
-        </div>
-      </a>
-      <div class="card-body">
-        <div class="card-part-num">PART 09 <span class="card-new-badge">NEW</span></div>
-        <h3 class="card-title">身体という時間</h3>
-        <p class="card-subtitle">進化 ── 旧石器時代の身体で生成AI時代をどう生きるのか</p>
-        <div class="card-keywords">
-          <span class="keyword">二足歩行</span>
-          <span class="keyword">報酬系と不安</span>
-          <span class="keyword">集中と感性</span>
-          <span class="keyword">全15話</span>
-        </div>
-        <div class="card-links">
-          <a href="parts/part9.html" class="card-link primary" style="color:#ffb86b">学びの地図</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="timeline-connector"><svg viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pathGradient" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(0,212,255,0)"/><stop offset="25%" stop-color="rgba(0,212,255,0.45)"/><stop offset="75%" stop-color="rgba(191,95,255,0.5)"/><stop offset="100%" stop-color="rgba(0,212,255,0)"/></linearGradient></defs><path class="timeline-path-glow" d="M 130 0 C 224 38 42 92 130 140"/><path class="timeline-path" d="M 130 0 C 224 38 42 92 130 140"/><path class="timeline-particle-trail" d="M 130 0 C 224 38 42 92 130 140"/><circle class="timeline-particle timeline-particle--cyan" r="3.2"><animateMotion dur="2.6s" repeatCount="indefinite" path="M 130 0 C 224 38 42 92 130 140"/></circle><circle class="timeline-particle timeline-particle--purple timeline-particle--small" r="2.1"><animateMotion dur="3.4s" begin="-1.1s" repeatCount="indefinite" path="M 130 0 C 224 38 42 92 130 140"/></circle><circle class="timeline-particle timeline-particle--gold timeline-particle--small" r="1.7"><animateMotion dur="4.2s" begin="-2s" repeatCount="indefinite" path="M 130 0 C 224 38 42 92 130 140"/></circle><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
-
-<!-- ============================================================ -->
-<!-- CHAPTER GROUP 2: 文明の道具 (Parts 4-6)                       -->
-<!-- ============================================================ -->
-<section class="chapter-group group-tools">
-  <div class="group-header">
-    <div class="group-label">CHAPTER II</div>
-    <h2 class="group-title">文明の道具</h2>
-    <p class="group-desc">
-      文字、言葉、数字──<br>
-      人類が発明した「見えない道具」が、思考と社会をどう形づくったか
-    </p>
-  </div>
-
-  <div class="parts-grid">
-
-    <!-- Part 4 -->
-    <div class="part-card" data-part="4" id="part4">
-      <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2WxoHkQX1M6VJCrFKtdxXx8Z" target="_blank" rel="noopener">
-        <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/8dySbSKpZNU/hqdefault.jpg" alt="第4部 サムネイル" loading="lazy">
-          <div class="play-overlay"><div class="play-icon"></div></div>
-        </div>
-      </a>
-      <div class="card-body">
-        <div class="card-part-num">PART 04</div>
-        <h3 class="card-title">文字と知識の冒険</h3>
-        <p class="card-subtitle">5000年の旅 ── 人類はどうやって知識を残してきたか</p>
-        <div class="card-keywords">
-          <span class="keyword">文字の誕生</span>
-          <span class="keyword">粘土板から紙へ</span>
-          <span class="keyword">印刷革命</span>
-          <span class="keyword">知識の民主化</span>
-        </div>
-        <div class="card-links">
-          <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2WxoHkQX1M6VJCrFKtdxXx8Z" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-green)">
-            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
-            再生リスト
-          </a>
-          <a href="parts/part4.html" class="card-link" style="color:var(--neon-green)">学びの地図</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Part 5 -->
-    <div class="part-card" data-part="5" id="part5">
-      <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wz9a-nLF0FAkTgRr8km-ql8" target="_blank" rel="noopener">
-        <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/gIOypSyJwMs/hqdefault.jpg" alt="第5部 サムネイル" loading="lazy">
-          <div class="play-overlay"><div class="play-icon"></div></div>
-        </div>
-      </a>
-      <div class="card-body">
-        <div class="card-part-num">PART 05</div>
-        <h3 class="card-title">言葉と思考の旅</h3>
-        <p class="card-subtitle">言語とは何か ── 言葉は思考を作るのか、思考が言葉を作るのか</p>
-        <div class="card-keywords">
-          <span class="keyword">言語の起源</span>
-          <span class="keyword">思考と言葉</span>
-          <span class="keyword">翻訳の壁</span>
-          <span class="keyword">AIと言語理解</span>
-        </div>
-        <div class="card-links">
-          <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wz9a-nLF0FAkTgRr8km-ql8" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-purple)">
-            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
-            再生リスト
-          </a>
-          <a href="parts/part5.html" class="card-link" style="color:var(--neon-purple)">学びの地図</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Part 6 -->
-    <div class="part-card" data-part="6" id="part6">
-      <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wwmx7EE_-oXyN4FOeIsbXos" target="_blank" rel="noopener">
-        <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/TxDMU6SVg3o/hqdefault.jpg" alt="第6部 サムネイル" loading="lazy">
-          <div class="play-overlay"><div class="play-icon"></div></div>
-        </div>
-      </a>
-      <div class="card-body">
-        <div class="card-part-num">PART 06</div>
-        <h3 class="card-title">数字と世界</h3>
-        <p class="card-subtitle">数は道具か支配者か ── 人類と数の5000年</p>
-        <div class="card-keywords">
-          <span class="keyword">ゼロの発見</span>
-          <span class="keyword">数学と文明</span>
-          <span class="keyword">統計と支配</span>
-          <span class="keyword">アルゴリズム</span>
-        </div>
-        <div class="card-links">
-          <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wwmx7EE_-oXyN4FOeIsbXos" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-gold)">
-            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
-            再生リスト
-          </a>
-          <a href="parts/part6.html" class="card-link" style="color:var(--neon-gold)">学びの地図</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="timeline-connector"><svg class="mirror" viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pathGradientMirror" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(0,212,255,0)"/><stop offset="25%" stop-color="rgba(0,212,255,0.45)"/><stop offset="75%" stop-color="rgba(191,95,255,0.5)"/><stop offset="100%" stop-color="rgba(0,212,255,0)"/></linearGradient></defs><path class="timeline-path-glow" d="M 130 0 C 224 38 42 92 130 140"/><path class="timeline-path" d="M 130 0 C 224 38 42 92 130 140"/><path class="timeline-particle-trail" d="M 130 0 C 224 38 42 92 130 140"/><circle class="timeline-particle timeline-particle--cyan" r="3.2"><animateMotion dur="2.6s" repeatCount="indefinite" path="M 130 0 C 224 38 42 92 130 140"/></circle><circle class="timeline-particle timeline-particle--purple timeline-particle--small" r="2.1"><animateMotion dur="3.4s" begin="-1.1s" repeatCount="indefinite" path="M 130 0 C 224 38 42 92 130 140"/></circle><circle class="timeline-particle timeline-particle--gold timeline-particle--small" r="1.7"><animateMotion dur="4.2s" begin="-2s" repeatCount="indefinite" path="M 130 0 C 224 38 42 92 130 140"/></circle><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
-
-<!-- ============================================================ -->
-<!-- CHAPTER GROUP 3: 前提を超える (Part 7)                        -->
-<!-- ============================================================ -->
-<section class="chapter-group group-beyond">
-  <div class="group-header">
-    <div class="group-label">CHAPTER III</div>
-    <h2 class="group-title">前提を超える</h2>
-    <p class="group-desc">
-      アインシュタイン、ファインマン、チューリング、フォン・ノイマン──<br>
-      4人の天才が壊した「人間の当たり前」
-    </p>
-  </div>
-
-  <div class="parts-grid">
-
-    <!-- Part 7 -->
-    <div class="part-card" data-part="7" id="part7" style="max-width: 560px; margin: 0 auto;">
-      <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2WxfmzrTlbDejA9E6F5NvHHf" target="_blank" rel="noopener">
-        <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/-j4wBrRSWWM/hqdefault.jpg" alt="第7部 サムネイル" loading="lazy">
-          <div class="play-overlay"><div class="play-icon"></div></div>
-        </div>
-      </a>
-      <div class="card-body">
-        <div class="card-part-num">PART 07</div>
-        <h3 class="card-title">人間の前提を外す</h3>
-        <p class="card-subtitle">4人の天才が外した「人間の当たり前」</p>
-        <div class="card-keywords">
-          <span class="keyword">アインシュタイン</span>
-          <span class="keyword">ファインマン</span>
-          <span class="keyword">チューリング</span>
-          <span class="keyword">フォン・ノイマン</span>
-        </div>
-        <div class="card-links">
-          <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2WxfmzrTlbDejA9E6F5NvHHf" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-magenta)">
-            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
-            再生リスト
-          </a>
-          <a href="parts/part7.html" class="card-link" style="color:var(--neon-magenta)">学びの地図</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="timeline-connector"><svg viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="pathGradientNow" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(0,212,255,0)"/><stop offset="25%" stop-color="rgba(0,212,255,0.45)"/><stop offset="75%" stop-color="rgba(191,95,255,0.5)"/><stop offset="100%" stop-color="rgba(0,212,255,0)"/></linearGradient></defs><path class="timeline-path-glow" d="M 130 0 C 224 38 42 92 130 140"/><path class="timeline-path" d="M 130 0 C 224 38 42 92 130 140"/><path class="timeline-particle-trail" d="M 130 0 C 224 38 42 92 130 140"/><circle class="timeline-particle timeline-particle--cyan" r="3.2"><animateMotion dur="2.6s" repeatCount="indefinite" path="M 130 0 C 224 38 42 92 130 140"/></circle><circle class="timeline-particle timeline-particle--purple timeline-particle--small" r="2.1"><animateMotion dur="3.4s" begin="-1.1s" repeatCount="indefinite" path="M 130 0 C 224 38 42 92 130 140"/></circle><circle class="timeline-particle timeline-particle--gold timeline-particle--small" r="1.7"><animateMotion dur="4.2s" begin="-2s" repeatCount="indefinite" path="M 130 0 C 224 38 42 92 130 140"/></circle><circle class="timeline-dot" cx="130" cy="140" r="3.5"/></svg></div>
-
-<!-- ============================================================ -->
-<!-- CHAPTER GROUP 4: いま、ここ (Part 8)                          -->
-<!-- ============================================================ -->
-<section class="chapter-group group-now">
-  <div class="group-header">
-    <div class="group-label">CHAPTER IV</div>
-    <h2 class="group-title">いま、ここ</h2>
-    <p class="group-desc">
-      生成AIという断層──<br>
-      人間と機械の境界を問い直す、現在進行形の物語。<br>
-      第一章（歴史編）・第二章（社会編）で展開中
-    </p>
-  </div>
-
-  <div class="parts-grid">
-
-    <!-- Part 8 Chapter 1 -->
-    <div class="part-card" data-part="8" id="part8">
-      <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wx32GuS8t4vuk8_kjK_NIa5" target="_blank" rel="noopener">
-        <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/979DSjYsE-o/hqdefault.jpg" alt="第8部 第一章 サムネイル" loading="lazy">
-          <div class="play-overlay"><div class="play-icon"></div></div>
-        </div>
-      </a>
-      <div class="card-body">
-        <div class="card-part-num">PART 08 — 第一章</div>
-        <h3 class="card-title">AIと人間のあいだ</h3>
-        <p class="card-subtitle">歴史 ── 生成という断層はどう生まれたか</p>
-        <div class="card-keywords">
-          <span class="keyword">生成AIの歴史</span>
-          <span class="keyword">ルールから確率へ</span>
-          <span class="keyword">ChatGPTの仕組み</span>
-          <span class="keyword">第1〜5話</span>
-        </div>
-        <div class="card-links">
-          <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2Wx32GuS8t4vuk8_kjK_NIa5" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-sky)">
-            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
-            再生リスト
-          </a>
-          <a href="parts/part8.html" class="card-link" style="color:var(--neon-sky)">学びの地図</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Part 8 Chapter 2 -->
-    <div class="part-card" data-part="8" id="part8-2">
-      <a href="https://youtu.be/_-PsS5sdlmY" target="_blank" rel="noopener">
-        <div class="card-thumbnail">
-          <img src="https://img.youtube.com/vi/_-PsS5sdlmY/hqdefault.jpg" alt="第8部 第二章 サムネイル" loading="lazy">
-          <div class="play-overlay"><div class="play-icon"></div></div>
-        </div>
-      </a>
-      <div class="card-body">
-        <div class="card-part-num">PART 08 — 第二章 <span class="card-new-badge">NEW</span></div>
-        <h3 class="card-title">AIが日常に入る日</h3>
-        <p class="card-subtitle">社会 ── 生成された思考が変えるもの</p>
-        <div class="card-keywords">
-          <span class="keyword">AIと宿題</span>
-          <span class="keyword">学力とは何か</span>
-          <span class="keyword">共通テストの衝撃</span>
-          <span class="keyword">連載中</span>
-        </div>
-        <div class="card-links">
-          <a href="https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyXz8T1Ig-GMnYGAK-cb2RG" target="_blank" rel="noopener" class="card-link primary" style="color:var(--neon-sky)">
-            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="currentColor"/></svg>
-            再生リスト
-          </a>
-          <a href="parts/part8_2.html" class="card-link" style="color:var(--neon-sky)">学びの地図</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ========== INTRO / PROMOTION ========== -->
-<section class="intro-section" id="intro">
-  <div class="intro-header">
-    <div class="intro-award">MulmoCast AI Short Film Fes 2025　プロモーション部門　最終ノミネート作品</div>
-    <div class="intro-label">INTRODUCTION</div>
-    <h2 class="intro-title">三部作 紹介映像</h2>
-    <p class="intro-desc">
-      産業革命・デジタル革命・AI革命──<br>
-      おじいさんとハルの対話で描く、人類の学びの旅。<br>
-      各部の学びをたどったあとに、最終ノミネートに選ばれた<br>
-      三部作の世界観を紹介映像で振り返ります。
-    </p>
-  </div>
-
-  <div class="intro-video-wrap" id="intro-video-box" onclick="loadIntroVideo(this)">
-    <img src="https://img.youtube.com/vi/BwUM3mDsvPY/maxresdefault.jpg"
-         onerror="this.src='https://img.youtube.com/vi/BwUM3mDsvPY/hqdefault.jpg'"
-         alt="三部作紹介 サムネイル" class="intro-poster">
-    <div class="intro-play-btn" aria-label="動画を再生">
-      <div class="intro-play-icon"></div>
-    </div>
-  </div>
-
-  <div class="intro-parts-row">
-    <div class="intro-part-mini">
-      <a href="https://youtu.be/HrQnEL6hi4w" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/HrQnEL6hi4w/hqdefault.jpg" alt="第1部" loading="lazy">
-        <div class="intro-part-mini-body">
-          <div class="intro-part-mini-num">PART 01</div>
-          <div class="intro-part-mini-title">蒸気の時代</div>
-          <div class="intro-part-mini-link">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
-            YouTubeで見る
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="intro-part-mini">
-      <a href="https://youtu.be/MZSwaQr27NI" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/MZSwaQr27NI/hqdefault.jpg" alt="第2部" loading="lazy">
-        <div class="intro-part-mini-body">
-          <div class="intro-part-mini-num">PART 02</div>
-          <div class="intro-part-mini-title">つながる世界</div>
-          <div class="intro-part-mini-link">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
-            YouTubeで見る
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="intro-part-mini">
-      <a href="https://youtu.be/70vHG6evr6E" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/70vHG6evr6E/hqdefault.jpg" alt="第3部" loading="lazy">
-        <div class="intro-part-mini-body">
-          <div class="intro-part-mini-num">PART 03</div>
-          <div class="intro-part-mini-title">AIと生きる未来</div>
-          <div class="intro-part-mini-link">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,3 19,12 5,21" fill="currentColor" stroke="none"/></svg>
-            YouTubeで見る
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="intro-fes-link">
-    <a href="https://www.mag2.com/events/ai-film-fes2025/" target="_blank" rel="noopener" class="fes-badge">
-      <span class="fes-badge-icon">🎬</span>
-      <span class="fes-badge-text">
-        <span class="fes-badge-title">MulmoCast AI Short Film Fes 2025</span>
-        <span class="fes-badge-sub">公式イベントページ →</span>
-      </span>
-    </a>
-    <a href="https://singularitysociety.org/projects/mulmocast/mulmocast-ai-short-film-fes-2025/" target="_blank" rel="noopener" class="fes-badge fes-badge-secondary">
-      <span class="fes-badge-icon">📋</span>
-      <span class="fes-badge-text">
-        <span class="fes-badge-title">Singularity Society</span>
-        <span class="fes-badge-sub">フェス詳細・作品情報 →</span>
-      </span>
-    </a>
-  </div>
-
-  <div class="intro-divider"></div>
-</section>
-
-<!-- ========== OPENING THEME ========== -->
-<section class="theme-section" id="theme">
-  <div class="theme-label">OPENING THEME</div>
-  <div class="theme-title">ハルとおじいさんの物語</div>
-  <div class="theme-subtitle">── Theme Song ──</div>
-  <div class="theme-player" id="theme-player-box" onclick="loadThemeVideo(this)">
-    <img src="https://img.youtube.com/vi/TYnTySeqACY/maxresdefault.jpg"
-         onerror="this.src='https://img.youtube.com/vi/TYnTySeqACY/hqdefault.jpg'"
-         alt="オープニングテーマ サムネイル" class="theme-poster" loading="lazy">
-    <div class="theme-play-btn"></div>
-  </div>
-  <p class="theme-tagline">
-    <em>最後に、この物語の世界を音で感じてください。</em>
-  </p>
-</section>
-
-<!-- ========== YOUTUBE SUBSCRIBE CTA ========== -->
-<section class="yt-cta-section">
-  <div class="yt-cta-label">YouTube</div>
-  <div class="yt-cta-title">次の物語を、見逃さないために</div>
-  <p class="yt-cta-desc">
-    毎週月曜日に新しい対話を公開しています。<br>
-    チャンネル登録で、ハルとおじいさんの次の問いをお届けします。
-  </p>
-  <a href="https://www.youtube.com/channel/UCWzwmiGI53Py4uSBY1Iuwcw?sub_confirmation=1" target="_blank" rel="noopener" class="yt-cta-btn">
-    <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="#cc0000"/></svg>
-    チャンネル登録する
-  </a>
 </section>
 
 <!-- ========== FOOTER ========== -->
@@ -3520,6 +2903,7 @@ body::before {
 
 <script src="assets/js/manabimap-data.js"></script>
 <script src="assets/js/cta-tracking.js"></script>
+<script src="assets/js/manabi-search.js"></script>
 <script>
 function loadIntroVideo(el) {
   el.innerHTML = '<iframe src="https://www.youtube.com/embed/BwUM3mDsvPY?autoplay=1" title="ハルとおじいさん 三部作紹介" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;display:block;"></iframe>';
@@ -3711,6 +3095,7 @@ function loadThemeVideo(el) {
     part7: { x: 73, y: 34 },
     part8: { x: 88, y: 20 },
     'part8-2': { x: 88, y: 56 },
+    part9: { x: 15, y: 85 },
     note: { x: 63, y: 87 }
   };
   const mapEdges = [
@@ -3731,7 +3116,9 @@ function loadThemeVideo(el) {
     ['part7', 'part8'],
     ['part8', 'part8-2'],
     ['part8-2', 'note'],
-    ['part6', 'note']
+    ['part6', 'note'],
+    ['evolution', 'part9'],
+    ['part9', 'note']
   ];
 
   function resolveNodeTitle(id) {
@@ -4037,9 +3424,8 @@ function loadThemeVideo(el) {
         '<span class="map-node-group">' + node.group + '</span>'
       ].join('');
       button.addEventListener('click', function() {
-        clearSpotlight();
-        setAtlasActive(node.id);
-        renderNodeDetail(node.id);
+        const href = hrefForNode(node.id);
+        if (href && href !== '#map-base') window.location.href = href;
       });
       nodeGrid.appendChild(button);
     });
@@ -4417,5 +3803,7 @@ function loadThemeVideo(el) {
   }, { passive: true });
 })();
 </script>
+<script src="assets/js/footprints.js"></script>
+<script src="assets/js/sky-clock.js"></script>
 </body>
 </html>
