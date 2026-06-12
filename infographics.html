@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>図解の間 | 学びの地図 ─ ハルとおじいさん</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (localStorage.getItem('manabimap_owner') === '1') { gtag('set', {'traffic_type': 'internal'}); }
+  gtag('config', 'G-QL1PVK5PRF');
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #08080d;
+  --bg-panel: #10101a;
+  --text: #e8e8f0;
+  --text-dim: #a3a3bf;
+  --text-bright: #ffffff;
+  --border: #2a2a40;
+  --zukai: #8da2ff;
+  --podcast: #ffb86b;
+  --map: #00d4ff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(141,162,255,0.13), transparent 26%),
+    radial-gradient(circle at 78% 0%, rgba(255,184,107,0.10), transparent 28%),
+    radial-gradient(circle at 50% 100%, rgba(0,212,255,0.08), transparent 34%),
+    var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.8;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 0 24px;
+  overflow-x: auto;
+  background: rgba(8,8,13,0.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  scrollbar-width: none;
+}
+.nav-bar::-webkit-scrollbar { display: none; }
+.nav-bar a {
+  flex-shrink: 0;
+  padding: 14px 16px;
+  color: var(--text-dim);
+  border-bottom: 2px solid transparent;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  transition: color 0.25s, border-color 0.25s;
+}
+.nav-bar a:hover { color: var(--text-bright); }
+.nav-bar a.active {
+  color: var(--zukai);
+  border-color: var(--zukai);
+}
+
+.hero {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 84px 24px 42px;
+}
+.hero-label {
+  margin-bottom: 16px;
+  color: var(--zukai);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+.hero-title {
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, #fff 0%, var(--zukai) 52%, var(--map) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(34px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+}
+.hero-desc {
+  max-width: 720px;
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 2;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+.hero-pill {
+  min-height: 34px;
+  padding: 5px 14px;
+  border: 1px solid rgba(141,162,255,0.34);
+  border-radius: 999px;
+  background: rgba(141,162,255,0.07);
+  color: #ccd6ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.console {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px 24px;
+}
+.console-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: end;
+  padding: 22px;
+  border: 1px solid rgba(141,162,255,0.24);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(141,162,255,0.12), transparent 38%),
+    linear-gradient(145deg, rgba(16,16,26,0.92), rgba(8,8,13,0.92));
+}
+.console-label {
+  margin-bottom: 6px;
+  color: var(--zukai);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+}
+.console-title {
+  color: var(--text-bright);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.filter-button {
+  min-height: 34px;
+  padding: 7px 13px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.025);
+  color: var(--text-dim);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: color 0.22s, border-color 0.22s, background 0.22s;
+}
+.filter-button:hover,
+.filter-button.active {
+  color: var(--zukai);
+  border-color: var(--zukai);
+  background: rgba(141,162,255,0.09);
+}
+
+.grid-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 24px 88px;
+}
+.zukai-groups {
+  display: grid;
+  gap: 44px;
+}
+.zukai-group__head {
+  --accent: var(--zukai);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: baseline;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent), transparent 88%), transparent 70%);
+}
+.zukai-group__part {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.26em;
+}
+.zukai-group__title {
+  color: var(--text-bright);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+.zukai-group__count {
+  color: var(--text-dim);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+.zukai-group__map-link {
+  margin-left: auto;
+  padding: 4px 12px;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 54%);
+  border-radius: 999px;
+  color: var(--text-bright);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transition: background 0.22s, border-color 0.22s;
+}
+.zukai-group__map-link:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent), transparent 88%);
+}
+.zukai-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+.zukai-card {
+  --accent: var(--zukai);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(16,16,26,0.96), rgba(8,8,13,0.96));
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.zukai-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent), white 12%);
+  box-shadow: 0 18px 42px color-mix(in srgb, var(--accent), transparent 82%);
+}
+.zukai-card.is-highlighted {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent), transparent 55%), 0 18px 42px color-mix(in srgb, var(--accent), transparent 80%);
+}
+.zukai-card__figure {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  padding: 0;
+  border: none;
+  background: #050508;
+  cursor: zoom-in;
+  appearance: none;
+}
+.zukai-card__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s;
+}
+.zukai-card:hover .zukai-card__figure img { transform: scale(1.03); }
+.zukai-card__zoom {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(8,8,13,0.74);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+.zukai-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  padding: 16px 18px 18px;
+}
+.zukai-card__title {
+  color: var(--text-bright);
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+.zukai-card__caption {
+  color: var(--text-dim);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.zukai-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.zukai-card__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 5px 11px;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 50%);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--accent), transparent 92%);
+  color: var(--text-bright);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.22s, border-color 0.22s;
+}
+.zukai-card__action:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent), transparent 84%);
+}
+.zukai-card__action--podcast {
+  border-color: rgba(255,184,107,0.4);
+  background: rgba(255,184,107,0.07);
+  color: #ffd8a8;
+}
+.zukai-card__action--podcast:hover {
+  border-color: var(--podcast);
+  background: rgba(255,184,107,0.14);
+}
+.empty {
+  padding: 36px;
+  border: 1px dashed rgba(141,162,255,0.32);
+  border-radius: 10px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.page-footer {
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+.page-footer a { color: var(--zukai); }
+
+body.modal-open { overflow: hidden; }
+.zukai-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(3,3,8,0.86);
+  backdrop-filter: blur(14px);
+}
+.zukai-modal[hidden] { display: none !important; }
+.zukai-modal__panel {
+  width: min(1120px, 100%);
+  max-height: calc(100vh - 56px);
+  overflow: auto;
+  border: 1px solid rgba(141,162,255,0.34);
+  border-radius: 10px;
+  background: #08080d;
+  box-shadow: 0 28px 80px rgba(0,0,0,0.56);
+}
+.zukai-modal__head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  background: rgba(8,8,13,0.94);
+}
+.zukai-modal__title {
+  color: var(--text-bright);
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+.zukai-modal__caption {
+  color: var(--text-dim);
+  font-size: 12px;
+}
+.zukai-modal__controls {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.zukai-modal__download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,184,107,0.38);
+  border-radius: 7px;
+  background: rgba(255,184,107,0.1);
+  color: #ffd8a8;
+  font-size: 12px;
+  font-weight: 900;
+}
+.zukai-modal__close {
+  flex-shrink: 0;
+  min-height: 34px;
+  padding: 6px 12px;
+  border: 1px solid rgba(141,162,255,0.38);
+  border-radius: 7px;
+  background: rgba(141,162,255,0.08);
+  color: var(--zukai);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.zukai-modal__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #050508;
+}
+
+@media (max-width: 720px) {
+  .hero { padding-top: 62px; }
+  .console-panel { grid-template-columns: 1fr; align-items: start; }
+  .filter-buttons { justify-content: flex-start; }
+  .zukai-grid { grid-template-columns: 1fr; }
+  .zukai-modal { padding: 14px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav-bar">
+  <a href="index.html">学びの地図</a>
+  <a href="parts/part1.html" data-part="1">第1部</a>
+  <a href="parts/part2.html" data-part="2">第2部</a>
+  <a href="parts/part3.html" data-part="3">第3部</a>
+  <a href="parts/part4.html" data-part="4">第4部</a>
+  <a href="parts/part5.html" data-part="5">第5部</a>
+  <a href="parts/part6.html" data-part="6">第6部</a>
+  <a href="parts/part7.html" data-part="7">第7部</a>
+  <a href="parts/part8.html" data-part="8">第8部</a>
+  <a href="parts/part9.html" data-part="9">第9部</a>
+  <a href="note.html">note記事</a>
+  <a href="podcast.html">Podcast</a>
+  <a href="infographics.html" class="active">図解</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-label">Infographics</div>
+  <h1 class="hero-title">図解の間</h1>
+  <p class="hero-desc">
+    目で見わたす、もうひとつの入口です。
+    Podcastで語られた歴史と構造を、一枚の図に折りたたんであります。
+    気になった一枚から、耳のルートへ、地図へ、進めます。
+  </p>
+  <div class="hero-meta">
+    <span class="hero-pill" id="zukai-count">0 figures</span>
+    <span class="hero-pill">眺めるだけでもいい</span>
+    <span class="hero-pill">保存OK</span>
+    <span class="hero-pill">Podcast連動</span>
+  </div>
+</section>
+
+<section class="console" aria-label="図解フィルター">
+  <div class="console-panel">
+    <div>
+      <div class="console-label">FIGURE MAP</div>
+      <div class="console-title">部ごとに図解を見わたす</div>
+    </div>
+    <div class="filter-buttons" id="filter-buttons"></div>
+  </div>
+</section>
+
+<section class="grid-section" id="zukai-list">
+  <div class="zukai-groups" id="zukai-groups" aria-live="polite"></div>
+</section>
+
+<div class="zukai-modal" id="zukai-modal" role="dialog" aria-modal="true" aria-labelledby="zukai-modal-title" hidden>
+  <div class="zukai-modal__panel">
+    <div class="zukai-modal__head">
+      <div>
+        <div class="zukai-modal__title" id="zukai-modal-title">図解</div>
+        <div class="zukai-modal__caption" id="zukai-modal-caption"></div>
+      </div>
+      <div class="zukai-modal__controls">
+        <a class="zukai-modal__download" id="zukai-modal-download" href="#" download>図解を保存</a>
+        <button type="button" class="zukai-modal__close" data-zukai-close>閉じる</button>
+      </div>
+    </div>
+    <img class="zukai-modal__image" id="zukai-modal-image" src="" alt="">
+  </div>
+</div>
+
+<footer class="page-footer">
+  <a href="podcast.html">Podcast一覧へ</a>　/　<a href="index.html#map-base">Manabi Mapへ戻る</a>
+</footer>
+
+<script src="assets/js/manabimap-data.js"></script>
+<script src="assets/js/cta-tracking.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  const data = window.ManabiMapData || {};
+  const parts = Array.isArray(data.parts) ? data.parts : [];
+  const podcasts = Array.isArray(data.mediaItems)
+    ? data.mediaItems.filter(function(item) { return item.type === 'podcast'; })
+    : [];
+  const colorMap = {
+    orange: '#ff6b2b',
+    blue: '#4aa3ff',
+    cyan: '#00d4ff',
+    green: '#39ff39',
+    purple: '#bf5fff',
+    gold: '#ffd700',
+    magenta: '#ff2fa3',
+    sky: '#00d4ff'
+  };
+
+  const groupsEl = document.getElementById('zukai-groups');
+  const countEl = document.getElementById('zukai-count');
+  const filterButtons = document.getElementById('filter-buttons');
+  const modal = document.getElementById('zukai-modal');
+  const modalImage = document.getElementById('zukai-modal-image');
+  const modalTitle = document.getElementById('zukai-modal-title');
+  const modalCaption = document.getElementById('zukai-modal-caption');
+  const modalDownload = document.getElementById('zukai-modal-download');
+  let activePart = 'all';
+
+  function escapeHtml(value) {
+    return String(value || '').replace(/[&<>"']/g, function(char) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char];
+    });
+  }
+
+  function findPart(partId) {
+    return parts.find(function(part) { return part.id === partId; }) || null;
+  }
+
+  function firstPartId(item) {
+    const related = Array.isArray(item.relatedParts) ? item.relatedParts : [];
+    return related.find(function(id) { return /^part/.test(id); }) || '';
+  }
+
+  function displayPartNumber(part) {
+    return part && part.number ? String(part.number).replace(/^0/, '') : '';
+  }
+
+  function slugFor(src) {
+    const path = String(src || '').split('?')[0];
+    const file = path.split('/').pop() || '';
+    return file.replace(/\.[a-z0-9]+$/i, '');
+  }
+
+  function fileNameFor(src) {
+    const path = String(src || '').split('?')[0];
+    const segments = path.split('/');
+    return segments[segments.length - 1] || 'infographic.png';
+  }
+
+  const figures = [];
+  podcasts.forEach(function(podcast) {
+    const partId = firstPartId(podcast);
+    (Array.isArray(podcast.infographics) ? podcast.infographics : []).forEach(function(infographic) {
+      if (!infographic || !infographic.src) return;
+      figures.push({
+        slug: slugFor(infographic.src),
+        src: infographic.src,
+        title: infographic.title || '図解',
+        caption: infographic.caption || '',
+        partId: partId,
+        podcast: podcast
+      });
+    });
+  });
+
+  function figurePartIds() {
+    return figures
+      .map(function(figure) { return figure.partId; })
+      .filter(Boolean)
+      .filter(function(id, index, array) { return array.indexOf(id) === index; });
+  }
+
+  function figureCountForPart(partId) {
+    return figures.filter(function(figure) { return figure.partId === partId; }).length;
+  }
+
+  function hashTarget() {
+    const hash = decodeURIComponent((window.location.hash || '').replace('#', ''))
+      .replace('part8_2', 'part8-2');
+    if (!hash) return null;
+    if (figurePartIds().indexOf(hash) !== -1) return { part: hash };
+    const figure = figures.find(function(item) { return item.slug === hash; });
+    if (figure) return { part: figure.partId, slug: figure.slug };
+    return null;
+  }
+
+  function setActivePart(partId, updateHash) {
+    activePart = partId || 'all';
+    filterButtons.querySelectorAll('.filter-button').forEach(function(item) {
+      item.classList.toggle('active', (item.dataset.part || 'all') === activePart);
+    });
+    if (updateHash && window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', activePart === 'all'
+        ? window.location.pathname + window.location.search
+        : '#' + activePart);
+    }
+    renderGroups();
+  }
+
+  function renderFilters() {
+    const partIds = figurePartIds();
+    const buttons = [
+      '<button type="button" class="filter-button active" data-part="all">すべて (' + figures.length + ')</button>'
+    ].concat(partIds.map(function(partId) {
+      const part = findPart(partId);
+      const label = part ? '第' + displayPartNumber(part) + '部' : partId;
+      return '<button type="button" class="filter-button" data-part="' + escapeHtml(partId) + '">' + escapeHtml(label) + ' (' + figureCountForPart(partId) + ')</button>';
+    }));
+    filterButtons.innerHTML = buttons.join('');
+    filterButtons.querySelectorAll('.filter-button').forEach(function(button) {
+      button.addEventListener('click', function() {
+        setActivePart(button.dataset.part || 'all', true);
+      });
+    });
+  }
+
+  function cardHtml(figure) {
+    const part = findPart(figure.partId);
+    const accent = part && colorMap[part.color] ? colorMap[part.color] : '#8da2ff';
+    return [
+      '<article class="zukai-card" id="' + escapeHtml(figure.slug) + '" style="--accent:' + escapeHtml(accent) + '">',
+        '<button type="button" class="zukai-card__figure" data-zukai-open="' + escapeHtml(figure.slug) + '" aria-label="' + escapeHtml(figure.title) + 'を拡大">',
+          '<img src="' + escapeHtml(figure.src) + '" alt="' + escapeHtml(figure.title) + '" loading="lazy">',
+          '<span class="zukai-card__zoom">拡大</span>',
+        '</button>',
+        '<div class="zukai-card__body">',
+          '<div class="zukai-card__title">' + escapeHtml(figure.title) + '</div>',
+          figure.caption ? '<div class="zukai-card__caption">' + escapeHtml(figure.caption) + '</div>' : '',
+          '<div class="zukai-card__actions">',
+            '<button type="button" class="zukai-card__action" data-zukai-open="' + escapeHtml(figure.slug) + '">拡大して見る</button>',
+            '<a class="zukai-card__action" href="' + escapeHtml(figure.src) + '" download="' + escapeHtml(fileNameFor(figure.src)) + '">保存</a>',
+            figure.podcast && figure.podcast.url
+              ? '<a class="zukai-card__action zukai-card__action--podcast" href="' + escapeHtml(figure.podcast.url) + '" target="_blank" rel="noopener noreferrer" data-track-event="infographic_to_podcast_click" data-track-source="infographics" data-track-content-id="' + escapeHtml(figure.slug) + '" data-track-destination-type="podcast" data-track-destination-id="' + escapeHtml(figure.podcast.id) + '">このPodcastを聴く</a>'
+              : '',
+          '</div>',
+        '</div>',
+      '</article>'
+    ].join('');
+  }
+
+  function renderGroups() {
+    const visible = activePart === 'all'
+      ? figures
+      : figures.filter(function(figure) { return figure.partId === activePart; });
+
+    countEl.textContent = figures.length + (figures.length === 1 ? ' figure' : ' figures');
+
+    if (!visible.length) {
+      groupsEl.innerHTML = '<div class="empty">図解は準備中です。</div>';
+      return;
+    }
+
+    const groupOrder = [];
+    const grouped = {};
+    visible.forEach(function(figure) {
+      const partId = figure.partId || 'other';
+      if (!grouped[partId]) {
+        grouped[partId] = [];
+        groupOrder.push(partId);
+      }
+      grouped[partId].push(figure);
+    });
+
+    groupsEl.innerHTML = groupOrder.map(function(partId) {
+      const part = findPart(partId);
+      const accent = part && colorMap[part.color] ? colorMap[part.color] : '#8da2ff';
+      const groupFigures = grouped[partId];
+      const headHtml = part
+        ? [
+            '<div class="zukai-group__head" id="' + escapeHtml(partId) + '" style="--accent:' + escapeHtml(accent) + '">',
+              '<span class="zukai-group__part">PART ' + escapeHtml(displayPartNumber(part)) + '</span>',
+              '<span class="zukai-group__title">' + escapeHtml(part.title) + '</span>',
+              '<span class="zukai-group__count">' + groupFigures.length + (groupFigures.length === 1 ? ' figure' : ' figures') + '</span>',
+              '<a class="zukai-group__map-link" href="' + escapeHtml(part.pageUrl || 'index.html#map-base') + '">この部の地図へ</a>',
+            '</div>'
+          ].join('')
+        : '';
+      return [
+        '<section class="zukai-group" aria-label="' + escapeHtml(part ? '第' + displayPartNumber(part) + '部の図解' : '図解') + '">',
+          headHtml,
+          '<div class="zukai-grid">',
+          groupFigures.map(cardHtml).join(''),
+          '</div>',
+        '</section>'
+      ].join('');
+    }).join('');
+    bindCards();
+  }
+
+  function openModal(slug) {
+    const figure = figures.find(function(item) { return item.slug === slug; });
+    if (!figure || !modal) return;
+    modalImage.src = figure.src;
+    modalImage.alt = figure.title;
+    modalTitle.textContent = figure.title;
+    modalCaption.textContent = figure.caption;
+    modalDownload.href = figure.src;
+    modalDownload.setAttribute('download', fileNameFor(figure.src));
+    modal.hidden = false;
+    document.body.classList.add('modal-open');
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.hidden = true;
+    modalImage.src = '';
+    modalDownload.href = '#';
+    document.body.classList.remove('modal-open');
+  }
+
+  function bindCards() {
+    groupsEl.querySelectorAll('[data-zukai-open]').forEach(function(button) {
+      button.addEventListener('click', function() {
+        openModal(button.dataset.zukaiOpen || '');
+      });
+    });
+  }
+
+  if (modal) {
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) closeModal();
+    });
+  }
+  document.querySelectorAll('[data-zukai-close]').forEach(function(button) {
+    button.addEventListener('click', closeModal);
+  });
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') closeModal();
+  });
+
+  renderFilters();
+  const target = hashTarget();
+  setActivePart(target ? target.part : 'all', false);
+  if (target) {
+    const focusEl = document.getElementById(target.slug || target.part);
+    if (focusEl) {
+      focusEl.scrollIntoView();
+      if (target.slug) focusEl.classList.add('is-highlighted');
+    }
+  }
+  window.addEventListener('hashchange', function() {
+    const next = hashTarget();
+    if (next) setActivePart(next.part, false);
+  });
+})();
+</script>
+<script src="assets/js/footprints.js"></script>
+<script src="assets/js/sky-clock.js"></script>
+</body>
+</html>
