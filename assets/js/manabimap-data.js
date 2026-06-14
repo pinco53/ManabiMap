@@ -315,22 +315,22 @@
     { id: 'note-86', number: 86, title: "ページの中に、時代を超えた会話があった", url: "https://note.com/manabimapcreator/n/nf13aa28aed3a", status: "published", kind: "wonder-note", date: "2026-05-29", target: "第4部第5話・第6話関連（1週間企画 Day 4）", tags: ["第4部第5話","第6話関連（1週間企画","Day","4）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-06", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", image: "note_articles/generated_note_images/note-86.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "本のページを開く。" },
     { id: 'note-87', number: 87, title: "誰もが書けるようになるたびに、世界が揺れた", url: "https://note.com/manabimapcreator/n/n1cad84195c77", status: "published", kind: "wonder-note", date: "2026-05-30", target: "第4部第5話・第6話関連（1週間企画 Day 5）", tags: ["第4部第5話","第6話関連（1週間企画","Day","5）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-06", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", image: "note_articles/generated_note_images/note-87.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "「誰でも書ける」という状態は、" },
     { id: 'note-88', number: 88, title: "「普通」を決めるのは、誰だろう", url: "https://note.com/manabimapcreator/n/nfeb3bcd968f8", status: "published", kind: "wonder-note", date: "2026-05-31", target: "第4部第5話・第6話関連（1週間企画 Day 6）", tags: ["第4部第5話","第6話関連（1週間企画","Day","6）"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-06", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "関連動画を見る", image: "note_articles/generated_note_images/note-88.png", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "キーボードの「A」は65番。" },
-    { id: 'note-89', number: 89, title: "データを消すとき、なぜ熱が生まれるのか", status: "local-draft", kind: "wonder-note", date: "2026-05-31", target: "第4部第5話・第6話関連", tags: ["第4部第5話","第6話関連"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-5", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "Podcastで深く聴く", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "スマートフォンに写真を1万枚入れても、重さは変わりません。" },
-    { id: 'note-90', number: 90, title: "悲しくないのに、音楽で涙が出る——脳が知っていて、私が知らないこと", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第1話「感動はどこで生まれるのか」", tags: [], relatedParts: [], relatedPodcastId: "podcast-part10-1", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "聴いている途中で、気づいたら目が熱くなっていた。" },
-    { id: 'note-91', number: 91, title: "美しさを数値で決めようとした人々の、2000年の問い", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第2話「美しいとは何か」", tags: ["第10部第2話「美しいとは何か」"], relatedParts: [], relatedPodcastId: "podcast-part10-2", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "数学で「黄金比は美しい」と習う。" },
-    { id: 'note-92', number: 92, title: "アイスクリームを見たサルが、科学を変えた日", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第3話「共感の回路」", tags: ["第10部第3話「共感の回路」"], relatedParts: [], relatedPodcastId: "podcast-part10-3", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "友達が泣いていると、胸が痛くなる。" },
-    { id: 'note-93', number: 93, title: "5秒だけ見た棋士が、答えを知っていた", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第4話「直感とは何か」", tags: ["第10部第4話「直感とは何か」"], relatedParts: [], relatedPodcastId: "podcast-part10-4", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「なんとなく、こっちが正しい気がする」" },
-    { id: 'note-94', number: 94, title: "物語が人を変えた——ゲーテと「なりきる」脳の謎", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第5話", tags: ["第10部第5話"], relatedParts: [], relatedPodcastId: "podcast-part10-5", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "気がついたら泣いていた。" },
-    { id: 'note-95', number: 95, title: "クジャクの羽が教えてくれること——ダーウィンの「夜も眠れない問い」", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第6話", tags: ["第10部第6話"], relatedParts: [], relatedPodcastId: "podcast-part10-6", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「きれい」と感じる。" },
-    { id: 'note-96', number: 96, title: "3万2千年前の壁に「涙が出た」——ショーヴェ洞窟と芸術の謎", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第7話", tags: ["第10部第7話"], relatedParts: [], relatedPodcastId: "podcast-part10-7", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "役に立たない絵を、人間は作り続けてきた。" },
-    { id: 'note-97', number: 97, title: "犬は「指差し」を理解できる——共感の進化と「一緒にやろう」の謎", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第8話", tags: ["第10部第8話"], relatedParts: [], relatedPodcastId: "podcast-part10-8", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "人間が指を差すと、犬はその方向を見る。" },
-    { id: 'note-98', number: 98, title: "アウシュヴィッツで生き残った人に共通したもの——意味を求める動物の謎", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第9話", tags: ["第10部第9話"], relatedParts: [], relatedPodcastId: "podcast-part10-9", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "オリオン座の三ツ星。" },
-    { id: 'note-99', number: 99, title: "誰も設計しなかった三角形が美しくなった——スパンドレルと感性の「余り物」仮説", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第10話", tags: ["第10部第10話"], relatedParts: [], relatedPodcastId: "podcast-part10-10", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "美しいと感じる力は、" },
-    { id: 'note-100', number: 100, title: "AIの絵で感動した自分は正しいのか——「作者の死」と文脈の力", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第11話", tags: ["第10部第11話"], relatedParts: [], relatedPodcastId: "podcast-part10-11", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "きれいだと思った。" },
-    { id: 'note-101', number: 101, title: "1966年のコンピューターに、人は秘密を打ち明けた——AIと共感の60年", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第12話", tags: ["第10部第12話"], relatedParts: [], relatedPodcastId: "podcast-part10-12", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "AIに悩みを話して、「わかってもらえた」と感じたことはあるか。" },
-    { id: 'note-102', number: 102, title: "便器は展示会に隠された——デュシャンと「場所が意味を作る」謎", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第13話", tags: ["第10部第13話"], relatedParts: [], relatedPodcastId: "podcast-part10-13", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "同じ曲なのに、昨日と今日で感じ方が違った。" },
-    { id: 'note-103', number: 103, title: "「この絵は何点？」——フィンランドが教えてくれた、感性を育てる問い", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第14話", tags: ["第10部第14話"], relatedParts: [], relatedPodcastId: "podcast-part10-14", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「この絵は何点ですか？」" },
-    { id: 'note-104', number: 104, title: "スポティファイは「好きになる曲」を知っている——感動は再現できるのか", status: "local-draft", kind: "wonder-note", date: "2026-05-27", target: "第10部第15話", tags: ["第10部第15話"], relatedParts: [], relatedPodcastId: "podcast-part10-15", relatedYouTubeId: "youtube-part10", ctaCopy: "関連動画を見る", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "スポティファイのおすすめ曲が、" }
+    { id: 'note-89', number: 89, title: "データを消すとき、なぜ熱が生まれるのか", url: "https://note.com/manabimapcreator/n/naa957d4db3d4", status: "published", kind: "wonder-note", date: "2026-06-01", target: "第4部第5話・第6話関連", tags: ["第4部第5話","第6話関連"], relatedParts: ["part4"], relatedPodcastId: "podcast-part4-5", relatedPodcastUrl: "https://youtu.be/Z0ilADkBAtY", relatedYouTubeId: "youtube-part4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=8dySbSKpZNU", ctaCopy: "Podcastで深く聴く", question: "検索できることと、理解していることは同じなのか。", relation: "知識と記録の枝道", primaryPart: "part4", excerpt: "スマートフォンに写真を1万枚入れても、重さは変わりません。" },
+    { id: 'note-90', number: 90, title: "悲しくないのに、なぜ音楽で涙が出るのか", url: "https://note.com/manabimapcreator/n/n2dcdae1602bd", status: "published", kind: "wonder-note", date: "2026-06-02", target: "第10部第1話「感動はどこで生まれるのか」", tags: [], relatedParts: [], relatedPodcastId: "podcast-part10-1", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "聴いている途中で、気づいたら目が熱くなっていた。" },
+    { id: 'note-91', number: 91, title: "美しさを数値で決められるのか——2500年間の問いと、答えが出ない理由", url: "https://note.com/manabimapcreator/n/na5d745a5992b", status: "published", kind: "wonder-note", date: "2026-06-03", target: "第10部第2話「美しいとは何か」", tags: ["第10部第2話「美しいとは何か」"], relatedParts: [], relatedPodcastId: "podcast-part10-2", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "数学で「黄金比は美しい」と習う。" },
+    { id: 'note-92', number: 92, title: "アイスクリームを見たサルが科学を変えた——共感の回路とは何か", status: "local-draft", kind: "wonder-note", date: "2026-05-31", target: "第10部第3話「共感の回路」", tags: ["第10部第3話「共感の回路」"], relatedParts: [], relatedPodcastId: "podcast-part10-3", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "友達が泣いていると、胸が痛くなる。" },
+    { id: 'note-93', number: 93, title: "5秒だけ見た棋士が答えを知っていた——直感とは何か", url: "https://note.com/manabimapcreator/n/nbdb09d7a9b2d", status: "published", kind: "wonder-note", date: "2026-06-04", target: "第10部第4話「直感とは何か」", tags: ["第10部第4話「直感とは何か」"], relatedParts: [], relatedPodcastId: "podcast-part10-4", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「なんとなく、こっちが正しい気がする」" },
+    { id: 'note-94', number: 94, title: "小説を読んで人が死んだ——物語に引き込まれる脳の謎とは何か", url: "https://note.com/manabimapcreator/n/n28986bcb8d93", status: "published", kind: "wonder-note", date: "2026-06-05", target: "第10部第5話「物語に引き込まれる理由」", tags: [], relatedParts: [], relatedPodcastId: "podcast-part10-5", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "気がついたら泣いていた。" },
+    { id: 'note-95', number: 95, title: "クジャクの羽はなぜ美しいのか——ダーウィンが眠れなかった問いとは", url: "https://note.com/manabimapcreator/n/n6346fb4997d2", status: "published", kind: "wonder-note", date: "2026-06-06", target: "第10部第6話「なぜ美を感じるのか」", tags: ["第10部第6話「なぜ美を感じるのか」"], relatedParts: [], relatedPodcastId: "podcast-part10-6", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「きれい」と感じる。" },
+    { id: 'note-96', number: 96, title: "3万2千年前の壁画を見て涙が出た——芸術は役に立つのか", url: "https://note.com/manabimapcreator/n/n520d91af4da0", status: "published", kind: "wonder-note", date: "2026-06-07", target: "第10部第7話「芸術は役に立つのか」", tags: ["第10部第7話「芸術は役に立つのか」"], relatedParts: [], relatedPodcastId: "podcast-part10-7", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "役に立たない絵を、人間は作り続けてきた。" },
+    { id: 'note-97', number: 97, title: "犬はチンパンジーより人の気持ちがわかる——共感はなぜ必要だったのか", url: "https://note.com/manabimapcreator/n/n2e27f32f175a", status: "published", kind: "wonder-note", date: "2026-06-08", target: "第10部第8話「共感はなぜ必要だったか」", tags: [], relatedParts: [], relatedPodcastId: "podcast-part10-8", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "人間が指を差すと、犬はその方向を見る。" },
+    { id: 'note-98', number: 98, title: "なぜ人は極限状況でも「意味」を手放さないのか", url: "https://note.com/manabimapcreator/n/nf56c1e0f4d50", status: "published", kind: "wonder-note", date: "2026-06-09", target: "第10部第9話「意味を求める動物」", tags: ["第10部第9話「意味を求める動物」"], relatedParts: [], relatedPodcastId: "podcast-part10-9", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "どんなに過酷な状況でも、" },
+    { id: 'note-99', number: 99, title: "感性はなぜ「余り物」から生まれたのか", url: "https://note.com/manabimapcreator/n/n474269d7c02f", status: "published", kind: "wonder-note", date: "2026-06-10", target: "第10部第10話「感性は副産物か適応か」", tags: [], relatedParts: [], relatedPodcastId: "podcast-part10-10", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "美しいと感じる力は、" },
+    { id: 'note-100', number: 100, title: "AIが描いた絵で感動した自分は、正しいのか", url: "https://note.com/manabimapcreator/n/n0284d3195646", status: "published", kind: "wonder-note", date: "2026-06-11", target: "第10部第11話「生成芸術は美しいか」", tags: [], relatedParts: [], relatedPodcastId: "podcast-part10-11", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "きれいだと思った。" },
+    { id: 'note-101', number: 101, title: "AIに悩みを話すとき、「わかってもらえた」は本物なのか", url: "https://note.com/manabimapcreator/n/n085c80ebeff6", status: "published", kind: "wonder-note", date: "2026-06-12", target: "第10部第12話「AIは共感できるか」", tags: [], relatedParts: ["part8"], relatedPodcastId: "podcast-part10-12", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "生成AIは、何を生成しているのか。", relation: "生成AIの枝道", primaryPart: "part8", excerpt: "誰かに話して、気持ちが楽になったことがある。" },
+    { id: 'note-102', number: 102, title: "意味はどこに宿るのか—便器が芸術になった日", url: "https://note.com/manabimapcreator/n/n03edcb64848a", status: "published", kind: "wonder-note", date: "2026-06-13", target: "第10部第13話「意味はどこに宿るか」", tags: [], relatedParts: [], relatedPodcastId: "podcast-part10-13", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "同じ曲なのに、昨日と今日では感じ方が違う。" },
+    { id: 'note-103', number: 103, title: "感性は教えられるのか——フィンランドが問い続けたこと", url: "https://note.com/manabimapcreator/n/n57b9de7f89ae", status: "published", kind: "wonder-note", date: "2026-06-14", target: "第10部第14話「教育と感性」", tags: ["第10部第14話「教育と感性」"], relatedParts: ["part8-2","part8"], relatedPodcastId: "podcast-part10-14", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "AIが宿題を解ける時代に、学力とは何か。", relation: "教育と日常の枝道", primaryPart: "part8-2", excerpt: "「この絵は何点ですか？」" },
+    { id: 'note-104', number: 104, title: "スポティファイは好きになる曲を知っている", status: "local-draft", kind: "wonder-note", date: "2026-05-31", target: "第10部第15話「感性は再現できるのか」", tags: [], relatedParts: [], relatedPodcastId: "podcast-part10-15", relatedYouTubeId: "youtube-part10", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "スポティファイのおすすめ曲が、よく当たる。" }
   ];
 
   const routes = [
@@ -539,7 +539,14 @@
       url: 'https://youtu.be/Ej3O4HEuF-Y',
       relatedParts: ['part5'],
       question: '言葉がない世界では、思考はどのように存在するのか。',
-      relation: 'Podcastで深める'
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第5部 Podcast図解 1',
+          src: 'infographics/info5-1.png',
+          caption: '言葉がない状態でも、思考がどのように生まれるかを見る'
+        }
+      ]
     },
     {
       id: 'podcast-part5-02',
@@ -548,7 +555,14 @@
       url: 'https://youtu.be/ot98Lqru5K8',
       relatedParts: ['part5'],
       question: '言葉がない世界では、思考はどのように存在するのか。',
-      relation: 'Podcastで深める'
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第5部 Podcast図解 2',
+          src: 'infographics/info5-2.png',
+          caption: '内なる声と自己が、頭の中でどう結びつくかを見る'
+        }
+      ]
     },
     {
       id: 'podcast-part5-03',
@@ -557,7 +571,14 @@
       url: 'https://youtu.be/OdLhuXi96oQ',
       relatedParts: ['part5'],
       question: '言葉がない世界では、思考はどのように存在するのか。',
-      relation: 'Podcastで深める'
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第5部 Podcast図解 3',
+          src: 'infographics/info5-3.png',
+          caption: '抽象化と概念が、世界の見え方をどう整理するかを見る'
+        }
+      ]
     },
     {
       id: 'podcast-part5-04',
@@ -566,7 +587,14 @@
       url: 'https://youtu.be/ctB1AVK-8Bc',
       relatedParts: ['part5'],
       question: '言葉がない世界では、思考はどのように存在するのか。',
-      relation: 'Podcastで深める'
+      relation: 'Podcastで深める',
+      infographics: [
+        {
+          title: '第5部 Podcast図解 4',
+          src: 'infographics/info5-4.png',
+          caption: '相関と因果の違いから、論理の限界と使い方を見る'
+        }
+      ]
     },
     {
       id: 'podcast-part5-05',
@@ -743,6 +771,141 @@
           caption: '数字が見えない世界を測れる道具になる瞬間を見る'
         }
       ]
+    },
+    {
+      id: 'podcast-part6-05a',
+      type: 'podcast',
+      title: '助けるために作ったIQテストが優生学に使われた——コブラ効果と測ることの罠｜まるごと聴く 数字の呪いの深層【ハルとおじいさん #6P-5a】',
+      url: 'https://youtu.be/lHiVWnlWqMQ',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part6-05b',
+      type: 'podcast',
+      title: '4063人を測定したら「平均的な人間」が0人だった——米空軍が発見した平均の嘘｜まるごと聴く ランキングと平均の深層【ハルとおじいさん #6P-5b】',
+      url: 'https://youtu.be/wXoOdF3sg0Q',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part6-06',
+      type: 'podcast',
+      title: '賭け金の揉め事をパスカルに相談したら天気予報・保険・ChatGPTの基盤が生まれた——1654年の数学革命｜まるごと聴く 確率論の誕生の深層【ハルとおじいさん #6P-6】',
+      url: 'https://youtu.be/BU8s561zFaI',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part6-06a',
+      type: 'podcast',
+      title: '幸福は数字で測れるか——ブータンのGNHとフロー体験と黄金比の嘘｜まるごと聴く 数字と心の深層【ハルとおじいさん #6P-6a】',
+      url: 'https://youtu.be/k_Ky0wA2lJE',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part6-06b',
+      type: 'podcast',
+      title: 'GDPを発明した経済学者が「これで幸福は測れない」と警告した——自分の物差しを持つためのフランクルとストア哲学｜まるごと聴く 数字の使い方の深層【ハルとおじいさん #6P-6b】',
+      url: 'https://youtu.be/1bfS7bnFquQ',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part6-07',
+      type: 'podcast',
+      title: '「白衣の天使」は嘘だった——ナイチンゲールはデータで死亡率を42%から2%に下げた革命家だ｜まるごと聴く ナイチンゲールの統計革命の深層【ハルとおじいさん #6P-7】',
+      url: 'https://youtu.be/HelSc-JnDg4',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part6-08',
+      type: 'podcast',
+      title: '300年間嘲笑された「存在しない数」が今のコンセントを支えている——エジソンが象を感電死させても交流が勝った理由｜まるごと聴く 虚数の逆転劇の深層【ハルとおじいさん #6P-8】',
+      url: 'https://youtu.be/ZH7dxpWUP6w',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part6-epilogue',
+      type: 'podcast',
+      title: '「意味だけは奪えない」数字の旅を終えて、自分の物差しを問う｜まるごと聴く 第6部エピローグ【ハルとおじいさん #6P-エピ】',
+      url: 'https://youtu.be/RwrEBly_vRY',
+      relatedParts: ['part6'],
+      question: '数字で測れるものだけが、価値あるものなのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part7-01',
+      type: 'podcast',
+      title: '光の速さを追いかけたら時間が遅くなる——アインシュタイン16歳の問いが世界を変えた｜まるごと聴く 感覚を超えての深層【ハルとおじいさん #7P-1】',
+      url: 'https://youtu.be/QcvW5eARMao',
+      relatedParts: ['part7'],
+      question: '人間の当たり前を外すと、世界はどう見え直すのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part7-02',
+      type: 'podcast',
+      title: '「わからなくても前に進める」——ノーベル賞物理学者が「電子は全ての経路を同時に通る」と言った理由｜まるごと聴く 理解を超えての深層【ハルとおじいさん #7P-2】',
+      url: 'https://youtu.be/ogPheZebCSY',
+      relatedParts: ['part7'],
+      question: '人間の当たり前を外すと、世界はどう見え直すのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part7-03',
+      type: 'podcast',
+      title: 'エニグマ解読で1400万人を救った天才が迫害された——チューリングが問い続けた「機械は考えるか？」｜まるごと聴く 人間の特権を超えての深層【ハルとおじいさん #7P-3】',
+      url: 'https://youtu.be/O9HPXy8rZSM',
+      relatedParts: ['part7'],
+      question: '人間の当たり前を外すと、世界はどう見え直すのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part7-04',
+      type: 'podcast',
+      title: 'すべてのコンピュータに宿る設計——「20世紀最強の頭脳」フォン・ノイマンはゲーム理論・原爆・AIの何を見たか｜まるごと聴く 思考を作るの深層【ハルとおじいさん #7P-4】',
+      url: 'https://youtu.be/x7FsQFtMujI',
+      relatedParts: ['part7'],
+      question: '人間の当たり前を外すと、世界はどう見え直すのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part8-01a',
+      type: 'podcast',
+      title: 'AIという名前が付いた日｜まるごと聴く 作るAIの誕生【ハルとおじいさん #8P-1a】',
+      url: 'https://youtu.be/Rc1dVXpE7cQ',
+      relatedParts: ['part8'],
+      question: '生成AIは、何を生成しているのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part8-01b',
+      type: 'podcast',
+      title: '「答えるAI」と「作るAI」は何が違う？｜まるごと聴く 作るAIの誕生【ハルとおじいさん #8P-1b】',
+      url: 'https://youtu.be/bVXfUmfgJww',
+      relatedParts: ['part8'],
+      question: '生成AIは、何を生成しているのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part8-02a',
+      type: 'podcast',
+      title: '正しかったと証明される前に逝った研究者｜まるごと聴く ルールから確率へ【ハルとおじいさん #8P-2a】',
+      url: 'https://youtu.be/FrJ8pwu0qSg',
+      relatedParts: ['part8'],
+      question: '生成AIは、何を生成しているのか。',
+      relation: 'Podcastで深める'
     }
   ];
 

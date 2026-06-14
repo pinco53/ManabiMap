@@ -1,40 +1,37 @@
-# note_92｜アイスクリームを見たサルが、科学を変えた日
+# note_92｜アイスクリームを見たサルが科学を変えた——共感の回路とは何か
 
 **記事種別**: wonder-note
 **対象**: 第10部第3話「共感の回路」
-**保存日**: 2026-05-27
+**保存日**: 2026-05-31
 **公開状態**: local-draft
 **主対象パート**: part10
 **関連PodcastID**: podcast-part10-3
-**関連PodcastURL**: （アップロード後に記入）
 **関連YouTubeID**: youtube-part10
 **関連YouTubeURL**: （アップロード後に記入）
-**CTA文言**: 関連動画を見る
+**CTA文言**: Podcastで深く聴く
 
 ---
 
 ## 記事
 
 ```
-# アイスクリームを見たサルが、科学を変えた日
+# アイスクリームを見たサルが科学を変えた——共感の回路とは何か
 
 友達が泣いていると、胸が痛くなる。
-自分は何もされていないのに。
+自分は何もされていないのに。これはなぜなのか。
 
-これはなぜなのだろう。
-
-https://あなたのURL
+https://www.youtube.com/watch?v=Lt-kEg5rzJA
 
 ---
 
-## 偶然の発見
+## 昼休みの偶然が、科学を動かした
 
 1992年、イタリア・パルマ大学の研究室。
 
 ジャコモ・リゾラッティのチームは、サルの脳に電極をつけ、
 手を動かしたときに発火する神経を記録していた。
 
-ある日、大学院生が昼休みのアイスクリームコーンを手に研究室へ戻ってきた。
+ある日、大学院生がアイスクリームコーンを手に研究室へ戻ってきた。
 サルはじっとその学生を見つめていた。
 
 学生がコーンを口元へ運んだ瞬間——
@@ -48,19 +45,8 @@ https://あなたのURL
 
 これが「ミラーニューロン」の発見だった。
 
-## 他者を映す神経細胞
-
-鏡のように、他者の動作を自分の内側で映し出す神経細胞。
-
-誰かが転ぶのを見て「いたっ」となる。
-映画の主人公が崖から落ちそうになって手に汗をかく。
-あくびが移る。
-
-これらすべてに、同じ仕組みが関わっていると考えられている。
-
 リゾラッティのチームが論文を書いたとき、
 最初にNature誌に投稿したが、却下された。
-
 「重要性が低すぎる」という理由で。
 
 その後、この発見は「人類が共感の神経基盤を初めて捉えた」と
@@ -69,13 +55,12 @@ https://あなたのURL
 偶然の出来事が科学を動かすことがある。
 そして、最初は誰も重要さに気づかない。
 
-## ダーウィンが気づいていたこと
+## 1872年、ダーウィンが「感情」に向き合った
 
-1872年、チャールズ・ダーウィンは一冊の本を出版した。
+進化論で知られるチャールズ・ダーウィンは、
+1872年に一冊の本を出版した。
 
 「人間および動物の表情について」
-
-進化論で有名なダーウィンが、次に取り組んだのは——感情だった。
 
 彼は世界各地の人々に写真を送り、
 「この顔はどんな感情を表しているか」と尋ねた。
@@ -83,18 +68,15 @@ https://あなたのURL
 結果は驚くべきものだった。
 喜び、悲しみ、怒り——表情は文化を超えて共通していた。
 
-ダーウィンはこう考えた。
-「共感する能力も、自然選択で形作られたものだ」と。
-
-進化が「他者の痛みを感じる能力」を選んだのだ。
+ダーウィンはこう結論づけた。
+「共感する能力も、自然選択で形作られたものだ」
 
 集団で狩りをし、子を育てる動物にとって、
 仲間の感情を読む力は「生存の道具」だったのかもしれない。
 
-## 言葉より古い感覚
+## 言葉より古い「響き」
 
 言語が生まれたのは、数万年前とされる。
-
 でも、共感はもっと古い。
 
 言葉がなくても、親は子の泣き声でその意味を感じ取る。
@@ -102,7 +84,7 @@ https://あなたのURL
 
 ミラーニューロンの発見が示したのは、
 共感が「思いやり深い性格」から来るのではなく、
-脳の深い層に刻まれた、自動的な仕組みだということだった。
+脳の深い層に刻まれた自動的な仕組みだということだった。
 
 感じようとしなくても、感じてしまう。
 
@@ -123,7 +105,8 @@ AIは高い精度でそれができる。
 
 これらは「身体の響き」だ。
 
-共感とは、頭で理解することと、体で感じることの、どちらなのか。
+共感とは、頭で理解することか。
+体で感じることか。
 あるいは——両方が揃って初めて共感と呼べるのか。
 
 ---
@@ -134,13 +117,17 @@ AIは高い精度でそれができる。
 
 ---
 
-https://あなたのURL
+→ **[Podcastで深く聴く｜ハルとおじいさん 第10部第3話](https://www.youtube.com/watch?v=Lt-kEg5rzJA)**
 
 → **[ハルとおじいさん 第10部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part10.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+---
+
+#共感 #ミラーニューロン #リゾラッティ #ダーウィン #脳科学 #神経科学 #感情 #進化 #エンパシー #AIと共感 #人工知能 #サルの実験 #身体と感情 #哲学 #心理学 #表情 #人類 #協力 #生存 #考察 #読み物 #大人の学び #ハルとおじいさん #学びの地図 #ManabiMap
 ```
 
 ---
@@ -149,32 +136,57 @@ https://あなたのURL
 
 ```json
 {
-  "task": "note記事サムネイル画像生成",
+  "task": "note記事 サムネイル画像生成",
   "specifications": {
     "size": "1280x720px (16:9)",
-    "style": "Crayon drawing style, oil pastel art, rough paper texture, visible strokes, hand-drawn illustration, warm atmosphere, children's book, whimsical Japanese animation vibe",
-    "color_palette": "柔らかいグリーンとクリームのグラデーション。春の光と芽吹きを思わせる明るい緑系",
+    "style": "Visionary Digital Painting, soft-focus with velvety textures, ethereal dreamlike academic fantasy, luminous, whimsical",
+    "color_palette": "柔らかいスプリンググリーンとクリームのグラデーション。春の芽吹きと朝の光を思わせる明るい緑系。暗い色NG",
     "visibility_rules": [
-      "人物（おじいさん・ハル）は一切登場させない",
-      "右下隅に黒猫シルエットのみ（小さく・控えめに）",
-      "メインビジュアルは「共感・鏡・つながり」を象徴するモチーフ（波紋・鏡・糸でつながれた二つの心臓のシルエット）",
-      "上部20%は文字専用の安全帯"
+      "主役は黒猫アインシュタイン（シルエット）1体のみ",
+      "上部25%はタイトルテキスト専用帯",
+      "背景は明るく保つ",
+      "ハル・おじいさんは絶対に登場させない"
     ]
   },
   "layout": {
     "text": {
-      "line1": "🎙️ ポッドキャスト版",
-      "line2": "アイスクリームを見た\nサルが、科学を変えた",
-      "position": "左寄り上部（上部20%の文字帯内）",
+      "line1": "アイスクリームを見たサルが",
+      "line2": "科学を変えた",
+      "position": "上部（上部25%の文字帯内）、中央揃え",
       "font": "太字ゴシック",
-      "color": "深いグリーン + クリーム縁取り（4px）",
-      "size": "1行目: 48px, 2行目: 72px"
+      "color": "深いネイビー（#1a2a4a）+ 白縁（2-3px）",
+      "size": "line1: 62px、line2: 68px",
+      "safe_margin": "文字の下に余白を確保し、黒猫の耳・目に被せない"
     },
-    "main_visual": "Soft green ripples expanding from a central point like a mirror reflecting emotion, two silhouetted figures at a distance connected by a gentle light thread, warm spring green and cream background, suggesting empathy as an invisible resonance between beings",
-    "accent": {
-      "EinsteinCat": "右下隅に小さな黒猫シルエット（波紋をじっと見つめている）",
-      "badge": "右上隅に濃い背景ボックス付きで '#10P-3' のバッジ"
+    "main_subject": {
+      "einstein_cat": {
+        "position": "中央（やや下寄り）",
+        "size": "画面の44%",
+        "style": "黒猫シルエット、明るい背景にくっきり、目はアンバーゴールド",
+        "lighting": "春の朝の光、柔らかいグリーンと金色の混合光",
+        "pose": "座って、波紋のような光の広がりをじっと見つめている",
+        "expression": "静かな驚きと共鳴するような、穏やかに目を見開いた表情"
+      }
     }
+  },
+  "scene_description": "A luminous spring-green and cream dreamscape. Soft concentric ripples expand outward from a central point of soft golden light, like a mirror reflecting emotion across the scene. A black cat silhouette sits in the center-lower area, amber eyes focused on the spreading ripples with quiet wonder. The atmosphere suggests invisible resonance between beings — empathy as a wave. Top area kept clear for title text.",
+  "important_notes": [
+    "黒猫シルエット以外のキャラクターは絶対に入れない",
+    "背景は明るく保つ",
+    "波紋は淡くやさしく、主役は黒猫のみ",
+    "スマホ縮小でも黒猫と目が認識できるコントラストを維持"
+  ],
+  "style_reference": {
+    "art_style": "Visionary Digital Painting",
+    "rendering_technique": "Soft-focus with velvety textures",
+    "aesthetic_tags": ["Ethereal", "Dreamlike", "Academic Fantasy", "Whimsical", "Luminous"],
+    "visual_characteristics": {
+      "edges": "Soft, blurred, and diffused",
+      "lighting": "Fresh spring morning light with soft green and gold tones",
+      "texture": "Grainy painterly feel, resembling soft pastel",
+      "depth": "Layered transparency, misty atmosphere"
+    },
+    "prompt_keywords": ["soft glow", "empathy ripples", "diffused light", "pastel dreamscape", "mirror reflection of emotion"]
   }
 }
 ```

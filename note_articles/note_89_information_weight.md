@@ -2,11 +2,12 @@
 
 **記事種別**: wonder-note
 **対象**: 第4部第5話・第6話関連
-**保存日**: 2026-05-31
-**公開状態**: local-draft
+**保存日**: 2026-06-01
+**URL**: https://note.com/manabimapcreator/n/naa957d4db3d4
+**公開状態**: published
 **主対象パート**: part4
 **関連PodcastID**: podcast-part4-5
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://youtu.be/Z0ilADkBAtY
 **関連YouTubeID**: youtube-part4
 **関連YouTubeURL**: https://www.youtube.com/watch?v=8dySbSKpZNU
 **CTA文言**: Podcastで深く聴く
@@ -90,7 +91,7 @@ Googleの検索は1日85億回行われ、
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第4部](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第4部第5話「図書館と公教育の深層」](https://youtu.be/Z0ilADkBAtY)**
 
 https://www.youtube.com/watch?v=8dySbSKpZNU
 
