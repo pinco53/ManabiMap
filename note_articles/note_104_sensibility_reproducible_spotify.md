@@ -2,8 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第10部第15話「感性は再現できるのか」
-**保存日**: 2026-05-31
-**公開状態**: local-draft
+**保存日**: 2026-06-15
+**URL**: https://note.com/manabimapcreator/n/n929d9f2520ee
+**公開状態**: published
 **主対象パート**: part10
 **関連PodcastID**: podcast-part10-15
 **関連YouTubeID**: youtube-part10
