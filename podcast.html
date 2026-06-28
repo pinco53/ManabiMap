@@ -22,7 +22,7 @@
   --bg: #08080d;
   --bg-panel: #10101a;
   --text: #e8e8f0;
-  --text-dim: #9090aa;
+  --text-dim: #a3a3bf;
   --text-bright: #ffffff;
   --border: #2a2a40;
   --podcast: #ffb86b;
@@ -35,11 +35,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
-  background:
-    radial-gradient(circle at 16% 12%, rgba(255,184,107,0.12), transparent 26%),
-    radial-gradient(circle at 78% 0%, rgba(141,162,255,0.13), transparent 28%),
-    radial-gradient(circle at 50% 100%, rgba(0,212,255,0.08), transparent 34%),
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   font-size: 15px;
   line-height: 1.8;
@@ -84,7 +80,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 84px 24px 42px;
+  padding: 58px 24px 28px;
 }
 .hero-label {
   margin-bottom: 16px;
@@ -96,11 +92,8 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-title {
   max-width: 100%;
-  margin-bottom: 18px;
-  background: linear-gradient(135deg, #fff 0%, var(--podcast) 48%, var(--voice) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-bottom: 14px;
+  color: var(--text-bright);
   font-size: clamp(34px, 6vw, 72px);
   font-weight: 900;
   line-height: 1.15;
@@ -247,19 +240,19 @@ a { color: inherit; text-decoration: none; }
 .console {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 0 24px 24px;
+  padding: 0 24px 18px;
 }
 .console-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 1fr;
   gap: 20px;
-  align-items: end;
+  align-items: start;
   padding: 22px;
-  border: 1px solid rgba(255,184,107,0.24);
-  border-radius: 10px;
-  background:
-    radial-gradient(circle at 0% 0%, rgba(255,184,107,0.12), transparent 38%),
-    linear-gradient(145deg, rgba(16,16,26,0.92), rgba(8,8,13,0.92));
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.055);
+  backdrop-filter: blur(22px) saturate(1.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 18px 48px rgba(0,0,0,0.24);
 }
 .console-label {
   margin-bottom: 6px;
@@ -270,7 +263,7 @@ a { color: inherit; text-decoration: none; }
 }
 .console-title {
   color: var(--text-bright);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.45;
 }
@@ -278,14 +271,34 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: flex-end;
+  justify-content: flex-start;
+}
+.podcast-search input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.055);
+  color: var(--text-bright);
+  font: inherit;
+  font-size: 15px;
+  padding: 10px 14px;
+  outline: none;
+  backdrop-filter: blur(18px) saturate(1.1);
+}
+.podcast-search input:focus {
+  border-color: rgba(255,255,255,0.42);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.09);
+}
+.podcast-search input::placeholder {
+  color: rgba(210,210,230,0.62);
 }
 .filter-button {
   min-height: 34px;
   padding: 7px 13px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,0.16);
   border-radius: 999px;
-  background: rgba(255,255,255,0.025);
+  background: rgba(255,255,255,0.04);
   color: var(--text-dim);
   font: inherit;
   font-size: 12px;
@@ -295,9 +308,9 @@ a { color: inherit; text-decoration: none; }
 }
 .filter-button:hover,
 .filter-button.active {
-  color: var(--podcast);
-  border-color: var(--podcast);
-  background: rgba(255,184,107,0.09);
+  color: var(--text-bright);
+  border-color: rgba(255,255,255,0.44);
+  background: rgba(255,255,255,0.12);
 }
 
 .grid-section {
@@ -307,8 +320,8 @@ a { color: inherit; text-decoration: none; }
 }
 .podcast-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
 }
 .podcast-card {
   --accent: var(--podcast);
@@ -316,17 +329,17 @@ a { color: inherit; text-decoration: none; }
   display: grid;
   overflow: hidden;
   min-height: 100%;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  background:
-    linear-gradient(145deg, rgba(16,16,26,0.96), rgba(8,8,13,0.96)),
-    var(--bg-panel);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.055);
+  backdrop-filter: blur(24px) saturate(1.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 18px 52px rgba(0,0,0,0.28);
   transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 .podcast-card:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--accent), white 12%);
-  box-shadow: 0 18px 42px color-mix(in srgb, var(--accent), transparent 82%);
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.42);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 22px 58px rgba(0,0,0,0.34);
 }
 .podcast-thumb {
   position: relative;
@@ -339,16 +352,16 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.82;
-  filter: saturate(1.08) contrast(1.05);
+  opacity: 0.94;
+  filter: saturate(1.02) contrast(1.02);
   transition: transform 0.35s, opacity 0.35s;
 }
 .podcast-card:hover .podcast-thumb img {
-  transform: scale(1.035);
-  opacity: 0.94;
+  transform: scale(1.02);
+  opacity: 1;
 }
 .podcast-thumb::after {
-  content: '';
+  content: none;
   position: absolute;
   inset: 0;
   background:
@@ -356,6 +369,7 @@ a { color: inherit; text-decoration: none; }
     radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent), transparent 62%), transparent 32%);
 }
 .thumb-label {
+  display: none;
   position: absolute;
   left: 14px;
   top: 14px;
@@ -370,6 +384,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.18em;
 }
 .play-mark {
+  display: none;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -392,6 +407,7 @@ a { color: inherit; text-decoration: none; }
   border-left: 17px solid #fff;
 }
 .waveform {
+  display: none;
   position: absolute;
   right: 16px;
   bottom: 15px;
@@ -417,7 +433,7 @@ a { color: inherit; text-decoration: none; }
 .podcast-body {
   display: flex;
   flex-direction: column;
-  padding: 22px;
+  padding: 16px;
 }
 .orbit-label {
   width: fit-content;
@@ -426,7 +442,7 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid color-mix(in srgb, var(--accent), transparent 54%);
   border-radius: 999px;
   background: color-mix(in srgb, var(--accent), transparent 91%);
-  color: var(--accent);
+  color: rgba(255,255,255,0.82);
   font-size: 9px;
   font-weight: 900;
   letter-spacing: 0.22em;
@@ -434,12 +450,12 @@ a { color: inherit; text-decoration: none; }
 .podcast-title {
   margin-bottom: 12px;
   color: var(--text-bright);
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 900;
-  line-height: 1.45;
+  line-height: 1.55;
 }
 .card-fit {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: 7px;
   margin-bottom: 12px;
@@ -458,7 +474,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.12em;
 }
 .branch-box {
-  display: grid;
+  display: none;
   gap: 4px;
   margin-bottom: 13px;
   padding: 12px;
@@ -469,7 +485,7 @@ a { color: inherit; text-decoration: none; }
 .branch-eyebrow,
 .branch-tail {
   color: var(--text-dim);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.1em;
 }
 .branch-node {
@@ -480,18 +496,20 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.5;
 }
 .question {
+  display: none;
   margin-bottom: 14px;
   color: #d5d9ea;
   font-size: 13px;
   line-height: 1.75;
 }
 .relation {
+  display: none;
   margin-bottom: 18px;
   color: var(--text-dim);
   font-size: 12px;
 }
 .card-infographic {
-  display: grid;
+  display: none;
   grid-template-columns: 96px 1fr;
   gap: 12px;
   align-items: center;
@@ -540,7 +558,7 @@ a { color: inherit; text-decoration: none; }
 }
 .card-infographic__text span {
   color: var(--text-dim);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.12em;
 }
 .card-infographic__text strong {
@@ -573,8 +591,8 @@ a { color: inherit; text-decoration: none; }
   flex-wrap: wrap;
   gap: 9px;
   margin-top: auto;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.10);
 }
 .action {
   display: inline-flex;
@@ -582,9 +600,9 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   min-height: 36px;
   padding: 7px 13px;
-  border: 1px solid color-mix(in srgb, var(--accent), transparent 44%);
-  border-radius: 7px;
-  background: color-mix(in srgb, var(--accent), transparent 91%);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 9px;
+  background: rgba(255,255,255,0.07);
   color: var(--text-bright);
   font-size: 12px;
   font-weight: 900;
@@ -592,21 +610,23 @@ a { color: inherit; text-decoration: none; }
   transition: background 0.22s, border-color 0.22s;
 }
 .action:hover {
-  border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent), transparent 82%);
+  border-color: rgba(255,255,255,0.42);
+  background: rgba(255,255,255,0.14);
 }
 .action--map {
+  display: none;
   border-color: rgba(0,212,255,0.34);
   background: rgba(0,212,255,0.06);
   color: #9eeeff;
 }
 .action--video {
+  display: none;
   border-color: rgba(141,162,255,0.34);
   background: rgba(141,162,255,0.06);
   color: #dfe5ff;
 }
 .card-branches {
-  display: grid;
+  display: none;
   gap: 10px;
   margin-bottom: 18px;
 }
@@ -629,7 +649,7 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid rgba(65,201,180,0.22);
   border-radius: 999px;
   color: #bdeee7;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
 }
 .card-note-link:hover {
@@ -642,6 +662,65 @@ a { color: inherit; text-decoration: none; }
   border-radius: 10px;
   color: var(--text-dim);
   text-align: center;
+}
+
+.podcast-groups {
+  display: grid;
+  gap: 34px;
+}
+.podcast-group__head {
+  --accent: var(--podcast);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: baseline;
+  margin-bottom: 16px;
+  padding: 0 2px;
+  border-left: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.podcast-group__part {
+  color: rgba(255,255,255,0.62);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.26em;
+}
+.podcast-group__title {
+  color: var(--text-bright);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+.podcast-group__count {
+  color: var(--text-dim);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+.podcast-group__map-link {
+  display: none;
+  margin-left: auto;
+  padding: 4px 12px;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 54%);
+  border-radius: 999px;
+  color: var(--text-bright);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transition: background 0.22s, border-color 0.22s;
+}
+.route-choice,
+.learning-flow {
+  display: none;
+}
+.play-mark,
+.waveform {
+  display: none !important;
+}
+.podcast-group__map-link:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent), transparent 88%);
 }
 
 .page-footer {
@@ -771,20 +850,17 @@ body.modal-open {
   <a href="parts/part9.html" data-part="9">第9部</a>
   <a href="note.html">note記事</a>
   <a href="podcast.html" class="active">Podcast</a>
+  <a href="infographics.html">図解</a>
 </nav>
 
 <section class="hero">
   <div class="hero-label">Podcast</div>
-  <h1 class="hero-title">耳でたどる、学びのPodcast</h1>
+  <h1 class="hero-title">Podcast</h1>
   <p class="hero-desc">
-    全ての部へ広がっていく音声版の学習ルートです。
-    移動中や家事中に耳で入り、インフォグラフィックで構造を確かめ、気になった問いは地図・note・動画へ戻って深められます。
+    サムネとテーマから、聴きたい回を選べます。
   </p>
   <div class="hero-meta">
     <span class="hero-pill" id="podcast-count">0 episodes</span>
-    <span class="hero-pill">ながら学習</span>
-    <span class="hero-pill">図解保存OK</span>
-    <span class="hero-pill">Map / note / video linked</span>
   </div>
 </section>
 
@@ -848,14 +924,17 @@ body.modal-open {
   <div class="console-panel">
     <div>
       <div class="console-label">PODCAST MAP</div>
-      <div class="console-title">部ごとのPodcastを選ぶ</div>
+      <div class="console-title">テーマで探す</div>
+    </div>
+    <div class="podcast-search">
+      <input id="podcast-search-input" type="search" placeholder="タイトルやテーマで検索" autocomplete="off">
     </div>
     <div class="filter-buttons" id="filter-buttons"></div>
   </div>
 </section>
 
 <section class="grid-section" id="podcast-list">
-  <div class="podcast-grid" id="podcast-grid" aria-live="polite"></div>
+  <div class="podcast-groups" id="podcast-grid" aria-live="polite"></div>
 </section>
 
 <div class="infographic-modal" id="infographic-modal" role="dialog" aria-modal="true" aria-labelledby="infographic-modal-title" hidden>
@@ -1014,8 +1093,30 @@ body.modal-open {
   }
 
   function partLabel(part) {
-    if (!part) return 'MAP ORBIT';
-    return 'PART ' + part.number + ' ORBIT';
+    if (!part) return 'Podcast';
+    return topicLabelForPartId(part.id);
+  }
+
+  function topicLabelForPartId(partId) {
+    const labels = {
+      part1: '機械と時間',
+      part2: 'つながり',
+      part3: 'AIと人間',
+      part4: '知識と記録',
+      part5: '言葉と思考',
+      part6: '数字と社会',
+      part7: '前提を外す',
+      part8: '生成AI',
+      'part8-2': 'AIと日常',
+      part9: '身体と進化'
+    };
+    return labels[partId] || 'Podcast';
+  }
+
+  function podcastTopic(item) {
+    const source = [item.id, item.title].join(' ');
+    if (source.indexOf('AI源流') !== -1) return 'AI源流';
+    return topicLabelForPartId(firstPartId(item));
   }
 
   function displayPartNumber(part) {
@@ -1050,45 +1151,112 @@ body.modal-open {
     return null;
   }
 
-  function renderFilters() {
-    const partIds = podcasts
-      .map(firstPartId)
+  function podcastPartIds() {
+    return podcasts
+      .map(podcastTopic)
       .filter(Boolean)
       .filter(function(id, index, array) { return array.indexOf(id) === index; });
+  }
+
+  function podcastCountForPart(topic) {
+    return podcasts.filter(function(item) { return podcastTopic(item) === topic; }).length;
+  }
+
+  function partIdFromHash() {
+    const hash = decodeURIComponent((window.location.hash || '').replace('#', ''))
+      .replace('part8_2', 'part8-2');
+    return podcastPartIds().indexOf(hash) !== -1 ? hash : '';
+  }
+
+  function setActivePart(partId, updateHash) {
+    activePart = partId || 'all';
+    filterButtons.querySelectorAll('.filter-button').forEach(function(item) {
+      item.classList.toggle('active', (item.dataset.part || 'all') === activePart);
+    });
+    if (updateHash && window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', activePart === 'all'
+        ? window.location.pathname + window.location.search
+        : '#' + activePart);
+    }
+    renderCards();
+  }
+
+  function renderFilters() {
+    const topicOrder = ['AI源流', '生成AI', 'AIと日常', '知識と記録', '言葉と思考', '数字と社会', '身体と進化', 'AIと人間', 'つながり', '機械と時間'];
+    const partIds = podcastPartIds().sort(function(a, b) {
+      const ai = topicOrder.indexOf(a);
+      const bi = topicOrder.indexOf(b);
+      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+    });
 
     const buttons = [
-      '<button type="button" class="filter-button active" data-part="all">すべて</button>'
-    ].concat(partIds.map(function(partId) {
-      const part = findPart(partId);
-      const label = part ? '第' + displayPartNumber(part) + '部' : partId;
-      return '<button type="button" class="filter-button" data-part="' + escapeHtml(partId) + '">' + escapeHtml(label) + '</button>';
+      '<button type="button" class="filter-button active" data-part="all">すべて (' + podcasts.length + ')</button>'
+    ].concat(partIds.map(function(topic) {
+      return '<button type="button" class="filter-button" data-part="' + escapeHtml(topic) + '">' + escapeHtml(topic) + ' (' + podcastCountForPart(topic) + ')</button>';
     }));
 
     filterButtons.innerHTML = buttons.join('');
     filterButtons.querySelectorAll('.filter-button').forEach(function(button) {
       button.addEventListener('click', function() {
-        activePart = button.dataset.part || 'all';
-        filterButtons.querySelectorAll('.filter-button').forEach(function(item) {
-          item.classList.toggle('active', item === button);
-        });
-        renderCards();
+        setActivePart(button.dataset.part || 'all', true);
       });
     });
   }
 
   function renderCards() {
+    const searchInput = document.getElementById('podcast-search-input');
+    const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
     const visible = activePart === 'all'
       ? podcasts
-      : podcasts.filter(function(item) { return firstPartId(item) === activePart; });
+      : podcasts.filter(function(item) { return podcastTopic(item) === activePart; });
+    const filtered = visible.filter(function(item) {
+      if (!query) return true;
+      return [item.title, item.id, podcastTopic(item)].join(' ').toLowerCase().indexOf(query) !== -1;
+    });
 
     count.textContent = podcasts.length + (podcasts.length === 1 ? ' episode' : ' episodes');
 
-    if (!visible.length) {
+    if (!filtered.length) {
       grid.innerHTML = '<div class="empty">Podcastは準備中です。</div>';
       return;
     }
 
-    grid.innerHTML = visible.map(function(item) {
+    const groupOrder = [];
+    const grouped = {};
+    filtered.forEach(function(item) {
+      const topic = podcastTopic(item);
+      if (!grouped[topic]) {
+        grouped[topic] = [];
+        groupOrder.push(topic);
+      }
+      grouped[topic].push(item);
+    });
+
+    grid.innerHTML = groupOrder.map(function(topic) {
+      const firstItem = grouped[topic][0];
+      const part = findPart(firstPartId(firstItem));
+      const accent = part && colorMap[part.color] ? colorMap[part.color] : '#ffb86b';
+      const groupItems = grouped[topic];
+      const headHtml = [
+            '<div class="podcast-group__head" id="' + escapeHtml(topic) + '" style="--accent:' + escapeHtml(accent) + '">',
+              '<span class="podcast-group__part">THEME</span>',
+              '<span class="podcast-group__title">' + escapeHtml(topic) + '</span>',
+              '<span class="podcast-group__count">' + groupItems.length + (groupItems.length === 1 ? ' episode' : ' episodes') + '</span>',
+            '</div>'
+          ].join('');
+      return [
+        '<section class="podcast-group" aria-label="' + escapeHtml(topic + 'のPodcast') + '">',
+          headHtml,
+          '<div class="podcast-grid">',
+          groupItems.map(cardHtml).join(''),
+          '</div>',
+        '</section>'
+      ].join('');
+    }).join('');
+    bindInfographicButtons();
+  }
+
+  function cardHtml(item) {
       const partId = firstPartId(item);
       const part = findPart(partId);
       const accent = part && colorMap[part.color] ? colorMap[part.color] : '#ffb86b';
@@ -1168,8 +1336,6 @@ body.modal-open {
           '</div>',
         '</article>'
       ].join('');
-    }).join('');
-    bindInfographicButtons();
   }
 
   if (infographicModal) {
@@ -1185,8 +1351,23 @@ body.modal-open {
   });
 
   renderFilters();
-  renderCards();
+  const podcastSearchInput = document.getElementById('podcast-search-input');
+  if (podcastSearchInput) {
+    podcastSearchInput.addEventListener('input', renderCards);
+  }
+  const initialPart = partIdFromHash();
+  setActivePart(initialPart || 'all', false);
+  if (initialPart) {
+    const listSection = document.getElementById('podcast-list');
+    if (listSection) listSection.scrollIntoView();
+  }
+  window.addEventListener('hashchange', function() {
+    const hashPart = partIdFromHash();
+    if (hashPart) setActivePart(hashPart, false);
+  });
 })();
 </script>
+<script src="assets/js/footprints.js"></script>
+<script src="assets/js/sky-clock.js"></script>
 </body>
 </html>
