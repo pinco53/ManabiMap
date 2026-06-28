@@ -349,12 +349,15 @@ a { color: inherit; text-decoration: none; }
     inset 0 -1px 0 rgba(255,255,255,0.14),
     0 18px 48px rgba(0,0,0,0.28);
 }
+.podcast-card__link {
+  display: block;
+  color: inherit;
+}
 .podcast-thumb {
   position: relative;
   display: block;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,0.18);
   background: rgba(255,255,255,0.03);
 }
 .podcast-thumb img {
@@ -1273,79 +1276,15 @@ body.modal-open {
       const part = findPart(partId);
       const accent = part && colorMap[part.color] ? colorMap[part.color] : '#ffb86b';
       const thumb = thumbnailUrl(item.url);
-      const mapUrl = part && part.pageUrl ? part.pageUrl : 'index.html#map-base';
-      const partTitle = part ? '第' + displayPartNumber(part) + '部 ' + part.title : 'Manabi Map';
-      const infographics = infographicsForItem(item, partId);
-      const primaryInfographic = infographics[0] || null;
-      const publicNotes = publicNotesForPart(partId).slice(0, 2);
-      const shortEntry = shortEntryForPart(part);
       const imageHtml = thumb
         ? '<img src="' + escapeHtml(thumb) + '" alt="' + escapeHtml(item.title) + ' サムネイル" loading="lazy">'
-        : '';
-      const infographicHtml = primaryInfographic
-        ? [
-            '<div class="card-infographic">',
-              '<button type="button" class="card-infographic__preview" data-infographic-open data-podcast-id="' + escapeHtml(item.id) + '" data-part-id="' + escapeHtml(partId) + '" data-infographic-index="0" aria-label="' + escapeHtml(primaryInfographic.title) + 'を拡大">',
-                '<img src="' + escapeHtml(primaryInfographic.src) + '" alt="' + escapeHtml(primaryInfographic.title) + '">',
-                '<span class="card-infographic__zoom">拡大</span>',
-              '</button>',
-              '<div class="card-infographic__text">',
-                '<span>聴きながら見る図解</span>',
-                '<strong>' + escapeHtml(primaryInfographic.title) + '</strong>',
-                '<div class="card-infographic__actions">',
-                  '<a class="card-infographic__action" href="' + escapeHtml(primaryInfographic.src) + '" download="' + escapeHtml(infographicFileName(primaryInfographic.src)) + '">図解を保存</a>',
-                '</div>',
-              '</div>',
-            '</div>'
-          ].join('')
-        : '';
-      const noteLinksHtml = publicNotes.length
-        ? [
-            '<div class="card-branches">',
-              '<div class="card-branches__label">文章で補う</div>',
-              '<div class="card-note-links">',
-                publicNotes.map(function(note) {
-                  return '<a class="card-note-link" href="' + escapeHtml(note.url) + '" target="_blank" rel="noopener noreferrer" data-track-event="podcast_to_note_click" data-track-source="podcast" data-track-content-id="' + escapeHtml(item.id) + '" data-track-destination-type="note_article" data-track-destination-id="' + escapeHtml(note.id) + '">#' + escapeHtml(String(note.number).padStart(2, '0')) + ' ' + escapeHtml(note.title) + '</a>';
-                }).join(''),
-              '</div>',
-            '</div>'
-          ].join('')
-        : '';
-      const shortEntryActionHtml = shortEntry
-        ? '<a class="action action--video" href="' + escapeHtml(shortEntry.url) + '" target="_blank" rel="noopener noreferrer" data-track-event="podcast_to_youtube_click" data-track-source="podcast" data-track-content-id="' + escapeHtml(item.id) + '" data-track-destination-type="' + escapeHtml(shortEntry.type) + '" data-track-destination-id="' + escapeHtml(shortEntry.id) + '">' + escapeHtml(shortEntry.label) + '</a>'
         : '';
 
       return [
         '<article class="podcast-card" style="--accent:' + escapeHtml(accent) + '">',
-          '<a class="podcast-thumb" href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">',
+          '<a class="podcast-card__link podcast-thumb" href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHtml(item.title) + 'を聴く" data-track-event="podcast_to_youtube_click" data-track-source="podcast" data-track-content-id="' + escapeHtml(item.id) + '" data-track-destination-type="podcast" data-track-destination-id="' + escapeHtml(item.id) + '">',
             imageHtml,
-            '<span class="thumb-label">PODCAST / ' + escapeHtml(partLabel(part)) + '</span>',
-            '<span class="play-mark" aria-hidden="true"></span>',
-            '<span class="waveform" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></span>',
           '</a>',
-          '<div class="podcast-body">',
-            '<div class="orbit-label">' + escapeHtml(partLabel(part)) + '</div>',
-            '<h2 class="podcast-title">' + escapeHtml(item.title) + '</h2>',
-            '<div class="card-fit">',
-              '<span class="card-fit__chip">移動中</span>',
-              '<span class="card-fit__chip">家事中</span>',
-              '<span class="card-fit__chip">深掘り</span>',
-            '</div>',
-            '<div class="branch-box">',
-              '<span class="branch-eyebrow">この地図ノードから</span>',
-              '<a class="branch-node" href="' + escapeHtml(mapUrl) + '">' + escapeHtml(partTitle) + '</a>',
-              '<span class="branch-tail">対応するPodcast</span>',
-            '</div>',
-            '<p class="question">問：' + escapeHtml(item.question || '') + '</p>',
-            '<p class="relation">' + escapeHtml(item.relation || 'Podcastで深める') + '</p>',
-            infographicHtml,
-            noteLinksHtml,
-            '<div class="actions">',
-              '<a class="action" href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer" data-track-event="podcast_to_youtube_click" data-track-source="podcast" data-track-content-id="' + escapeHtml(item.id) + '" data-track-destination-type="podcast" data-track-destination-id="' + escapeHtml(item.id) + '">聴く</a>',
-              shortEntryActionHtml,
-              '<a class="action action--map" href="' + escapeHtml(mapUrl) + '">地図で見る</a>',
-            '</div>',
-          '</div>',
         '</article>'
       ].join('');
   }
