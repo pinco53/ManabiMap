@@ -6,6 +6,27 @@
 
   const themeRules = {
     all: function() { return true; },
+    ai_origin: function(note) {
+      return textAny(note, ['AI源流']);
+    },
+    genai: function(note) {
+      return relatedAny(note, ['part8']) || textAny(note, ['生成AI', 'AI源流', '第8部']);
+    },
+    ai_daily: function(note) {
+      return relatedAny(note, ['part8-2']) || textAny(note, ['AIと日常', '宿題', '学力', '第8部']);
+    },
+    body: function(note) {
+      return relatedAny(note, ['part9']) || textAny(note, ['身体', '進化', '旧石器', '第9部']);
+    },
+    sensibility: function(note) {
+      return textAny(note, ['感性', '物語', '美しい', '芸術', '第10部']);
+    },
+    learning_method: function(note) {
+      return textAny(note, ['学び', 'わかった', '教える', '対話', 'テスト', '間違え', '第12部']);
+    },
+    worldview: function(note) {
+      return textAny(note, ['世界の見方', '中心', '見えない', '正しい', '第14部']);
+    },
     ai: function(note) {
       return hasAny(note, ['AI', '生成AI', 'ChatGPT', '確率', '創造性']) || relatedAny(note, ['part3', 'part8', 'part8-2']);
     },
@@ -28,6 +49,27 @@
       return textAny(note, ['ポッドキャスト', 'Podcast', 'podcast']);
     }
   };
+
+  function topicLabel(note) {
+    if (!note) return 'note';
+    if (textAny(note, ['AI源流'])) return 'AI源流';
+    if (textAny(note, ['第14部'])) return '世界の見方';
+    if (textAny(note, ['第13部'])) return '学びとは';
+    if (textAny(note, ['第12部'])) return '学び方';
+    if (textAny(note, ['第11部'])) return '学びの原型';
+    if (textAny(note, ['第10部'])) return '感性と物語';
+    if (relatedAny(note, ['part9']) || textAny(note, ['第9部'])) return '身体と進化';
+    if (relatedAny(note, ['part8-2'])) return 'AIと日常';
+    if (relatedAny(note, ['part8']) || textAny(note, ['生成AI'])) return '生成AI';
+    if (relatedAny(note, ['part7'])) return '前提を外す';
+    if (relatedAny(note, ['part6'])) return '数字と社会';
+    if (relatedAny(note, ['part5'])) return '言葉と思考';
+    if (relatedAny(note, ['part4'])) return '知識と記録';
+    if (relatedAny(note, ['part3'])) return 'AIと人間';
+    if (relatedAny(note, ['part2'])) return 'つながり';
+    if (relatedAny(note, ['part1'])) return '機械と時間';
+    return '学び';
+  }
 
   function textAny(note, words) {
     const source = [
@@ -233,6 +275,19 @@
     if (heroCount && theme) heroCount.textContent = visible + ' articles';
   }
 
+  function queryMatches(note, query) {
+    if (!query) return true;
+    const source = [
+      note.title,
+      note.target,
+      note.question,
+      note.relation,
+      note.excerpt,
+      topicLabel(note)
+    ].concat(note.tags || []).join(' ').toLowerCase();
+    return source.indexOf(query.toLowerCase()) !== -1;
+  }
+
   function renderFilterResults(cards) {
     const results = document.getElementById('note-filter-results');
     if (!results) return;
@@ -280,10 +335,12 @@
 
   function applyFilter(theme) {
     const rule = themeRules[theme] || themeRules.all;
+    const searchInput = document.getElementById('note-search-input');
+    const query = searchInput ? searchInput.value.trim() : '';
     const visibleCards = [];
     document.querySelectorAll('.grid-section .note-card').forEach(function(card) {
       const note = noteFromCard(card);
-      const shouldShow = note ? rule(note) : theme === 'all';
+      const shouldShow = note ? rule(note) && queryMatches(note, query) : theme === 'all';
       card.hidden = !shouldShow;
       if (shouldShow) visibleCards.push(card);
     });
@@ -319,6 +376,9 @@
       card.dataset.noteId = note.id;
       card.dataset.relatedParts = (note.relatedParts || []).join(',');
       card.dataset.tags = (note.tags || []).join(',');
+      card.dataset.topic = topicLabel(note);
+      const orbit = card.querySelector('.card-orbit-label');
+      if (orbit) orbit.textContent = topicLabel(note);
       if (note.status === 'local-draft') card.classList.add('is-upcoming');
       attachPartChips(card, note);
       attachBridgeLinks(card, note);
@@ -340,6 +400,14 @@
     });
 
     updateRecommendationCounts(cards);
+
+    const searchInput = document.getElementById('note-search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const active = document.querySelector('.note-theme-button.active');
+        applyFilter(active ? active.dataset.theme || 'all' : 'all');
+      });
+    }
 
     const results = document.getElementById('note-filter-results');
     if (results) {

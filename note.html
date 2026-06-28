@@ -73,7 +73,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ── HERO ── */
 .hero {
-  padding: 80px 24px 60px;
+  padding: 58px 24px 30px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -103,7 +103,7 @@ a { color: inherit; text-decoration: none; }
 .hero-subtitle {
   font-size: 14px; font-weight: 300;
   color: var(--text-dim); max-width: 560px;
-  margin: 0 auto 40px; line-height: 2;
+  margin: 0 auto 24px; line-height: 2;
   position: relative;
 }
 .hero-count {
@@ -235,7 +235,7 @@ a { color: inherit; text-decoration: none; }
 .note-map-console {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 24px 24px;
+  padding: 0 24px 18px;
 }
 .note-map-panel {
   border: 1px solid rgba(65,201,180,0.24);
@@ -260,7 +260,7 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 6px;
 }
 .note-map-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
   color: var(--text-bright);
   line-height: 1.4;
@@ -274,6 +274,28 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+.note-search {
+  margin-bottom: 14px;
+}
+.note-search input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(65,201,180,0.26);
+  border-radius: 10px;
+  background: rgba(0,0,0,0.24);
+  color: var(--text-bright);
+  font: inherit;
+  font-size: 15px;
+  padding: 10px 14px;
+  outline: none;
+}
+.note-search input:focus {
+  border-color: var(--note-green);
+  box-shadow: 0 0 0 2px rgba(65,201,180,0.16);
+}
+.note-search input::placeholder {
+  color: rgba(155,155,180,0.72);
 }
 .note-theme-button {
   border: 1px solid var(--border);
@@ -385,7 +407,7 @@ a { color: inherit; text-decoration: none; }
   opacity: 0.78;
 }
 .note-filter-results {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 9px;
   margin-top: 18px;
@@ -435,12 +457,12 @@ a { color: inherit; text-decoration: none; }
 .grid-section {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 22px 24px 80px;
+  padding: 14px 24px 80px;
 }
 .note-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
 }
 .upcoming-section {
   max-width: 1100px;
@@ -487,14 +509,14 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: 10px;
+  padding: 16px;
   scroll-margin-top: 96px;
   transition: all 0.3s;
   overflow: hidden;
 }
 .note-card::before {
-  content: '';
+  content: none;
   position: absolute;
   left: 0;
   top: 22px;
@@ -509,7 +531,7 @@ a { color: inherit; text-decoration: none; }
 .note-card:hover {
   background: var(--bg-card-hover);
   border-color: rgba(65,201,180,0.4);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(65,201,180,0.1);
 }
 .note-card.note-card--focus,
@@ -524,12 +546,12 @@ a { color: inherit; text-decoration: none; }
     var(--bg-card);
 }
 .note-card--has-image:nth-child(6n+3) {
-  grid-column: span 2;
+  grid-column: span 1;
 }
 .note-card-media {
   display: block;
   position: relative;
-  margin: -24px -24px 18px;
+  margin: -16px -16px 12px;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background:
@@ -544,7 +566,7 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   filter: saturate(1.08) contrast(1.04);
   transition: transform 0.45s ease, filter 0.45s ease;
 }
@@ -558,6 +580,7 @@ a { color: inherit; text-decoration: none; }
   pointer-events: none;
 }
 .note-card-media__label {
+  display: none;
   position: absolute;
   left: 14px;
   bottom: 12px;
@@ -578,8 +601,8 @@ a { color: inherit; text-decoration: none; }
 }
 .card-orbit-label {
   width: fit-content;
-  margin-bottom: 13px;
-  padding: 3px 9px;
+  margin-bottom: 9px;
+  padding: 3px 8px;
   border: 1px solid rgba(0,212,255,0.28);
   border-radius: 999px;
   color: #9eeeff;
@@ -589,6 +612,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.22em;
 }
 .card-kind {
+  display: none;
   width: fit-content;
   margin-bottom: 10px;
   padding: 3px 9px;
@@ -601,16 +625,16 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.22em;
 }
 .card-num {
-  font-size: 11px; letter-spacing: 0.3em;
-  color: var(--note-green); margin-bottom: 10px;
+  font-size: 10px; letter-spacing: 0.2em;
+  color: var(--text-dim); margin-bottom: 7px;
 }
 .card-title {
-  font-size: 15px; font-weight: 700;
+  font-size: 14px; font-weight: 800;
   color: var(--text-bright); line-height: 1.6;
   margin-bottom: 12px;
 }
 .card-branch {
-  display: grid;
+  display: none;
   gap: 2px;
   margin-bottom: 12px;
   padding: 11px 12px;
@@ -635,18 +659,20 @@ a { color: inherit; text-decoration: none; }
   color: #9eeeff;
 }
 .card-question {
+  display: none;
   margin-bottom: 12px;
   color: #c9d8e8;
   font-size: 12px;
   line-height: 1.7;
 }
 .card-excerpt {
+  display: none;
   font-size: 13px; color: var(--text-dim);
   line-height: 1.8; flex-grow: 1;
   margin-bottom: 16px;
 }
 .card-tags {
-  display: flex; flex-wrap: wrap; gap: 6px;
+  display: none; flex-wrap: wrap; gap: 6px;
   margin-bottom: 16px;
 }
 .tag {
@@ -659,8 +685,8 @@ a { color: inherit; text-decoration: none; }
 .card-footer {
   display: flex; justify-content: space-between; align-items: center;
   gap: 14px;
-  border-top: 1px solid var(--border);
-  padding-top: 12px; margin-top: auto;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 10px; margin-top: auto;
 }
 .card-date {
   font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em;
@@ -696,6 +722,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-bright);
 }
 .card-action--map {
+  display: none;
   border-color: rgba(0,212,255,0.32);
   color: #9eeeff;
   background: rgba(0,212,255,0.06);
@@ -704,6 +731,12 @@ a { color: inherit; text-decoration: none; }
   border-color: rgba(136,136,160,0.18);
   color: var(--text-dim);
   background: rgba(136,136,160,0.08);
+}
+.note-flow-section,
+.note-recommend-section,
+.note-bridge,
+.note-map-links {
+  display: none !important;
 }
 
 /* ── UNPUBLISHED ── */
@@ -794,7 +827,7 @@ a { color: inherit; text-decoration: none; }
     動画では語りきれない問いを、文章で掘り下げています。<br>
     「ハルとおじいさん」の世界観を、もう少し遠くまで。
   </p>
-  <div class="hero-count">95 articles</div>
+  <div class="hero-count">100 articles</div>
 </section>
 
 <section class="note-flow-section" aria-label="noteから次へ進む">
@@ -888,21 +921,27 @@ a { color: inherit; text-decoration: none; }
     <div class="note-map-head">
       <div>
         <div class="note-map-label">NOTE MAP</div>
-        <div class="note-map-title">地図の枝道を、テーマで探す</div>
+        <div class="note-map-title">テーマで探す</div>
       </div>
       <div class="note-map-status">
-        <span id="note-filter-label">すべて</span> / <span id="note-filter-count">95 articles</span>
+        <span id="note-filter-label">すべて</span> / <span id="note-filter-count">100 articles</span>
       </div>
+    </div>
+    <div class="note-search">
+      <input id="note-search-input" type="search" placeholder="タイトルやテーマで検索" autocomplete="off">
     </div>
     <div class="note-theme-buttons">
       <button type="button" class="note-theme-button active" data-theme="all">すべて</button>
-      <button type="button" class="note-theme-button" data-theme="ai">AI</button>
-      <button type="button" class="note-theme-button" data-theme="education">教育</button>
+      <button type="button" class="note-theme-button" data-theme="ai_origin">AI源流</button>
+      <button type="button" class="note-theme-button" data-theme="genai">生成AI</button>
+      <button type="button" class="note-theme-button" data-theme="ai_daily">AIと日常</button>
+      <button type="button" class="note-theme-button" data-theme="knowledge">知識と記録</button>
       <button type="button" class="note-theme-button" data-theme="language">言葉と思考</button>
-      <button type="button" class="note-theme-button" data-theme="number">数字と世界</button>
-      <button type="button" class="note-theme-button" data-theme="knowledge">知識と検索</button>
-      <button type="button" class="note-theme-button" data-theme="learning">学びそのもの</button>
-      <button type="button" class="note-theme-button" data-theme="podcast">Podcast関連</button>
+      <button type="button" class="note-theme-button" data-theme="number">数字と社会</button>
+      <button type="button" class="note-theme-button" data-theme="body">身体と進化</button>
+      <button type="button" class="note-theme-button" data-theme="sensibility">感性と物語</button>
+      <button type="button" class="note-theme-button" data-theme="learning_method">学び方</button>
+      <button type="button" class="note-theme-button" data-theme="worldview">世界の見方</button>
     </div>
     <div class="note-filter-results" id="note-filter-results" aria-live="polite"></div>
   </div>
@@ -958,6 +997,136 @@ a { color: inherit; text-decoration: none; }
         <div class="card-actions">
         <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nc0344dc13794" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
           <a class="card-action card-action--map" href="parts/part8.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-118" class="note-card note-card--has-image" data-note-id="note-118" data-primary-part="note">
+      <a class="note-card-media" href="https://note.com/manabimapcreator/n/n4c99b821466a" target="_blank" rel="noopener noreferrer" data-note-read-link>
+        <img src="note_articles/generated_note_images/note-118.png" alt="「中心ではなかった」は、何度も繰り返されてきた サムネイル" loading="lazy">
+        <span class="note-card-media__label">NOTE THUMBNAIL</span>
+      </a>
+      <div class="card-orbit-label">NOTE ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#118</div>
+      <h3 class="card-title">「中心ではなかった」は、何度も繰り返されてきた</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="note.html">note記事群</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
+      <p class="card-excerpt">地球は、宇宙の中心ではなかった。</p>
+      <div class="card-tags"><span class="tag">第14部第5話「自分の中の天動説を探す」（シリーズ最終回）</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-06-20</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n4c99b821466a" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="note.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-117" class="note-card note-card--has-image" data-note-id="note-117" data-primary-part="note">
+      <a class="note-card-media" href="https://note.com/manabimapcreator/n/n5128098a9ced" target="_blank" rel="noopener noreferrer" data-note-read-link>
+        <img src="note_articles/generated_note_images/note-117.png" alt="正しいことが、なぜ受け入れられないことがあるのか サムネイル" loading="lazy">
+        <span class="note-card-media__label">NOTE THUMBNAIL</span>
+      </a>
+      <div class="card-orbit-label">NOTE ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#117</div>
+      <h3 class="card-title">正しいことが、なぜ受け入れられないことがあるのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="note.html">note記事群</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
+      <p class="card-excerpt">「手を洗ってください」</p>
+      <div class="card-tags"><span class="tag">第14部第4話「新しい知は、なぜ最初に危険だと言われるのか」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-06-20</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n5128098a9ced" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="note.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-116" class="note-card note-card--has-image" data-note-id="note-116" data-primary-part="note">
+      <a class="note-card-media" href="https://note.com/manabimapcreator/n/nc7ac992e66c6" target="_blank" rel="noopener noreferrer" data-note-read-link>
+        <img src="note_articles/generated_note_images/note-116.png" alt="美しい答えを、自分から手放せるだろうか サムネイル" loading="lazy">
+        <span class="note-card-media__label">NOTE THUMBNAIL</span>
+      </a>
+      <div class="card-orbit-label">NOTE ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#116</div>
+      <h3 class="card-title">美しい答えを、自分から手放せるだろうか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="note.html">note記事群</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
+      <p class="card-excerpt">一度、正しいと信じた考えを、</p>
+      <div class="card-tags"><span class="tag">第14部第3話「美しさより、事実に合わせる勇気」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-06-20</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nc7ac992e66c6" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="note.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-115" class="note-card note-card--has-image" data-note-id="note-115" data-primary-part="note">
+      <a class="note-card-media" href="https://note.com/manabimapcreator/n/n2699871a12af" target="_blank" rel="noopener noreferrer" data-note-read-link>
+        <img src="note_articles/generated_note_images/note-115.png" alt="見えないものが見えたとき、世界はどう変わるのか サムネイル" loading="lazy">
+        <span class="note-card-media__label">NOTE THUMBNAIL</span>
+      </a>
+      <div class="card-orbit-label">NOTE ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#115</div>
+      <h3 class="card-title">見えないものが見えたとき、世界はどう変わるのか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="note.html">note記事群</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
+      <p class="card-excerpt">カバンの中身は、外から見えない。</p>
+      <div class="card-tags"><span class="tag">第14部第2話「道具が認識を変える」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-06-20</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/n2699871a12af" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="note.html">地図で見る</a>
+        </div>
+      </div>
+    </article>
+
+    <article id="note-card-114" class="note-card note-card--has-image" data-note-id="note-114" data-primary-part="note">
+      <a class="note-card-media" href="https://note.com/manabimapcreator/n/nc632da407b87" target="_blank" rel="noopener noreferrer" data-note-read-link>
+        <img src="note_articles/generated_note_images/note-114.png" alt="自分の見ている世界は、世界の標準だろうか サムネイル" loading="lazy">
+        <span class="note-card-media__label">NOTE THUMBNAIL</span>
+      </a>
+      <div class="card-orbit-label">NOTE ORBIT</div>
+      <div class="card-kind">WONDER NOTE</div>
+      <div class="card-num">#114</div>
+      <h3 class="card-title">自分の見ている世界は、世界の標準だろうか</h3>
+      <div class="card-branch">
+        <span class="card-branch__eyebrow">この地図ノードから</span>
+        <a class="card-branch__node" href="note.html">note記事群</a>
+        <span class="card-branch__tail">伸びる枝道</span>
+      </div>
+      <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
+      <p class="card-excerpt">自分が見ている景色を、</p>
+      <div class="card-tags"><span class="tag">第14部第1話「人はなぜ自分のいる場所を世界の中心だと思うのか」</span></div>
+      <div class="card-footer">
+        <span class="card-date">2026-06-20</span>
+        <div class="card-actions">
+        <a class="card-action card-action--read" href="https://note.com/manabimapcreator/n/nc632da407b87" target="_blank" rel="noopener noreferrer" data-note-read-link>読む</a>
+          <a class="card-action card-action--map" href="note.html">地図で見る</a>
         </div>
       </div>
     </article>
@@ -3547,121 +3716,6 @@ a { color: inherit; text-decoration: none; }
       </div>
     </article>
 
-    <article id="note-card-118" class="note-card note-card--unpublished" data-note-id="note-118" data-primary-part="note">
-
-      <div class="card-orbit-label">NOTE ORBIT</div>
-      <div class="card-kind">WONDER NOTE</div>
-      <div class="card-num">#118 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">「中心ではなかった」は、何度も繰り返されてきた</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="note.html">note記事群</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
-      <p class="card-excerpt">地球は、宇宙の中心ではなかった。</p>
-      <div class="card-tags"><span class="tag">第14部第5話「自分の中の天動説を探す」（シリーズ最終回）</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-06-20</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="note.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-117" class="note-card note-card--unpublished" data-note-id="note-117" data-primary-part="note">
-
-      <div class="card-orbit-label">NOTE ORBIT</div>
-      <div class="card-kind">WONDER NOTE</div>
-      <div class="card-num">#117 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">正しいことが、なぜ受け入れられないことがあるのか</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="note.html">note記事群</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
-      <p class="card-excerpt">「手を洗ってください」</p>
-      <div class="card-tags"><span class="tag">第14部第4話「新しい知は、なぜ最初に危険だと言われるのか」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-06-20</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="note.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-116" class="note-card note-card--unpublished" data-note-id="note-116" data-primary-part="note">
-
-      <div class="card-orbit-label">NOTE ORBIT</div>
-      <div class="card-kind">WONDER NOTE</div>
-      <div class="card-num">#116 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">美しい答えを、自分から手放せるだろうか</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="note.html">note記事群</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
-      <p class="card-excerpt">一度、正しいと信じた考えを、</p>
-      <div class="card-tags"><span class="tag">第14部第3話「美しさより、事実に合わせる勇気」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-06-20</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="note.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-115" class="note-card note-card--unpublished" data-note-id="note-115" data-primary-part="note">
-
-      <div class="card-orbit-label">NOTE ORBIT</div>
-      <div class="card-kind">WONDER NOTE</div>
-      <div class="card-num">#115 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">見えないものが見えたとき、世界はどう変わるのか</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="note.html">note記事群</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
-      <p class="card-excerpt">カバンの中身は、外から見えない。</p>
-      <div class="card-tags"><span class="tag">第14部第2話「道具が認識を変える」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-06-20</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="note.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
-    <article id="note-card-114" class="note-card note-card--unpublished" data-note-id="note-114" data-primary-part="note">
-
-      <div class="card-orbit-label">NOTE ORBIT</div>
-      <div class="card-kind">WONDER NOTE</div>
-      <div class="card-num">#114 <span class="badge-unpublished">準備中</span></div>
-      <h3 class="card-title">自分の見ている世界は、世界の標準だろうか</h3>
-      <div class="card-branch">
-        <span class="card-branch__eyebrow">この地図ノードから</span>
-        <a class="card-branch__node" href="note.html">note記事群</a>
-        <span class="card-branch__tail">伸びる枝道</span>
-      </div>
-      <p class="card-question">問：学ぶとは、答えを増やすことか、問いを増やすことか。</p>
-      <p class="card-excerpt">自分が見ている景色を、</p>
-      <div class="card-tags"><span class="tag">第14部第1話「人はなぜ自分のいる場所を世界の中心だと思うのか」</span></div>
-      <div class="card-footer">
-        <span class="card-date">2026-06-20</span>
-        <div class="card-actions">
-        <span class="card-action card-action--disabled">近日公開</span>
-          <a class="card-action card-action--map" href="note.html">地図で見る</a>
-        </div>
-      </div>
-    </article>
-
     <article id="note-card-92" class="note-card note-card--unpublished" data-note-id="note-92" data-primary-part="note">
 
       <div class="card-orbit-label">NOTE ORBIT</div>
@@ -4111,7 +4165,7 @@ a { color: inherit; text-decoration: none; }
 
 <script src="assets/js/manabimap-data.js"></script>
 <script src="assets/js/cta-tracking.js"></script>
-<script src="assets/js/note-map.js"></script>
+<script src="assets/js/note-map.js?v=simple-themes-20260628"></script>
 <script src="assets/js/footprints.js"></script>
 <script src="assets/js/sky-clock.js"></script>
 </body>
