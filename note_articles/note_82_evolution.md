@@ -1,7 +1,11 @@
 # note_82｜生物進化は止まった。でも人類の変化は止まらない
 
+**記事種別**: wonder-note
 **対象**: 第9部第15話「進化は止まらない」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/na14600b1a6bc
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -15,7 +19,7 @@
 
 では人間の身体は、それと同じ速さで変わっているでしょうか。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=PI-wAiGQZFU
 
 ---
 
@@ -101,13 +105,19 @@ https://youtu.be/あなたのURL
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=PI-wAiGQZFU
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#進化的ミスマッチ #ミーム #自然選択 #文化進化 #農業革命
+#チャールズダーウィン #リチャードドーキンス #ガラパゴスフィンチ #進化生物学
+#AIと文化進化 #生成AI時代 #ミームとしてのAI #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

@@ -3,6 +3,7 @@
 **対象**: 第6部第7話（エピローグ）世界の輪郭
 **保存日**: 2026-04-29
 **URL**: https://note.com/manabimapcreator/n/nfd9d525140fc
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 知れば知るほど、「わからない」が増えるのはなぜか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 勉強すると、わかることが増えるはずです。
 でも実際は、「わからないこと」も増えていく。

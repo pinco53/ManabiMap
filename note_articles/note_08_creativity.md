@@ -4,12 +4,16 @@
 **保存日**: 2026-03-24
 
 **URL**: https://note.com/manabimapcreator/n/n669e2df9e9e9
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 ---
 
 ## 記事
 
 ```
 # あのアイデア、本当に自分が思いついたのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 会議で何かを言った。
 「いいね」と言われた。

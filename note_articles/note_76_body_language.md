@@ -1,7 +1,11 @@
 # note_76｜言葉より先に、目があった
 
+**記事種別**: wonder-note
 **対象**: 第9部第4話「言語以前の身体」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/n79930d0372a6
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -15,7 +19,7 @@
 
 それはどういうことでしょうか。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=7Y9C8qRlfZk
 
 ---
 
@@ -92,13 +96,19 @@ https://youtu.be/あなたのURL
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=7Y9C8qRlfZk
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#非言語コミュニケーション #白目 #表情の普遍性 #身体化認知 #ジェームズランゲ説
+#チャールズダーウィン #ウィリアムジェームズ #カールランゲ #ニカラグア手話 #言語進化
+#AIと感情表現 #生成AI時代 #ノンバーバルコミュニケーション #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

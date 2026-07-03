@@ -4,12 +4,16 @@
 **保存日**: 2026-03-28
 
 **URL**: https://note.com/manabimapcreator/n/nc670691839e8
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 ---
 
 ## 記事
 
 ```
 # 記憶の中の人は、いつ「消える」のか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 ふとした瞬間に、思い出す。
 

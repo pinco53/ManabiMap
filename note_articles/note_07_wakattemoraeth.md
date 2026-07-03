@@ -4,12 +4,16 @@
 **保存日**: 2026-03-24
 
 **URL**: https://note.com/manabimapcreator/n/n92652d8bad4c
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 ---
 
 ## 記事
 
 ```
 # 「わかってもらえた」は、ただの確率かもしれない
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 テスト前夜、教科書をひたすら眺めた記憶がある。
 「よし、覚えた」と思って、翌日答えを書いた。

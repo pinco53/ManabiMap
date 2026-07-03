@@ -4,12 +4,16 @@
 **保存日**: 2026-04-03
 
 **URL**: https://note.com/manabimapcreator/n/n8a3b5689ab7f
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 ---
 
 ## 記事
 
 ```
 # 6,350トンのケーブルが運んだのは、何グラムの情報だったか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 LINEで写真を送っても、手元の写真は消えない。
 

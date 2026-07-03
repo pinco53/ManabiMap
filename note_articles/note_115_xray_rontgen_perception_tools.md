@@ -3,7 +3,8 @@
 **記事種別**: wonder-note
 **対象**: 第14部第2話「道具が認識を変える」
 **保存日**: 2026-06-20
-**公開状態**: local-draft
+**URL**: https://note.com/manabimapcreator/n/n2699871a12af
+**公開状態**: draft
 **主対象パート**: part14
 **関連PodcastID**: podcast-part14-2
 **関連PodcastURL**: （アップロード後に記入）

@@ -3,6 +3,7 @@
 **対象**: 第4部ポッドキャスト #4P-4「情報が光速になった日」
 **保存日**: 2026-05-20
 **URL**: https://note.com/manabimapcreator/n/ne7eb5d01b414
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 **YouTube（ポッドキャスト）**: https://youtu.be/mMqJJFmgnoI
 
 ---
@@ -11,6 +12,9 @@
 
 ```
 # 歴史的な最初のひとことは、なぜ詩のようになるのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 1844年。モールスが電信で送った最初の言葉は、こうでした。
 

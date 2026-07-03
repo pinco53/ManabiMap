@@ -3,6 +3,7 @@
 **対象**: 第3部ポッドキャスト「AIの深層」
 **保存日**: 2026-05-12
 **URL**: https://note.com/manabimapcreator/n/n9c5639b060d9
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---
@@ -11,6 +12,9 @@
 
 ```
 # 人間はなぜ、機械に心を見てしまうのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 掃除ロボット「ルンバ」を使っている人の多くが、
 ルンバに名前をつけているという調査があります。

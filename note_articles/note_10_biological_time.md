@@ -4,12 +4,16 @@
 **保存日**: 2026-03-25
 
 **URL**: https://note.com/manabimapcreator/n/n1195ea4b52e4
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 ---
 
 ## 記事
 
 ```
 # 体の時間は、今も35億年前のままだ
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 休日の朝、目覚ましをかけ忘れた。
 でも、ふと目が覚めた。

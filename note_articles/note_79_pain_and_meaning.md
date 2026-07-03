@@ -1,7 +1,11 @@
 # note_79｜痛みがなければよかった、は本当のことだろうか
 
+**記事種別**: wonder-note
 **対象**: 第9部第12話「痛みと意味」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/n08419cb73fd8
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -15,7 +19,7 @@
 
 でも本当に、そうだろうか。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=gXNxha63w-w
 
 ---
 
@@ -138,13 +142,19 @@ https://youtu.be/あなたのURL
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=gXNxha63w-w
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#痛みの意味 #先天性無痛症 #社会的痛み #ロゴセラピー #ストア哲学
+#エピクテトス #ビクトールフランクル #ナオミアイゼンバーガー #ウィリアムモートン #麻酔の歴史
+#AIと苦しみ #生成AI時代 #意味を求める力 #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

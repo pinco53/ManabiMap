@@ -3,6 +3,7 @@
 **対象**: 第6部第5話（前編・後編）
 **保存日**: 2026-04-22
 **URL**: https://note.com/manabimapcreator/n/n75ad2b140de4
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 誰も「平均人」ではなかった。
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 テストを返されたとき、最初に何を探しますか。
 

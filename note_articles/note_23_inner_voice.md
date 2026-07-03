@@ -4,12 +4,16 @@
 **保存日**: 2026-04-10
 
 **URL**: https://note.com/manabimapcreator/n/n180a0b52e8f6
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 ---
 
 ## 記事
 
 ```
 # 頭の中で、あなたは誰と話しているのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 考えるとき、全部声に出す人がいます。
 「えーっと、まずこれをやって……あ、でもこっちが先か……」

@@ -4,12 +4,16 @@
 **保存日**: 2026-04-11
 
 **URL**: https://note.com/manabimapcreator/n/n11ad03fc63ef
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 ---
 
 ## 記事
 
 ```
 # 数の言葉を持たない民族が、いた
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 スーパーのレジで、小銭を数えました。
 

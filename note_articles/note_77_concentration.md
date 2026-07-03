@@ -1,7 +1,11 @@
 # note_77｜マルチタスクが得意な人ほど、実は苦手だった
 
+**記事種別**: wonder-note
 **対象**: 第9部第10話「集中という希少資源」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/nb7f1080a785c
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -15,7 +19,7 @@
 
 でも本当に、人間はマルチタスクができるのでしょうか。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=COaaST1OOAI
 
 ---
 
@@ -101,13 +105,19 @@ AI時代に、人間が集中すべき対象は何でしょうか。
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=COaaST1OOAI
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#マルチタスクの神話 #切り替えコスト #フロー状態 #ディープワーク #集中力
+#クリフォードナス #ミハイチクセントミハイ #カルニューポート #認知心理学
+#AIと集中力 #生成AI時代 #通知疲れ #AI時代の希少能力
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

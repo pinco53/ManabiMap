@@ -3,6 +3,7 @@
 **対象**: 第3部ポッドキャスト「AIの深層」
 **保存日**: 2026-05-18
 **URL**: https://note.com/manabimapcreator/n/na8ce3499e02c
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---
@@ -11,6 +12,9 @@
 
 ```
 # AIには「なぜやるか」がない。それは何を意味するのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 AIは絵を描けます。音楽を作れます。文章を書けます。
 

@@ -1,7 +1,11 @@
 # note_78｜写真を撮るほど、あのときが遠くなる
 
+**記事種別**: wonder-note
 **対象**: 第9部第11話「身体と時間」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/n36dc4f42914f
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -15,7 +19,7 @@
 
 なぜだろう。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=cwB6szqgF2U
 
 ---
 
@@ -145,13 +149,19 @@ https://youtu.be/あなたのURL
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=cwB6szqgF2U
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#写真撮影減殺効果 #メメントモリ #プルースト効果 #テロメア #身体の時間
+#リンダヘンケル #マルセルプルースト #エリザベスブラックバーン #古代ローマ #ノーベル賞
+#AIと記憶 #生成AI時代 #デジタル記録の限界 #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

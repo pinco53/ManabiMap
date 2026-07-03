@@ -3,6 +3,7 @@
 **対象**: 第4部ポッドキャスト #4P-4「情報が光速になった日」
 **保存日**: 2026-05-21
 **URL**: https://note.com/manabimapcreator/n/n288b8bb7c3d1
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 **YouTube（ポッドキャスト）**: https://youtu.be/mMqJJFmgnoI
 
 ---
@@ -11,6 +12,9 @@
 
 ```
 # 情報が早く届くと、何かが消える
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 ある情報を、誰より先に持っていたことがありますか。
 

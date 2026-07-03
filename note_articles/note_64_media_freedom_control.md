@@ -3,6 +3,7 @@
 **対象**: 第4部ポッドキャスト #4P-4「情報が光速になった日」
 **保存日**: 2026-05-22
 **URL**: https://note.com/manabimapcreator/n/n3b3fee4a92da
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 **YouTube（ポッドキャスト）**: https://youtu.be/mMqJJFmgnoI
 
 ---
@@ -11,6 +12,9 @@
 
 ```
 # 新しいメディアが来るたびに、自由と支配が同時に生まれる
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 SNSで「真実が広まった」と感じたことがありますか。
 SNSで「嘘が広まった」と感じたことも、おそらくあるはずです。

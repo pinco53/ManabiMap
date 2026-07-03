@@ -3,6 +3,7 @@
 **対象**: 第8部第7話「学力とは何か」前編・後編
 **保存日**: 2026-05-03
 **URL**: https://note.com/manabimapcreator/n/n0a0c56f8f5b9
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # あなたの見ている世界は、知識で作られている
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 今、あなたがこの文章を「文字」として読めているのは、なぜでしょうか。
 見ることと、わかることは——同じことでしょうか。

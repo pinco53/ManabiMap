@@ -3,6 +3,7 @@
 **対象**: 第3部ポッドキャスト「AIの深層」
 **保存日**: 2026-05-16
 **URL**: https://note.com/manabimapcreator/n/n4e81df22c5ca
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---
@@ -11,6 +12,9 @@
 
 ```
 # 記号を正しく処理することと、意味を理解することは同じか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 「正しい答えを出す」ことと、「わかっている」ことは同じでしょうか。
 

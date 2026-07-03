@@ -3,6 +3,7 @@
 **対象**: 第3部ポッドキャスト「AIの深層」
 **保存日**: 2026-05-15
 **URL**: https://note.com/manabimapcreator/n/nd5048b4aae02
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---
@@ -11,6 +12,9 @@
 
 ```
 # AIは失敗しても傷つかない。それが何を意味するのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 AIはどれだけ間違えても、傷つきません。
 責任を感じません。眠れない夜もありません。

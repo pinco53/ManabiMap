@@ -3,6 +3,7 @@
 **対象**: 第5部第6話（前編・後編）
 **保存日**: 2026-04-15
 **URL**: https://note.com/manabimapcreator/n/nd2075692b089
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 完璧に答えられる人が、何もわかっていないとしたら
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 音読の宿題を、声に出して読んだことがあります。
 でも読み終えたとき、何も頭に残っていなかった。

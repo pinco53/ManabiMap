@@ -3,6 +3,7 @@
 **対象**: 第5部第7話「言葉は思考の翼」（エピローグ）
 **保存日**: 2026-04-17
 **URL**: https://note.com/manabimapcreator/n/n5796b158faa3
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 学べば学ぶほど、知らないことが増えていく
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 AIを使ってみようと思った。
 まず、Geminiを開いた。

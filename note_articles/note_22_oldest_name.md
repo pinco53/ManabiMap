@@ -4,12 +4,16 @@
 **保存日**: 2026-04-06
 
 **URL**: https://note.com/manabimapcreator/n/nd91398b2e60b
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 ---
 
 ## 記事
 
 ```
 # 人類最古の名前は、英雄のものではなかった。
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 5000年後に、あなたの名前だけが残るとしたら。
 それはどんな場面に刻まれているでしょう。

@@ -4,12 +4,16 @@
 **保存日**: 2026-04-02
 
 **URL**: https://note.com/manabimapcreator/n/n9c00c715d369
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 ---
 
 ## 記事
 
 ```
 # 「読む楽しみ」は、いつ誰のものになったのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 今日、本を読みたいと思えば、すぐ読めます。
 図書館へ行けばタダ。スマホでも読める。

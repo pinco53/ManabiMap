@@ -3,9 +3,10 @@
 **記事種別**: wonder-note
 **対象**: 第9部第2話「手と道具」
 **保存日**: 2026-05-24
-**公開状態**: local-draft
+**URL**: https://note.com/manabimapcreator/n/n340a71ee6a7c
+**公開状態**: draft
 **主対象パート**: part9
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=rd2EIzy0YpE
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: 関連動画を見る
 
@@ -20,7 +21,7 @@
 私たちは何も考えていない。
 道具があることを、ほとんど意識しない。
 
-https://あなたのURL
+https://www.youtube.com/watch?v=rd2EIzy0YpE
 
 ---
 
@@ -115,13 +116,19 @@ AIは道具を使いません。AIは道具を「作る」こともしません�
 
 ---
 
-https://あなたのURL
+https://www.youtube.com/watch?v=rd2EIzy0YpE
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#道具作り #人類進化 #身体拡張 #石器時代 #縫い針
+#ジェーングドール #ルイスリーキー #チンパンジー研究 #デニソワ洞窟 #古人類学
+#AIと創造性 #生成AI #AIツール #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

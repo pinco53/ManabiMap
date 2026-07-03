@@ -4,12 +4,16 @@
 **保存日**: 2026-04-02
 
 **URL**: https://note.com/manabimapcreator/n/naecb9a6237db
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 ---
 
 ## 記事
 
 ```
 # 「知りたい」と思った瞬間、それは誰かが作った道かもしれない
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 何かを調べていると、気づくと別のことが知りたくなっている。
 

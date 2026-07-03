@@ -3,6 +3,7 @@
 **対象**: 第6部第2話（前編・後編）
 **保存日**: 2026-04-19
 **URL**: https://note.com/manabimapcreator/n/n387ce13418ba
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 数は、指を離れてどこへ行ったのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 数えるとき、あなたは指を使いますか。
 

@@ -3,6 +3,7 @@
 **対象**: 第4部ポッドキャスト #4P-4「情報が光速になった日」
 **保存日**: 2026-05-23
 **URL**: https://note.com/manabimapcreator/n/n8f039dbed2a9
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 **YouTube（ポッドキャスト）**: https://youtu.be/mMqJJFmgnoI
 
 ---
@@ -11,6 +12,9 @@
 
 ```
 # 「メディアはメッセージだ」って、どういう意味だろう
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 「明日、会えますか」
 

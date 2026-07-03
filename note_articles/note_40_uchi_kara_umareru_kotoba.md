@@ -3,6 +3,7 @@
 **対象**: 第8部第6話（前編・後編）
 **保存日**: 2026-04-25
 **URL**: https://note.com/manabimapcreator/n/n10281e399b72
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 「内から生まれた言葉」とは、何だろう
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 ある記事が目に入った。
 

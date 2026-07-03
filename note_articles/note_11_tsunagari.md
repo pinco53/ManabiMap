@@ -4,12 +4,16 @@
 **保存日**: 2026-03-26
 
 **URL**: https://note.com/manabimapcreator/n/nbf644c80243f
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 ---
 
 ## 記事
 
 ```
 # 世界はつながったのに、なぜ孤独なのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 スマホを開けば、誰かの近況が流れてくる。
 メッセージを送れば、すぐに返信が来る。

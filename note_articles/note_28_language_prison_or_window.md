@@ -3,6 +3,7 @@
 **対象**: 第5部第5話（前編・後編）
 **保存日**: 2026-04-14
 **URL**: https://note.com/manabimapcreator/n/n253a052aba94
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 言語は、思考の牢獄か。それとも窓か
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 虹は、何色でしょう。
 

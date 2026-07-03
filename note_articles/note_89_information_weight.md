@@ -7,7 +7,7 @@
 **公開状態**: published
 **主対象パート**: part4
 **関連PodcastID**: podcast-part4-5
-**関連PodcastURL**: https://youtu.be/Z0ilADkBAtY
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 **関連YouTubeID**: youtube-part4
 **関連YouTubeURL**: https://www.youtube.com/watch?v=8dySbSKpZNU
 **CTA文言**: Podcastで深く聴く
@@ -18,6 +18,9 @@
 
 ```
 # データを消すとき、なぜ熱が生まれるのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 スマートフォンに写真を1万枚入れても、重さは変わりません。
 クラウドに動画を100時間保存しても、手には何も残りません。

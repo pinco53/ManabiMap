@@ -3,6 +3,7 @@
 **対象**: 第4部ポッドキャスト #4P-4「情報が光速になった日」
 **保存日**: 2026-05-25
 **URL**: https://note.com/manabimapcreator/n/n62858ab06d94
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 **YouTube（ポッドキャスト）**: https://youtu.be/mMqJJFmgnoI
 
 ---
@@ -11,6 +12,9 @@
 
 ```
 # 7億人が同じ瞬間を見た
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 1969年7月20日。
 アポロ11号が月面に着陸した瞬間を、

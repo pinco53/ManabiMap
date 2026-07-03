@@ -4,12 +4,16 @@
 **保存日**: 2026-03-24
 
 **URL**: https://note.com/manabimapcreator/n/nf03fbdb50e71
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 ---
 
 ## 記事
 
 ```
 # 追い出された場所から、次の時代が生まれる。
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 タグ: #AI #機械学習 #ディープラーニング #進化 #学び #歴史 #人類史
 

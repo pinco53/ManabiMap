@@ -3,6 +3,7 @@
 **対象**: 第6部第1話（前編・後編）
 **保存日**: 2026-04-18
 **URL**: https://note.com/manabimapcreator/n/na8308189337b
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 数える力は、生まれ持ったものだろうか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 日本語で何かを数えるとき、言葉が変わります。
 

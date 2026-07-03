@@ -3,6 +3,7 @@
 **対象**: 第3部ポッドキャスト「AIの深層」
 **保存日**: 2026-05-13
 **URL**: https://note.com/manabimapcreator/n/nb4a769d41cde
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 **YouTube（ポッドキャスト）**: https://youtu.be/Uoy4OZhINHA
 
 ---
@@ -11,6 +12,9 @@
 
 ```
 # 公平に見える技術が、不平等を増幅するとき
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 コンピュータは、感情も偏見も持っていない。
 だから公平だ——と思われていました。

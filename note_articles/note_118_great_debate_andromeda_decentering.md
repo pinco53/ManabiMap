@@ -3,7 +3,8 @@
 **記事種別**: wonder-note
 **対象**: 第14部第5話「自分の中の天動説を探す」（シリーズ最終回）
 **保存日**: 2026-06-20
-**公開状態**: local-draft
+**URL**: https://note.com/manabimapcreator/n/n4c99b821466a
+**公開状態**: draft
 **主対象パート**: part14
 **関連PodcastID**: podcast-part14-5
 **関連PodcastURL**: （アップロード後に記入）

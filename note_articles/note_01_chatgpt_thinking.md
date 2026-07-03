@@ -3,7 +3,11 @@
 **タグ**: #生成AI #ChatGPT #教育 #人類史 #学び #AI
 
 **URL**: https://note.com/manabimapcreator/n/n00c3101a661e
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 ---
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 「なぜ学ぶのか」という問いに、うまく答えられますか？
 

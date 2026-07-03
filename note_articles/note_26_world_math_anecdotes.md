@@ -4,12 +4,16 @@
 **保存日**: 2026-04-11
 
 **URL**: https://note.com/manabimapcreator/n/n3103a25ac2c4
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 ---
 
 ## 記事
 
 ```
 # 神社に数学を奉納した民族がいた
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 数学の授業で、問題が解けた瞬間が好きでした。
 

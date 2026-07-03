@@ -3,6 +3,7 @@
 **対象**: 第1部ポッドキャスト「産業革命の深層」(#1P)
 **保存日**: 2026-05-05
 **URL**: https://note.com/manabimapcreator/n/nc6fbb07c59f0
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 「時間を売る」という生き方は、いつ始まったのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 今日も、何時間か働きました。
 

@@ -1,7 +1,11 @@
 # note_81｜「平均的な人間」は、一人も存在しなかった
 
+**記事種別**: wonder-note
 **対象**: 第9部第14話「身体を持つという条件」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/n4f44c06731f4
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -17,7 +21,7 @@
 
 でも「平均的な人間」とは、いったい誰のことでしょうか。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=LTNnVSHcuVA
 
 ---
 
@@ -111,13 +115,19 @@ https://youtu.be/あなたのURL
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=LTNnVSHcuVA
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#平均の幻想 #具現化認知 #個別設計 #人間の多様性 #身体と思考
+#ギルバートダニエルズ #アドルフケトレー #統計学の歴史 #アメリカ空軍
+#AIと個別最適化 #生成AI時代 #標準化の限界 #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

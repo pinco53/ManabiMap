@@ -1,7 +1,11 @@
 # note_71｜欲望が止まらないのは、設計通りだった
 
+**記事種別**: wonder-note
 **対象**: 第9部第5話「報酬系の設計」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/n4150d951806c
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -16,7 +20,7 @@ SNSをやめようと思うのに、気づいたら開いている。
 「意志が弱い」と思っていた。
 でも、もしかしたら違うのかもしれない。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=MXHFv-C1UYA
 
 ---
 
@@ -124,13 +128,19 @@ https://youtu.be/あなたのURL
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=MXHFv-C1UYA
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#報酬系 #ドーパミン #不確実な報酬 #ブリスポイント #進化的ミスマッチ
+#ハワードモスコウィッツ #バラススキナー #行動心理学 #食品科学
+#AIと依存 #生成AI時代 #デジタルデトックス #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

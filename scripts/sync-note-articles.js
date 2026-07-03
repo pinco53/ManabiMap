@@ -109,6 +109,7 @@ function excerpt(text, title) {
     .filter((line) => !/^##\s+/.test(line))
     .filter((line) => !/^\*\*[^*]+\*\*:/.test(line))
     .filter((line) => !/^https?:\/\//.test(line))
+    .filter((line) => !/関連Podcast（連続再生）/.test(line))
     .filter((line) => !/^→/.test(line))
     .filter((line) => stripMarkdown(line) !== title);
 

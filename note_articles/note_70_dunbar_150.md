@@ -1,7 +1,11 @@
 # note_70｜150人を超えると、何かが壊れる
 
+**記事種別**: wonder-note
 **対象**: 第9部第3話「脳はなぜ大きくなったか」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/n06136710b43d
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -15,7 +19,7 @@
 SNSを開くたびに疲れるのに、閉じられない。
 たくさんの人とつながっているはずなのに、つながれていない気がする。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=VlhvEkIYyik
 
 ---
 
@@ -128,13 +132,19 @@ SNS疲れは、意志の弱さではないかもしれない。
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=VlhvEkIYyik
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#ダンバー数 #集団の心理学 #SNS疲れ #人間関係の限界 #脳科学
+#ロビンダンバー #ウィリアムゴア #ゴアテックス #ハッターライト #霊長類学
+#AIとの関係 #生成AI時代 #AIコンパニオン #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

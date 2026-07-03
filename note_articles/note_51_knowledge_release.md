@@ -3,6 +3,7 @@
 **対象**: 第2部ポッドキャスト「つながる世界の深層」
 **保存日**: 2026-05-08
 **URL**: https://note.com/manabimapcreator/n/n36485a76557b
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 知識を手放すと、何が生まれるのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 今日も、ウェブを使いました。
 検索して、動画を見て、記事を読んだ。

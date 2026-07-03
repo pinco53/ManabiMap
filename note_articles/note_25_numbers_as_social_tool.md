@@ -4,12 +4,16 @@
 **保存日**: 2026-04-11
 
 **URL**: https://note.com/manabimapcreator/n/nac7c30f224ac
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 ---
 
 ## 記事
 
 ```
 # 棒の刻み目で、帝国は動いていた
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 毎月、給与明細が届きます。
 

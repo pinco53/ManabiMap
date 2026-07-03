@@ -3,6 +3,7 @@
 **対象**: 第8部第6話「宿題の違和感」（note_45へのコメントから広がった視点）
 **保存日**: 2026-05-10
 **URL**: https://note.com/manabimapcreator/n/n913eb6b8fce3
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 思い出すことと、覚えていたと気づくことは、同じではない
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 「それ知ってる。」とつぶやく瞬間がある。
 

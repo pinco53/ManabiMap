@@ -3,6 +3,7 @@
 **対象**: 第5部第4話（前編・後編）
 **保存日**: 2026-04-12
 **URL**: https://note.com/manabimapcreator/n/n89c60fb760af
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 「なぜ？」は、もともと逃げるためにあった
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 子どもが「なぜ？」を繰り返す時期がある。
 「なぜ空は青いの？」

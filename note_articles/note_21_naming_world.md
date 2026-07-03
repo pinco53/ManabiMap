@@ -4,12 +4,16 @@
 **保存日**: 2026-04-06
 
 **URL**: https://note.com/manabimapcreator/n/n1cc11159159c
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 ---
 
 ## 記事
 
 ```
 # 名前をつける前、世界はひとつながりだった。
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 赤ちゃんが生まれた瞬間、親が最初にすることがある。
 名前をつけることだ。

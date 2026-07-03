@@ -4,12 +4,16 @@
 **保存日**: 2026-03-30
 
 **URL**: https://note.com/manabimapcreator/n/n3446a5ccce61
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 ---
 
 ## 記事
 
 ```
 # 「AIを使うと考えなくなる」——ソクラテスも、2400年前に言っていた
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 「AIを使うと、考えなくなる」
 

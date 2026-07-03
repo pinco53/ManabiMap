@@ -1,7 +1,11 @@
 # note_72｜悪いニュースが良いニュースより速く伝わるのは、なぜだろう
 
+**記事種別**: wonder-note
 **対象**: 第9部第6話「恐怖と不安」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/n26becf1636e9
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -15,7 +19,7 @@
 
 それはどうしてでしょうか。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=kr9edRMXVbA
 
 ---
 
@@ -121,13 +125,19 @@ https://youtu.be/あなたのURL
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=kr9edRMXVbA
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#恐怖と不安 #ネガティビティバイアス #扁桃体 #生存バイアス #進化心理学
+#ウィリアムランドルフハースト #イエロージャーナリズム #スティーブンピンカー #黒死病 #米西戦争
+#AIと情報過多 #生成AI時代 #フィルターバブル #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

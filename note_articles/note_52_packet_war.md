@@ -3,6 +3,7 @@
 **対象**: 第2部ポッドキャスト「つながる世界の深層」
 **保存日**: 2026-05-09
 **URL**: https://note.com/manabimapcreator/n/nfa68c46c8c7b
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 核攻撃に耐えるために作られたネットワークが、世界をつないだ
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 今日も、LINEでメッセージを送りました。
 

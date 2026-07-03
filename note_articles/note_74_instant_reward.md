@@ -1,7 +1,11 @@
 # note_74｜なぜ「あとで読もう」は、いつも実行されないのか
 
+**記事種別**: wonder-note
 **対象**: 第9部第8話「即時報酬の罠」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/nfe2d23c6c103
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -15,7 +19,7 @@
 
 「意志が弱い」のでしょうか。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=DvWh6OPdswA
 
 ---
 
@@ -97,13 +101,19 @@ SNSの通知は「来るかもしれない」という不確実な報酬です�
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=DvWh6OPdswA
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#即時報酬 #現在バイアス #不確実な報酬 #スロットマシン効果 #先延ばし心理
+#チャールズフェイ #バラススキナー #ショーンパーカー #行動心理学
+#AIとデザイン倫理 #生成AI時代 #スマホ依存 #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

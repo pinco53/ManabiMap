@@ -7,7 +7,7 @@
 **公開状態**: published
 **主対象パート**: part4
 **関連PodcastID**: podcast-part4-05
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 **関連YouTubeID**: youtube-part4
 **関連YouTubeURL**: https://www.youtube.com/watch?v=8dySbSKpZNU
 **CTA文言**: 関連動画を見る
@@ -18,6 +18,9 @@
 
 ```
 # 大西洋ケーブルが世界の「値段」を揃えた日
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 ニューヨークの綿花の値段と、
 ロンドンの綿花の値段。

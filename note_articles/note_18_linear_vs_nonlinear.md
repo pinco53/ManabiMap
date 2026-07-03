@@ -4,12 +4,16 @@
 **保存日**: 2026-04-04
 
 **URL**: https://note.com/manabimapcreator/n/nb1531205470c
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 ---
 
 ## 記事
 
 ```
 # 本を途中から読むと、なぜか罪悪感がある
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 本を手に取るとき、自然と1ページ目を開く。
 

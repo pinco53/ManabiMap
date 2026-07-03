@@ -1,7 +1,11 @@
 # note_73｜「仲間」と「よそ者」を決めているのは、何だろう
 
+**記事種別**: wonder-note
 **対象**: 第9部第7話「集団本能」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/n53ac42f4334d
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -13,7 +17,7 @@
 同じチームのユニフォームを見ると、なぜか親しみがわく。
 あの人は「内側」で、この人は「外側」——そう感じるのは、どこから来るのでしょうか。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=IhYS6kPtXa8
 
 ---
 
@@ -97,13 +101,19 @@ https://youtu.be/あなたのURL
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=IhYS6kPtXa8
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#集団心理 #内集団バイアス #同調圧力 #エコーチェンバー #ゴシップの心理学
+#ヘンリタジフェル #ソロモンアッシュ #社会心理学 #ロビンダンバー
+#AIとエコーチェンバー #生成AI時代 #アルゴリズムと分断 #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

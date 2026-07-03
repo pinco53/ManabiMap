@@ -3,6 +3,7 @@
 **対象**: 第8部第6話「宿題の違和感」前編・後編
 **保存日**: 2026-04-30
 **URL**: https://note.com/manabimapcreator/n/n4e98d260513a
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 「覚えなくていい」時代に、なぜ覚えることに意味があるのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 「わからなかったら調べればいい。」
 そう思って、覚えることをやめた瞬間が、誰にでもあると思います。

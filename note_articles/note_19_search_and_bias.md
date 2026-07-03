@@ -4,12 +4,16 @@
 **保存日**: 2026-04-05
 
 **URL**: https://note.com/manabimapcreator/n/n3f2187946e15
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 ---
 
 ## 記事
 
 ```
 # 「見たいものしか見えない」は、2000年前から変わっていない
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 今朝、道を歩きながら、気がつけば花を探していました。
 「今頃、あの角にシバザクラが咲いているはず」

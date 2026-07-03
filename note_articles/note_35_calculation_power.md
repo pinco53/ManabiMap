@@ -3,6 +3,7 @@
 **対象**: 第6部第4話（前編・後編）
 **保存日**: 2026-04-20
 **URL**: https://note.com/manabimapcreator/n/n9a89ce1888e3
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 計算が生まれた日、人類は「試す」のをやめた
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 コロンブスは、計算を間違えてインドへ向かった。
 

@@ -3,6 +3,7 @@
 **対象**: 第8部第8話「共通テストの衝撃」前編・後編
 **保存日**: 2026-04-28
 **URL**: https://note.com/manabimapcreator/n/n79167fdcd136
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # AIが東大首席を超えた日に、何が終わったのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 「ここ、出るよ。ちゃんと覚えてきなさい。」
 

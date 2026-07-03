@@ -3,6 +3,7 @@
 **対象**: 第6部第3話（前編・後編）
 **保存日**: 2026-04-19
 **URL**: https://note.com/manabimapcreator/n/n4da46f1a9bde
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 数が指を離れた夜、無限が生まれた
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 ある数学者が、新しい数を発見した。
 

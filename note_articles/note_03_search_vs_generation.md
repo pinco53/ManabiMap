@@ -3,7 +3,11 @@
 **タグ**: #生成AI #ChatGPT #検索 #AI #教育 #学び
 
 **URL**:
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 ---
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 ChatGPTに同じ質問を2回したことはありますか？
 

@@ -1,7 +1,11 @@
 # note_75｜江戸時代の人の一生分を、一日で処理している
 
+**記事種別**: wonder-note
 **対象**: 第9部第9話「情報過多という異常環境」
 **保存日**: 2026-05-24
+**URL**: https://note.com/manabimapcreator/n/ncaa5ee5118b9
+**公開状態**: draft
+**主対象パート**: part9
 
 ---
 
@@ -15,7 +19,7 @@
 
 これはどういうことでしょうか。
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=0PlxsWr88Sg
 
 ---
 
@@ -94,13 +98,19 @@ https://youtu.be/あなたのURL
 
 ---
 
-https://youtu.be/あなたのURL
+https://www.youtube.com/watch?v=0PlxsWr88Sg
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+#情報過多 #認知負荷 #デフォルトモードネットワーク #選択のパラドックス #決断疲れ
+#バリーシュワルツ #進化的ミスマッチ #ニューヨークサン #イエロージャーナリズム
+#AIと情報過多 #生成AI時代 #デジタルデトックス #AI時代の人間らしさ
+#考察 #読み物 #大人の学び #知的好奇心
+#ハルとおじいさん #学びの地図 #ManabiMap #ポッドキャスト
 ```
 
 ---

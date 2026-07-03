@@ -4,12 +4,16 @@
 **保存日**: 2026-03-31
 
 **URL**: https://note.com/manabimapcreator/n/n1e582531d82f
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 ---
 
 ## 記事
 
 ```
 # なぜ人は、石に印をつけずにいられなかったのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WzdYxS9_vc26ueExwm2tXka
 
 スマホを開くと、文字より先に絵文字を選んでいる自分がいます。
 

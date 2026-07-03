@@ -3,7 +3,8 @@
 **記事種別**: wonder-note
 **対象**: 第14部第3話「美しさより、事実に合わせる勇気」
 **保存日**: 2026-06-20
-**公開状態**: local-draft
+**URL**: https://note.com/manabimapcreator/n/nc7ac992e66c6
+**公開状態**: draft
 **主対象パート**: part14
 **関連PodcastID**: podcast-part14-3
 **関連PodcastURL**: （アップロード後に記入）

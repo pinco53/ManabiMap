@@ -3,6 +3,7 @@
 **対象**: 第6部第6話（前編・後編）
 **保存日**: 2026-04-26
 **URL**: https://note.com/manabimapcreator/n/n6c7f5847c20c
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # あなたを測る物差しは、誰が作ったのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyNGF4SsLElXoXOS4jX_XQp
 
 今日、何かで測られましたか。
 

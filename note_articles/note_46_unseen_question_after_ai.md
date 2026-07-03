@@ -3,6 +3,7 @@
 **対象**: 第8部第8話「共通テストの衝撃」前編・後編
 **保存日**: 2026-04-30
 **URL**: https://note.com/manabimapcreator/n/n39e9e74b774f
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # 東大入試がAIに超えられた日に、見えなかった問い
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 「AIが東大首席を超えた」という知らせは、あっという間に広まりました。
 多くの人が「AIが人間の知性を超えた」と受け取りました。

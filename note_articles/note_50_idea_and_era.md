@@ -3,6 +3,7 @@
 **対象**: 第2部ポッドキャスト「つながる世界の深層」
 **保存日**: 2026-05-07
 **URL**: https://note.com/manabimapcreator/n/n2ddcdbff48a1
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # アイデアは、時代が来なければ存在しないのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur
 
 今日も、スマホを開きました。
 アプリを立ち上げて、何かを検索して、誰かにメッセージを送った。

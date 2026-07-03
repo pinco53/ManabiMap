@@ -4,12 +4,16 @@
 **保存日**: 2026-04-06
 
 **URL**: https://note.com/manabimapcreator/n/n5556f35e43b5
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 ---
 
 ## 記事
 
 ```
 # 音はずっとあった。では、いつ「意味」になったのか。
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WymfiZhA30YZ763uf1VE7Jc
 
 赤ちゃんは泣く。鳥は鳴く。犬は吠える。
 音はずっと、そこにあった。

@@ -3,6 +3,7 @@
 **対象**: 第8部第8話「共通テストの衝撃」前編・後編
 **保存日**: 2026-04-25
 **URL**: https://note.com/manabimapcreator/n/ndc68c0112605
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 ---
 
@@ -10,6 +11,9 @@
 
 ```
 # テストで高得点を取ると、幸せになれるのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 「いい点を取れ。」
 

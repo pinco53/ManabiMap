@@ -4,12 +4,16 @@
 **保存日**: 2026-03-25
 
 **URL**: https://note.com/manabimapcreator/n/nb299d49cfdd2
+**関連PodcastURL**: https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 ---
 
 ## 記事
 
 ```
 # AIに、何を問えばいいのか
+
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC
 
 何かを調べようとして、検索窓の前で止まったことがある。
 知りたいことはある。でも——なんて入力すればいいのか、わからない。
