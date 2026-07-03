@@ -1,0 +1,8 @@
+.DS_Store
+.claude/
+assets/.DS_Store
+infographics/.DS_Store
+infographics/_archive*/
+infographics/_source_*.png
+infographics/_preview_*.png
+top-page-prototype.html
