@@ -54,10 +54,26 @@
     });
   }
 
-  function firstPodcastForPart(partId) {
-    return data.mediaForPart(partId, 'podcast').find(function(item) {
+  function podcastsForPart(partId) {
+    return data.mediaForPart(partId, 'podcast').filter(function(item) {
       return item && item.url;
-    }) || null;
+    });
+  }
+
+  function firstPodcastForPart(partId) {
+    return podcastsForPart(partId)[0] || null;
+  }
+
+  function youtubeIdFromUrl(url) {
+    try {
+      const parsed = new URL(url);
+      if (parsed.hostname === 'youtu.be') return parsed.pathname.replace('/', '');
+      if (parsed.searchParams.get('v')) return parsed.searchParams.get('v');
+      const match = parsed.pathname.match(/\/embed\/([^/?]+)/);
+      return match ? match[1] : '';
+    } catch (error) {
+      return '';
+    }
   }
 
   function buildLane(kind, label, title, text, action) {
@@ -113,7 +129,9 @@
     questionBlock.appendChild(questions);
 
     const videoUrl = part.youtubeUrl || part.playlistUrl;
-    const podcast = firstPodcastForPart(part.id);
+    const partPodcasts = podcastsForPart(part.id);
+    const podcastCount = partPodcasts.length;
+    const podcast = partPodcasts[0] || null;
     const publicNotes = publicNotesForPart(part.id);
     const firstNote = publicNotes[0] || null;
 
@@ -181,7 +199,9 @@
       'listen',
       'LISTEN',
       '深く聴く',
-      podcast ? '背景や歴史を、移動中にも耳で深くたどる。' : 'この部のPodcastは、今後ここに接続していきます。',
+      podcast
+        ? '背景や歴史を、移動中にも耳で深くたどる。' + (podcastCount > 1 ? '（この部は全' + podcastCount + '本）' : '')
+        : 'この部のPodcastは、今後ここに接続していきます。',
       podcastAction
     ));
     lanes.appendChild(buildLane(
@@ -243,6 +263,186 @@
     panel.appendChild(head);
     panel.appendChild(body);
     return panel;
+  }
+
+  const NAV_ACCENTS = {
+    orange: '#ff6b2b',
+    blue: '#4aa3ff',
+    cyan: '#00d4ff',
+    green: '#39ff39',
+    purple: '#bf5fff',
+    gold: '#ffd700',
+    magenta: '#ff2fa3',
+    sky: '#00d4ff'
+  };
+
+  function injectNavStyles() {
+    if (document.getElementById('manabi-nav-style')) return;
+    const style = document.createElement('style');
+    style.id = 'manabi-nav-style';
+    style.textContent = [
+      '.manabi-nav { position: sticky; top: 0; z-index: 100; display: flex; gap: 8px; align-items: center; padding: 0 24px; overflow-x: auto; background: rgba(8,8,13,0.92); border-bottom: 1px solid #2a2a40; backdrop-filter: blur(12px); scrollbar-width: none; font-family: "Hiragino Sans", "Noto Sans JP", sans-serif; }',
+      '.manabi-nav::-webkit-scrollbar { display: none; }',
+      '.manabi-nav a { flex-shrink: 0; padding: 14px 16px; color: #a3a3bf; border-bottom: 2px solid transparent; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; white-space: nowrap; text-decoration: none; transition: color 0.25s, border-color 0.25s; }',
+      '.manabi-nav a:hover { color: #ffffff; }'
+    ].join('\n');
+    document.head.appendChild(style);
+  }
+
+  function navPartNumber(part) {
+    return parseInt(String(part.number).split('-')[0], 10);
+  }
+
+  function initNav(part) {
+    if (document.querySelector('.manabi-nav')) return;
+    injectNavStyles();
+    const currentNum = part ? navPartNumber(part) : null;
+    const accent = part && NAV_ACCENTS[part.color] ? NAV_ACCENTS[part.color] : '#00d4ff';
+
+    const nav = document.createElement('nav');
+    nav.className = 'manabi-nav';
+    nav.setAttribute('aria-label', '学びの地図ナビゲーション');
+
+    const links = [{ href: '../index.html', label: '学びの地図' }];
+    const seenNums = {};
+    data.parts.forEach(function(item) {
+      const num = navPartNumber(item);
+      if (seenNums[num] || !item.pageUrl) return;
+      seenNums[num] = true;
+      links.push({ href: item.pageUrl.replace(/^parts\//, ''), label: '第' + num + '部', num: num });
+    });
+    links.push({ href: '../note.html', label: 'note記事' });
+    links.push({ href: '../podcast.html', label: 'Podcast' });
+    links.push({ href: '../infographics.html', label: '図解' });
+
+    links.forEach(function(link) {
+      const a = document.createElement('a');
+      a.href = link.href;
+      a.textContent = link.label;
+      if (link.num && currentNum && link.num === currentNum) {
+        a.className = 'active';
+        a.style.color = accent;
+        a.style.borderBottomColor = accent;
+        a.setAttribute('aria-current', 'page');
+      }
+      nav.appendChild(a);
+    });
+
+    document.body.insertAdjacentElement('afterbegin', nav);
+  }
+
+  function injectPodcastRailStyles() {
+    if (document.getElementById('part-podcast-rail-style')) return;
+    const style = document.createElement('style');
+    style.id = 'part-podcast-rail-style';
+    style.textContent = [
+      '.part-podcast-rail { max-width: 880px; margin: 0 auto; padding: 48px 40px; background: #09090f; border-top: 3px solid #ffb86b; font-family: "Hiragino Sans", "Noto Sans JP", sans-serif; }',
+      '.part-podcast-rail__header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 12px; }',
+      '.part-podcast-rail__title { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 18px; font-weight: 900; letter-spacing: 0.08em; }',
+      '.part-podcast-rail__title::before { content: ""; display: inline-block; width: 4px; height: 20px; background: #ffb86b; border-radius: 2px; }',
+      '.part-podcast-rail__count { color: #9090aa; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; }',
+      '.part-podcast-rail__hub-btn { display: inline-flex; align-items: center; padding: 10px 22px; background: #ffb86b; color: #000; font-size: 13px; font-weight: 700; border-radius: 6px; text-decoration: none; letter-spacing: 0.05em; transition: opacity 0.2s; }',
+      '.part-podcast-rail__hub-btn:hover { opacity: 0.85; }',
+      '.part-podcast-rail__lead { margin: 0 0 24px; color: #9090aa; font-size: 12.5px; line-height: 1.9; }',
+      '.part-podcast-rail__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }',
+      '.part-podcast-rail__card { display: block; overflow: hidden; background: #13131f; border: 1px solid #2a2a40; border-radius: 8px; text-decoration: none; transition: all 0.3s; }',
+      '.part-podcast-rail__card:hover { border-color: #ffb86b; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }',
+      '.part-podcast-rail__thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; background: #000; }',
+      '.part-podcast-rail__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }',
+      '.part-podcast-rail__card:hover .part-podcast-rail__thumb img { transform: scale(1.06); }',
+      '.part-podcast-rail__badge { position: absolute; left: 8px; top: 8px; padding: 3px 8px; border: 1px solid rgba(255,184,107,0.5); border-radius: 999px; background: rgba(8,8,13,0.72); color: #ffd8a8; font-size: 10px; font-weight: 900; letter-spacing: 0.14em; }',
+      '.part-podcast-rail__label { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; padding: 10px 12px; color: #ccc; font-size: 12px; font-weight: 700; line-height: 1.5; }',
+      '@media (max-width: 600px) { .part-podcast-rail { padding: 32px 20px; } .part-podcast-rail__grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }'
+    ].join('\n');
+    document.head.appendChild(style);
+  }
+
+  function buildPodcastRail(part, podcasts) {
+    const rail = document.createElement('div');
+    rail.className = 'part-podcast-rail';
+    rail.setAttribute('aria-label', 'この部のPodcast');
+
+    const header = document.createElement('div');
+    header.className = 'part-podcast-rail__header';
+
+    const title = document.createElement('div');
+    title.className = 'part-podcast-rail__title';
+    title.textContent = '耳で聴く ── この部のPodcast';
+    const count = document.createElement('span');
+    count.className = 'part-podcast-rail__count';
+    count.textContent = '全' + podcasts.length + '本';
+    title.appendChild(count);
+
+    const hubLink = trackLink(
+      createLink('part-podcast-rail__hub-btn', '../podcast.html#' + part.id, 'Podcast一覧で見る', false),
+      'part_to_podcast_click',
+      part.id,
+      'podcast_hub',
+      'podcast'
+    );
+
+    header.appendChild(title);
+    header.appendChild(hubLink);
+
+    const lead = document.createElement('p');
+    lead.className = 'part-podcast-rail__lead';
+    lead.textContent = '動画で見た流れを、歴史背景ごと音声で深掘りするPodcast版。移動中や家事中の「ながら学習」に使えます。';
+
+    const grid = document.createElement('div');
+    grid.className = 'part-podcast-rail__grid';
+
+    podcasts.forEach(function(item, index) {
+      const card = trackLink(
+        createLink('part-podcast-rail__card', item.url, '', true),
+        'part_to_podcast_click',
+        part.id,
+        'podcast',
+        item.id
+      );
+
+      const thumb = document.createElement('div');
+      thumb.className = 'part-podcast-rail__thumb';
+      const videoId = youtubeIdFromUrl(item.url);
+      if (videoId) {
+        const img = document.createElement('img');
+        img.src = 'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg';
+        img.alt = item.title;
+        img.loading = 'lazy';
+        thumb.appendChild(img);
+      }
+      const badge = document.createElement('span');
+      badge.className = 'part-podcast-rail__badge';
+      badge.textContent = 'PODCAST ' + (index + 1) + '/' + podcasts.length;
+      thumb.appendChild(badge);
+
+      const label = document.createElement('div');
+      label.className = 'part-podcast-rail__label';
+      label.textContent = item.title;
+
+      card.appendChild(thumb);
+      card.appendChild(label);
+      grid.appendChild(card);
+    });
+
+    rail.appendChild(header);
+    rail.appendChild(lead);
+    rail.appendChild(grid);
+    return rail;
+  }
+
+  function initPodcastRail(part) {
+    if (document.querySelector('.part-podcast-rail')) return;
+    const podcasts = podcastsForPart(part.id);
+    if (!podcasts.length) return;
+    injectPodcastRailStyles();
+    const rail = buildPodcastRail(part, podcasts);
+    const ytSection = document.querySelector('.yt-section');
+    const bridge = document.querySelector('.part-map-bridge');
+    if (ytSection) {
+      ytSection.insertAdjacentElement('afterend', rail);
+    } else if (bridge) {
+      bridge.insertAdjacentElement('afterend', rail);
+    }
   }
 
   function initShootingStars() {
@@ -320,10 +520,14 @@
 
   function init() {
     const part = data.findById(currentPartId());
+    if (!part) return;
+    initNav(part);
     const cover = document.querySelector('.cover');
-    if (!part || !cover || document.querySelector('.part-map-bridge')) return;
-    cover.insertAdjacentElement('afterend', buildPanel(part));
-    initShootingStars();
+    if (cover && !document.querySelector('.part-map-bridge')) {
+      cover.insertAdjacentElement('afterend', buildPanel(part));
+      initShootingStars();
+    }
+    initPodcastRail(part);
   }
 
   if (document.readyState === 'loading') {
