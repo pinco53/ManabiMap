@@ -2,13 +2,14 @@
 
 **記事種別**: wonder-note
 **対象**: AI源流第7話
-**保存日**: 2026-06-21
-**公開状態**: local-draft
+**保存日**: 2026-07-02
+**URL**: https://note.com/manabimapcreator/n/n41e4b5dc149d
+**公開状態**: published
 **主対象パート**: AI源流
 **関連PodcastID**: podcast-AI源流-7
-**関連PodcastURL**: （Podcast URL 記入予定）
+**関連PodcastURL**: https://www.youtube.com/watch?v=e9LQL86alWM
 **関連YouTubeID**: youtube-AI源流
-**関連YouTubeURL**: （Podcast URL 記入予定）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=e9LQL86alWM
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -22,7 +23,7 @@
 
 それを、一番喜ぶべき人は、本当に喜べるのでしょうか。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=e9LQL86alWM
 
 ---
 
@@ -64,7 +65,7 @@
 
 ---
 
-→ **Podcastで深く聴く｜ハルとおじいさん AI源流第7話（公開後にリンク追加）**
+→ **[Podcastで深く聴く｜ハルとおじいさん AI源流第7話](https://www.youtube.com/watch?v=e9LQL86alWM)**
 
 → **[ハルとおじいさん｜学びの地図](https://pinco53.github.io/ManabiMap/)**
 

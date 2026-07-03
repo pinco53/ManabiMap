@@ -2,8 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: AI源流第4話
-**保存日**: 2026-06-21
-**公開状態**: local-draft
+**保存日**: 2026-06-29
+**URL**: https://note.com/manabimapcreator/n/n837f3edf05b6
+**公開状態**: published
 **主対象パート**: AI源流
 **関連PodcastID**: podcast-AI源流-4
 **関連PodcastURL**: https://www.youtube.com/watch?v=JR2rViO8-Yw

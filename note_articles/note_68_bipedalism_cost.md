@@ -2,11 +2,12 @@
 
 **記事種別**: wonder-note
 **対象**: 第9部第1話「二足歩行という革命」
-**保存日**: 2026-05-25
-**公開状態**: local-draft
+**保存日**: 2026-07-04
+**URL**: https://note.com/manabimapcreator/n/n44fbd14a1133
+**公開状態**: published
 **主対象パート**: part9
-**関連PodcastURL**: （アップロード後に記入）
-**関連YouTubeURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=ntz9H4H2P_8
+**関連YouTubeURL**: https://www.youtube.com/watch?v=ntz9H4H2P_8
 **CTA文言**: 関連動画を見る
 
 ---
@@ -21,7 +22,7 @@
 
 では、誰かの後ろを歩いていて、ふとその人の足跡に自分の足を重ねたくなったことは、ないでしょうか。
 
-https://あなたのURL
+https://www.youtube.com/watch?v=ntz9H4H2P_8
 
 ---
 
@@ -102,7 +103,7 @@ https://あなたのURL
 
 ---
 
-https://あなたのURL
+https://www.youtube.com/watch?v=ntz9H4H2P_8
 
 → **[ハルとおじいさん 第9部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part9.html)**
 

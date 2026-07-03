@@ -2,13 +2,14 @@
 
 **記事種別**: wonder-note
 **対象**: AI源流第8話（終章）
-**保存日**: 2026-06-21
-**公開状態**: local-draft
+**保存日**: 2026-07-03
+**URL**: https://note.com/manabimapcreator/n/ne1901dc8ed05
+**公開状態**: published
 **主対象パート**: AI源流
 **関連PodcastID**: podcast-AI源流-8
-**関連PodcastURL**: （Podcast URL 記入予定）
+**関連PodcastURL**: https://www.youtube.com/watch?v=pfacYJ75t64
 **関連YouTubeID**: youtube-AI源流
-**関連YouTubeURL**: （Podcast URL 記入予定）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=pfacYJ75t64
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -22,7 +23,7 @@
 
 静かな時間が積み重なって、ある日、急に何かが動く。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=pfacYJ75t64
 
 ---
 
@@ -65,7 +66,7 @@
 
 ---
 
-→ **Podcastで深く聴く｜ハルとおじいさん AI源流 第8話・終章（公開後にリンク追加）**
+→ **[Podcastで深く聴く｜ハルとおじいさん AI源流 第8話・終章](https://www.youtube.com/watch?v=pfacYJ75t64)**
 
 → **[ハルとおじいさん｜学びの地図](https://pinco53.github.io/ManabiMap/)**
 
