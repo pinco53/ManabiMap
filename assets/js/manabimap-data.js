@@ -1064,51 +1064,6 @@
       question: '生成AIは、何を生成しているのか。',
       relation: 'Podcastで深める'
     },
-    {
-      id: 'podcast-part9-01',
-      type: 'podcast',
-      title: 'なぜ人間だけが腰痛になるのか——ルーシーから始まる立つことの代価と革命｜まるごと聴く 二足歩行という革命【ハルとおじいさん #9P-1】',
-      url: 'https://youtu.be/ntz9H4H2P_8',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: 'Podcastで深める'
-    },
-    {
-      id: 'podcast-part9-02',
-      type: 'podcast',
-      title: '道具を作るには、まず頭の中に完成形が必要だった——260万年の道具史と「存在しないものを作る」能力｜まるごと聴く 手と道具【ハルとおじいさん #9P-2】',
-      url: 'https://youtu.be/rd2EIzy0YpE',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: 'Podcastで深める'
-    },
-    {
-      id: 'podcast-part9-03',
-      type: 'podcast',
-      title: '人間の脳は「150人のために」作られていた｜まるごと聴く ダンバー数の深層【ハルとおじいさん #9P-3】',
-      url: 'https://youtu.be/VlhvEkIYyik',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: 'Podcastで深める'
-    },
-    {
-      id: 'podcast-part9-04',
-      type: 'podcast',
-      title: '目が合うと伝わるのはなぜか——言語以前の身体が語っていたこと｜まるごと聴く 言語以前の身体【ハルとおじいさん #9P-4】',
-      url: 'https://youtu.be/7Y9C8qRlfZk',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: 'Podcastで深める'
-    },
-    {
-      id: 'podcast-part9-05',
-      type: 'podcast',
-      title: '「もっと食べたい」に終わりがないのは、設計通りだった｜まるごと聴く 報酬系の深層【ハルとおじいさん #9P-5】',
-      url: 'https://youtu.be/MXHFv-C1UYA',
-      relatedParts: ['part9'],
-      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
-      relation: 'Podcastで深める'
-    }
 
   ];
 
