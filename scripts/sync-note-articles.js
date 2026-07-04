@@ -171,6 +171,10 @@ function publicUrl(value) {
   return /^https?:\/\//.test(String(value || '').trim()) ? String(value).trim() : '';
 }
 
+function isPublishedStatus(value) {
+  return String(value || '').trim().toLowerCase() === 'published';
+}
+
 function primaryPartId(note) {
   if (note.primaryPart && partMeta[note.primaryPart]) return note.primaryPart;
   const parts = note.relatedParts || [];
@@ -302,7 +306,7 @@ function parseArticle(file) {
   const title = firstHeading(text, number);
   const target = meta(text, '対象');
   const savedAt = meta(text, '保存日');
-  const url = meta(text, 'URL');
+  const rawUrl = publicUrl(meta(text, 'URL'));
   const explicitStatus = firstMeta(text, ['公開状態', 'status']);
   const articleKind = firstMeta(text, ['記事種別', '種別', 'type']) || (/^\*\*YouTube（ポッドキャスト）\*\*:/m.test(text) ? 'wonder-note' : '');
   const primaryPart = firstMeta(text, ['主対象パート', 'primaryPart']);
@@ -312,14 +316,14 @@ function parseArticle(file) {
   const relatedYouTubeUrl = publicUrl(firstMeta(text, ['関連YouTubeURL']));
   const ctaCopy = firstMeta(text, ['CTA文言', 'CTA']);
   const tags = parseTags(text, target);
-  const published = /^https?:\/\//.test(url);
-  const status = explicitStatus || (published ? 'published' : 'local-draft');
+  const status = explicitStatus || (rawUrl ? 'published' : 'local-draft');
+  const published = rawUrl && isPublishedStatus(status);
 
   return {
     id: 'note-' + String(number).padStart(2, '0'),
     number,
     title,
-    url: published ? url : '',
+    url: published ? rawUrl : '',
     status,
     kind: articleKind,
     date: savedAt,
@@ -396,7 +400,6 @@ function cardHtml(note) {
 function updateNoteHtml(notes) {
   let html = read(noteHtmlPath);
   const publishedNotes = notes.filter((note) => note.url);
-  const draftNotes = notes.filter((note) => !note.url);
   html = html.replace(/<div class="hero-count">\d+ articles<\/div>/, '<div class="hero-count">' + publishedNotes.length + ' articles</div>');
   html = html.replace(/<span id="note-filter-count">\d+ articles<\/span>/, '<span id="note-filter-count">' + publishedNotes.length + ' articles</span>');
 
@@ -408,26 +411,9 @@ function updateNoteHtml(notes) {
     '</section>'
   ].join('\n');
 
-  const draftGrid = draftNotes.length
-    ? [
-        '<section class="upcoming-section" aria-label="近日公開のnote記事">',
-        '  <div class="upcoming-head">',
-        '    <div>',
-        '      <div class="upcoming-label">COMING SOON</div>',
-        '      <h2 class="upcoming-title">近日公開</h2>',
-        '    </div>',
-        '    <p class="upcoming-copy">公開前の問いは、ここで静かに育てています。</p>',
-        '  </div>',
-        '  <div class="note-grid note-grid--upcoming">',
-        draftNotes.map(cardHtml).join('\n\n'),
-        '  </div>',
-        '</section>'
-      ].join('\n')
-    : '';
-
   const gridPattern = /<section class="grid-section">[\s\S]*?<\/section>(?:\n\n<section class="upcoming-section"[\s\S]*?<\/section>)?/;
   if (!gridPattern.test(html)) throw new Error('Could not replace note grid in note.html');
-  const next = html.replace(gridPattern, publishedGrid + (draftGrid ? '\n\n' + draftGrid : ''));
+  const next = html.replace(gridPattern, publishedGrid);
   write(noteHtmlPath, next);
 }
 
