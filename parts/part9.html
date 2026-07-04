@@ -3,7 +3,623 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ハルとおじいさん｜第9部 身体という時間</title>
+<title>ハルとおじいさん｜第9部 身体という時間 学びの地図</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --paper: #faf8f2;
+    --ink: #251d13;
+    --soft-ink: #4a3926;
+    --muted: #7f694d;
+    --gold: #c79635;
+    --gold-dark: #7d4b13;
+    --earth: #8e4f22;
+    --leaf: #2d6b57;
+    --blue: #2f5f88;
+    --violet: #5a4a8a;
+    --line: #e3d1a7;
+    --panel: #fffdf7;
+  }
+  body {
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  a { color: inherit; }
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px;
+    text-align: center;
+    color: #f6ecd7;
+    background:
+      linear-gradient(160deg, rgba(22, 13, 4, 0.96), rgba(83, 45, 18, 0.92) 48%, rgba(31, 79, 72, 0.92)),
+      url("../assets/social/og-image.jpg") center / cover;
+    page-break-after: always;
+  }
+  .cover-series {
+    margin-bottom: 24px;
+    color: #d8b86f;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+  }
+  .cover-title {
+    color: #fff8e8;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .cover-subtitle {
+    color: #d8b86f;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    margin-bottom: 52px;
+  }
+  .cover-chapter {
+    border: 1px solid #d8b86f;
+    color: #d8b86f;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    margin-bottom: 52px;
+    padding: 14px 44px;
+  }
+  .cover-tagline {
+    color: #e5cfaa;
+    font-size: 14px;
+    line-height: 2.2;
+    max-width: 640px;
+  }
+  .cover-tagline em {
+    color: #ffe39a;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .cover-divider {
+    background: #9b7a43;
+    height: 1px;
+    margin: 36px auto;
+    width: 60px;
+  }
+  .cover-note {
+    color: #ab8a52;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+  }
+  .cover-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .cover-action {
+    border: 1px solid rgba(255, 227, 154, 0.55);
+    border-radius: 4px;
+    color: #fff1c2;
+    display: inline-flex;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    min-height: 38px;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  .chapter-nav {
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 880px;
+    padding: 20px 68px;
+  }
+  .chapter-nav a {
+    color: var(--gold-dark);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+  .chapter-nav span {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+  }
+  .page {
+    margin: 0 auto;
+    max-width: 880px;
+    padding: 64px 68px;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+  .section-label {
+    color: var(--gold-dark);
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .section-title {
+    border-bottom: 2px solid var(--gold);
+    color: var(--ink);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.45;
+    margin-bottom: 6px;
+    padding-bottom: 12px;
+  }
+  .section-intro {
+    color: var(--soft-ink);
+    font-size: 13px;
+    line-height: 2.0;
+    margin: 20px 0 32px;
+  }
+  .essay-box {
+    background: linear-gradient(135deg, #fffbf0 0%, #f2f7ed 100%);
+    border-left: 5px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 28px;
+    padding: 28px 32px;
+  }
+  .essay-box h3 {
+    color: var(--gold-dark);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+  .essay-box p {
+    color: #342615;
+    font-size: 13px;
+    line-height: 2.0;
+    margin-bottom: 12px;
+  }
+  .essay-box p:last-child { margin-bottom: 0; }
+  .argument-heading {
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 17px;
+    font-weight: 700;
+    margin: 36px 0 12px;
+    padding-bottom: 8px;
+  }
+  .argument-body {
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 2.1;
+    margin-bottom: 20px;
+  }
+  .pull-quote {
+    background: #fffbf2;
+    border-left: 4px solid var(--gold);
+    color: #57370e;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.9;
+    margin: 24px 0 24px 16px;
+    padding: 12px 20px;
+  }
+  .fault-visual {
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(92, 65, 24, 0.12);
+    display: flex;
+    gap: 0;
+    margin: 36px 0;
+    overflow: hidden;
+  }
+  .fault-left,
+  .fault-right {
+    flex: 1;
+    padding: 28px 24px;
+  }
+  .fault-left { background: linear-gradient(160deg, #f7ead0, #e4d090); }
+  .fault-right { background: linear-gradient(160deg, #dcedef, #a8cdd0); }
+  .fault-center {
+    align-items: center;
+    background: linear-gradient(180deg, #e5bd4d, #9f6b16, #e5bd4d);
+    color: #fff;
+    display: flex;
+    font-size: 12px;
+    font-weight: 700;
+    justify-content: center;
+    letter-spacing: 0.25em;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.35);
+    width: 72px;
+    writing-mode: vertical-rl;
+  }
+  .fault-side-title {
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .fault-side-desc {
+    color: #3b2c18;
+    font-size: 12px;
+    line-height: 2.0;
+  }
+  .fault-side-desc li {
+    list-style: none;
+    margin-bottom: 4px;
+    padding-left: 1.2em;
+    position: relative;
+  }
+  .fault-side-desc li::before {
+    color: var(--gold-dark);
+    content: '▸';
+    font-size: 10px;
+    left: 0;
+    position: absolute;
+    top: 2px;
+  }
+  .central-question {
+    background: linear-gradient(135deg, #fffbf0, #eef7f2);
+    border: 2px solid var(--line);
+    border-radius: 8px;
+    margin: 32px 0;
+    padding: 32px 36px;
+    text-align: center;
+  }
+  .cq-label {
+    color: var(--gold-dark);
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .cq-text {
+    color: var(--ink);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .cq-sub {
+    color: var(--soft-ink);
+    font-size: 12.5px;
+    line-height: 2.0;
+  }
+  .chapter-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(121, 82, 26, 0.08);
+    margin: 28px 0 36px;
+    overflow: hidden;
+  }
+  .chapter-card__head {
+    background: linear-gradient(100deg, #774117, #2e705f);
+    color: #fff;
+    padding: 20px 24px;
+  }
+  .chapter-card--middle .chapter-card__head {
+    background: linear-gradient(100deg, #153d5c, #8c5f19);
+  }
+  .chapter-card--final .chapter-card__head {
+    background: linear-gradient(100deg, #3c276b, #226654);
+  }
+  .chapter-kicker {
+    color: rgba(255,255,255,0.64);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    margin-bottom: 4px;
+  }
+  .chapter-name {
+    color: #fff;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.45;
+    margin-bottom: 6px;
+  }
+  .chapter-lead {
+    color: rgba(255,255,255,0.82);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .episode-list {
+    display: grid;
+    gap: 0;
+  }
+  .episode-row {
+    border-bottom: 1px solid #f0e6d0;
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 118px 1fr;
+    padding: 20px 24px;
+  }
+  .episode-row:last-child { border-bottom: none; }
+  .episode-no {
+    color: var(--gold-dark);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    padding-top: 4px;
+    text-transform: uppercase;
+  }
+  .episode-title {
+    color: var(--ink);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.45;
+    margin-bottom: 6px;
+  }
+  .episode-summary {
+    color: var(--soft-ink);
+    font-size: 12.5px;
+    line-height: 1.95;
+    margin-bottom: 10px;
+  }
+  .episode-question {
+    background: #fffaf0;
+    border-left: 3px solid var(--gold);
+    color: #4c3517;
+    font-size: 12px;
+    line-height: 1.8;
+    padding: 9px 12px;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .tag {
+    background: #f6efdd;
+    border: 1px solid #e7d5aa;
+    border-radius: 20px;
+    color: #6a491b;
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+  .axis-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 28px 0;
+  }
+  .axis-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .axis-card h3 {
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .axis-card p {
+    color: var(--soft-ink);
+    font-size: 12.5px;
+    line-height: 1.9;
+  }
+  .summary-table {
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 24px 0;
+    width: 100%;
+  }
+  .summary-table th {
+    background: #593810;
+    color: #fff3cf;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  .summary-table td {
+    border-bottom: 1px solid #eadfca;
+    color: var(--ink);
+    line-height: 1.75;
+    padding: 10px 14px;
+    vertical-align: top;
+  }
+  .summary-table tr:nth-child(even) td { background: #fffaf0; }
+  .glossary-item {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    margin-bottom: 14px;
+    padding: 18px 20px;
+  }
+  .glossary-term {
+    align-items: baseline;
+    color: var(--gold-dark);
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+    gap: 8px;
+    margin-bottom: 3px;
+  }
+  .glossary-kana {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 400;
+  }
+  .glossary-en {
+    color: var(--blue);
+    font-size: 11px;
+    font-style: italic;
+    font-weight: 400;
+    margin-left: auto;
+  }
+  .glossary-def {
+    color: var(--ink);
+    font-size: 12.5px;
+    line-height: 1.9;
+    margin-top: 8px;
+  }
+  .discussion-q { margin: 20px 0; }
+  .d-item {
+    border-bottom: 1px solid #f0e6d0;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+  }
+  .d-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .d-num {
+    align-items: center;
+    background: var(--gold);
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 700;
+    height: 28px;
+    justify-content: center;
+    margin-top: 2px;
+    width: 28px;
+  }
+  .d-text {
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  .d-hint {
+    color: var(--muted);
+    font-size: 11.5px;
+    line-height: 1.75;
+    margin-top: 5px;
+  }
+  .bridge-box {
+    background: linear-gradient(135deg, #143926, #245e51);
+    border-radius: 8px;
+    color: #d4f0e8;
+    margin-top: 32px;
+    padding: 28px 32px;
+  }
+  .bridge-label {
+    color: #9ad6c2;
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .bridge-text {
+    color: #e8fff8;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .bridge-sub {
+    color: #b7ddcf;
+    font-size: 12.5px;
+    line-height: 1.95;
+  }
+  .resource-grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 22px;
+  }
+  .resource-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: inherit;
+    display: block;
+    min-height: 100%;
+    padding: 18px;
+    text-decoration: none;
+  }
+  .resource-label {
+    color: var(--gold-dark);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+  .resource-title {
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+  .resource-text {
+    color: var(--soft-ink);
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 8px;
+  }
+  .note-list {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 22px;
+  }
+  .note-link {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--ink);
+    display: block;
+    font-size: 12px;
+    line-height: 1.55;
+    padding: 12px 14px;
+    text-decoration: none;
+  }
+  .note-link span {
+    color: var(--gold-dark);
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    margin-bottom: 4px;
+  }
+  .doc-footer {
+    border-top: 1px solid var(--line);
+    color: var(--gold-dark);
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    margin-top: 48px;
+    padding: 28px 0 10px;
+    text-align: center;
+  }
+  @media (max-width: 720px) {
+    body { font-size: 13px; }
+    .cover { min-height: 92vh; padding: 48px 22px; }
+    .cover-title { font-size: 36px; }
+    .cover-chapter { padding: 12px 24px; }
+    .chapter-nav { display: block; padding: 18px 22px; text-align: center; }
+    .chapter-nav span { display: block; margin: 10px 0; }
+    .page { padding: 44px 22px; }
+    .fault-visual { display: block; }
+    .fault-center { height: 48px; width: 100%; writing-mode: horizontal-tb; }
+    .episode-row { display: block; padding: 18px; }
+    .episode-no { margin-bottom: 8px; }
+    .axis-grid, .resource-grid, .note-list { grid-template-columns: 1fr; }
+    .summary-table { font-size: 11.5px; }
+    .summary-table th, .summary-table td { padding: 9px 8px; }
+    .glossary-term { display: block; }
+    .glossary-en { display: block; margin-left: 0; }
+  }
+  @media print {
+    body { background: #fff; }
+    .cover { min-height: 100vh; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 40px 50px; }
+    .essay-box, .bridge-box, .chapter-card__head, .fault-visual, .central-question { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @page { size: A4; margin: 15mm 15mm; }
+</style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
 <script>
@@ -13,228 +629,473 @@
   if (localStorage.getItem('manabimap_owner') === '1') { gtag('set', {'traffic_type': 'internal'}); }
   gtag('config', 'G-QL1PVK5PRF');
 </script>
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg: #0b0d10;
-  --panel: #141619;
-  --text: #eef2ea;
-  --muted: #a7afa4;
-  --line: rgba(255,255,255,0.12);
-  --accent: #ffb86b;
-  --green: #95d88f;
-  --blue: #8da2ff;
-}
-body {
-  min-height: 100vh;
-  font-family: 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif;
-  background:
-    radial-gradient(circle at 10% 0%, rgba(149,216,143,0.16), transparent 30%),
-    radial-gradient(circle at 85% 8%, rgba(255,184,107,0.18), transparent 32%),
-    linear-gradient(180deg, #101316, var(--bg));
-  color: var(--text);
-  line-height: 1.85;
-}
-a { color: inherit; text-decoration: none; }
-.hero {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 86px 24px 44px;
-}
-.eyebrow {
-  margin-bottom: 14px;
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.36em;
-}
-h1 {
-  max-width: 980px;
-  font-size: clamp(38px, 7vw, 82px);
-  line-height: 1.12;
-  letter-spacing: 0.04em;
-}
-.lead {
-  max-width: 740px;
-  margin-top: 24px;
-  color: var(--muted);
-  font-size: 15px;
-}
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 30px;
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  min-height: 38px;
-  padding: 8px 14px;
-  border: 1px solid rgba(255,184,107,0.42);
-  border-radius: 8px;
-  background: rgba(255,184,107,0.09);
-  color: #ffe0ba;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-}
-.section {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 26px 24px 58px;
-}
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  align-items: end;
-  margin-bottom: 18px;
-}
-.section-label {
-  color: var(--accent);
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.28em;
-}
-.section-title {
-  margin-top: 4px;
-  font-size: 28px;
-  line-height: 1.35;
-}
-.count {
-  color: var(--muted);
-  font-size: 12px;
-  white-space: nowrap;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
-}
-.card {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: rgba(20,22,25,0.76);
-}
-.thumb {
-  display: block;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: #050608;
-}
-.thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.body {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 18px;
-  flex: 1;
-}
-.meta {
-  color: var(--accent);
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-}
-.title {
-  font-size: 17px;
-  line-height: 1.55;
-}
-.question {
-  color: var(--muted);
-  font-size: 12px;
-}
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: auto;
-}
-.action {
-  min-height: 32px;
-  padding: 6px 10px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  color: var(--text);
-  font-size: 12px;
-  font-weight: 800;
-}
-.action.primary {
-  border-color: rgba(255,184,107,0.45);
-  color: #ffe0ba;
-}
-.note-card .meta { color: var(--green); }
-.note-card .action.primary {
-  border-color: rgba(149,216,143,0.45);
-  color: #d9ffd5;
-}
-.empty {
-  padding: 28px;
-  border: 1px dashed var(--line);
-  border-radius: 10px;
-  color: var(--muted);
-}
-@media (max-width: 720px) {
-  .section-head { display: block; }
-  .count { display: block; margin-top: 6px; }
-}
-</style>
+<link rel="stylesheet" href="../assets/css/part-connector.css">
 </head>
 <body>
-<main>
-  <section class="hero">
-    <div class="eyebrow">PART 09</div>
-    <h1>身体という時間</h1>
-    <p class="lead">
-      二足歩行、手と道具、脳、報酬系、不安、集中、痛み、感性。
-      第9部は、旧石器時代から残る身体の設計を手がかりに、生成AI時代の生き方を考える章です。
-    </p>
-    <div class="hero-actions">
-      <a class="btn" href="../podcast.html">Podcast一覧へ</a>
-      <a class="btn" href="../note.html">note記事へ</a>
-    </div>
-  </section>
 
-  <section class="section" aria-label="第9部Podcast">
-    <div class="section-head">
-      <div>
-        <div class="section-label">PODCAST</div>
-        <h2 class="section-title">耳でたどる第9部</h2>
-      </div>
-      <div class="count" id="podcast-count">0 episodes</div>
-    </div>
-    <div class="grid" id="podcast-grid"></div>
-  </section>
+<div class="cover">
+  <div class="cover-series">ハルとおじいさん ／ AIと人間のあいだ</div>
+  <div class="cover-title">第9部<br>身体という時間</div>
+  <div class="cover-subtitle">進化の身体 ── 旧石器時代の設計で生成AI時代を生きる</div>
+  <div class="cover-chapter">第1話〜第15話｜全3章</div>
+  <div class="cover-tagline">
+    <em>「旧石器時代の身体で、生成AI時代をどう生きるのか。」</em><br>
+    腰痛、欲望、不安、集中、痛み、感性。<br>
+    第9部は、情報の速度が上がるほど忘れられていく<br>
+    身体の時間を取り戻すための地図です。
+  </div>
+  <div class="cover-divider"></div>
+  <div class="cover-note">本ページは第9部の本文型まとめです。章別の詳細資料は末尾から確認できます。</div>
+  <div class="cover-actions">
+    <a class="cover-action" href="../podcast.html">Podcast一覧へ</a>
+    <a class="cover-action" href="../note.html">note記事へ</a>
+  </div>
+</div>
 
-  <section class="section" aria-label="第9部note">
-    <div class="section-head">
-      <div>
-        <div class="section-label">NOTE</div>
-        <h2 class="section-title">文章で深める枝道</h2>
+<div class="chapter-nav">
+  <a href="part8_2.html">← 第8部 第二章</a>
+  <span>第9部 ｜ 身体という時間</span>
+  <a href="../note.html">note記事へ →</a>
+</div>
+
+<div class="page">
+  <div class="section-label">Introduction</div>
+  <div class="section-title">この部で問われていること</div>
+  <div class="section-intro">
+    第8部が「生成AIによって思考の外部化がどこまで進むのか」を問ったとすれば、第9部はその手前に戻る。そもそも、その思考を支えている身体はどんな時間の上にあるのか。私たちはAI時代を生きているが、身体の設計はほとんど旧石器時代のままだ。
+  </div>
+
+  <div class="essay-box">
+    <h3>なぜ「身体という時間」を読む必要があるのか</h3>
+    <p>スマホがやめられない。ニュースを見るだけで不安になる。何もしていないのに疲れる。痛みを避けたいのに、痛みが消えると身体は守れない。これらは単なる意志の弱さではなく、身体の設計と現代環境のズレから生まれている。</p>
+    <p>第9部は、そのズレを「進化の時間」と「情報の時間」の差として整理する。身体はゆっくり変わる。文化と技術は急速に変わる。その速度差の中で、人間の欲望・不安・集中・感性がどのように揺さぶられているのかを見ていく。</p>
+    <p>目的は身体を否定することではない。むしろ逆だ。疲れ、痛み、感動、違和感を、古い設計の失敗ではなく「身体から届く情報」として読み直す。生成AI時代に人間らしさを考えるための入口は、身体にある。</p>
+  </div>
+
+  <div class="fault-visual">
+    <div class="fault-left">
+      <div class="fault-side-title">身体が適応した世界</div>
+      <div class="fault-side-desc">
+        <ul>
+          <li>150人前後の集団で生きる</li>
+          <li>甘いものは季節限定の希少品</li>
+          <li>危険は目の前に現れる</li>
+          <li>情報は集落の出来事が中心</li>
+          <li>道具は手で作り、手で扱う</li>
+        </ul>
       </div>
-      <div class="count" id="note-count">0 notes</div>
     </div>
-    <div class="grid" id="note-grid"></div>
-  </section>
-</main>
+    <div class="fault-center">断　層</div>
+    <div class="fault-right">
+      <div class="fault-side-title">いま生きている世界</div>
+      <div class="fault-side-desc">
+        <ul>
+          <li>数万人の反応が画面に流れ込む</li>
+          <li>高カロリー食がいつでも手に入る</li>
+          <li>世界中の危険情報が届く</li>
+          <li>一日で膨大な情報を処理する</li>
+          <li>AIが言語と判断を補助する</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="central-question">
+    <div class="cq-label">Central Question</div>
+    <div class="cq-text">旧石器時代の身体で、<br>生成AI時代をどう生きるのか。</div>
+    <div class="cq-sub">第9部の15話は、この問いを「進化する身体」「旧石器脳と現代」「情報宇宙と身体」の3章に分けてたどる。</div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第9部 身体という時間　― 学びの地図 ―</div>
+</div>
+
+<div class="page">
+  <div class="section-label">Chapter 01</div>
+  <div class="section-title">進化する身体 ── 私たちはどんな世界に適応しているのか</div>
+  <div class="section-intro">
+    第一章は、身体の設計図を進化の時間から読み直す章です。二足歩行、手と道具、脳、言語以前の身体、報酬系。どれも当たり前に見えるが、実は巨大なコストと引き換えに獲得されたものです。
+  </div>
+
+  <div class="chapter-card">
+    <div class="chapter-card__head">
+      <div class="chapter-kicker">EPISODES 01 - 05</div>
+      <div class="chapter-name">身体は、思考より先に世界を引き受けていた</div>
+      <div class="chapter-lead">立つ、作る、見る、欲しがる。人間の知性は、抽象的な頭の中だけで生まれたのではなく、身体の変化とともに育ってきた。</div>
+    </div>
+    <div class="episode-list">
+      <div class="episode-row">
+        <div class="episode-no">Episode 01</div>
+        <div>
+          <div class="episode-title">二足歩行という革命</div>
+          <div class="episode-summary">腰痛、転倒、難産。二足歩行には大きなコストがあった。それでも立つことが選ばれたのは、遠くを見る、体温を逃がす、手を解放するという利点があったからだ。</div>
+          <div class="episode-question">問：コストを払ってまで立った身体は、どんな思考の可能性を開いたのか。</div>
+          <div class="tags"><span class="tag">二足歩行</span><span class="tag">自然選択</span><span class="tag">手の解放</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 02</div>
+        <div>
+          <div class="episode-title">手と道具</div>
+          <div class="episode-summary">人間は道具を使うだけでなく、まだ存在しない道具を頭の中で設計して作る。石器を作る手は、同時に「未来の形」を思い描く脳を育てた。</div>
+          <div class="episode-question">問：「まだ存在しないものを想像する力」は、道具から生まれたのか、道具を生んだのか。</div>
+          <div class="tags"><span class="tag">メンタルテンプレート</span><span class="tag">石器</span><span class="tag">手と脳の共進化</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 03</div>
+        <div>
+          <div class="episode-title">脳はなぜ大きくなったか</div>
+          <div class="episode-summary">人間の脳は、単に計算のために大きくなったのではない。集団の関係を読むために発達した。約150人というダンバー数は、現代のSNS疲れを考える手がかりになる。</div>
+          <div class="episode-question">問：150人向けに設計された脳で、数万人の反応を扱うことにどんな限界があるのか。</div>
+          <div class="tags"><span class="tag">ダンバー数</span><span class="tag">社会脳仮説</span><span class="tag">SNS疲れ</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 04</div>
+        <div>
+          <div class="episode-title">言語以前の身体</div>
+          <div class="episode-summary">人間の白目は、視線を読まれるために進化した。目が合う、指差す、表情を読む。言語より前に、身体はすでに世界を共有する道具だった。</div>
+          <div class="episode-question">問：身体を持たない言語と、身体から出てくる言語は同じものなのか。</div>
+          <div class="tags"><span class="tag">共同注意</span><span class="tag">白目の進化</span><span class="tag">身体言語</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 05</div>
+        <div>
+          <div class="episode-title">報酬系の設計</div>
+          <div class="episode-summary">お腹いっぱいなのに食べたい。やめたいのに見続けてしまう。欲望は弱さではなく、希少な報酬を逃さないための古い設計だ。ただし、その設計は別の時代のために作られている。</div>
+          <div class="episode-question">問：欲望を消すのではなく、設計として知ることは何を変えるのか。</div>
+          <div class="tags"><span class="tag">報酬系</span><span class="tag">ドーパミン</span><span class="tag">進化的ミスマッチ</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    「欲望は弱さではない。生き残ってきた証だ。ただ、欲望は別の時代のために作られている。」
+  </div>
+
+  <div class="argument-heading">第一章のまとめ</div>
+  <p class="argument-body">身体は、現代社会のためにゼロから設計されたわけではない。立つこと、作ること、見ること、欲しがることは、それぞれ進化の時間の中で意味を持っていた。だから現代の困りごとを「自分の弱さ」とだけ見ると、設計図を見落としてしまう。</p>
+
+  <div class="doc-footer">ハルとおじいさん｜第9部 身体という時間　― 第一章 ―</div>
+</div>
+
+<div class="page">
+  <div class="section-label">Chapter 02</div>
+  <div class="section-title">旧石器脳と現代 ── なぜ私たちは現代に疲れるのか</div>
+  <div class="section-intro">
+    第二章は、古い身体の回路が現代環境に接続されたときに起きる問題を扱います。不安、承認欲求、スマホ、情報過多、集中。ここでの主題は「意志の弱さ」ではなく「設計と環境の衝突」です。
+  </div>
+
+  <div class="chapter-card chapter-card--middle">
+    <div class="chapter-card__head">
+      <div class="chapter-kicker">EPISODES 06 - 10</div>
+      <div class="chapter-name">脳は変わらないまま、環境だけが速くなった</div>
+      <div class="chapter-lead">危険を探す回路、仲間を求める回路、報酬に反応する回路。生き残るための仕組みが、画面の中で過剰に刺激されている。</div>
+    </div>
+    <div class="episode-list">
+      <div class="episode-row">
+        <div class="episode-no">Episode 06</div>
+        <div>
+          <div class="episode-title">恐怖と不安</div>
+          <div class="episode-summary">扁桃体は危険を素早く検知する。石器時代には命を守ったこの回路が、現代では遠くのニュースや画面の中の不安にも反応してしまう。</div>
+          <div class="episode-question">問：いま感じている不安は、現実への反応か、古い警報の誤作動か。</div>
+          <div class="tags"><span class="tag">扁桃体</span><span class="tag">ネガティビティバイアス</span><span class="tag">不安</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 07</div>
+        <div>
+          <div class="episode-title">集団本能</div>
+          <div class="episode-summary">集団から外れることは、かつて死に近かった。だから承認を求める本能は深い。SNSの「いいね」は、その古い本能を現代的に刺激する。</div>
+          <div class="episode-question">問：承認を求めることを否定せず、設計として扱うにはどうすればいいのか。</div>
+          <div class="tags"><span class="tag">集団本能</span><span class="tag">承認欲求</span><span class="tag">エコーチェンバー</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 08</div>
+        <div>
+          <div class="episode-title">即時報酬の罠</div>
+          <div class="episode-summary">スマホやSNSは、不確実な報酬を次々に出す。何が来るかわからないからやめられない。スロットマシンと同じ原理が、日常の注意を奪っていく。</div>
+          <div class="episode-question">問：「やめられない」のは意志の問題か、それとも環境設計の問題か。</div>
+          <div class="tags"><span class="tag">間欠強化</span><span class="tag">ドーパミン</span><span class="tag">注意経済</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 09</div>
+        <div>
+          <div class="episode-title">情報過多という異常環境</div>
+          <div class="episode-summary">何もしていないのに疲れるのは、脳が膨大な情報を処理し続けているからだ。身体の処理能力は大きく変わらないのに、情報量だけが爆発している。</div>
+          <div class="episode-question">問：疲れを怠けではなく、処理負荷の結果として見ると何が変わるのか。</div>
+          <div class="tags"><span class="tag">情報過多</span><span class="tag">認知負荷</span><span class="tag">デジタル疲れ</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 10</div>
+        <div>
+          <div class="episode-title">集中という希少資源</div>
+          <div class="episode-summary">人間は複数のことを同時に深く処理できない。マルチタスクは高速な切り替えであり、そのたびにコストが発生する。AI時代には、深く集中する力がむしろ希少になる。</div>
+          <div class="episode-question">問：AIが情報処理を担う時代、人間は何に深く集中するべきなのか。</div>
+          <div class="tags"><span class="tag">スイッチングコスト</span><span class="tag">集中</span><span class="tag">AI時代の学び</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="argument-heading">第二章のまとめ</div>
+  <p class="argument-body">不安、承認、依存、疲れ、散漫さは、現代人の欠陥として片づけられがちだ。しかし第9部は、それらを古い設計と新しい環境の衝突として見る。知ることは免罪符ではない。設計を知った上で、環境を作り直すための出発点になる。</p>
+
+  <div class="bridge-box">
+    <div class="bridge-label">Bridge</div>
+    <div class="bridge-text">身体は、問題の原因であると同時に、現代を生きるためのセンサーでもある。</div>
+    <div class="bridge-sub">疲れた、痛い、集中できない、感動した。その反応を切り捨てずに読むことが、第三章「情報宇宙と身体」へつながる。</div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第9部 身体という時間　― 第二章 ―</div>
+</div>
+
+<div class="page">
+  <div class="section-label">Chapter 03</div>
+  <div class="section-title">情報宇宙と身体 ── 身体を持つことの意味を問う</div>
+  <div class="section-intro">
+    第三章は、生成AI時代に「身体を持つこと」の価値を問い直します。写真に残る情報と戻らない体験、痛みの意味、感性の形成、平均では表せない個別性、そして文化進化にどう関わるか。第9部の結論はここに集まります。
+  </div>
+
+  <div class="chapter-card chapter-card--final">
+    <div class="chapter-card__head">
+      <div class="chapter-kicker">EPISODES 11 - 15</div>
+      <div class="chapter-name">情報は複製できる。身体の体験は一回しか起きない</div>
+      <div class="chapter-lead">記録、痛み、感性、平均、文化進化。AIが扱いやすいものと、人間の身体にしか宿らないものの境界を見ていく。</div>
+    </div>
+    <div class="episode-list">
+      <div class="episode-row">
+        <div class="episode-no">Episode 11</div>
+        <div>
+          <div class="episode-title">身体と時間</div>
+          <div class="episode-summary">写真は残っても、あのときの身体感覚は戻らない。情報の時間は保存と複製に向かうが、身体の時間は一回きりで流れていく。</div>
+          <div class="episode-question">問：記録できない体験には、どんな価値が残るのか。</div>
+          <div class="tags"><span class="tag">一回性</span><span class="tag">有限性</span><span class="tag">身体の時間</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 12</div>
+        <div>
+          <div class="episode-title">痛みと意味</div>
+          <div class="episode-summary">痛みは身体を守る警報であり、苦しみの中から意味を見つける力は人間の核でもある。痛みをただ消すだけでは、身体からの情報も消えてしまう。</div>
+          <div class="episode-question">問：痛みがないことは、本当に幸福なのか。</div>
+          <div class="tags"><span class="tag">痛覚</span><span class="tag">意味生成</span><span class="tag">フランクル</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 13</div>
+        <div>
+          <div class="episode-title">感性とは何か</div>
+          <div class="episode-summary">昔聴いた音楽が特別なのは、脳がデータを保存しているからだけではない。感性は、身体が生きた時間の履歴として作られる。</div>
+          <div class="episode-question">問：AIが作品を作れる時代に、感動している主体はどこにあるのか。</div>
+          <div class="tags"><span class="tag">感性の黄金期</span><span class="tag">経験の履歴</span><span class="tag">わかる</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 14</div>
+        <div>
+          <div class="episode-title">身体を持つという条件</div>
+          <div class="episode-summary">平均的な人間は存在しない。身体の形、姿勢、体温、手の動きは、考え方に影響する。この身体で考えるから、その思考は固有になる。</div>
+          <div class="episode-question">問：平均では表せない身体の固有性は、AI時代にどんな価値を持つのか。</div>
+          <div class="tags"><span class="tag">平均の幻想</span><span class="tag">具現化認知</span><span class="tag">個別性</span></div>
+        </div>
+      </div>
+      <div class="episode-row">
+        <div class="episode-no">Episode 15</div>
+        <div>
+          <div class="episode-title">進化は止まらない</div>
+          <div class="episode-summary">生物進化は遅い。しかし文化進化は加速し続ける。旧石器時代の身体のまま、私たちは生成AI時代を生きている。だからこそ、何を使い、何に集中し、次の世代に何を渡すかを選ぶ必要がある。</div>
+          <div class="episode-question">問：文化進化に、身体を持った人間としてどう関わるのか。</div>
+          <div class="tags"><span class="tag">文化進化</span><span class="tag">生物進化</span><span class="tag">次世代への継承</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    「疲れは休息のシグナル、痛みは修復のシグナル、感動は価値のシグナル。これらは情報だ。」
+  </div>
+
+  <div class="argument-heading">第三章のまとめ</div>
+  <p class="argument-body">情報は保存できる。複製できる。共有できる。しかし、身体の体験はその瞬間にしか起きない。第9部の最終地点は、身体を古い制約として捨てることではなく、身体から届く情報を読みながら文化進化に関わることにある。</p>
+
+  <div class="doc-footer">ハルとおじいさん｜第9部 身体という時間　― 第三章 ―</div>
+</div>
+
+<div class="page">
+  <div class="section-label">Core Argument</div>
+  <div class="section-title">第9部の核心論考</div>
+  <div class="section-intro">
+    15話を一つの流れとして読むと、第9部は「身体の古さ」と「情報環境の速さ」のあいだにある断層を描いています。ここでは、その構造を三つの軸で整理します。
+  </div>
+
+  <div class="axis-grid">
+    <div class="axis-card">
+      <h3>1. 身体は遅く変わる</h3>
+      <p>二足歩行、報酬系、危険検知、集団本能は、長い時間をかけて作られた。だから数年で変わるサービスやAIに、身体はすぐには適応できない。</p>
+    </div>
+    <div class="axis-card">
+      <h3>2. 情報は速く変わる</h3>
+      <p>スマホ、SNS、生成AIは、脳が想定していない速度で注意と判断を求める。現代の疲れは、この速度差から生まれる。</p>
+    </div>
+    <div class="axis-card">
+      <h3>3. 選択は身体から始まる</h3>
+      <p>疲れ、痛み、違和感、感動は、身体からのフィードバックだ。それを読まずに最適化すると、人間の側が消耗していく。</p>
+    </div>
+  </div>
+
+  <div class="argument-heading">第9部を一文でまとめるなら</div>
+  <p class="argument-body">第9部は、「人間とは情報処理装置ではなく、進化の時間を背負った身体で世界を感じ、選び、文化を変えていく存在である」と確認する章です。</p>
+
+  <table class="summary-table">
+    <thead>
+      <tr><th>章</th><th>主題</th><th>読み取るべきこと</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>第一章</td><td>進化する身体</td><td>身体の設計は、思考や言語よりも前から人間を形づくっている。</td></tr>
+      <tr><td>第二章</td><td>旧石器脳と現代</td><td>現代の疲れや不安は、古い設計と新しい環境の衝突として理解できる。</td></tr>
+      <tr><td>第三章</td><td>情報宇宙と身体</td><td>情報が複製される時代ほど、一回きりの身体経験に価値が生まれる。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="argument-heading">用語解説</div>
+  <div class="glossary-item">
+    <div class="glossary-term">進化的ミスマッチ <span class="glossary-kana">しんかてきみすまっち</span><span class="glossary-en">evolutionary mismatch</span></div>
+    <div class="glossary-def">ある環境に適応して作られた身体や脳の仕組みが、まったく違う現代環境で不都合を起こすこと。第9部全体を貫く説明原理。</div>
+  </div>
+  <div class="glossary-item">
+    <div class="glossary-term">ダンバー数 <span class="glossary-kana">だんばーすう</span><span class="glossary-en">Dunbar's number</span></div>
+    <div class="glossary-def">人間が安定して維持できる社会関係の規模を示す概念。第9部では、SNS時代の関係疲れを考えるための基準として扱う。</div>
+  </div>
+  <div class="glossary-item">
+    <div class="glossary-term">間欠強化 <span class="glossary-kana">かんけつきょうか</span><span class="glossary-en">intermittent reinforcement</span></div>
+    <div class="glossary-def">報酬が不規則に与えられるほど行動が続きやすくなる仕組み。スマホやSNSがやめにくい理由を説明する鍵になる。</div>
+  </div>
+  <div class="glossary-item">
+    <div class="glossary-term">具現化認知 <span class="glossary-kana">ぐげんかにんち</span><span class="glossary-en">embodied cognition</span></div>
+    <div class="glossary-def">思考は脳だけで起きるのではなく、身体の状態や動きに影響されるという考え方。身体の固有性が思考の固有性に結びつく。</div>
+  </div>
+  <div class="glossary-item">
+    <div class="glossary-term">文化進化 <span class="glossary-kana">ぶんかしんか</span><span class="glossary-en">cultural evolution</span></div>
+    <div class="glossary-def">知識、技術、制度、価値観が世代を超えて蓄積・変化していく過程。生物進化より速く、AI時代にはさらに加速している。</div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第9部 身体という時間　― 核心論考 ―</div>
+</div>
+
+<div class="page">
+  <div class="section-label">Questions</div>
+  <div class="section-title">問いの地図</div>
+  <div class="section-intro">
+    第9部は、知識を覚えるためだけの章ではありません。自分の身体、スマホとの距離、AIとの関わり方を見直すための問いとして読めます。
+  </div>
+
+  <div class="discussion-q">
+    <div class="d-item">
+      <div class="d-num">1</div>
+      <div>
+        <div class="d-text">自分の疲れや不安を「意志の弱さ」ではなく「設計と環境の衝突」として見たとき、最初に変えるべき環境は何か。</div>
+        <div class="d-hint">通知、情報量、食べ物、睡眠、SNSの距離など、身体が反応している場所を探す。</div>
+      </div>
+    </div>
+    <div class="d-item">
+      <div class="d-num">2</div>
+      <div>
+        <div class="d-text">AIに任せることが増えるほど、人間が「身体で経験するべきこと」は何になるのか。</div>
+        <div class="d-hint">情報として得ることと、体験としてわかることの違いを考える。</div>
+      </div>
+    </div>
+    <div class="d-item">
+      <div class="d-num">3</div>
+      <div>
+        <div class="d-text">集中が希少資源になる時代に、あなたはその集中を何に使うのか。</div>
+        <div class="d-hint">情報処理ではなく、問いを立てること、感じること、深く考えることに時間を使えているか。</div>
+      </div>
+    </div>
+    <div class="d-item">
+      <div class="d-num">4</div>
+      <div>
+        <div class="d-text">次の世代に渡したい文化は、どんな身体感覚を大事にしているか。</div>
+        <div class="d-hint">速さ、便利さ、効率だけではなく、休む、待つ、感じる、対話するという時間を含めて考える。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge-box">
+    <div class="bridge-label">Conclusion</div>
+    <div class="bridge-text">私たちは、進化の時間を背負って、未来を歩いている。</div>
+    <div class="bridge-sub">第9部の地図を持つとは、身体を古いものとして置き去りにしないことです。身体の反応を読み、環境を選び、文化進化に意図を持って関わる。その選択をするのは、情報ではなく、身体を持った人間です。</div>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第9部 身体という時間　― 問いの地図 ―</div>
+</div>
+
+<div class="page">
+  <div class="section-label">Resources</div>
+  <div class="section-title">さらに読む・聴く</div>
+  <div class="section-intro">
+    第9部の詳細版、関連note、Podcastへの導線です。本文型のページに合わせつつ、以前の一覧ページで担っていた入口も残しています。
+  </div>
+
+  <div class="resource-grid">
+    <a class="resource-card" href="part9_1.html">
+      <div class="resource-label">DETAIL 01</div>
+      <div class="resource-title">第一章 詳細版</div>
+      <div class="resource-text">第1話〜第5話「進化する身体」の補足資料を読む。</div>
+    </a>
+    <a class="resource-card" href="part9_2.html">
+      <div class="resource-label">DETAIL 02</div>
+      <div class="resource-title">第二章 詳細版</div>
+      <div class="resource-text">第6話〜第10話「旧石器脳×現代」の補足資料を読む。</div>
+    </a>
+    <a class="resource-card" href="part9_3.html">
+      <div class="resource-label">DETAIL 03</div>
+      <div class="resource-title">第三章 詳細版</div>
+      <div class="resource-text">第11話〜第15話「情報宇宙と身体」の補足資料を読む。</div>
+    </a>
+  </div>
+
+  <div class="argument-heading">関連note</div>
+  <div class="note-list" id="note-list">
+    <a class="note-link" href="../note.html"><span>NOTE</span>第9部の関連記事一覧を見る</a>
+  </div>
+
+  <div class="argument-heading">Podcastで聞く</div>
+  <p class="argument-body">音声でたどる場合は、Podcast一覧から第9部関連エピソードを確認できます。</p>
+  <div class="resource-grid">
+    <a class="resource-card" href="../podcast.html">
+      <div class="resource-label">PODCAST</div>
+      <div class="resource-title">Podcastで聞く</div>
+      <div class="resource-text">第9部を含む「ハルとおじいさん」の音声コンテンツを開く。</div>
+    </a>
+    <a class="resource-card" href="../note.html">
+      <div class="resource-label">NOTE MAP</div>
+      <div class="resource-title">note記事へ</div>
+      <div class="resource-text">第9部から伸びる枝道の記事を一覧で読む。</div>
+    </a>
+    <a class="resource-card" href="../evolution.html">
+      <div class="resource-label">TIMELINE</div>
+      <div class="resource-title">進化の年表へ</div>
+      <div class="resource-text">身体と進化の時間軸を、年表からたどり直す。</div>
+    </a>
+  </div>
+
+  <div class="doc-footer">ハルとおじいさん｜第9部 身体という時間　― 関連資料 ―</div>
+</div>
 
 <script src="../assets/js/manabimap-data.js"></script>
 <script>
 (function() {
   'use strict';
   const data = window.ManabiMapData || {};
-  const podcasts = data.mediaForPart ? data.mediaForPart('part9', 'podcast') : [];
   const notes = data.notesForPart ? data.notesForPart('part9') : [];
+  const target = document.getElementById('note-list');
+  if (!target || !notes.length) return;
 
   function escapeHtml(value) {
     return String(value || '').replace(/[&<>"']/g, function(char) {
@@ -242,55 +1103,16 @@ h1 {
     });
   }
 
-  function youtubeId(url) {
-    try {
-      const parsed = new URL(url);
-      if (parsed.hostname === 'youtu.be') return parsed.pathname.replace('/', '');
-      return parsed.searchParams.get('v') || '';
-    } catch (error) {
-      return '';
-    }
-  }
-
-  function thumb(url) {
-    const id = youtubeId(url);
-    return id ? 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg' : '';
-  }
-
-  function podcastCard(item, index) {
-    const image = thumb(item.url);
-    return [
-      '<article class="card">',
-        image ? '<a class="thumb" href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener"><img src="' + escapeHtml(image) + '" alt="' + escapeHtml(item.title) + ' サムネイル" loading="lazy"></a>' : '',
-        '<div class="body">',
-          '<div class="meta">EPISODE ' + String(index + 1).padStart(2, '0') + '</div>',
-          '<h3 class="title">' + escapeHtml(item.title) + '</h3>',
-          '<p class="question">問：' + escapeHtml(item.question || '') + '</p>',
-          '<div class="actions"><a class="action primary" href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener" data-track-event="part_to_podcast_click" data-track-source="part9" data-track-content-id="part9" data-track-destination-type="podcast" data-track-destination-id="' + escapeHtml(item.id) + '">聴く</a></div>',
-        '</div>',
-      '</article>'
-    ].join('');
-  }
-
-  function noteCard(note) {
+  target.innerHTML = notes.slice(0, 8).map(function(note) {
     const href = note.url || '../note.html#note-card-' + note.number;
-    const label = note.url ? '読む' : '準備中';
+    const attrs = note.url ? ' target="_blank" rel="noopener"' : '';
     return [
-      '<article class="card note-card">',
-        '<div class="body">',
-          '<div class="meta">NOTE #' + String(note.number).padStart(2, '0') + '</div>',
-          '<h3 class="title">' + escapeHtml(note.title) + '</h3>',
-          '<p class="question">' + escapeHtml(note.excerpt || '') + '</p>',
-          '<div class="actions"><a class="action primary" href="' + escapeHtml(href) + '"' + (note.url ? ' target="_blank" rel="noopener"' : '') + ' data-track-event="part_to_note_click" data-track-source="part9" data-track-content-id="part9" data-track-destination-type="note_article" data-track-destination-id="' + escapeHtml(note.id) + '">' + label + '</a></div>',
-        '</div>',
-      '</article>'
+      '<a class="note-link" href="' + escapeHtml(href) + '"' + attrs + ' data-track-event="part_to_note_click" data-track-source="part9" data-track-content-id="part9" data-track-destination-type="note_article" data-track-destination-id="' + escapeHtml(note.id) + '">',
+      '<span>NOTE #' + String(note.number).padStart(2, '0') + '</span>',
+      escapeHtml(note.title),
+      '</a>'
     ].join('');
-  }
-
-  document.getElementById('podcast-count').textContent = podcasts.length + ' episodes';
-  document.getElementById('note-count').textContent = notes.length + ' notes';
-  document.getElementById('podcast-grid').innerHTML = podcasts.length ? podcasts.map(podcastCard).join('') : '<div class="empty">Podcastは準備中です。</div>';
-  document.getElementById('note-grid').innerHTML = notes.length ? notes.map(noteCard).join('') : '<div class="empty">note記事は準備中です。</div>';
+  }).join('') + '<a class="note-link" href="../note.html"><span>NOTE MAP</span>すべてのnote記事を見る</a>';
 })();
 </script>
 <script src="../assets/js/cta-tracking.js"></script>

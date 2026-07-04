@@ -16,9 +16,8 @@
   .cover-tagline em { font-style: normal; color: #80b8f0; font-weight: 700; }
   .cover-divider { width: 60px; height: 1px; background: #2a4a90; margin: 36px auto; }
   .cover-note { font-size: 10px; color: #3a5a90; letter-spacing: 0.15em; }
-  .cover-yt-cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; padding: 14px 32px; background: #cc0000; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; border-radius: 4px; text-decoration: none; transition: all 0.25s; box-shadow: 0 4px 16px rgba(204,0,0,0.3); }
-  .cover-yt-cta:hover { background: #ff1a1a; transform: translateY(-2px); }
-  .cover-yt-cta svg { width: 20px; height: 14px; fill: #fff; }
+  .cover-podcast-cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; padding: 14px 32px; background: #2f5f88; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; border-radius: 4px; text-decoration: none; transition: all 0.25s; box-shadow: 0 4px 16px rgba(47,95,136,0.26); }
+  .cover-podcast-cta:hover { background: #3f78aa; transform: translateY(-2px); }
   .chapter-nav { display: flex; justify-content: space-between; align-items: center; max-width: 880px; margin: 0 auto; padding: 20px 68px; border-bottom: 1px solid #c0d0e8; font-size: 12px; }
   .chapter-nav a { color: #2a5aaa; text-decoration: none; font-weight: 700; letter-spacing: 0.08em; }
   .chapter-nav a:hover { color: #4080d0; }
@@ -89,13 +88,10 @@
   .bridge-label { font-size: 10px; letter-spacing: 0.32em; color: #6090d8; margin-bottom: 12px; text-transform: uppercase; }
   .bridge-text { font-size: 16px; font-weight: 700; line-height: 1.7; color: #d8f0fc; margin-bottom: 10px; }
   .bridge-sub { font-size: 12.5px; color: #80aad8; line-height: 1.95; }
-  .yt-section { max-width: 880px; margin: 0 auto; padding: 40px 68px 20px; }
-  .yt-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 20px; }
-  .yt-item a { display: block; border-radius: 4px; overflow: hidden; transition: transform 0.2s; }
-  .yt-item a:hover { transform: scale(1.03); }
-  .yt-item img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-  .yt-ep { font-size: 10px; letter-spacing: 0.2em; color: #2a5aaa; margin-top: 6px; font-weight: 700; }
-  .yt-title { font-size: 11px; color: #0a1a3a; line-height: 1.5; margin-top: 2px; }
+  .podcast-section { max-width: 880px; margin: 0 auto; padding: 40px 68px 20px; }
+  .podcast-cta-box { background: #fffdf7; border: 1px solid #b8cce8; border-radius: 8px; padding: 24px 28px; margin-top: 20px; }
+  .podcast-cta-box p { font-size: 13px; color: #0a1a3a; line-height: 2.0; margin-bottom: 16px; }
+  .podcast-link { display: inline-flex; align-items: center; min-height: 38px; padding: 8px 16px; background: #2f5f88; color: #fff; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; }
   .doc-footer { text-align: center; padding: 28px 0 10px; font-size: 10.5px; color: #2a5aaa; letter-spacing: 0.15em; border-top: 1px solid #c0d0e8; margin-top: 48px; }
   @media print {
     body { background: #fff; }
@@ -127,13 +123,12 @@
     <em>「今感じている不安は、石器時代の警報ではないか。」</em><br>
     <em>「スマホが手放せないのは意志の弱さではない。」</em><br>
     <em>「AI時代に、人間の「深い集中」の価値が上がる。」</em><br><br>
-    動画では語りきれなかった問いと構造を<br>この資料にまとめました。
+    Podcastで語った問いと構造を<br>この資料にまとめました。
   </div>
   <div class="cover-divider"></div>
-  <div class="cover-note">本資料は動画の補足資料です。無断転載・商用利用はご遠慮ください。</div>
-  <a href="https://www.youtube.com/@ManabiMap" target="_blank" rel="noopener" class="cover-yt-cta">
-    <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="#cc0000"/></svg>
-    YouTubeで動画を見る
+  <div class="cover-note">本資料はPodcastの補足資料です。無断転載・商用利用はご遠慮ください。</div>
+  <a href="../podcast.html" class="cover-podcast-cta">
+    Podcastで聞く
   </a>
 </div>
 
@@ -513,31 +508,13 @@
   <div class="doc-footer">ハルとおじいさん｜第9部 第二章 学びの地図　― 補足資料 ―</div>
 </div>
 
-<!-- YouTube Section -->
-<div class="yt-section">
-  <div class="section-label">Watch</div>
-  <div class="section-title" style="border-bottom:2px solid #5080d0;padding-bottom:12px;">動画で観る ── 第二章 全5話</div>
-  <div class="yt-grid">
-    <div class="yt-item">
-      <a href="https://www.youtube.com/watch?v=z-3MMxnLSRk" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/z-3MMxnLSRk/hqdefault.jpg" alt="第6話" loading="lazy"></a>
-      <div class="yt-ep">#9-6</div><div class="yt-title">恐怖と不安</div>
-    </div>
-    <div class="yt-item">
-      <a href="https://www.youtube.com/watch?v=czGu0RBIGIM" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/czGu0RBIGIM/hqdefault.jpg" alt="第7話" loading="lazy"></a>
-      <div class="yt-ep">#9-7</div><div class="yt-title">集団本能</div>
-    </div>
-    <div class="yt-item">
-      <a href="https://www.youtube.com/watch?v=oFpwthBeL0Q" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/oFpwthBeL0Q/hqdefault.jpg" alt="第8話" loading="lazy"></a>
-      <div class="yt-ep">#9-8</div><div class="yt-title">即時報酬の罠</div>
-    </div>
-    <div class="yt-item">
-      <a href="https://www.youtube.com/watch?v=7sSOduuyoSU" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/7sSOduuyoSU/hqdefault.jpg" alt="第9話" loading="lazy"></a>
-      <div class="yt-ep">#9-9</div><div class="yt-title">情報過多という異常環境</div>
-    </div>
-    <div class="yt-item">
-      <a href="https://www.youtube.com/watch?v=39gre1Re9rg" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/39gre1Re9rg/hqdefault.jpg" alt="第10話" loading="lazy"></a>
-      <div class="yt-ep">#9-10</div><div class="yt-title">集中という希少資源</div>
-    </div>
+<!-- Podcast Section -->
+<div class="podcast-section">
+  <div class="section-label">Listen</div>
+  <div class="section-title" style="border-bottom:2px solid #5080d0;padding-bottom:12px;">Podcastで聞く ── 第二章 全5話</div>
+  <div class="podcast-cta-box">
+    <p>第9部はPodcastで聞く導線に統一しています。第6話〜第10話「旧石器脳×現代」は、Podcast一覧から確認してください。</p>
+    <a class="podcast-link" href="../podcast.html">Podcast一覧へ</a>
   </div>
 </div>
 

@@ -16,9 +16,8 @@
   .cover-tagline em { font-style: normal; color: #d0b0f8; font-weight: 700; }
   .cover-divider { width: 60px; height: 1px; background: #5a2a90; margin: 36px auto; }
   .cover-note { font-size: 10px; color: #5a2a80; letter-spacing: 0.15em; }
-  .cover-yt-cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; padding: 14px 32px; background: #cc0000; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; border-radius: 4px; text-decoration: none; transition: all 0.25s; box-shadow: 0 4px 16px rgba(204,0,0,0.3); }
-  .cover-yt-cta:hover { background: #ff1a1a; transform: translateY(-2px); }
-  .cover-yt-cta svg { width: 20px; height: 14px; fill: #fff; }
+  .cover-podcast-cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; padding: 14px 32px; background: #5a4a8a; color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; border-radius: 4px; text-decoration: none; transition: all 0.25s; box-shadow: 0 4px 16px rgba(90,74,138,0.26); }
+  .cover-podcast-cta:hover { background: #6f5bad; transform: translateY(-2px); }
   .chapter-nav { display: flex; justify-content: space-between; align-items: center; max-width: 880px; margin: 0 auto; padding: 20px 68px; border-bottom: 1px solid #d0c0e8; font-size: 12px; }
   .chapter-nav a { color: #7040b0; text-decoration: none; font-weight: 700; letter-spacing: 0.08em; }
   .chapter-nav a:hover { color: #9060d0; }
@@ -89,13 +88,10 @@
   .bridge-label { font-size: 10px; letter-spacing: 0.32em; color: #a070d8; margin-bottom: 12px; text-transform: uppercase; }
   .bridge-text { font-size: 16px; font-weight: 700; line-height: 1.7; color: #e0d0fc; margin-bottom: 10px; }
   .bridge-sub { font-size: 12.5px; color: #b090e0; line-height: 1.95; }
-  .yt-section { max-width: 880px; margin: 0 auto; padding: 40px 68px 20px; }
-  .yt-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 20px; }
-  .yt-item a { display: block; border-radius: 4px; overflow: hidden; transition: transform 0.2s; }
-  .yt-item a:hover { transform: scale(1.03); }
-  .yt-item img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-  .yt-ep { font-size: 10px; letter-spacing: 0.2em; color: #7040b0; margin-top: 6px; font-weight: 700; }
-  .yt-title { font-size: 11px; color: #1a0a3a; line-height: 1.5; margin-top: 2px; }
+  .podcast-section { max-width: 880px; margin: 0 auto; padding: 40px 68px 20px; }
+  .podcast-cta-box { background: #fffdf7; border: 1px solid #cdb8e8; border-radius: 8px; padding: 24px 28px; margin-top: 20px; }
+  .podcast-cta-box p { font-size: 13px; color: #1a0a3a; line-height: 2.0; margin-bottom: 16px; }
+  .podcast-link { display: inline-flex; align-items: center; min-height: 38px; padding: 8px 16px; background: #5a4a8a; color: #fff; border-radius: 4px; text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; }
   .doc-footer { text-align: center; padding: 28px 0 10px; font-size: 10.5px; color: #7040b0; letter-spacing: 0.15em; border-top: 1px solid #d0c0e8; margin-top: 48px; }
   @media print {
     body { background: #fff; }
@@ -127,13 +123,12 @@
     <em>「写真は残るのに、あのときの感覚は戻らない。」</em><br>
     <em>「感性はデータではなく、生きた時間でできている。」</em><br>
     <em>「旧石器時代の身体で、生成AI時代をどう生きるのか。」</em><br><br>
-    動画では語りきれなかった問いと構造を<br>この資料にまとめました。
+    Podcastで語った問いと構造を<br>この資料にまとめました。
   </div>
   <div class="cover-divider"></div>
-  <div class="cover-note">本資料は動画の補足資料です。無断転載・商用利用はご遠慮ください。</div>
-  <a href="https://www.youtube.com/@ManabiMap" target="_blank" rel="noopener" class="cover-yt-cta">
-    <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="#cc0000"/></svg>
-    YouTubeで動画を見る
+  <div class="cover-note">本資料はPodcastの補足資料です。無断転載・商用利用はご遠慮ください。</div>
+  <a href="../podcast.html" class="cover-podcast-cta">
+    Podcastで聞く
   </a>
 </div>
 
@@ -515,31 +510,13 @@
   <div class="doc-footer">ハルとおじいさん｜第9部 第三章 学びの地図　― 補足資料 ―</div>
 </div>
 
-<!-- YouTube Section -->
-<div class="yt-section">
-  <div class="section-label">Watch</div>
-  <div class="section-title" style="border-bottom:2px solid #9060d0;padding-bottom:12px;">動画で観る ── 第三章 全5話</div>
-  <div class="yt-grid">
-    <div class="yt-item">
-      <a href="https://www.youtube.com/watch?v=W1ORlP0fZ70" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/W1ORlP0fZ70/hqdefault.jpg" alt="第11話" loading="lazy"></a>
-      <div class="yt-ep">#9-11</div><div class="yt-title">身体と時間</div>
-    </div>
-    <div class="yt-item">
-      <a href="https://www.youtube.com/watch?v=2--1bDSiQyw" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/2--1bDSiQyw/hqdefault.jpg" alt="第12話" loading="lazy"></a>
-      <div class="yt-ep">#9-12</div><div class="yt-title">痛みと意味</div>
-    </div>
-    <div class="yt-item">
-      <a href="https://www.youtube.com/watch?v=qb_K86SNsPY" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/qb_K86SNsPY/hqdefault.jpg" alt="第13話" loading="lazy"></a>
-      <div class="yt-ep">#9-13</div><div class="yt-title">感性とは何か</div>
-    </div>
-    <div class="yt-item">
-      <a href="https://www.youtube.com/watch?v=TCcVuTrB7PU" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/TCcVuTrB7PU/hqdefault.jpg" alt="第14話" loading="lazy"></a>
-      <div class="yt-ep">#9-14</div><div class="yt-title">身体を持つという条件</div>
-    </div>
-    <div class="yt-item">
-      <a href="https://www.youtube.com/watch?v=ntsi0lo-V5g" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/ntsi0lo-V5g/hqdefault.jpg" alt="第15話（最終回）" loading="lazy"></a>
-      <div class="yt-ep">#9-15 最終回</div><div class="yt-title">進化は止まらない</div>
-    </div>
+<!-- Podcast Section -->
+<div class="podcast-section">
+  <div class="section-label">Listen</div>
+  <div class="section-title" style="border-bottom:2px solid #9060d0;padding-bottom:12px;">Podcastで聞く ── 第三章 全5話</div>
+  <div class="podcast-cta-box">
+    <p>第9部はPodcastで聞く導線に統一しています。第11話〜第15話「情報宇宙と身体」は、Podcast一覧から確認してください。</p>
+    <a class="podcast-link" href="../podcast.html">Podcast一覧へ</a>
   </div>
 </div>
 

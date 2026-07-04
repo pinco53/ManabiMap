@@ -245,7 +245,7 @@
       audio.href = podcast.url;
       audio.target = '_blank';
       audio.rel = 'noopener noreferrer';
-      audio.textContent = '対応Podcastを聴く';
+      audio.textContent = 'Podcastで聞く';
       audio.dataset.trackEvent = 'note_to_podcast_click';
       audio.dataset.trackSource = 'note';
       audio.dataset.trackContentId = note.id;
