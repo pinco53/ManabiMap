@@ -107,7 +107,12 @@
 
 ---
 
-## Phase 4: モーション（静かな生命感）
+## Phase 4: モーション（静かな生命感） ✅ 完了 (2026-07-05)
+
+実施メモ:
+- index.html / evolution.html には同等のスクロールリビール（reveal-init/reveal-on、reduced-motion対応込み）が既に実装済みだったため、reveal.js は podcast / note / infographics の3ページにのみ導入。クラス命名は既存実装に合わせた。
+- ヒーローの星の瞬き（項目3）は既存の `--d` によるディレイ分散で十分に機械感が消えていたため変更なし。
+- View Transitions は tokens.css 経由で全読み込みページ（5ハブ＋part9）に適用。
 
 **目的:** ページが「生きている」感覚。ただし星空の速度で。
 

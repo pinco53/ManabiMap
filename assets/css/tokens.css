@@ -75,6 +75,33 @@
   filter: sepia(0.5) saturate(1.3);
 }
 
+/* ---- スクロールリビール（Phase 4） ----
+   reveal.js が付与する。index/evolution の既存実装と同じクラス名。
+   ページ内<style>の同名定義がある場合はそちらが優先される（読み込み順）。 */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.reveal-init.reveal-on {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init, .reveal-init.reveal-on {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---- ページ間トランジション（Phase 4） ----
+   対応ブラウザのみ0.25秒のクロスフェード。非対応では何も起きない。 */
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+}
+
 /* 経緯線風のセクション区切り。星図の目盛りのような、控えめな一本線＋中央の点。 */
 .meridian-divider {
   position: relative;
