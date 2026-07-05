@@ -2929,6 +2929,71 @@ body::before {
   </div>
 </section>
 
+<!-- ========== 今日の問い ========== -->
+<section class="daily-question" aria-label="今日の問い">
+<style>
+.daily-question {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 46px 24px 40px;
+  text-align: center;
+}
+.daily-question__label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.daily-question__text {
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: clamp(16px, 2.4vw, 19px);
+  line-height: 2.1;
+  color: var(--text);
+}
+.daily-question__source {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  border-bottom: 1px solid transparent;
+  transition: color 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+}
+.daily-question__source:hover { color: var(--neon-sky); border-color: var(--neon-sky); }
+.daily-question[hidden] { display: none; }
+</style>
+  <div class="daily-question__label">TODAY'S QUESTION</div>
+  <p class="daily-question__text" id="daily-question-text"></p>
+  <a class="daily-question__source" id="daily-question-source" hidden></a>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var data = window.ManabiMapData;
+  var section = document.querySelector('.daily-question');
+  if (!data || !Array.isArray(data.parts)) { if (section) section.hidden = true; return; }
+  var pool = [];
+  data.parts.forEach(function (part) {
+    (part.questions || []).forEach(function (q) {
+      pool.push({ text: q, title: part.title, number: part.number, url: part.pageUrl });
+    });
+  });
+  if (!pool.length) { section.hidden = true; return; }
+  var now = new Date();
+  var seed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+  var pick = pool[seed % pool.length];
+  document.getElementById('daily-question-text').textContent = pick.text;
+  var source = document.getElementById('daily-question-source');
+  if (pick.url) {
+    source.href = pick.url;
+    source.textContent = '第' + String(pick.number).replace(/^0+/, '') + '部 ' + pick.title + ' →';
+    source.hidden = false;
+  }
+});
+</script>
+
 <div class="meridian-divider" aria-hidden="true"></div>
 
 <!-- ========== MANABI MAP BASE ========== -->

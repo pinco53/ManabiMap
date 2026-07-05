@@ -102,6 +102,28 @@
   @view-transition { navigation: none; }
 }
 
+/* ---- 知的装置（Phase 5） ---- */
+/* ハブページのタイトル下に置くエピグラフ。問い・誘いのトーンの一文のみ。 */
+.hub-epigraph {
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: 13.5px;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+}
+
+/* 記事カード等で使う控えめな補足。左に極細のアクセント線。適用は任意。 */
+.aside-note {
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: 12.5px;
+  line-height: 1.9;
+  color: var(--text-dim);
+  padding-left: 12px;
+  border-left: 1px solid color-mix(in srgb, var(--note-green), transparent 50%);
+}
+
 /* 経緯線風のセクション区切り。星図の目盛りのような、控えめな一本線＋中央の点。 */
 .meridian-divider {
   position: relative;

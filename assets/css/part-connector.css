@@ -94,12 +94,26 @@
 }
 
 .part-map-bridge__question {
+  position: relative;
   padding: 13px 15px;
-  border-left: 2px solid #00d4ff;
+  border-left: 1px solid rgba(0,212,255,0.55);
   background: rgba(0,212,255,0.06);
   color: #eef6ff;
+  font-family: 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   font-size: 13px;
   line-height: 1.85;
+}
+/* 星座の端点。問いの線の起点に小さな星をひとつ。 */
+.part-map-bridge__question::before {
+  content: '';
+  position: absolute;
+  left: -2.5px;
+  top: 13px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #00d4ff;
+  box-shadow: 0 0 8px rgba(0,212,255,0.7);
 }
 
 .part-map-bridge__route-summary {
@@ -113,6 +127,7 @@
 }
 
 .part-map-bridge__route-steps span {
+  position: relative;
   min-height: 44px;
   padding: 9px 10px;
   border: 1px solid rgba(0,212,255,0.18);
@@ -122,6 +137,16 @@
   font-size: 11px;
   font-weight: 800;
   line-height: 1.55;
+}
+/* ステップ間をつなぐ星座の糸（デスクトップの横並びのみ） */
+.part-map-bridge__route-steps span + span::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  width: 8px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0,212,255,0.6), rgba(0,212,255,0.25));
 }
 
 .part-map-bridge__links,
@@ -279,6 +304,11 @@
 
   .part-map-bridge__route-steps {
     grid-template-columns: 1fr;
+  }
+
+  /* 縦積みでは横の糸を消す */
+  .part-map-bridge__route-steps span + span::before {
+    display: none;
   }
 }
 
