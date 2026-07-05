@@ -544,8 +544,12 @@ a { color: inherit; text-decoration: none; }
     radial-gradient(ellipse 420px 220px at 50% 0%, rgba(65,201,180,0.1), transparent 70%),
     var(--bg-card);
 }
+/* 図書館の棚のリズム。6枚に1枚だけ、少し大きな一冊が混ざる。 */
 .note-card--has-image:nth-child(6n+3) {
-  grid-column: span 1;
+  grid-column: span 2;
+}
+.note-card--has-image:nth-child(6n+3) .card-title {
+  font-size: 15.5px;
 }
 .note-card-media {
   display: block;
@@ -559,7 +563,7 @@ a { color: inherit; text-decoration: none; }
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .note-card--has-image:nth-child(6n+3) .note-card-media {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 21 / 9;
 }
 .note-card-media img {
   width: 100%;
