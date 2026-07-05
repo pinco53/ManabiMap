@@ -2842,6 +2842,7 @@ body::before {
 </style>
 </head>
 <body>
+<div class="grain-overlay" aria-hidden="true"></div>
 
 <!-- ========== HERO ========== -->
 <!-- ========== SIDE MINI-MAP ========== -->
@@ -2928,6 +2929,8 @@ body::before {
   </div>
 </section>
 
+<div class="meridian-divider" aria-hidden="true"></div>
+
 <!-- ========== MANABI MAP BASE ========== -->
 <section class="map-base-section" id="map-base">
   <div class="map-base-header">
@@ -2950,6 +2953,7 @@ body::before {
   </div>
 </section>
 
+<div class="meridian-divider" aria-hidden="true"></div>
 
 <section class="mock-entrances" aria-label="入口を選ぶ">
 <style>
@@ -2957,8 +2961,8 @@ body::before {
 .mock-entrances__label { margin-bottom: 8px; color: #9b9bb4; font-size: 11px; font-weight: 900; letter-spacing: 0.32em; }
 .mock-entrances__title { margin-bottom: 20px; color: #fff; font-size: 24px; font-weight: 900; line-height: 1.5; }
 .mock-entrances__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
-.mock-entrance { --accent: #00d4ff; display: flex; flex-direction: column; gap: 7px; padding: 20px; border: 1px solid color-mix(in srgb, var(--accent), transparent 68%); border-radius: 10px; background: radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--accent), transparent 90%), transparent 46%), rgba(12,12,20,0.8); text-decoration: none; transition: transform 0.25s, border-color 0.25s; }
-.mock-entrance:hover { transform: translateY(-3px); border-color: var(--accent); }
+.mock-entrance { --accent: #00d4ff; display: flex; flex-direction: column; gap: 7px; padding: 20px; border: 1px solid color-mix(in srgb, var(--accent), transparent 68%); border-radius: 10px; background: radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--accent), transparent 90%), transparent 46%), rgba(12,12,20,0.8); text-decoration: none; transition: transform 0.4s var(--ease-out), border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out); }
+.mock-entrance:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 10px 32px color-mix(in srgb, var(--accent), transparent 87%); }
 .mock-entrance__kicker { color: var(--accent); font-size: 10px; font-weight: 900; letter-spacing: 0.26em; }
 .mock-entrance__title { color: #fff; font-size: 18px; font-weight: 900; }
 .mock-entrance__text { color: #9b9bb4; font-size: 12.5px; line-height: 1.85; }
