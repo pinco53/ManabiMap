@@ -1,0 +1,49 @@
+/* ==========================================================================
+   ManabiMap Design Tokens
+   共通デザイントークン。夜の星図（黒基調＋ネオン）を貫く基盤。
+   DESIGN_ENHANCEMENT_PLAN_2026-07-05.md Phase 1
+   ========================================================================== */
+
+:root {
+  /* ---- 背景 ---- */
+  --bg: #08080d;
+  --bg-panel: #10101a;
+  --bg-card: #10101a;
+  --bg-card-hover: #18182a;
+
+  /* ---- 文字 ---- */
+  --text: #e8e8f0;
+  --text-dim: #a3a3bf;
+  --text-bright: #ffffff;
+
+  /* ---- 境界線 ---- */
+  --border: #2a2a40;
+
+  /* ---- 媒体アクセント色（意味固定・変更禁止） ---- */
+  --map: #00d4ff;      /* 地図 / YouTube */
+  --podcast: #ffb86b;  /* Podcast */
+  --zukai: #8da2ff;    /* 図解 */
+  --note-green: #41c9b4; /* note */
+  --youtube-red: #ff4d67; /* 動画 */
+
+  /* ---- ネオン装飾色（index / evolution 共通） ---- */
+  --neon-orange: #ff6b2b;
+  --neon-blue: #4da6ff;
+  --neon-cyan: #00e5ff;
+  --neon-green: #39ff14;
+  --neon-purple: #bf5fff;
+  --neon-gold: #ffd700;
+  --neon-magenta: #ff2d95;
+  --neon-sky: #00d4ff;
+
+  /* ---- 形・間隔 ---- */
+  --radius-card: 14px;
+  --tracking-wide: 0.08em;
+
+  /* ---- 動き ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ---- 影・光（Phase 3 で媒体色に応じて希釈利用） ---- */
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-glow-color: rgba(255, 255, 255, 0.12);
+}
