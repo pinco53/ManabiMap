@@ -46,4 +46,12 @@
   /* ---- 影・光（Phase 3 で媒体色に応じて希釈利用） ---- */
   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.35);
   --shadow-glow-color: rgba(255, 255, 255, 0.12);
+
+  /* ---- 書体（Phase 2） ---- */
+  --font-display: 'Cinzel', 'Noto Sans JP', serif; /* 英字ラベル・見出し専用 */
+  --font-mincho: 'Shippori Mincho', 'Noto Sans JP', serif; /* 問い・引用・リード文専用。本文には使わない */
 }
+
+/* ---- 組版ユーティリティ（Phase 2） ---- */
+.u-palt { font-feature-settings: "palt"; }
+.u-nums { font-variant-numeric: tabular-nums; }
