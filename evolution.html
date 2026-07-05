@@ -635,14 +635,16 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 6px;
   opacity: 0.8;
 }
-.footer-cta-btn[data-part="1"] { color: var(--neon-orange); border-color: rgba(255,107,43,0.4); }
-.footer-cta-btn[data-part="2"] { color: var(--neon-blue); border-color: rgba(77,166,255,0.4); }
-.footer-cta-btn[data-part="3"] { color: var(--neon-cyan); border-color: rgba(0,229,255,0.4); }
-.footer-cta-btn[data-part="4"] { color: var(--neon-green); border-color: rgba(57,255,20,0.4); }
-.footer-cta-btn[data-part="5"] { color: var(--neon-purple); border-color: rgba(191,95,255,0.4); }
-.footer-cta-btn[data-part="6"] { color: var(--neon-gold); border-color: rgba(255,215,0,0.4); }
-.footer-cta-btn[data-part="7"] { color: var(--neon-magenta); border-color: rgba(255,45,149,0.4); }
-.footer-cta-btn[data-part="8"] { color: var(--neon-sky); border-color: rgba(0,212,255,0.4); }
+.footer-cta-btn[data-part="1"] { color: var(--part1); border-color: color-mix(in srgb, var(--part1), transparent 60%); }
+.footer-cta-btn[data-part="2"] { color: var(--part2); border-color: color-mix(in srgb, var(--part2), transparent 60%); }
+.footer-cta-btn[data-part="3"] { color: var(--part3); border-color: color-mix(in srgb, var(--part3), transparent 60%); }
+.footer-cta-btn[data-part="4"] { color: var(--part4); border-color: color-mix(in srgb, var(--part4), transparent 60%); }
+.footer-cta-btn[data-part="5"] { color: var(--part5); border-color: color-mix(in srgb, var(--part5), transparent 60%); }
+.footer-cta-btn[data-part="6"] { color: var(--part6); border-color: color-mix(in srgb, var(--part6), transparent 60%); }
+.footer-cta-btn[data-part="7"] { color: var(--part7); border-color: color-mix(in srgb, var(--part7), transparent 60%); }
+.footer-cta-btn[data-part="8"] { color: var(--part8); border-color: color-mix(in srgb, var(--part8), transparent 60%); }
+.footer-cta-btn[data-part="8-2"] { color: var(--part8-2); border-color: color-mix(in srgb, var(--part8-2), transparent 60%); }
+.footer-cta-btn[data-part="9"] { color: var(--part9); border-color: color-mix(in srgb, var(--part9), transparent 60%); }
 
 .site-footer {
   text-align: center;
@@ -1116,6 +1118,8 @@ a { color: inherit; text-decoration: none; }
 }
 .interval-bar {
   height: 100%;
+  /* 値が極端に小さい行（AI時代の数年）でも棒として視認できる最小幅を保証する */
+  min-width: 10px;
   border-radius: 0 6px 6px 0;
   background: var(--int-color, var(--neon-sky));
   position: relative;
@@ -1145,6 +1149,8 @@ a { color: inherit; text-decoration: none; }
 .interval-row[data-color="magenta"] { --int-color: var(--neon-magenta); }
 .interval-row[data-color="sky"] { --int-color: var(--neon-sky); }
 .interval-row.future .interval-bar {
+  /* 破線が最低2周期は見えるように。「まだ長さの分からない棒」であることを示す */
+  min-width: 26px;
   background: repeating-linear-gradient(
     90deg,
     var(--neon-white) 0 6px,
@@ -3039,7 +3045,8 @@ a { color: inherit; text-decoration: none; }
     <a href="parts/part6.html" class="footer-cta-btn" data-part="6"><span class="pnum">PART 06</span>数字と世界</a>
     <a href="parts/part7.html" class="footer-cta-btn" data-part="7"><span class="pnum">PART 07</span>前提を外す</a>
     <a href="parts/part8.html" class="footer-cta-btn" data-part="8"><span class="pnum">PART 08 — 歴史編</span>AIと人間のあいだ</a>
-    <a href="parts/part8_2.html" class="footer-cta-btn" data-part="8"><span class="pnum">PART 08 — 社会編</span>AIが日常に入る日</a>
+    <a href="parts/part8_2.html" class="footer-cta-btn" data-part="8-2"><span class="pnum">PART 08 — 社会編</span>AIが日常に入る日</a>
+    <a href="parts/part9.html" class="footer-cta-btn" data-part="9"><span class="pnum">PART 09</span>身体という時間</a>
   </div>
   <div style="text-align:center;margin-top:40px;">
     <a href="index.html" class="event-link" style="color:var(--neon-sky); padding:12px 28px; font-size:13px;">← 学びの地図トップへ</a>

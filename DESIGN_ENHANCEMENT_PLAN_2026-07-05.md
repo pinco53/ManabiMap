@@ -175,6 +175,28 @@
 
 ---
 
+## Phase 7: 部のテーマカラー体系と表紙の統一 ✅ 完了 (2026-07-05)
+
+ユーザー指示による追加フェーズ。
+
+1. **連続した知的スペクトル**: tokens.css に `--part1`〜`--part9`・`--part8-2` を定義。
+   「暁の銅から深い夜の紫へ」— 檜皮→琥珀→柳→常磐→青磁→浅葱→縹→菫→紫苑→藤紫。
+   生成規則 hue ≈ 24+(n-1)×34 を明記し、第10部以降は次の hue（h330 薔薇…）を継げば
+   自動的に連続性が保たれる。part-connector.js の NAV_ACCENTS は同値のミラー（要同期）。
+2. **色の流通経路の一本化**: manabimap-data.js の各部 `color` 値を固有キー
+   （'part1'〜'part9','part8-2'）にリネームし、index の map-node / map-node-detail /
+   part-card / nav-bar、evolution の footer-cta-btn を部キーで参照。旧色名ルールは
+   部以外のノード（進化の年表など）のフォールバックとして残置。
+3. **部表紙の統一（part-hero.css）**: 全13部ページの `.cover` をトップと同じ
+   「夜の天体図書館」言語に統一。夜空＋地平からの部色グロー＋まばらな星、
+   明朝のシリーズ行（「ハルとおじいさんの物語 ── 学びの地図」に統一）、
+   問いのみを残した tagline（説明プローズは削除）、部色の経緯線 divider、
+   ゴーストボタン。cover-note（転載注意）・話数バッジは非表示化。
+4. **相対図の修正**: evolution.html の interval-chart で最後の2本
+   （ChatGPT→AIエージェント 4%・次の革命 1.5%）が視認不能だったため、
+   `.interval-bar { min-width: 10px }`・future行 `min-width: 26px` を追加。
+   footer-cta-grid に欠落していた PART 09 を追加し、社会編を data-part="8-2" に修正。
+
 ## 検証手順（各フェーズ共通）
 
 1. ローカルで `python3 -m http.server` 等で配信し、Chrome で確認（`file://` では fetch 系が動かないため）。

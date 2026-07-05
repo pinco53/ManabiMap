@@ -265,15 +265,19 @@
     return panel;
   }
 
+  /* tokens.css の --part1〜--part9（連続した知的スペクトル）のミラー。
+     色を変更するときは tokens.css と両方を同期すること。 */
   const NAV_ACCENTS = {
-    orange: '#ff6b2b',
-    blue: '#4aa3ff',
-    cyan: '#00d4ff',
-    green: '#39ff39',
-    purple: '#bf5fff',
-    gold: '#ffd700',
-    magenta: '#ff2fa3',
-    sky: '#00d4ff'
+    'part1': '#c98f69',
+    'part2': '#cfbb6e',
+    'part3': '#a7c973',
+    'part4': '#73c984',
+    'part5': '#73c9b8',
+    'part6': '#73afc9',
+    'part7': '#7384c9',
+    'part8': '#8d73c9',
+    'part8-2': '#a473c9',
+    'part9': '#bb73c9'
   };
 
   function injectNavStyles() {

@@ -1209,6 +1209,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 800;
   letter-spacing: 0.08em;
 }
+/* 旧色名は部以外のノード（進化の年表など）のフォールバックとして残す */
 .map-node[data-color="orange"] { color: var(--neon-orange); }
 .map-node[data-color="blue"] { color: var(--neon-blue); }
 .map-node[data-color="cyan"] { color: var(--neon-cyan); }
@@ -1217,6 +1218,17 @@ a { color: inherit; text-decoration: none; }
 .map-node[data-color="gold"] { color: var(--neon-gold); }
 .map-node[data-color="magenta"] { color: var(--neon-magenta); }
 .map-node[data-color="sky"] { color: var(--neon-sky); }
+/* 部のテーマカラー（tokens.css の連続スペクトル） */
+.map-node[data-color="part1"] { color: var(--part1); }
+.map-node[data-color="part2"] { color: var(--part2); }
+.map-node[data-color="part3"] { color: var(--part3); }
+.map-node[data-color="part4"] { color: var(--part4); }
+.map-node[data-color="part5"] { color: var(--part5); }
+.map-node[data-color="part6"] { color: var(--part6); }
+.map-node[data-color="part7"] { color: var(--part7); }
+.map-node[data-color="part8"] { color: var(--part8); }
+.map-node[data-color="part8-2"] { color: var(--part8-2); }
+.map-node[data-color="part9"] { color: var(--part9); }
 .map-node-detail {
   --detail-accent: var(--neon-sky);
   --detail-accent-soft: rgba(0,212,255,0.12);
@@ -1280,6 +1292,16 @@ a { color: inherit; text-decoration: none; }
   --detail-accent-soft: rgba(0,212,255,0.14);
   --detail-accent-line: rgba(0,212,255,0.44);
 }
+.map-node-detail[data-color="part1"] { --detail-accent: var(--part1); --detail-accent-soft: color-mix(in srgb, var(--part1), transparent 86%); --detail-accent-line: color-mix(in srgb, var(--part1), transparent 56%); }
+.map-node-detail[data-color="part2"] { --detail-accent: var(--part2); --detail-accent-soft: color-mix(in srgb, var(--part2), transparent 86%); --detail-accent-line: color-mix(in srgb, var(--part2), transparent 56%); }
+.map-node-detail[data-color="part3"] { --detail-accent: var(--part3); --detail-accent-soft: color-mix(in srgb, var(--part3), transparent 86%); --detail-accent-line: color-mix(in srgb, var(--part3), transparent 56%); }
+.map-node-detail[data-color="part4"] { --detail-accent: var(--part4); --detail-accent-soft: color-mix(in srgb, var(--part4), transparent 86%); --detail-accent-line: color-mix(in srgb, var(--part4), transparent 56%); }
+.map-node-detail[data-color="part5"] { --detail-accent: var(--part5); --detail-accent-soft: color-mix(in srgb, var(--part5), transparent 86%); --detail-accent-line: color-mix(in srgb, var(--part5), transparent 56%); }
+.map-node-detail[data-color="part6"] { --detail-accent: var(--part6); --detail-accent-soft: color-mix(in srgb, var(--part6), transparent 86%); --detail-accent-line: color-mix(in srgb, var(--part6), transparent 56%); }
+.map-node-detail[data-color="part7"] { --detail-accent: var(--part7); --detail-accent-soft: color-mix(in srgb, var(--part7), transparent 86%); --detail-accent-line: color-mix(in srgb, var(--part7), transparent 56%); }
+.map-node-detail[data-color="part8"] { --detail-accent: var(--part8); --detail-accent-soft: color-mix(in srgb, var(--part8), transparent 86%); --detail-accent-line: color-mix(in srgb, var(--part8), transparent 56%); }
+.map-node-detail[data-color="part8-2"] { --detail-accent: var(--part8-2); --detail-accent-soft: color-mix(in srgb, var(--part8-2), transparent 86%); --detail-accent-line: color-mix(in srgb, var(--part8-2), transparent 56%); }
+.map-node-detail[data-color="part9"] { --detail-accent: var(--part9); --detail-accent-soft: color-mix(in srgb, var(--part9), transparent 86%); --detail-accent-line: color-mix(in srgb, var(--part9), transparent 56%); }
 .map-node-detail::-webkit-scrollbar {
   width: 8px;
 }
@@ -1852,14 +1874,15 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-bright);
 }
 
-.nav-bar a[data-part="1"]:hover { border-color: var(--neon-orange); color: var(--neon-orange); }
-.nav-bar a[data-part="2"]:hover { border-color: var(--neon-blue); color: var(--neon-blue); }
-.nav-bar a[data-part="3"]:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); }
-.nav-bar a[data-part="4"]:hover { border-color: var(--neon-green); color: var(--neon-green); }
-.nav-bar a[data-part="5"]:hover { border-color: var(--neon-purple); color: var(--neon-purple); }
-.nav-bar a[data-part="6"]:hover { border-color: var(--neon-gold); color: var(--neon-gold); }
-.nav-bar a[data-part="7"]:hover { border-color: var(--neon-magenta); color: var(--neon-magenta); }
-.nav-bar a[data-part="8"]:hover { border-color: var(--neon-sky); color: var(--neon-sky); }
+.nav-bar a[data-part="1"]:hover { border-color: var(--part1); color: var(--part1); }
+.nav-bar a[data-part="2"]:hover { border-color: var(--part2); color: var(--part2); }
+.nav-bar a[data-part="3"]:hover { border-color: var(--part3); color: var(--part3); }
+.nav-bar a[data-part="4"]:hover { border-color: var(--part4); color: var(--part4); }
+.nav-bar a[data-part="5"]:hover { border-color: var(--part5); color: var(--part5); }
+.nav-bar a[data-part="6"]:hover { border-color: var(--part6); color: var(--part6); }
+.nav-bar a[data-part="7"]:hover { border-color: var(--part7); color: var(--part7); }
+.nav-bar a[data-part="8"]:hover { border-color: var(--part8); color: var(--part8); }
+.nav-bar a[data-part="9"]:hover { border-color: var(--part9); color: var(--part9); }
 
 /* ========== CHAPTER GROUPS ========== */
 .chapter-group {
@@ -1973,23 +1996,23 @@ a { color: inherit; text-decoration: none; }
 .part-card:hover::before { opacity: 1; }
 
 /* Card accent colors */
-.part-card[data-part="1"]::before { background: var(--neon-orange); }
-.part-card[data-part="2"]::before { background: var(--neon-blue); }
-.part-card[data-part="3"]::before { background: var(--neon-cyan); }
-.part-card[data-part="4"]::before { background: var(--neon-green); }
-.part-card[data-part="5"]::before { background: var(--neon-purple); }
-.part-card[data-part="6"]::before { background: var(--neon-gold); }
-.part-card[data-part="7"]::before { background: var(--neon-magenta); }
-.part-card[data-part="8"]::before { background: var(--neon-sky); }
+.part-card[data-part="1"]::before { background: var(--part1); }
+.part-card[data-part="2"]::before { background: var(--part2); }
+.part-card[data-part="3"]::before { background: var(--part3); }
+.part-card[data-part="4"]::before { background: var(--part4); }
+.part-card[data-part="5"]::before { background: var(--part5); }
+.part-card[data-part="6"]::before { background: var(--part6); }
+.part-card[data-part="7"]::before { background: var(--part7); }
+.part-card[data-part="8"]::before { background: var(--part8); }
 
-.part-card[data-part="1"]:hover { box-shadow: 0 8px 32px rgba(255,107,43,0.15); }
-.part-card[data-part="2"]:hover { box-shadow: 0 8px 32px rgba(77,166,255,0.15); }
-.part-card[data-part="3"]:hover { box-shadow: 0 8px 32px rgba(0,229,255,0.15); }
-.part-card[data-part="4"]:hover { box-shadow: 0 8px 32px rgba(57,255,20,0.15); }
-.part-card[data-part="5"]:hover { box-shadow: 0 8px 32px rgba(191,95,255,0.15); }
-.part-card[data-part="6"]:hover { box-shadow: 0 8px 32px rgba(255,215,0,0.15); }
-.part-card[data-part="7"]:hover { box-shadow: 0 8px 32px rgba(255,45,149,0.15); }
-.part-card[data-part="8"]:hover { box-shadow: 0 8px 32px rgba(0,212,255,0.15); }
+.part-card[data-part="1"]:hover { box-shadow: 0 8px 32px color-mix(in srgb, var(--part1), transparent 85%); }
+.part-card[data-part="2"]:hover { box-shadow: 0 8px 32px color-mix(in srgb, var(--part2), transparent 85%); }
+.part-card[data-part="3"]:hover { box-shadow: 0 8px 32px color-mix(in srgb, var(--part3), transparent 85%); }
+.part-card[data-part="4"]:hover { box-shadow: 0 8px 32px color-mix(in srgb, var(--part4), transparent 85%); }
+.part-card[data-part="5"]:hover { box-shadow: 0 8px 32px color-mix(in srgb, var(--part5), transparent 85%); }
+.part-card[data-part="6"]:hover { box-shadow: 0 8px 32px color-mix(in srgb, var(--part6), transparent 85%); }
+.part-card[data-part="7"]:hover { box-shadow: 0 8px 32px color-mix(in srgb, var(--part7), transparent 85%); }
+.part-card[data-part="8"]:hover { box-shadow: 0 8px 32px color-mix(in srgb, var(--part8), transparent 85%); }
 
 .card-thumbnail {
   width: 100%;
@@ -2057,14 +2080,14 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 8px;
 }
 
-.part-card[data-part="1"] .card-part-num { color: var(--neon-orange); }
-.part-card[data-part="2"] .card-part-num { color: var(--neon-blue); }
-.part-card[data-part="3"] .card-part-num { color: var(--neon-cyan); }
-.part-card[data-part="4"] .card-part-num { color: var(--neon-green); }
-.part-card[data-part="5"] .card-part-num { color: var(--neon-purple); }
-.part-card[data-part="6"] .card-part-num { color: var(--neon-gold); }
-.part-card[data-part="7"] .card-part-num { color: var(--neon-magenta); }
-.part-card[data-part="8"] .card-part-num { color: var(--neon-sky); }
+.part-card[data-part="1"] .card-part-num { color: var(--part1); }
+.part-card[data-part="2"] .card-part-num { color: var(--part2); }
+.part-card[data-part="3"] .card-part-num { color: var(--part3); }
+.part-card[data-part="4"] .card-part-num { color: var(--part4); }
+.part-card[data-part="5"] .card-part-num { color: var(--part5); }
+.part-card[data-part="6"] .card-part-num { color: var(--part6); }
+.part-card[data-part="7"] .card-part-num { color: var(--part7); }
+.part-card[data-part="8"] .card-part-num { color: var(--part8); }
 
 .card-title {
   font-size: 22px;
@@ -2864,15 +2887,15 @@ body::before {
 <nav class="nav-bar" style="position:sticky; top:0;">
   <a href="#map-base" style="color:var(--neon-sky); border-color:var(--neon-sky)">地図</a>
   <a href="evolution.html" style="color:#bf5fff; border-color:#bf5fff">進化の年表</a>
-  <a href="parts/part1.html">第1部</a>
-  <a href="parts/part2.html">第2部</a>
-  <a href="parts/part3.html">第3部</a>
-  <a href="parts/part4.html">第4部</a>
-  <a href="parts/part5.html">第5部</a>
-  <a href="parts/part6.html">第6部</a>
-  <a href="parts/part7.html">第7部</a>
-  <a href="parts/part8.html">第8部</a>
-  <a href="parts/part9.html">第9部</a>
+  <a href="parts/part1.html" data-part="1">第1部</a>
+  <a href="parts/part2.html" data-part="2">第2部</a>
+  <a href="parts/part3.html" data-part="3">第3部</a>
+  <a href="parts/part4.html" data-part="4">第4部</a>
+  <a href="parts/part5.html" data-part="5">第5部</a>
+  <a href="parts/part6.html" data-part="6">第6部</a>
+  <a href="parts/part7.html" data-part="7">第7部</a>
+  <a href="parts/part8.html" data-part="8">第8部</a>
+  <a href="parts/part9.html" data-part="9">第9部</a>
   <a href="note.html" style="color:#41c9b4; border-color:#41c9b4">note記事</a>
   <a href="podcast.html" style="color:#ffb86b; border-color:#ffb86b">Podcast</a>
   <a href="infographics.html" style="color:#8da2ff; border-color:#8da2ff">図解</a>
