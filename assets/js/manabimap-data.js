@@ -317,7 +317,7 @@
     { id: 'note-68', number: 68, title: "366万年前、誰かが誰かの足跡を踏んで歩いた", url: "https://note.com/manabimapcreator/n/n44fbd14a1133", status: "published", kind: "wonder-note", date: "2026-07-04", target: "第9部第1話「二足歩行という革命」", tags: ["第9部第1話「二足歩行という革命」"], relatedParts: ["part9"], relatedPodcastUrl: "https://www.youtube.com/watch?v=ntz9H4H2P_8", relatedYouTubeUrl: "https://www.youtube.com/watch?v=ntz9H4H2P_8", ctaCopy: "関連動画を見る", image: "note_articles/generated_note_images/note-68.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "歩いているとき、足元を意識することはほとんどありません。" },
     { id: 'note-69', number: 69, title: "石を割り始める前に、頭の中に完成形があった", url: "https://note.com/manabimapcreator/n/n340a71ee6a7c", status: "published", kind: "wonder-note", date: "2026-07-05", target: "第9部第2話「手と道具」", tags: ["第9部第2話「手と道具」"], relatedParts: ["part9"], relatedPodcastUrl: "https://www.youtube.com/watch?v=rd2EIzy0YpE", ctaCopy: "関連動画を見る", image: "note_articles/generated_note_images/note-69.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "ペンを持つとき、包丁を使うとき、スマートフォンを開くとき。" },
     { id: 'note-70', number: 70, title: "150人を超えると、何かが壊れる", url: "https://note.com/manabimapcreator/n/n06136710b43d", status: "published", kind: "wonder-note", date: "2026-07-06", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-70.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "フォロワーが増えるほど、なぜか孤独になる。" },
-    { id: 'note-71', number: 71, title: "欲望が止まらないのは、設計通りだった", status: "draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第5話「報酬系の設計」", tags: ["第9部第5話「報酬系の設計」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-71.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "お腹いっぱいなのに、まだ食べたくなる。" },
+    { id: 'note-71', number: 71, title: "欲望が止まらないのは、設計通りだった", url: "https://note.com/manabimapcreator/n/n4150d951806c", status: "published", kind: "wonder-note", date: "2026-07-07", target: "第9部第5話「報酬系の設計」", tags: ["第9部第5話「報酬系の設計」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-71.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "お腹いっぱいなのに、まだ食べたくなる。" },
     { id: 'note-72', number: 72, title: "悪いニュースが良いニュースより速く伝わるのは、なぜだろう", status: "draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第6話「恐怖と不安」", tags: ["第9部第6話「恐怖と不安」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-72.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "友達の悪い噂は、良い噂よりずっと速く広まる。" },
     { id: 'note-73', number: 73, title: "「仲間」と「よそ者」を決めているのは、何だろう", status: "draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第7話「集団本能」", tags: ["第9部第7話「集団本能」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-73.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "同じチームのユニフォームを見ると、なぜか親しみがわく。" },
     { id: 'note-74', number: 74, title: "なぜ「あとで読もう」は、いつも実行されないのか", status: "draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第8話「即時報酬の罠」", tags: ["第9部第8話「即時報酬の罠」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-74.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "「あとで読む」ボタンを押した記事が、いつまでも読まれないまま積み上がっている。" },
@@ -1151,6 +1151,15 @@
       type: 'podcast',
       title: '「いいね」が欲しくなるのは本能だった——集団に認められることが命がかかっていた時代の話｜まるごと聴く 集団本能【ハルとおじいさん #9P-7】',
       url: 'https://youtu.be/IhYS6kPtXa8',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part9-08',
+      type: 'podcast',
+      title: 'スマホはスロットマシンと同じ原理で設計されていた——不確実な報酬がドーパミンを最大化する｜まるごと聴く 即時報酬の罠【ハルとおじいさん #9P-8】',
+      url: 'https://youtu.be/DvWh6OPdswA',
       relatedParts: ['part9'],
       question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
       relation: 'Podcastで深める'

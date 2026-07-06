@@ -2,9 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第9部第5話「報酬系の設計」
-**保存日**: 2026-05-24
+**保存日**: 2026-07-07
 **URL**: https://note.com/manabimapcreator/n/n4150d951806c
-**公開状態**: draft
+**公開状態**: published
 **主対象パート**: part9
 
 ---
