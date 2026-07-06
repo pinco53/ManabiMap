@@ -41,6 +41,22 @@ body[data-part] .cover {
     /* 深い夜 */
     linear-gradient(180deg, #05050c 0%, #0a0a13 62%, #0d0d18 100%);
 }
+body[data-part] .cover > :not(.cover-constellation) {
+  position: relative;
+  z-index: 1;
+}
+body[data-part] .cover-constellation {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  color: var(--part-color);
+  opacity: 0.18;
+  pointer-events: none;
+}
+body[data-part] .cover-constellation svg {
+  width: 100%;
+  height: 100%;
+}
 
 /* ---- タイポグラフィ ---- */
 body[data-part] .cover-series {
@@ -60,6 +76,22 @@ body[data-part] .cover-title {
   color: var(--text-bright);
   margin-bottom: 20px;
   text-shadow: 0 0 48px color-mix(in srgb, var(--part-color), transparent 55%);
+}
+body[data-part] .cover-colorname {
+  display: block;
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: color-mix(in srgb, var(--part-color), #ffffff 30%);
+  opacity: 0.8;
+  margin-top: -18px;
+  margin-bottom: 26px;
+}
+body[data-part] .cover-colorname small {
+  margin-left: 6px;
+  font-size: 9.5px;
+  opacity: 0.75;
 }
 body[data-part] .cover-subtitle {
   font-family: var(--font-mincho);
@@ -82,6 +114,18 @@ body[data-part] .cover-tagline em {
   font-style: normal;
   color: var(--text);
 }
+body[data-part] .cover-sigil {
+  width: 28px;
+  height: 28px;
+  margin: 30px auto -18px;
+  color: var(--part-color);
+  opacity: 0.52;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--part-color), transparent 55%));
+}
+body[data-part] .cover-sigil svg {
+  width: 100%;
+  height: 100%;
+}
 
 /* ---- 区切り線: 部色の経緯線 ---- */
 body[data-part] .cover-divider {
@@ -92,6 +136,22 @@ body[data-part] .cover-divider {
   background: linear-gradient(90deg, transparent, var(--part-color), transparent);
   box-shadow: 0 0 14px color-mix(in srgb, var(--part-color), transparent 55%);
   opacity: 0.9;
+}
+
+@media (max-width: 520px) {
+  body[data-part] .cover {
+    padding: 72px 22px;
+  }
+  body[data-part] .cover-series {
+    letter-spacing: 0.22em;
+    line-height: 1.8;
+  }
+  body[data-part] .cover-colorname {
+    letter-spacing: 0.22em;
+  }
+  body[data-part] .cover-sigil {
+    margin-top: 24px;
+  }
 }
 
 /* ---- 不要情報は表紙から取り除く ---- */
