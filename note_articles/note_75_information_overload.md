@@ -2,9 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第9部第9話「情報過多という異常環境」
-**保存日**: 2026-05-24
+**保存日**: 2026-07-11
 **URL**: https://note.com/manabimapcreator/n/ncaa5ee5118b9
-**公開状態**: draft
+**公開状態**: published
 **主対象パート**: part9
 
 ---

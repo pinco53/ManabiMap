@@ -319,9 +319,9 @@
     { id: 'note-70', number: 70, title: "150人を超えると、何かが壊れる", url: "https://note.com/manabimapcreator/n/n06136710b43d", status: "published", kind: "wonder-note", date: "2026-07-06", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-70.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "フォロワーが増えるほど、なぜか孤独になる。" },
     { id: 'note-71', number: 71, title: "欲望が止まらないのは、設計通りだった", url: "https://note.com/manabimapcreator/n/n4150d951806c", status: "published", kind: "wonder-note", date: "2026-07-07", target: "第9部第5話「報酬系の設計」", tags: ["第9部第5話「報酬系の設計」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-71.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "お腹いっぱいなのに、まだ食べたくなる。" },
     { id: 'note-72', number: 72, title: "悪いニュースが良いニュースより速く伝わるのは、なぜだろう", url: "https://note.com/manabimapcreator/n/n26becf1636e9", status: "published", kind: "wonder-note", date: "2026-07-08", target: "第9部第6話「恐怖と不安」", tags: ["第9部第6話「恐怖と不安」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-72.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "友達の悪い噂は、良い噂よりずっと速く広まる。" },
-    { id: 'note-73', number: 73, title: "「仲間」と「よそ者」を決めているのは、何だろう", status: "draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第7話「集団本能」", tags: ["第9部第7話「集団本能」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-73.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "同じチームのユニフォームを見ると、なぜか親しみがわく。" },
-    { id: 'note-74', number: 74, title: "なぜ「あとで読もう」は、いつも実行されないのか", status: "draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第8話「即時報酬の罠」", tags: ["第9部第8話「即時報酬の罠」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-74.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "「あとで読む」ボタンを押した記事が、いつまでも読まれないまま積み上がっている。" },
-    { id: 'note-75', number: 75, title: "江戸時代の人の一生分を、一日で処理している", status: "draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第9話「情報過多という異常環境」", tags: [], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-75.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "何もしていないのに疲れた、という感覚はないでしょうか。" },
+    { id: 'note-73', number: 73, title: "「仲間」と「よそ者」を決めているのは、何だろう", url: "https://note.com/manabimapcreator/n/n53ac42f4334d", status: "published", kind: "wonder-note", date: "2026-07-09", target: "第9部第7話「集団本能」", tags: ["第9部第7話「集団本能」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-73.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "同じチームのユニフォームを見ると、なぜか親しみがわく。" },
+    { id: 'note-74', number: 74, title: "なぜ「あとで読もう」は、いつも実行されないのか", url: "https://note.com/manabimapcreator/n/nfe2d23c6c103", status: "published", kind: "wonder-note", date: "2026-07-10", target: "第9部第8話「即時報酬の罠」", tags: ["第9部第8話「即時報酬の罠」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-74.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "「あとで読む」ボタンを押した記事が、いつまでも読まれないまま積み上がっている。" },
+    { id: 'note-75', number: 75, title: "江戸時代の人の一生分を、一日で処理している", url: "https://note.com/manabimapcreator/n/ncaa5ee5118b9", status: "published", kind: "wonder-note", date: "2026-07-11", target: "第9部第9話「情報過多という異常環境」", tags: [], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-75.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "何もしていないのに疲れた、という感覚はないでしょうか。" },
     { id: 'note-76', number: 76, title: "言葉より先に、目があった", status: "draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第4話「言語以前の身体」", tags: ["第9部第4話「言語以前の身体」"], relatedParts: ["part9","part5"], image: "note_articles/generated_note_images/note-76.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "目が合うと、何かが伝わる気がする。" },
     { id: 'note-77', number: 77, title: "マルチタスクが得意な人ほど、実は苦手だった", status: "draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第10話「集中という希少資源」", tags: ["第9部第10話「集中という希少資源」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-77.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "複数のことを同時にこなす「マルチタスク」。" },
     { id: 'note-78', number: 78, title: "写真を撮るほど、あのときが遠くなる", status: "draft", kind: "wonder-note", date: "2026-05-24", target: "第9部第11話「身体と時間」", tags: ["第9部第11話「身体と時間」"], relatedParts: ["part9"], image: "note_articles/generated_note_images/note-78.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "旅行や思い出の場所に行くとき、とにかく写真を撮る。" },
@@ -1169,6 +1169,33 @@
       type: 'podcast',
       title: '何もしていないのになぜ疲れるのか——現代の情報量が脳にとって「異常環境」である理由｜まるごと聴く 情報過多【ハルとおじいさん #9P-9】',
       url: 'https://youtu.be/0PlxsWr88Sg',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part9-10',
+      type: 'podcast',
+      title: '勉強しながら音楽を聴くのは効率が悪いのか——マルチタスクの神話と、集中が希少資源になった時代｜まるごと聴く 集中という希少資源【ハルとおじいさん #9P-10】',
+      url: 'https://youtu.be/COaaST1OOAI',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part9-11',
+      type: 'podcast',
+      title: '写真や動画は残るのに、なぜあのときの感覚は戻ってこないのか——身体の時間と情報の時間の話｜まるごと聴く 身体と時間【ハルとおじいさん #9P-11】',
+      url: 'https://youtu.be/cwB6szqgF2U',
+      relatedParts: ['part9'],
+      question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part9-12',
+      type: 'podcast',
+      title: '痛みを感じない人が短命になる理由——苦しみから意味が生まれるとしたら？｜まるごと聴く 痛みの哲学【ハルとおじいさん #9P-12】',
+      url: 'https://youtu.be/gXNxha63w-w',
       relatedParts: ['part9'],
       question: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
       relation: 'Podcastで深める'

@@ -2,9 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第9部第8話「即時報酬の罠」
-**保存日**: 2026-05-24
+**保存日**: 2026-07-10
 **URL**: https://note.com/manabimapcreator/n/nfe2d23c6c103
-**公開状態**: draft
+**公開状態**: published
 **主対象パート**: part9
 
 ---

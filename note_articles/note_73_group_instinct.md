@@ -2,9 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第9部第7話「集団本能」
-**保存日**: 2026-05-24
+**保存日**: 2026-07-09
 **URL**: https://note.com/manabimapcreator/n/n53ac42f4334d
-**公開状態**: draft
+**公開状態**: published
 **主対象パート**: part9
 
 ---
