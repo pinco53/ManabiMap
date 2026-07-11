@@ -14,6 +14,13 @@ body[data-part="7"]   { --part-color: var(--part7); }
 body[data-part="8"]   { --part-color: var(--part8); }
 body[data-part="8-2"] { --part-color: var(--part8-2); }
 body[data-part="9"]   { --part-color: var(--part9); }
+body[data-part="10"]  { --part-color: var(--part10); }
+body[data-part="11"]  { --part-color: var(--part11); }
+body[data-part="12"]  { --part-color: var(--part12); }
+body[data-part="13"]  { --part-color: var(--part13); }
+body[data-part="14"]  { --part-color: var(--part14); }
+body[data-part="15"]  { --part-color: var(--part15); }
+body[data-part="16"]  { --part-color: var(--part16); }
 
 /* ---- 表紙の夜空 ---- */
 body[data-part] .cover {

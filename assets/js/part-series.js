@@ -102,41 +102,159 @@
     return String(value).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; });
   }
 
+  const identities = {
+    10: ['撫子', 'なでしこ', '#dda2b6', 'rgba(110, 45, 70, .94)', 'rgba(72, 55, 92, .92)'],
+    11: ['珊瑚', 'さんご', '#e2aa96', 'rgba(116, 55, 55, .94)', 'rgba(95, 62, 44, .92)'],
+    12: ['琥珀', 'こはく', '#e1b16e', 'rgba(112, 67, 31, .94)', 'rgba(86, 65, 35, .92)'],
+    13: ['苔', 'こけ', '#c4bc77', 'rgba(78, 75, 31, .94)', 'rgba(49, 76, 56, .92)'],
+    14: ['若竹', 'わかたけ', '#9dc89f', 'rgba(42, 83, 51, .94)', 'rgba(37, 68, 82, .92)'],
+    15: ['青磁', 'せいじ', '#96c7c2', 'rgba(36, 79, 77, .94)', 'rgba(49, 60, 86, .92)'],
+    16: ['瑠璃', 'るり', '#91b6d8', 'rgba(34, 70, 106, .94)', 'rgba(51, 51, 91, .92)']
+  };
+
   const root = document.getElementById('part-series-root');
   const number = Number(document.body.dataset.part);
   const part = parts[number];
   if (!root || !part) return;
+  const depthPart = window.PartDepthData && window.PartDepthData[number];
 
-  document.documentElement.style.setProperty('--accent', part.color);
-  document.documentElement.style.setProperty('--accent-deep', part.deep);
-  document.documentElement.style.setProperty('--accent-pale', part.pale);
-  document.title = 'ハルとおじいさん｜第' + number + '部 ' + part.title + ' 学びの地図';
-
-  const nav = ['<nav class="series-nav" aria-label="部を選ぶ"><a class="home-link" href="../index.html">学びの地図</a>'];
-  for (let n = 1; n <= 16; n += 1) {
-    const href = n === 8 ? 'part8.html' : 'part' + n + '.html';
-    nav.push('<a href="' + href + '"' + (n === number ? ' aria-current="page"' : '') + '>第' + n + '部</a>');
-  }
-  nav.push('</nav>');
-
-  let episodeNo = 0;
-  const chapters = part.chapters.map(function (chapter, chapterIndex) {
-    const cards = chapter[2].map(function (episode) {
-      episodeNo += 1;
-      return '<article class="episode-card"><div class="episode-no">EPISODE ' + String(episodeNo).padStart(2, '0') + '</div><h3 class="episode-title">' + esc(episode[0]) + '</h3><p class="episode-concept">' + esc(episode[1]) + '</p></article>';
-    }).join('');
-    return '<section class="chapter"><div class="chapter-head"><div class="chapter-index">0' + (chapterIndex + 1) + '</div><h2 class="chapter-title">' + esc(chapter[0]) + '</h2><div class="chapter-question">' + esc(chapter[1]) + '</div></div><div class="episode-grid">' + cards + '</div></section>';
-  }).join('');
-
+  const identity = identities[number];
+  const mapData = window.ManabiMapData || {};
+  const publishedNotes = Array.isArray(mapData.notes) ? mapData.notes.filter(function (note) {
+    const directRelation = Array.isArray(note.relatedParts) && note.relatedParts.indexOf('part' + number) >= 0;
+    const targetRelation = typeof note.target === 'string' && note.target.indexOf('第' + number + '部') >= 0;
+    return note.url && note.status === 'published' && (directRelation || targetRelation);
+  }) : [];
+  const totalEpisodes = part.chapters.reduce(function (sum, chapter) { return sum + chapter[2].length; }, 0);
+  const chapterLabel = part.chapters.length === 3 ? '全3章' : '全' + part.chapters.length + '章';
   const prev = number - 1;
   const next = number + 1;
-  root.innerHTML = nav.join('') +
-    '<header class="part-hero"><div class="hero-inner"><div class="hero-kicker">HARU AND GRANDPA · MANABI MAP</div><div class="part-number">第' + number + '部</div><h1 class="part-title">' + esc(part.title) + '</h1><p class="part-subtitle">' + esc(part.subtitle) + '</p><div class="hero-rule"></div><p class="part-core">' + esc(part.core) + '</p><div class="hero-meta">' + episodeNo + ' EPISODES · LEARNING MAP</div></div></header>' +
-    '<main class="page"><section class="intro-grid"><div><div class="eyebrow">About this part</div><h2>この部でたどること</h2><p class="intro-copy">' + esc(part.intro) + '</p></div><aside class="question-box"><strong>中心の問い</strong><p>' + esc(part.question) + '</p></aside></section>' +
-    chapters +
-    '<section class="closing"><div class="eyebrow">Keep exploring</div><p>' + esc(part.core) + '</p><div class="actions"><a class="action primary" href="../podcast.html">Podcast一覧へ</a><a class="action" href="../note.html">関連するnoteを読む</a><a class="action" href="../index.html">全体地図へ戻る</a></div></section>' +
-    '<nav class="part-pager" aria-label="前後の部">' +
-      '<a href="part' + prev + '.html">← 第' + prev + '部</a><span>ハルとおじいさん｜学びの地図</span>' +
-      (next <= 16 ? '<a href="part' + next + '.html">第' + next + '部 →</a>' : '<a href="../index.html">全体地図 →</a>') +
-    '</nav></main><footer class="site-footer">ハルとおじいさん｜学びの地図</footer>';
+
+  document.documentElement.style.setProperty('--gold', part.color);
+  document.documentElement.style.setProperty('--gold-dark', part.deep);
+  document.documentElement.style.setProperty('--line', part.pale);
+  document.documentElement.style.setProperty('--accent-soft', identity[2]);
+  document.documentElement.style.setProperty('--accent-deep', part.deep);
+  document.documentElement.style.setProperty('--accent-alt', identity[4]);
+  document.documentElement.style.setProperty('--cover-mid', identity[3]);
+  document.documentElement.style.setProperty('--cover-end', identity[4]);
+  document.title = 'ハルとおじいさん｜第' + number + '部 ' + part.title + ' 学びの地図';
+
+  function footer(label) {
+    return '<div class="doc-footer">ハルとおじいさん｜第' + number + '部 ' + esc(part.title) + '　― ' + label + ' ―</div>';
+  }
+
+  function episodeQuestion(title) {
+    if (/なぜ|何|いつ|どこ|どう|できる|か$/.test(title)) return '問：' + title.replace(/[。？?]$/, '') + '。';
+    return '問：' + title + 'を手がかりに、いまの自分の見方をどう更新できるだろう。';
+  }
+
+  function episodeSummary(title, concept) {
+    return '「' + title + '」を入口に、' + concept + 'をたどる。知識を答えとして受け取るのではなく、人間の経験や日常の感覚と結び直して考える。';
+  }
+
+  function tags(concept) {
+    return concept.split(/[・、]/).filter(Boolean).slice(0, 3).map(function (tag) {
+      return '<span class="tag">' + esc(tag) + '</span>';
+    }).join('');
+  }
+
+  function depthBlock(episodeNumber) {
+    const detail = depthPart && depthPart.episodes && depthPart.episodes[episodeNumber];
+    if (!detail) return '';
+    return '<div class="episode-depth" aria-label="Podcastを越える深掘り">' +
+      '<div class="depth-heading">Podcastを越えて</div>' +
+      '<div class="depth-item"><div class="depth-label">背景としくみ</div><p>' + esc(detail.background) + '</p></div>' +
+      '<div class="depth-item"><div class="depth-label">もう一段深く</div><p>' + esc(detail.lens) + '</p></div>' +
+      '<div class="depth-item depth-item--caution"><div class="depth-label">単純化しないために</div><p>' + esc(detail.caution) + '</p></div>' +
+      '</div>';
+  }
+
+  let episodeNo = 0;
+  const chapterPages = part.chapters.map(function (chapter, chapterIndex) {
+    const start = episodeNo + 1;
+    const rows = chapter[2].map(function (episode) {
+      episodeNo += 1;
+      return '<div class="episode-row"><div class="episode-no">Episode ' + String(episodeNo).padStart(2, '0') + '</div><div>' +
+        '<div class="episode-title">' + esc(episode[0]) + '</div>' +
+        '<div class="episode-summary">' + esc(episodeSummary(episode[0], episode[1])) + '</div>' +
+        '<div class="episode-question">' + esc(episodeQuestion(episode[0])) + '</div>' +
+        '<div class="tags">' + tags(episode[1]) + '</div>' + depthBlock(episodeNo) + '</div></div>';
+    }).join('');
+    const end = episodeNo;
+    const modifier = chapterIndex === 1 ? ' chapter-card--middle' : (chapterIndex === 2 ? ' chapter-card--final' : '');
+    return '<div class="page"><div class="section-label">Chapter ' + String(chapterIndex + 1).padStart(2, '0') + '</div>' +
+      '<div class="section-title">' + esc(chapter[0]) + '</div>' +
+      '<div class="section-intro">第' + start + '話から第' + end + '話までを通して、「' + esc(chapter[1]) + '」という問いをたどります。各話の知識を、ひとつの流れとして読み直します。</div>' +
+      (depthPart && depthPart.chapters && depthPart.chapters[chapterIndex] ? '<div class="chapter-depth-note"><span>章の見取り図</span>' + esc(depthPart.chapters[chapterIndex]) + '</div>' : '') +
+      '<div class="chapter-card' + modifier + '"><div class="chapter-card__head"><div class="chapter-kicker">EPISODES ' + String(start).padStart(2, '0') + ' - ' + String(end).padStart(2, '0') + '</div>' +
+      '<div class="chapter-name">' + esc(chapter[0]) + '</div><div class="chapter-lead">' + esc(chapter[1]) + '</div></div><div class="episode-list">' + rows + '</div></div>' +
+      '<div class="argument-heading">第' + (chapterIndex + 1) + '章のまとめ</div><p class="argument-body">' + esc(chapter[0]) + 'で扱ったのは、' + esc(chapter[1]) + 'という問いです。個々の知識を切り離さず、自分の経験と次の章へつながる見方として持ち帰ります。</p>' +
+      (chapterIndex < part.chapters.length - 1 ? '<div class="bridge-box"><div class="bridge-label">Bridge</div><div class="bridge-text">問いは、次の章へ続いていく。</div><div class="bridge-sub">' + esc(part.chapters[chapterIndex + 1][1]) + '</div></div>' : '<div class="pull-quote">「' + esc(part.core) + '」</div>') + footer('第' + (chapterIndex + 1) + '章') + '</div>';
+  }).join('');
+
+  const axisCards = part.chapters.map(function (chapter, index) {
+    return '<div class="axis-card"><h3>' + (index + 1) + '. ' + esc(chapter[0]) + '</h3><p>' + esc(chapter[1]) + '。この問いを、全' + chapter[2].length + '話の異なる角度から捉える。</p></div>';
+  }).join('');
+
+  const summaryRows = part.chapters.map(function (chapter, index) {
+    return '<tr><td>第' + (index + 1) + '章</td><td>' + esc(chapter[0]) + '</td><td>' + esc(chapter[1]) + '</td></tr>';
+  }).join('');
+
+  const concepts = [];
+  part.chapters.forEach(function (chapter) {
+    chapter[2].forEach(function (episode) {
+      episode[1].split(/[・、]/).forEach(function (term) {
+        if (term && concepts.indexOf(term) < 0) concepts.push(term);
+      });
+    });
+  });
+  const glossary = concepts.slice(0, 5).map(function (term) {
+    return '<div class="glossary-item"><div class="glossary-term">' + esc(term) + '</div><div class="glossary-def">第' + number + '部の物語を読み解くための重要語。単独の定義で終わらせず、各話の経験・問い・関係の中で意味を捉える。</div></div>';
+  }).join('');
+
+  const discussionItems = [part.question].concat(part.chapters.map(function (chapter) { return chapter[1]; })).slice(0, 4).map(function (question, index) {
+    return '<div class="d-item"><div class="d-num">' + (index + 1) + '</div><div><div class="d-text">' + esc(question) + '</div><div class="d-hint">自分の経験、身近な場面、AI時代とのつながりから考えてみる。</div></div></div>';
+  }).join('');
+
+  const nextLink = next <= 16
+    ? '<a class="resource-card" href="part' + next + '.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第' + next + '部へ</div><div class="resource-text">次の問いへ、学びの地図をつなぐ。</div></a>'
+    : '<a class="resource-card" href="../index.html"><div class="resource-label">MANABI MAP</div><div class="resource-title">全体地図へ</div><div class="resource-text">第1部から第16部までを見渡す。</div></a>';
+
+  const noteLinks = publishedNotes.length ? '<div class="argument-heading">関連するnote</div><div class="note-list">' + publishedNotes.slice(0, 8).map(function (note) {
+    return '<a class="note-link" href="' + esc(note.url) + '" target="_blank" rel="noopener"><span>NOTE #' + String(note.number).padStart(2, '0') + '</span>' + esc(note.title) + '</a>';
+  }).join('') + '<a class="note-link" href="../note.html"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
+
+  root.innerHTML =
+    '<div class="cover"><div class="cover-series">ハルとおじいさんの物語 ── 学びの地図</div>' +
+      '<div class="cover-colorname">' + identity[0] + '<small>' + identity[1] + '</small></div>' +
+      '<h1 class="cover-title">第' + number + '部<br>' + esc(part.title) + '</h1>' +
+      '<div class="cover-subtitle">' + esc(part.subtitle) + '</div>' +
+      '<div class="cover-chapter">第1話〜第' + totalEpisodes + '話｜' + chapterLabel + '</div>' +
+      '<div class="cover-tagline">' + esc(part.intro) + '<br><em>' + esc(part.core) + '</em></div>' +
+      '<div class="cover-divider"></div><div class="cover-note">本ページは第' + number + '部の本文型まとめです。</div>' +
+      '<div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
+    '<nav class="chapter-nav" aria-label="前後の部"><a href="part' + prev + '.html">← 第' + prev + '部</a><span>第' + number + '部 ' + esc(part.title) + '</span>' +
+      (next <= 16 ? '<a href="part' + next + '.html">第' + next + '部 →</a>' : '<a href="../index.html">全体地図 →</a>') + '</nav>' +
+    '<div class="page"><div class="section-label">Introduction</div><div class="section-title">この部で問われていること</div>' +
+      '<div class="section-intro">' + esc(part.intro) + '</div><div class="essay-box"><h3>なぜ「' + esc(part.title) + '」を読む必要があるのか</h3>' +
+      (depthPart && depthPart.overview ? depthPart.overview.map(function (paragraph) { return '<p>' + esc(paragraph) + '</p>'; }).join('') : '<p>' + esc(part.core) + '</p>') +
+      '<p>第' + number + '部では、全' + totalEpisodes + '話を' + chapterLabel + 'に分け、知識の羅列ではなく、問いが深まっていく道筋として整理します。</p></div>' +
+      '<div class="central-question"><div class="cq-label">Central Question</div><div class="cq-text">' + esc(part.question) + '</div><div class="cq-sub">答えを急がず、各章を通って自分の見方がどう変わるかを確かめる。</div></div>' + footer('導入') + '</div>' +
+    chapterPages +
+    '<div class="page"><div class="section-label">Core Argument</div><div class="section-title">第' + number + '部の核心論考</div>' +
+      '<div class="section-intro">全' + totalEpisodes + '話を一つの流れとして読むと、この部の構造は次の軸で整理できます。</div><div class="axis-grid">' + axisCards + '</div>' +
+      '<div class="argument-heading">第' + number + '部を一文でまとめるなら</div><p class="argument-body">' + esc(part.core) + '</p>' +
+      '<table class="summary-table"><thead><tr><th>章</th><th>主題</th><th>中心の問い</th></tr></thead><tbody>' + summaryRows + '</tbody></table>' +
+      '<div class="argument-heading">用語解説</div>' + glossary + footer('核心論考') + '</div>' +
+    '<div class="page"><div class="section-label">Questions</div><div class="section-title">問いの地図</div>' +
+      '<div class="section-intro">知識を覚えるためだけではなく、自分の経験といまの社会を見直す問いとして読み返します。</div><div class="discussion-q">' + discussionItems + '</div>' +
+      '<div class="bridge-box"><div class="bridge-label">Conclusion</div><div class="bridge-text">' + esc(part.core) + '</div><div class="bridge-sub">第' + number + '部の地図を持って、次の問いへ進む。</div></div><div class="resource-grid">' + nextLink + '</div>' + footer('問いの地図') + '</div>' +
+    '<div class="page"><div class="section-label">Resources</div><div class="section-title">さらに読む・聴く</div>' +
+      '<div class="section-intro">第' + number + '部から、Podcast、note、学びの地図全体へつながる入口です。</div><div class="resource-grid">' +
+      '<a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">「ハルとおじいさん」の音声コンテンツを開く。</div></a>' +
+      '<a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">物語から伸びる枝道の記事を一覧で読む。</div></a>' +
+      '<a class="resource-card" href="../index.html"><div class="resource-label">MANABI MAP</div><div class="resource-title">全体地図へ</div><div class="resource-text">第1部から第16部までを見渡す。</div></a></div>' + noteLinks +
+      (depthPart && depthPart.references ? '<div class="argument-heading">深掘りの参考資料</div><p class="argument-body">Podcastとnoteの内容に加え、次の研究・公的資料をもとに背景、限界、反論を補いました。</p><div class="reference-list">' + depthPart.references.map(function (reference) { return '<a class="reference-link" href="' + esc(reference[1]) + '" target="_blank" rel="noopener"><span>REFERENCE</span>' + esc(reference[0]) + '</a>'; }).join('') + '</div>' : '') +
+      footer('関連資料') + '</div>';
 })();

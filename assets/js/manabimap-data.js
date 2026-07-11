@@ -230,7 +230,63 @@
         '情報の時間が速くなるほど、身体の時間は何を教えてくれるのか。'
       ],
       relatedNotes: ['note-68', 'note-69', 'note-70', 'note-71', 'note-72', 'note-73', 'note-74', 'note-75', 'note-76', 'note-77', 'note-78', 'note-79', 'note-80', 'note-81', 'note-82'],
-      next: ['part8-2', 'part3', 'evolution']
+      next: ['part10', 'part8-2', 'part3']
+    },
+    {
+      id: 'part10', type: 'part', number: '10', title: '感性という深層',
+      subtitle: '意味はどこから生まれるのか', group: '人間と学び', era: '進化からAI時代へ',
+      color: 'part10', colorName: '撫子', colorReading: 'なでしこ', pageUrl: 'parts/part10.html',
+      tags: ['感性', '意味', '共感', '芸術', 'AI'], concepts: ['emotion', 'meaning', 'empathy'],
+      questions: ['感性は再現可能なのか。', '意味は作品にあるのか、体験と関係の中にあるのか。'],
+      relatedNotes: [], next: ['part11', 'part9', 'part3']
+    },
+    {
+      id: 'part11', type: 'part', number: '11', title: '人はどう学び始めるのか',
+      subtitle: '学びの原型をめぐる旅', group: '人間と学び', era: '誕生から幼児期へ',
+      color: 'part11', colorName: '珊瑚', colorReading: 'さんご', pageUrl: 'parts/part11.html',
+      tags: ['発達', '愛着', '模倣', '遊び', '自己効力感'], concepts: ['development', 'attachment', 'play'],
+      questions: ['人は、教わる前にどう学んでいるのか。', '学びの原型は、どこにあるのか。'],
+      relatedNotes: [], next: ['part12', 'part10', 'part13']
+    },
+    {
+      id: 'part12', type: 'part', number: '12', title: '人はなぜ、一人では学べないのか',
+      subtitle: '対話・評価・関係の学習心理学', group: '人間と学び', era: '対話からAI学習へ',
+      color: 'part12', colorName: '琥珀', colorReading: 'こはく', pageUrl: 'parts/part12.html',
+      tags: ['対話', '学習心理学', 'フィードバック', 'メタ認知', 'AI'], concepts: ['dialogue', 'feedback', 'metacognition'],
+      questions: ['人はなぜ、一人では届かない場所へ対話によって届くのか。', 'AIとの対話は、人間との対話と何が違うのか。'],
+      relatedNotes: [], next: ['part13', 'part11', 'part8-2']
+    },
+    {
+      id: 'part13', type: 'part', number: '13', title: '学びとは何か',
+      subtitle: '人間・学校・家庭をつなぐ学びの地図', group: '人間と学び', era: '累積文化から現代教育へ',
+      color: 'part13', colorName: '苔', colorReading: 'こけ', pageUrl: 'parts/part13.html',
+      tags: ['学び', '累積文化', '学校', '家庭', '安全基地'], concepts: ['learning', 'culture', 'education'],
+      questions: ['人はなぜ学び、なぜ学びを閉じるのか。', 'どうすれば、もう一度世界へ向かう力を取り戻せるのか。'],
+      relatedNotes: [], next: ['part14', 'part12', 'part4']
+    },
+    {
+      id: 'part14', type: 'part', number: '14', title: '地球は動いている',
+      subtitle: '見方を更新する力', group: '見方を更新する', era: '古代天文学からAI時代へ',
+      color: 'part14', colorName: '若竹', colorReading: 'わかたけ', pageUrl: 'parts/part14.html',
+      tags: ['地動説', '観察', '証拠', '科学革命', '学び直し'], concepts: ['science', 'observation', 'paradigm'],
+      questions: ['科学とは、正解を知ることなのか。', '自分の中の「天動説」は何か。'],
+      relatedNotes: [], next: ['part15', 'part13', 'part7']
+    },
+    {
+      id: 'part15', type: 'part', number: '15', title: 'それ、わかったつもりかも',
+      subtitle: '答えを急ぐ時代に、考え続ける物語', group: '見方を更新する', era: 'ソクラテスからAI時代へ',
+      color: 'part15', colorName: '青磁', colorReading: 'せいじ', pageUrl: 'parts/part15.html',
+      tags: ['無知の知', '曖昧さ', '思考停止', 'パラダイム', 'AI'], concepts: ['critical-thinking', 'uncertainty', 'metacognition'],
+      questions: ['「わかった」と「考えた」は同じなのか。', 'わからなさを抱えたまま、考え続けられるか。'],
+      relatedNotes: [], next: ['part16', 'part14', 'part8']
+    },
+    {
+      id: 'part16', type: 'part', number: '16', title: 'エネルギーと人類史',
+      subtitle: '人類は何を解放してきたのか', group: '文明と未来', era: '火の獲得から核融合へ',
+      color: 'part16', colorName: '瑠璃', colorReading: 'るり', pageUrl: 'parts/part16.html',
+      tags: ['火', '産業革命', '電気', '太陽光', '核融合'], concepts: ['energy', 'electricity', 'future'],
+      questions: ['エネルギーを得るたび、人類は何から自由になったのか。', '次に自由になるのは何か。'],
+      relatedNotes: [], next: ['part15', 'part1', 'evolution']
     }
   ];
 
