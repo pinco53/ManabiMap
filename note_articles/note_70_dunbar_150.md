@@ -6,6 +6,9 @@
 **URL**: https://note.com/manabimapcreator/n/n06136710b43d
 **公開状態**: published
 **主対象パート**: part9
+**関連PodcastURL**: https://www.youtube.com/watch?v=VlhvEkIYyik
+**関連YouTubeURL**: https://www.youtube.com/watch?v=VlhvEkIYyik
+**CTA文言**: 関連動画を見る
 
 ---
 

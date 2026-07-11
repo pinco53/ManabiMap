@@ -6,6 +6,9 @@
 **URL**: https://note.com/manabimapcreator/n/ncaa5ee5118b9
 **公開状態**: published
 **主対象パート**: part9
+**関連PodcastURL**: https://www.youtube.com/watch?v=0PlxsWr88Sg
+**関連YouTubeURL**: https://www.youtube.com/watch?v=0PlxsWr88Sg
+**CTA文言**: 関連動画を見る
 
 ---
 
