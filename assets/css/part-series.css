@@ -511,6 +511,36 @@
     line-height: 1.9;
     margin-top: 8px;
   }
+  body[data-part="10"] .glossary-note {
+    background: color-mix(in srgb, var(--gold), #ffffff 92%);
+    border-left: 3px solid var(--gold);
+    color: var(--soft-ink);
+    font-size: 11.5px;
+    line-height: 1.85;
+    margin-top: 12px;
+    padding: 9px 12px;
+  }
+  body[data-part="10"] .perspective {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--gold), #ffffff 90%), #fff);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin: 34px 0;
+    padding: 26px 30px;
+  }
+  body[data-part="10"] .perspective-label {
+    color: var(--gold-dark);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .2em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  body[data-part="10"] .perspective p {
+    color: var(--soft-ink);
+    font-size: 13px;
+    line-height: 2;
+    margin: 0;
+  }
   .discussion-q { margin: 20px 0; }
   .d-item {
     border-bottom: 1px solid #f0e6d0;
