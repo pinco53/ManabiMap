@@ -415,6 +415,23 @@
     font-size: 12.5px;
     line-height: 1.9;
   }
+  .tl-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 9px;
+  }
+  .tl-tag {
+    background: color-mix(in srgb, var(--gold), #ffffff 88%);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    color: var(--gold-dark);
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+  .tl-tag.blue { background: #e0f0f8; border-color: #90c4e8; color: #2060a0; }
+  .tl-tag.green { background: #e0f0e8; border-color: #80c8a0; color: #206040; }
+  .tl-tag.red { background: #f8e0e0; border-color: #e89090; color: #a02020; }
   .episode-depth {
     background: #fbfaf6;
     border: 1px solid var(--line);
