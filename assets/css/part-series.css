@@ -432,6 +432,14 @@
   .tl-tag.blue { background: #e0f0f8; border-color: #90c4e8; color: #2060a0; }
   .tl-tag.green { background: #e0f0e8; border-color: #80c8a0; color: #206040; }
   .tl-tag.red { background: #f8e0e0; border-color: #e89090; color: #a02020; }
+  .tl-episode-link {
+    color: var(--gold-dark);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+  }
+  .tl-episode-link:hover { color: var(--earth); }
+  .episode-row { scroll-margin-top: 90px; }
   .episode-depth {
     background: #fbfaf6;
     border: 1px solid var(--line);

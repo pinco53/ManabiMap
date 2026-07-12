@@ -96,6 +96,12 @@
     });
   }
 
+  function linkEpisodes(escapedText) {
+    return escapedText.replace(/第(\d+)話「[^」]*」/g, function (match, num) {
+      return '<a class="tl-episode-link" href="#theme-' + String(num).padStart(2, '0') + '">' + match + '</a>';
+    });
+  }
+
   function footer(label) {
     return '<div class="doc-footer">ハルとおじいさん｜第15部 それ、わかったつもりかも　― ' + label + ' ―</div>';
   }
@@ -107,7 +113,7 @@
       episodeNumber += 1;
       const episodeDetail = detail && detail.episodes && detail.episodes[episodeNumber];
       const tags = episode[1].split('・').map(function (tag) { return '<span class="tag">' + esc(tag) + '</span>'; }).join('');
-      return '<div class="episode-row"><div class="episode-no">Theme ' + String(episodeNumber).padStart(2, '0') + '</div><div>' +
+      return '<div class="episode-row" id="theme-' + String(episodeNumber).padStart(2, '0') + '"><div class="episode-no">Theme ' + String(episodeNumber).padStart(2, '0') + '</div><div>' +
         '<div class="episode-title">' + esc(episode[0]) + '</div>' +
         '<p class="episode-summary">' + esc(episodeDetail ? episodeDetail.background : '') + '</p>' +
         '<p class="episode-summary">' + esc(episodeDetail ? episodeDetail.lens : '') + '</p>' +
@@ -132,7 +138,7 @@
       const cls = isColored ? ' ' + tag[1] : '';
       return '<span class="tl-tag' + cls + '">' + esc(label) + '</span>';
     }).join('');
-    return '<div class="tl-item"><div class="tl-year">' + esc(item[0]) + '</div><div class="tl-content"><div class="tl-event">' + esc(item[1]) + '</div><div class="tl-desc">' + esc(item[2]) + '</div>' + (tagsHtml ? '<div class="tl-tags">' + tagsHtml + '</div>' : '') + '</div></div>';
+    return '<div class="tl-item"><div class="tl-year">' + esc(item[0]) + '</div><div class="tl-content"><div class="tl-event">' + esc(item[1]) + '</div><div class="tl-desc">' + linkEpisodes(esc(item[2])) + '</div>' + (tagsHtml ? '<div class="tl-tags">' + tagsHtml + '</div>' : '') + '</div></div>';
   }).join('');
 
   const argumentsHtml = coreArguments.map(function (argument) {
