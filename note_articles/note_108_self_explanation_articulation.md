@@ -2,8 +2,8 @@
 
 **記事種別**: wonder-note
 **対象**: 第12部第4話「誰かに説明しようとすると理解はなぜ変わるのか」
-**保存日**: 2026-06-19
-**URL**: https://note.com/manabimapcreator/n/nc03210498c14
+**保存日**: 2026-06-20
+**URL**: https://note.com/manabimapcreator/n/n938e013c9b5d
 **公開状態**: published
 **主対象パート**: part12
 **関連PodcastID**: podcast-part12-4

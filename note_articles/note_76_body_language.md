@@ -2,9 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第9部第4話「言語以前の身体」
-**保存日**: 2026-05-24
+**保存日**: 2026-07-12
 **URL**: https://note.com/manabimapcreator/n/n79930d0372a6
-**公開状態**: draft
+**公開状態**: published
 **主対象パート**: part9
 
 ---
