@@ -135,7 +135,7 @@
   }).join('');
 
   const timelineRows = timeline.map(function (item) {
-    return '<div class="episode-row"><div class="episode-no">' + esc(item[0]) + '</div><div><div class="episode-title">' + esc(item[1]) + '</div><p class="episode-summary">' + esc(item[2]) + '</p></div></div>';
+    return '<div class="tl-item"><div class="tl-year">' + esc(item[0]) + '</div><div class="tl-content"><div class="tl-event">' + esc(item[1]) + '</div><div class="tl-desc">' + esc(item[2]) + '</div></div></div>';
   }).join('');
 
   const argumentsHtml = coreArguments.map(function (argument) {
@@ -176,7 +176,7 @@
       '<div class="central-question"><div class="cq-label">第10部の中心的問い</div><div class="cq-text">感性は、脳に還元できるのか。<br>それとも、関係の中でしか立ち上がらないのか。</div><div class="cq-sub">形の生成と、意味の経験を分けて考える。</div></div>' + footer('導入') + '</div>' +
     '<div class="page"><div class="section-label">Historical Map</div><div class="section-title">感性をめぐる思想と研究の歩み</div>' +
       '<div class="section-intro">感性は、哲学、進化論、脳科学、そして生成AIへと、異なる領域から問い直されてきた。主要な転換点を一本の流れとして整理する。</div>' +
-      '<div class="chapter-card"><div class="chapter-card__head"><div class="chapter-kicker">FROM POETICS TO GENERATIVE AI</div><div class="chapter-name">美と感情を、どう説明してきたか</div><div class="chapter-lead">主観、進化、脳、文化、AI。説明の焦点は広がり続けている。</div></div><div class="episode-list">' + timelineRows + '</div></div>' + footer('感性の系譜') + '</div>' +
+      '<div class="chapter-card"><div class="chapter-card__head"><div class="chapter-kicker">FROM POETICS TO GENERATIVE AI</div><div class="chapter-name">美と感情を、どう説明してきたか</div><div class="chapter-lead">主観、進化、脳、文化、AI。説明の焦点は広がり続けている。</div></div><div class="timeline">' + timelineRows + '</div></div>' + footer('感性の系譜') + '</div>' +
     chapterPages +
     '<div class="page"><div class="section-label">Core Argument</div><div class="section-title">核心論考 ── 感性という「関係」</div><div class="section-intro">15のテーマを一つに束ねると、第10部は感性を「個人の内側にある能力」から「世界との関係を作る働き」へ読み替える章になる。</div>' + argumentsHtml +
       '<div class="perspective"><div class="perspective-label">第10部の位置づけ</div><p>第10部は、人間の特別さを「AIにできない作業」の一覧で守ろうとしない。AIが生成できる範囲が広がるほど、人間には、何を受け取り、何を選び、どんな関係を作るかが残る。感性は最後に残る能力ではなく、技術をどこへ向けるかを決める出発点である。</p></div>' + footer('核心論考') + '</div>' +

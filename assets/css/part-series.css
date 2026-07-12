@@ -368,6 +368,53 @@
     gap: 6px;
     margin-top: 10px;
   }
+  .timeline {
+    margin: 4px 0;
+    position: relative;
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 0;
+  }
+  .tl-year {
+    border-right: 3px solid var(--line);
+    color: var(--gold-dark);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 16px 16px 16px 0;
+    position: relative;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .tl-year::after {
+    background: var(--gold);
+    border: 2px solid var(--panel);
+    border-radius: 50%;
+    content: '';
+    height: 11px;
+    position: absolute;
+    right: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11px;
+  }
+  .tl-content {
+    border-bottom: 1px solid #f0e8d8;
+    padding: 16px 0 16px 20px;
+  }
+  .tl-item:last-child .tl-content { border-bottom: none; }
+  .tl-event {
+    color: var(--ink);
+    font-size: 13.5px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .tl-desc {
+    color: var(--soft-ink);
+    font-size: 12.5px;
+    line-height: 1.9;
+  }
   .episode-depth {
     background: #fbfaf6;
     border: 1px solid var(--line);
@@ -710,6 +757,10 @@
     .fault-center { height: 48px; width: 100%; writing-mode: horizontal-tb; }
     .episode-row { display: block; padding: 18px; }
     .episode-no { margin-bottom: 8px; }
+    .tl-item { display: block; }
+    .tl-year { border-right: none; border-left: 3px solid var(--line); padding: 0 0 6px 14px; text-align: left; }
+    .tl-year::after { left: -7px; right: auto; }
+    .tl-content { padding: 0 0 16px 14px; }
     .axis-grid, .resource-grid, .note-list { grid-template-columns: 1fr; }
     .summary-table { font-size: 11.5px; }
     .summary-table th, .summary-table td { padding: 9px 8px; }

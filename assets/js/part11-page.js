@@ -138,7 +138,7 @@
   }).join('');
 
   const timelineRows = timeline.map(function (item) {
-    return '<div class="episode-row"><div class="episode-no">' + esc(item[0]) + '</div><div><div class="episode-title">' + esc(item[1]) + '</div><p class="episode-summary">' + esc(item[2]) + '</p></div></div>';
+    return '<div class="tl-item"><div class="tl-year">' + esc(item[0]) + '</div><div class="tl-content"><div class="tl-event">' + esc(item[1]) + '</div><div class="tl-desc">' + esc(item[2]) + '</div></div></div>';
   }).join('');
 
   const argumentsHtml = coreArguments.map(function (argument) {
@@ -179,7 +179,7 @@
       '<div class="central-question"><div class="cq-label">第11部の中心的問い</div><div class="cq-text">学びは、教えられる前から始まっている。<br>それは、何によって支えられているのか。</div><div class="cq-sub">能力の年齢表ではなく、学びを支える関係を追う。</div></div>' + footer('導入') + '</div>' +
     '<div class="page"><div class="section-label">Historical Map</div><div class="section-title">発達心理学をめぐる研究と実践の歩み</div>' +
       '<div class="section-intro">乳幼児の学びは、動物実験、臨床観察、認知発達理論、脳科学、そして子育て支援の実践へと、異なる領域から問い直されてきた。主要な転換点を一本の流れとして整理する。</div>' +
-      '<div class="chapter-card"><div class="chapter-card__head"><div class="chapter-kicker">FROM ATTACHMENT THEORY TO AI COMPANIONS</div><div class="chapter-name">愛着と模倣を、どう説明してきたか</div><div class="chapter-lead">観察、実験、脳科学、そして子育て政策。説明の焦点は広がり続けている。</div></div><div class="episode-list">' + timelineRows + '</div></div>' + footer('学びの原型の系譜') + '</div>' +
+      '<div class="chapter-card"><div class="chapter-card__head"><div class="chapter-kicker">FROM ATTACHMENT THEORY TO AI COMPANIONS</div><div class="chapter-name">愛着と模倣を、どう説明してきたか</div><div class="chapter-lead">観察、実験、脳科学、そして子育て政策。説明の焦点は広がり続けている。</div></div><div class="timeline">' + timelineRows + '</div></div>' + footer('学びの原型の系譜') + '</div>' +
     chapterPages +
     '<div class="page"><div class="section-label">Core Argument</div><div class="section-title">核心論考 ── 学びという「関係」</div><div class="section-intro">15のテーマを一つに束ねると、第11部は学びを「個人が持つ能力」から「関係の中で立ち上がる力」へ読み替える章になる。</div>' + argumentsHtml +
       '<div class="perspective"><div class="perspective-label">第11部の位置づけ</div><p>第11部は、学びの始まりを「早期教育で最大化すべき能力」としては描かない。AIが情報や答えを即座に返せる時代でも、乳幼児が最初に学ぶのは知識ではなく、応答してくれる関係があるという安心である。学びを支える基盤は、情報量ではなく、応答の質と関係の厚みに残り続ける。</p></div>' + footer('核心論考') + '</div>' +
