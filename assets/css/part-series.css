@@ -33,8 +33,8 @@
     text-align: center;
     color: #f6ecd7;
     background:
-      linear-gradient(160deg, rgba(22, 13, 4, 0.96), rgba(83, 45, 18, 0.92) 48%, rgba(31, 79, 72, 0.92)),
-      url("../assets/social/og-image.jpg") center / cover;
+      linear-gradient(160deg, rgba(22, 13, 4, 0.9), rgba(83, 45, 18, 0.82) 48%, rgba(31, 79, 72, 0.82)),
+      url("../hero-proposals/hero-proposal-01-celestial-parchment-map.png") center / cover;
     page-break-after: always;
   }
   .cover-series {
@@ -798,8 +798,8 @@
 /* Part 10–16 theme hooks. Layout and components intentionally follow Part 9. */
 .cover {
   background:
-    linear-gradient(160deg, rgba(18, 13, 13, 0.96), var(--cover-mid, rgba(83, 45, 18, 0.92)) 48%, var(--cover-end, rgba(31, 79, 72, 0.92))),
-    url("../social/og-image.jpg") center / cover;
+    linear-gradient(160deg, rgba(18, 13, 13, 0.9), var(--cover-mid, rgba(83, 45, 18, 0.82)) 48%, var(--cover-end, rgba(31, 79, 72, 0.82))),
+    url("../hero-proposals/hero-proposal-01-celestial-parchment-map.png") center / cover;
 }
 .cover-series,
 .cover-subtitle,

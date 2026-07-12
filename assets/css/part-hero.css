@@ -37,16 +37,9 @@ body[data-part] .cover {
   background:
     /* 地平からの部色の灯り */
     radial-gradient(ellipse 720px 340px at 50% 116%, color-mix(in srgb, var(--part-color), transparent 74%), transparent 72%),
-    /* まばらな星 */
-    radial-gradient(1px 1px at 18% 24%, rgba(255,255,255,0.55), transparent 55%),
-    radial-gradient(1.3px 1.3px at 71% 16%, rgba(255,255,255,0.4), transparent 55%),
-    radial-gradient(1px 1px at 84% 42%, rgba(255,255,255,0.34), transparent 55%),
-    radial-gradient(1.4px 1.4px at 32% 63%, rgba(255,255,255,0.28), transparent 55%),
-    radial-gradient(1px 1px at 55% 34%, rgba(255,255,255,0.45), transparent 55%),
-    radial-gradient(1px 1px at 8% 76%, rgba(255,255,255,0.3), transparent 55%),
-    radial-gradient(1.2px 1.2px at 92% 82%, rgba(255,255,255,0.32), transparent 55%),
-    /* 深い夜 */
-    linear-gradient(180deg, #05050c 0%, #0a0a13 62%, #0d0d18 100%);
+    /* 深い夜のトーン（下のヒーロー画像を静かに透かす） */
+    linear-gradient(180deg, rgba(5,5,12,0.86) 0%, rgba(10,10,19,0.8) 62%, rgba(13,13,24,0.84) 100%),
+    url("../hero-proposals/hero-proposal-01-celestial-parchment-map.png") center / cover;
 }
 body[data-part] .cover > :not(.cover-constellation) {
   position: relative;

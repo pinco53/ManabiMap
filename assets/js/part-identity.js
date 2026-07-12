@@ -1,5 +1,5 @@
 /*
- * 部ページ表紙に、トップと同じ紋章・星座を静かに差し込む。
+ * 部ページ表紙に、トップと同じ紋章を静かに差し込む。
  * data-part は分割ページも親部にそろえるため、part9_1/2/3 は part9 を使う。
  */
 (function() {
@@ -29,14 +29,6 @@
     const partKey = PART_KEY_BY_DATA[document.body && document.body.dataset.part];
     const cover = document.querySelector('.cover');
     if (!partKey || !cover || !window.PART_SIGILS) return;
-
-    if (!cover.querySelector('.cover-constellation') && window.constellationSvg) {
-      const constellation = document.createElement('span');
-      constellation.className = 'cover-constellation';
-      constellation.setAttribute('aria-hidden', 'true');
-      constellation.innerHTML = window.constellationSvg(partKey, { pointCount: 7, lineRatio: 0.58 });
-      cover.insertBefore(constellation, cover.firstChild);
-    }
 
     if (!cover.querySelector('.cover-sigil') && window.PART_SIGILS[partKey]) {
       const sigil = document.createElement('div');
