@@ -183,10 +183,10 @@
       '<div class="cover-divider"></div><div class="cover-note">第10部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part9.html">← 第9部</a><span>第10部 ｜ 感性という深層</span><a href="part11.html">第11部 →</a></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜ感性を深掘りするのか</div>' +
-      '<div class="section-intro">第8部は生成AIの「思考」を、第9部は人間の「身体」を扱った。第10部は、その身体が世界に意味と価値を与える働き――感性へ進む。</div>' +
+      '<div class="section-intro"><a href="part8.html">第8部</a>は生成AIの「思考」を、<a href="part9.html">第9部</a>は人間の「身体」を扱った。第10部は、その身体が世界に意味と価値を与える働き――感性へ進む。</div>' +
       '<div class="essay-box"><h3>感じることの内側</h3>' + detail.overview.map(function (paragraph) { return '<p>' + esc(paragraph) + '</p>'; }).join('') +
       '<p>目的は、感性を脳科学だけで説明し切ることでも、「人間だけの神秘」として守ることでもない。脳、身体、進化、文化、作品、関係を同じ地図に置き、どこで意味が生まれるかを丁寧に追うことである。</p></div>' +
-      '<div class="argument-heading">第8部・第9部・第10部をつなぐ一本線</div><p class="argument-body">第8部で、AIは統計から言葉や画像を生成できることを見た。第9部で、人間の思考は進化した身体から切り離せないことを見た。第10部では、その身体が何を大切だと感じ、何に心を動かされるかを問う。生成できること、感じること、意味を持つことは同じなのか。この区別が、AI時代の人間を考える基盤になる。</p>' +
+      '<div class="argument-heading"><a href="part8.html">第8部</a>・<a href="part9.html">第9部</a>・第10部をつなぐ一本線</div><p class="argument-body"><a href="part8.html">第8部</a>で、AIは統計から言葉や画像を生成できることを見た。<a href="part9.html">第9部</a>で、人間の思考は進化した身体から切り離せないことを見た。第10部では、その身体が何を大切だと感じ、何に心を動かされるかを問う。生成できること、感じること、意味を持つことは同じなのか。この区別が、AI時代の人間を考える基盤になる。</p>' +
       '<div class="central-question"><div class="cq-label">第10部の中心的問い</div><div class="cq-text">感性は、脳に還元できるのか。<br>それとも、関係の中でしか立ち上がらないのか。</div><div class="cq-sub">形の生成と、意味の経験を分けて考える。</div></div>' + footer('導入') + '</div>' +
     '<div class="page"><div class="section-label">Historical Map</div><div class="section-title">感性をめぐる思想と研究の歩み</div>' +
       '<div class="section-intro">感性は、哲学、進化論、脳科学、そして生成AIへと、異なる領域から問い直されてきた。主要な転換点を一本の流れとして整理する。</div>' +
@@ -196,7 +196,7 @@
       '<div class="perspective"><div class="perspective-label">第10部の位置づけ</div><p>第10部は、人間の特別さを「AIにできない作業」の一覧で守ろうとしない。AIが生成できる範囲が広がるほど、人間には、何を受け取り、何を選び、どんな関係を作るかが残る。感性は最後に残る能力ではなく、技術をどこへ向けるかを決める出発点である。</p></div>' + footer('核心論考') + '</div>' +
     '<div class="page"><div class="section-label">Glossary</div><div class="section-title">用語解説</div><div class="section-intro">第10部の主要概念を、定義だけでなく「なぜ重要か」とともに整理する。</div>' + glossaryHtml +
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
-      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 11</div><div class="bridge-text">感じる力は、教わる前から育ち始める。</div><div class="bridge-sub">第11部「人はどう学び始めるのか」では、泣く、まねる、指差す、遊ぶという学びの原型へ進む。</div></div>' + footer('用語と問い') + '</div>' +
+      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 11</div><div class="bridge-text">感じる力は、教わる前から育ち始める。</div><div class="bridge-sub"><a href="part11.html">第11部「人はどう学び始めるのか」</a>では、泣く、まねる、指差す、遊ぶという学びの原型へ進む。</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">さらに読む・聴く</div><div class="section-intro">第10部のPodcast、関連note、本文の背景となる研究・哲学資料への入口。</div>' +
       '<div class="resource-grid"><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第10部の15話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a><a class="resource-card" href="part11.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第11部へ</div><div class="resource-text">感性から、学びの始まりへ進む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';

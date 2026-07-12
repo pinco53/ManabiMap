@@ -440,6 +440,19 @@
   }
   .tl-episode-link:hover { color: var(--earth); }
   .episode-row { scroll-margin-top: 90px; }
+  .section-intro a,
+  .argument-heading a,
+  .argument-body a,
+  .bridge-sub a {
+    color: var(--gold-dark);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+  }
+  .section-intro a:hover,
+  .argument-heading a:hover,
+  .argument-body a:hover,
+  .bridge-sub a:hover { color: var(--earth); }
   .episode-depth {
     background: #fbfaf6;
     border: 1px solid var(--line);

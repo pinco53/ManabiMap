@@ -174,10 +174,10 @@
       '<div class="cover-divider"></div><div class="cover-note">第16部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part15.html">← 第15部</a><span>第16部 ｜ エネルギーと人類史</span></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜエネルギーの歴史を深掘りするのか</div>' +
-      '<div class="section-intro">第14部で見方の更新には道具・証拠・共同体が必要なことを見た。第15部でその更新を妨げる「わかったつもり」を問い直した。第16部では、見方の更新と同じように、人類がエネルギーという物理的な制約をどう更新してきたかを追う。</div>' +
+      '<div class="section-intro"><a href="part14.html">第14部</a>で見方の更新には道具・証拠・共同体が必要なことを見た。<a href="part15.html">第15部</a>でその更新を妨げる「わかったつもり」を問い直した。第16部では、見方の更新と同じように、人類がエネルギーという物理的な制約をどう更新してきたかを追う。</div>' +
       '<div class="essay-box"><h3>解放の歴史を読み直す</h3>' + detail.overview.map(function (paragraph) { return '<p>' + esc(paragraph) + '</p>'; }).join('') +
       '<p>目的は、エネルギー史を発明の年表として暗記することでも、特定の技術を無条件に称えることでもない。何がそろえば自由が広がり、何が新しい制約として持ち込まれるかを、道具・制度・分配の側から具体的に見ることである。</p></div>' +
-      '<div class="argument-heading">第14部・第15部・第16部をつなぐ一本線</div><p class="argument-body">第14部で見方の更新には道具・証拠・共同体が必要なことを見た。第15部でその更新を妨げる「わかったつもり」を問い直した。第16部では、見方の更新と同じように、人類がエネルギーという物理的な制約をどう更新してきたかを追う。</p>' +
+      '<div class="argument-heading"><a href="part14.html">第14部</a>・<a href="part15.html">第15部</a>・第16部をつなぐ一本線</div><p class="argument-body"><a href="part14.html">第14部</a>で見方の更新には道具・証拠・共同体が必要なことを見た。<a href="part15.html">第15部</a>でその更新を妨げる「わかったつもり」を問い直した。第16部では、見方の更新と同じように、人類がエネルギーという物理的な制約をどう更新してきたかを追う。</p>' +
       '<div class="central-question"><div class="cq-label">第16部の中心的問い</div><div class="cq-text">エネルギーを得るたび、人類は何から自由になったのか。<br>次に自由になるのは何か。</div><div class="cq-sub">供給量だけでなく、誰が使えるかを同じ表に置く。</div></div>' + footer('導入') + '</div>' +
     '<div class="page"><div class="section-label">Historical Map</div><div class="section-title">火から核融合までのエネルギー史</div>' +
       '<div class="section-intro">エネルギーの解放は、火の利用、自然力の転用、化石燃料、電力網、そして原子核・太陽光・核融合へと、異なる技術が積み重なって進んできた。主要な転換点を一本の流れとして整理する。</div>' +

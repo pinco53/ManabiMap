@@ -155,10 +155,10 @@
       '<div class="cover-divider"></div><div class="cover-note">第13部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part12.html">← 第12部</a><span>第13部 ｜ 学びとは何か</span><a href="part14.html">第14部 →</a></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜ学びの受け渡しと環境を深掘りするのか</div>' +
-      '<div class="section-intro">第11部で学びの原型が応答という関係から始まることを、第12部でその関係が対話としてどう学びを深めるかを見た。第13部では、その学びが個人を超えて、世代・学校・家庭という環境の中でどう受け継がれ、どう閉ざされるかを問う。</div>' +
+      '<div class="section-intro"><a href="part11.html">第11部</a>で学びの原型が応答という関係から始まることを、<a href="part12.html">第12部</a>でその関係が対話としてどう学びを深めるかを見た。第13部では、その学びが個人を超えて、世代・学校・家庭という環境の中でどう受け継がれ、どう閉ざされるかを問う。</div>' +
       '<div class="essay-box"><h3>受け渡される学び</h3>' + detail.overview.map(function (paragraph) { return '<p>' + esc(paragraph) + '</p>'; }).join('') +
       '<p>目的は、学校や家庭のどちらが正しいかを裁くことでも、閉じた学びを個人の弱さとして責めることでもない。学びが受け継がれる条件と、閉じる条件を、環境の側から見極めることである。</p></div>' +
-      '<div class="argument-heading">第11部・第12部・第13部をつなぐ一本線</div><p class="argument-body">第11部で、学びの原型は応答という関係から始まることを見た。第12部で、その関係が対話としてどう学びを深めるかを見た。第13部では、その学びが個人を超えて、世代・学校・家庭という環境の中でどう受け継がれ、どう閉ざされるかを問う。</p>' +
+      '<div class="argument-heading"><a href="part11.html">第11部</a>・<a href="part12.html">第12部</a>・第13部をつなぐ一本線</div><p class="argument-body"><a href="part11.html">第11部</a>で、学びの原型は応答という関係から始まることを見た。<a href="part12.html">第12部</a>で、その関係が対話としてどう学びを深めるかを見た。第13部では、その学びが個人を超えて、世代・学校・家庭という環境の中でどう受け継がれ、どう閉ざされるかを問う。</p>' +
       '<div class="central-question"><div class="cq-label">第13部の中心的問い</div><div class="cq-text">人はなぜ学び、なぜ学びを閉じるのか。<br>それを、もう一度開く力はどこにあるのか。</div><div class="cq-sub">個人の意志力だけでなく、学びを支える環境を見る。</div></div>' + footer('導入') + '</div>' +
     '<div class="page"><div class="section-label">Historical Map</div><div class="section-title">累積文化と教育環境をめぐる研究の歩み</div>' +
       '<div class="section-intro">学びの受け渡しと環境は、動物行動学、社会心理学、発達生態学、そして教育政策へと、異なる領域から問い直されてきた。主要な転換点を一本の流れとして整理する。</div>' +
@@ -168,7 +168,7 @@
       '<div class="perspective"><div class="perspective-label">第13部の位置づけ</div><p>第13部は、学びを閉じることを個人の甘えとして裁かない。累積文化を運ぶのも、学びを閉じさせるのも、同じ環境の力である。学校と家庭を対立させず、どちらも学びを支える環境として設計し直せるかを問う。</p></div>' + footer('核心論考') + '</div>' +
     '<div class="page"><div class="section-label">Glossary</div><div class="section-title">用語解説</div><div class="section-intro">第13部の主要概念を、定義だけでなく「なぜ重要か」とともに整理する。</div>' + glossaryHtml +
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
-      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 14</div><div class="bridge-text">学びを支える環境を見た後は、学び自体を支える「見方」を問い直す番である。</div><div class="bridge-sub">第14部「地球は動いている」では、天動説から地動説への転換を手がかりに、見方を更新する力を追う。</div></div>' + footer('用語と問い') + '</div>' +
+      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 14</div><div class="bridge-text">学びを支える環境を見た後は、学び自体を支える「見方」を問い直す番である。</div><div class="bridge-sub"><a href="part14.html">第14部「地球は動いている」</a>では、天動説から地動説への転換を手がかりに、見方を更新する力を追う。</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">さらに読む・聴く</div><div class="section-intro">第13部のPodcast、関連note、本文の背景となる研究資料への入口。</div>' +
       '<div class="resource-grid"><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第13部の4話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a><a class="resource-card" href="part14.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第14部へ</div><div class="resource-text">学びの環境から、見方を更新する力へ進む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';

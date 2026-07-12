@@ -186,10 +186,10 @@
       '<div class="cover-divider"></div><div class="cover-note">第11部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part10.html">← 第10部</a><span>第11部 ｜ 人はどう学び始めるのか</span><a href="part12.html">第12部 →</a></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜ学びの始まりを深掘りするのか</div>' +
-      '<div class="section-intro">第9部は生成AI時代を生きる人間の身体を、第10部はその身体が意味と価値を感じる働き――感性を扱った。第11部は、その感性を持つ人間が、生まれた直後から何を学び始めているのかという原点へ進む。</div>' +
+      '<div class="section-intro"><a href="part9.html">第9部</a>は生成AI時代を生きる人間の身体を、<a href="part10.html">第10部</a>はその身体が意味と価値を感じる働き――感性を扱った。第11部は、その感性を持つ人間が、生まれた直後から何を学び始めているのかという原点へ進む。</div>' +
       '<div class="essay-box"><h3>教わる前の学び</h3>' + detail.overview.map(function (paragraph) { return '<p>' + esc(paragraph) + '</p>'; }).join('') +
       '<p>目的は、発達を年齢別のチェックリストへ還元することでも、生まれつきか環境かの二択に単純化することでもない。身体、関係、文化、偶然を同じ地図に置き、学びがどこで立ち上がるかを丁寧に追うことである。</p></div>' +
-      '<div class="argument-heading">第9部・第10部・第11部をつなぐ一本線</div><p class="argument-body">第9部で、人間の思考は進化した身体から切り離せないことを見た。第10部で、その身体が何を大切だと感じ、何に心を動かされるかを見た。第11部では、その身体と感性を持つ人間が、生まれた直後から何を学び始めているかを問う。感じる力と学ぶ力は、同じ関係の中で育っていく。</p>' +
+      '<div class="argument-heading"><a href="part9.html">第9部</a>・<a href="part10.html">第10部</a>・第11部をつなぐ一本線</div><p class="argument-body"><a href="part9.html">第9部</a>で、人間の思考は進化した身体から切り離せないことを見た。<a href="part10.html">第10部</a>で、その身体が何を大切だと感じ、何に心を動かされるかを見た。第11部では、その身体と感性を持つ人間が、生まれた直後から何を学び始めているかを問う。感じる力と学ぶ力は、同じ関係の中で育っていく。</p>' +
       '<div class="central-question"><div class="cq-label">第11部の中心的問い</div><div class="cq-text">学びは、教えられる前から始まっている。<br>それは、何によって支えられているのか。</div><div class="cq-sub">能力の年齢表ではなく、学びを支える関係を追う。</div></div>' + footer('導入') + '</div>' +
     '<div class="page"><div class="section-label">Historical Map</div><div class="section-title">発達心理学をめぐる研究と実践の歩み</div>' +
       '<div class="section-intro">乳幼児の学びは、動物実験、臨床観察、認知発達理論、脳科学、そして子育て支援の実践へと、異なる領域から問い直されてきた。主要な転換点を一本の流れとして整理する。</div>' +
@@ -199,7 +199,7 @@
       '<div class="perspective"><div class="perspective-label">第11部の位置づけ</div><p>第11部は、学びの始まりを「早期教育で最大化すべき能力」としては描かない。AIが情報や答えを即座に返せる時代でも、乳幼児が最初に学ぶのは知識ではなく、応答してくれる関係があるという安心である。学びを支える基盤は、情報量ではなく、応答の質と関係の厚みに残り続ける。</p></div>' + footer('核心論考') + '</div>' +
     '<div class="page"><div class="section-label">Glossary</div><div class="section-title">用語解説</div><div class="section-intro">第11部の主要概念を、定義だけでなく「なぜ重要か」とともに整理する。</div>' + glossaryHtml +
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
-      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 12</div><div class="bridge-text">学びの原型は、一人だけでは完結しない。</div><div class="bridge-sub">第12部「人はなぜ、一人では学べないのか」では、対話・評価・フィードバックが学びをどう深めるかへ進む。</div></div>' + footer('用語と問い') + '</div>' +
+      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 12</div><div class="bridge-text">学びの原型は、一人だけでは完結しない。</div><div class="bridge-sub"><a href="part12.html">第12部「人はなぜ、一人では学べないのか」</a>では、対話・評価・フィードバックが学びをどう深めるかへ進む。</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">さらに読む・聴く</div><div class="section-intro">第11部のPodcast、関連note、本文の背景となる研究資料への入口。</div>' +
       '<div class="resource-grid"><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第11部の15話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a><a class="resource-card" href="part12.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第12部へ</div><div class="resource-text">学びの始まりから、対話の中の学びへ進む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';

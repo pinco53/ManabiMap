@@ -182,10 +182,10 @@
       '<div class="cover-divider"></div><div class="cover-note">第12部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part11.html">← 第11部</a><span>第12部 ｜ 人はなぜ、一人では学べないのか</span><a href="part13.html">第13部 →</a></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜ対話と評価を深掘りするのか</div>' +
-      '<div class="section-intro">第10部は感性が関係の中で立ち上がることを、第11部は学びの原型が応答という関係から始まることを見た。第12部は、その関係が対話としてどう学びを深めるかへ進む。</div>' +
+      '<div class="section-intro"><a href="part10.html">第10部</a>は感性が関係の中で立ち上がることを、<a href="part11.html">第11部</a>は学びの原型が応答という関係から始まることを見た。第12部は、その関係が対話としてどう学びを深めるかへ進む。</div>' +
       '<div class="essay-box"><h3>一人では届かない場所</h3>' + detail.overview.map(function (paragraph) { return '<p>' + esc(paragraph) + '</p>'; }).join('') +
       '<p>目的は、対話やテストを万能の学習法として推奨することでも、AIとの対話を否定することでもない。説明・問い・評価・沈黙が学びをどう動かすかを、条件つきで見極めることである。</p></div>' +
-      '<div class="argument-heading">第10部・第11部・第12部をつなぐ一本線</div><p class="argument-body">第10部で、感性は関係の中で立ち上がることを見た。第11部で、学びの原型は応答という関係から始まることを見た。第12部では、その関係が対話としてどう学びを深めるかを問う。感じる、学び始める、対話するという三部作は、いずれも「一人では完結しない」という一本の線でつながっている。</p>' +
+      '<div class="argument-heading"><a href="part10.html">第10部</a>・<a href="part11.html">第11部</a>・第12部をつなぐ一本線</div><p class="argument-body"><a href="part10.html">第10部</a>で、感性は関係の中で立ち上がることを見た。<a href="part11.html">第11部</a>で、学びの原型は応答という関係から始まることを見た。第12部では、その関係が対話としてどう学びを深めるかを問う。感じる、学び始める、対話するという三部作は、いずれも「一人では完結しない」という一本の線でつながっている。</p>' +
       '<div class="central-question"><div class="cq-label">第12部の中心的問い</div><div class="cq-text">一人で考えることと、対話しながら考えることは、<br>何が違うのか。</div><div class="cq-sub">答えを渡す関係と、思考を引き出す関係を分けて考える。</div></div>' + footer('導入') + '</div>' +
     '<div class="page"><div class="section-label">Historical Map</div><div class="section-title">対話・評価・学習をめぐる研究の歩み</div>' +
       '<div class="section-intro">学びを深める対話や評価は、記憶研究、社会心理学、教育心理学、そして生成AIへと、異なる領域から問い直されてきた。主要な転換点を一本の流れとして整理する。</div>' +
@@ -195,7 +195,7 @@
       '<div class="perspective"><div class="perspective-label">第12部の位置づけ</div><p>第12部は、対話やテストを「正しくやれば必ず効く技法」としては描かない。AIが答えを即座に返せる時代でも、学びを深めるのは、外に出し、間違い、問い返され、また外に出すという往復である。人間の役割は、その往復に責任と関係を持ち込むことに残り続ける。</p></div>' + footer('核心論考') + '</div>' +
     '<div class="page"><div class="section-label">Glossary</div><div class="section-title">用語解説</div><div class="section-intro">第12部の主要概念を、定義だけでなく「なぜ重要か」とともに整理する。</div>' + glossaryHtml +
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
-      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 13</div><div class="bridge-text">一人では学べないという気づきの先に、学びを支える環境がある。</div><div class="bridge-sub">第13部「学びとは何か」では、学校・家庭という環境が学びをどう支え、どう閉ざすかへ進む。</div></div>' + footer('用語と問い') + '</div>' +
+      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 13</div><div class="bridge-text">一人では学べないという気づきの先に、学びを支える環境がある。</div><div class="bridge-sub"><a href="part13.html">第13部「学びとは何か」</a>では、学校・家庭という環境が学びをどう支え、どう閉ざすかへ進む。</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">さらに読む・聴く</div><div class="section-intro">第12部のPodcast、関連note、本文の背景となる研究資料への入口。</div>' +
       '<div class="resource-grid"><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第12部の15話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a><a class="resource-card" href="part13.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第13部へ</div><div class="resource-text">対話から、学びを支える環境へ進む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';

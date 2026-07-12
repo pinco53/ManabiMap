@@ -172,10 +172,10 @@
       '<div class="cover-divider"></div><div class="cover-note">第15部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part14.html">← 第14部</a><span>第15部 ｜ それ、わかったつもりかも</span><a href="part16.html">第16部 →</a></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜ「わかったつもり」を深掘りするのか</div>' +
-      '<div class="section-intro">第13部で学びが環境の中で受け継がれ、閉ざされることを見た。第14部で見方の更新には道具・証拠・共同体が必要なことを見た。第15部では、その更新を妨げる「わかったつもり」という感覚そのものを問い直す。</div>' +
+      '<div class="section-intro"><a href="part13.html">第13部</a>で学びが環境の中で受け継がれ、閉ざされることを見た。<a href="part14.html">第14部</a>で見方の更新には道具・証拠・共同体が必要なことを見た。第15部では、その更新を妨げる「わかったつもり」という感覚そのものを問い直す。</div>' +
       '<div class="essay-box"><h3>確信の手前で立ち止まる</h3>' + detail.overview.map(function (paragraph) { return '<p>' + esc(paragraph) + '</p>'; }).join('') +
       '<p>目的は、確信を持つことそのものを否定することでも、あらゆる判断を保留にすることでもない。確信がどこから生まれ、何が更新を妨げるかを見極め、証拠に応じて考えを校正し続ける力を養うことである。</p></div>' +
-      '<div class="argument-heading">第13部・第14部・第15部をつなぐ一本線</div><p class="argument-body">第13部で学びが環境の中で受け継がれ、閉ざされることを見た。第14部で見方の更新には道具・証拠・共同体が必要なことを見た。第15部では、その更新を妨げる「わかったつもり」という感覚そのものを問い直す。</p>' +
+      '<div class="argument-heading"><a href="part13.html">第13部</a>・<a href="part14.html">第14部</a>・第15部をつなぐ一本線</div><p class="argument-body"><a href="part13.html">第13部</a>で学びが環境の中で受け継がれ、閉ざされることを見た。<a href="part14.html">第14部</a>で見方の更新には道具・証拠・共同体が必要なことを見た。第15部では、その更新を妨げる「わかったつもり」という感覚そのものを問い直す。</p>' +
       '<div class="central-question"><div class="cq-label">第15部の中心的問い</div><div class="cq-text">「わかった」と「考えた」は同じなのか。<br>わからなさを抱えたまま、考え続けられるか。</div><div class="cq-sub">確信と証拠の強さを、区別して考える。</div></div>' + footer('導入') + '</div>' +
     '<div class="page"><div class="section-label">Historical Map</div><div class="section-title">確信と知的謙虚さをめぐる思想の歩み</div>' +
       '<div class="section-intro">確信と知的謙虚さは、古代哲学、進化論、政治哲学、認知心理学、そして生成AIへと、異なる領域から問い直されてきた。主要な転換点を一本の流れとして整理する。</div>' +
@@ -185,7 +185,7 @@
       '<div class="perspective"><div class="perspective-label">第15部の位置づけ</div><p>第15部は、迷いや曖昧さを弱さとして描かない。AIが流暢な答えを即座に返す時代ほど、確信と証拠の強さを取り違えやすい。考え続ける力とは、答えを持たないことではなく、証拠に応じて確信を更新し続けられることである。</p></div>' + footer('核心論考') + '</div>' +
     '<div class="page"><div class="section-label">Glossary</div><div class="section-title">用語解説</div><div class="section-intro">第15部の主要概念を、定義だけでなく「なぜ重要か」とともに整理する。</div>' + glossaryHtml +
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
-      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 16</div><div class="bridge-text">わかったつもりを手放した先に、人類が更新し続けてきたもう一つの力がある。</div><div class="bridge-sub">第16部「エネルギーと人類史」では、火から核融合まで、人類が何を解放してきたかを追う。</div></div>' + footer('用語と問い') + '</div>' +
+      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 16</div><div class="bridge-text">わかったつもりを手放した先に、人類が更新し続けてきたもう一つの力がある。</div><div class="bridge-sub"><a href="part16.html">第16部「エネルギーと人類史」</a>では、火から核融合まで、人類が何を解放してきたかを追う。</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">さらに読む・聴く</div><div class="section-intro">第15部のPodcast、関連note、本文の背景となる研究資料への入口。</div>' +
       '<div class="resource-grid"><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第15部の8話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a><a class="resource-card" href="part16.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第16部へ</div><div class="resource-text">考え続ける力から、人類が解放してきた力へ進む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';

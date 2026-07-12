@@ -157,10 +157,10 @@
       '<div class="cover-divider"></div><div class="cover-note">第14部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part13.html">← 第13部</a><span>第14部 ｜ 地球は動いている</span><a href="part15.html">第15部 →</a></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜ地動説への転換を深掘りするのか</div>' +
-      '<div class="section-intro">第12部で対話が学びを深めることを、第13部で学びが環境の中で受け継がれ、閉ざされることを見た。第14部では、学びの対象そのものへの見方が、どう更新されるかを問う。</div>' +
+      '<div class="section-intro"><a href="part12.html">第12部</a>で対話が学びを深めることを、<a href="part13.html">第13部</a>で学びが環境の中で受け継がれ、閉ざされることを見た。第14部では、学びの対象そのものへの見方が、どう更新されるかを問う。</div>' +
       '<div class="essay-box"><h3>見方が変わるということ</h3>' + detail.overview.map(function (paragraph) { return '<p>' + esc(paragraph) + '</p>'; }).join('') +
       '<p>目的は、天動説を笑い、地動説を称えることではない。何がそろえば見方が更新され、何が抵抗を生むかを、道具・証拠・共同体・権威の側から具体的に見ることである。</p></div>' +
-      '<div class="argument-heading">第12部・第13部・第14部をつなぐ一本線</div><p class="argument-body">第12部で対話が学びを深めることを、第13部で学びが環境の中で受け継がれ、閉ざされることを見た。第14部では、学びの対象そのものへの見方が、どう更新されるかを問う。地動説への転換は、個人の学び直しにも重なる構造を持つ。</p>' +
+      '<div class="argument-heading"><a href="part12.html">第12部</a>・<a href="part13.html">第13部</a>・第14部をつなぐ一本線</div><p class="argument-body"><a href="part12.html">第12部</a>で対話が学びを深めることを、<a href="part13.html">第13部</a>で学びが環境の中で受け継がれ、閉ざされることを見た。第14部では、学びの対象そのものへの見方が、どう更新されるかを問う。地動説への転換は、個人の学び直しにも重なる構造を持つ。</p>' +
       '<div class="central-question"><div class="cq-label">第14部の中心的問い</div><div class="cq-text">科学とは、正解を知ることなのか。<br>自分の中の「天動説」は何か。</div><div class="cq-sub">道具・証拠・共同体がそろって、見方は更新される。</div></div>' + footer('導入') + '</div>' +
     '<div class="page"><div class="section-label">Historical Map</div><div class="section-title">天動説から地動説への転換をめぐる歩み</div>' +
       '<div class="section-intro">見方の更新は、古代天文学、観測装置、数学、そして共同体の評価基準へと、異なる領域が積み重なって起こってきた。主要な転換点を一本の流れとして整理する。</div>' +
@@ -170,7 +170,7 @@
       '<div class="perspective"><div class="perspective-label">第14部の位置づけ</div><p>第14部は、科学史を「賢い現代人が愚かな過去を克服した物語」としては描かない。天動説にも精密さがあり、地動説の受容にも道具と時間が必要だった。見方を更新する力は、正解を暗記する力ではなく、証拠に応じて自分の前提を疑い続ける力である。</p></div>' + footer('核心論考') + '</div>' +
     '<div class="page"><div class="section-label">Glossary</div><div class="section-title">用語解説</div><div class="section-intro">第14部の主要概念を、定義だけでなく「なぜ重要か」とともに整理する。</div>' + glossaryHtml +
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
-      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 15</div><div class="bridge-text">見方を更新した後も、「わかったつもり」という新しい罠が待っている。</div><div class="bridge-sub">第15部「それ、わかったつもりかも」では、知的謙虚さと考え続ける力を追う。</div></div>' + footer('用語と問い') + '</div>' +
+      '<div class="bridge-box"><div class="bridge-label">Bridge to Part 15</div><div class="bridge-text">見方を更新した後も、「わかったつもり」という新しい罠が待っている。</div><div class="bridge-sub"><a href="part15.html">第15部「それ、わかったつもりかも」</a>では、知的謙虚さと考え続ける力を追う。</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">さらに読む・聴く</div><div class="section-intro">第14部のPodcast、関連note、本文の背景となる研究資料への入口。</div>' +
       '<div class="resource-grid"><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第14部の5話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a><a class="resource-card" href="part15.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第15部へ</div><div class="resource-text">見方の更新から、わかったつもりを疑う力へ進む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';
