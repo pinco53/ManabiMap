@@ -2,9 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第9部第11話「身体と時間」
-**保存日**: 2026-05-24
+**保存日**: 2026-07-14
 **URL**: https://note.com/manabimapcreator/n/n36dc4f42914f
-**公開状態**: draft
+**公開状態**: published
 **主対象パート**: part9
 
 ---
