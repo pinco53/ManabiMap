@@ -2,9 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第9部第12話「痛みと意味」
-**保存日**: 2026-05-24
+**保存日**: 2026-07-15
 **URL**: https://note.com/manabimapcreator/n/n08419cb73fd8
-**公開状態**: draft
+**公開状態**: published
 **主対象パート**: part9
 
 ---

@@ -7,8 +7,9 @@
 **公開状態**: published
 **主対象パート**: part10
 **関連PodcastID**: podcast-part10-1
+**関連PodcastURL**: https://www.youtube.com/watch?v=SHKD17oD69M
 **関連YouTubeID**: youtube-part10
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=SHKD17oD69M
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -21,7 +22,7 @@
 聴いている途中で、気づいたら目が熱くなっていた。
 悲しいわけでもない。なのに、確かに何かが来た。
 
-https://www.youtube.com/watch?v=ptstn_D5T6Q
+https://www.youtube.com/watch?v=SHKD17oD69M
 
 ---
 
@@ -116,7 +117,7 @@ https://www.youtube.com/watch?v=ptstn_D5T6Q
 
 ---
 
-→ **[Podcastで深く聴く｜ハルとおじいさん 第10部第1話](https://www.youtube.com/watch?v=ptstn_D5T6Q)**
+→ **[Podcastで深く聴く｜ハルとおじいさん 第10部第1話](https://www.youtube.com/watch?v=SHKD17oD69M)**
 
 → **[ハルとおじいさん 第10部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part10.html)**
 
