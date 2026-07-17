@@ -6,8 +6,9 @@
 **公開状態**: local-draft
 **主対象パート**: part10
 **関連PodcastID**: podcast-part10-3
+**関連PodcastURL**: https://www.youtube.com/watch?v=GjEa2rHbPSk
 **関連YouTubeID**: youtube-part10
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=GjEa2rHbPSk
 **CTA文言**: Podcastで深く聴く
 
 ---

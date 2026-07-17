@@ -2,9 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第9部第14話「身体を持つという条件」
-**保存日**: 2026-05-24
+**保存日**: 2026-07-17
 **URL**: https://note.com/manabimapcreator/n/n4f44c06731f4
-**公開状態**: draft
+**公開状態**: published
 **主対象パート**: part9
 
 ---
