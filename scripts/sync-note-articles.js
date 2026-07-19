@@ -3,6 +3,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 
 const root = path.resolve(__dirname, '..');
 const noteDir = path.join(root, 'note_articles');
@@ -11,6 +12,7 @@ const noteHtmlPath = path.join(root, 'note.html');
 const dataPath = path.join(root, 'assets/js/manabimap-data.js');
 const maxNoteNumber = Number(process.env.MAX_NOTE_NUMBER || 0);
 const shouldSyncNoteImages = process.env.SYNC_NOTE_IMAGES !== '0';
+let trackedFiles = null;
 
 const partMeta = {
   part1: { orbit: 'PART 01 ORBIT', label: '第1部 蒸気の時代', href: 'parts/part1.html', relation: '機械と時間の枝道' },
@@ -203,6 +205,26 @@ function noteImageSrc(number) {
     }
   }
   return '';
+}
+
+function gitTrackedArticleFiles() {
+  if (trackedFiles) return trackedFiles;
+  try {
+    const output = execFileSync('git', ['ls-files', 'note_articles/note_*.md'], {
+      cwd: root,
+      encoding: 'utf8'
+    });
+    trackedFiles = new Set(output.split(/\r?\n/).filter(Boolean));
+  } catch (error) {
+    trackedFiles = new Set();
+  }
+  return trackedFiles;
+}
+
+function shouldPublishArticleFile(file, note) {
+  if (note.url) return true;
+  const relative = path.relative(root, file).split(path.sep).join('/');
+  return gitTrackedArticleFiles().has(relative);
 }
 
 function htmlDecode(value) {
@@ -468,8 +490,9 @@ async function main() {
     })
     .map((file) => path.join(noteDir, file));
   const notes = files
-    .map(parseArticle)
-    .filter(Boolean)
+    .map((file) => ({ file, note: parseArticle(file) }))
+    .filter((item) => item.note && shouldPublishArticleFile(item.file, item.note))
+    .map((item) => item.note)
     .sort((a, b) => b.number - a.number);
 
   const syncedImages = await syncMissingNoteImages(notes);
