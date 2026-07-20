@@ -437,7 +437,9 @@
     { id: 'note-132', number: 132, title: "同じ空を見ていても、見えているものが違うのはなぜか", status: "local-draft", kind: "wonder-note", date: "2026-06-27", target: "第15部第6話", tags: ["第15部第6話"], relatedParts: [], relatedPodcastId: "podcast-part15-6", relatedYouTubeId: "youtube-part15", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "同じニュースを見て、全然違う感想になる人がいます。" },
     { id: 'note-133', number: 133, title: "AIに答えてもらった後、「なぜ？」と聞いたことはあるか", status: "local-draft", kind: "wonder-note", date: "2026-06-27", target: "第15部第7話", tags: ["第15部第7話"], relatedParts: [], relatedPodcastId: "podcast-part15-7", relatedYouTubeId: "youtube-part15", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "わからないことがあると、AIに聞きます。" },
     { id: 'note-134', number: 134, title: "「知っている」と思ったとき、その何かに閉じ込められている", status: "local-draft", kind: "wonder-note", date: "2026-06-27", target: "第15部第8話", tags: ["第15部第8話"], relatedParts: [], relatedPodcastId: "podcast-part15-8", relatedYouTubeId: "youtube-part15", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「もう知ってる」と思ったとき、聞く耳が半分閉じます。" },
-    { id: 'note-143', number: 143, title: "なぜ人は、自分の感覚をそのまま信じてしまうのか", url: "https://note.com/manabimapcreator/n/nc81fc28f3e5c", status: "published", kind: "wonder-note", date: "2026-07-19", target: "第7部第1話", tags: ["第7部第1話"], relatedParts: ["part7"], relatedPodcastId: "podcast-part7-1", relatedPodcastUrl: "https://www.youtube.com/watch?v=QcvW5eARMao", relatedYouTubeId: "youtube-part7", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-143.png", question: "人間の当たり前を外すと、世界はどう見え直すのか。", relation: "前提を外す枝道", primaryPart: "part7", excerpt: "エレベーターの扉が閉まるのを、じっと待っていたことはありませんか。" }
+    { id: 'note-143', number: 143, title: "なぜ人は、自分の感覚をそのまま信じてしまうのか", url: "https://note.com/manabimapcreator/n/nc81fc28f3e5c", status: "published", kind: "wonder-note", date: "2026-07-19", target: "第7部第1話", tags: ["第7部第1話"], relatedParts: ["part7"], relatedPodcastId: "podcast-part7-1", relatedPodcastUrl: "https://www.youtube.com/watch?v=QcvW5eARMao", relatedYouTubeId: "youtube-part7", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-143.png", question: "人間の当たり前を外すと、世界はどう見え直すのか。", relation: "前提を外す枝道", primaryPart: "part7", excerpt: "エレベーターの扉が閉まるのを、じっと待っていたことはありませんか。" },
+    { id: 'note-144', number: 144, title: "なぜ「ルールを守ること」と「安全であること」は違うのか", url: "https://note.com/manabimapcreator/n/nd75461351692", status: "published", kind: "wonder-note", date: "2026-07-20", target: "第7部第2話", tags: ["第7部第2話"], relatedParts: ["part7"], relatedPodcastId: "podcast-part7-2", relatedYouTubeId: "youtube-part7", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-144.png", question: "人間の当たり前を外すと、世界はどう見え直すのか。", relation: "前提を外す枝道", primaryPart: "part7", excerpt: "改札にICカードをタッチすると、一瞬でゲートが開きます。" },
+    { id: 'note-145', number: 145, title: "なぜ人は、いなくなった人の心を機械に探すのか", url: "https://note.com/manabimapcreator/n/n5413a75de261", status: "published", kind: "wonder-note", date: "2026-07-21", target: "第7部第3話", tags: ["第7部第3話"], relatedParts: ["part7"], relatedPodcastId: "podcast-part7-3", relatedYouTubeId: "youtube-part7", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-145.png", question: "人間の当たり前を外すと、世界はどう見え直すのか。", relation: "前提を外す枝道", primaryPart: "part7", excerpt: "長い返信が来たとき、ふと思うことがあります。" }
   ];
 
   const routes = [
@@ -1334,6 +1336,15 @@
       type: 'podcast',
       title: 'なぜ美を感じるのか｜まるごと聴く ポッドキャスト版【ハルとおじいさん #10P-6】',
       url: 'https://youtu.be/Mb0aa7Bw_40',
+      relatedParts: ['part10'],
+      question: '感性は再現可能なのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part10-7',
+      type: 'podcast',
+      title: '芸術は役に立つのか｜まるごと聴く ポッドキャスト版【ハルとおじいさん #10P-7】',
+      url: 'https://youtu.be/u4RWKHrkvTo',
       relatedParts: ['part10'],
       question: '感性は再現可能なのか。',
       relation: 'Podcastで深める'

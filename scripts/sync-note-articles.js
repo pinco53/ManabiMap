@@ -12,6 +12,7 @@ const noteHtmlPath = path.join(root, 'note.html');
 const dataPath = path.join(root, 'assets/js/manabimap-data.js');
 const maxNoteNumber = Number(process.env.MAX_NOTE_NUMBER || 0);
 const shouldSyncNoteImages = process.env.SYNC_NOTE_IMAGES !== '0';
+const publishedYouTubeIds = new Set(String(process.env.PUBLISHED_YOUTUBE_IDS || '').split(',').map((id) => id.trim()).filter(Boolean));
 let trackedFiles = null;
 
 const partMeta = {
@@ -171,6 +172,32 @@ function relatedParts(target, tags) {
 
 function publicUrl(value) {
   return /^https?:\/\//.test(String(value || '').trim()) ? String(value).trim() : '';
+}
+
+function youtubeVideoId(value) {
+  const url = String(value || '').trim();
+  if (!url) return '';
+  const watchMatch = url.match(/[?&]v=([^&]+)/);
+  if (watchMatch) return watchMatch[1];
+  const shortMatch = url.match(/youtu\.be\/([^?&/]+)/);
+  return shortMatch ? shortMatch[1] : '';
+}
+
+function existingPublicYoutubeUrls() {
+  try {
+    const data = read(dataPath);
+    return new Set(Array.from(data.matchAll(/https:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)[A-Za-z0-9_-]+/g)).map((match) => match[0]));
+  } catch (error) {
+    return new Set();
+  }
+}
+
+function canExposeYoutubeUrl(url, existingUrls) {
+  if (!url) return false;
+  if (url.includes('playlist?list=')) return true;
+  if (existingUrls.has(url)) return true;
+  const id = youtubeVideoId(url);
+  return id && publishedYouTubeIds.has(id);
 }
 
 function isPublishedStatus(value) {
@@ -443,7 +470,7 @@ function jsValue(value) {
   return JSON.stringify(value);
 }
 
-function noteObject(note) {
+function noteObject(note, existingYoutubeUrls) {
   const branch = branchInfo(note);
   const props = [
     "id: 'note-" + String(note.number).padStart(2, '0') + "'",
@@ -458,9 +485,9 @@ function noteObject(note) {
   props.push('tags: ' + jsValue(note.tags));
   props.push('relatedParts: ' + jsValue(note.relatedParts));
   if (note.relatedPodcastId) props.push('relatedPodcastId: ' + jsValue(note.relatedPodcastId));
-  if (note.relatedPodcastUrl) props.push('relatedPodcastUrl: ' + jsValue(note.relatedPodcastUrl));
+  if (canExposeYoutubeUrl(note.relatedPodcastUrl, existingYoutubeUrls)) props.push('relatedPodcastUrl: ' + jsValue(note.relatedPodcastUrl));
   if (note.relatedYouTubeId) props.push('relatedYouTubeId: ' + jsValue(note.relatedYouTubeId));
-  if (note.relatedYouTubeUrl) props.push('relatedYouTubeUrl: ' + jsValue(note.relatedYouTubeUrl));
+  if (canExposeYoutubeUrl(note.relatedYouTubeUrl, existingYoutubeUrls)) props.push('relatedYouTubeUrl: ' + jsValue(note.relatedYouTubeUrl));
   if (note.ctaCopy) props.push('ctaCopy: ' + jsValue(note.ctaCopy));
   if (note.image) props.push('image: ' + jsValue(note.image));
   props.push('question: ' + jsValue(branch.question));
@@ -473,7 +500,8 @@ function noteObject(note) {
 function updateData(notes) {
   const data = read(dataPath);
   const notesAsc = notes.slice().sort((a, b) => a.number - b.number);
-  const notesBlock = '  const notes = [\n' + notesAsc.map(noteObject).join(',\n') + '\n  ];';
+  const existingYoutubeUrls = existingPublicYoutubeUrls();
+  const notesBlock = '  const notes = [\n' + notesAsc.map((note) => noteObject(note, existingYoutubeUrls)).join(',\n') + '\n  ];';
   const notesPattern = /  const notes = \[[\s\S]*?\n  \];\n\n  const routes = \[/;
   if (!notesPattern.test(data)) throw new Error('Could not replace notes in manabimap-data.js');
   const next = data.replace(notesPattern, notesBlock + '\n\n  const routes = [');
