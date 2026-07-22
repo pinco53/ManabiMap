@@ -2,8 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第10部第3話「共感の回路」
-**保存日**: 2026-05-31
-**公開状態**: local-draft
+**保存日**: 2026-07-23
+**URL**: https://note.com/manabimapcreator/n/n9273f1227867
+**公開状態**: published
 **主対象パート**: part10
 **関連PodcastID**: podcast-part10-3
 **関連PodcastURL**: https://www.youtube.com/watch?v=GjEa2rHbPSk
