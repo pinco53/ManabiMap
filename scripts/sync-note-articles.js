@@ -489,7 +489,7 @@ function noteObject(note, existingYoutubeUrls) {
   if (note.relatedYouTubeId) props.push('relatedYouTubeId: ' + jsValue(note.relatedYouTubeId));
   if (canExposeYoutubeUrl(note.relatedYouTubeUrl, existingYoutubeUrls)) props.push('relatedYouTubeUrl: ' + jsValue(note.relatedYouTubeUrl));
   if (note.ctaCopy) props.push('ctaCopy: ' + jsValue(note.ctaCopy));
-  if (note.image) props.push('image: ' + jsValue(note.image));
+  if (note.url && note.image) props.push('image: ' + jsValue(note.image));
   props.push('question: ' + jsValue(branch.question));
   props.push('relation: ' + jsValue(branch.relation));
   props.push('primaryPart: ' + jsValue(branch.partId));

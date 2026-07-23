@@ -2,8 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第15部第1話「知っているつもりが、一番危ない」
-**保存日**: 2026-06-27
-**公開状態**: local-draft
+**保存日**: 2026-07-24
+**URL**: https://note.com/manabimapcreator/n/n6e3146ea667c
+**公開状態**: published
 **主対象パート**: part15
 **関連PodcastID**: podcast-part15-1
 **関連PodcastURL**: （アップロード後に記入）
