@@ -2,8 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第15部第2話「白黒にすると、ちょっと楽になる」
-**保存日**: 2026-06-27
-**公開状態**: local-draft
+**保存日**: 2026-07-25
+**URL**: https://note.com/manabimapcreator/n/n329718ab3f46
+**公開状態**: published
 **主対象パート**: part15
 **関連PodcastID**: podcast-part15-2
 **関連PodcastURL**: （アップロード後に記入）
