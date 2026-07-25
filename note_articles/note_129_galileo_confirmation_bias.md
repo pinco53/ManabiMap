@@ -2,8 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第15部第3話「目で見ても、わからないことがある」
-**保存日**: 2026-06-27
-**公開状態**: local-draft
+**保存日**: 2026-07-26
+**URL**: https://note.com/manabimapcreator/n/nd22b9b1f03d1
+**公開状態**: published
 **主対象パート**: part15
 **関連PodcastID**: podcast-part15-3
 **関連PodcastURL**: （アップロード後に記入）
