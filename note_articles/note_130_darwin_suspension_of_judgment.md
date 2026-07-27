@@ -2,8 +2,9 @@
 
 **記事種別**: wonder-note
 **対象**: 第15部第4話
-**保存日**: 2026-06-27
-**公開状態**: local-draft
+**保存日**: 2026-07-27
+**URL**: https://note.com/manabimapcreator/n/nc1c703a0137e
+**公開状態**: published
 **主対象パート**: part15
 **関連PodcastID**: podcast-part15-4
 **関連PodcastURL**: （アップロード後に記入）
