@@ -7,8 +7,9 @@
 **公開状態**: published
 **主対象パート**: part10
 **関連PodcastID**: podcast-part10-14
+**関連PodcastURL**: https://www.youtube.com/watch?v=vSg-inDnF8E
 **関連YouTubeID**: youtube-part10
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=vSg-inDnF8E
 **CTA文言**: Podcastで深く聴く
 
 ---
