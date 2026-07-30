@@ -435,7 +435,7 @@
     { id: 'note-130', number: 130, title: "「まだわからない」を22年間続けると、何が起きるのか", url: "https://note.com/manabimapcreator/n/nc1c703a0137e", status: "published", kind: "wonder-note", date: "2026-07-27", target: "第15部第4話", tags: ["第15部第4話"], relatedParts: [], relatedPodcastId: "podcast-part15-4", relatedYouTubeId: "youtube-part15", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-130.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「早く決めて」と言われることがあります。" },
     { id: 'note-131', number: 131, title: "普通の人が、なぜ恐ろしいことをするのか", url: "https://note.com/manabimapcreator/n/n33a41fbf20a4", status: "published", kind: "wonder-note", date: "2026-07-28", target: "第15部第5話", tags: ["第15部第5話"], relatedParts: [], relatedPodcastId: "podcast-part15-5", relatedYouTubeId: "youtube-part15", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-131.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「みんながそうしてたから」" },
     { id: 'note-132', number: 132, title: "同じ空を見ていても、見えているものが違うのはなぜか", url: "https://note.com/manabimapcreator/n/nf45a602a2fb2", status: "published", kind: "wonder-note", date: "2026-07-29", target: "第15部第6話", tags: ["第15部第6話"], relatedParts: [], relatedPodcastId: "podcast-part15-6", relatedYouTubeId: "youtube-part15", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-132.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "同じニュースを見て、全然違う感想になる人がいます。" },
-    { id: 'note-133', number: 133, title: "AIに答えてもらった後、「なぜ？」と聞いたことはあるか", status: "local-draft", kind: "wonder-note", date: "2026-06-27", target: "第15部第7話", tags: ["第15部第7話"], relatedParts: [], relatedPodcastId: "podcast-part15-7", relatedYouTubeId: "youtube-part15", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "わからないことがあると、AIに聞きます。" },
+    { id: 'note-133', number: 133, title: "AIに答えてもらった後、「なぜ？」と聞いたことはあるか", url: "https://note.com/manabimapcreator/n/nf371bbf47734", status: "published", kind: "wonder-note", date: "2026-07-30", target: "第15部第7話", tags: ["第15部第7話"], relatedParts: [], relatedPodcastId: "podcast-part15-7", relatedYouTubeId: "youtube-part15", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-133.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "わからないことがあると、AIに聞きます。" },
     { id: 'note-134', number: 134, title: "「知っている」と思ったとき、その何かに閉じ込められている", status: "local-draft", kind: "wonder-note", date: "2026-06-27", target: "第15部第8話", tags: ["第15部第8話"], relatedParts: [], relatedPodcastId: "podcast-part15-8", relatedYouTubeId: "youtube-part15", ctaCopy: "Podcastで深く聴く", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "「もう知ってる」と思ったとき、聞く耳が半分閉じます。" },
     { id: 'note-143', number: 143, title: "なぜ人は、自分の感覚をそのまま信じてしまうのか", url: "https://note.com/manabimapcreator/n/nc81fc28f3e5c", status: "published", kind: "wonder-note", date: "2026-07-19", target: "第7部第1話", tags: ["第7部第1話"], relatedParts: ["part7"], relatedPodcastId: "podcast-part7-1", relatedPodcastUrl: "https://www.youtube.com/watch?v=QcvW5eARMao", relatedYouTubeId: "youtube-part7", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-143.png", question: "人間の当たり前を外すと、世界はどう見え直すのか。", relation: "前提を外す枝道", primaryPart: "part7", excerpt: "エレベーターの扉が閉まるのを、じっと待っていたことはありませんか。" },
     { id: 'note-144', number: 144, title: "なぜ「ルールを守ること」と「安全であること」は違うのか", url: "https://note.com/manabimapcreator/n/nd75461351692", status: "published", kind: "wonder-note", date: "2026-07-20", target: "第7部第2話", tags: ["第7部第2話"], relatedParts: ["part7"], relatedPodcastId: "podcast-part7-2", relatedYouTubeId: "youtube-part7", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-144.png", question: "人間の当たり前を外すと、世界はどう見え直すのか。", relation: "前提を外す枝道", primaryPart: "part7", excerpt: "改札にICカードをタッチすると、一瞬でゲートが開きます。" },
@@ -1420,6 +1420,42 @@
       url: 'https://youtu.be/g8E_omo0CqE',
       relatedParts: ['part10'],
       question: '感性は再現可能なのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part11-1',
+      type: 'podcast',
+      title: '赤ちゃんが最初にするのは「呼吸」ではなく「訴え」だった｜まるごと聴く 発達のはじまり【ハルとおじいさん #11P-1】',
+      url: 'https://youtu.be/AzoSiwtpHys',
+      relatedParts: ['part11'],
+      question: '学びは、教えられる前から始まっている。それは、何によって支えられているのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part11-2',
+      type: 'podcast',
+      title: '安心がないと、人は世界を調べられない｜まるごと聴く 発達の原型【ハルとおじいさん #11P-2】',
+      url: 'https://youtu.be/kOtZTKjum6U',
+      relatedParts: ['part11'],
+      question: '学びは、教えられる前から始まっている。それは、何によって支えられているのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part11-8',
+      type: 'podcast',
+      title: '成長とは可能性を選んで失っていくことだった｜まるごと聴く 発達の原型【ハルとおじいさん #11P-8】',
+      url: 'https://youtu.be/EVy_Xi7opPs',
+      relatedParts: ['part11'],
+      question: '学びは、教えられる前から始まっている。それは、何によって支えられているのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part11-9',
+      type: 'podcast',
+      title: '身体接触が脳を育てる、その科学｜まるごと聴く 発達の原型【ハルとおじいさん #11P-9】',
+      url: 'https://youtu.be/UUrmHenTSec',
+      relatedParts: ['part11'],
+      question: '学びは、教えられる前から始まっている。それは、何によって支えられているのか。',
       relation: 'Podcastで深める'
     }
   ];
