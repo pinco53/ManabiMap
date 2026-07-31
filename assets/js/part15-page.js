@@ -6,6 +6,37 @@
 
   const detail = window.PartDepthData && window.PartDepthData[15];
   const mapData = window.ManabiMapData || {};
+  window.ManabiEpisodeAIGuides = Object.assign({}, window.ManabiEpisodeAIGuides, {
+    'part15-01': {
+      series: 'Manabi Map 第15部「それ、わかったつもりかも」',
+      episode: '第1話「知っているつもりが、一番危ない」',
+      centralQuestion: '「知っている」という感覚は、どこまで信頼できるのか。',
+      centralIdea: '理解したという感覚と、実際に仕組みを説明できることは同じではない。理解の穴を見つけることは、能力不足の告白ではなく、探究を始めるための正確な現在地の確認である。',
+      background: '説明深度の錯覚では、仕組みを詳しく説明するよう求められると、自分はよく理解しているという自己評価が下がることがある。私たちは知識の一部を他者、道具、社会の仕組みに依存しているのに、それを自分の頭の中にある知識だと感じやすい。',
+      perspective: 'ソクラテス的な「無知の知」は自己否定ではない。知らない範囲を特定し、質問と検証を始められる、精度の高い自己認識として捉える。',
+      cautions: [
+        '説明できないことが、ただちに理解がゼロであることを意味するわけではない。概念理解と言語化の得意不得意は分けて考える。',
+        'ダニング＝クルーガー効果を「能力の低い人ほど自信満々だ」という他者攻撃に使わない。課題や測定方法、統計的な説明を含めて研究上の議論が続いている。'
+      ],
+      connections: [
+        'スマートフォンや自転車など、毎日使えるのに仕組みを説明しにくいもの',
+        '流暢なAIの回答を読んだことで、自分も理解したように感じる場面',
+        '説明を書き出す、図にする、反対例を考えることで理解の穴を確かめる方法'
+      ],
+      sources: [
+        {
+          label: '説明深度の錯覚（原著）',
+          url: 'https://doi.org/10.1207/s15516709cog2605_1'
+        },
+        {
+          label: '知的謙虚さと認識的徳',
+          url: 'https://plato.stanford.edu/entries/epistemology-virtue/'
+        }
+      ],
+      opening: '最初の応答では、まだ用語や結論を説明しないでください。「使い方は知っているけれど、仕組みを説明しようとすると意外に難しいもの」を一つ思い浮かべてもらいます。迷う場合は、ファスナー、エレベーター、検索結果の順位から選べるようにしてください。そして「それは、なぜそのように動くと思いますか。自信がなくても、いまの予想を一文だけ聞かせてください」と、一つだけ尋ねてください。',
+      explanationOpening: '最初の応答では質問をせず、この話を一つの読みものとして解説してください。「知っている感覚」と「説明できる理解」の違いを身近な場面から始め、説明深度の錯覚、無知の知、AIの流暢な回答との関係へ進み、最後に要点を三つにまとめてください。'
+    }
+  });
   const chapters = [
     {
       title: '確信が生まれる仕組み',
@@ -113,7 +144,8 @@
       episodeNumber += 1;
       const episodeDetail = detail && detail.episodes && detail.episodes[episodeNumber];
       const tags = episode[1].split('・').map(function (tag) { return '<span class="tag">' + esc(tag) + '</span>'; }).join('');
-      return '<div class="episode-row" id="theme-' + String(episodeNumber).padStart(2, '0') + '"><div class="episode-no">Theme ' + String(episodeNumber).padStart(2, '0') + '</div><div>' +
+      const aiGuide = episodeNumber === 1 ? ' data-ai-guide="part15-01"' : '';
+      return '<div class="episode-row" id="theme-' + String(episodeNumber).padStart(2, '0') + '"' + aiGuide + '><div class="episode-no">Theme ' + String(episodeNumber).padStart(2, '0') + '</div><div>' +
         '<div class="episode-title">' + esc(episode[0]) + '</div>' +
         '<p class="episode-summary">' + esc(episodeDetail ? episodeDetail.background : '') + '</p>' +
         '<p class="episode-summary">' + esc(episodeDetail ? episodeDetail.lens : '') + '</p>' +
