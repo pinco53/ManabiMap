@@ -12,7 +12,7 @@
 
   function hrefForNode(id) {
     if (id === 'evolution') return '../evolution.html';
-    if (id === 'note') return '../note.html';
+    if (id === 'note') return '../library.html?format=read';
     const item = data.findById(id);
     if (!item) return '../index.html#map-base';
     if (item.type === 'part' && item.pageUrl) return item.pageUrl.replace(/^parts\//, '');
@@ -181,7 +181,7 @@
           firstNote.id
         )
       : trackLink(
-          createLink('part-map-bridge__lane-action', '../note.html', 'noteを探す', false),
+          createLink('part-map-bridge__lane-action', '../library.html?format=read', '読みものを探す', false),
           'part_to_note_click',
           part.id,
           'note_hub',
@@ -315,8 +315,8 @@
       seenNums[num] = true;
       links.push({ href: item.pageUrl.replace(/^parts\//, ''), label: '第' + num + '部', num: num });
     });
-    links.push({ href: '../note.html', label: 'note記事' });
-    links.push({ href: '../podcast.html', label: 'Podcast' });
+    links.push({ href: '../library.html?format=read', label: '読みもの' });
+    links.push({ href: '../library.html?format=listen', label: 'Podcast' });
     links.push({ href: '../infographics.html', label: '図解' });
 
     links.forEach(function(link) {
@@ -378,7 +378,7 @@
     title.appendChild(count);
 
     const hubLink = trackLink(
-      createLink('part-podcast-rail__hub-btn', '../podcast.html#' + part.id, 'Podcast一覧で見る', false),
+      createLink('part-podcast-rail__hub-btn', '../library.html?format=listen', '聴くコンテンツを見る', false),
       'part_to_podcast_click',
       part.id,
       'podcast_hub',

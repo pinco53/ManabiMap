@@ -159,7 +159,7 @@
   }) : [];
   const notesHtml = noteItems.length ? '<div class="argument-heading">関連するnote</div><div class="note-list">' + noteItems.slice(0, 10).map(function (note) {
     return '<a class="note-link" href="' + esc(note.url) + '" target="_blank" rel="noopener"><span>NOTE #' + String(note.number).padStart(2, '0') + '</span>' + esc(note.title) + '</a>';
-  }).join('') + '<a class="note-link" href="../note.html"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
+  }).join('') + '<a class="note-link" href="../library.html?format=read"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
 
   const referencesHtml = references.map(function (reference) {
     return '<a class="reference-link" href="' + esc(reference[1]) + '" target="_blank" rel="noopener"><span>REFERENCE</span>' + esc(reference[0]) + '</a>';
@@ -169,7 +169,7 @@
     '<div class="cover"><div class="cover-series">ハルとおじいさんの物語 ── 学びの地図</div><div class="cover-colorname">青磁<small>せいじ</small></div>' +
       '<h1 class="cover-title">第15部<br>それ、わかったつもりかも</h1><div class="cover-subtitle">答えを急ぐ時代に、考え続ける物語</div>' +
       '<div class="cover-chapter">第1話〜第8話｜全3章</div><div class="cover-tagline"><em>「わかったつもりを手放すことから、本当の思考が始まる。」</em></div>' +
-      '<div class="cover-divider"></div><div class="cover-note">第15部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
+      '<div class="cover-divider"></div><div class="cover-note">第15部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../library.html?format=listen">Podcast一覧へ</a><a class="cover-action" href="../library.html?format=read">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part14.html">← 第14部</a><span>第15部 ｜ それ、わかったつもりかも</span><a href="part16.html">第16部 →</a></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜ「わかったつもり」を深掘りするのか</div>' +
       '<div class="section-intro"><a href="part13.html">第13部</a>で学びが環境の中で受け継がれ、閉ざされることを見た。<a href="part14.html">第14部</a>で見方の更新には道具・証拠・共同体が必要なことを見た。第15部では、その更新を妨げる「わかったつもり」という感覚そのものを問い直す。</div>' +
@@ -187,6 +187,6 @@
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
       '<div class="bridge-box"><div class="bridge-label">Bridge to Part 16</div><div class="bridge-text">わかったつもりを手放した先に、人類が更新し続けてきたもう一つの力がある。</div><div class="bridge-sub"><a href="part16.html">第16部「エネルギーと人類史」</a>では、火から核融合まで、人類が何を解放してきたかを追う。</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">さらに読む・聴く</div><div class="section-intro">第15部のPodcast、関連note、本文の背景となる研究資料への入口。</div>' +
-      '<div class="resource-grid"><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第15部の8話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a><a class="resource-card" href="part16.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第16部へ</div><div class="resource-text">考え続ける力から、人類が解放してきた力へ進む。</div></a></div>' + notesHtml +
+      '<div class="resource-grid"><a class="resource-card" href="../library.html?format=listen"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第15部の8話を音声でたどる。</div></a><a class="resource-card" href="../library.html?format=read"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a><a class="resource-card" href="part16.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第16部へ</div><div class="resource-text">考え続ける力から、人類が解放してきた力へ進む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';
 }());

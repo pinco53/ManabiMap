@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="evolution-root">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>進化の年表 ── 138億年から、まだ見ぬ未来まで｜ハルとおじいさん</title>
 <meta name="description" content="宇宙誕生から人類の歩み、そして未来まで。約100の転換点で俯瞰する、進化の年表。ハルとおじいさんの学びの地図と接続する、人類史の大観。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700;900&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Shippori+Mincho:wght@500;700&family=Zen+Old+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <style>
 /* ========== RESET & BASE ========== */
@@ -1248,6 +1248,8 @@ a { color: inherit; text-decoration: none; }
   .hero-scroll { animation: none; }
 }
 </style>
+<link rel="stylesheet" href="assets/css/brand-v2.css?v=20260731-24">
+<link rel="stylesheet" href="assets/css/evolution-renewal.css?v=20260731-24">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
 <script>
@@ -1258,17 +1260,34 @@ a { color: inherit; text-decoration: none; }
   gtag('config', 'G-QL1PVK5PRF');
 </script>
 </head>
-<body>
+<body class="inner-page evolution-page">
+<a class="skip-link" href="#main">本文へ移動</a>
 <div class="grain-overlay" aria-hidden="true"></div>
 
 <!-- Scroll progress bar -->
 <div class="scroll-progress"><div class="scroll-progress-bar" id="progressBar"></div></div>
 
-<!-- Top bar -->
-<div class="top-bar">
-  <a href="index.html" class="back-link">学びの地図へ戻る</a>
-  <div class="top-series">HARU × OJI — EVOLUTION</div>
-</div>
+<header class="site-header site-header--solid" data-site-header>
+  <a class="brand" href="index.html" aria-label="Manabi Map トップ">
+    <svg class="brand__mark" viewBox="0 0 56 56" aria-hidden="true">
+      <circle cx="28" cy="28" r="8"></circle>
+      <ellipse cx="28" cy="28" rx="23" ry="13"></ellipse>
+      <ellipse cx="28" cy="28" rx="13" ry="23" transform="rotate(34 28 28)"></ellipse>
+      <circle class="brand__star" cx="49" cy="24" r="2.4"></circle>
+    </svg>
+    <span class="brand__text"><span class="brand__name">Manabi Map</span><span class="brand__concept">知の重力レンズ</span></span>
+  </a>
+  <nav class="desktop-nav" aria-label="メインナビゲーション">
+    <a href="questions.html">問いからたどる</a>
+    <a href="map.html" aria-current="page">地図を見る</a>
+    <a href="library.html">読む・聴く・見る</a>
+    <a href="start.html">はじめての方へ</a>
+  </nav>
+  <details class="mobile-nav">
+    <summary aria-label="メニューを開く"><span></span><span></span><span></span></summary>
+    <nav aria-label="モバイルナビゲーション"><a href="questions.html">問いからたどる</a><a href="map.html" aria-current="page">地図を見る</a><a href="library.html">読む・聴く・見る</a><a href="start.html">はじめての方へ</a></nav>
+  </details>
+</header>
 
 <!-- Era navigation (desktop only) -->
 <aside class="era-nav" aria-label="時代ナビゲーション">
@@ -1287,11 +1306,12 @@ a { color: inherit; text-decoration: none; }
   <a href="#acceleration" class="era-dot" data-era="future" data-label="加速する進化"></a>
 </aside>
 
+<main id="main">
 <!-- ========== HERO ========== -->
 <section class="hero" id="top">
-  <div class="hero-series">ハルとおじいさんの物語 — 学びの地図</div>
-  <h1 class="hero-title">Evolution</h1>
-  <div class="hero-subtitle-jp">進 化 の 年 表</div>
+  <div class="hero-series">MANABI MAP · KNOWLEDGE LENS</div>
+  <h1 class="hero-title">138億年から、<br>まだ見ぬ未来まで。</h1>
+  <div class="hero-subtitle-jp">進化の年表</div>
   <p class="hero-tagline">
     <strong>138億年前</strong>、宇宙がはじまった。<br>
     <strong>700万年前</strong>、最初の人類が立ち上がった。<br>
@@ -3084,10 +3104,14 @@ a { color: inherit; text-decoration: none; }
     <a href="index.html" class="event-link" style="color:var(--neon-sky); padding:12px 28px; font-size:13px;">← 学びの地図トップへ</a>
   </div>
 </section>
+</main>
 
 <footer class="site-footer">
-  <div>ハルとおじいさん ── 進化の年表</div>
-  <div style="margin-top:8px;">&copy; 2025-2026 ハルとおじいさん</div>
+  <div class="site-footer__inner">
+    <div><a class="brand brand--footer" href="index.html"><span class="brand__name">Manabi Map</span><span class="brand__concept">知の重力レンズ</span></a><p>ひとつの問いから、時代や分野を越えて知をつなぐ。</p></div>
+    <nav aria-label="フッターナビゲーション"><a href="questions.html">問いからたどる</a><a href="map.html">地図を見る</a><a href="library.html">読む・聴く・見る</a><a href="concept.html">知の重力レンズとは</a></nav>
+    <p class="site-footer__copyright">© 2025–2026 Manabi Map</p>
+  </div>
 </footer>
 
 <canvas class="bg-canvas" id="bgCanvas"></canvas>
@@ -3260,5 +3284,6 @@ a { color: inherit; text-decoration: none; }
 
 <script src="assets/js/footprints.js"></script>
 <script src="assets/js/sky-clock.js"></script>
+<script src="assets/js/brand-v2.js" defer></script>
 </body>
 </html>

@@ -223,7 +223,7 @@
 
   const noteLinks = publishedNotes.length ? '<div class="argument-heading">関連するnote</div><div class="note-list">' + publishedNotes.slice(0, 8).map(function (note) {
     return '<a class="note-link" href="' + esc(note.url) + '" target="_blank" rel="noopener"><span>NOTE #' + String(note.number).padStart(2, '0') + '</span>' + esc(note.title) + '</a>';
-  }).join('') + '<a class="note-link" href="../note.html"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
+  }).join('') + '<a class="note-link" href="../library.html?format=read"><span>READING MAP</span>すべての読みものを見る</a></div>' : '';
 
   root.innerHTML =
     '<div class="cover"><div class="cover-series">ハルとおじいさんの物語 ── 学びの地図</div>' +
@@ -233,7 +233,7 @@
       '<div class="cover-chapter">第1話〜第' + totalEpisodes + '話｜' + chapterLabel + '</div>' +
       '<div class="cover-tagline">' + esc(part.intro) + '<br><em>' + esc(part.core) + '</em></div>' +
       '<div class="cover-divider"></div><div class="cover-note">本ページは第' + number + '部の本文型まとめです。</div>' +
-      '<div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
+      '<div class="cover-actions"><a class="cover-action" href="../library.html?format=listen">聴くコンテンツへ</a><a class="cover-action" href="../library.html?format=read">読みものへ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part' + prev + '.html">← 第' + prev + '部</a><span>第' + number + '部 ' + esc(part.title) + '</span>' +
       (next <= 16 ? '<a href="part' + next + '.html">第' + next + '部 →</a>' : '<a href="../index.html">全体地図 →</a>') + '</nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">この部で問われていること</div>' +
@@ -252,8 +252,8 @@
       '<div class="bridge-box"><div class="bridge-label">Conclusion</div><div class="bridge-text">' + esc(part.core) + '</div><div class="bridge-sub">第' + number + '部の地図を持って、次の問いへ進む。</div></div><div class="resource-grid">' + nextLink + '</div>' + footer('問いの地図') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">さらに読む・聴く</div>' +
       '<div class="section-intro">第' + number + '部から、Podcast、note、学びの地図全体へつながる入口です。</div><div class="resource-grid">' +
-      '<a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">「ハルとおじいさん」の音声コンテンツを開く。</div></a>' +
-      '<a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">物語から伸びる枝道の記事を一覧で読む。</div></a>' +
+      '<a class="resource-card" href="../library.html?format=listen"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">「ハルとおじいさん」の音声コンテンツを開く。</div></a>' +
+      '<a class="resource-card" href="../library.html?format=read"><div class="resource-label">READING MAP</div><div class="resource-title">読みものへ</div><div class="resource-text">物語から伸びる枝道の記事を一覧で読む。</div></a>' +
       '<a class="resource-card" href="../index.html"><div class="resource-label">MANABI MAP</div><div class="resource-title">全体地図へ</div><div class="resource-text">第1部から第16部までを見渡す。</div></a></div>' + noteLinks +
       (depthPart && depthPart.references ? '<div class="argument-heading">深掘りの参考資料</div><p class="argument-body">Podcastとnoteの内容に加え、次の研究・公的資料をもとに背景、限界、反論を補いました。</p><div class="reference-list">' + depthPart.references.map(function (reference) { return '<a class="reference-link" href="' + esc(reference[1]) + '" target="_blank" rel="noopener"><span>REFERENCE</span>' + esc(reference[0]) + '</a>'; }).join('') + '</div>' : '') +
       footer('関連資料') + '</div>';

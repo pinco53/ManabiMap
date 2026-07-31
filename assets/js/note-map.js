@@ -135,7 +135,7 @@
   }
 
   function partHref(id) {
-    if (id === 'note') return 'note.html';
+    if (id === 'note') return 'library.html?format=read';
     if (id === 'evolution') return 'evolution.html';
     const item = data.findById(id);
     return item && item.pageUrl ? item.pageUrl : 'index.html#map-base';

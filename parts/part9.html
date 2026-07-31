@@ -632,14 +632,16 @@
 </script>
 <link rel="stylesheet" href="../assets/css/part-connector.css">
 <link rel="stylesheet" href="../assets/css/part-hero.css?v=20260712-1">
+<link rel="stylesheet" href="../assets/css/part-renewal.css?v=20260731-14">
 </head>
 <body data-part="9">
 <div class="grain-overlay is-warm" aria-hidden="true"></div>
+<div id="part-series-root">
 
 <div class="cover">
   <div class="cover-series">ハルとおじいさんの物語 ── 学びの地図</div>
   <div class="cover-colorname">藤紫<small>ふじむらさき</small></div>
-  <div class="cover-title">第9部<br>身体という時間</div>
+  <h1 class="cover-title">第9部<br>身体という時間</h1>
   <div class="cover-subtitle">進化の身体 ── 旧石器時代の設計で生成AI時代を生きる</div>
   <div class="cover-chapter">第1話〜第15話｜全3章</div>
   <div class="cover-tagline">
@@ -648,15 +650,15 @@
   <div class="cover-divider"></div>
   <div class="cover-note">本ページは第9部の本文型まとめです。章別の詳細資料は末尾から確認できます。</div>
   <div class="cover-actions">
-    <a class="cover-action" href="../podcast.html">Podcast一覧へ</a>
-    <a class="cover-action" href="../note.html">note記事へ</a>
+    <a class="cover-action" href="../library.html?format=listen">Podcast一覧へ</a>
+    <a class="cover-action" href="../library.html?format=read">note記事へ</a>
   </div>
 </div>
 
 <div class="chapter-nav">
   <a href="part8_2.html">← 第8部 第二章</a>
   <span>第9部 ｜ 身体という時間</span>
-  <a href="../note.html">note記事へ →</a>
+  <a href="../library.html?format=read">note記事へ →</a>
 </div>
 
 <div class="page">
@@ -1071,18 +1073,18 @@
 
   <div class="argument-heading">関連note</div>
   <div class="note-list" id="note-list">
-    <a class="note-link" href="../note.html"><span>NOTE</span>第9部の関連記事一覧を見る</a>
+    <a class="note-link" href="../library.html?format=read"><span>NOTE</span>第9部の関連記事一覧を見る</a>
   </div>
 
   <div class="argument-heading">Podcastで聞く</div>
   <p class="argument-body">音声でたどる場合は、Podcast一覧から第9部関連エピソードを確認できます。</p>
   <div class="resource-grid">
-    <a class="resource-card" href="../podcast.html">
+    <a class="resource-card" href="../library.html?format=listen">
       <div class="resource-label">PODCAST</div>
       <div class="resource-title">Podcastで聞く</div>
       <div class="resource-text">第9部を含む「ハルとおじいさん」の音声コンテンツを開く。</div>
     </a>
-    <a class="resource-card" href="../note.html">
+    <a class="resource-card" href="../library.html?format=read">
       <div class="resource-label">NOTE MAP</div>
       <div class="resource-title">note記事へ</div>
       <div class="resource-text">第9部から伸びる枝道の記事を一覧で読む。</div>
@@ -1097,6 +1099,7 @@
   <div class="doc-footer">ハルとおじいさん｜第9部 身体という時間　― 関連資料 ―</div>
 </div>
 
+</div>
 <script src="../assets/js/manabimap-data.js"></script>
 <script src="../assets/js/part-sigils.js"></script>
 <script src="../assets/js/part-identity.js"></script>
@@ -1115,7 +1118,7 @@
   }
 
   target.innerHTML = notes.slice(0, 8).map(function(note) {
-    const href = note.url || '../note.html#note-card-' + note.number;
+    const href = note.url || '../library.html?format=read#note-card-' + note.number;
     const attrs = note.url ? ' target="_blank" rel="noopener"' : '';
     return [
       '<a class="note-link" href="' + escapeHtml(href) + '"' + attrs + ' data-track-event="part_to_note_click" data-track-source="part9" data-track-content-id="part9" data-track-destination-type="note_article" data-track-destination-id="' + escapeHtml(note.id) + '">',
@@ -1123,12 +1126,13 @@
       escapeHtml(note.title),
       '</a>'
     ].join('');
-  }).join('') + '<a class="note-link" href="../note.html"><span>NOTE MAP</span>すべてのnote記事を見る</a>';
+  }).join('') + '<a class="note-link" href="../library.html?format=read"><span>NOTE MAP</span>すべてのnote記事を見る</a>';
 })();
 </script>
 <script src="../assets/js/cta-tracking.js"></script>
-<script src="../assets/js/part-connector.js"></script>
+<script src="../assets/js/part-connector.js?v=20260731-24"></script>
 <script src="../assets/js/footprints.js"></script>
 <script src="../assets/js/sky-clock.js"></script>
+<script src="../assets/js/part-renewal.js?v=20260731-24"></script>
 </body>
 </html>

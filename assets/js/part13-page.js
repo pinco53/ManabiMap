@@ -142,7 +142,7 @@
   }) : [];
   const notesHtml = noteItems.length ? '<div class="argument-heading">関連するnote</div><div class="note-list">' + noteItems.slice(0, 10).map(function (note) {
     return '<a class="note-link" href="' + esc(note.url) + '" target="_blank" rel="noopener"><span>NOTE #' + String(note.number).padStart(2, '0') + '</span>' + esc(note.title) + '</a>';
-  }).join('') + '<a class="note-link" href="../note.html"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
+  }).join('') + '<a class="note-link" href="../library.html?format=read"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
 
   const referencesHtml = references.map(function (reference) {
     return '<a class="reference-link" href="' + esc(reference[1]) + '" target="_blank" rel="noopener"><span>REFERENCE</span>' + esc(reference[0]) + '</a>';
@@ -152,7 +152,7 @@
     '<div class="cover"><div class="cover-series">ハルとおじいさんの物語 ── 学びの地図</div><div class="cover-colorname">苔<small>こけ</small></div>' +
       '<h1 class="cover-title">第13部<br>学びとは何か</h1><div class="cover-subtitle">人間・学校・家庭をつなぐ学びの地図</div>' +
       '<div class="cover-chapter">第1話〜第4話｜全2章</div><div class="cover-tagline"><em>「学びは、受け取り、確かめ、次へ渡す共同作業である。」</em></div>' +
-      '<div class="cover-divider"></div><div class="cover-note">第13部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
+      '<div class="cover-divider"></div><div class="cover-note">第13部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../library.html?format=listen">Podcast一覧へ</a><a class="cover-action" href="../library.html?format=read">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part12.html">← 第12部</a><span>第13部 ｜ 学びとは何か</span><a href="part14.html">第14部 →</a></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜ学びの受け渡しと環境を深掘りするのか</div>' +
       '<div class="section-intro"><a href="part11.html">第11部</a>で学びの原型が応答という関係から始まることを、<a href="part12.html">第12部</a>でその関係が対話としてどう学びを深めるかを見た。第13部では、その学びが個人を超えて、世代・学校・家庭という環境の中でどう受け継がれ、どう閉ざされるかを問う。</div>' +
@@ -170,6 +170,6 @@
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
       '<div class="bridge-box"><div class="bridge-label">Bridge to Part 14</div><div class="bridge-text">学びを支える環境を見た後は、学び自体を支える「見方」を問い直す番である。</div><div class="bridge-sub"><a href="part14.html">第14部「地球は動いている」</a>では、天動説から地動説への転換を手がかりに、見方を更新する力を追う。</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">さらに読む・聴く</div><div class="section-intro">第13部のPodcast、関連note、本文の背景となる研究資料への入口。</div>' +
-      '<div class="resource-grid"><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第13部の4話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a><a class="resource-card" href="part14.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第14部へ</div><div class="resource-text">学びの環境から、見方を更新する力へ進む。</div></a></div>' + notesHtml +
+      '<div class="resource-grid"><a class="resource-card" href="../library.html?format=listen"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第13部の4話を音声でたどる。</div></a><a class="resource-card" href="../library.html?format=read"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a><a class="resource-card" href="part14.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第14部へ</div><div class="resource-text">学びの環境から、見方を更新する力へ進む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';
 }());
