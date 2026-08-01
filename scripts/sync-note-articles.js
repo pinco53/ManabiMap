@@ -26,6 +26,7 @@ const partMeta = {
   part8: { orbit: 'PART 08 ORBIT', label: '第8部 AIと人間のあいだ', href: 'parts/part8.html', relation: '生成AIの枝道' },
   'part8-2': { orbit: 'PART 08 ORBIT', label: '第8部 AIが日常に入る日', href: 'parts/part8_2.html', relation: '教育と日常の枝道' },
   part9: { orbit: 'PART 09 ORBIT', label: '第9部 身体という時間', href: 'parts/part9.html', relation: '身体と進化の枝道' },
+  part16: { orbit: 'PART 16 ORBIT', label: '第16部 エネルギーと人類史', href: 'parts/part16.html', relation: 'エネルギーと自由の枝道' },
   evolution: { orbit: 'HISTORY ORBIT', label: '進化の年表', href: 'evolution.html', relation: '人類史から伸びる枝道' },
   note: { orbit: 'NOTE ORBIT', label: 'note記事群', href: 'note.html', relation: '制作と学びの枝道' }
 };
@@ -41,6 +42,7 @@ const questionByPart = {
   part8: '生成AIは、何を生成しているのか。',
   'part8-2': 'AIが宿題を解ける時代に、学力とは何か。',
   part9: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+  part16: 'エネルギーを得るたび、人類は何から自由になったのか。次に自由になるのは何か。',
   evolution: 'いま見ている問いは、人類史のどこから来たのか。',
   note: '学ぶとは、答えを増やすことか、問いを増やすことか。'
 };
@@ -165,6 +167,7 @@ function relatedParts(target, tags) {
     if (/宿題|学力|共通テスト|教育|幸せ|幸福/.test(source)) parts.push('part8-2');
     parts.push('part8');
   }
+  if (/第16部|エネルギー|電気|核融合|火の起源|聖なる火/.test(source)) parts.push('part16');
   if (/サイト|ManabiMap|制作|Gemini|サムネ|学びの地図/.test(source)) parts.push('note');
   if (/進化|人類史|宇宙|生命/.test(source)) parts.push('evolution');
   return Array.from(new Set(parts));
