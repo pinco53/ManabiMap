@@ -24,6 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700;900&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tokens.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Zen+Old+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
 <script>
@@ -822,31 +823,20 @@ a { color: inherit; text-decoration: none; }
 }
 .page-footer a { color: var(--note-green); }
 </style>
+<link rel="stylesheet" href="assets/css/media-hub-renewal.css?v=20260801-1">
 </head>
-<body>
+<body class="media-hub media-hub--note">
 <div class="grain-overlay" aria-hidden="true"></div>
 
-<nav class="nav-bar">
-  <a href="index.html">学びの地図</a>
-  <a href="parts/part1.html" data-part="1">第1部</a>
-  <a href="parts/part2.html" data-part="2">第2部</a>
-  <a href="parts/part3.html" data-part="3">第3部</a>
-  <a href="parts/part4.html" data-part="4">第4部</a>
-  <a href="parts/part5.html" data-part="5">第5部</a>
-  <a href="parts/part6.html" data-part="6">第6部</a>
-  <a href="parts/part7.html" data-part="7">第7部</a>
-  <a href="parts/part8.html" data-part="8">第8部</a>
-  <a href="parts/part9.html" data-part="9">第9部</a>
-  <a href="parts/part10.html" data-part="10">第10部</a>
-  <a href="parts/part11.html" data-part="11">第11部</a>
-  <a href="parts/part12.html" data-part="12">第12部</a>
-  <a href="parts/part13.html" data-part="13">第13部</a>
-  <a href="parts/part14.html" data-part="14">第14部</a>
-  <a href="parts/part15.html" data-part="15">第15部</a>
-  <a href="parts/part16.html" data-part="16">第16部</a>
-  <a href="note.html" class="active">note記事</a>
+<header class="media-v2-header">
+  <a class="media-v2-brand" href="index.html" aria-label="Manabi Map トップ"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="8"></circle><ellipse cx="28" cy="28" rx="23" ry="13"></ellipse><ellipse cx="28" cy="28" rx="13" ry="23" transform="rotate(34 28 28)"></ellipse><circle class="media-v2-brand__star" cx="49" cy="24" r="2.4"></circle></svg><span><strong>Manabi Map</strong><small>知の重力レンズ</small></span></a>
+  <nav aria-label="メインナビゲーション"><a href="questions.html">問いからたどる</a><a href="map.html">地図を見る</a><a href="library.html">読む・聴く・見る</a><a href="start.html">はじめての方へ</a></nav>
+</header>
+<nav class="media-v2-tabs" aria-label="媒体別ページ">
+  <a href="library.html">すべて</a>
+  <a href="note.html" aria-current="page">Note</a>
   <a href="podcast.html">Podcast</a>
-  <a href="infographics.html">図解</a>
+  <a href="youtube.html">YouTube</a>
 </nav>
 
 <section class="hero">
@@ -4335,12 +4325,8 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
-<footer class="page-footer">
-  <p>
-    <a href="https://note.com/manabimapcreator" target="_blank" rel="noopener noreferrer">note @manabimapcreator</a>
-    &nbsp;|&nbsp;
-    <a href="index.html">学びの地図トップ</a>
-  </p>
+<footer class="media-v2-footer">
+  <div class="media-v2-footer__inner"><div><strong>Manabi Map</strong><p>ひとつの問いから、時代や分野を越えて知をつなぐ。</p></div><nav aria-label="フッターナビゲーション"><a href="library.html">読む・聴く・見る</a><a href="podcast.html">Podcast</a><a href="youtube.html">YouTube</a><a href="https://note.com/manabimapcreator" target="_blank" rel="noopener noreferrer">note公式 ↗</a></nav></div>
 </footer>
 
 <script src="assets/js/manabimap-data.js"></script>
