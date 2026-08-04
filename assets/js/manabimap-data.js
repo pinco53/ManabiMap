@@ -440,6 +440,8 @@
     { id: 'note-135', number: 135, title: "灯りを消さないことが、なぜ命がけだったのか", url: "https://note.com/manabimapcreator/n/n90e495a00b8e", status: "published", kind: "wonder-note", date: "2026-08-01", target: "第16部第1話", tags: ["第16部第1話"], relatedParts: ["part16"], relatedPodcastId: "podcast-part16-1", relatedYouTubeId: "youtube-part16", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-135.png", question: "エネルギーを得るたび、人類は何から自由になったのか。次に自由になるのは何か。", relation: "エネルギーと自由の枝道", primaryPart: "part16", excerpt: "夜、部屋の電気をつけたまま、机に向かっていました。" },
     { id: 'note-136', number: 136, title: "自分の石臼を使うことは、なぜ罪だったのか", url: "https://note.com/manabimapcreator/n/n889aadd94288", status: "published", kind: "wonder-note", date: "2026-08-02", target: "第16部第2話", tags: ["第16部第2話"], relatedParts: ["part16"], relatedPodcastId: "podcast-part16-2", relatedYouTubeId: "youtube-part16", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-136.png", question: "エネルギーを得るたび、人類は何から自由になったのか。次に自由になるのは何か。", relation: "エネルギーと自由の枝道", primaryPart: "part16", excerpt: "台所で、コーヒー豆を自分のミルで挽いていました。" },
     { id: 'note-137', number: 137, title: "機械を壊すことが、なぜ死刑になったのか", url: "https://note.com/manabimapcreator/n/ncf309d7271be", status: "published", kind: "wonder-note", date: "2026-08-03", target: "第16部第3話", tags: ["第16部第3話"], relatedParts: ["part16"], relatedPodcastId: "podcast-part16-3", relatedYouTubeId: "youtube-part16", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-137.png", question: "エネルギーを得るたび、人類は何から自由になったのか。次に自由になるのは何か。", relation: "エネルギーと自由の枝道", primaryPart: "part16", excerpt: "友人が、ある技術のニュースを見て、ぽつりと言いました。" },
+    { id: 'note-138', number: 138, title: "電気は、生き物の中にあるものだったのか", url: "https://note.com/manabimapcreator/n/ne4e4f559cb09", status: "published", kind: "wonder-note", date: "2026-08-04", target: "第16部第4話", tags: ["第16部第4話"], relatedParts: ["part16"], relatedPodcastId: "podcast-part16-4", relatedYouTubeId: "youtube-part16", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-138.png", question: "エネルギーを得るたび、人類は何から自由になったのか。次に自由になるのは何か。", relation: "エネルギーと自由の枝道", primaryPart: "part16", excerpt: "スマホの充電が切れると、なんとなく、自分の一部が止まったような気持ちになります。" },
+    { id: 'note-139', number: 139, title: "屋根の上のパネルは、なぜ一度、外されたのか", url: "https://note.com/manabimapcreator/n/n9e88627aaae7", status: "published", kind: "wonder-note", date: "2026-08-05", target: "第16部第6話", tags: ["第16部第6話"], relatedParts: ["part16"], relatedPodcastId: "podcast-part16-6", relatedYouTubeId: "youtube-part16", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-139.png", question: "エネルギーを得るたび、人類は何から自由になったのか。次に自由になるのは何か。", relation: "エネルギーと自由の枝道", primaryPart: "part16", excerpt: "近所の屋根に、太陽光パネルが並んでいるのを、見かけることが増えました。" },
     { id: 'note-143', number: 143, title: "なぜ人は、自分の感覚をそのまま信じてしまうのか", url: "https://note.com/manabimapcreator/n/nc81fc28f3e5c", status: "published", kind: "wonder-note", date: "2026-07-19", target: "第7部第1話", tags: ["第7部第1話"], relatedParts: ["part7"], relatedPodcastId: "podcast-part7-1", relatedPodcastUrl: "https://www.youtube.com/watch?v=QcvW5eARMao", relatedYouTubeId: "youtube-part7", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-143.png", question: "人間の当たり前を外すと、世界はどう見え直すのか。", relation: "前提を外す枝道", primaryPart: "part7", excerpt: "エレベーターの扉が閉まるのを、じっと待っていたことはありませんか。" },
     { id: 'note-144', number: 144, title: "なぜ「ルールを守ること」と「安全であること」は違うのか", url: "https://note.com/manabimapcreator/n/nd75461351692", status: "published", kind: "wonder-note", date: "2026-07-20", target: "第7部第2話", tags: ["第7部第2話"], relatedParts: ["part7"], relatedPodcastId: "podcast-part7-2", relatedYouTubeId: "youtube-part7", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-144.png", question: "人間の当たり前を外すと、世界はどう見え直すのか。", relation: "前提を外す枝道", primaryPart: "part7", excerpt: "改札にICカードをタッチすると、一瞬でゲートが開きます。" },
     { id: 'note-145', number: 145, title: "なぜ人は、いなくなった人の心を機械に探すのか", url: "https://note.com/manabimapcreator/n/n5413a75de261", status: "published", kind: "wonder-note", date: "2026-07-21", target: "第7部第3話", tags: ["第7部第3話"], relatedParts: ["part7"], relatedPodcastId: "podcast-part7-3", relatedYouTubeId: "youtube-part7", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-145.png", question: "人間の当たり前を外すと、世界はどう見え直すのか。", relation: "前提を外す枝道", primaryPart: "part7", excerpt: "長い返信が来たとき、ふと思うことがあります。" },
@@ -1471,6 +1473,24 @@
       relation: 'Podcastで深める'
     },
     {
+      id: 'podcast-part11-6',
+      type: 'podcast',
+      title: '「自分」は生まれつきあるのではなく、育つものだった｜まるごと聴く 発達の原型【ハルとおじいさん #11P-6】',
+      url: 'https://youtu.be/akKCJltDbEQ',
+      relatedParts: ['part11'],
+      question: '学びは、教えられる前から始まっている。それは、何によって支えられているのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part11-7',
+      type: 'podcast',
+      title: '思考は言葉よりも先にある｜まるごと聴く 発達の原型【ハルとおじいさん #11P-7】',
+      url: 'https://youtu.be/omQaXZ_paic',
+      relatedParts: ['part11'],
+      question: '学びは、教えられる前から始まっている。それは、何によって支えられているのか。',
+      relation: 'Podcastで深める'
+    },
+    {
       id: 'podcast-part11-8',
       type: 'podcast',
       title: '成長とは可能性を選んで失っていくことだった｜まるごと聴く 発達の原型【ハルとおじいさん #11P-8】',
@@ -1511,6 +1531,24 @@
       type: 'podcast',
       title: '「ここにないもの」を扱う力が、人間を特別にした｜まるごと聴く 発達の原型【ハルとおじいさん #11P-12】',
       url: 'https://youtu.be/1i454hyR7lU',
+      relatedParts: ['part11'],
+      question: '学びは、教えられる前から始まっている。それは、何によって支えられているのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part11-13',
+      type: 'podcast',
+      title: '「なぜ？」を守ることが、AI時代の核心スキルになる｜まるごと聴く 発達の原型【ハルとおじいさん #11P-13】',
+      url: 'https://youtu.be/6wghWtCW-BU',
+      relatedParts: ['part11'],
+      question: '学びは、教えられる前から始まっている。それは、何によって支えられているのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part11-14',
+      type: 'podcast',
+      title: '自己制御の力は、信頼から生まれていた｜まるごと聴く 発達の原型【ハルとおじいさん #11P-14】',
+      url: 'https://youtu.be/1Ypn-kFxGRA',
       relatedParts: ['part11'],
       question: '学びは、教えられる前から始まっている。それは、何によって支えられているのか。',
       relation: 'Podcastで深める'
