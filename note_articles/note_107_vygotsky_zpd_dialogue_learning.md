@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part12
 **関連PodcastID**: podcast-part12-3
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=aAWEHZnsAuw
 **関連YouTubeID**: youtube-part12
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=aAWEHZnsAuw
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -121,7 +121,7 @@ AIが「2シグマ」の個別指導を実現できるとしたら、人と話�
 
 ---
 
-→ **[Podcastで深く聴く｜ハルとおじいさん 第12部第3話](https://（Podcast URL記入）)**
+→ **[Podcastで深く聴く｜ハルとおじいさん 第12部第3話](https://www.youtube.com/watch?v=aAWEHZnsAuw)**
 
 → **[ハルとおじいさん 第12部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part12.html)**
 
