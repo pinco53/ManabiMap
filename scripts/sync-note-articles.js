@@ -26,7 +26,15 @@ const partMeta = {
   part8: { orbit: 'PART 08 ORBIT', label: '第8部 AIと人間のあいだ', href: 'parts/part8.html', relation: '生成AIの枝道' },
   'part8-2': { orbit: 'PART 08 ORBIT', label: '第8部 AIが日常に入る日', href: 'parts/part8_2.html', relation: '教育と日常の枝道' },
   part9: { orbit: 'PART 09 ORBIT', label: '第9部 身体という時間', href: 'parts/part9.html', relation: '身体と進化の枝道' },
+  part10: { orbit: 'PART 10 ORBIT', label: '第10部 感性という深層', href: 'parts/part10.html', relation: '感性と意味の枝道' },
+  part11: { orbit: 'PART 11 ORBIT', label: '第11部 人はどう学び始めるのか', href: 'parts/part11.html', relation: '学びの原型の枝道' },
+  part12: { orbit: 'PART 12 ORBIT', label: '第12部 人はなぜ、一人では学べないのか', href: 'parts/part12.html', relation: '対話と学習心理の枝道' },
+  part13: { orbit: 'PART 13 ORBIT', label: '第13部 学びとは何か', href: 'parts/part13.html', relation: '学びの地図の枝道' },
+  part14: { orbit: 'PART 14 ORBIT', label: '第14部 地球は動いている', href: 'parts/part14.html', relation: '見方を更新する枝道' },
+  part15: { orbit: 'PART 15 ORBIT', label: '第15部 それ、わかったつもりかも', href: 'parts/part15.html', relation: 'わかったつもりを越える枝道' },
   part16: { orbit: 'PART 16 ORBIT', label: '第16部 エネルギーと人類史', href: 'parts/part16.html', relation: 'エネルギーと自由の枝道' },
+  part17: { orbit: 'PART 17 ORBIT', label: '第17部 交換と道具の文明史', href: 'parts/part17.html', relation: '交換と道具の枝道' },
+  part18: { orbit: 'PART 18 ORBIT', label: '第18部 判断と記憶の罠', href: 'parts/part18.html', relation: '判断と記憶の枝道' },
   evolution: { orbit: 'HISTORY ORBIT', label: '進化の年表', href: 'evolution.html', relation: '人類史から伸びる枝道' },
   note: { orbit: 'NOTE ORBIT', label: 'note記事群', href: 'note.html', relation: '制作と学びの枝道' }
 };
@@ -42,7 +50,15 @@ const questionByPart = {
   part8: '生成AIは、何を生成しているのか。',
   'part8-2': 'AIが宿題を解ける時代に、学力とは何か。',
   part9: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+  part10: '感性は再現可能なのか。',
+  part11: '人は、教わる前にどう学んでいるのか。',
+  part12: '人はなぜ、一人では届かない場所へ対話によって届くのか。',
+  part13: '人はなぜ学び、なぜ学びを閉じるのか。',
+  part14: '科学とは、正解を知ることなのか。',
+  part15: '「わかった」と「考えた」は同じなのか。',
   part16: 'エネルギーを得るたび、人類は何から自由になったのか。次に自由になるのは何か。',
+  part17: '交換や道具は、人間の関係をどう変えたのか。',
+  part18: '判断や記憶は、どこで現実を取り違えるのか。',
   evolution: 'いま見ている問いは、人類史のどこから来たのか。',
   note: '学ぶとは、答えを増やすことか、問いを増やすことか。'
 };
@@ -156,6 +172,14 @@ function relatedParts(target, tags) {
   const source = [target].concat(tags).join(' ');
   const parts = [];
   if (/第9部/.test(source)) parts.push('part9');
+  if (/第10部|感性|意味|共感|芸術/.test(source)) parts.push('part10');
+  if (/第11部|発達|愛着|模倣|遊び|自己効力感/.test(source)) parts.push('part11');
+  if (/第12部|学習心理|対話|フィードバック|メタ認知|説明|理解/.test(source)) parts.push('part12');
+  if (/第13部|累積文化|学校|家庭|安全基地/.test(source)) parts.push('part13');
+  if (/第14部|地動説|観察|証拠|科学革命|学び直し/.test(source)) parts.push('part14');
+  if (/第15部|無知の知|曖昧さ|思考停止|パラダイム/.test(source)) parts.push('part15');
+  if (/第17部|交換|道具|贈与|市場|貨幣/.test(source)) parts.push('part17');
+  if (/第18部|判断|記憶|バイアス|錯覚|意思決定/.test(source)) parts.push('part18');
   if (/第1部|産業革命|蒸気/.test(source)) parts.push('part1');
   if (/第2部|デジタル|SNS|通信|つながり|孤独/.test(source)) parts.push('part2');
   if (/第3部|AI革命|ChatGPT|生成AI/.test(source)) parts.push('part3');
