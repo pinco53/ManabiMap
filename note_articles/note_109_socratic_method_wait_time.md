@@ -7,7 +7,7 @@
 **公開状態**: published
 **主対象パート**: part12
 **関連PodcastID**: podcast-part12-5
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=YENGkMAJWN0
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -25,7 +25,7 @@
 
 実態：問い返しすぎた。
 
-https://（Podcast URL記入）
+https://www.youtube.com/watch?v=YENGkMAJWN0
 
 ---
 
