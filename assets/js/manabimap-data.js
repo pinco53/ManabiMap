@@ -458,7 +458,8 @@
     { id: 'note-153', number: 153, title: "なぜテンプル・グランディンは、言葉より先に絵で考えたのか", url: "https://note.com/manabimapcreator/n/n0a5fb71a97da", status: "published", kind: "wonder-note", date: "2026-08-15", target: "第11部第7話", tags: ["第11部第7話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-7", relatedPodcastUrl: "https://www.youtube.com/watch?v=omQaXZ_paic", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-153.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "会議で、頭の中にはちゃんとイメージがあるのに、うまく言葉にできない。" },
     { id: 'note-154', number: 154, title: "なぜ「手遅れ」のはずの目が、見えるようになったのか", url: "https://note.com/manabimapcreator/n/n7d32d7931249", status: "published", kind: "wonder-note", date: "2026-08-16", target: "第11部第8話", tags: ["第11部第8話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-8", relatedPodcastUrl: "https://www.youtube.com/watch?v=EVy_Xi7opPs", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-154.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "大人になってから新しい言語を学ぼうとして、「もう遅い」と感じたことはないでしょうか。" },
     { id: 'note-155', number: 155, title: "なぜ「抱っこするな」と説いた学者は、我が子を追い詰めたのか", url: "https://note.com/manabimapcreator/n/ndfaba407aa21", status: "published", kind: "wonder-note", date: "2026-08-17", target: "第11部第9話", tags: ["第11部第9話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-9", relatedPodcastUrl: "https://www.youtube.com/watch?v=UUrmHenTSec", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-155.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "友人に「抱っこしすぎると自立できない子になるよ」と言われたら、あなたはどうしますか。" },
-    { id: 'note-156', number: 156, title: "なぜニュートンの最大の発見は、大学が休みの間に生まれたのか", url: "https://note.com/manabimapcreator/n/nef0d4c16686e", status: "published", kind: "wonder-note", date: "2026-08-18", target: "第11部第10話", tags: ["第11部第10話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-10", relatedPodcastUrl: "https://www.youtube.com/watch?v=5XL48OF3KKQ", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-156.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "子どもの週末の予定表が、習い事でびっしり埋まっている。" }
+    { id: 'note-156', number: 156, title: "なぜニュートンの最大の発見は、大学が休みの間に生まれたのか", url: "https://note.com/manabimapcreator/n/nef0d4c16686e", status: "published", kind: "wonder-note", date: "2026-08-18", target: "第11部第10話", tags: ["第11部第10話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-10", relatedPodcastUrl: "https://www.youtube.com/watch?v=5XL48OF3KKQ", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-156.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "子どもの週末の予定表が、習い事でびっしり埋まっている。" },
+    { id: 'note-157', number: 157, title: "なぜ心理学者エリクソンは、自分で自分の名字を選んだのか", url: "https://note.com/manabimapcreator/n/n703763724ab4", status: "published", kind: "wonder-note", date: "2026-08-19", target: "第11部第11話", tags: ["第11部第11話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-11", relatedPodcastUrl: "https://www.youtube.com/watch?v=T4ZkJxJxOsE", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-157.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "同じ作業なのに、「自分で決めた」と思えた瞬間だけ、急にやる気になる。" }
   ];
 
   const routes = [
@@ -1616,6 +1617,15 @@
       type: 'podcast',
       title: '答えをくれる人より、「なんでそう思うの？」と聞いてくれる人が学びを変えた——ウェイトタイム研究｜まるごと聴く 学習心理学【ハルとおじいさん #12P-5】',
       url: 'https://youtu.be/YENGkMAJWN0',
+      relatedParts: ['part12'],
+      question: '人はなぜ、一人では学べないのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part12-chapter1',
+      type: 'podcast',
+      title: '第一章総まとめ——「なぜ学びは一人では完結しないのか」5話の核心を再接続｜まるごと聴く 学習心理学【ハルとおじいさん #12P-第一章】',
+      url: 'https://youtu.be/JH4KuTeJ99o',
       relatedParts: ['part12'],
       question: '人はなぜ、一人では学べないのか。',
       relation: 'Podcastで深める'
