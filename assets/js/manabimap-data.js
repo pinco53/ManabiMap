@@ -460,7 +460,8 @@
     { id: 'note-155', number: 155, title: "なぜ「抱っこするな」と説いた学者は、我が子を追い詰めたのか", url: "https://note.com/manabimapcreator/n/ndfaba407aa21", status: "published", kind: "wonder-note", date: "2026-08-17", target: "第11部第9話", tags: ["第11部第9話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-9", relatedPodcastUrl: "https://www.youtube.com/watch?v=UUrmHenTSec", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-155.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "友人に「抱っこしすぎると自立できない子になるよ」と言われたら、あなたはどうしますか。" },
     { id: 'note-156', number: 156, title: "なぜニュートンの最大の発見は、大学が休みの間に生まれたのか", url: "https://note.com/manabimapcreator/n/nef0d4c16686e", status: "published", kind: "wonder-note", date: "2026-08-18", target: "第11部第10話", tags: ["第11部第10話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-10", relatedPodcastUrl: "https://www.youtube.com/watch?v=5XL48OF3KKQ", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-156.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "子どもの週末の予定表が、習い事でびっしり埋まっている。" },
     { id: 'note-157', number: 157, title: "なぜ心理学者エリクソンは、自分で自分の名字を選んだのか", url: "https://note.com/manabimapcreator/n/n703763724ab4", status: "published", kind: "wonder-note", date: "2026-08-19", target: "第11部第11話", tags: ["第11部第11話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-11", relatedPodcastUrl: "https://www.youtube.com/watch?v=T4ZkJxJxOsE", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-157.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "同じ作業なのに、「自分で決めた」と思えた瞬間だけ、急にやる気になる。" },
-    { id: 'note-158', number: 158, title: "なぜピーター・パンの作者は、死んだ兄になりきったのか", url: "https://note.com/manabimapcreator/n/n8eef23a3cd3a", status: "published", kind: "wonder-note", date: "2026-08-20", target: "第11部第12話", tags: ["第11部第12話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-12", relatedPodcastUrl: "https://www.youtube.com/watch?v=1i454hyR7lU", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-158.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "子どもがお面をかぶった途端、声や振る舞いがすっかり変わることがあります。" }
+    { id: 'note-158', number: 158, title: "なぜピーター・パンの作者は、死んだ兄になりきったのか", url: "https://note.com/manabimapcreator/n/n8eef23a3cd3a", status: "published", kind: "wonder-note", date: "2026-08-20", target: "第11部第12話", tags: ["第11部第12話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-12", relatedPodcastUrl: "https://www.youtube.com/watch?v=1i454hyR7lU", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-158.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "子どもがお面をかぶった途端、声や振る舞いがすっかり変わることがあります。" },
+    { id: 'note-159', number: 159, title: "なぜノーベル賞学者の母は「いい質問をしたか」と聞いたのか", url: "https://note.com/manabimapcreator/n/n550ee1aeabb3", status: "published", kind: "wonder-note", date: "2026-08-21", target: "第11部第13話", tags: ["第11部第13話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-13", relatedPodcastUrl: "https://www.youtube.com/watch?v=6wghWtCW-BU", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-159.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "子どもが学校から帰ってきたとき、多くの親はこう聞きます。" }
   ];
 
   const routes = [
@@ -1636,6 +1637,15 @@
       type: 'podcast',
       title: '人間を人間にしたものは何か｜まるごと聴く 累積文化と学びのリレー【ハルとおじいさん #13P-1】',
       url: 'https://youtu.be/C8LTxOwFHbc',
+      relatedParts: ['part13'],
+      question: '人はなぜ学び、なぜ学びを閉じるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part13-2',
+      type: 'podcast',
+      title: 'なぜ人は学びを閉じてしまうのか｜まるごと聴く 失敗・評価・マインドセット【ハルとおじいさん #13P-2】',
+      url: 'https://youtu.be/f9aHz-9mSVA',
       relatedParts: ['part13'],
       question: '人はなぜ学び、なぜ学びを閉じるのか。',
       relation: 'Podcastで深める'
