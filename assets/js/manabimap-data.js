@@ -1659,6 +1659,15 @@
       relatedParts: ['part13'],
       question: '人はなぜ学び、なぜ学びを閉じるのか。',
       relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part13-4',
+      type: 'podcast',
+      title: '家庭は何を学ばせているのか｜まるごと聴く 安全基地・自律性・愛着理論【ハルとおじいさん #13P-4】',
+      url: 'https://youtu.be/rOXXm-ldnQk',
+      relatedParts: ['part13'],
+      question: '人はなぜ学び、なぜ学びを閉じるのか。',
+      relation: 'Podcastで深める'
     }
   ];
 
