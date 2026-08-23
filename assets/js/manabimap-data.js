@@ -1669,6 +1669,15 @@
       relatedParts: ['part13'],
       question: '人はなぜ学び、なぜ学びを閉じるのか。',
       relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part14-1',
+      type: 'podcast',
+      title: '本当に動いているのは、どっち？｜まるごと聴く 天動説と認識の出発点【ハルとおじいさん #14P-1】',
+      url: 'https://youtu.be/vtva1rau3Ro',
+      relatedParts: ['part14'],
+      question: '科学とは、正解を知ることなのか。',
+      relation: 'Podcastで深める'
     }
   ];
 
