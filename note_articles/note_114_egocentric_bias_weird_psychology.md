@@ -2,12 +2,12 @@
 
 **記事種別**: wonder-note
 **対象**: 第14部第1話「人はなぜ自分のいる場所を世界の中心だと思うのか」
-**保存日**: 2026-06-20
-**URL**: https://note.com/manabimapcreator/n/nc632da407b87
-**公開状態**: draft
+**保存日**: 2026-08-24
+**URL**: https://note.com/manabimapcreator/n/n818be67278d9
+**公開状態**: published
 **主対象パート**: part14
 **関連PodcastID**: podcast-part14-1
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=vtva1rau3Ro
 **関連YouTubeID**: youtube-part14
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -24,7 +24,7 @@
 
 その感覚は、どこから来るのだろう。
 
-（Podcast URL 記入予定）
+→ **[このテーマをPodcastで深く聴く](https://www.youtube.com/watch?v=vtva1rau3Ro)**
 
 ---
 
@@ -97,7 +97,7 @@ AIが答えてくれることは、人類全体の知恵でしょうか、それ
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第14部第1話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第14部第1話](https://www.youtube.com/watch?v=vtva1rau3Ro)**
 
 → **[ハルとおじいさん 第14部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part14.html)**
 
