@@ -417,7 +417,7 @@
     { id: 'note-112', number: 112, title: "「すぐ答えてもらう」が、学びを浅くしていた", url: "https://note.com/manabimapcreator/n/n034bfebaf483", status: "published", kind: "wonder-note", date: "2026-06-23", target: "第12部第8話「フィードバックはいつどう与えると学びになるのか」", tags: [], relatedParts: ["part12"], relatedPodcastId: "podcast-part12-8", relatedYouTubeId: "youtube-part12", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-112.png", question: "人はなぜ、一人では届かない場所へ対話によって届くのか。", relation: "対話と学習心理の枝道", primaryPart: "part12", excerpt: "問題を解いていて、行き詰まった。" },
     { id: 'note-113', number: 113, title: "「あの人と比べて」が、学びを止めることがある", url: "https://note.com/manabimapcreator/n/nb0803f69f08a", status: "published", kind: "wonder-note", date: "2026-06-25", target: "第12部第9話「比較されると学習意欲はどう変わるのか」", tags: [], relatedParts: ["part12"], relatedPodcastId: "podcast-part12-9", relatedYouTubeId: "youtube-part12", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-113.png", question: "人はなぜ、一人では届かない場所へ対話によって届くのか。", relation: "対話と学習心理の枝道", primaryPart: "part12", excerpt: "「○○ちゃんはできているのに」と言われた瞬間、" },
     { id: 'note-114', number: 114, title: "自分の見ている世界は、世界の標準だろうか", url: "https://note.com/manabimapcreator/n/n818be67278d9", status: "published", kind: "wonder-note", date: "2026-08-24", target: "第14部第1話「人はなぜ自分のいる場所を世界の中心だと思うのか」", tags: [], relatedParts: ["part14"], relatedPodcastId: "podcast-part14-1", relatedPodcastUrl: "https://www.youtube.com/watch?v=vtva1rau3Ro", relatedYouTubeId: "youtube-part14", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-114.png", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "自分が見ている景色を、" },
-    { id: 'note-115', number: 115, title: "見えないものが見えたとき、世界はどう変わるのか", status: "draft", kind: "wonder-note", date: "2026-06-20", target: "第14部第2話「道具が認識を変える」", tags: ["第14部第2話「道具が認識を変える」"], relatedParts: ["part14","part17"], relatedPodcastId: "podcast-part14-2", relatedYouTubeId: "youtube-part14", ctaCopy: "Podcastで深く聴く", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "カバンの中身は、外から見えない。" },
+    { id: 'note-115', number: 115, title: "見えないものが見えたとき、世界はどう変わるのか", url: "https://note.com/manabimapcreator/n/nae447be70caa", status: "published", kind: "wonder-note", date: "2026-08-25", target: "第14部第2話「道具が認識を変える」", tags: ["第14部第2話「道具が認識を変える」"], relatedParts: ["part14","part17"], relatedPodcastId: "podcast-part14-2", relatedPodcastUrl: "https://www.youtube.com/watch?v=xgIZKmhwq2o", relatedYouTubeId: "youtube-part14", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-115.png", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "カバンの中身は、外から見えない。" },
     { id: 'note-116', number: 116, title: "美しい答えを、自分から手放せるだろうか", status: "draft", kind: "wonder-note", date: "2026-06-20", target: "第14部第3話「美しさより、事実に合わせる勇気」", tags: ["第14部第3話「美しさより","事実に合わせる勇気」"], relatedParts: ["part14"], relatedPodcastId: "podcast-part14-3", relatedYouTubeId: "youtube-part14", ctaCopy: "Podcastで深く聴く", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "一度、正しいと信じた考えを、" },
     { id: 'note-117', number: 117, title: "正しいことが、なぜ受け入れられないことがあるのか", status: "draft", kind: "wonder-note", date: "2026-06-20", target: "第14部第4話「新しい知は、なぜ最初に危険だと言われるのか」", tags: ["第14部第4話「新しい知は","なぜ最初に危険だと言われるのか」"], relatedParts: ["part14"], relatedPodcastId: "podcast-part14-4", relatedYouTubeId: "youtube-part14", ctaCopy: "Podcastで深く聴く", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "「手を洗ってください」" },
     { id: 'note-118', number: 118, title: "「中心ではなかった」は、何度も繰り返されてきた", status: "draft", kind: "wonder-note", date: "2026-06-20", target: "第14部第5話「自分の中の天動説を探す」（シリーズ最終回）", tags: [], relatedParts: ["part14"], relatedPodcastId: "podcast-part14-5", relatedYouTubeId: "youtube-part14", ctaCopy: "Podcastで深く聴く", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "地球は、宇宙の中心ではなかった。" },
@@ -1675,6 +1675,15 @@
       type: 'podcast',
       title: '本当に動いているのは、どっち？｜まるごと聴く 天動説と認識の出発点【ハルとおじいさん #14P-1】',
       url: 'https://youtu.be/vtva1rau3Ro',
+      relatedParts: ['part14'],
+      question: '科学とは、正解を知ることなのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part14-2',
+      type: 'podcast',
+      title: '望遠鏡は、人間に何を見せたのか｜まるごと聴く コペルニクスとガリレオの発見【ハルとおじいさん #14P-2】',
+      url: 'https://youtu.be/xgIZKmhwq2o',
       relatedParts: ['part14'],
       question: '科学とは、正解を知ることなのか。',
       relation: 'Podcastで深める'

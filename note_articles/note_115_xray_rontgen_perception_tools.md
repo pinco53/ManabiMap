@@ -2,12 +2,12 @@
 
 **記事種別**: wonder-note
 **対象**: 第14部第2話「道具が認識を変える」
-**保存日**: 2026-06-20
-**URL**: https://note.com/manabimapcreator/n/n2699871a12af
-**公開状態**: draft
+**保存日**: 2026-08-25
+**URL**: https://note.com/manabimapcreator/n/nae447be70caa
+**公開状態**: published
 **主対象パート**: part14
 **関連PodcastID**: podcast-part14-2
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=xgIZKmhwq2o
 **関連YouTubeID**: youtube-part14
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -24,7 +24,7 @@
 
 見えないことは、当たり前のことだった。
 
-（Podcast URL 記入予定）
+→ **[このテーマをPodcastで深く聴く](https://www.youtube.com/watch?v=xgIZKmhwq2o)**
 
 ---
 
@@ -94,7 +94,7 @@ AIの分析を不安に思う今の私たちは、
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第14部第2話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第14部第2話](https://www.youtube.com/watch?v=xgIZKmhwq2o)**
 
 → **[ハルとおじいさん 第14部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part14.html)**
 
