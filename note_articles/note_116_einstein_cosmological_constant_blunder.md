@@ -2,12 +2,12 @@
 
 **記事種別**: wonder-note
 **対象**: 第14部第3話「美しさより、事実に合わせる勇気」
-**保存日**: 2026-06-20
-**URL**: https://note.com/manabimapcreator/n/nc7ac992e66c6
-**公開状態**: draft
+**保存日**: 2026-08-26
+**URL**: https://note.com/manabimapcreator/n/nd08bc898fde9
+**公開状態**: published
 **主対象パート**: part14
 **関連PodcastID**: podcast-part14-3
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=VD9Lkom9CWQ
 **関連YouTubeID**: youtube-part14
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -24,7 +24,7 @@
 
 それが、誰よりも頭のいい人であっても。
 
-（Podcast URL 記入予定）
+→ **[このテーマをPodcastで深く聴く](https://www.youtube.com/watch?v=VD9Lkom9CWQ)**
 
 ---
 
@@ -100,7 +100,7 @@ AIに加えられる調整は、事実のためか、それとも、願望のた
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第14部第3話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第14部第3話](https://www.youtube.com/watch?v=VD9Lkom9CWQ)**
 
 → **[ハルとおじいさん 第14部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part14.html)**
 
