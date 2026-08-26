@@ -2,12 +2,12 @@
 
 **記事種別**: wonder-note
 **対象**: 第14部第4話「新しい知は、なぜ最初に危険だと言われるのか」
-**保存日**: 2026-06-20
-**URL**: https://note.com/manabimapcreator/n/n5128098a9ced
-**公開状態**: draft
+**保存日**: 2026-08-27
+**URL**: https://note.com/manabimapcreator/n/n897dd82483b3
+**公開状態**: published
 **主対象パート**: part14
 **関連PodcastID**: podcast-part14-4
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=VmRS4H4Uj-U
 **関連YouTubeID**: youtube-part14
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -24,7 +24,7 @@
 それだけのことが、
 ある時代には、誰にも信じてもらえなかった。
 
-（Podcast URL 記入予定）
+→ **[このテーマをPodcastで深く聴く](https://www.youtube.com/watch?v=VmRS4H4Uj-U)**
 
 ---
 
@@ -96,7 +96,7 @@ AIが示すものを拒むとき、それは事実への反論でしょうか、
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第14部第4話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第14部第4話](https://www.youtube.com/watch?v=VmRS4H4Uj-U)**
 
 → **[ハルとおじいさん 第14部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part14.html)**
 
