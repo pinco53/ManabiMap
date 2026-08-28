@@ -2,12 +2,12 @@
 
 **記事種別**: wonder-note
 **対象**: 第14部第5話「自分の中の天動説を探す」（シリーズ最終回）
-**保存日**: 2026-06-20
-**URL**: https://note.com/manabimapcreator/n/n4c99b821466a
-**公開状態**: draft
+**保存日**: 2026-08-28
+**URL**: https://note.com/manabimapcreator/n/n4c27137ff668
+**公開状態**: published
 **主対象パート**: part14
 **関連PodcastID**: podcast-part14-5
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=xpSS_6HFfkc
 **関連YouTubeID**: youtube-part14
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -23,7 +23,7 @@
 
 それで、もう、中心の話は終わったと思っていた。
 
-（Podcast URL 記入予定）
+→ **[このテーマをPodcastで深く聴く](https://www.youtube.com/watch?v=xpSS_6HFfkc)**
 
 ---
 
@@ -97,7 +97,7 @@ AIが、人間にできることの一部を、できるようになるたびに
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第14部第5話（最終回）](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第14部第5話（最終回）](https://www.youtube.com/watch?v=xpSS_6HFfkc)**
 
 → **[ハルとおじいさん 第14部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part14.html)**
 
