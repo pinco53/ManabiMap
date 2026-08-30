@@ -265,7 +265,7 @@
     return panel;
   }
 
-  /* tokens.css の --part1〜--part9（連続した知的スペクトル）のミラー。
+  /* tokens.css の部カラーのミラー。
      色を変更するときは tokens.css と両方を同期すること。 */
   const NAV_ACCENTS = {
     'part1': '#c98f69',
@@ -277,7 +277,9 @@
     'part7': '#7384c9',
     'part8': '#8d73c9',
     'part8-2': '#a473c9',
-    'part9': '#bb73c9'
+    'part9': '#bb73c9',
+    'part17': '#496f9b',
+    'part18': '#746a9f'
   };
 
   function injectNavStyles() {

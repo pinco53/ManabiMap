@@ -286,7 +286,23 @@
       color: 'part16', colorName: '瑠璃', colorReading: 'るり', pageUrl: 'parts/part16.html',
       tags: ['火', '産業革命', '電気', '太陽光', '核融合'], concepts: ['energy', 'electricity', 'future'],
       questions: ['エネルギーを得るたび、人類は何から自由になったのか。', '次に自由になるのは何か。'],
-      relatedNotes: [], next: ['part15', 'part1', 'evolution']
+      relatedNotes: [], next: ['part17', 'part15', 'evolution']
+    },
+    {
+      id: 'part17', type: 'part', number: '17', title: '交換と協働',
+      subtitle: 'なぜ人類だけが、見知らぬ他人と協力できたのか', group: '文明と未来', era: '贈与からAI時代へ',
+      color: 'part17', colorName: '群青', colorReading: 'ぐんじょう', pageUrl: 'parts/part17.html',
+      tags: ['贈与', '交換', '貨幣', '分業', 'サプライチェーン', 'AI'], concepts: ['exchange', 'cooperation', 'money', 'division-of-labor'],
+      questions: ['なぜ人類は、見知らぬ他人とも協力できるようになったのか。', '協働できる相手が広がるとき、何への依存が深まるのか。'],
+      relatedNotes: ['note-161'], next: ['part18', 'part16', 'part12']
+    },
+    {
+      id: 'part18', type: 'part', number: '18', title: '人はなぜ勘違いするのか',
+      subtitle: '脳がつくる「現実」の正体', group: '見方と判断', era: '実験心理学からAI時代へ',
+      color: 'part18', colorName: '藤納戸', colorReading: 'ふじなんど', pageUrl: 'parts/part18.html',
+      tags: ['注意', '記憶', '認知バイアス', '同調', 'メタ認知', 'AI'], concepts: ['perception', 'memory', 'cognitive-bias', 'metacognition'],
+      questions: ['私たちが見ている「現実」は、世界そのものなのか。', '自分の見方を、どうやって更新できるのか。'],
+      relatedNotes: ['note-54', 'note-56'], next: ['part17', 'part15', 'part14']
     }
   ];
 
@@ -463,7 +479,7 @@
     { id: 'note-158', number: 158, title: "なぜピーター・パンの作者は、死んだ兄になりきったのか", url: "https://note.com/manabimapcreator/n/n8eef23a3cd3a", status: "published", kind: "wonder-note", date: "2026-08-20", target: "第11部第12話", tags: ["第11部第12話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-12", relatedPodcastUrl: "https://www.youtube.com/watch?v=1i454hyR7lU", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-158.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "子どもがお面をかぶった途端、声や振る舞いがすっかり変わることがあります。" },
     { id: 'note-159', number: 159, title: "なぜノーベル賞学者の母は「いい質問をしたか」と聞いたのか", url: "https://note.com/manabimapcreator/n/n550ee1aeabb3", status: "published", kind: "wonder-note", date: "2026-08-21", target: "第11部第13話", tags: ["第11部第13話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-13", relatedPodcastUrl: "https://www.youtube.com/watch?v=6wghWtCW-BU", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-159.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "子どもが学校から帰ってきたとき、多くの親はこう聞きます。" },
     { id: 'note-160', number: 160, title: "なぜIQの高い生徒より、粘り強い生徒の方が成績が良かったのか", url: "https://note.com/manabimapcreator/n/n3d7948e67c7a", status: "published", kind: "wonder-note", date: "2026-08-22", target: "第11部第14話", tags: ["第11部第14話"], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-14", relatedPodcastUrl: "https://www.youtube.com/watch?v=1Ypn-kFxGRA", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-160.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "頭がいいはずの同僚や友人が、途中で投げ出してしまう。" },
-    { id: 'note-161', number: 161, title: "贈り物は、なぜ時に、争いに変わるのか", url: "https://note.com/manabimapcreator/n/n1f5891dff349", status: "published", kind: "wonder-note", date: "2026-08-29", target: "第17部第1話", tags: ["第17部第1話"], relatedParts: ["part17"], relatedPodcastId: "podcast-part17-1", relatedYouTubeId: "youtube-part17", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-161.png", question: "交換や道具は、人間の関係をどう変えたのか。", relation: "交換と道具の枝道", primaryPart: "part17", excerpt: "先週、友人から思いがけず、少し高価なお土産をもらいました。" },
+    { id: 'note-161', number: 161, title: "贈り物は、なぜ時に、争いに変わるのか", url: "https://note.com/manabimapcreator/n/n1f5891dff349", status: "published", kind: "wonder-note", date: "2026-08-29", target: "第17部第1話", tags: ["第17部第1話"], relatedParts: ["part17"], relatedPodcastId: "podcast-part17-1", relatedYouTubeId: "youtube-part17", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-161.png", question: "なぜ人類は、見知らぬ他人とも協力できるようになったのか。", relation: "交換と協働の枝道", primaryPart: "part17", excerpt: "先週、友人から思いがけず、少し高価なお土産をもらいました。" },
     { id: 'note-176', number: 176, title: "なぜ、「できる」と信じた瞬間に、体は変わるのか", url: "https://note.com/manabimapcreator/n/n1b7cf36e1228", status: "published", kind: "wonder-note", date: "2026-08-23", target: "第11部第15話「『できた！』が自己効力感をつくる（最終回）」", tags: [], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-15", relatedPodcastUrl: "https://www.youtube.com/watch?v=zp7hH5v3KE4", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-176.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "補助輪を外した自転車に、初めて一人で乗った日を覚えています。" }
   ];
 

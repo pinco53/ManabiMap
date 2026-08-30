@@ -22,7 +22,9 @@
     '13': 'part13',
     '14': 'part14',
     '15': 'part15',
-    '16': 'part16'
+    '16': 'part16',
+    '17': 'part17',
+    '18': 'part18'
   };
 
   function initPartCoverIdentity() {

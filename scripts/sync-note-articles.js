@@ -33,8 +33,8 @@ const partMeta = {
   part14: { orbit: 'PART 14 ORBIT', label: '第14部 地球は動いている', href: 'parts/part14.html', relation: '見方を更新する枝道' },
   part15: { orbit: 'PART 15 ORBIT', label: '第15部 それ、わかったつもりかも', href: 'parts/part15.html', relation: 'わかったつもりを越える枝道' },
   part16: { orbit: 'PART 16 ORBIT', label: '第16部 エネルギーと人類史', href: 'parts/part16.html', relation: 'エネルギーと自由の枝道' },
-  part17: { orbit: 'PART 17 ORBIT', label: '第17部 交換と道具の文明史', href: 'parts/part17.html', relation: '交換と道具の枝道' },
-  part18: { orbit: 'PART 18 ORBIT', label: '第18部 判断と記憶の罠', href: 'parts/part18.html', relation: '判断と記憶の枝道' },
+  part17: { orbit: 'PART 17 ORBIT', label: '第17部 交換と協働', href: 'parts/part17.html', relation: '交換と協働の枝道' },
+  part18: { orbit: 'PART 18 ORBIT', label: '第18部 人はなぜ勘違いするのか', href: 'parts/part18.html', relation: '判断と現実の枝道' },
   evolution: { orbit: 'HISTORY ORBIT', label: '進化の年表', href: 'evolution.html', relation: '人類史から伸びる枝道' },
   note: { orbit: 'NOTE ORBIT', label: 'note記事群', href: 'note.html', relation: '制作と学びの枝道' }
 };
@@ -57,8 +57,8 @@ const questionByPart = {
   part14: '科学とは、正解を知ることなのか。',
   part15: '「わかった」と「考えた」は同じなのか。',
   part16: 'エネルギーを得るたび、人類は何から自由になったのか。次に自由になるのは何か。',
-  part17: '交換や道具は、人間の関係をどう変えたのか。',
-  part18: '判断や記憶は、どこで現実を取り違えるのか。',
+  part17: 'なぜ人類は、見知らぬ他人とも協力できるようになったのか。',
+  part18: '私たちが見ている「現実」は、世界そのものなのか。',
   evolution: 'いま見ている問いは、人類史のどこから来たのか。',
   note: '学ぶとは、答えを増やすことか、問いを増やすことか。'
 };

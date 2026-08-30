@@ -219,7 +219,7 @@
 
   const nextLink = next <= 16
     ? '<a class="resource-card" href="part' + next + '.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第' + next + '部へ</div><div class="resource-text">次の問いへ、学びの地図をつなぐ。</div></a>'
-    : '<a class="resource-card" href="../index.html"><div class="resource-label">MANABI MAP</div><div class="resource-title">全体地図へ</div><div class="resource-text">第1部から第16部までを見渡す。</div></a>';
+    : '<a class="resource-card" href="../index.html"><div class="resource-label">MANABI MAP</div><div class="resource-title">全体地図へ</div><div class="resource-text">第1部から第18部までを見渡す。</div></a>';
 
   const noteLinks = publishedNotes.length ? '<div class="argument-heading">関連するnote</div><div class="note-list">' + publishedNotes.slice(0, 8).map(function (note) {
     return '<a class="note-link" href="' + esc(note.url) + '" target="_blank" rel="noopener"><span>NOTE #' + String(note.number).padStart(2, '0') + '</span>' + esc(note.title) + '</a>';
@@ -254,7 +254,7 @@
       '<div class="section-intro">第' + number + '部から、Podcast、note、学びの地図全体へつながる入口です。</div><div class="resource-grid">' +
       '<a class="resource-card" href="../library.html?format=listen"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">「ハルとおじいさん」の音声コンテンツを開く。</div></a>' +
       '<a class="resource-card" href="../library.html?format=read"><div class="resource-label">READING MAP</div><div class="resource-title">読みものへ</div><div class="resource-text">物語から伸びる枝道の記事を一覧で読む。</div></a>' +
-      '<a class="resource-card" href="../index.html"><div class="resource-label">MANABI MAP</div><div class="resource-title">全体地図へ</div><div class="resource-text">第1部から第16部までを見渡す。</div></a></div>' + noteLinks +
+      '<a class="resource-card" href="../index.html"><div class="resource-label">MANABI MAP</div><div class="resource-title">全体地図へ</div><div class="resource-text">第1部から第18部までを見渡す。</div></a></div>' + noteLinks +
       (depthPart && depthPart.references ? '<div class="argument-heading">深掘りの参考資料</div><p class="argument-body">Podcastとnoteの内容に加え、次の研究・公的資料をもとに背景、限界、反論を補いました。</p><div class="reference-list">' + depthPart.references.map(function (reference) { return '<a class="reference-link" href="' + esc(reference[1]) + '" target="_blank" rel="noopener"><span>REFERENCE</span>' + esc(reference[0]) + '</a>'; }).join('') + '</div>' : '') +
       footer('関連資料') + '</div>';
 })();

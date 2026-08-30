@@ -21,6 +21,8 @@ body[data-part="13"]  { --part-color: var(--part13); }
 body[data-part="14"]  { --part-color: var(--part14); }
 body[data-part="15"]  { --part-color: var(--part15); }
 body[data-part="16"]  { --part-color: var(--part16); }
+body[data-part="17"]  { --part-color: var(--part17); }
+body[data-part="18"]  { --part-color: var(--part18); }
 
 /* ---- 表紙の夜空 ---- */
 body[data-part] .cover {
