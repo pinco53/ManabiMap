@@ -7,7 +7,7 @@
 **公開状態**: published
 **主対象パート**: part15
 **関連PodcastID**: podcast-part15-3
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=0YH8Xpv8PyY
 **関連YouTubeID**: youtube-part15
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -27,7 +27,7 @@
 
 「見た」のに、なぜ人によって全然違う理解になるのでしょうか。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=0YH8Xpv8PyY
 
 ---
 
@@ -96,7 +96,7 @@ AIに画像を見せると、答えを返してくれます。
 
 ---
 
-→ **[Podcastで深く聴く｜ハルとおじいさん 第15部第3話](（Podcast URL 記入予定）)**
+→ **[Podcastで深く聴く｜ハルとおじいさん 第15部第3話](https://www.youtube.com/watch?v=0YH8Xpv8PyY)**
 
 → **[ハルとおじいさん 第15部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part15.html)**
 
