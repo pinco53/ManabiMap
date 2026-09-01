@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part15
 **関連PodcastID**: podcast-part15-4
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=L2y3Ew8X2c0
 **関連YouTubeID**: youtube-part15
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=L2y3Ew8X2c0
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -25,7 +25,7 @@
 迷うことは、弱さでしょうか。
 「答えを出せていない」は、恥ずかしいことでしょうか。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=L2y3Ew8X2c0
 
 ---
 
@@ -128,7 +128,7 @@ AIが一秒で返す答えは、いつも「出た」ものでしょうか。
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第15部第4話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第15部第4話](https://www.youtube.com/watch?v=L2y3Ew8X2c0)**
 
 → **[ハルとおじいさん 第15部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part15.html)**
 
