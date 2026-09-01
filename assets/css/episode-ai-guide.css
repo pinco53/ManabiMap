@@ -10,7 +10,8 @@
 
 .episode-card > .episode-ai,
 .theme-card > .episode-ai,
-.scientist-card > .episode-ai {
+.scientist-card > .episode-ai,
+.upcoming-card > .episode-ai {
   margin: 18px 20px 20px;
 }
 
@@ -163,7 +164,8 @@
 
   .episode-card > .episode-ai,
   .theme-card > .episode-ai,
-  .scientist-card > .episode-ai {
+  .scientist-card > .episode-ai,
+  .upcoming-card > .episode-ai {
     margin: 14px;
   }
 

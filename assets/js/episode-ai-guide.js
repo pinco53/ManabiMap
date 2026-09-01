@@ -2,16 +2,170 @@
   'use strict';
 
   /*
-   * Dialogue rhythm:
-   * information gap (Loewenstein, 1994), curiosity and memory (Kang et al., 2009),
-   * pretesting (Richland et al., 2009), self-explanation (Chi et al., 1989),
-   * and retrieval practice (Roediger & Karpicke, 2006).
+   * Every episode prompt follows the ManabiMap dialogue rhythm:
+   * current view -> one question -> knowledge gift -> another lens ->
+   * cross-disciplinary connection -> one next question.
    */
   var registeredGuides = window.ManabiEpisodeAIGuides || {};
-  var targetSelector = '.episode-row, .episode-card, .scientist-card, .theme-card';
+  var targetSelector = '.episode-row, .episode-card, .scientist-card, .theme-card, .upcoming-card';
   var targets = Array.from(document.querySelectorAll(targetSelector));
 
   if (!targets.length) return;
+
+  var partContexts = {
+    '1': {
+      series: 'ManabiMap 第1部「産業革命」',
+      theme: '機械が変えた人間の暮らしと時間',
+      centralQuestion: '機械は人間を何から解放し、何に縛ったのか。',
+      keyIdeas: ['機械は身体能力を拡張しただけでなく、働く場所と時間の秩序も組み替えた。', '便利さには、解放と依存、豊かさと分断が同時に含まれる。'],
+      knowledgeGifts: ['蒸気機関、工場制、鉄道、標準時、学校の時間割を一本の歴史としてつなげる。'],
+      worlds: ['技術史と労働', '時計・標準時と日常のリズム', '学校教育と規格化']
+    },
+    '2': {
+      series: 'ManabiMap 第2部「デジタル革命」',
+      theme: '情報技術が変えた距離・注意・つながり',
+      centralQuestion: 'つながることは、近づくことと同じなのか。',
+      keyIdeas: ['デジタル技術は情報と発信の距離を縮めた。', '常時接続は関係を保つ一方、注意の断片化や孤独も生みうる。'],
+      knowledgeGifts: ['計算機、インターネット、スマートフォン、注意経済の変化をつなげる。'],
+      worlds: ['通信技術の歴史', '注意の心理学', '孤独とコミュニティ']
+    },
+    '3': {
+      series: 'ManabiMap 第3部「AI革命」',
+      theme: '生成AIの登場と人間の選択',
+      centralQuestion: 'AIが答えを出せる時代に、自分の人生を生きるとは何か。',
+      keyIdeas: ['自然な応答を作れることと、意味を理解していることは同じではない。', 'AI時代には、問い、選択、検証、結果を引き受ける役割が人間に残る。'],
+      knowledgeGifts: ['生成AIの急速な普及を、身体性、教育、作者性、責任の問題につなげる。'],
+      worlds: ['AI史と計算機科学', '哲学における理解と意識', '教育・仕事・創作']
+    },
+    '4': {
+      series: 'ManabiMap 第4部「知識の歴史」',
+      theme: '記憶を外へ出し、知識を運ぶ技術',
+      centralQuestion: '知識は、誰のものか。',
+      keyIdeas: ['文字は記憶を身体の外へ出し、世代を越える蓄積を可能にした。', '知識を広げる媒体は、同時に何を届けるかを決める権力も生む。'],
+      knowledgeGifts: ['口承、文字、印刷、百科全書、電信、ウェブ、生成AIを知識の器の変化として見る。'],
+      worlds: ['文字とメディア史', '図書館・出版・権力', '検索と生成AI']
+    },
+    '5': {
+      series: 'ManabiMap 第5部「言葉と思考」',
+      theme: '言葉が世界の切り分け方を変える仕組み',
+      centralQuestion: '言葉は思考を作るのか。それとも、思考が言葉を作るのか。',
+      keyIdeas: ['言葉になる前にも、感覚や空間、因果を扱う思考はある。', '新しい言葉や概念は、見えなかった違いを見えるようにする。'],
+      knowledgeGifts: ['言語の起源、内なる声、抽象化、因果、言語の多様性、AIを横断する。'],
+      worlds: ['言語学と認知科学', '哲学における概念', '異文化とAI言語']
+    },
+    '6': {
+      series: 'ManabiMap 第6部「数と人間」',
+      theme: '数える・予測する・評価することの歴史',
+      centralQuestion: '数字は世界を測る道具なのか。それとも価値を決める支配者なのか。',
+      keyIdeas: ['数は比較と記録によって文明を広げた。', '測定には、何を数え何を数えないかという価値判断が含まれる。'],
+      knowledgeGifts: ['一対一対応、ゼロ、国家の記録、確率、統計、評価を一本につなげる。'],
+      worlds: ['数学史と国家', '確率・統計と未来予測', '学校・仕事の評価']
+    },
+    '7': {
+      series: 'ManabiMap 第7部「人間の前提を外した科学者たち」',
+      theme: '科学が外した人間の「当たり前」',
+      centralQuestion: '感覚も理解も思考も人間だけの特権でないなら、何が残るのか。',
+      keyIdeas: ['感覚的な当たり前は、世界の真実を保証しない。', '理解、計算、思考を分けて考えると、人間の役割を別の角度から見直せる。'],
+      knowledgeGifts: ['アインシュタイン、ファインマン、チューリング、フォン・ノイマンの問いをつなげる。'],
+      worlds: ['物理学と数学', '計算・知能・意識の哲学', 'AIと人間観']
+    },
+    '8': {
+      series: 'ManabiMap 第8部 第一章「生成という断層」',
+      theme: 'AIがルールから学習と生成へ進んだ歴史',
+      centralQuestion: '統計は、思考なのか。',
+      keyIdeas: ['AIはルールを実行する機械から、データのパターンを学ぶ仕組みへ変わった。', '自然な文章を生成できることと、意味や事実を理解していることは同じではない。'],
+      knowledgeGifts: ['記号処理、機械学習、ニューラルネット、言語モデル、生成AIの転換をたどる。'],
+      worlds: ['AI・統計・計算機史', '言語と意味の哲学', '知識・教育・創作']
+    },
+    '8-2': {
+      series: 'ManabiMap 第8部 第二章「生成された思考の波」',
+      theme: 'AI時代の学びと「思考の所有」',
+      centralQuestion: 'AIが考えることを担う時代に、人間が考える意味はどこにあるか。',
+      keyIdeas: ['答えを得ることと、考える過程が自分を変えることは同じではない。', 'AIは思考を代替する道具にも、問いを広げる相手にもなりうる。'],
+      knowledgeGifts: ['宿題、試験、学力、作者性を、代替と拡張の境界から考える。'],
+      worlds: ['教育心理学', '作者性と責任の哲学', 'AIが変える学校・仕事・創作']
+    },
+    '9': {
+      series: 'ManabiMap 第9部「旧石器時代の身体で、生成AI時代を生きる」',
+      theme: '進化した身体と現代環境の速度差',
+      centralQuestion: '旧石器時代の身体で、生成AI時代をどう生きるのか。',
+      keyIdeas: ['身体は技術や情報環境より、はるかにゆっくり変化する。', '疲れや違和感は、意志の弱さではなく環境とのミスマッチを示す情報にもなる。'],
+      knowledgeGifts: ['二足歩行、報酬系、不安、集中、痛み、感性を進化的ミスマッチからつなぐ。'],
+      worlds: ['進化生物学', '脳・身体・感情', 'デジタル環境と日常習慣']
+    },
+    '10': {
+      series: 'ManabiMap 第10部「感性という深層」',
+      theme: '感じることと意味が生まれる場所',
+      centralQuestion: '感性は脳に還元できるのか。それとも関係の中で立ち上がるのか。',
+      keyIdeas: ['感性は知覚、身体反応、記憶、予測が統合される過程である。', '美や意味は、対象だけでなく受け手と文脈のあいだに生まれる。'],
+      knowledgeGifts: ['感動、美、共感、物語、進化、文化、生成AIを一つの地図に置く。'],
+      worlds: ['神経科学と心理学', '芸術・文化・進化', 'AI作品と作者性']
+    },
+    '11': {
+      series: 'ManabiMap 第11部「人はどう学び始めるのか」',
+      theme: '応答される安心から始まる学び',
+      centralQuestion: '学びは教えられる前から、何によって支えられているのか。',
+      keyIdeas: ['最初に学ぶのは知識より、世界は応答するという予測である。', '安心できる場所があるから、未知を探索し試行錯誤できる。'],
+      knowledgeGifts: ['泣き、愛着、模倣、共同注意、遊び、自己効力感を発達の流れでつなぐ。'],
+      worlds: ['発達心理学', '身体・関係・言語', '遊びと教育・AI']
+    },
+    '12': {
+      series: 'ManabiMap 第12部「人はなぜ、一人では学べないのか」',
+      theme: '対話・評価・関係の学習心理学',
+      centralQuestion: '一人で考えることと、対話しながら考えることは何が違うのか。',
+      keyIdeas: ['理解は説明しようとしたときに穴が見える。', '問い返しやフィードバックは、答えを渡す以上に思考を育てうる。'],
+      knowledgeGifts: ['自己説明、検索練習、フィードバック、メタ認知、AI対話の研究をつなげる。'],
+      worlds: ['学習心理学', '学校・家庭・対話', 'AIとメタ認知']
+    },
+    '13': {
+      series: 'ManabiMap 第13部「学びとは何か」',
+      theme: '学びを受け渡し、閉じ、もう一度開く条件',
+      centralQuestion: '人はなぜ学び、なぜ学びを閉じるのか。',
+      keyIdeas: ['学びは世代を越えて知を受け渡す共同作業である。', '学びを閉じる反応は、個人の意欲だけでなく評価や関係、環境から生まれる。'],
+      knowledgeGifts: ['累積文化、失敗、評価、学校の隠れたカリキュラム、家庭の安全基地をつなげる。'],
+      worlds: ['人類進化と文化', '教育制度と評価', '家庭・所属感・主体性']
+    },
+    '14': {
+      series: 'ManabiMap 第14部「地球は動いている」',
+      theme: '地動説の歴史と見方を更新する力',
+      centralQuestion: '科学とは、正解を知ることなのか。',
+      keyIdeas: ['観察は、持っている見方や使う道具から独立していない。', '科学は間違えない知識ではなく、証拠に応じて前提を更新する営みである。'],
+      knowledgeGifts: ['アリストテレス、コペルニクス、ガリレオ、ケプラー、ニュートンを観測と理論の変化でつなぐ。'],
+      worlds: ['天文学と科学史', '観察・証拠・哲学', '日常の思い込みと学び直し']
+    },
+    '15': {
+      series: 'ManabiMap 第15部「それ、わかったつもりかも」',
+      theme: '確信の仕組みと知的謙虚さ',
+      centralQuestion: '「わかった」と「考えた」は、同じなのか。',
+      keyIdeas: ['確信の強さと証拠の強さは同じではない。', '迷いを保つことは判断の放棄ではなく、更新できる形で考えを持つことである。'],
+      knowledgeGifts: ['無知の知、説明深度の錯覚、認知的閉鎖欲求、パラダイム、AI検証をつなぐ。'],
+      worlds: ['認知心理学', '科学史と哲学', 'AIの流暢さと事実確認']
+    },
+    '16': {
+      series: 'ManabiMap 第16部「エネルギーと人類史」',
+      theme: '身体を越える力と、次の自由の設計',
+      centralQuestion: 'エネルギーを得ることは、人類を何から自由にし、何に依存させたのか。',
+      keyIdeas: ['エネルギー源は、変換・輸送・制度がそろって初めて暮らしの力になる。', '効率化は利用を広げ、総消費をかえって増やすこともある。'],
+      knowledgeGifts: ['火、家畜、蒸気機関、電力網、核分裂、太陽光、核融合を自由の歴史として見る。'],
+      worlds: ['エネルギー技術史', '経済・制度・環境', '未来文明と公平なアクセス']
+    },
+    '17': {
+      series: 'ManabiMap 第17部「交換と協働」',
+      theme: '見知らぬ他人と協力できる仕組み',
+      centralQuestion: 'なぜ人類は、見知らぬ他人とも協力できるようになったのか。',
+      keyIdeas: ['贈与、信用、貨幣、分業は、関係の範囲を広げる仕組みである。', 'つながりが広がるほど、相互依存と壊れやすさも増える。'],
+      knowledgeGifts: ['モースの贈与論、ヤップ島の石貨、アダム・スミスの分業、スエズ運河、AI協働をつなぐ。'],
+      worlds: ['経済史と人類学', '信頼・制度・社会心理', '供給網と人間・AI協働']
+    },
+    '18': {
+      series: 'ManabiMap 第18部「人はなぜ勘違いするのか」',
+      theme: '脳がつくる現実と、見方を更新する方法',
+      centralQuestion: '私たちが見ている「現実」は、世界そのものなのか。',
+      keyIdeas: ['知覚と記憶は録画ではなく、注意・予測・再構成による編集である。', 'バイアスは意志だけで消すのではなく、証拠、手順、他者の視点で点検する。'],
+      knowledgeGifts: ['非注意性盲目、記憶の再構成、同調、アンカリング、メタ認知、AIの誤生成を区別してつなぐ。'],
+      worlds: ['認知科学と心理学', '集団・メディア・社会', '哲学における現実とAI検証']
+    }
+  };
 
   function cleanText(value) {
     return String(value || '').replace(/\s+/g, ' ').trim();
@@ -45,19 +199,14 @@
       '.episode-no',
       '.episode-number',
       '.theme-number',
-      '.sc-num'
+      '.sc-num',
+      '.upcoming-num'
     ]).match(/(\d+)/);
     return Number((idMatch || classMatch || labelMatch || [null, index + 1])[1]);
   }
 
-  function pageSeries(part) {
-    var coverTitle = firstText(document, ['.cover-title']);
-    if (coverTitle) return '「学びの地図」　' + coverTitle;
-    return '「学びの地図」第' + part + '部';
-  }
-
   function pageSources() {
-    return Array.from(document.querySelectorAll('.reference-link')).slice(0, 5).map(function (link) {
+    return Array.from(document.querySelectorAll('.reference-link')).slice(0, 6).map(function (link) {
       return {
         label: cleanText(link.textContent).replace(/^REFERENCE\s*/i, ''),
         url: link.href
@@ -69,10 +218,12 @@
 
   function inferGuide(target, index) {
     var part = document.body.dataset.part || '';
+    var context = partContexts[part] || {};
     var number = episodeNumber(target, index);
     var numberLabel = String(number).padStart(2, '0');
     var title = firstText(target, [
       '.episode-title',
+      '.upcoming-title',
       '.theme-title',
       '.sc-name',
       '.scientist-name',
@@ -91,44 +242,47 @@
     ]).replace(/^(?:核心の)?問い[：:]\s*/, '');
     var lead = firstText(target, [
       '.episode-lead',
+      '.upcoming-theme',
       '.theme-lead',
       '.sc-premise',
       '.card-lead'
     ]);
     var summaries = allTexts(target,
-      '.episode-summary, .theme-body p, .episode-body > p, .sc-body > p'
+      '.episode-summary, .theme-body p, .episode-body > p, .sc-body > p, .upcoming-parts li'
     );
     var tags = unique(allTexts(target, '.keyword-tag, .sc-tag, .tag')).slice(0, 4);
-    var centralQuestion = question ||
+    var centralQuestion = question || context.centralQuestion ||
       '「' + title + '」は、私たちの世界の見方をどのように変えるのか。';
     var background = summaries[0] || lead ||
       'このページに示された「' + title + '」の出来事と考え方を出発点にする。';
-    var centralIdea = summaries[1] || lead || background;
-    var perspective = summaries[2] ||
-      '「' + title + '」を一つの答えとして覚えるのではなく、何が変わり、何がまだ説明できないのかを分けて捉える。';
-    var connections = tags.length ? tags.map(function (tag) {
-      return '「' + tag + '」が、現在の生活や判断にどう現れるか';
-    }) : [
-      'この話と似た仕組みが、現在の生活のどこに現れるか',
-      '自分の経験や判断を、この話の見方で捉え直すと何が変わるか'
-    ];
+    var perspective = summaries[1] || lead ||
+      '「' + title + '」を一つの答えとして覚えず、何が変わり、何がまだ説明できないのかを分けて捉える。';
+    var keyIdeas = unique([background, perspective].concat(context.keyIdeas || [])).slice(0, 5);
+    var knowledgeGifts = unique([background].concat(summaries.slice(1, 3), context.knowledgeGifts || [])).slice(0, 4);
+    var worlds = unique((context.worlds || []).concat(tags.map(function (tag) {
+      return '「' + tag + '」と現在の生活・判断とのつながり';
+    }))).slice(0, 6);
 
     return {
       id: 'part' + part + '-' + numberLabel,
-      series: pageSeries(part),
+      series: context.series || 'ManabiMap 第' + part + '部',
       episode: '第' + number + '話「' + title + '」',
+      theme: (context.theme ? context.theme + '／' : '') + title,
       centralQuestion: centralQuestion,
-      centralIdea: centralIdea,
-      background: background,
+      importantIdeas: keyIdeas,
+      knowledgeGifts: knowledgeGifts,
       perspective: perspective,
       cautions: [
         '本文の説明を単一の原因や絶対的な結論にせず、証拠が示す範囲と、異論・例外・まだ分からない点を分ける。',
         '印象的な逸話や分かりやすい比喩を、そのまま事実の証明として扱わない。'
       ],
-      connections: connections,
+      worlds: worlds.length ? worlds : [
+        'この話と似た仕組みが、現在の生活のどこに現れるか',
+        '自分の経験を、この話の見方で捉え直すと何が変わるか'
+      ],
       sources: pageSources(),
-      opening: '最初の応答では結論を説明せず、「' + centralQuestion + '」につながる身近な場面を一つだけ示してください。その場面で何が起きると思うか、短い予想を一つ尋ねるところから始めてください。',
-      explanationOpening: '最初の応答では私に質問せず、「' + title + '」を、専門知識がなくても情景と仕組みがつながるように解説してください。まず身近な場面から入り、なぜそれが「' + centralQuestion + '」につながるのかを順序立てて示してください。'
+      opening: '最初は結論を説明せず、「' + centralQuestion + '」につながる身近な場面を一つだけ示してください。その場面について、私はどう思うか、なぜそう思うか、似た経験があるか、何が気になるかのうち、最も自然な一つだけを尋ねてください。',
+      giftOpening: '最初は長く説明せず、「' + title + '」に関係する意外な事実や身近な例を一つだけ、2〜3文で示してください。その事実を知って私はどう見方が変わりそうか、自然な問いを一つだけ尋ねてください。'
     };
   }
 
@@ -140,108 +294,112 @@
 
   function sourceLines(items) {
     if (!items || !items.length) {
-      return '・このページの本文を出発点とし、追加の事実は信頼できる資料で確かめてください。';
+      return '・このページの本文を出発点とし、追加の事実は信頼できる資料で確かめる。';
     }
     return items.map(function (item) {
       return '・' + item.label + '\n  ' + item.url;
     }).join('\n');
   }
 
+  function normalizeGuide(guide, inferred) {
+    return {
+      id: guide.id || inferred.id,
+      series: guide.series || inferred.series,
+      episode: guide.episode || inferred.episode,
+      theme: guide.theme || inferred.theme,
+      centralQuestion: guide.centralQuestion || inferred.centralQuestion,
+      importantIdeas: guide.importantIdeas || unique([guide.centralIdea, guide.background, guide.perspective].concat(inferred.importantIdeas || [])).slice(0, 5),
+      knowledgeGifts: guide.knowledgeGifts || unique([guide.background].concat(inferred.knowledgeGifts || [])).slice(0, 4),
+      perspective: guide.perspective || inferred.perspective,
+      cautions: guide.cautions || inferred.cautions,
+      worlds: guide.worlds || guide.connections || inferred.worlds,
+      sources: guide.sources || inferred.sources,
+      opening: guide.opening || inferred.opening,
+      giftOpening: guide.giftOpening || inferred.giftOpening
+    };
+  }
+
   var modes = {
-    dialogue: {
-      label: '対話で問いを広げる',
-      shortLabel: '対話モード',
-      description: '身近な予想から始め、まだ知らない一点を少しずつ開きます。',
-      success: 'お使いのAIに貼り付けると、問いを広げる対話から始まります。'
+    current: {
+      label: '自分の見方から始める',
+      shortLabel: '現在地から始める文章',
+      description: 'まず一つだけ尋ね、あなたの経験と新しい知識をつなぎます。',
+      success: 'お使いのAIに貼り付けると、あなたの今の見方から対話が始まります。'
     },
-    explanation: {
-      label: 'じっくり解説を聞く',
-      shortLabel: '解説モード',
-      description: '背景、仕組み、研究、現代との接点を順序立てて聞きます。',
-      success: 'お使いのAIに貼り付けると、背景から順にじっくりした解説が始まります。'
+    gift: {
+      label: '意外な事実から始める',
+      shortLabel: '知識から始める文章',
+      description: '短い「知識の贈り物」を入口に、見方を少し揺さぶります。',
+      success: 'お使いのAIに貼り付けると、短い知識の贈り物から対話が始まります。'
     }
   };
 
   function commonPrompt(guide) {
     return [
-      'これから、' + guide.series + 'の',
-      guide.episode + 'を一緒に深めてください。',
+      'あなたは、ManabiMapの「知的探究パートナー」です。',
       '',
-      '【この話の中心にある問い】',
+      '【理念】',
+      '正解を早く渡すことより、私自身の考えと新しい知識が出会い、世界の見え方が少し広がり、次の問いが生まれることを大切にしてください。',
+      '',
+      '【今回のコンテンツ】',
+      'シリーズ：' + guide.series,
+      'エピソード：' + guide.episode,
+      '',
+      'テーマ：',
+      guide.theme,
+      '',
+      'ManabiMapで扱った中心的な問い：',
       guide.centralQuestion,
       '',
-      '【この話で捉えたいこと】',
-      guide.centralIdea,
+      'このコンテンツで伝えたい重要な考え：',
+      lines(guide.importantIdeas),
       '',
-      '【背景】',
-      guide.background,
+      '対話中に使える事実・研究・人物・エピソード：',
+      lines(guide.knowledgeGifts),
       '',
-      '【この話からの見方】',
-      guide.perspective,
+      'このテーマから広げられる世界：',
+      lines(guide.worlds),
       '',
-      '【誤解しやすい点】',
+      '単純化しないための注意：',
       lines(guide.cautions),
       '',
-      '【身近な生活との接点】',
-      lines(guide.connections),
-      '',
-      '【この部の参考資料（この話に関係するものだけ参照）】',
+      'この部の参考資料（関係するものだけ参照）：',
       sourceLines(guide.sources),
       '',
-      '【説明の共通条件】',
-      '・専門知識を前提にせず、難しい言葉はその場で日常的な表現に言い換えてください。',
-      '・子ども扱いする表現や、私の理解度を決めつける言い方は避けてください。',
-      '・史実や研究で確認されていること、解釈、この話から考えられることを区別してください。',
-      '・参考資料を確認できない場合は、確認できたように装わないでください。'
+      '【7つの行動原則】',
+      '1. まず現在地を知る。長い解説から始めず、必要に応じて、私がどう思うか、なぜそう思うか、どんな経験があるか、何が気になるかのうち一つだけ尋ねる。',
+      '2. 質問だけで進めない。私が考えた後には、新しい知識や事実を短く渡し、「考える → 知る → また考える」のリズムをつくる。',
+      '3. 知識の贈り物を入れる。研究、歴史、人物、逸話、思考実験、身近な例から、その時の対話に合うものを一つずつ紹介し、もっと知りたくなる余白を残す。',
+      '4. 少しだけ揺さぶる。何でも肯定せず、反例や別の証拠があるときは否定で閉じず、「こんな見方もあります」と新しい角度を加える。',
+      '5. 世界を横につなげる。歴史、科学、心理、哲学、社会、技術、日常、私の経験を自然につなぎ、面白い分岐では2〜3の具体的な道を示す。',
+      '6. 一度に進めすぎない。一回の発言で中心となる質問は原則一つ。質問の列や長い講義を避け、私の言葉を次の展開に使う。',
+      '7. 答えではなく次の問いで終える。一区切りでは見方の変化を確かめ、この対話から自然につながる次の扉を一つだけ示す。',
+      '',
+      '【対話の品質】',
+      '・専門知識を前提にせず、難しい言葉はその場で日常の表現に言い換える。',
+      '・私の理解度や価値観を決めつけず、子ども扱いする表現を避ける。',
+      '・史実や研究で確認されていること、解釈、推測を区別する。資料を確認できない場合は、確認したように装わない。',
+      '・同じ問いを言い換えて繰り返さず、私の返答に応じて知識、反例、つながりのどれを渡すか選ぶ。',
+      '・対話が一区切りしたら、必要に応じて「最初と比べて、このテーマの見え方はどう変わりましたか？」と一度だけ尋ね、その後に次の扉を一つ示す。'
     ];
   }
 
-  function dialoguePrompt(guide) {
+  function dialoguePrompt(guide, mode) {
+    var opening = mode === 'gift' ? guide.giftOpening : guide.opening;
     return commonPrompt(guide).concat([
       '',
-      '【選択した進め方】',
-      '対話で問いを広げるモード',
-      '',
-      '【好奇心を保つ対話の進め方】',
-      '・一度に情報を詰め込まず、一回の応答は一つの発見に絞ってください。',
-      '1. 既に知っている身近な経験から始め、まだ説明できていない部分を一つだけ見えるようにしてください。最初から答えや用語を並べないでください。',
-      '2. 新しい説明を渡す前に、短い予想を一つ尋ねてください。正誤を採点せず、予想の中にある筋のよい部分と、まだ空いている部分を言葉にしてください。',
-      '3. 空いている部分を埋める情報は一度に全部渡さず、「少し意外な事実」「仕組み」「この話の概念」の順に開いてください。',
-      '4. 説明した後、ときどき「いまの話を自分の言葉にするとどうなりますか」と尋ねてください。ただし毎回は行わず、試験のような雰囲気にしないでください。',
-      '5. 理解が進んだら、同じ考え方が通用しそうな別の身近な例を一つ出し、結果を予想してもらってください。',
-      '6. 各応答の終わりには、続きを選べる二つの具体的な入口を短く示してください。例：「仕組みをもう一段掘る」「AIの回答との関係を見る」。漠然と「何を知りたいですか」とは尋ねないでください。',
-      '7. 一度の応答で尋ねることは原則一つにしてください。質問を重ねすぎず、私の返答を次の説明の材料にしてください。',
-      '8. 私が答えに詰まったときは、正解を急いで渡さず、考えるための小さな手がかりを一つだけ示してください。',
-      '9. 驚かせるために事実を誇張しないでください。好奇心は、未解決の一点を正確に見せることで生み出してください。',
+      '【今回の始め方】',
+      mode === 'gift' ? '短い知識の贈り物から始める。' : '私の現在の見方から始める。',
       '',
       '【最初の応答】',
-      guide.opening
-    ]);
-  }
-
-  function explanationPrompt(guide) {
-    return commonPrompt(guide).concat([
+      opening,
       '',
-      '【選択した進め方】',
-      'じっくり解説を聞くモード',
-      '',
-      '【解説の進め方】',
-      '1. 最初の応答では私に質問せず、最初から最後まで流れのある解説を届けてください。',
-      '2. 「身近な場面」「起きている仕組み」「研究や史実から分かること」「誤解しやすい点」「現在との接点」の順に進めてください。',
-      '3. 最初に結論を箇条書きで並べず、一つの疑問が次の説明を呼ぶ読みものとして構成してください。',
-      '4. 専門用語を使うときは、先に日常的な例を示し、そのあと名称を紹介してください。',
-      '5. 一つの研究や逸話だけで一般化せず、分かっている範囲と、まだ議論がある部分を分けてください。',
-      '6. 初回の解説は900〜1400字程度を目安にし、短い見出しを使って読みやすくしてください。',
-      '7. 解説の最後に要点を三つだけまとめ、その後で「背景をもう一段掘る」「日常との接点を見る」「AI時代との関係を考える」の三つから次の進み方を選べるようにしてください。',
-      '8. 私が次の進み方を選んだ後は、その一つだけを丁寧に深めてください。',
-      '',
-      '【最初の応答】',
-      guide.explanationOpening
+      '以上を踏まえ、このテーマについて考えたくなる自然な一つの問いから対話を始めてください。'
     ]);
   }
 
   function buildPrompt(guide, mode) {
-    return (mode === 'explanation' ? explanationPrompt(guide) : dialoguePrompt(guide)).join('\n');
+    return dialoguePrompt(guide, mode).join('\n');
   }
 
   function copyText(text) {
@@ -274,14 +432,14 @@
 
     var inferred = inferGuide(target, index);
     var guideId = target.dataset.aiGuide || inferred.id;
-    var guide = registeredGuides[guideId] || inferred;
+    var guide = normalizeGuide(registeredGuides[guideId] || {}, inferred);
     var content = target.classList.contains('episode-row') ? target.children[1] : target;
 
     if (!content) return;
     target.dataset.aiGuide = guideId;
     target.classList.add('episode-ai-ready');
 
-    var activeMode = 'dialogue';
+    var activeMode = 'current';
     var prompt = buildPrompt(guide, activeMode);
     var panel = document.createElement('section');
     panel.className = 'episode-ai';
@@ -291,13 +449,13 @@
     heading.className = 'episode-ai__heading';
     heading.innerHTML =
       '<div><span class="episode-ai__label">CONTINUE WITH AI</span>' +
-      '<h4>この話を、AIと深める</h4>' +
-      '<p>最初に、AIとの進め方を選んでください。</p></div>';
+      '<h4>この話を、AIと考え続ける</h4>' +
+      '<p>正解を急がず、あなたの見方と新しい知識を往復する対話です。</p></div>';
 
     var modePicker = document.createElement('div');
     modePicker.className = 'episode-ai__modes';
     modePicker.setAttribute('role', 'group');
-    modePicker.setAttribute('aria-label', 'AIとの進め方');
+    modePicker.setAttribute('aria-label', '対話の始め方');
 
     var modeButtons = Object.keys(modes).map(function (modeId) {
       var mode = modes[modeId];
@@ -317,7 +475,6 @@
     var copy = document.createElement('button');
     copy.className = 'episode-ai__copy';
     copy.type = 'button';
-    copy.textContent = 'AIへ渡す文章をコピー';
 
     var status = document.createElement('p');
     status.className = 'episode-ai__status';
@@ -326,7 +483,7 @@
     var preview = document.createElement('details');
     preview.className = 'episode-ai__preview';
     var summary = document.createElement('summary');
-    summary.textContent = 'AIへ渡す内容を見る';
+    summary.textContent = 'AIへ渡す対話プロンプトを見る';
     var pre = document.createElement('pre');
     pre.textContent = prompt;
     preview.append(summary, pre);
@@ -335,7 +492,7 @@
       activeMode = modeId;
       prompt = buildPrompt(guide, activeMode);
       pre.textContent = prompt;
-      copy.textContent = modes[activeMode].shortLabel + 'の文章をコピー';
+      copy.textContent = modes[activeMode].shortLabel + 'をコピー';
       status.textContent = '';
       modeButtons.forEach(function (button) {
         button.setAttribute('aria-pressed', String(button.dataset.aiMode === activeMode));
@@ -359,7 +516,7 @@
         }, 1800);
       }).catch(function () {
         copy.disabled = false;
-        status.textContent = 'コピーできませんでした。「AIへ渡す内容を見る」から文章を選択してください。';
+        status.textContent = 'コピーできませんでした。「AIへ渡す対話プロンプトを見る」から文章を選択してください。';
         preview.open = true;
       });
     });
