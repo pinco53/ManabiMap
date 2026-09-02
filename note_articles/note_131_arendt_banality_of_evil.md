@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part15
 **関連PodcastID**: podcast-part15-5
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=5pda9vi1sdw
 **関連YouTubeID**: youtube-part15
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=5pda9vi1sdw
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -25,7 +25,7 @@
 
 この言葉が、言い訳にならない場合があるとしたら。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=5pda9vi1sdw
 
 ---
 
@@ -112,7 +112,7 @@ AIが答えを出してくれる時代、
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第15部第5話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第15部第5話](https://www.youtube.com/watch?v=5pda9vi1sdw)**
 
 → **[ハルとおじいさん 第15部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part15.html)**
 
