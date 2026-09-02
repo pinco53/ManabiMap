@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part15
 **関連PodcastID**: podcast-part15-6
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=5e7JhRMrdI4
 **関連YouTubeID**: youtube-part15
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=5e7JhRMrdI4
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -25,7 +25,7 @@
 どちらかが間違っているのでしょうか。
 それとも——。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=5e7JhRMrdI4
 
 ---
 
@@ -133,7 +133,7 @@ AIが「当たり前」だとしていることは、
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第15部第6話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第15部第6話](https://www.youtube.com/watch?v=5e7JhRMrdI4)**
 
 → **[ハルとおじいさん 第15部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part15.html)**
 
