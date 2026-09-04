@@ -7,7 +7,7 @@
 **公開状態**: published
 **主対象パート**: part15
 **関連PodcastID**: podcast-part15-7
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=Mnisqn5rRHA
 **関連YouTubeID**: youtube-part15
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -26,7 +26,7 @@
 
 ——本当にわかったのでしょうか。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=Mnisqn5rRHA
 
 ---
 
@@ -115,7 +115,7 @@ AIに答えてもらった後、「なぜ？」と聞いたことはあるでし
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第15部第7話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第15部第7話](https://www.youtube.com/watch?v=Mnisqn5rRHA)**
 
 → **[ハルとおじいさん 第15部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part15.html)**
 

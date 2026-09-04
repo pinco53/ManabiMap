@@ -7,7 +7,7 @@
 **公開状態**: published
 **主対象パート**: part15
 **関連PodcastID**: podcast-part15-8
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=mj5OSVWV2ik
 **関連YouTubeID**: youtube-part15
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -25,7 +25,7 @@
 それが自然な人間の反応ですが——
 その先に、気づかないものがある、としたら。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=mj5OSVWV2ik
 
 ---
 
@@ -110,7 +110,7 @@ AIがすぐ答えを出す時代に、
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第15部第8話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第15部第8話](https://www.youtube.com/watch?v=mj5OSVWV2ik)**
 
 → **[ハルとおじいさん 第15部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part15.html)**
 
