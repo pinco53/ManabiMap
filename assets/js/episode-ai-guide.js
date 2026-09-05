@@ -322,13 +322,13 @@
   var modes = {
     current: {
       label: '身近な場面から始める',
-      shortLabel: '身近な場面から始める文章',
+      shortLabel: '身近な場面から始める対話文',
       description: '短い場面を共有し、返答を急がせずに理解の足場を作ります。',
       success: 'お使いのAIに貼り付けると、身近な場面から無理のない対話が始まります。'
     },
     gift: {
       label: '意外な事実から始める',
-      shortLabel: '知識から始める文章',
+      shortLabel: '知識から始める対話文',
       description: '短い「知識の贈り物」を入口に、見方を少し揺さぶります。',
       success: 'お使いのAIに貼り付けると、短い知識の贈り物から対話が始まります。'
     }
@@ -479,8 +479,8 @@
     heading.className = 'episode-ai__heading';
     heading.innerHTML =
       '<div><span class="episode-ai__label">CONTINUE WITH AI</span>' +
-      '<h4>この話を、AIチューターと深める</h4>' +
-      '<p>質問を急がず、知識を受け取りながら数回のラリーで理解を深めます。</p></div>';
+      '<h4>このテーマから、AIとの対話を始める</h4>' +
+      '<p>始め方を選んで対話文をコピーし、普段使っているAIへ貼り付けてください。短い返事や「まだわからない」から始めても大丈夫です。</p></div>';
 
     var modePicker = document.createElement('div');
     modePicker.className = 'episode-ai__modes';
@@ -530,7 +530,7 @@
       copy.disabled = true;
       copyText(prompt).then(function () {
         copy.textContent = 'コピーしました';
-        status.textContent = modes[activeMode].success;
+        status.textContent = 'コピーしました。普段使っているAIを開いて貼り付けてください。' + modes[activeMode].success;
         window.setTimeout(function () {
           copy.disabled = false;
           copy.textContent = modes[activeMode].shortLabel + 'をもう一度コピー';

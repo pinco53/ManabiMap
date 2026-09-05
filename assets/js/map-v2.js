@@ -54,6 +54,26 @@
         ['part12', '対話へ広げる'],
         ['part9', '身体から見る']
       ]
+    },
+    cooperation: {
+      title: 'なぜ人類は、見知らぬ他人とも協力できるようになったのか。',
+      copy: '贈与、貨幣、分業、供給網、AIから、協働を支える仕組みを見直します。',
+      routes: [
+        ['part17', '中心に近い旅'],
+        ['part6', '交換の尺度へ'],
+        ['part2', '接続の仕組みへ'],
+        ['part12', '対話と学びへ']
+      ]
+    },
+    reality: {
+      title: '私たちが見ている「現実」は、世界そのものなのか。',
+      copy: '注意、記憶、同調、判断、AIから、現実が編集される仕組みを見直します。',
+      routes: [
+        ['part18', '中心に近い旅'],
+        ['part15', '確信を見直す'],
+        ['part14', '証拠から更新する'],
+        ['part3', 'AIから見る']
+      ]
     }
   };
 
@@ -139,7 +159,6 @@
     });
   }
 
-  var search = document.querySelector('[data-map-search]');
   var groupSelect = document.querySelector('[data-map-group]');
   var grid = document.querySelector('[data-journey-grid]');
   var count = document.querySelector('[data-map-count]');
@@ -159,31 +178,24 @@
   });
 
   grid.innerHTML = mapData.parts.map(function (part) {
-    var searchText = [part.title, part.subtitle, part.group, part.era].concat(part.tags || []).concat(part.questions || []).join(' ');
-    return '<article class="journey-card" data-journey-card data-group="' + escapeHtml(part.group) + '" data-search="' + escapeHtml(searchText) + '">' +
+    return '<article class="journey-card" data-journey-card data-group="' + escapeHtml(part.group) + '">' +
       '<div class="journey-card__meta"><span>第' + escapeHtml(part.number) + '部</span><span>' + escapeHtml(part.group) + '</span></div>' +
       '<h3><a href="' + escapeHtml(part.pageUrl) + '">' + escapeHtml(part.title) + '</a></h3>' +
       '<p>' + escapeHtml(part.subtitle) + '</p>' +
       '<div class="journey-card__question">' + escapeHtml((part.questions || [])[0]) + '</div>' +
-      '<a class="text-link" href="' + escapeHtml(part.pageUrl) + '">この旅へ <span aria-hidden="true">→</span></a>' +
+      '<a class="text-link" href="' + escapeHtml(part.pageUrl) + '">対話テーマを見る <span aria-hidden="true">→</span></a>' +
       '</article>';
   }).join('');
 
   var journeyCards = Array.from(document.querySelectorAll('[data-journey-card]'));
 
-  function normalize(value) {
-    return String(value || '').toLowerCase().replace(/\s+/g, '');
-  }
-
   function updateList() {
-    var query = normalize(search.value);
     var group = groupSelect.value;
     var visible = 0;
 
     journeyCards.forEach(function (card) {
       var groupMatches = group === 'all' || card.dataset.group === group;
-      var searchMatches = !query || normalize(card.dataset.search + ' ' + card.textContent).includes(query);
-      var show = groupMatches && searchMatches;
+      var show = groupMatches;
       card.hidden = !show;
       if (show) visible += 1;
     });
@@ -191,13 +203,11 @@
     empty.hidden = visible !== 0;
   }
 
-  search.addEventListener('input', updateList);
   groupSelect.addEventListener('change', updateList);
   reset.addEventListener('click', function () {
-    search.value = '';
     groupSelect.value = 'all';
     updateList();
-    search.focus();
+    groupSelect.focus();
   });
 
   renderMap(window.location.hash.slice(1), false);

@@ -1,9 +1,8 @@
 (function () {
   'use strict';
 
-  var search = document.querySelector('[data-library-search]');
   var theme = document.querySelector('[data-theme-filter]');
-  var buttons = Array.from(document.querySelectorAll('[data-format]'));
+  var buttons = Array.from(document.querySelectorAll('[data-format-filters] [data-format]'));
   var items = Array.from(document.querySelectorAll('[data-library-item]'));
   var count = document.querySelector('[data-result-count]');
   var empty = document.querySelector('[data-library-empty]');
@@ -13,7 +12,7 @@
   var requestedFormat = params.get('format');
   var availableFormats = buttons.map(function (button) { return button.dataset.format; });
 
-  if (!search || !theme || !items.length) return;
+  if (!theme || !items.length) return;
 
   if (requestedFormat && availableFormats.includes(requestedFormat)) {
     activeFormat = requestedFormat;
@@ -22,12 +21,7 @@
     });
   }
 
-  function normalize(value) {
-    return value.toLowerCase().replace(/\s+/g, '');
-  }
-
   function update() {
-    var query = normalize(search.value);
     var activeTheme = theme.value;
     var visible = 0;
 
@@ -35,8 +29,7 @@
       var formatMatches = activeFormat === 'all' || item.dataset.format === activeFormat;
       var itemThemes = (item.dataset.themes || '').split(' ');
       var themeMatches = activeTheme === 'all' || itemThemes.includes(activeTheme);
-      var searchMatches = !query || normalize(item.dataset.search + ' ' + item.textContent).includes(query);
-      var show = formatMatches && themeMatches && searchMatches;
+      var show = formatMatches && themeMatches;
 
       item.hidden = !show;
       if (show) visible += 1;
@@ -56,19 +49,17 @@
     });
   });
 
-  search.addEventListener('input', update);
   theme.addEventListener('change', update);
 
   if (reset) {
     reset.addEventListener('click', function () {
       activeFormat = 'all';
-      search.value = '';
       theme.value = 'all';
       buttons.forEach(function (button) {
         button.setAttribute('aria-pressed', String(button.dataset.format === 'all'));
       });
       update();
-      search.focus();
+      theme.focus();
     });
   }
 
