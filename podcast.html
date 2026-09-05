@@ -91,8 +91,23 @@ a { color: inherit; text-decoration: none; }
 .hero {
   position: relative;
   max-width: 1120px;
+  min-height: 330px;
   margin: 0 auto;
   padding: 58px 24px 28px;
+  overflow: visible;
+}
+.hero::before {
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(8,8,13,.94) 0%, rgba(12,15,27,.82) 54%, rgba(12,15,27,.62) 100%),
+    url("assets/nature/sunset-sea-v1.webp") center 48% / cover no-repeat;
+  border-bottom: 1px solid rgba(255,184,107,.14);
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 .hero-label {
   font-family: var(--font-display);
