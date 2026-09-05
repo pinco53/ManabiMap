@@ -26,6 +26,13 @@
     return part ? '第' + part.number + '部 ' + part.title : 'そのほか';
   }
 
+  function groupLabelFor(id) {
+    var part = partFor(id);
+    if (!part) return '<span class="note-part-group__title">そのほか</span>';
+    return '<span class="note-part-group__number">' + escapeHtml(part.number) + '</span>' +
+      '<span class="note-part-group__title">' + escapeHtml(part.title) + '</span>';
+  }
+
   function formatDate(value) {
     if (!value) return '';
     return value.replace(/-/g, '.');
@@ -72,7 +79,7 @@
   groupsRoot.innerHTML = orderedIds.map(function (id) {
     var items = grouped[id];
     return '<details class="note-part-group" data-note-part="' + escapeHtml(id) + '">' +
-      '<summary><span>' + escapeHtml(labelFor(id)) + '</span><small>' + items.length + '本</small><em>開く</em></summary>' +
+      '<summary><span class="note-part-group__label">' + groupLabelFor(id) + '</span><small>' + items.length + '本</small><em>開く</em></summary>' +
       '<div class="note-part-group__list" data-note-part-list></div>' +
     '</details>';
   }).join('');
