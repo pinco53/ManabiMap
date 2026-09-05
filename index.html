@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&family=Zen+Old+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/brand-v2.css?v=20260905-1">
+  <link rel="stylesheet" href="assets/css/brand-v2.css?v=20260905-2">
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
@@ -96,10 +96,22 @@
           新しい知識と自分の経験をゆっくり結び直します。
         </p>
         <ul class="moment-list" aria-label="ManabiMapの基本的な使い方">
-          <li>気になる問いや、学びの地図からテーマを選ぶ</li>
-          <li>Podcastで聴く、またはnoteで読んで背景を知る</li>
-          <li>テーマ専用の文章をコピーし、AIとの対話を始める</li>
-          <li>生まれた問いから、次のテーマへ進む</li>
+          <li>
+            <span class="moment-list__text">気になる入口からテーマを選ぶ</span>
+            <span class="moment-list__links"><a href="questions.html">問いから選ぶ <span aria-hidden="true">→</span></a><a href="map.html">地図から選ぶ <span aria-hidden="true">→</span></a></span>
+          </li>
+          <li>
+            <span class="moment-list__text">Podcastで聴く、またはnoteで読んで背景を知る</span>
+            <span class="moment-list__links"><a href="podcast.html">聴く <span aria-hidden="true">→</span></a><a href="note.html">読む <span aria-hidden="true">→</span></a></span>
+          </li>
+          <li>
+            <span class="moment-list__text">テーマ専用の文章をコピーし、AIとの対話を始める</span>
+            <span class="moment-list__links"><a href="questions.html">対話テーマへ <span aria-hidden="true">→</span></a></span>
+          </li>
+          <li>
+            <span class="moment-list__text">生まれた問いから、次のテーマへ進む</span>
+            <span class="moment-list__links"><a href="map.html">次を探す <span aria-hidden="true">→</span></a></span>
+          </li>
         </ul>
       </div>
     </section>
@@ -166,28 +178,36 @@
     </section>
 
     <section class="map-preview section" id="map" aria-labelledby="map-title">
-      <div class="section__inner map-preview__layout">
-        <div class="map-preview__copy">
-          <p class="section-label section-label--light">LEARNING MAP</p>
-          <h2 id="map-title">学びの地図で、問いの現在地を見る。</h2>
-          <p>
-            産業、デジタル、AI、言葉、数、身体、学び、科学、エネルギー、協働、認知。
-            テーマが増えるたびに地図も育ち、人類が世界を理解してきた流れと、いま考えたい問いをつないでいます。
-          </p>
-          <div class="map-preview__actions">
-            <a class="button button--light-filled" href="evolution.html">138億年の年表を見る</a>
-            <a class="button button--light" href="map.html">学びの地図を見る</a>
-          </div>
-        </div>
-        <div class="journey-map" aria-label="人類史からAI対話へつながる学びの地図">
-          <div class="journey-map__head"><span>KNOWLEDGE JOURNEY</span><strong>知識を重ね、問いへ近づく</strong></div>
-          <div class="journey-map__route">
-            <a class="journey-map__stop" href="evolution.html"><span class="journey-map__index">01</span><span><small>ORIGIN</small><strong>人類の歩み</strong><em>宇宙・生命・文明</em></span></a>
-            <a class="journey-map__stop" href="map.html#all-journeys"><span class="journey-map__index">02</span><span><small>WORLD</small><strong>道具と社会</strong><em>技術・言葉・交換</em></span></a>
-            <a class="journey-map__stop" href="parts/part9.html"><span class="journey-map__index">03</span><span><small>HUMAN</small><strong>人間の内側</strong><em>身体・感性・学び・認知</em></span></a>
-            <a class="journey-map__stop journey-map__stop--current" href="questions.html"><span class="journey-map__index">04</span><span><small>NOW</small><strong>AIと考える</strong><em>知ったことを、自分の問いへ</em></span></a>
-          </div>
-          <p class="journey-map__note">地図は、新しいテーマとともに広がり続けます。</p>
+      <div class="section__inner">
+        <header class="map-preview__heading">
+          <p class="section-label section-label--light">TIME &amp; KNOWLEDGE</p>
+          <h2 id="map-title">138億年の流れから、<br>いま考えたいテーマへ。</h2>
+          <p>時間をたどるか、関心のある世界から入るか。二つの入口から、知識と自分の問いをつなげます。</p>
+        </header>
+
+        <div class="knowledge-entrances">
+          <a class="timeline-preview" href="evolution.html" aria-label="138億年の年表を詳しく見る">
+            <span class="entrance-card__head"><span><small>HISTORY OF EVERYTHING</small><strong>138億年の年表</strong></span><em>詳しく見る <span aria-hidden="true">→</span></em></span>
+            <span class="timeline-preview__rail" aria-hidden="true">
+              <span class="timeline-preview__event"><i></i><small>138億年前</small><strong>宇宙</strong></span>
+              <span class="timeline-preview__event"><i></i><small>46億年前</small><strong>地球</strong></span>
+              <span class="timeline-preview__event"><i></i><small>約700万年前</small><strong>人類の系統</strong></span>
+              <span class="timeline-preview__event"><i></i><small>約1万年前</small><strong>定住と農耕</strong></span>
+              <span class="timeline-preview__event timeline-preview__event--now"><i></i><small>現在</small><strong>AIと生きる</strong></span>
+            </span>
+            <span class="timeline-preview__note">宇宙、生命、人類、文明、科学。離れて見える出来事を一本の時間軸でたどります。<small>※時間の間隔は概略です</small></span>
+          </a>
+
+          <a class="atlas-preview" href="map.html" aria-label="学びの地図にあるテーマを見る">
+            <span class="entrance-card__head"><span><small>LEARNING ATLAS</small><strong>学びの地図</strong></span><em>すべて見る <span aria-hidden="true">→</span></em></span>
+            <span class="atlas-preview__topics" aria-hidden="true">
+              <span><small>01</small><strong>世界を動かす</strong><em>産業・デジタル・エネルギー</em></span>
+              <span><small>02</small><strong>意味をつくる</strong><em>言葉・数・知識</em></span>
+              <span><small>03</small><strong>人を知る</strong><em>身体・感性・学び</em></span>
+              <span><small>04</small><strong>ともに考える</strong><em>協働・認知・AI</em></span>
+            </span>
+            <span class="atlas-preview__note">新しい部やテーマが加わるたびに、この地図も広がっていきます。</span>
+          </a>
         </div>
       </div>
     </section>
