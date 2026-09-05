@@ -476,6 +476,9 @@ function cardHtml(note) {
 function updateNoteHtml(notes) {
   let html = read(noteHtmlPath);
   const publishedNotes = notes.filter((note) => note.url);
+  if (html.includes('data-note-latest') && html.includes('data-note-groups')) {
+    return;
+  }
   html = html.replace(/<div class="hero-count">\d+ articles<\/div>/, '<div class="hero-count">' + publishedNotes.length + ' articles</div>');
   html = html.replace(/<span id="note-filter-count">\d+ articles<\/span>/, '<span id="note-filter-count">' + publishedNotes.length + ' articles</span>');
 

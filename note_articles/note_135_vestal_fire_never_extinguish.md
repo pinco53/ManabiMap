@@ -7,7 +7,7 @@
 **公開状態**: published
 **主対象パート**: part16
 **関連PodcastID**: podcast-part16-1
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=PpLxNnz76QE
 **関連YouTubeID**: youtube-part16
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -28,7 +28,7 @@
 
 「この明かりが、消えたらどうなるんだろう」
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=PpLxNnz76QE
 
 ---
 
@@ -101,7 +101,7 @@ AIの学習は、何日も、何週間も止められないまま続きます。
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第1話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第1話](https://www.youtube.com/watch?v=PpLxNnz76QE)**
 
 → **[ハルとおじいさん 第16部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part16.html)**
 
