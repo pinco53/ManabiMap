@@ -216,15 +216,12 @@ h3 {
   position: absolute;
   inset: 0;
   content: "";
-  background:
-    linear-gradient(90deg, rgba(255, 250, 244, .93) 0%, rgba(255, 250, 244, .74) 42%, rgba(255, 250, 244, .22) 78%),
-    linear-gradient(0deg, rgba(255, 250, 244, .22), transparent 42%);
+  background: linear-gradient(90deg, rgba(255, 250, 244, .42) 0%, rgba(255, 250, 244, .05) 45%, transparent 70%);
 }
 
 .hero__media img {
   width: 100%;
   height: 100%;
-  filter: saturate(.76) contrast(.92) brightness(1.05);
   object-fit: cover;
   object-position: center;
 }
