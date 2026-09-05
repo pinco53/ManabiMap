@@ -510,18 +510,9 @@
     status.className = 'episode-ai__status';
     status.setAttribute('aria-live', 'polite');
 
-    var preview = document.createElement('details');
-    preview.className = 'episode-ai__preview';
-    var summary = document.createElement('summary');
-    summary.textContent = 'AIへ渡す対話プロンプトを見る';
-    var pre = document.createElement('pre');
-    pre.textContent = prompt;
-    preview.append(summary, pre);
-
     function renderMode(modeId) {
       activeMode = modeId;
       prompt = buildPrompt(guide, activeMode);
-      pre.textContent = prompt;
       copy.textContent = modes[activeMode].shortLabel + 'をコピー';
       status.textContent = '';
       modeButtons.forEach(function (button) {
@@ -546,13 +537,12 @@
         }, 1800);
       }).catch(function () {
         copy.disabled = false;
-        status.textContent = 'コピーできませんでした。「AIへ渡す対話プロンプトを見る」から文章を選択してください。';
-        preview.open = true;
+        status.textContent = 'コピーできませんでした。ブラウザのコピー許可を確認して、もう一度お試しください。';
       });
     });
 
     actions.append(copy, status);
-    panel.append(heading, modePicker, actions, preview);
+    panel.append(heading, modePicker, actions);
     renderMode(activeMode);
     content.appendChild(panel);
   });

@@ -129,34 +129,6 @@
   line-height: 1.7;
 }
 
-.episode-ai__preview {
-  margin-top: 14px;
-  border-top: 1px solid color-mix(in srgb, var(--accent, #8d79ad), #ffffff 76%);
-  padding-top: 12px;
-}
-
-.episode-ai__preview summary {
-  width: fit-content;
-  color: var(--accent, #735f96);
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.episode-ai__preview pre {
-  max-height: 420px;
-  margin: 12px 0 0;
-  overflow: auto;
-  padding: 16px;
-  border-radius: 8px;
-  color: #30364a;
-  background: rgba(255, 255, 255, .82);
-  font-family: var(--font-sans, "Noto Sans JP", sans-serif);
-  font-size: 11px;
-  line-height: 1.85;
-  white-space: pre-wrap;
-}
-
 @media (max-width: 720px) {
   .episode-ai {
     padding: 17px;
