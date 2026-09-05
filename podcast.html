@@ -1132,7 +1132,16 @@ body.modal-open {
       part7: '前提を外す',
       part8: '生成AI',
       'part8-2': 'AIと日常',
-      part9: '身体と進化'
+      part9: '身体と進化',
+      part10: '感性と意味',
+      part11: '学びの始まり',
+      part12: '対話と学習',
+      part13: '学びと環境',
+      part14: '見方の更新',
+      part15: 'わかったつもり',
+      part16: 'エネルギーと自由',
+      part17: '交換と協働',
+      part18: '判断と現実'
     };
     return labels[partId] || 'Podcast';
   }
@@ -1206,7 +1215,7 @@ body.modal-open {
   }
 
   function renderFilters() {
-    const topicOrder = ['AI源流', '生成AI', 'AIと日常', '知識と記録', '言葉と思考', '数字と社会', '身体と進化', 'AIと人間', 'つながり', '機械と時間'];
+    const topicOrder = ['AI源流', '生成AI', 'AIと日常', '知識と記録', '言葉と思考', '数字と社会', '身体と進化', '感性と意味', '学びの始まり', '対話と学習', '学びと環境', '見方の更新', 'わかったつもり', 'エネルギーと自由', '交換と協働', '判断と現実', 'AIと人間', 'つながり', '機械と時間'];
     const partIds = podcastPartIds().sort(function(a, b) {
       const ai = topicOrder.indexOf(a);
       const bi = topicOrder.indexOf(b);
