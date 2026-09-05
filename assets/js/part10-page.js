@@ -170,7 +170,7 @@
   }) : [];
   const notesHtml = noteItems.length ? '<div class="argument-heading">関連するnote</div><div class="note-list">' + noteItems.slice(0, 10).map(function (note) {
     return '<a class="note-link" href="' + esc(note.url) + '" target="_blank" rel="noopener"><span>NOTE #' + String(note.number).padStart(2, '0') + '</span>' + esc(note.title) + '</a>';
-  }).join('') + '<a class="note-link" href="../library.html?format=read"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
+  }).join('') + '<a class="note-link" href="../note.html"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
 
   const referencesHtml = references.map(function (reference) {
     return '<a class="reference-link" href="' + esc(reference[1]) + '" target="_blank" rel="noopener"><span>REFERENCE</span>' + esc(reference[0]) + '</a>';
@@ -180,7 +180,7 @@
     '<div class="cover"><div class="cover-series">ハルとおじいさんの物語 ── 学びの地図</div><div class="cover-colorname">撫子<small>なでしこ</small></div>' +
       '<h1 class="cover-title">第10部<br>感性という深層</h1><div class="cover-subtitle">意味はどこから生まれるのか</div>' +
       '<div class="cover-chapter">第1話〜第15話｜全3章</div><div class="cover-tagline"><em>「感性は、世界との関係を結び直すたびに更新される。」</em></div>' +
-      '<div class="cover-divider"></div><div class="cover-note">第10部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../library.html?format=listen">Podcast一覧へ</a><a class="cover-action" href="../library.html?format=read">note記事へ</a></div></div>' +
+      '<div class="cover-divider"></div><div class="cover-note">第10部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part9.html">← 第9部</a><span>第10部 ｜ 感性という深層</span><a href="part11.html">第11部 →</a></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜ感性を深掘りするのか</div>' +
       '<div class="section-intro"><a href="part8.html">第8部</a>は生成AIの「思考」を、<a href="part9.html">第9部</a>は人間の「身体」を扱った。第10部は、その身体が世界に意味と価値を与える働き――感性へ進む。</div>' +
@@ -198,6 +198,6 @@
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
       '<div class="bridge-box"><div class="bridge-label">Bridge to Part 11</div><div class="bridge-text">感じる力は、教わる前から育ち始める。</div><div class="bridge-sub"><a href="part11.html">第11部「人はどう学び始めるのか」</a>では、泣く、まねる、指差す、遊ぶという学びの原型へ進む。</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">知ったことを、対話へつなぐ</div><div class="section-intro">第10部のテーマについて考え、Podcastとnoteで背景を広げるための入口。</div>' +
-      '<div class="resource-grid"><a class="resource-card" href="#theme-01"><div class="resource-label">AI DIALOGUE</div><div class="resource-title">AIと対話する</div><div class="resource-text">15のテーマからひとつ選び、自分の問いへ深める。</div></a><a class="resource-card" href="../library.html?format=listen"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第10部の15話を音声でたどる。</div></a><a class="resource-card" href="../library.html?format=read"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a></div>' + notesHtml +
+      '<div class="resource-grid"><a class="resource-card" href="#theme-01"><div class="resource-label">AI DIALOGUE</div><div class="resource-title">AIと対話する</div><div class="resource-text">15のテーマからひとつ選び、自分の問いへ深める。</div></a><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第10部の15話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';
 }());

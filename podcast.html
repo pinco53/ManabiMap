@@ -5,7 +5,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Manabi Map">
   <meta property="og:locale" content="ja_JP">
-  <meta property="og:title" content="Podcast | 学びの地図 ─ ハルとおじいさん">
+  <meta property="og:title" content="聴く｜Manabi Map">
   <meta property="og:description" content="世界を知り、AIとの対話で自分の問いへつなぐ。知らなかった世界が、見えてくる。">
   <meta property="og:url" content="https://pinco53.github.io/ManabiMap/podcast.html">
   <meta property="og:image" content="https://pinco53.github.io/ManabiMap/assets/social/og-manabimap-lens-20260801.jpg">
@@ -15,12 +15,12 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Manabi Map 知の重力レンズの共有画像">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Podcast | 学びの地図 ─ ハルとおじいさん">
+  <meta name="twitter:title" content="聴く｜Manabi Map">
   <meta name="twitter:description" content="世界を知り、AIとの対話で自分の問いへつなぐ。知らなかった世界が、見えてくる。">
   <meta name="twitter:image" content="https://pinco53.github.io/ManabiMap/assets/social/og-manabimap-lens-20260801.jpg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Podcast | 学びの地図 ─ ハルとおじいさん</title>
+<title>聴く｜Manabi Map</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700;900&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tokens.css">
@@ -873,78 +873,23 @@ body.modal-open {
 
 <header class="media-v2-header">
   <a class="media-v2-brand" href="index.html" aria-label="Manabi Map トップ"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="8"></circle><ellipse cx="28" cy="28" rx="23" ry="13"></ellipse><ellipse cx="28" cy="28" rx="13" ry="23" transform="rotate(34 28 28)"></ellipse><circle class="media-v2-brand__star" cx="49" cy="24" r="2.4"></circle></svg><span><strong>Manabi Map</strong><small>知の重力レンズ</small></span></a>
-  <nav aria-label="メインナビゲーション"><a href="questions.html">AIと対話する</a><a href="map.html">学びの地図</a><a href="library.html">読む・聴く</a><a href="start.html">はじめての方へ</a></nav>
+  <nav aria-label="メインナビゲーション"><a href="questions.html">AIと対話する</a><a href="map.html">学びの地図</a><a href="note.html">読む</a><a href="podcast.html" aria-current="page">聴く</a><a href="start.html">はじめての方へ</a></nav>
 </header>
 <nav class="media-v2-tabs" aria-label="媒体別ページ">
-  <a href="library.html">読む・聴く</a>
-  <a href="note.html">Note</a>
-  <a href="podcast.html" aria-current="page">Podcast</a>
+  <a href="note.html">読む</a>
+  <a href="podcast.html" aria-current="page">聴く</a>
 </nav>
 
 <section class="hero">
   <div class="hero-label">Podcast</div>
-  <h1 class="hero-title">Podcast</h1>
-  <p class="hub-epigraph">答えより先に、問いを聴く。</p>
+  <h1 class="hero-title">聴く。</h1>
+  <p class="hub-epigraph">テーマから、耳でたどる。</p>
   <p class="hero-desc">
     サムネとテーマから、聴きたい回を選べます。
   </p>
   <div class="hero-meta">
     <span class="hero-pill" id="podcast-count">0 episodes</span>
   </div>
-</section>
-
-<section class="route-choice" aria-label="PodcastからAI対話へ進む方法">
-  <div class="route-choice__grid">
-    <article class="route-choice__card route-choice__card--video">
-      <div class="route-choice__label">CHOOSE A THEME</div>
-      <h2 class="route-choice__title">問いから選ぶなら、AI対話の入口へ</h2>
-      <p class="route-choice__text">
-        編集された問いからテーマを選び、必要な背景を読んだあと、
-        テーマ専用の文章を使ってAIとの対話へ進めます。
-      </p>
-      <a
-        class="route-choice__action"
-        href="questions.html"
-        data-track-event="podcast_to_dialogue_click"
-        data-track-source="podcast"
-        data-track-content-id="route-choice-dialogue"
-        data-track-destination-type="dialogue_hub"
-        data-track-destination-id="questions"
-      >AI対話のテーマを選ぶ</a>
-    </article>
-    <article class="route-choice__card route-choice__card--podcast">
-      <div class="route-choice__label">LISTEN DEEPLY</div>
-      <h2 class="route-choice__title">背景まで知るなら、Podcast</h2>
-      <p class="route-choice__text">
-        すでに関心がある人、移動中に学びたい人、歴史の厚みごと整理したい人向けです。
-        長尺である代わりに、背景と構造を一気に辿れます。
-      </p>
-      <a class="route-choice__action" href="#podcast-list">Podcastを選ぶ</a>
-    </article>
-  </div>
-</section>
-
-<section class="learning-flow" aria-label="Podcastの使い方">
-  <div class="learning-flow__grid">
-    <div class="learning-flow__item">
-      <div class="learning-flow__label">LISTEN</div>
-      <h2 class="learning-flow__title">耳でたどる</h2>
-      <p class="learning-flow__text">散歩、移動、家事の時間に。各部の問いと歴史の流れを、背景ごとゆっくり追えます。</p>
-    </div>
-    <div class="learning-flow__item">
-      <div class="learning-flow__label">CHECK</div>
-      <h2 class="learning-flow__title">図解で確かめる</h2>
-      <p class="learning-flow__text">聴きながら見る、あとで振り返る、手元に保存する。インフォグラフィックで背景と構造を整理できます。</p>
-    </div>
-    <div class="learning-flow__item">
-      <div class="learning-flow__label">TALK</div>
-      <h2 class="learning-flow__title">AIとの対話で深める</h2>
-      <p class="learning-flow__text">気になったテーマの部へ進み、専用の文章をコピーして、普段使っているAIとの対話を始めます。</p>
-    </div>
-  </div>
-  <p class="learning-flow__note">
-    PodcastはAI構成を活用しているため細かな読み違いが残る場合があります。重要な事実はnoteや参考資料でも確かめ、対話では不確実な点を区別しながら深めてください。
-  </p>
 </section>
 
 <section class="console" aria-label="Podcastフィルター">
@@ -978,7 +923,7 @@ body.modal-open {
 </div>
 
 <footer class="media-v2-footer">
-  <div class="media-v2-footer__inner"><div><strong>Manabi Map</strong><p>世界を知り、AIとの対話で自分の問いへつなぐ。</p></div><nav aria-label="フッターナビゲーション"><a href="questions.html">AIと対話する</a><a href="library.html">読む・聴く</a><a href="note.html">Note</a><a href="index.html">トップへ</a></nav></div>
+  <div class="media-v2-footer__inner"><div><strong>Manabi Map</strong><p>世界を知り、AIとの対話で自分の思考へつなぐ。</p></div><nav aria-label="フッターナビゲーション"><a href="questions.html">AIと対話する</a><a href="map.html">学びの地図</a><a href="note.html">読む</a><a href="podcast.html">聴く</a><a href="start.html">はじめての方へ</a></nav></div>
 </footer>
 
 <script src="assets/js/manabimap-data.js"></script>

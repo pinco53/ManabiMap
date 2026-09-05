@@ -75,7 +75,7 @@
   }) : [];
   var notesHtml = noteItems.length ? '<div class="argument-heading">関連するnote</div><div class="note-list">' + noteItems.slice(0, 10).map(function (note) {
     return '<a class="note-link" href="' + esc(note.url) + '" target="_blank" rel="noopener"><span>NOTE #' + String(note.number).padStart(2, '0') + '</span>' + esc(note.title) + '</a>';
-  }).join('') + '<a class="note-link" href="../library.html?format=read"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
+  }).join('') + '<a class="note-link" href="../note.html"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
 
   var referencesHtml = config.references.map(function (reference) {
     return '<a class="reference-link" href="' + esc(reference.url) + '" target="_blank" rel="noopener"><span>REFERENCE</span>' + esc(reference.label) + '</a>';
@@ -87,7 +87,7 @@
     '<div class="cover"><div class="cover-series">ハルとおじいさんの物語 ── 学びの地図</div><div class="cover-colorname">' + esc(config.colorName) + '<small>' + esc(config.colorReading) + '</small></div>' +
       '<h1 class="cover-title">第' + esc(config.number) + '部<br>' + esc(config.title) + '</h1><div class="cover-subtitle">' + esc(config.subtitle) + '</div>' +
       '<div class="cover-chapter">第1話〜第' + esc(config.episodeCount) + '話｜全' + esc(config.chapters.length) + '章</div><div class="cover-tagline"><em>「' + esc(config.tagline) + '」</em></div>' +
-      '<div class="cover-divider"></div><div class="cover-note">背景を知り、各テーマからAIとの対話へ進むための学びの地図</div><div class="cover-actions"><a class="cover-action" href="#theme-01">AI対話のテーマへ</a><a class="cover-action" href="../library.html?format=listen">Podcastで聴く</a><a class="cover-action" href="../library.html?format=read">noteで読む</a></div></div>' +
+      '<div class="cover-divider"></div><div class="cover-note">背景を知り、各テーマからAIとの対話へ進むための学びの地図</div><div class="cover-actions"><a class="cover-action" href="#theme-01">AI対話のテーマへ</a><a class="cover-action" href="../podcast.html">Podcastで聴く</a><a class="cover-action" href="../note.html">noteで読む</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部">' + prevLink + '<span>第' + esc(config.number) + '部 ｜ ' + esc(config.title) + '</span>' + nextLink + '</nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">' + esc(config.introduction.title) + '</div>' +
       '<div class="section-intro">' + config.introduction.leadHtml + '</div>' +
@@ -103,6 +103,6 @@
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
       '<div class="bridge-box"><div class="bridge-label">' + esc(config.beyond.label) + '</div><div class="bridge-text">' + esc(config.beyond.text) + '</div><div class="bridge-sub">' + config.beyond.subHtml + '</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">知ったことを、対話へつなぐ</div><div class="section-intro">Podcastとnoteで背景を補い、各テーマのAI対話へ戻るための入口。</div>' +
-      '<div class="resource-grid"><a class="resource-card" href="#theme-01"><div class="resource-label">AI DIALOGUE</div><div class="resource-title">AIとの対話へ戻る</div><div class="resource-text">テーマを選び、専用の対話文から考えを深める。</div></a><a class="resource-card" href="../library.html?format=listen"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第' + esc(config.number) + '部の' + esc(config.episodeCount) + '話を音声でたどる。</div></a><a class="resource-card" href="../library.html?format=read"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a></div>' + notesHtml +
+      '<div class="resource-grid"><a class="resource-card" href="#theme-01"><div class="resource-label">AI DIALOGUE</div><div class="resource-title">AIとの対話へ戻る</div><div class="resource-text">テーマを選び、専用の対話文から考えを深める。</div></a><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第' + esc(config.number) + '部の' + esc(config.episodeCount) + '話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';
 }());

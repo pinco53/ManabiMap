@@ -18,13 +18,13 @@
       themeLabel: '5つのテーマから読む',
       themeSummary: '蒸気、工場、鉄道、時計、便利さへ進む →',
       themeHref: '#theme-01',
-      mapHref: '../map.html#industrial-revolution',
+      mapHref: '../map.html',
       noteTarget: '第1部',
-      readFallback: ['../library.html', '機械と時間をめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '機械と時間をめぐる読みものを探す', 'note記事から探す →'],
       next: [
         ['part2.html', '次の旅', '機械が身体を広げたあと、情報技術は人と人の距離をどう変えたのか。', '第2部へ進む →'],
-        ['../questions.html', '次の問い', '機械は人間を何から解放し、何に縛ったのか。', '問いの一覧へ →'],
-        ['../map.html#industrial-revolution', '地図へ戻る', '産業革命と技術の変化を中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['../questions.html', 'AI対話', '機械は人間を何から解放し、何に縛ったのか。', '対話する部を選ぶ →'],
+        ['../map.html', '地図へ戻る', '産業革命と技術の変化を中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '2': {
@@ -43,13 +43,13 @@
       themeLabel: '4つの章から読む',
       themeSummary: '計算機、ネット、常時接続、注意へ進む →',
       themeHref: '#theme-01',
-      mapHref: '../map.html#connection',
+      mapHref: '../map.html',
       noteTarget: '第2部',
-      readFallback: ['../library.html', 'デジタルとつながりをめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', 'デジタルとつながりをめぐる読みものを探す', 'note記事から探す →'],
       next: [
         ['part3.html', '次の旅', '情報を運ぶ機械が答えを作り始めたとき、人間は何を選ぶのか。', '第3部へ進む →'],
-        ['../question.html?id=connection', '次の問い', 'つながることは、近づくことと同じなのか。', 'AI対話の入口へ →'],
-        ['../map.html#connection', '地図へ戻る', 'つながりと注意を中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part2.html#theme-01', 'AI対話', 'つながることは、近づくことと同じなのか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', 'つながりと注意を中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '3': {
@@ -68,13 +68,13 @@
       themeLabel: '5つのテーマから読む',
       themeSummary: '理解、存在、身体、教育、選択へ進む →',
       themeHref: '#theme-01',
-      mapHref: '../map.html#thinking',
+      mapHref: '../map.html',
       noteTarget: '第3部',
-      readFallback: ['../library.html', 'AIと人間をめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', 'AIと人間をめぐる読みものを探す', 'note記事から探す →'],
       next: [
         ['part4.html', '次の旅', '人間が外へ残してきた知識は、AIまでどう受け継がれたのか。', '第4部へ進む →'],
-        ['../question.html?id=thinking', '次の問い', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
-        ['../map.html#thinking', '地図へ戻る', 'AIと人間の思考を中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part3.html#theme-01', 'AI対話', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', 'AIと人間の思考を中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '4': {
@@ -93,13 +93,13 @@
       themeLabel: '7つの物語から読む',
       themeSummary: '口承、文字、印刷、通信、生成AIへ進む →',
       themeHref: '#theme-01',
-      mapHref: '../map.html#writing',
+      mapHref: '../map.html',
       noteTarget: '第4部',
-      readFallback: ['../library.html', '文字と知識をめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '文字と知識をめぐる読みものを探す', 'note記事から探す →'],
       next: [
         ['part5.html', '次の旅', '知識を運ぶ言葉は、私たちの思考そのものをどう変えるのか。', '第5部へ進む →'],
-        ['../question.html?id=understanding', '次の問い', '検索できることと、理解していることは同じなのか。', 'AI対話の入口へ →'],
-        ['../map.html#writing', '地図へ戻る', '文字と知識を中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part15.html#theme-01', 'AI対話', '検索できることと、理解していることは同じなのか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '文字と知識を中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '5': {
@@ -118,13 +118,13 @@
       themeLabel: '7つの物語から読む',
       themeSummary: '内なる声、抽象化、世界、AIへ進む →',
       themeHref: '#theme-01',
-      mapHref: '../map.html#language',
+      mapHref: '../map.html',
       noteTarget: '第5部',
-      readFallback: ['../library.html', '言葉と思考をめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '言葉と思考をめぐる読みものを探す', 'note記事から探す →'],
       next: [
         ['part6.html', '次の旅', '言葉から生まれた抽象化は、数で世界をどう変えたのか。', '第6部へ進む →'],
-        ['../question.html?id=language', '次の問い', '言葉は思考を作るのか、思考が言葉を作るのか。', 'AI対話の入口へ →'],
-        ['../map.html#language', '地図へ戻る', '言葉と思考を中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part5.html#theme-01', 'AI対話', '言葉は思考を作るのか、思考が言葉を作るのか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '言葉と思考を中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '6': {
@@ -143,13 +143,13 @@
       themeLabel: '8つの物語から読む',
       themeSummary: '数える、記録する、予測する、測るへ進む →',
       themeHref: '#theme-01',
-      mapHref: '../map.html#number',
+      mapHref: '../map.html',
       noteTarget: '第6部',
-      readFallback: ['../library.html', '数字と価値をめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '数字と価値をめぐる読みものを探す', 'note記事から探す →'],
       next: [
         ['part7.html', '次の旅', '数と計算が進んだ先で、人間の前提はどう外れたのか。', '第7部へ進む →'],
-        ['../question.html?id=number', '次の問い', '数字で測れないものに、どう価値を与えるのか。', 'AI対話の入口へ →'],
-        ['../map.html#number', '地図へ戻る', '数と評価を中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part6.html#theme-01', 'AI対話', '数字で測れないものに、どう価値を与えるのか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '数と評価を中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '7': {
@@ -168,13 +168,13 @@
       themeLabel: '4人の問いから読む',
       themeSummary: '感覚、理解、計算、思考へ進む →',
       themeHref: '#theme-01',
-      mapHref: '../map.html#thinking',
+      mapHref: '../map.html',
       noteTarget: '第7部',
-      readFallback: ['../library.html', '科学と人間をめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '科学と人間をめぐる読みものを探す', 'note記事から探す →'],
       next: [
         ['part8.html', '次の旅', '4人の問いの先で、生成AIはどのように生まれたのか。', '第8部へ進む →'],
-        ['../question.html?id=understanding', '次の問い', '「知っている」と「わかっている」は、同じだろうか。', 'AI対話の入口へ →'],
-        ['../map.html#thinking', '地図へ戻る', '科学と思考を中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part15.html#theme-01', 'AI対話', '「知っている」と「わかっている」は、同じだろうか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '科学と思考を中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '8': {
@@ -193,13 +193,13 @@
       themeLabel: '5つの問いから読む',
       themeSummary: '生成、確率、言語モデル、知識へ進む →',
       themeHref: '#theme-01',
-      mapHref: '../map.html#thinking',
+      mapHref: '../map.html',
       noteTarget: '第8部',
-      readFallback: ['../library.html', '生成AIと知識をめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '生成AIと知識をめぐる読みものを探す', 'note記事から探す →'],
       next: [
         ['part8_2.html', '第二章へ', '生成された思考は、社会と学びをどう変えるのか。', '第二章をたどる →'],
-        ['../question.html?id=understanding', '次の問い', '「知っている」と「わかっている」は、同じだろうか。', 'AI対話の入口へ →'],
-        ['../map.html#thinking', '地図へ戻る', 'AIと思考を中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part15.html#theme-01', 'AI対話', '「知っている」と「わかっている」は、同じだろうか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', 'AIと思考を中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '8-2': {
@@ -218,13 +218,13 @@
       themeLabel: '第6〜10話から読む',
       themeSummary: '宿題、学力、思考の所有へ進む →',
       themeHref: '#theme-06',
-      mapHref: '../map.html#thinking',
+      mapHref: '../map.html',
       noteTarget: '第8部',
-      readFallback: ['../library.html', 'AIと学びをめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', 'AIと学びをめぐる読みものを探す', 'note記事から探す →'],
       next: [
         ['part9.html', '次の旅', '情報が速くなるほど、身体の時間は何を教えるのか。', '第9部へ進む →'],
-        ['../question.html?id=number', '別の視点', '数字で測れないものに、どう価値を与えるのか。', 'AI対話の入口へ →'],
-        ['../map.html#thinking', '地図へ戻る', 'AIと学びを中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part6.html#theme-01', '別の視点', '数字で測れないものに、どう価値を与えるのか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', 'AIと学びを中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '9': {
@@ -242,13 +242,13 @@
       themeCount: '15',
       themeLabel: '15のテーマから読む',
       themeSummary: '進化、注意、痛み、感性へ進む →',
-      mapHref: '../map.html#thinking',
+      mapHref: '../map.html',
       noteTarget: '第9部',
-      readFallback: ['../library.html', '身体と進化をめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '身体と進化をめぐる読みものを探す', 'note記事から探す →'],
       next: [
-        ['../question.html?id=thinking', '次の問い', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
-        ['../question.html?id=number', '別の視点', '数字で測れないものに、どう価値を与えるのか。', 'AI対話の入口へ →'],
-        ['../map.html#thinking', '地図へ戻る', '身体とAIを中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part3.html#theme-01', 'AI対話', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
+        ['part6.html#theme-01', '別の視点', '数字で測れないものに、どう価値を与えるのか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '身体とAIを中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '10': {
@@ -266,13 +266,13 @@
       themeCount: '15',
       themeLabel: '15のテーマから読む',
       themeSummary: '感動、美、文化、生成AIへ進む →',
-      mapHref: '../map.html#connection',
+      mapHref: '../map.html',
       noteTarget: '第10部',
-      readFallback: ['../library.html', '感性と意味をめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '感性と意味をめぐる読みものを探す', 'note記事から探す →'],
       next: [
-        ['../question.html?id=number', '次の問い', '数字で測れないものに、どう価値を与えるのか。', 'AI対話の入口へ →'],
-        ['../question.html?id=thinking', '別の視点', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
-        ['../map.html#connection', '地図へ戻る', '意味と関係を中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part6.html#theme-01', 'AI対話', '数字で測れないものに、どう価値を与えるのか。', 'AI対話の入口へ →'],
+        ['part3.html#theme-01', '別の視点', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '意味と関係を中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '11': {
@@ -290,13 +290,13 @@
       themeCount: '15',
       themeLabel: '15のテーマから読む',
       themeSummary: '愛着、探索、遊び、自律性へ進む →',
-      mapHref: '../map.html#connection',
+      mapHref: '../map.html',
       noteTarget: '第11部',
-      readFallback: ['../library.html', '発達と学びをめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '発達と学びをめぐる読みものを探す', 'note記事から探す →'],
       next: [
-        ['../question.html?id=connection', '次の問い', 'つながることは、近づくことと同じなのか。', 'AI対話の入口へ →'],
-        ['../question.html?id=language', '別の視点', '言葉は思考を作るのか、思考が言葉を作るのか。', 'AI対話の入口へ →'],
-        ['../map.html#connection', '地図へ戻る', '関係と学びを中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part2.html#theme-01', 'AI対話', 'つながることは、近づくことと同じなのか。', 'AI対話の入口へ →'],
+        ['part5.html#theme-01', '別の視点', '言葉は思考を作るのか、思考が言葉を作るのか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '関係と学びを中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '12': {
@@ -314,13 +314,13 @@
       themeCount: '15',
       themeLabel: '15のテーマから読む',
       themeSummary: '説明、評価、AIとの対話へ進む →',
-      mapHref: '../map.html#thinking',
+      mapHref: '../map.html',
       noteTarget: '第12部',
-      readFallback: ['../library.html', '対話と学びをめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '対話と学びをめぐる読みものを探す', 'note記事から探す →'],
       next: [
-        ['../question.html?id=understanding', '次の問い', '「知っている」と「わかっている」は、同じだろうか。', 'AI対話の入口へ →'],
-        ['../question.html?id=thinking', '別の視点', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
-        ['../map.html#thinking', '地図へ戻る', '対話とAIを中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part15.html#theme-01', 'AI対話', '「知っている」と「わかっている」は、同じだろうか。', 'AI対話の入口へ →'],
+        ['part3.html#theme-01', '別の視点', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '対話とAIを中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '13': {
@@ -337,13 +337,13 @@
       ],
       themeCount: '4',
       themeSummary: '累積文化、学校、家庭へ進む →',
-      mapHref: '../map.html#number',
+      mapHref: '../map.html',
       noteTarget: '第13部',
-      readFallback: ['../library.html', '学びと教育をめぐる読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '学びと教育をめぐる読みものを探す', 'note記事から探す →'],
       next: [
-        ['../question.html?id=understanding', '次の問い', '「知っている」と「わかっている」は、同じだろうか。', 'AI対話の入口へ →'],
-        ['../question.html?id=thinking', '別の視点', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
-        ['../map.html#number', '地図へ戻る', '学びと評価を中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part15.html#theme-01', 'AI対話', '「知っている」と「わかっている」は、同じだろうか。', 'AI対話の入口へ →'],
+        ['part3.html#theme-01', '別の視点', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '学びと評価を中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '14': {
@@ -360,13 +360,13 @@
       ],
       themeCount: '5',
       themeSummary: '天動説、観測、科学革命へ進む →',
-      mapHref: '../map.html#understanding',
+      mapHref: '../map.html',
       noteTarget: '第14部',
-      readFallback: ['../library.html', '見方を更新する読みものを探す', 'ライブラリから探す →'],
+      readFallback: ['../note.html', '見方を更新する読みものを探す', 'note記事から探す →'],
       next: [
-        ['../question.html?id=understanding', '次の問い', '「知っている」と「わかっている」は、同じだろうか。', 'AI対話の入口へ →'],
-        ['../question.html?id=number', '別の視点', '数字で測れないものに、どう価値を与えるのか。', 'AI対話の入口へ →'],
-        ['../map.html#understanding', '地図へ戻る', '理解を中心に、見方を更新する旅を見渡す。', '学びの地図へ →']
+        ['part15.html#theme-01', 'AI対話', '「知っている」と「わかっている」は、同じだろうか。', 'AI対話の入口へ →'],
+        ['part6.html#theme-01', '別の視点', '数字で測れないものに、どう価値を与えるのか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '理解を中心に、見方を更新する旅を見渡す。', '学びの地図へ →']
       ]
     },
     '15': {
@@ -383,13 +383,13 @@
       ],
       themeCount: '8',
       themeSummary: '確信、迷い、AIへ進む →',
-      mapHref: '../map.html#understanding',
+      mapHref: '../map.html',
       noteTarget: '第15部',
       readFallback: ['https://note.com/manabimapcreator/n/n6e3146ea667c', '「わかった」と思ったとき、考えるのをやめていないか', 'noteで日常から考える ↗', true],
       next: [
-        ['../question.html?id=thinking', '次の問い', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
-        ['../question.html?id=language', '別の視点', '言葉は思考を作るのか、思考が言葉を作るのか。', 'AI対話の入口へ →'],
-        ['../map.html#understanding', '地図へ戻る', '理解を中心に、関連する知識を見渡す。', '学びの地図へ →']
+        ['part3.html#theme-01', 'AI対話', 'AIが答えを出せる時代に、人間が考えるとは何か。', 'AI対話の入口へ →'],
+        ['part5.html#theme-01', '別の視点', '言葉は思考を作るのか、思考が言葉を作るのか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '理解を中心に、関連する知識を見渡す。', '学びの地図へ →']
       ]
     },
     '16': {
@@ -408,12 +408,12 @@
       themeLabel: '8つの物語から読む',
       themeSummary: '火、化石燃料、電力、原子核、太陽へ進む →',
       themeHref: '#theme-01',
-      mapHref: '../map.html#all-journeys',
+      mapHref: '../map.html',
       noteTarget: '第16部',
       readFallback: ['../note.html', 'エネルギーと人類史をめぐる読みものを探す', 'note記事から探す →'],
       next: [
         ['part17.html', '次の旅', 'エネルギーで広げた力を、人類はどう組み合わせたのか。', '第17部へ進む →'],
-        ['../questions.html', '次の問い', 'この旅の先で、いまの自分が考え続けたい問いを選ぶ。', '問いの一覧へ →'],
+        ['../questions.html', 'AI対話', 'この旅の先で、いまの自分が考え続けたい問いを選ぶ。', '対話する部を選ぶ →'],
         ['../evolution.html', '大きな時間へ', 'エネルギーと生命と文明を、138億年の時間の中で見渡す。', '進化の年表へ →']
       ]
     },
@@ -433,13 +433,13 @@
       themeLabel: '6つの物語から読む',
       themeSummary: '贈与、貨幣、分業、供給網、AIへ進む →',
       themeHref: '#theme-01',
-      mapHref: '../map.html#all-journeys',
+      mapHref: '../map.html',
       noteTarget: '第17部',
       readFallback: ['../note.html', '交換と協働をめぐる読みものを探す', 'note記事から探す →'],
       next: [
         ['part18.html', '次の旅', '広がった協働の中で、人の判断は現実をどう編集するのか。', '第18部へ進む →'],
-        ['../question.html?id=connection', '次の問い', 'つながることは、近づくことと同じなのか。', 'AI対話の入口へ →'],
-        ['../map.html#all-journeys', '地図へ戻る', '文明と協働を中心に、関連する旅を見渡す。', '学びの地図へ →']
+        ['part2.html#theme-01', 'AI対話', 'つながることは、近づくことと同じなのか。', 'AI対話の入口へ →'],
+        ['../map.html', '地図へ戻る', '文明と協働を中心に、関連する旅を見渡す。', '学びの地図へ →']
       ]
     },
     '18': {
@@ -458,13 +458,13 @@
       themeLabel: '9つの物語から読む',
       themeSummary: '注意、記憶、同調、判断、AI、現実へ進む →',
       themeHref: '#theme-01',
-      mapHref: '../map.html#understanding',
+      mapHref: '../map.html',
       noteTarget: '第18部',
       readFallback: ['../note.html', '判断と現実をめぐる読みものを探す', 'note記事から探す →'],
       next: [
-        ['../questions.html', '次の問い', 'これまでの旅から、いまの自分が考え続けたい問いを選ぶ。', '問いの一覧へ →'],
+        ['../questions.html', 'AI対話', 'これまでの旅から、いまの自分が考え続けたい問いを選ぶ。', '対話する部を選ぶ →'],
         ['part17.html', '前の旅へ', '判断の前提となる、交換と協働の仕組みを読み返す。', '第17部へ戻る →'],
-        ['../map.html#understanding', '地図へ戻る', '理解と判断を中心に、関連する旅を見渡す。', '学びの地図へ →']
+        ['../map.html', '地図へ戻る', '理解と判断を中心に、関連する旅を見渡す。', '学びの地図へ →']
       ]
     }
   };
@@ -518,8 +518,8 @@
       '<svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="8"></circle><ellipse cx="28" cy="28" rx="23" ry="13"></ellipse><ellipse cx="28" cy="28" rx="13" ry="23" transform="rotate(34 28 28)"></ellipse><circle class="part-v2-brand__star" cx="49" cy="24" r="2.4"></circle></svg>' +
       '<span><strong>Manabi Map</strong><small>知の重力レンズ</small></span>' +
     '</a>' +
-    '<nav aria-label="メインナビゲーション"><a href="../questions.html">AIと対話する</a><a href="../map.html">学びの地図</a><a href="../library.html">読む・聴く</a><a href="../start.html">はじめての方へ</a></nav>' +
-    '<details><summary aria-label="メニューを開く"><span></span><span></span><span></span></summary><nav aria-label="モバイルナビゲーション"><a href="../questions.html">AIと対話する</a><a href="../map.html">学びの地図</a><a href="../library.html">読む・聴く</a><a href="../start.html">はじめての方へ</a></nav></details>';
+    '<nav aria-label="メインナビゲーション"><a href="../questions.html">AIと対話する</a><a href="../map.html">学びの地図</a><a href="../note.html">読む</a><a href="../podcast.html">聴く</a><a href="../start.html">はじめての方へ</a></nav>' +
+    '<details><summary aria-label="メニューを開く"><span></span><span></span><span></span></summary><nav aria-label="モバイルナビゲーション"><a href="../questions.html">AIと対話する</a><a href="../map.html">学びの地図</a><a href="../note.html">読む</a><a href="../podcast.html">聴く</a><a href="../start.html">はじめての方へ</a></nav></details>';
   var guideId = 'part' + partNumber + '-guide';
   var guideTitleId = guideId + '-title';
   var nextTitleId = 'part' + partNumber + '-next-title';
@@ -535,14 +535,14 @@
 
   var tagline = cover.querySelector('.cover-tagline');
   if (tagline) {
-    tagline.innerHTML = '<span>この旅の中心にある問い</span><em>' + escapeHtml(config.coverQuestion) + '</em>';
+    tagline.innerHTML = '<span>この部で考えること</span><em>' + escapeHtml(config.coverQuestion) + '</em>';
   }
 
   var actions = cover.querySelector('.cover-actions');
   if (actions) {
     actions.innerHTML =
       '<a class="cover-action cover-action--primary" href="#' + guideId + '">AI対話のテーマを見る</a>' +
-      '<a class="cover-action" href="' + escapeHtml(config.mapHref) + '">学びの地図で現在地を見る</a>';
+      '<a class="cover-action" href="' + escapeHtml(config.mapHref) + '">学びの地図を見る</a>';
   }
 
   var publishedNotes = Array.isArray(data.notes) ? data.notes.filter(function (note) {
@@ -567,12 +567,12 @@
       '<p>' + escapeHtml(config.guideDescription) + '</p>' +
     '</div>' +
     '<div class="part-v2-guide__body">' +
-      '<div class="part-v2-center"><span>中心の問い</span><strong>' + escapeHtml(config.centerQuestion) + '</strong><p>' + escapeHtml(config.centerCopy) + '</p></div>' +
+      '<div class="part-v2-center"><span>中心テーマ</span><strong>' + escapeHtml(config.centerQuestion) + '</strong><p>' + escapeHtml(config.centerCopy) + '</p></div>' +
       '<div class="part-v2-outcomes"><p class="part-v2-label">この旅で見えてくること</p><ul>' + outcomesHtml + '</ul></div>' +
     '</div>' +
     '<div class="part-v2-routes" aria-label="' + config.partLabel + 'をたどる方法">' +
       '<a href="' + escapeHtml(config.themeHref || '#theme-01') + '"><span>AIと対話する</span><strong>' + escapeHtml(config.themeCount) + 'のテーマから選ぶ</strong><small>背景を知り、テーマ専用の対話文をコピーする →</small></a>' +
-      '<a href="../library.html?format=listen"><span>Podcastで聴く</span><strong>背景を耳でたどる</strong><small>Podcastへ →</small></a>' +
+      '<a href="../podcast.html"><span>Podcastで聴く</span><strong>背景を耳でたどる</strong><small>Podcastへ →</small></a>' +
       '<a href="' + escapeHtml(readRoute[0]) + '"' + linkAttrs(readRoute[3]) + '><span>noteで読む</span><strong>' + escapeHtml(readRoute[1]) + '</strong><small>' + escapeHtml(readRoute[2]) + '</small></a>' +
     '</div>';
   cover.insertAdjacentElement('afterend', guide);
@@ -584,7 +584,7 @@
   closing.className = 'part-v2-next';
   closing.setAttribute('aria-labelledby', nextTitleId);
   closing.innerHTML =
-    '<div class="part-v2-next__inner"><p class="part-v2-kicker">WHERE NEXT?</p><h2 id="' + nextTitleId + '">この旅のあとに、<br>どの問いを持っていくか。</h2><div class="part-v2-next__grid">' + nextHtml + '</div></div>';
+    '<div class="part-v2-next__inner"><p class="part-v2-kicker">WHERE NEXT?</p><h2 id="' + nextTitleId + '">この旅のあとに、<br>どの部へ進むか。</h2><div class="part-v2-next__grid">' + nextHtml + '</div></div>';
   root.appendChild(closing);
 
   document.querySelectorAll('.part-v2-header details a').forEach(function (link) {

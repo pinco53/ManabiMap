@@ -144,7 +144,7 @@
   }) : [];
   const notesHtml = noteItems.length ? '<div class="argument-heading">関連するnote</div><div class="note-list">' + noteItems.slice(0, 10).map(function (note) {
     return '<a class="note-link" href="' + esc(note.url) + '" target="_blank" rel="noopener"><span>NOTE #' + String(note.number).padStart(2, '0') + '</span>' + esc(note.title) + '</a>';
-  }).join('') + '<a class="note-link" href="../library.html?format=read"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
+  }).join('') + '<a class="note-link" href="../note.html"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
 
   const referencesHtml = references.map(function (reference) {
     return '<a class="reference-link" href="' + esc(reference[1]) + '" target="_blank" rel="noopener"><span>REFERENCE</span>' + esc(reference[0]) + '</a>';
@@ -154,7 +154,7 @@
     '<div class="cover"><div class="cover-series">ハルとおじいさんの物語 ── 学びの地図</div><div class="cover-colorname">若竹<small>わかたけ</small></div>' +
       '<h1 class="cover-title">第14部<br>地球は動いている</h1><div class="cover-subtitle">見方を更新する力</div>' +
       '<div class="cover-chapter">第1話〜第5話｜全2章</div><div class="cover-tagline"><em>「それでも、地球は動いている。」</em></div>' +
-      '<div class="cover-divider"></div><div class="cover-note">第14部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../library.html?format=listen">Podcast一覧へ</a><a class="cover-action" href="../library.html?format=read">note記事へ</a></div></div>' +
+      '<div class="cover-divider"></div><div class="cover-note">第14部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part13.html">← 第13部</a><span>第14部 ｜ 地球は動いている</span><a href="part15.html">第15部 →</a></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜ地動説への転換を深掘りするのか</div>' +
       '<div class="section-intro"><a href="part12.html">第12部</a>で対話が学びを深めることを、<a href="part13.html">第13部</a>で学びが環境の中で受け継がれ、閉ざされることを見た。第14部では、学びの対象そのものへの見方が、どう更新されるかを問う。</div>' +
@@ -172,6 +172,6 @@
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
       '<div class="bridge-box"><div class="bridge-label">Bridge to Part 15</div><div class="bridge-text">見方を更新した後も、「わかったつもり」という新しい罠が待っている。</div><div class="bridge-sub"><a href="part15.html">第15部「それ、わかったつもりかも」</a>では、知的謙虚さと考え続ける力を追う。</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">知ったことを、対話へつなぐ</div><div class="section-intro">第14部のテーマについて考え、Podcastとnoteで背景を広げるための入口。</div>' +
-      '<div class="resource-grid"><a class="resource-card" href="#theme-01"><div class="resource-label">AI DIALOGUE</div><div class="resource-title">AIと対話する</div><div class="resource-text">5つのテーマからひとつ選び、自分の問いへ深める。</div></a><a class="resource-card" href="../library.html?format=listen"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第14部の5話を音声でたどる。</div></a><a class="resource-card" href="../library.html?format=read"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a></div>' + notesHtml +
+      '<div class="resource-grid"><a class="resource-card" href="#theme-01"><div class="resource-label">AI DIALOGUE</div><div class="resource-title">AIと対話する</div><div class="resource-text">5つのテーマからひとつ選び、自分の問いへ深める。</div></a><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第14部の5話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';
 }());

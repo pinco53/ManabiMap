@@ -12,8 +12,8 @@
       closing: 'あなたが「わかった」と言うとき、何ができる状態を指していますか。',
       route: [
         ['知る・対話する', 'わかったつもり', '認知と科学史から背景を知り、テーマ専用の文章でAIとの対話へ進む。', 'parts/part15.html#theme-01'],
-        ['読む', '「わかった」を見直すnote', '日常の具体的な違和感から、問いを一歩深める。', 'library.html?format=read'],
-        ['聴く', '第15部 Podcast', '物語と対話で、分からなさを抱える意味を考える。', 'library.html?format=listen']
+        ['読む', '「わかった」を見直すnote', '日常の具体的な違和感から、問いを一歩深める。', 'note.html'],
+        ['聴く', '第15部 Podcast', '物語と対話で、分からなさを抱える意味を考える。', 'podcast.html']
       ],
       related: [['thinking', '次の問い'], ['language', '別の視点']]
     },
@@ -28,7 +28,7 @@
       route: [
         ['知る・対話する', 'AIと生きる未来', 'AI革命から背景を知り、テーマ専用の文章でAIとの対話へ進む。', 'parts/part3.html#theme-01'],
         ['深掘り', 'AIと人間のあいだ', '生成AIの歴史と理解の境界をたどる。', 'parts/part8.html'],
-        ['読む', 'AIをめぐるnote', '日常の場面から、AIと人間の関係を見直す。', 'library.html?format=read']
+        ['読む', 'AIをめぐるnote', '日常の場面から、AIと人間の関係を見直す。', 'note.html']
       ],
       related: [['understanding', '前提となる問い'], ['language', '言葉から見る']]
     },
@@ -43,7 +43,7 @@
       route: [
         ['知る・対話する', '言葉と思考の旅', '言葉、内なる声、抽象化を知り、テーマ専用の文章でAIとの対話へ進む。', 'parts/part5.html#theme-01'],
         ['歴史', '文字と知識の冒険', '言葉を外に残せるようになった変化を見る。', 'parts/part4.html'],
-        ['読む', '言葉をめぐるnote', '身近な言葉の場面から問いを深める。', 'library.html?format=read']
+        ['読む', '言葉をめぐるnote', '身近な言葉の場面から問いを深める。', 'note.html']
       ],
       related: [['thinking', 'AIから見る'], ['understanding', '理解へ進む']]
     },
@@ -58,7 +58,7 @@
       route: [
         ['知る・対話する', '数字と世界', '数えることから評価と社会の関係を知り、テーマ専用の文章でAIとの対話へ進む。', 'parts/part6.html#theme-01'],
         ['教育', '学びとは何か', '評価できる学びと、評価しにくい学びを考える。', 'parts/part13.html'],
-        ['読む', '数字をめぐるnote', '点数、価格、統計の日常から問いを深める。', 'library.html?format=read']
+        ['読む', '数字をめぐるnote', '点数、価格、統計の日常から問いを深める。', 'note.html']
       ],
       related: [['understanding', '測れない理解'], ['connection', '社会へ広げる']]
     },
@@ -73,7 +73,7 @@
       route: [
         ['知る・対話する', 'つながる世界', 'デジタル革命が人と人のあいだをどう変えたかを知り、AIとの対話へ進む。', 'parts/part2.html#theme-01'],
         ['歴史', '文字と知識の冒険', '情報が距離を越えて届くまでをたどる。', 'parts/part4.html'],
-        ['聴く', '関連するPodcast', '物語と対話で、距離と関係を見直す。', 'library.html?format=listen']
+        ['聴く', '関連するPodcast', '物語と対話で、距離と関係を見直す。', 'podcast.html']
       ],
       related: [['language', '言葉へ進む'], ['number', '社会の尺度へ']]
     },
@@ -87,8 +87,8 @@
       closing: 'あなたの日常を支えている、顔の見えない協力には何がありますか。',
       route: [
         ['知る・対話する', '交換と協働', '贈与、貨幣、分業、供給網を知り、テーマ専用の文章でAIとの対話へ進む。', 'parts/part17.html#theme-01'],
-        ['読む', '協働をめぐるnote', '身近な交換や仕事の場面から、問いを一歩深める。', 'library.html?format=read'],
-        ['聴く', '第17部 Podcast', '人類史の流れから、見知らぬ人との協力をたどる。', 'library.html?format=listen']
+        ['読む', '協働をめぐるnote', '身近な交換や仕事の場面から、問いを一歩深める。', 'note.html'],
+        ['聴く', '第17部 Podcast', '人類史の流れから、見知らぬ人との協力をたどる。', 'podcast.html']
       ],
       related: [['connection', 'つながりから見る'], ['reality', '判断へ進む']]
     },
@@ -102,8 +102,8 @@
       closing: '確信していることほど、どんな方法で確かめ直せるでしょうか。',
       route: [
         ['知る・対話する', '人はなぜ勘違いするのか', '注意、記憶、同調、判断を知り、テーマ専用の文章でAIとの対話へ進む。', 'parts/part18.html#theme-01'],
-        ['読む', '認知と判断をめぐるnote', '日常の見落としや思い込みから、問いを一歩深める。', 'library.html?format=read'],
-        ['聴く', '第18部 Podcast', '脳と社会が現実を編集する流れを耳でたどる。', 'library.html?format=listen']
+        ['読む', '認知と判断をめぐるnote', '日常の見落としや思い込みから、問いを一歩深める。', 'note.html'],
+        ['聴く', '第18部 Podcast', '脳と社会が現実を編集する流れを耳でたどる。', 'podcast.html']
       ],
       related: [['understanding', '理解へ戻る'], ['cooperation', '社会へ広げる']]
     }

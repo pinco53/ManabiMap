@@ -173,7 +173,7 @@
   }) : [];
   const notesHtml = noteItems.length ? '<div class="argument-heading">関連するnote</div><div class="note-list">' + noteItems.slice(0, 10).map(function (note) {
     return '<a class="note-link" href="' + esc(note.url) + '" target="_blank" rel="noopener"><span>NOTE #' + String(note.number).padStart(2, '0') + '</span>' + esc(note.title) + '</a>';
-  }).join('') + '<a class="note-link" href="../library.html?format=read"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
+  }).join('') + '<a class="note-link" href="../note.html"><span>NOTE MAP</span>すべてのnote記事を見る</a></div>' : '';
 
   const referencesHtml = references.map(function (reference) {
     return '<a class="reference-link" href="' + esc(reference[1]) + '" target="_blank" rel="noopener"><span>REFERENCE</span>' + esc(reference[0]) + '</a>';
@@ -183,7 +183,7 @@
     '<div class="cover"><div class="cover-series">ハルとおじいさんの物語 ── 学びの地図</div><div class="cover-colorname">珊瑚<small>さんご</small></div>' +
       '<h1 class="cover-title">第11部<br>人はどう学び始めるのか</h1><div class="cover-subtitle">学びの原型をめぐる旅</div>' +
       '<div class="cover-chapter">第1話〜第15話｜全3章</div><div class="cover-tagline"><em>「学びは、誰かが応答してくれることから始まる。」</em></div>' +
-      '<div class="cover-divider"></div><div class="cover-note">第11部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../library.html?format=listen">Podcast一覧へ</a><a class="cover-action" href="../library.html?format=read">note記事へ</a></div></div>' +
+      '<div class="cover-divider"></div><div class="cover-note">第11部の本文型補足資料</div><div class="cover-actions"><a class="cover-action" href="../podcast.html">Podcast一覧へ</a><a class="cover-action" href="../note.html">note記事へ</a></div></div>' +
     '<nav class="chapter-nav" aria-label="前後の部"><a href="part10.html">← 第10部</a><span>第11部 ｜ 人はどう学び始めるのか</span><a href="part12.html">第12部 →</a></nav>' +
     '<div class="page"><div class="section-label">Introduction</div><div class="section-title">なぜ学びの始まりを深掘りするのか</div>' +
       '<div class="section-intro"><a href="part9.html">第9部</a>は生成AI時代を生きる人間の身体を、<a href="part10.html">第10部</a>はその身体が意味と価値を感じる働き――感性を扱った。第11部は、その感性を持つ人間が、生まれた直後から何を学び始めているのかという原点へ進む。</div>' +
@@ -201,6 +201,6 @@
       '<div class="argument-heading" style="margin-top:44px">問いの地図</div><div class="discussion-q">' + questionsHtml + '</div>' +
       '<div class="bridge-box"><div class="bridge-label">Bridge to Part 12</div><div class="bridge-text">学びの原型は、一人だけでは完結しない。</div><div class="bridge-sub"><a href="part12.html">第12部「人はなぜ、一人では学べないのか」</a>では、対話・評価・フィードバックが学びをどう深めるかへ進む。</div></div>' + footer('用語と問い') + '</div>' +
     '<div class="page"><div class="section-label">Resources</div><div class="section-title">知ったことを、対話へつなぐ</div><div class="section-intro">第11部のテーマについて考え、Podcastとnoteで背景を広げるための入口。</div>' +
-      '<div class="resource-grid"><a class="resource-card" href="#theme-01"><div class="resource-label">AI DIALOGUE</div><div class="resource-title">AIと対話する</div><div class="resource-text">15のテーマからひとつ選び、自分の問いへ深める。</div></a><a class="resource-card" href="../library.html?format=listen"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第11部の15話を音声でたどる。</div></a><a class="resource-card" href="../library.html?format=read"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a></div>' + notesHtml +
+      '<div class="resource-grid"><a class="resource-card" href="#theme-01"><div class="resource-label">AI DIALOGUE</div><div class="resource-title">AIと対話する</div><div class="resource-text">15のテーマからひとつ選び、自分の問いへ深める。</div></a><a class="resource-card" href="../podcast.html"><div class="resource-label">PODCAST</div><div class="resource-title">Podcastで聞く</div><div class="resource-text">第11部の15話を音声でたどる。</div></a><a class="resource-card" href="../note.html"><div class="resource-label">NOTE MAP</div><div class="resource-title">note記事へ</div><div class="resource-text">各テーマから伸びる個別の枝道を読む。</div></a></div>' + notesHtml +
       '<div class="argument-heading">参考資料</div><div class="reference-list">' + referencesHtml + '</div>' + footer('関連資料') + '</div>';
 }());

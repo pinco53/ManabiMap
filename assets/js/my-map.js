@@ -68,7 +68,7 @@
   }
 
   function hrefFor(id) {
-    if (id === 'note') return 'library.html?format=read';
+    if (id === 'note') return 'note.html';
     if (id === 'evolution') return 'evolution.html';
     const item = data.findById(id);
     if (!item) return 'index.html#map-base';
