@@ -518,8 +518,8 @@
       '<svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="8"></circle><ellipse cx="28" cy="28" rx="23" ry="13"></ellipse><ellipse cx="28" cy="28" rx="13" ry="23" transform="rotate(34 28 28)"></ellipse><circle class="part-v2-brand__star" cx="49" cy="24" r="2.4"></circle></svg>' +
       '<span><strong>Manabi Map</strong><small>知の重力レンズ</small></span>' +
     '</a>' +
-    '<nav aria-label="メインナビゲーション"><a href="../questions.html">AIと対話する</a><a href="../map.html">18部の地図</a><a href="../library.html">読む・聴く</a><a href="../start.html">はじめての方へ</a></nav>' +
-    '<details><summary aria-label="メニューを開く"><span></span><span></span><span></span></summary><nav aria-label="モバイルナビゲーション"><a href="../questions.html">AIと対話する</a><a href="../map.html">18部の地図</a><a href="../library.html">読む・聴く</a><a href="../start.html">はじめての方へ</a></nav></details>';
+    '<nav aria-label="メインナビゲーション"><a href="../questions.html">AIと対話する</a><a href="../map.html">学びの地図</a><a href="../library.html">読む・聴く</a><a href="../start.html">はじめての方へ</a></nav>' +
+    '<details><summary aria-label="メニューを開く"><span></span><span></span><span></span></summary><nav aria-label="モバイルナビゲーション"><a href="../questions.html">AIと対話する</a><a href="../map.html">学びの地図</a><a href="../library.html">読む・聴く</a><a href="../start.html">はじめての方へ</a></nav></details>';
   var guideId = 'part' + partNumber + '-guide';
   var guideTitleId = guideId + '-title';
   var nextTitleId = 'part' + partNumber + '-next-title';
@@ -542,7 +542,7 @@
   if (actions) {
     actions.innerHTML =
       '<a class="cover-action cover-action--primary" href="#' + guideId + '">AI対話のテーマを見る</a>' +
-      '<a class="cover-action" href="' + escapeHtml(config.mapHref) + '">18部の地図で現在地を見る</a>';
+      '<a class="cover-action" href="' + escapeHtml(config.mapHref) + '">学びの地図で現在地を見る</a>';
   }
 
   var publishedNotes = Array.isArray(data.notes) ? data.notes.filter(function (note) {

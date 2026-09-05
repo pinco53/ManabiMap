@@ -219,7 +219,7 @@
 
   const nextLink = next <= 16
     ? '<a class="resource-card" href="part' + next + '.html"><div class="resource-label">NEXT JOURNEY</div><div class="resource-title">第' + next + '部へ</div><div class="resource-text">次の問いへ、学びの地図をつなぐ。</div></a>'
-    : '<a class="resource-card" href="../index.html"><div class="resource-label">MANABI MAP</div><div class="resource-title">全体地図へ</div><div class="resource-text">第1部から第18部までを見渡す。</div></a>';
+    : '<a class="resource-card" href="../index.html"><div class="resource-label">MANABI MAP</div><div class="resource-title">全体地図へ</div><div class="resource-text">人類史から現在までの部を見渡す。</div></a>';
 
   const noteLinks = publishedNotes.length ? '<div class="argument-heading">関連するnote</div><div class="note-list">' + publishedNotes.slice(0, 8).map(function (note) {
     return '<a class="note-link" href="' + esc(note.url) + '" target="_blank" rel="noopener"><span>NOTE #' + String(note.number).padStart(2, '0') + '</span>' + esc(note.title) + '</a>';
