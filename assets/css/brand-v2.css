@@ -2451,6 +2451,10 @@ h3 {
   display: block;
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
   background: #fbf5eb;
   object-fit: contain;
 }
@@ -3806,9 +3810,40 @@ h3 {
   transition: color .25s ease, background .25s ease;
 }
 
+.home-core__card::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  content: "";
+  opacity: .18;
+  transition: opacity .25s ease;
+}
+
+.home-core__card:nth-child(1)::before {
+  background-image: linear-gradient(90deg, rgba(20, 38, 70, .8), rgba(20, 38, 70, .32)), url("../nature/starry-hills-v1.webp");
+  opacity: .72;
+}
+
+.home-core__card:nth-child(2)::before {
+  background-image: radial-gradient(circle at 72% 42%, rgba(113, 132, 183, .72), transparent 30%), radial-gradient(circle at 20% 75%, rgba(154, 137, 182, .58), transparent 36%), url("../brand-v2/hero-lensing-v1.webp");
+  opacity: .38;
+}
+
+.home-core__card:nth-child(3)::before {
+  background-image: linear-gradient(90deg, rgba(245, 244, 237, .7), rgba(245, 244, 237, .24)), url("../nature/morning-forest-v1.webp");
+}
+
+.home-core__card:nth-child(4)::before {
+  background-image: linear-gradient(90deg, rgba(247, 241, 233, .72), rgba(247, 241, 233, .22)), url("../nature/grassland-dawn-v1.webp");
+}
+
+.home-core__card > * { position: relative; z-index: 1; }
 .home-core__card:last-child { border-right: 0; }
 .home-core__card:hover,
 .home-core__card--primary { color: #fff; background: var(--v2-navy); }
+.home-core__card:hover::before { opacity: .84; }
 .home-core__card > span { font: 600 10px/1 var(--font-sans); letter-spacing: .16em; opacity: .7; }
 .home-core__card strong { margin-top: auto; font-family: var(--font-serif); font-size: 25px; font-weight: 500; }
 .home-core__card small { margin-top: 10px; font-size: 12px; opacity: .7; }
@@ -3859,6 +3894,7 @@ h3 {
 }
 .simple-page-hero--dialogue { --nature-hero: url("../nature/starry-hills-v1.webp"); }
 .simple-page-hero--dialogue::after { background: linear-gradient(90deg, rgba(248,244,240,.70) 0%, rgba(239,238,246,.46) 52%, rgba(230,232,243,.20) 100%); }
+.simple-page-hero--dialogue .section-label { color: #8b5139; }
 .simple-page-hero--read { --nature-hero: url("../nature/morning-forest-v1.webp"); }
 .simple-page-hero--read::after { background: linear-gradient(90deg, rgba(251,247,241,.86) 0%, rgba(242,245,239,.64) 52%, rgba(232,239,230,.38) 100%); }
 .simple-page-hero__inner { position: relative; max-width: var(--content-width); margin: 0 auto; }

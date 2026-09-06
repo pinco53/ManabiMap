@@ -27,8 +27,9 @@
 
   root.innerHTML = groups.map(function (group, groupIndex) {
     var headingId = 'part-group-' + (groupIndex + 1);
+    var headingLabel = mode === 'dialogue' && group.name === 'いま、ここ' ? 'AI' : group.name;
     return '<section class="simple-part-group" aria-labelledby="' + headingId + '">' +
-      '<header><h2 id="' + headingId + '">' + escapeHtml(group.name) + '</h2><span>' + group.parts.length + '部</span></header>' +
+      '<header><h2 id="' + headingId + '">' + escapeHtml(headingLabel) + '</h2><span>' + group.parts.length + '部</span></header>' +
       '<div class="simple-part-grid">' + group.parts.map(function (part) {
         var tags = (part.tags || []).slice(0, 3).map(function (tag) { return '<span>' + escapeHtml(tag) + '</span>'; }).join('');
         return '<a class="simple-part-card" href="' + escapeHtml(part.pageUrl) + '">' +
