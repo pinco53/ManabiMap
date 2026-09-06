@@ -2312,8 +2312,7 @@ h3 {
 }
 
 .page-hero--concept::after {
-  border-color: rgba(255, 255, 255, .08);
-  box-shadow: 0 0 0 62px rgba(255, 255, 255, .02), 0 0 0 132px rgba(255, 255, 255, .015);
+  display: none;
 }
 
 .page-hero--concept .breadcrumb,
