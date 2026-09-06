@@ -2296,11 +2296,19 @@ h3 {
 
 /* Concept page */
 .page-hero--concept {
+  isolation: isolate;
   color: var(--v2-white);
+  background: var(--v2-navy);
+}
+
+.page-hero--concept::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   background:
-    radial-gradient(circle at 78% 40%, rgba(154, 137, 182, .35), transparent 24%),
-    radial-gradient(circle at 20% 70%, rgba(232, 160, 115, .15), transparent 28%),
-    var(--v2-navy);
+    linear-gradient(90deg, rgba(8, 20, 44, .82) 0%, rgba(8, 20, 44, .58) 48%, rgba(8, 20, 44, .18) 100%),
+    url("../nature/concept-gravitational-lens-v1.webp") center / cover no-repeat;
+  content: "";
 }
 
 .page-hero--concept::after {
@@ -2315,6 +2323,10 @@ h3 {
 
 .page-hero--concept h1 {
   color: var(--v2-white);
+}
+
+.page-hero--concept .concept-hero-lens {
+  display: none;
 }
 
 .concept-hero-lens {
@@ -2430,8 +2442,18 @@ h3 {
   position: relative;
   display: grid;
   height: 140px;
+  overflow: hidden;
   margin-bottom: 30px;
+  border-radius: 14px;
   place-items: center;
+}
+
+.lens-stage__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fbf5eb;
+  object-fit: contain;
 }
 
 .lens-stage__visual--points span {
