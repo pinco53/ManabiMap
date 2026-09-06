@@ -1,0 +1,8 @@
+/* Shared mobile reading width for every learning-map part page. */
+@media (max-width: 720px) {
+  .page {
+    width: 100%;
+    max-width: 880px;
+    padding: 44px 22px !important;
+  }
+}
