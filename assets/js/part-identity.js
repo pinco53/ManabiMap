@@ -24,7 +24,9 @@
     '15': 'part15',
     '16': 'part16',
     '17': 'part17',
-    '18': 'part18'
+    '18': 'part18',
+    '19': 'part19',
+    '20': 'part20'
   };
 
   function initPartCoverIdentity() {

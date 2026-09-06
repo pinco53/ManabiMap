@@ -23,6 +23,8 @@ body[data-part="15"]  { --part-color: var(--part15); }
 body[data-part="16"]  { --part-color: var(--part16); }
 body[data-part="17"]  { --part-color: var(--part17); }
 body[data-part="18"]  { --part-color: var(--part18); }
+body[data-part="19"]  { --part-color: var(--part19); }
+body[data-part="20"]  { --part-color: var(--part20); }
 
 /* ---- 表紙の夜空 ---- */
 body[data-part] .cover {

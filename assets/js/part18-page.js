@@ -10,7 +10,7 @@
     tagline: '学ぶとは、知識を増やすことではない。世界を見るレンズを、増やしていくこと。',
     episodeCount: 9,
     prev: { number: 17, href: 'part17.html' },
-    next: null,
+    next: { number: 19, href: 'part19.html', copy: '自分の見方を更新した先で、人類と自分を動かしてきた「移動」へ進む。' },
     introduction: {
       title: '「見えている」と「世界がそうである」の間',
       leadHtml: '<a href="part17.html">第17部</a>で、人類が見知らぬ他人と協働する仕組みを広げた歴史を見た。第18部では、その協働の前提となる「見る、思い出す、信じる、判断する」という働き自体を問い直す。',

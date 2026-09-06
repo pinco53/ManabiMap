@@ -279,7 +279,9 @@
     'part8-2': '#a473c9',
     'part9': '#bb73c9',
     'part17': '#496f9b',
-    'part18': '#746a9f'
+    'part18': '#746a9f',
+    'part19': '#8a667f',
+    'part20': '#a47c55'
   };
 
   function injectNavStyles() {

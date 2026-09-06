@@ -302,7 +302,23 @@
       color: 'part18', colorName: '藤納戸', colorReading: 'ふじなんど', pageUrl: 'parts/part18.html',
       tags: ['注意', '記憶', '認知バイアス', '同調', 'メタ認知', 'AI'], concepts: ['perception', 'memory', 'cognitive-bias', 'metacognition'],
       questions: ['私たちが見ている「現実」は、世界そのものなのか。', '自分の見方を、どうやって更新できるのか。'],
-      relatedNotes: ['note-54', 'note-56'], next: ['part17', 'part15', 'part14']
+      relatedNotes: ['note-54', 'note-56'], next: ['part19', 'part17', 'part15']
+    },
+    {
+      id: 'part19', type: 'part', number: '19', title: '人類はなぜ移動するのか',
+      subtitle: '移動が人類と自分を変えてきた旅', group: '身体と進化', era: '人類の拡散から宇宙時代へ',
+      color: 'part19', colorName: '葡萄鼠', colorReading: 'ぶどうねず', pageUrl: 'parts/part19.html',
+      tags: ['移動', '人類史', '身体', '故郷', '国境', '視点'], concepts: ['migration', 'mobility', 'identity', 'human-evolution'],
+      questions: ['人間は、なぜ今いる場所を離れるのか。', '移動によって、何が動いたのか。'],
+      relatedNotes: ['note-192', 'note-193', 'note-194', 'note-195', 'note-196', 'note-197', 'note-198', 'note-199', 'note-200', 'note-201', 'note-202'], next: ['part20', 'part18', 'evolution']
+    },
+    {
+      id: 'part20', type: 'part', number: '20', title: '余ったのに、なぜ足りないのか',
+      subtitle: '余剰と幸せの人類史', group: '文明と未来', era: '農耕革命からAI時代へ',
+      color: 'part20', colorName: '胡桃', colorReading: 'くるみ', pageUrl: 'parts/part20.html',
+      tags: ['余剰', '時間', '豊かさ', '幸福', '効率', 'AI'], concepts: ['surplus', 'happiness', 'efficiency', 'choice'],
+      questions: ['余白を、余白のまま持つことはできるだろうか。', '余ったものを何に変えるかを、誰が決めているのか。'],
+      relatedNotes: ['note-203', 'note-204', 'note-205', 'note-206', 'note-207', 'note-208', 'note-209', 'note-210', 'note-211'], next: ['part19', 'part18', 'part16']
     }
   ];
 

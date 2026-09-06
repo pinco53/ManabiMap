@@ -71,6 +71,17 @@
       '<path d="M7 24 C13 14 19 10 24 10 C29 10 35 14 41 24 C35 34 29 38 24 38 C19 38 13 34 7 24 Z"/>' +
       '<circle cx="24" cy="24" r="6"/>' +
       '<path d="M24 18 C27 21 27 27 24 30"/>' +
+      '</svg>',
+    part19: '<svg ' + SIGIL_ATTRS + '>' +
+      '<path d="M7 34 C15 31 18 17 27 14 C32 12 37 14 41 18"/>' +
+      '<path d="M31 10 L41 18 L32 24"/>' +
+      '<circle cx="8" cy="34" r="2" fill="currentColor" stroke="none"/>' +
+      '</svg>',
+    part20: '<svg ' + SIGIL_ATTRS + '>' +
+      '<circle cx="24" cy="24" r="6"/>' +
+      '<path d="M24 8 A16 16 0 0 1 40 24"/>' +
+      '<path d="M24 40 A16 16 0 0 1 8 24"/>' +
+      '<path d="M13 13 L17 17 M31 31 L35 35"/>' +
       '</svg>'
   };
 
