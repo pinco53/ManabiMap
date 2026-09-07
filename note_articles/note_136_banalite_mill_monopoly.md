@@ -7,7 +7,7 @@
 **公開状態**: published
 **主対象パート**: part16
 **関連PodcastID**: podcast-part16-2
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=rQiWXLMnu-M
 **関連YouTubeID**: youtube-part16
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -24,7 +24,7 @@
 がりがりという音を聞きながら、ふと思いました。
 「これを、自分の道具で挽けるのって、当たり前のことなんだろうか」
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=rQiWXLMnu-M
 
 ---
 
@@ -85,7 +85,7 @@ AIを動かすには、膨大な計算資源が必要です。
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第2話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第2話](https://www.youtube.com/watch?v=rQiWXLMnu-M)**
 
 → **[ハルとおじいさん 第16部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part16.html)**
 
