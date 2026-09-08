@@ -504,6 +504,7 @@
     { id: 'note-167', number: 167, title: "なぜ、迷彩は「隠す」のをやめたのか", url: "https://note.com/manabimapcreator/n/n5e343da74966", status: "published", kind: "wonder-note", date: "2026-09-04", target: "第18部第1話「あなたは世界を見ていない」", tags: [], relatedParts: ["part18"], relatedPodcastId: "podcast-part18-1", relatedYouTubeId: "youtube-part18", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-167.png", question: "私たちが見ている「現実」は、世界そのものなのか。", relation: "判断と現実の枝道", primaryPart: "part18", excerpt: "さっきまで机の上を探していた消しゴム。" },
     { id: 'note-168', number: 168, title: "なぜ、鮮明な記憶ほど、疑うべきなのか", url: "https://note.com/manabimapcreator/n/n9f5195861eb0", status: "published", kind: "wonder-note", date: "2026-09-05", target: "第18部第2話「記憶は録画ではない」", tags: ["第18部第2話「記憶は録画ではない」"], relatedParts: ["part18"], relatedPodcastId: "podcast-part18-2", relatedYouTubeId: "youtube-part18", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-168.png", question: "私たちが見ている「現実」は、世界そのものなのか。", relation: "判断と現実の枝道", primaryPart: "part18", excerpt: "大きなニュースを聞いた瞬間のこと、" },
     { id: 'note-169', number: 169, title: "なぜ、真犯人が見つかっても、無実は証明されなかったのか", url: "https://note.com/manabimapcreator/n/n85ef8b7b1481", status: "published", kind: "wonder-note", date: "2026-09-07", target: "第18部第3話「なぜ人は信じたいものだけ信じるのか」", tags: [], relatedParts: ["part18"], relatedPodcastId: "podcast-part18-3", relatedYouTubeId: "youtube-part18", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-169.png", question: "私たちが見ている「現実」は、世界そのものなのか。", relation: "判断と現実の枝道", primaryPart: "part18", excerpt: "一度「この人だ」と思い込むと、" },
+    { id: 'note-170', number: 170, title: "なぜ、天才は、群衆から逃げられなかったのか", url: "https://note.com/manabimapcreator/n/n3d6376338a81", status: "published", kind: "wonder-note", date: "2026-09-08", target: "第18部第4話「「普通」は誰が決めた？」", tags: [], relatedParts: ["part18"], relatedPodcastId: "podcast-part18-4", relatedYouTubeId: "youtube-part18", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-170.png", question: "私たちが見ている「現実」は、世界そのものなのか。", relation: "判断と現実の枝道", primaryPart: "part18", excerpt: "みんなが同じ方向を向いていると、" },
     { id: 'note-176', number: 176, title: "なぜ、「できる」と信じた瞬間に、体は変わるのか", url: "https://note.com/manabimapcreator/n/n1b7cf36e1228", status: "published", kind: "wonder-note", date: "2026-08-23", target: "第11部第15話「『できた！』が自己効力感をつくる（最終回）」", tags: [], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-15", relatedPodcastUrl: "https://www.youtube.com/watch?v=zp7hH5v3KE4", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-176.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "補助輪を外した自転車に、初めて一人で乗った日を覚えています。" }
   ];
 
@@ -1842,6 +1843,15 @@
       type: 'podcast',
       title: '風と水に働いてもらう、という発想｜まるごと聴く アルキメデスとダ・ヴィンチの発明【ハルとおじいさん #16P-2】',
       url: 'https://youtu.be/rQiWXLMnu-M',
+      relatedParts: ['part16'],
+      question: 'エネルギーを得るたび、人類は何から自由になったのか。次に自由になるのは何か。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part16-3',
+      type: 'podcast',
+      title: '石炭の正体は、大昔の太陽だった｜まるごと聴く ジェームズ・ワットと産業革命の本当の中身【ハルとおじいさん #16P-3】',
+      url: 'https://youtu.be/5EDlBMc9gkM',
       relatedParts: ['part16'],
       question: 'エネルギーを得るたび、人類は何から自由になったのか。次に自由になるのは何か。',
       relation: 'Podcastで深める'
