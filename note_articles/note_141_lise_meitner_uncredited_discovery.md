@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part16
 **関連PodcastID**: podcast-part16-5
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=p98zki80nJc
 **関連YouTubeID**: youtube-part16
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=p98zki80nJc
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -23,7 +23,7 @@
 
 そのときの、なんとも言えない気持ちを、覚えています。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=p98zki80nJc
 
 ---
 
@@ -83,7 +83,7 @@ AIの研究でも、同じことが起きていないでしょうか。
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第5話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第5話](https://www.youtube.com/watch?v=p98zki80nJc)**
 
 → **[ハルとおじいさん 第16部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part16.html)**
 
