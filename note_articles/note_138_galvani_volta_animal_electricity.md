@@ -7,7 +7,7 @@
 **公開状態**: published
 **主対象パート**: part16
 **関連PodcastID**: podcast-part16-4
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=0x86Y3QyJQw
 **関連YouTubeID**: youtube-part16
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -23,7 +23,7 @@
 
 不思議です。電気は、機械の中にあるはずのものなのに。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=0x86Y3QyJQw
 
 ---
 
@@ -84,7 +84,7 @@ AIが賢く答えるとき、その中に、何か特別な「知性」が宿っ
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第4話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第4話](https://www.youtube.com/watch?v=0x86Y3QyJQw)**
 
 → **[ハルとおじいさん 第16部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part16.html)**
 
