@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part16
 **関連PodcastID**: podcast-part16-6
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=O_JPq5UBGEM
 **関連YouTubeID**: youtube-part16
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=O_JPq5UBGEM
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -23,7 +23,7 @@
 
 当たり前の光景のようで、ふと、いつからこんなに普及したんだろう、と思うことがあります。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=O_JPq5UBGEM
 
 ---
 
@@ -81,7 +81,7 @@ AIについても、似た揺れが起きているように見えます。
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第6話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第6話](https://www.youtube.com/watch?v=O_JPq5UBGEM)**
 
 → **[ハルとおじいさん 第16部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part16.html)**
 
