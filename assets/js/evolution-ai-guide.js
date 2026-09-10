@@ -309,6 +309,9 @@
     openGuide('overview');
   });
 
+  var imageCards = [];
+  var imageIndex = 0;
+
   eras.forEach(function (era, eraIndex) {
     var header = era.element.querySelector('.era-header');
     if (header) {
@@ -325,6 +328,10 @@
     era.events.forEach(function (event, eventIndex) {
       var card = event.element.querySelector('.event-card');
       if (!card) return;
+      imageIndex += 1;
+      card.classList.add('event-card--image');
+      card.dataset.eventImage = 'assets/images/evolution/event-' + String(imageIndex).padStart(3, '0') + '.webp';
+      imageCards.push(card);
       var eventButton = document.createElement('button');
       eventButton.type = 'button';
       eventButton.className = 'timeline-ai-event-button';
@@ -336,4 +343,13 @@
       card.appendChild(eventButton);
     });
   });
+
+  function loadCardImage(card) {
+    if (!card.dataset.eventImage) return;
+    var imageUrl = new URL(card.dataset.eventImage, document.baseURI).href;
+    card.style.setProperty('--event-image', 'url("' + imageUrl + '")');
+    delete card.dataset.eventImage;
+  }
+
+  imageCards.forEach(loadCardImage);
 }());

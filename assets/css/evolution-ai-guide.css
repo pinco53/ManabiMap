@@ -215,6 +215,48 @@
   color: #fffaf4;
 }
 
+.evolution-page .event-card--image {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.evolution-page .event-card--image::before,
+.evolution-page .event-card--image::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+}
+
+.evolution-page .event-card--image::before {
+  z-index: 0;
+  background-image: var(--event-image, none);
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
+  filter: saturate(.78) contrast(.94);
+  opacity: .58;
+  transition: opacity .3s ease, transform .5s ease;
+}
+
+.evolution-page .event-card--image::after {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(25, 42, 76, .94) 0%, rgba(25, 42, 76, .78) 48%, rgba(17, 31, 61, .42) 100%),
+    linear-gradient(180deg, rgba(8, 18, 40, .04), rgba(8, 18, 40, .45));
+}
+
+.evolution-page .event-card--image > * {
+  position: relative;
+  z-index: 2;
+}
+
+.evolution-page .event-card--image:hover::before {
+  opacity: .68;
+  transform: scale(1.025);
+}
+
 .timeline-ai-primary:focus-visible,
 .timeline-ai-era-button:focus-visible,
 .timeline-ai-event-button:focus-visible,
