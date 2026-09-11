@@ -7,7 +7,7 @@
 **公開状態**: published
 **主対象パート**: part16
 **関連PodcastID**: podcast-part16-7
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=3kyIL9tSplo
 **関連YouTubeID**: youtube-part16
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -23,7 +23,8 @@
 
 これだけ星があるのに、なぜ、誰の声も、聞こえてこないのだろう。
 
-（Podcast URL 記入予定）
+🎙️ **関連Podcast（連続再生）**
+https://www.youtube.com/watch?v=3kyIL9tSplo
 
 ---
 
