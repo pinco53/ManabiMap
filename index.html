@@ -20,8 +20,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&family=Zen+Old+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/brand-v2.css?v=20260906-9">
+  <link rel="stylesheet" href="assets/css/knowledge-galaxy.css?v=20260913-2">
 </head>
-<body>
+<body class="galaxy-in-view">
   <a class="skip-link" href="#main">本文へ移動</a>
   <header class="site-header" data-site-header>
     <a class="brand" href="index.html" aria-label="Manabi Map トップ">
@@ -33,16 +34,45 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__media" aria-hidden="true"><img src="assets/brand-v2/hero-lensing-v1.webp" alt="" width="1774" height="900" fetchpriority="high" decoding="async"></div>
-      <div class="hero__content">
-        <p class="eyebrow">Manabi Map</p>
-        <h1 id="hero-title">世界を知る。<br>その先を、AIと考える。</h1>
-        <p class="hero__promise">人類の歴史から、<br>自分の思考へ。</p>
-        <p class="hero__lead">テーマを選び、背景を知り、AIとの対話で考えを深める学びの地図です。</p>
-        <div class="hero__actions"><a class="button button--primary" href="questions.html">AIと対話する</a><a class="button button--quiet" href="map.html">学びの地図を見る</a></div>
+    <section class="knowledge-galaxy" id="galaxy" aria-labelledby="galaxy-question">
+      <canvas class="knowledge-galaxy__stars" id="knowledgeGalaxyStars" aria-hidden="true"></canvas>
+      <canvas class="knowledge-galaxy__field" id="knowledgeGalaxyField" aria-label="Manabi Mapの21の学びを銀河として表した操作できる地図"></canvas>
+      <div class="knowledge-galaxy__grain" aria-hidden="true"></div>
+
+      <div class="knowledge-galaxy__count"><strong id="galaxyStarCount">—</strong><span>STARS OF LEARNING</span><i></i><strong id="galaxyPartCount">21</strong><span>CONSTELLATIONS</span></div>
+      <button class="knowledge-galaxy__random" id="galaxyRandom" type="button"><span aria-hidden="true">✦</span> 問いに連れていって</button>
+
+      <aside class="knowledge-galaxy__lenses" aria-label="問いの重力を選ぶ">
+        <div class="knowledge-galaxy__lens-title"><span aria-hidden="true">✦</span><span>CHOOSE<br>A GRAVITY</span></div>
+        <button type="button" data-galaxy-lens="all"><i></i><span>すべて</span><b>21</b></button>
+        <button type="button" data-galaxy-lens="thinking" aria-pressed="true"><i></i><span>人間とAI</span><b></b></button>
+        <button type="button" data-galaxy-lens="learning"><i></i><span>学ぶこと</span><b></b></button>
+        <button type="button" data-galaxy-lens="language"><i></i><span>言葉と思考</span><b></b></button>
+        <button type="button" data-galaxy-lens="tool"><i></i><span>道具と人間</span><b></b></button>
+        <button type="button" data-galaxy-lens="number"><i></i><span>数と価値</span><b></b></button>
+      </aside>
+
+      <div class="knowledge-galaxy__question" aria-live="polite">
+        <span>GRAVITY / SELECTED QUESTION</span>
+        <h1 id="galaxy-question">AIが答えを出せる時代に、<br>人間が考えるとは何か。</h1>
+        <p id="galaxyQuestionCount"></p>
       </div>
-      <a class="hero__scroll" href="#start"><span>SCROLL</span><span aria-hidden="true">↓</span></a>
+
+      <div class="knowledge-galaxy__hint" aria-hidden="true"><span>ポインターで星が動く</span><i></i><span>点を選ぶ</span><i></i><span>スクロールで潜る</span></div>
+
+      <aside class="knowledge-galaxy-card" id="galaxyCard" aria-live="polite" aria-hidden="true">
+        <button class="knowledge-galaxy-card__close" id="galaxyCardClose" type="button" aria-label="詳細を閉じる">×</button>
+        <p id="galaxyCardGroup"></p><small id="galaxyCardPart"></small><h2 id="galaxyCardTitle"></h2><blockquote id="galaxyCardQuestion"></blockquote>
+        <div class="knowledge-galaxy-card__entries"><a id="galaxyCardPartLink" href="map.html">部をひらく</a><a href="note.html">読む</a><a href="podcast.html">聴く</a></div>
+        <a class="knowledge-galaxy-card__dialogue" href="questions.html"><small>THINK WITH AI</small><span>この問いから対話する</span><b>→</b></a>
+      </aside>
+
+      <a class="knowledge-galaxy__timeline" href="evolution.html">138億年の年表を旅する <span>→</span></a>
+      <a class="knowledge-galaxy__continue" href="#start">学び方を選ぶ ↓</a>
+
+      <footer class="knowledge-galaxy__depth">
+        <div><span>DEPTH OF VIEW</span><strong id="galaxyDepthText">全体を眺める</strong></div><small>全体</small><input id="galaxyDepth" aria-label="地図を見る深さ" type="range" min="0" max="100" value="18"><small>各部・note</small><output id="galaxyDepthOutput">18 / 100</output>
+      </footer>
     </section>
 
     <section class="home-core section" id="start" aria-label="入口を選ぶ">
@@ -73,6 +103,8 @@
       <p class="site-footer__copyright">© 2025–2026 Manabi Map</p>
     </div>
   </footer>
+  <script src="assets/js/manabimap-data.js?v=20260906-2"></script>
   <script src="assets/js/brand-v2.js" defer></script>
+  <script src="assets/js/knowledge-galaxy.js?v=20260913-2"></script>
 </body>
 </html>

@@ -1,0 +1,129 @@
+/* Manabi Map — procedural knowledge galaxy */
+.knowledge-galaxy {
+  --galaxy-tone: #dce9ff;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100svh;
+  min-height: 650px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 54% 51%, #80a5cf17, transparent 34%), radial-gradient(circle at 82% 9%, #5b80a912, transparent 25%), linear-gradient(145deg, #02050b, #07101b 47%, #010308);
+  color: #f1f6ff;
+}
+
+.knowledge-galaxy button,
+.knowledge-galaxy input { font: inherit; }
+.knowledge-galaxy__stars,
+.knowledge-galaxy__field,
+.knowledge-galaxy__grain { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.knowledge-galaxy__stars { z-index: 1; pointer-events: none; }
+.knowledge-galaxy__field { z-index: 2; cursor: crosshair; touch-action: none; }
+.knowledge-galaxy__grain { z-index: 3; opacity: .055; background-image: radial-gradient(circle, #e2efff6b .45px, transparent .55px); background-size: 5px 5px; mask-image: radial-gradient(ellipse at 54% 51%, #000 0%, #000b 42%, transparent 88%); pointer-events: none; }
+
+.knowledge-galaxy__count { position: absolute; z-index: 5; top: 98px; left: 50%; display: flex; align-items: baseline; gap: 7px; transform: translateX(-50%); white-space: nowrap; }
+.knowledge-galaxy__count strong { color: #fff; font: 400 23px/1 'Zen Old Mincho', serif; }
+.knowledge-galaxy__count span { color: #777586; font-size: 7px; font-weight: 600; letter-spacing: .14em; }
+.knowledge-galaxy__count i { width: 1px; height: 22px; margin: 0 10px; background: #fff2; }
+.knowledge-galaxy__random { position: absolute; z-index: 6; top: 96px; right: 4vw; min-height: 40px; padding: 0 16px; border: 1px solid #fff3; border-radius: 999px; background: #ffffff0e; color: #ece9f7; cursor: pointer; font-size: 11px; backdrop-filter: blur(12px); }
+.knowledge-galaxy__random:hover,
+.knowledge-galaxy__random:focus-visible { border-color: #dce9ffaa; background: #dce9ff1c; box-shadow: 0 0 28px #dce9ff24; }
+
+.knowledge-galaxy__lenses { position: absolute; z-index: 6; top: 112px; left: clamp(20px, 3vw, 48px); width: 176px; padding: 15px 12px 12px; border: 1px solid #d3e6ff1f; border-radius: 15px; background: #050d179c; box-shadow: 0 24px 70px #0005; backdrop-filter: blur(16px); }
+.knowledge-galaxy__lens-title { display: flex; align-items: center; gap: 8px; margin: 0 7px 10px; color: #747181; font-size: 7px; font-weight: 600; line-height: 1.35; letter-spacing: .17em; }
+.knowledge-galaxy__lens-title > span:first-child { color: var(--galaxy-tone); font-size: 14px; }
+.knowledge-galaxy__lenses button { display: grid; grid-template-columns: 7px 1fr auto; width: 100%; min-height: 42px; align-items: center; gap: 9px; padding: 0 10px; border: 0; border-radius: 9px; background: transparent; color: #9996a7; text-align: left; cursor: pointer; transition: .25s ease; }
+.knowledge-galaxy__lenses button:hover,
+.knowledge-galaxy__lenses button:focus-visible { transform: translateX(2px); background: #ffffff0e; color: #fff; }
+.knowledge-galaxy__lenses button i { width: 5px; height: 5px; border-radius: 50%; background: var(--galaxy-tone); opacity: .5; }
+.knowledge-galaxy__lenses button span { font-size: 11px; }
+.knowledge-galaxy__lenses button b { color: #625f70; font-size: 8px; }
+.knowledge-galaxy__lenses button[aria-pressed="true"] { background: #ffffff13; color: #fff; }
+.knowledge-galaxy__lenses button[aria-pressed="true"] i { opacity: 1; box-shadow: 0 0 12px var(--galaxy-tone), 0 0 0 4px #dce9ff29; }
+.knowledge-galaxy__lenses button[aria-pressed="true"] b { color: var(--galaxy-tone); }
+
+.knowledge-galaxy__question { position: absolute; z-index: 5; top: 148px; left: clamp(228px, 20vw, 300px); width: min(570px, calc(100vw - 600px)); color: #fff; text-shadow: 0 2px 22px #000e; pointer-events: none; }
+.knowledge-galaxy__question > span { display: block; color: var(--galaxy-tone); font-size: 8px; font-weight: 600; letter-spacing: .2em; }
+.knowledge-galaxy__question h1 { margin: 11px 0 8px; color: #fff; font: 500 clamp(22px, 2.35vw, 40px)/1.55 'Zen Old Mincho', serif; letter-spacing: .025em; text-wrap: balance; }
+.knowledge-galaxy__question p { margin: 0; color: #8f8c9e; font-size: 10px; letter-spacing: .03em; }
+
+.knowledge-galaxy__hint { position: absolute; z-index: 5; bottom: 86px; left: 50%; display: flex; align-items: center; gap: 7px; padding: 8px 13px; transform: translateX(-50%); border: 1px solid #fff2; border-radius: 999px; background: #08080f8c; color: #817f8f; font-size: 8px; letter-spacing: .08em; white-space: nowrap; backdrop-filter: blur(10px); pointer-events: none; }
+.knowledge-galaxy__hint i { width: 2px; height: 2px; border-radius: 50%; background: #575565; }
+
+.knowledge-galaxy-card { position: absolute; z-index: 9; top: 105px; right: clamp(20px, 3vw, 48px); width: min(360px, calc(100vw - 40px)); max-height: calc(100svh - 190px); padding: 30px 28px 25px; overflow: auto; transform: translateX(calc(100% + 70px)) scale(.97); border: 1px solid #d3e6ff29; border-radius: 18px; background: linear-gradient(145deg, #0c1928f2, #03080feb); box-shadow: 0 32px 90px #0009; color: #fff; opacity: 0; backdrop-filter: blur(24px); pointer-events: none; transition: .45s cubic-bezier(.2,.85,.2,1); }
+.knowledge-galaxy-card.is-open { transform: translateX(0) scale(1); opacity: 1; pointer-events: auto; }
+.knowledge-galaxy-card__close { position: absolute; top: 13px; right: 13px; display: grid; width: 30px; height: 30px; padding: 0; place-items: center; border: 0; border-radius: 50%; background: #fff1; color: #a7a4b1; cursor: pointer; font-size: 20px; }
+.knowledge-galaxy-card > p { margin: 0; padding-right: 30px; color: var(--galaxy-tone); font-size: 8px; font-weight: 600; letter-spacing: .17em; }
+.knowledge-galaxy-card > small { display: block; margin-top: 28px; color: #817e90; font: 500 11px 'Zen Old Mincho', serif; letter-spacing: .18em; }
+.knowledge-galaxy-card h2 { margin: 5px 0 0; color: #fff; font: 600 28px/1.4 'Zen Old Mincho', serif; }
+.knowledge-galaxy-card blockquote { margin: 19px 0 20px; padding: 16px 0 16px 18px; border-left: 2px solid var(--galaxy-tone); color: #ded9ea; font: 500 15px/1.8 'Zen Old Mincho', serif; }
+.knowledge-galaxy-card__entries { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.knowledge-galaxy-card__entries a { display: grid; min-height: 39px; place-items: center; border: 1px solid #fff2; border-radius: 8px; background: #ffffff0b; color: #aaa6b8; font-size: 9px; }
+.knowledge-galaxy-card__entries a:hover { border-color: #dce9ff77; background: #dce9ff18; color: #fff; }
+.knowledge-galaxy-card__dialogue { display: grid; grid-template-columns: 1fr auto; min-height: 54px; align-items: center; gap: 10px; margin-top: 9px; padding: 10px 13px; border-radius: 9px; background: var(--galaxy-tone); color: #0d0b15; box-shadow: 0 8px 30px #dce9ff2b; }
+.knowledge-galaxy-card__dialogue small { grid-column: 1; font-size: 7px; letter-spacing: .15em; opacity: .63; }
+.knowledge-galaxy-card__dialogue span { grid-column: 1; font-size: 10px; font-weight: 600; }
+.knowledge-galaxy-card__dialogue b { grid-column: 2; grid-row: 1 / 3; font-size: 17px; }
+
+.knowledge-galaxy__timeline { position: absolute; z-index: 6; right: 26px; bottom: 82px; display: flex; align-items: center; gap: 11px; padding: 12px 17px; border: 1px solid #a08b6255; border-radius: 999px; background: #07111ad9; color: #e5d7b9; font-size: 12px; backdrop-filter: blur(14px); }
+.knowledge-galaxy__timeline:hover,
+.knowledge-galaxy__timeline:focus-visible { border-color: #c5ae75; background: #16212be8; }
+.knowledge-galaxy__continue { position: absolute; z-index: 6; bottom: 82px; left: 26px; color: #a8b5c6; font-size: 10px; letter-spacing: .08em; }
+
+.knowledge-galaxy__depth { position: absolute; z-index: 7; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: 185px auto minmax(180px, 1fr) auto 70px; min-height: 67px; align-items: center; gap: 14px; padding: 10px clamp(20px, 3vw, 48px); border-top: 1px solid #d3e6ff17; background: linear-gradient(to top, #02060cf7, #02060cc2); backdrop-filter: blur(14px); }
+.knowledge-galaxy__depth > div span { display: block; color: #5e6d7e; font-size: 7px; font-weight: 600; letter-spacing: .17em; }
+.knowledge-galaxy__depth > div strong { display: block; margin-top: 3px; color: #a9b8ca; font: 500 11px 'Zen Old Mincho', serif; }
+.knowledge-galaxy__depth > small { color: #68788a; font-size: 8px; white-space: nowrap; }
+.knowledge-galaxy__depth input { width: 100%; height: 20px; appearance: none; background: transparent; cursor: ew-resize; accent-color: var(--galaxy-tone); }
+.knowledge-galaxy__depth input::-webkit-slider-runnable-track { height: 1px; background: linear-gradient(90deg, var(--galaxy-tone), #d3e6ff33); }
+.knowledge-galaxy__depth input::-webkit-slider-thumb { width: 13px; height: 13px; margin-top: -6px; appearance: none; border: 2px solid #06101c; border-radius: 50%; background: var(--galaxy-tone); box-shadow: 0 0 0 4px #dce9ff2e, 0 0 18px var(--galaxy-tone); }
+.knowledge-galaxy__depth output { color: #fff; font: 400 13px 'Zen Old Mincho', serif; text-align: right; white-space: nowrap; }
+
+body.galaxy-in-view .site-header,
+body.galaxy-in-view .site-header.is-scrolled { border-bottom-color: #a8b3c11f; background: #02060ce8; box-shadow: none; }
+body.galaxy-in-view .site-header .brand,
+body.galaxy-in-view .site-header .desktop-nav a { color: #e8e4dc; }
+body.galaxy-in-view .site-header .brand__concept { color: #9da6b2; }
+body.galaxy-in-view .site-header .brand__mark { stroke: #e8e4dc; }
+body.galaxy-in-view .site-header .brand__mark circle:first-child { fill: #e8e4dc; }
+body.galaxy-in-view .site-header .mobile-nav summary span { background: #e8e4dc; }
+
+@media (max-width: 1000px) {
+  .knowledge-galaxy__count { left: auto; right: 92px; transform: none; }
+  .knowledge-galaxy__question { width: min(490px, calc(100vw - 480px)); }
+  .knowledge-galaxy-card { width: 330px; }
+}
+
+@media (max-width: 760px) {
+  .knowledge-galaxy { min-height: 680px; }
+  .knowledge-galaxy__count { display: none; }
+  .knowledge-galaxy button.knowledge-galaxy__random { top: 84px; right: 12px; width: 39px; padding: 0; font-size: 0; }
+  .knowledge-galaxy__random span { font-size: 18px; }
+  .knowledge-galaxy__lenses { top: 80px; right: 58px; left: 10px; display: flex; width: auto; gap: 4px; padding: 8px; overflow-x: auto; border-radius: 12px; }
+  .knowledge-galaxy__lens-title { display: none; }
+  .knowledge-galaxy__lenses button { flex: 0 0 auto; grid-template-columns: 5px auto; width: auto; min-height: 34px; padding: 0 10px; }
+  .knowledge-galaxy__lenses button b { display: none; }
+  .knowledge-galaxy__question { top: 139px; left: 20px; width: calc(100vw - 40px); }
+  .knowledge-galaxy__question h1 { max-width: 540px; font-size: clamp(20px, 5.5vw, 30px); }
+  .knowledge-galaxy__question p { display: none; }
+  .knowledge-galaxy-card { top: auto; right: 10px; bottom: 65px; left: 10px; width: auto; max-height: 55svh; padding: 25px 22px 19px; transform: translateY(calc(100% + 80px)) scale(.98); }
+  .knowledge-galaxy-card.is-open { transform: translateY(0) scale(1); }
+  .knowledge-galaxy__hint { display: none; }
+  .knowledge-galaxy__timeline { right: 12px; bottom: 74px; padding: 10px 13px; font-size: 10px; }
+  .knowledge-galaxy__continue { bottom: 82px; left: 13px; font-size: 9px; }
+  .knowledge-galaxy__depth { grid-template-columns: auto minmax(120px, 1fr) auto; min-height: 60px; gap: 9px; padding: 8px 14px; }
+  .knowledge-galaxy__depth > div,
+  .knowledge-galaxy__depth output { display: none; }
+}
+
+@media (max-width: 460px) {
+  .knowledge-galaxy__question h1 { line-height: 1.5; }
+  .knowledge-galaxy__hint span:nth-of-type(2),
+  .knowledge-galaxy__hint i:nth-of-type(2),
+  .knowledge-galaxy__hint span:nth-of-type(3) { display: none; }
+  .knowledge-galaxy-card h2 { font-size: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .knowledge-galaxy-card,
+  .knowledge-galaxy__lenses button { transition: none; }
+}
