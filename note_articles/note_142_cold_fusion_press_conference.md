@@ -7,7 +7,7 @@
 **公開状態**: published
 **主対象パート**: part16
 **関連PodcastID**: podcast-part16-8
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=1Lvx6a6Ddho
 **関連YouTubeID**: youtube-part16
 **関連YouTubeURL**: （アップロード後に記入）
 **CTA文言**: Podcastで深く聴く
@@ -23,7 +23,7 @@
 
 本当だったら、すごい。でも、本当なのかな。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=1Lvx6a6Ddho
 
 ---
 
@@ -77,7 +77,7 @@ AIの世界でも、似たような発表を、何度も目にするようにな
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第8話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第16部第8話](https://www.youtube.com/watch?v=1Lvx6a6Ddho)**
 
 → **[ハルとおじいさん 第16部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part16.html)**
 
