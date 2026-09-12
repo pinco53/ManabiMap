@@ -1,0 +1,358 @@
+/* Manabi Map — full-screen logarithmic time space */
+.evolution-page .evolution-legacy-hero { display: none; }
+
+.deep-time {
+  --deep-gold: #d8c49b;
+  --deep-muted: #8d98a7;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100svh;
+  min-height: 620px;
+  overflow: hidden;
+  background: #02060c;
+  color: #ece7db;
+}
+
+.deep-time button,
+.deep-time input { font: inherit; }
+
+.deep-time__surface,
+.deep-time__canvas,
+.deep-time__points {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.deep-time__surface { z-index: 1; touch-action: none; cursor: grab; }
+.deep-time__surface.is-dragging { cursor: grabbing; }
+.deep-time__canvas { pointer-events: none; }
+.deep-time__points { pointer-events: none; }
+
+.deep-time__title {
+  position: absolute;
+  z-index: 3;
+  top: 105px;
+  left: 5%;
+  max-width: 68%;
+  pointer-events: none;
+}
+
+.deep-time__title > p {
+  margin: 0 0 10px;
+  color: #b8aa90;
+  font: 400 11px/1.5 Inter, sans-serif;
+  letter-spacing: .3em;
+}
+
+.deep-time__title h1 {
+  display: flex;
+  align-items: baseline;
+  gap: 17px;
+  margin: 0;
+  font-family: 'Shippori Mincho', 'Zen Old Mincho', serif;
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.deep-time__title h1 strong {
+  color: #eee5d3;
+  font-size: clamp(78px, 11vw, 160px);
+  font-weight: 400;
+  letter-spacing: -.055em;
+}
+
+.deep-time__title h1 strong.is-age {
+  font-size: clamp(38px, 6vw, 80px);
+  letter-spacing: -.03em;
+}
+
+.deep-time__title h1 span {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 300;
+}
+
+.deep-time__title > div {
+  margin-top: 14px;
+  color: #a8a9af;
+  font-size: 13px;
+  letter-spacing: .06em;
+}
+
+.deep-time__lenses {
+  position: absolute;
+  z-index: 5;
+  top: 112px;
+  right: 4vw;
+  max-width: 260px;
+  text-align: right;
+}
+
+.deep-time__lenses > span {
+  color: var(--deep-muted);
+  font-size: 10px;
+  letter-spacing: .15em;
+}
+
+.deep-time__lenses > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  margin-top: 10px;
+}
+
+.deep-time__lenses button {
+  min-height: 32px;
+  padding: 4px 15px 4px 12px;
+  border: 0;
+  border-right: 1px solid transparent;
+  background: transparent;
+  color: #929bab;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.deep-time__lenses button:hover,
+.deep-time__lenses button:focus-visible { color: #fff; }
+.deep-time__lenses button[aria-pressed="true"] { border-color: #b99a62; color: #e9ca94; }
+.deep-time__lenses p { max-width: 220px; margin: 13px 0 0; color: #c1b499; font-size: 12px; line-height: 1.7; }
+
+.deep-time-point {
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  place-items: center;
+  border: 0;
+  outline-offset: 6px;
+  background: none;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: opacity .25s ease;
+}
+
+.deep-time-point__core {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #e2d5b7;
+  box-shadow: 0 0 10px #dfc28eaa, 0 0 22px #d5b37c44;
+}
+
+.deep-time-point.is-muted { opacity: .16; }
+.deep-time-point:hover,
+.deep-time-point:focus-visible { z-index: 8; opacity: 1; }
+.deep-time-point:hover .deep-time-point__core { transform: scale(2); }
+.deep-time-point.has-image { width: 76px; height: 76px; }
+.deep-time-point.has-image .deep-time-point__core { position: absolute; }
+.deep-time-point img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid #cab28a88;
+  border-radius: 50%;
+  box-shadow: 0 0 30px #b29f6f30;
+}
+
+.deep-time-point__caption {
+  position: absolute;
+  top: calc(100% + 9px);
+  left: 50%;
+  width: 174px;
+  transform: translateX(-50%);
+  color: #e7e2d8;
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: center;
+  text-shadow: 0 2px 5px #000, 0 0 14px #000;
+  pointer-events: none;
+}
+
+.deep-time-point__caption small { display: block; margin-bottom: 2px; color: #c4b18e; font-size: 10px; letter-spacing: .05em; }
+.deep-time-point.is-future .deep-time-point__core { border: 1px solid #aabbd1; background: transparent; box-shadow: 0 0 8px #879fbb66; }
+
+.deep-time__future {
+  position: absolute;
+  z-index: 2;
+  top: 38%;
+  bottom: 225px;
+  border-left: 1px dashed #7b8fa344;
+  pointer-events: none;
+}
+
+.deep-time__future span { position: absolute; top: -21px; left: 12px; color: #9ca9ba; font-size: 10px; letter-spacing: .1em; white-space: nowrap; }
+
+.deep-time__axis {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 205px;
+  left: 0;
+  height: 35px;
+  pointer-events: none;
+}
+
+.deep-time__axis span { position: absolute; padding-top: 14px; transform: translateX(-50%); color: #afb2b8; font-size: 11px; white-space: nowrap; }
+.deep-time__axis span::before { position: absolute; top: 0; left: 50%; width: 1px; height: 7px; background: #76829580; content: ''; }
+
+.deep-time__zoom {
+  position: absolute;
+  z-index: 6;
+  top: 43%;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.deep-time__zoom button,
+.deep-time__instruction button {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #050d1788;
+  color: #c1c6d0;
+  cursor: pointer;
+}
+
+.deep-time__zoom button:hover,
+.deep-time__zoom button:focus-visible { background: #273240; color: #fff; }
+.deep-time__zoom button:disabled { opacity: .25; cursor: default; }
+.deep-time__zoom span { color: #959fae; font-size: 10px; font-variant-numeric: tabular-nums; }
+
+.deep-time__controls {
+  position: absolute;
+  z-index: 5;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 12px 5% 14px;
+  background: linear-gradient(transparent, #02060cee 39%, #02060c);
+}
+
+.deep-time__instruction { display: flex; min-height: 26px; align-items: center; justify-content: center; gap: 8px; color: #a0a7b3; font-size: 12px; }
+.deep-time__instruction button { width: 28px; height: 28px; background: transparent; font-size: 12px; }
+.deep-time__stops { display: flex; align-items: center; justify-content: space-between; margin: 6px 0 9px; }
+.deep-time__stops button { padding: 6px 10px; border: 0; background: transparent; color: #dfd3bb; cursor: pointer; font-family: 'Shippori Mincho', serif; font-size: 15px; letter-spacing: .08em; }
+.deep-time__stops button:hover,
+.deep-time__stops button:focus-visible { background: #c0b49712; color: #fff; }
+
+.deep-time__scrubber {
+  display: grid;
+  grid-template-columns: 150px 1fr 210px;
+  align-items: center;
+  gap: 20px;
+  min-height: 28px;
+  color: #929dac;
+  font-size: 10px;
+}
+
+.deep-time__scrubber input { width: 100%; accent-color: #d4c09a; cursor: ew-resize; }
+.deep-time__scrubber output { text-align: right; font-variant-numeric: tabular-nums; }
+.deep-time__notes { display: flex; justify-content: space-between; gap: 12px; margin-top: 4px; color: #737f8e; font-size: 9px; line-height: 1.5; }
+.deep-time__read { position: absolute; right: 5%; bottom: 54px; color: #cdbd9f; font-size: 11px; letter-spacing: .04em; }
+
+.deep-time-dialog {
+  width: min(440px, 100vw);
+  max-width: 440px;
+  height: 100dvh;
+  max-height: none;
+  margin: 0 0 0 auto;
+  padding: 48px 30px 26px;
+  overflow: auto;
+  border: 0;
+  border-left: 1px solid #8e9ba244;
+  background: #07111cf8;
+  color: #dedfdc;
+}
+
+.deep-time-dialog::backdrop { background: #01040ab8; backdrop-filter: blur(5px); }
+.deep-time-dialog__close { position: absolute; top: 12px; right: 14px; width: 36px; height: 36px; border: 0; background: transparent; color: #c3c9d1; cursor: pointer; font-size: 25px; }
+.deep-time-dialog > img { display: block; width: 150px; height: 150px; margin: 0 auto 22px; object-fit: cover; border: 1px solid #bca77e88; border-radius: 50%; }
+.deep-time-dialog__date { margin: 0 0 8px; color: #cfb88e; font-size: 12px; letter-spacing: .08em; }
+.deep-time-dialog h2 { margin: 0; color: #f0e8d7; font-family: 'Shippori Mincho', serif; font-size: 25px; font-weight: 400; line-height: 1.5; }
+.deep-time-dialog__description { margin: 18px 0 10px; color: #c4c9cc; font-size: 15px; line-height: 1.95; }
+.deep-time-dialog__era { color: #8091a4; font-size: 11px; }
+.deep-time-dialog__links { display: flex; flex-direction: column; gap: 10px; margin: 18px 0; }
+.deep-time-dialog__links a,
+.deep-time-dialog > a { color: #cbbb9c; font-size: 13px; }
+.deep-time-dialog__dialogue { margin: 10px 0 20px; padding-top: 20px; border-top: 1px solid #7c8e9c44; }
+.deep-time-dialog__dialogue strong { display: block; margin-bottom: 12px; font-size: 14px; }
+.deep-time-dialog__dialogue button { min-height: 42px; padding: 10px 14px; border: 0; border-radius: 4px; background: #d6c49f; color: #101720; cursor: pointer; font-size: 12px; }
+.deep-time-dialog__dialogue span { display: block; margin-top: 8px; color: #c4b894; font-size: 11px; line-height: 1.6; }
+.deep-time-dialog__dialogue textarea { width: 100%; min-height: 170px; margin-top: 10px; padding: 10px; background: #030911; color: #c3ccd3; font-size: 11px; }
+.deep-time-dialog > small { display: block; margin-top: 18px; color: #8190a0; font-size: 10px; line-height: 1.7; }
+
+body.deep-in-space .era-nav { opacity: 0; pointer-events: none; }
+body.deep-in-space .site-header,
+body.deep-in-space .site-header.is-scrolled {
+  border-bottom-color: #a8b3c11f;
+  background: #02060ce8;
+  box-shadow: none;
+}
+body.deep-in-space .site-header .brand,
+body.deep-in-space .site-header .desktop-nav a { color: #e8e4dc; }
+body.deep-in-space .site-header .brand__concept { color: #9da6b2; }
+body.deep-in-space .site-header .brand__mark { stroke: #e8e4dc; }
+body.deep-in-space .site-header .brand__mark circle:first-child { fill: #e8e4dc; }
+body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; }
+
+@media (max-width: 760px) {
+  .deep-time { min-height: 620px; }
+  .deep-time__title { top: 82px; max-width: 85%; }
+  .deep-time__title > p { font-size: 9px; }
+  .deep-time__title h1 strong { font-size: 82px; }
+  .deep-time__title h1 strong.is-age { font-size: 44px; }
+  .deep-time__title h1 span { font-size: 30px; }
+  .deep-time__title > div { margin-top: 8px; font-size: 11px; }
+  .deep-time__lenses { top: 230px; right: auto; left: 5%; max-width: 90%; text-align: left; }
+  .deep-time__lenses > span { display: none; }
+  .deep-time__lenses > div { flex-direction: row; margin: 0; }
+  .deep-time__lenses button { min-height: 32px; padding: 5px 10px; border-right: 0; border-bottom: 1px solid transparent; font-size: 11px; }
+  .deep-time__lenses p { max-width: none; margin-top: 4px; font-size: 10px; }
+  .deep-time-point.has-image { width: 56px; height: 56px; }
+  .deep-time-point__caption { width: 128px; font-size: 11px; }
+  .deep-time-point__caption small { font-size: 9px; }
+  .deep-time__zoom { top: 42%; right: 5px; }
+  .deep-time__zoom button { width: 33px; height: 33px; }
+  .deep-time__axis { bottom: 205px; }
+  .deep-time__axis span { font-size: 8px; letter-spacing: .05em; writing-mode: vertical-rl; }
+  .deep-time__future { bottom: 230px; }
+  .deep-time__future span { writing-mode: vertical-rl; }
+  .deep-time__controls { padding: 9px 5% 11px; }
+  .deep-time__instruction { font-size: 9px; line-height: 1.5; text-align: center; }
+  .deep-time__stops { margin: 3px 0 6px; }
+  .deep-time__stops button { padding: 5px 4px; font-size: 12px; letter-spacing: 0; }
+  .deep-time__scrubber { grid-template-columns: 1fr; gap: 2px; }
+  .deep-time__scrubber label { display: none; }
+  .deep-time__scrubber output { text-align: center; }
+  .deep-time__notes { display: block; margin-top: 2px; text-align: center; font-size: 8px; }
+  .deep-time__notes span { display: block; }
+  .deep-time__read { top: -22px; right: 5%; bottom: auto; }
+  .deep-time-dialog { padding: 45px 24px 24px; }
+}
+
+@media (max-height: 650px) and (min-width: 761px) {
+  .deep-time__title { top: 78px; }
+  .deep-time__title h1 strong { font-size: 78px; }
+  .deep-time__title > div { display: none; }
+  .deep-time__lenses { top: 82px; }
+  .deep-time__axis { bottom: 184px; }
+  .deep-time__controls { padding-bottom: 7px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deep-time-point { transition: none; }
+}

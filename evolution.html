@@ -1268,6 +1268,7 @@ a { color: inherit; text-decoration: none; }
 <link rel="stylesheet" href="assets/css/brand-v2.css?v=20260731-24">
 <link rel="stylesheet" href="assets/css/evolution-renewal.css?v=20260731-24">
 <link rel="stylesheet" href="assets/css/evolution-ai-guide.css?v=20260911-1">
+<link rel="stylesheet" href="assets/css/evolution-deep-time.css?v=20260912-1">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
 <script>
@@ -1278,7 +1279,7 @@ a { color: inherit; text-decoration: none; }
   gtag('config', 'G-QL1PVK5PRF');
 </script>
 </head>
-<body class="inner-page evolution-page">
+<body class="inner-page evolution-page deep-in-space">
 <a class="skip-link" href="#main">本文へ移動</a>
 <div class="grain-overlay" aria-hidden="true"></div>
 
@@ -1325,8 +1326,64 @@ a { color: inherit; text-decoration: none; }
 </aside>
 
 <main id="main">
+<!-- ========== LOGARITHMIC TIME SPACE ========== -->
+<section class="deep-time" id="top" aria-labelledby="deep-time-title">
+  <div class="deep-time__surface" id="deepTimeSurface" aria-label="138億年を対数で表した時間空間。スクロールまたはピンチで拡大できます。">
+    <canvas class="deep-time__canvas" id="deepTimeCanvas" aria-hidden="true"></canvas>
+    <div class="deep-time__points" id="deepTimePoints"></div>
+    <div class="deep-time__future" id="deepTimeFuture"><span>未来への問い</span></div>
+    <div class="deep-time__axis" id="deepTimeAxis" aria-hidden="true"></div>
+  </div>
+
+  <div class="deep-time__title">
+    <p>THE UNIVERSE OF TIME</p>
+    <h1 id="deep-time-title"><strong id="deepTimeAge">138</strong><span id="deepTimeUnit">億年</span></h1>
+    <div id="deepTimeRange">宇宙のはじまりから、人類の問いへ。</div>
+  </div>
+
+  <aside class="deep-time__lenses" aria-label="見方を変える">
+    <span>見方を変える</span>
+    <div>
+      <button type="button" data-time-lens="all" aria-pressed="true">全体</button>
+      <button type="button" data-time-lens="information" aria-pressed="false">情報</button>
+      <button type="button" data-time-lens="energy" aria-pressed="false">エネルギー</button>
+      <button type="button" data-time-lens="cooperation" aria-pressed="false">協力</button>
+    </div>
+    <p id="deepTimeQuestion"></p>
+  </aside>
+
+  <div class="deep-time__zoom" aria-label="拡大縮小">
+    <button type="button" id="deepTimeZoomIn" aria-label="時間に近づく">＋</button>
+    <span id="deepTimeZoomLabel">1.0×</span>
+    <button type="button" id="deepTimeZoomOut" aria-label="時間から離れる" disabled>−</button>
+    <button type="button" id="deepTimeReset" aria-label="138億年の全体へ戻る">↶</button>
+  </div>
+
+  <footer class="deep-time__controls">
+    <div class="deep-time__instruction"><span id="deepTimeInstruction">スクロール・ピンチで近づく。粒を選んで、時代の中へ。</span><button type="button" id="deepTimeFlow" aria-label="粒の漂いを止める">Ⅱ</button></div>
+    <nav class="deep-time__stops" aria-label="時代へ移動">
+      <button type="button" data-time-stop=".5,1">138億年</button><button type="button" data-time-stop=".12,4">生命</button><button type="button" data-time-stop=".39,4">人類</button><button type="button" data-time-stop=".60,8">文明</button><button type="button" data-time-stop=".79,4">現代</button><button type="button" data-time-stop=".946,9">未来</button>
+    </nav>
+    <div class="deep-time__scrubber"><label for="deepTimeScrubber">時間の中を移動</label><input id="deepTimeScrubber" type="range" min="0" max="1000" value="500" step="1"><output id="deepTimeOutput">138億年前 — 未来</output></div>
+    <div class="deep-time__notes"><span>対数軸：log₁₀(1＋2026年から遡る年数) · 未来は別枠</span><span>選べる118点は既存年表。背景の粒は空間表現です。</span></div>
+    <a class="deep-time__read" href="#detailed-timeline">詳しい年表として読む ↓</a>
+  </footer>
+</section>
+
+<dialog class="deep-time-dialog" id="deepTimeDialog" aria-labelledby="deepTimeDialogTitle">
+  <button type="button" class="deep-time-dialog__close" id="deepTimeDialogClose" aria-label="説明を閉じる">×</button>
+  <img id="deepTimeDialogImage" alt="">
+  <p class="deep-time-dialog__date" id="deepTimeDialogDate"></p>
+  <h2 id="deepTimeDialogTitle"></h2>
+  <p class="deep-time-dialog__description" id="deepTimeDialogDescription"></p>
+  <p class="deep-time-dialog__era" id="deepTimeDialogEra"></p>
+  <div class="deep-time-dialog__links" id="deepTimeDialogLinks"></div>
+  <div class="deep-time-dialog__dialogue"><strong>この一点から、見方を広げる。</strong><button type="button" id="deepTimeCopy">AIと深める対話文をコピー →</button><span id="deepTimeCopyStatus" role="status"></span><textarea id="deepTimePrompt" readonly hidden aria-label="コピーする対話文"></textarea></div>
+  <a href="#detailed-timeline" id="deepTimeDetailLink">詳しい年表の同じ時代へ →</a>
+  <small>既存年表の内容を使用。年代は概数を含み、未来は予測です。</small>
+</dialog>
 <!-- ========== HERO ========== -->
-<section class="hero" id="top">
+<section class="hero evolution-legacy-hero" id="legacy-intro">
   <div class="hero-series">MANABI MAP · KNOWLEDGE LENS</div>
   <h1 class="hero-title">138億年から、<br>まだ見ぬ未来まで。</h1>
   <div class="hero-subtitle-jp">進化の年表</div>
@@ -1341,7 +1398,7 @@ a { color: inherit; text-decoration: none; }
 </section>
 
 <!-- ========== AI TIMELINE GUIDE ========== -->
-<section class="timeline-ai-intro" aria-labelledby="timeline-ai-intro-title">
+<section class="timeline-ai-intro" id="detailed-timeline" aria-labelledby="timeline-ai-intro-title">
   <div class="timeline-ai-intro__inner">
     <div class="timeline-ai-intro__heading">
       <span>HOW TO EXPLORE</span>
@@ -3333,5 +3390,6 @@ a { color: inherit; text-decoration: none; }
 <script src="assets/js/sky-clock.js"></script>
 <script src="assets/js/brand-v2.js" defer></script>
 <script src="assets/js/evolution-ai-guide.js?v=20260911-1"></script>
+<script src="assets/js/evolution-deep-time.js?v=20260912-1"></script>
 </body>
 </html>
