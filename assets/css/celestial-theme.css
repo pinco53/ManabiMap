@@ -1,0 +1,260 @@
+/* Shared visual language of the knowledge galaxy. Loaded after page styles.
+   Screen-only link keeps the existing printable learning maps intact. */
+:root,
+body.celestial-site {
+  color-scheme: dark;
+  --space: #040910;
+  --surface: #0b1420;
+  --surface-raised: #111e2c;
+  --starlight: #e8e6df;
+  --starlight-soft: #a6b2c1;
+  --stellar-gold: #d7be8b;
+  --stellar-line: rgba(181, 202, 225, .18);
+  --stellar-glow: radial-gradient(ellipse at 80% 10%, #9d815214, transparent 55%), linear-gradient(145deg, #101b29, #080f19);
+  --stellar-serif: "Zen Old Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --stellar-sans: "Noto Sans JP", "Hiragino Sans", sans-serif;
+  --stellar-inline-text: #c6cdd6;
+  --stellar-inline-surface: #0b1420;
+  --v2-ivory: var(--space);
+  --v2-ivory-deep: #08111c;
+  --v2-paper: var(--surface);
+  --v2-ink: var(--starlight);
+  --v2-ink-soft: var(--starlight-soft);
+  --v2-navy: #101c2a;
+  --v2-blue: #a6bed4;
+  --v2-lavender: #b4becf;
+  --v2-peach: var(--stellar-gold);
+  --v2-gold: var(--stellar-gold);
+  --v2-line: var(--stellar-line);
+  --v2-white: #f4f1e9;
+  --v2-shadow: 0 20px 60px #0004;
+  --v2-serif: var(--stellar-serif);
+  --v2-sans: var(--stellar-sans);
+  --v2-radius: 16px;
+  --media-ivory: var(--space);
+  --media-paper: var(--surface);
+  --media-ink: var(--starlight);
+  --media-soft: var(--starlight-soft);
+  --media-navy: #101c2a;
+  --media-peach: var(--stellar-gold);
+  --media-line: var(--stellar-line);
+  --media-serif: var(--stellar-serif);
+  --part-v2-ivory: var(--space);
+  --part-v2-paper: var(--surface);
+  --part-v2-ink: var(--starlight);
+  --part-v2-soft: var(--starlight-soft);
+  --part-v2-navy: #101c2a;
+  --part-v2-peach: var(--stellar-gold);
+  --part-v2-line: var(--stellar-line);
+  --part-v2-serif: var(--stellar-serif);
+  --bg: var(--space);
+  --bg-deep: var(--space);
+  --bg-panel: var(--surface);
+  --bg-card: var(--surface);
+  --bg-card-hover: var(--surface-raised);
+  --text: var(--starlight);
+  --text-bright: #f4f1e9;
+  --text-dim: var(--starlight-soft);
+  --border: var(--stellar-line);
+  --paper: var(--space);
+  --panel: var(--surface);
+  --panel-2: var(--surface-raised);
+  --ink: var(--starlight);
+  --soft-ink: var(--starlight-soft);
+  --ink-soft: var(--starlight-soft);
+  --muted: var(--starlight-soft);
+  --ivory: var(--space);
+  --gold: var(--stellar-gold);
+  --gold-dark: var(--stellar-gold);
+  --line: var(--stellar-line);
+  --accent: var(--stellar-gold);
+  --cyan: var(--stellar-gold);
+  --font-serif: var(--stellar-serif);
+  --font-sans: var(--stellar-sans);
+  --font-mincho: var(--stellar-serif);
+  --content-width: 1180px;
+  margin: 0;
+  color: var(--starlight);
+  background: var(--space);
+  font-family: var(--stellar-sans);
+}
+.celestial-site *, .celestial-site *::before, .celestial-site *::after { box-sizing: border-box; }
+.celestial-site::before { opacity: .025; mix-blend-mode: screen; }
+.celestial-site ::selection { background: #d7be8b40; color: #fff; }
+.celestial-site :focus-visible { outline: 2px solid var(--stellar-gold); outline-offset: 5px; }
+.celestial-site :is(h1, h2, h3, .section-title) { font-family: var(--stellar-serif); }
+.celestial-site :is(input, textarea, select) { color-scheme: dark; accent-color: var(--stellar-gold); }
+
+/* One header and footer treatment, including the older media/part layouts. */
+body.celestial-site :is(.site-header, .site-header.is-scrolled, .media-v2-header, .part-v2-header) {
+  min-height: 78px;
+  padding: 12px clamp(20px, 4vw, 64px);
+  color: var(--starlight);
+  border-bottom: 1px solid var(--stellar-line);
+  background: #040910ed;
+  box-shadow: none;
+  backdrop-filter: blur(18px);
+}
+body.celestial-site :is(.brand, .media-v2-brand, .part-v2-brand) { color: var(--starlight); gap: 12px; }
+body.celestial-site :is(.brand__mark, .media-v2-brand svg, .part-v2-brand svg) { width: 42px; height: 42px; stroke: var(--starlight); }
+body.celestial-site .brand__mark circle:first-child { fill: var(--starlight); }
+body.celestial-site :is(.brand__star, .media-v2-brand__star, .part-v2-brand__star) { fill: var(--stellar-gold); }
+body.celestial-site :is(.brand__name, .media-v2-brand strong, .part-v2-brand strong) { font: 500 21px/1.2 var(--stellar-serif); letter-spacing: .08em; }
+body.celestial-site :is(.brand__concept, .media-v2-brand small, .part-v2-brand small) { color: var(--starlight-soft); font: 400 10px/1.5 var(--stellar-serif); letter-spacing: .16em; }
+body.celestial-site :is(.desktop-nav, .media-v2-header > nav, .part-v2-header > nav) { gap: clamp(18px, 2.6vw, 36px); }
+body.celestial-site .media-v2-header > details { display: none; }
+body.celestial-site :is(.site-header, .media-v2-header, .part-v2-header) nav a { color: var(--starlight-soft); font-size: 12px; }
+body.celestial-site :is(.site-header, .media-v2-header, .part-v2-header) nav a:is(:hover, [aria-current="page"]) { color: var(--stellar-gold); }
+body.celestial-site .mobile-nav summary span { background: var(--starlight); }
+body.celestial-site :is(.mobile-nav nav, .part-v2-header details nav) { border: 1px solid var(--stellar-line); background: #0b1420fa; box-shadow: 0 20px 60px #0008; }
+body.celestial-site :is(.site-footer, .media-v2-footer) { color: var(--starlight-soft); background: #03070d; border-top: 1px solid var(--stellar-line); }
+body.celestial-site :is(.site-footer, .media-v2-footer) a { color: var(--starlight); }
+body.celestial-site :is(.breadcrumb, .breadcrumb--dark) { color: var(--starlight-soft); }
+body.celestial-site :is(.breadcrumb a, .section-label, .hero-label, .part-v2-kicker, .part-v2-label) { color: var(--stellar-gold); }
+
+/* Quiet, computed star fields carry the first-view identity to inner pages. */
+body.celestial-site :is(.simple-page-hero, .map-hero--simple, .page-hero, .cover),
+body.celestial-site.media-hub .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--starlight);
+  border-bottom: 1px solid var(--stellar-line);
+  background: radial-gradient(ellipse at 78% 48%, #b89c6620, transparent 39%), radial-gradient(ellipse at 35% 100%, #4764821c, transparent 60%), #040910;
+}
+body.celestial-site :is(.simple-page-hero, .page-hero)::before,
+body.celestial-site :is(.simple-page-hero, .page-hero)::after,
+body.celestial-site.media-hub .hero::before { display: none; }
+body.celestial-site :is(.concept-hero-lens, .cover-constellation, .map-hero__stars) { opacity: .08; }
+body.celestial-site .celestial-hero > :not(.celestial-dust) { position: relative; z-index: 1; }
+body.celestial-site .celestial-hero > canvas.celestial-dust { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; opacity: .65; }
+body.celestial-site :is(.simple-page-hero__inner, .map-hero__inner, .page-hero__inner) { width: min(100%, 1180px); margin-inline: auto; }
+body.celestial-site :is(.simple-page-hero, .page-hero) { padding: clamp(54px, 7vw, 100px) 24px clamp(64px, 8vw, 112px); }
+body.celestial-site :is(.simple-page-hero, .map-hero, .page-hero) h1 { color: var(--starlight); font-size: clamp(38px, 5.5vw, 72px); font-weight: 500; line-height: 1.4; letter-spacing: .06em; text-shadow: 0 3px 28px #0008; }
+body.celestial-site :is(.simple-page-hero, .map-hero, .page-hero) p:not(.section-label),
+body.celestial-site .page-hero--concept .page-hero__lead { color: var(--starlight-soft); }
+body.celestial-site :is(.simple-page-hero__count, .hero-pill) { border-color: var(--stellar-line); background: #d7be8b09; color: var(--stellar-gold); }
+
+/* Reading surfaces and index cards. */
+body.celestial-site :is(.home-core, .simple-index, .simple-start, .note-latest, .note-by-part, .media-gateways, .science-explanation, .lens-process, .concept-manifesto, .part-v2-guide) { background: var(--space); }
+body.celestial-site :is(.home-first, .part-v2-next, .youtube-intro__panel, .part-v2-center) { background: var(--stellar-glow); border-block: 1px solid var(--stellar-line); }
+body.celestial-site :is(.home-core__grid) { gap: 16px; border: 0; }
+body.celestial-site :is(.home-core__card, .simple-part-card, .note-latest-card, .youtube-card, .part-v2-routes a, .part-v2-next__grid a, .media-gateways__grid a, .lens-stage, .related-question-grid a) {
+  color: var(--starlight);
+  border: 1px solid var(--stellar-line);
+  border-radius: 16px;
+  background: var(--stellar-glow);
+  box-shadow: 0 16px 40px #0002;
+  transition: border-color .25s, background .25s, transform .25s, box-shadow .25s;
+}
+body.celestial-site .home-core__card::before { display: none; }
+body.celestial-site .home-core__card { min-height: 275px; }
+body.celestial-site .home-core__card--primary { border-color: #d7be8b66; }
+body.celestial-site :is(.simple-part-card, .home-core__card, .youtube-card, .part-v2-routes a, .part-v2-next__grid a):hover {
+  transform: translateY(-4px);
+  border-color: #d7be8b80;
+  background: var(--surface-raised);
+  box-shadow: 0 16px 48px #0005, 0 0 28px #d7be8b08;
+}
+body.celestial-site :is(.simple-part-card__number, .home-core__card > span, .note-latest-card__meta, .note-part-group__number, .simple-start__steps > li > span, .media-gateways__grid a > span:not(.media-gateway__visual)) { color: var(--stellar-gold); }
+body.celestial-site :is(.simple-part-group > header, .simple-start__steps > li, .note-part-groups, .note-part-group, .note-part-row, .simple-part-card__tags span) { border-color: var(--stellar-line); }
+body.celestial-site .simple-part-group > header { padding-bottom: 20px; }
+body.celestial-site :is(.simple-part-card p, .note-latest-card p, .media-gateways__grid small) { color: var(--starlight-soft); }
+body.celestial-site .note-part-row:hover { background: var(--surface); }
+body.celestial-site .note-latest-card__image { background: var(--surface-raised); }
+body.celestial-site .note-latest-card__image img { transition: transform .45s; }
+body.celestial-site .note-latest-card:hover img { transform: scale(1.035); }
+body.celestial-site :is(.button, .cover-action) { border-radius: 999px; }
+body.celestial-site :is(.button--primary, .button--light-filled) { border: 1px solid var(--stellar-gold); color: #10151c; background: var(--stellar-gold); }
+body.celestial-site :is(.button--primary, .button--light-filled):hover { background: #e7d2a6; }
+body.celestial-site :is(.button--quiet, .button--light, .cover-action) { border-color: #d7be8b66; color: var(--starlight); background: #d7be8b08; }
+body.celestial-site :is(.button--quiet, .button--light, .cover-action):hover { background: #d7be8b18; border-color: var(--stellar-gold); }
+
+/* Media catalogue, filters and search. */
+body.celestial-site .media-v2-tabs { top: 78px; background: #070f19ed; border-color: var(--stellar-line); }
+body.celestial-site.media-hub .hero { max-width: none; padding-inline: max(24px, calc((100% - 1072px) / 2)); }
+body.celestial-site.media-hub :is(.hero-count, .hero-pill, .note-flow-panel, .note-recommend-panel, .note-map-panel, .route-choice__card, .learning-flow, .console-panel, .note-card, .podcast-card, .youtube-card) { background: var(--stellar-glow); border-color: var(--stellar-line); color: var(--starlight); box-shadow: 0 16px 42px #0003; }
+body.celestial-site.media-hub :is(.note-card, .podcast-card):hover { background: var(--surface-raised); border-color: #d7be8b77; }
+body.celestial-site.media-hub :is(.note-search input, .podcast-search input) { background: #050c15; color: var(--starlight); border-color: var(--stellar-line); min-height: 46px; }
+body.celestial-site.media-hub .filter-button { color: var(--starlight-soft); background: var(--surface); border-color: var(--stellar-line); min-height: 40px; }
+body.celestial-site.media-hub .filter-button:is(.active, :hover) { color: var(--stellar-gold); background: #d7be8b12; border-color: #d7be8b88; }
+body.celestial-site.media-hub :is(.action, .card-action):hover { color: #10151c; background: var(--stellar-gold); border-color: var(--stellar-gold); }
+
+/* Detailed learning maps: the same palette, with long-form reading contrast. */
+body.celestial-site[data-part] :is(.section-title, .argument-heading, .theme-title, .episode-title, .glossary-term, .cq-text, .tl-event, .scientist-name) { color: var(--starlight); font-family: var(--stellar-serif); font-weight: 500; }
+body.celestial-site[data-part] :is(.section-intro, .argument-body, .theme-body p, .episode-body p, .essay-box p, .glossary-def, .question-text, .d-text, .tl-desc, .cq-sub, .scientist-bio) { color: #c6cdd6; line-height: 2; }
+body.celestial-site[data-part] :is(.theme-card, .episode-card, .scientist-card, .glossary-item, .essay-box, .pull-quote, .central-question, .bridge-box, .upcoming-card, .part-map-bridge, .part-v2-guide__body) { color: var(--starlight); background: var(--stellar-glow); border-color: var(--stellar-line); border-radius: 14px; box-shadow: 0 12px 36px #0002; }
+body.celestial-site[data-part] :is(.theme-header, .episode-header, .theme-footer, .episode-footer) { color: var(--starlight); background: #111e2c; border-color: var(--stellar-line); }
+body.celestial-site[data-part] :is(.section-label, .footer-label, .cq-label, .tl-year, .bridge-label, .cover-series, .essay-box h3, .part-map-bridge__label) { color: var(--stellar-gold); }
+body.celestial-site[data-part] :is(.glossary-kana, .glossary-en, .glossary-note, .d-hint, .bridge-sub, .theme-lead, .episode-subtitle, .cover-note) { color: var(--starlight-soft); }
+body.celestial-site[data-part] :is(.section-title, .argument-heading, .tl-content, .theme-body, .glossary-note, .d-item, .doc-footer, .chapter-nav) { border-color: var(--stellar-line); }
+body.celestial-site[data-part] :is(.keyword-tag, .tl-tag, .cover-film, .cover-chapter) { color: var(--stellar-gold); border-color: #d7be8b55; background: #d7be8b0c; }
+body.celestial-site[data-part] :is(.d-num, .tl-year::after) { color: var(--space); background: var(--stellar-gold); }
+body.celestial-site[data-part] .cover { min-height: 78svh; }
+body.celestial-site[data-part] .cover-title { color: var(--starlight); font-weight: 500; text-shadow: 0 0 40px #d7be8b22; }
+body.celestial-site[data-part] .cover-colorname { display: none; }
+body.celestial-site[data-part] .cover-sigil { color: var(--stellar-gold); }
+body.celestial-site[data-part] :is(.chapter-card, .axis-card, .resource-card, .note-link, .reference-link, .episode-depth, .chapter-depth-note, .depth-item--caution, .discussion-q, .summary-table td) { background: var(--surface); border-color: var(--stellar-line); color: var(--starlight); }
+body.celestial-site[data-part] :is(.chapter-card__head, .depth-heading, .summary-table th) { background: var(--surface-raised); color: var(--stellar-gold); }
+body.celestial-site[data-part] .summary-table tr:nth-child(even) td { background: #101a27; }
+body.celestial-site[data-part] :is(.tag, .chapter-depth-note span) { background: #d7be8b12; color: var(--stellar-gold); border-color: #d7be8b44; }
+body.celestial-site[data-part] :is(.episode-row, .depth-item + .depth-item) { border-color: var(--stellar-line); }
+body.celestial-site[data-part] :is(.chapter-nav a, .glossary-en, .reference-link, .section-intro a, .argument-body a) { color: var(--stellar-gold); }
+body.celestial-site[data-part] :is(.scene-flow-item, .ep-flow-item, .perspective, .essay-box-warm, .power-card, .sc-footer, .podcast-cta-box) { background: var(--surface); border-color: var(--stellar-line); }
+body.celestial-site[data-part] :is(.fault-left, .fault-right, .contrast-left, .contrast-right) { background: #0c1724; }
+body.celestial-site[data-part] :is(.fault-side-title, .contrast-side-title, .sf-title, .ef-title, .upcoming-title) { color: var(--starlight); }
+body.celestial-site[data-part] :is(.fault-side-desc, .contrast-side-desc, .col-content, .ep-col-content, .sc-body p, .essay-box-warm p, .perspective p) { color: #c6cdd6; }
+body.celestial-site[data-part] :is(.doc-footer, .sf-key, .ef-key, .upcoming-theme, .cover-subtitle) { color: var(--starlight-soft); }
+body.celestial-site[data-part] :is(.sf-num, .ef-num, .perspective-label, .ep-col-label, .col-label, .upcoming-num, .essay-box-warm h3, .cover-podcast-cta) { color: var(--stellar-gold); }
+body.celestial-site[data-part] .rev-table td { color: var(--starlight); border-color: var(--stellar-line); }
+body.celestial-site[data-part] .rev-table tr:nth-child(even) td { background: var(--surface); }
+body.celestial-site[data-part] .rev-table :is(.rev-name, .rev-gold) { color: var(--stellar-gold); }
+body.celestial-site[data-part] :is(.power-title, .sc-message) { color: var(--starlight); }
+body.celestial-site[data-part] :is(.power-desc, .sc-question, .podcast-cta-box p) { color: #c6cdd6; }
+body.celestial-site[data-part] .upcoming-parts { color: var(--starlight-soft); }
+body.celestial-site[data-part] .episode-question { color: var(--starlight); background: #d7be8b0c; border-color: var(--stellar-gold); }
+body.celestial-site .episode-ai { --accent: var(--stellar-gold); color: var(--starlight); border-color: #d7be8b44; background: linear-gradient(130deg, #d7be8b0c, transparent), #09121e; }
+body.celestial-site .episode-ai__mode { background: var(--surface); color: var(--starlight); border-color: var(--stellar-line); }
+body.celestial-site .episode-ai__mode[aria-pressed="true"] { background: #d7be8b12; border-color: var(--stellar-gold); box-shadow: inset 0 0 0 1px #d7be8b44; }
+body.celestial-site .episode-ai__copy { background: var(--stellar-gold); color: #10151c; border-color: var(--stellar-gold); }
+body.celestial-site .episode-ai :is(textarea, pre) { background: #040910; color: var(--starlight); border-color: var(--stellar-line); }
+
+/* The deep-time canvas keeps its own visual/interaction styling. */
+body.celestial-site.evolution-page::before { background: var(--space); opacity: 1; }
+body.celestial-site.evolution-page .scroll-progress-bar { background: linear-gradient(90deg, #a6bed4, #d7be8b); box-shadow: 0 0 12px #d7be8b55; }
+body.celestial-site .grain-overlay { opacity: .025; }
+body.celestial-site :is(.nav-bar, .site-nav) { background: #040910ed; border-color: var(--stellar-line); }
+body.celestial-site :is(.nav-bar, .site-nav) a:is(:hover, .active, .is-active) { color: var(--stellar-gold); border-color: var(--stellar-gold); }
+body.celestial-site .knowledge-galaxy__count span,
+body.celestial-site .knowledge-galaxy__lens-title,
+body.celestial-site .knowledge-galaxy__lenses button b,
+body.celestial-site .knowledge-galaxy__depth > small { color: #9aa6b6; }
+
+@media (max-width: 820px) {
+  body.celestial-site :is(.site-header, .site-header.is-scrolled, .media-v2-header, .part-v2-header) { min-height: 68px; padding: 10px 20px; }
+  body.celestial-site .media-v2-tabs { top: 68px; }
+  body.celestial-site .media-v2-header > details { display: block; position: relative; }
+  body.celestial-site .media-v2-header > details summary { display: grid; width: 42px; height: 42px; padding: 11px; align-content: center; gap: 5px; cursor: pointer; list-style: none; }
+  body.celestial-site .media-v2-header > details summary::-webkit-details-marker { display: none; }
+  body.celestial-site .media-v2-header > details summary span { display: block; height: 1px; background: var(--starlight); }
+  body.celestial-site .media-v2-header > details nav { position: absolute; top: 52px; right: 0; display: grid; width: min(300px, calc(100vw - 40px)); padding: 16px; gap: 6px; border: 1px solid var(--stellar-line); border-radius: 14px; background: #0b1420fa; box-shadow: 0 20px 60px #0008; }
+  body.celestial-site .media-v2-header > details nav a { display: block; padding: 12px; }
+  body.celestial-site :is(.brand__name, .media-v2-brand strong, .part-v2-brand strong) { font-size: 18px; }
+  body.celestial-site :is(.brand__mark, .media-v2-brand svg, .part-v2-brand svg) { width: 36px; height: 36px; }
+  body.celestial-site .home-core__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.celestial-site .home-core__card { min-height: 230px; }
+}
+@media (max-width: 540px) {
+  body.celestial-site .home-core__grid { grid-template-columns: 1fr; }
+  body.celestial-site .home-core__card { min-height: 200px; }
+  body.celestial-site :is(.simple-page-hero, .page-hero) { padding-inline: 22px; }
+  body.celestial-site .simple-part-card { min-height: 230px; }
+  body.celestial-site .note-part-group summary { gap: 10px; }
+  body.celestial-site .note-part-row { grid-template-columns: 40px minmax(0, 1fr) 45px; }
+  body.celestial-site .note-part-row small { display: none; }
+  body.celestial-site[data-part] .page { padding-inline: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .celestial-site { scroll-behavior: auto; }
+  .celestial-site *, .celestial-site *::before, .celestial-site *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
