@@ -367,18 +367,19 @@ body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; 
   .deep-time__lenses button { min-height: 40px; }
 }
 
-@media (max-height: 650px) and (min-width: 761px) {
-  .deep-time { min-height: 360px; }
+@media (max-height: 650px) and (orientation: landscape) {
+  .deep-time { min-height: 320px; }
   .deep-time__title { top: 88px; }
   .deep-time__title > p { display: none; }
   .deep-time__title h1 strong, .deep-time__title h1 strong.is-age { font-size: 42px; }
   .deep-time__title h1 span { font-size: 24px; }
   .deep-time__title > div { display: none; }
-  .deep-time__lenses { top: 86px; }
+  .deep-time__lenses { top: 86px; left: auto; right: 5%; max-width: 55%; }
   .deep-time__lenses > span, .deep-time__lenses p { display: none; }
   .deep-time__lenses > div { flex-direction: row; margin: 0; }
   .deep-time__lenses button { padding: 4px 8px; font-size: 11px; }
   .deep-time__axis { bottom: 142px; }
+  .deep-time__axis span { writing-mode: horizontal-tb; font-size: 9px; }
   .deep-time__future { top: 155px; bottom: 168px; }
   .deep-time__zoom { top: 142px; flex-direction: row; right: 5px; }
   .deep-time__measure, .deep-time__portion, .deep-time__notes { display: none; }
@@ -386,6 +387,9 @@ body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; 
   .deep-time__stops { margin: 0; }
   .deep-time__stops button { min-height: 40px; font-size: 12px; }
   .deep-time__controls { padding: 0 5% 5px; }
+  .deep-time__scrubber { grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; }
+  .deep-time__scrubber label { display: block; }
+  .deep-time__scrubber output { text-align: right; }
   .deep-time__read { bottom: auto; top: -23px; font-size: 10px; }
 }
 
@@ -393,7 +397,13 @@ body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; 
   .deep-time-point { transition: none; }
 }
 
-@media (max-height: 700px) and (max-width: 760px) {
+@media (max-height: 650px) and (max-width: 760px) and (orientation: landscape) {
+  .deep-time__zoom { top: 126px; right: 8px; }
+  .deep-time__zoom #deepTimeZoomIn, .deep-time__zoom #deepTimeZoomOut,
+  .deep-time__zoom span, .deep-time__future span { display: none; }
+}
+
+@media (max-height: 700px) and (max-width: 760px) and (orientation: portrait) {
   .deep-time { min-height: 540px; }
   .deep-time__title { top: 76px; }
   .deep-time__title h1 strong { font-size: 58px; }

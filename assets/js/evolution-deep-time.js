@@ -175,8 +175,8 @@
 
   function renderPoints() {
     const visible = [];
-    const compact = surface.clientHeight < 650 && surface.clientWidth > 760;
-    const shortPhone = surface.clientHeight <= 700 && surface.clientWidth <= 760;
+    const compact = surface.clientHeight <= 650 && surface.clientWidth > surface.clientHeight;
+    const shortPhone = !compact && surface.clientHeight <= 700 && surface.clientWidth <= 760;
     events.forEach(function (event, index) {
       const x = screenX(event.position, view);
       const button = nodes[index];

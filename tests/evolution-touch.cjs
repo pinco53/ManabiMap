@@ -123,7 +123,7 @@ const preview = process.env.PREVIEW_URL || 'http://localhost:4173/evolution.html
     assert.equal((await state()).zoom, 48);
     await reset();
 
-    for (const [width, height] of [[390, 844], [320, 568], [1024, 768], [844, 390]]) {
+    for (const [width, height] of [[390, 844], [320, 568], [1024, 768], [844, 390], [568, 320]]) {
       await page.setViewportSize({ width, height });
       await reset();
       const fits = await page.locator('.deep-time__controls').evaluate(e => e.getBoundingClientRect().bottom <= innerHeight + 1);
@@ -149,6 +149,6 @@ const preview = process.env.PREVIEW_URL || 'http://localhost:4173/evolution.html
     await desktop.waitForTimeout(400);
     assert.ok(+await desktop.locator('#deepTimeScrubber').inputValue() > desktopPosition, 'Mouse drag must still pan');
     assert.deepEqual(errors, []);
-    console.log('PASS: double tap, overview swipe, vertical travel, anchored pinch, two-to-one transition, star drag/tap, cancellation, reduced motion, keyboard/bounds, four viewport layouts, reading exit, mouse wheel/drag, 118-item inventory');
+    console.log('PASS: double tap, overview swipe, vertical travel, anchored pinch, two-to-one transition, star drag/tap, cancellation, reduced motion, keyboard/bounds, five viewport layouts, reading exit, mouse wheel/drag, 118-item inventory');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });
