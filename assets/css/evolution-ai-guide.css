@@ -123,6 +123,13 @@
   font-weight: 600;
 }
 
+.timeline-ai-intro__note a {
+  display: inline-block;
+  margin-left: .45em;
+  color: #f0c69e;
+  text-underline-offset: 3px;
+}
+
 .timeline-ai-primary,
 .timeline-ai-era-button,
 .timeline-ai-event-button,

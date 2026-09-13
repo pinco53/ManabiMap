@@ -16,7 +16,8 @@
     if (date.indexOf('約3分後') >= 0) return MAX_AGE - 0.000006;
     const ago = date.match(/([\d.]+)(億|万)?年前/);
     if (ago) return Number(ago[1]) * (ago[2] === '億' ? 1e8 : ago[2] === '万' ? 1e4 : 1);
-    const century = date.match(/(\d+)世紀/);
+    const centuryRange = date.match(/(\d+)〜\d+世紀/);
+    const century = centuryRange || date.match(/(\d+)世紀/);
     const bce = date.indexOf('紀元前') >= 0;
     const raw = date.match(/\d+/);
     if (!raw) return 0;
