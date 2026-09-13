@@ -16,6 +16,7 @@
 
 .deep-time button,
 .deep-time input { font: inherit; }
+.deep-time [hidden] { display: none !important; }
 
 .deep-time__surface,
 .deep-time__canvas,
@@ -27,6 +28,8 @@
 }
 
 .deep-time__surface { z-index: 1; touch-action: none; cursor: grab; }
+.deep-time__surface:focus-visible { outline-offset: -4px; }
+.deep-time__surface, .deep-time-point { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
 .deep-time__surface.is-dragging { cursor: grabbing; }
 .deep-time__canvas { pointer-events: none; }
 .deep-time__points { pointer-events: none; }
@@ -150,6 +153,7 @@
 .deep-time-point:focus-visible { z-index: 8; opacity: 1; }
 .deep-time-point:hover .deep-time-point__core { transform: scale(2); }
 .deep-time-point.has-image { width: 76px; height: 76px; }
+.deep-time.is-navigating .deep-time-point__caption { opacity: .55; }
 .deep-time-point.has-image .deep-time-point__core { position: absolute; }
 .deep-time-point img {
   position: relative;
@@ -193,7 +197,7 @@
   position: absolute;
   z-index: 2;
   right: 0;
-  bottom: 205px;
+  bottom: 260px;
   left: 0;
   height: 35px;
   pointer-events: none;
@@ -260,6 +264,15 @@
 }
 
 .deep-time__scrubber input { width: 100%; accent-color: #d4c09a; cursor: ew-resize; }
+.deep-time__overview { position: relative; min-width: 0; height: 32px; border-block: 1px solid #b8c5d128; border-radius: 5px; background: linear-gradient(90deg, #ceb88530, #a9b7c82b 88%, #070e18 88%); }
+.deep-time__overview > span { position: absolute; top: 2px; bottom: 2px; min-width: 3px; border: 1px solid #dfcba4a3; border-radius: 3px; background: #dbc39816; pointer-events: none; }
+.deep-time__overview input { position: absolute; inset: 0; height: 100%; margin: 0; opacity: .22; }
+.deep-time__overview input:focus-visible { opacity: 1; }
+.deep-time__measure { display: flex; min-height: 26px; align-items: center; justify-content: center; gap: 10px; color: #d8c49b; font-size: 11px; }
+.deep-time__measure i { display: block; flex: 0 0 80px; width: 80px; height: 6px; border: 1px solid #d8c49b99; border-top: 0; }
+.deep-time__measure span { min-width: 0; }
+.deep-time__instruction span { min-width: 0; }
+.deep-time__portion { margin-top: 6px; color: #b4c0ce; font-size: 10px; text-align: center; font-variant-numeric: tabular-nums; }
 .deep-time__scrubber output { text-align: right; font-variant-numeric: tabular-nums; }
 .deep-time__notes { display: flex; justify-content: space-between; gap: 12px; margin-top: 4px; color: #737f8e; font-size: 9px; line-height: 1.5; }
 .deep-time__read { position: absolute; right: 5%; bottom: 54px; color: #cdbd9f; font-size: 11px; letter-spacing: .04em; }
@@ -327,14 +340,16 @@ body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; 
   .deep-time-point__caption small { font-size: 9px; }
   .deep-time__zoom { top: 42%; right: 5px; }
   .deep-time__zoom button { width: 33px; height: 33px; }
-  .deep-time__axis { bottom: 205px; }
+  .deep-time__axis { bottom: 272px; }
   .deep-time__axis span { font-size: 8px; letter-spacing: .05em; writing-mode: vertical-rl; }
-  .deep-time__future { bottom: 230px; }
+  .deep-time__future { bottom: 295px; }
   .deep-time__future span { writing-mode: vertical-rl; }
   .deep-time__controls { padding: 9px 5% 11px; }
   .deep-time__instruction { font-size: 9px; line-height: 1.5; text-align: center; }
+  .deep-time__instruction button { flex: 0 0 40px; height: 40px; }
+  .deep-time__measure { font-size: 10px; }
   .deep-time__stops { margin: 3px 0 6px; }
-  .deep-time__stops button { padding: 5px 4px; font-size: 12px; letter-spacing: 0; }
+  .deep-time__stops button { min-height: 44px; padding: 5px 4px; font-size: 12px; letter-spacing: 0; }
   .deep-time__scrubber { grid-template-columns: 1fr; gap: 2px; }
   .deep-time__scrubber label { display: none; }
   .deep-time__scrubber output { text-align: center; }
@@ -344,15 +359,52 @@ body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; 
   .deep-time-dialog { padding: 45px 24px 24px; }
 }
 
+@media (pointer: coarse) {
+  .deep-time-point { width: 44px; height: 44px; touch-action: none; }
+  .deep-time__zoom button { width: 44px; height: 44px; }
+  .deep-time__zoom { gap: 3px; }
+  .deep-time__overview { height: 40px; }
+  .deep-time__lenses button { min-height: 40px; }
+}
+
 @media (max-height: 650px) and (min-width: 761px) {
-  .deep-time__title { top: 78px; }
-  .deep-time__title h1 strong { font-size: 78px; }
+  .deep-time { min-height: 360px; }
+  .deep-time__title { top: 88px; }
+  .deep-time__title > p { display: none; }
+  .deep-time__title h1 strong, .deep-time__title h1 strong.is-age { font-size: 42px; }
+  .deep-time__title h1 span { font-size: 24px; }
   .deep-time__title > div { display: none; }
-  .deep-time__lenses { top: 82px; }
-  .deep-time__axis { bottom: 184px; }
-  .deep-time__controls { padding-bottom: 7px; }
+  .deep-time__lenses { top: 86px; }
+  .deep-time__lenses > span, .deep-time__lenses p { display: none; }
+  .deep-time__lenses > div { flex-direction: row; margin: 0; }
+  .deep-time__lenses button { padding: 4px 8px; font-size: 11px; }
+  .deep-time__axis { bottom: 142px; }
+  .deep-time__future { top: 155px; bottom: 168px; }
+  .deep-time__zoom { top: 142px; flex-direction: row; right: 5px; }
+  .deep-time__measure, .deep-time__portion, .deep-time__notes { display: none; }
+  .deep-time__instruction { font-size: 10px; }
+  .deep-time__stops { margin: 0; }
+  .deep-time__stops button { min-height: 40px; font-size: 12px; }
+  .deep-time__controls { padding: 0 5% 5px; }
+  .deep-time__read { bottom: auto; top: -23px; font-size: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .deep-time-point { transition: none; }
+}
+
+@media (max-height: 700px) and (max-width: 760px) {
+  .deep-time { min-height: 540px; }
+  .deep-time__title { top: 76px; }
+  .deep-time__title h1 strong { font-size: 58px; }
+  .deep-time__title h1 strong.is-age { font-size: 34px; }
+  .deep-time__title > div { display: none; }
+  .deep-time__lenses { top: 176px; }
+  .deep-time__lenses p { display: none; }
+  .deep-time__notes { display: none; }
+  .deep-time__axis { bottom: 248px; }
+  .deep-time__future { top: 240px; bottom: 275px; }
+  .deep-time__zoom { top: 92px; right: 8px; }
+  .deep-time__zoom #deepTimeZoomIn, .deep-time__zoom #deepTimeZoomOut { display: none; }
+  .deep-time__measure { font-size: 9px; gap: 6px; }
 }

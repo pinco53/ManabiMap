@@ -1268,7 +1268,7 @@ a { color: inherit; text-decoration: none; }
 <link rel="stylesheet" href="assets/css/brand-v2.css?v=20260731-24">
 <link rel="stylesheet" href="assets/css/evolution-renewal.css?v=20260731-24">
 <link rel="stylesheet" href="assets/css/evolution-ai-guide.css?v=20260911-1">
-<link rel="stylesheet" href="assets/css/evolution-deep-time.css?v=20260912-1">
+<link rel="stylesheet" href="assets/css/evolution-deep-time.css?v=20260913-1">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
 <script>
@@ -1331,7 +1331,7 @@ a { color: inherit; text-decoration: none; }
 <main id="main">
 <!-- ========== LOGARITHMIC TIME SPACE ========== -->
 <section class="deep-time" id="top" aria-labelledby="deep-time-title">
-  <div class="deep-time__surface" id="deepTimeSurface" aria-label="138億年を対数で表した時間空間。スクロールまたはピンチで拡大できます。">
+  <div class="deep-time__surface" id="deepTimeSurface" role="group" tabindex="0" aria-label="138億年を旅する時間空間" aria-describedby="deepTimeInstruction">
     <canvas class="deep-time__canvas" id="deepTimeCanvas" aria-hidden="true"></canvas>
     <div class="deep-time__points" id="deepTimePoints"></div>
     <div class="deep-time__future" id="deepTimeFuture"><span>未来への問い</span></div>
@@ -1363,12 +1363,14 @@ a { color: inherit; text-decoration: none; }
   </div>
 
   <footer class="deep-time__controls">
-    <div class="deep-time__instruction"><span id="deepTimeInstruction">スクロール・ピンチで近づく。粒を選んで、時代の中へ。</span><button type="button" id="deepTimeFlow" aria-label="粒の漂いを止める">Ⅱ</button></div>
+    <div class="deep-time__measure"><i aria-hidden="true"></i><span id="deepTimeScale">この幅で、時間の大きさを感じる</span></div>
+    <div class="deep-time__instruction"><span id="deepTimeInstruction">上下で近づく・離れる ／ 左右で時代を移動 ／ 2本指で拡大</span><button type="button" id="deepTimeFlow" aria-label="粒の漂いを止める">Ⅱ</button></div>
     <nav class="deep-time__stops" aria-label="時代へ移動">
       <button type="button" data-time-stop=".5,1">138億年</button><button type="button" data-time-stop=".12,4">生命</button><button type="button" data-time-stop=".39,4">人類</button><button type="button" data-time-stop=".60,8">文明</button><button type="button" data-time-stop=".79,4">現代</button><button type="button" data-time-stop=".946,9">未来</button>
     </nav>
-    <div class="deep-time__scrubber"><label for="deepTimeScrubber">時間の中を移動</label><input id="deepTimeScrubber" type="range" min="0" max="1000" value="500" step="1"><output id="deepTimeOutput">138億年前 — 未来</output></div>
-    <div class="deep-time__notes"><span>対数軸：log₁₀(1＋2026年から遡る年数) · 未来は別枠</span><span>選べる118点は既存年表。背景の粒は空間表現です。</span></div>
+    <div class="deep-time__scrubber"><label for="deepTimeScrubber">旅の現在地</label><div class="deep-time__overview"><span id="deepTimeWindow" aria-hidden="true"></span><input id="deepTimeScrubber" aria-label="138億年の中で見る時代を移動" type="range" min="0" max="1000" value="500" step="1"></div><output id="deepTimeOutput">138億年前 — 未来</output></div>
+    <div class="deep-time__portion" id="deepTimePortion">見えている歴史の幅：宇宙史の100%</div>
+    <div class="deep-time__notes"><span>対数表示：昔を圧縮し、現在の細部を広げています。</span><span>歴史112点・現在地1点・未来の問い5点。背景の粒は装飾です。</span></div>
     <a class="deep-time__read" href="#detailed-timeline">詳しい年表として読む ↓</a>
   </footer>
 </section>
@@ -3393,6 +3395,6 @@ a { color: inherit; text-decoration: none; }
 <script src="assets/js/sky-clock.js"></script>
 <script src="assets/js/brand-v2.js" defer></script>
 <script src="assets/js/evolution-ai-guide.js?v=20260911-1"></script>
-<script src="assets/js/evolution-deep-time.js?v=20260912-1"></script>
+<script src="assets/js/evolution-deep-time.js?v=20260913-1"></script>
 </body>
 </html>
