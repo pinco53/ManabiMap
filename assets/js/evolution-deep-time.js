@@ -4,6 +4,7 @@
   const MAX_AGE = 13_800_000_000;
   const PRESENT = 2026;
   const PICTURE_ZOOM = 2.7;
+  const DETAIL_ZOOM = 2.35;
   const MAX_ZOOM = 48;
   const section = document.getElementById('top');
   const surface = document.getElementById('deepTimeSurface');
@@ -38,8 +39,91 @@
     return result;
   }
 
+  // 「有名な出来事」ではなく、不可逆性・波及・地域/分野の偏り・根拠の
+  // 4基準で選んだ主要点。元のカード番号を保つことで既存画像との対応も崩さない。
+  const CORE_SOURCE_INDICES = new Set([
+    1, 3, 5, 6, 8, 11, 13, 15, 16, 18, 20, 24, 27, 29, 35, 36,
+    41, 45, 46, 47, 52, 55, 56, 57, 59, 60, 64, 67, 68, 70, 71, 72,
+    73, 74, 76, 77, 79, 82, 83, 87, 88, 93, 97, 98, 100, 107, 109, 113
+  ]);
+
+  const CURATED_ADDITIONS = [
+    {
+      id: 'first-stars-galaxies', date: '約136億年前', title: '最初の星と銀河',
+      description: 'ビッグバン後の暗黒の時代に最初の星が灯り、重力で集まった星々が初期の銀河を形づくった。元素と構造が育ち、後の惑星や生命へ続く舞台が生まれた。',
+      eraId: 'era-cosmos', eraTitle: '宇宙・生命', icon: '✦', themes: ['energy', 'cooperation'],
+      links: [{ href: 'https://science.nasa.gov/asset/webb/first-stars-timeline-of-the-universe/', label: 'NASA：最初の星の時間軸' }]
+    },
+    {
+      id: 'ediacaran-life', date: '約5.8億年前', title: '複雑な多細胞生物の広がり',
+      description: 'エディアカラ紀の海に、葉・帯・キルトのような姿をした多様な大型生物が広がった。カンブリア爆発だけでは見えない、複雑な生態系への長い助走である。',
+      eraId: 'era-cosmos', eraTitle: '宇宙・生命', icon: '◌', themes: ['energy', 'cooperation'],
+      links: [{ href: 'https://naturalhistory.si.edu/education/teaching-resources/life-science/early-life-earth-animal-origins', label: 'Smithsonian：動物の起源' }]
+    },
+    {
+      id: 'indus-cities', date: '紀元前2600年頃', title: 'インダスの計画都市',
+      description: 'モヘンジョダロなどでは、計画的な街路、排水、公共建築を備えた大都市が発達した。文明の物語を西アジアと地中海だけに閉じない、南アジアの都市化の転換点。',
+      eraId: 'era-civilization', eraTitle: '文明・古代', icon: '▦', themes: ['cooperation', 'information'],
+      links: [{ href: 'https://whc.unesco.org/en/list/138', label: 'UNESCO：モヘンジョダロ' }]
+    },
+    {
+      id: 'classic-maya', date: '300〜900年頃', title: 'マヤ文明の都市と知',
+      description: '中米のマヤ諸都市は、交易と競合のネットワークの中で、文字・暦・数学・天文学を発達させた。単一帝国ではない都市文明の知のかたちを示す。',
+      eraId: 'era-ancient', eraTitle: '文明・古代', icon: '◈', themes: ['information', 'cooperation'],
+      links: [{ href: 'https://whc.unesco.org/en/list/129', label: 'UNESCO：コパンのマヤ遺跡' }]
+    },
+    {
+      id: 'east-asian-printing', date: '868年', title: '東アジアの印刷文化',
+      description: '木版印刷は東アジアで発達し、868年の金剛般若経は年記のある印刷物として残る。グーテンベルク以前から、複製された知が広く移動していた。',
+      eraId: 'era-ancient', eraTitle: '文明・古代', icon: '▤', themes: ['information', 'cooperation'],
+      links: [{ href: 'https://courier.unesco.org/en/articles/200-years-gutenberg-master-printers-koryo', label: 'UNESCO：東アジアの印刷史' }]
+    },
+    {
+      id: 'great-zimbabwe', date: '11〜15世紀', title: 'グレート・ジンバブエと交易圏',
+      description: 'ショナの人々が築いた石造都市は、金・陶磁器・ガラス玉などが行き交う広域交易の中心となった。中世世界を欧州だけで捉えないための主要点。',
+      eraId: 'era-ancient', eraTitle: '文明・古代', icon: '◇', themes: ['cooperation', 'energy'],
+      links: [{ href: 'https://whc.unesco.org/en/list/364', label: 'UNESCO：グレート・ジンバブエ' }]
+    },
+    {
+      id: 'haitian-revolution', date: '1804年', title: 'ハイチ独立と奴隷制への挑戦',
+      description: '奴隷化された人々の蜂起から生まれたハイチ独立は、自由と人種的平等を現実の国家形成へ結びつけ、奴隷制廃止と植民地支配への挑戦に大きな波紋を広げた。',
+      eraId: 'era-industrial', eraTitle: '革命・産業化', icon: '✊', themes: ['cooperation'],
+      links: [{ href: 'https://whc.unesco.org/en/list/180', label: 'UNESCO：ハイチ独立の歴史' }]
+    },
+    {
+      id: 'udhr', date: '1948年', title: '世界人権宣言',
+      description: '第二次世界大戦の惨禍を受け、すべての人が生まれながらに自由で尊厳と権利において平等だという共通基準を国連が採択した。実現途上であることも含め、世界規模の規範の転換点。',
+      eraId: 'era-20c', eraTitle: '20世紀', icon: '◎', themes: ['cooperation', 'information'],
+      links: [{ href: 'https://www.un.org/en/about-us/universal-declaration-of-human-rights', label: '国連：世界人権宣言' }]
+    },
+    {
+      id: 'decolonization', date: '1960年', title: '脱植民地化の世界的展開',
+      description: '多くの地域の独立運動を背景に、国連総会は植民地独立付与宣言を採択した。帝国中心の世界秩序から、民族自決を掲げる国際秩序への大きな転換。',
+      eraId: 'era-20c', eraTitle: '20世紀', icon: '◉', themes: ['cooperation'],
+      links: [{ href: 'https://www.un.org/en/global-issues/decolonization', label: '国連：脱植民地化' }]
+    },
+    {
+      id: 'smallpox-eradication', date: '1980年', title: '天然痘根絶',
+      description: 'ワクチン、監視、各地域の保健活動を積み重ね、WHOは1980年に天然痘の世界根絶を宣言した。科学と国境を越えた協力が、人類共通の脅威を消した稀有な転換点。',
+      eraId: 'era-20c', eraTitle: '20世紀', icon: '✚', themes: ['cooperation', 'information'],
+      links: [{ href: 'https://www.who.int/emergencies/situations/smallpox', label: 'WHO：天然痘根絶' }]
+    },
+    {
+      id: 'cedaw', date: '1979年', title: '女性差別撤廃条約',
+      description: '国連総会が女性に対するあらゆる形態の差別撤廃を国際条約として採択した。権利の宣言を、各国が負う法的な約束へ進めた転換点である。',
+      eraId: 'era-20c', eraTitle: '20世紀', icon: '◐', themes: ['cooperation'],
+      links: [{ href: 'https://treaties.un.org/pages/ViewDetails.aspx?chapter=4&clang=_en&mtdsg_no=IV-8&src=TREATY', label: '国連条約集：CEDAW' }]
+    },
+    {
+      id: 'climate-response', date: '1988〜2015年', title: '気候変動を地球規模で捉える',
+      description: '気候科学の国際評価と各国交渉が積み重なり、人間活動による温暖化を共通の課題として捉える枠組みが育った。原因と影響には地域・世代間の大きな不均衡が残る。',
+      eraId: 'era-digital', eraTitle: 'デジタル・地球規模', icon: '◍', themes: ['energy', 'cooperation', 'information'],
+      links: [{ href: 'https://www.ipcc.ch/report/ar6/syr/summary-for-policymakers/', label: 'IPCC：第6次評価報告書' }]
+    }
+  ];
+
   const futureEvents = [];
-  const events = Array.from(document.querySelectorAll('.timeline-container .event')).map(function (node, index) {
+  const sourceEvents = Array.from(document.querySelectorAll('.timeline-container .event')).map(function (node, index) {
     const date = (node.querySelector('.event-date') || {}).textContent || '';
     const titleNode = node.querySelector('.event-title');
     const iconNode = titleNode && titleNode.querySelector('.icon');
@@ -62,19 +146,39 @@
       image: 'assets/images/evolution/event-' + String(index + 1).padStart(3, '0') + '.webp',
       themes: themesFor(title + ' ' + description),
       links: Array.from(node.querySelectorAll('.event-link')).map(function (link) { return { href: link.getAttribute('href'), label: link.textContent.trim() }; }),
-      y: .40 + seeded(index + 1) * .28
+      y: .40 + seeded(index + 1) * .28,
+      core: CORE_SOURCE_INDICES.has(index + 1),
+      curated: false,
+      icon: iconNode ? iconNode.textContent.trim() : ''
     };
     if (future) futureEvents.push(event);
     return event;
   });
 
+  const curatedEvents = CURATED_ADDITIONS.map(function (event, index) {
+    return {
+      ...event,
+      node: null,
+      index: sourceEvents.length + index,
+      id: 'deep-curated-' + event.id,
+      future: false,
+      position: logPosition(ageFromDate(event.date)),
+      image: '',
+      y: .40 + seeded(401 + index) * .28,
+      core: true,
+      curated: true
+    };
+  });
+  const events = sourceEvents.concat(curatedEvents);
+
   const lensQuestions = {
-    all: '',
+    core: '宇宙史をつかむ主要60点。近づくと、詳細65点が星のように現れます。',
+    all: '主要・詳細・現在地・未来の問いを、すべて表示します。',
     information: '知識は、どう人の外へ広がった？',
     energy: '使える力が変わると、暮らしはどう変わる？',
     cooperation: '人は、どんな仕組みで共に生きてきた？'
   };
-  let lens = 'all';
+  let lens = 'core';
   let target = { center: .5, zoom: 1 };
   let view = { center: .5, zoom: 1 };
   let flowing = true;
@@ -114,6 +218,7 @@
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'deep-time-point';
+    button.classList.toggle('is-curated', event.curated);
     button.setAttribute('aria-label', event.date + ' ' + event.title + 'へ近づく');
     button.innerHTML = '<span class="deep-time-point__core"></span>';
     button.addEventListener('dblclick', function (event_) { event_.stopPropagation(); });
@@ -172,7 +277,17 @@
     return Number((years / unit).toPrecision(2)).toLocaleString('ja-JP') + (unit === 1e8 ? '億年' : unit === 1e4 ? '万年' : '年');
   }
 
-  function isRelated(event) { return lens === 'all' || event.themes.indexOf(lens) >= 0; }
+  function isRelated(event) {
+    if (lens === 'all') return true;
+    if (lens === 'core') return event.core || event.future;
+    return event.themes.indexOf(lens) >= 0;
+  }
+
+  function isUnlocked(event) {
+    if (lens === 'all') return true;
+    if (event.future || event.core) return true;
+    return view.zoom >= DETAIL_ZOOM;
+  }
 
   function renderPoints() {
     const visible = [];
@@ -181,13 +296,14 @@
     events.forEach(function (event, index) {
       const x = screenX(event.position, view);
       const button = nodes[index];
-      const shown = x > .025 && x < .975;
+      const shown = x > .025 && x < .975 && isUnlocked(event) && (lens === 'core' || lens === 'all' || isRelated(event));
       button.hidden = !shown;
       if (!shown) return;
       button.style.left = (x * 100).toFixed(3) + '%';
       const y = compact ? (.42 + (event.y - .4) * .38) * surface.clientHeight : shortPhone ? 240 + (event.y - .4) / .28 * Math.max(30, axis.offsetTop - 260) : event.y * surface.clientHeight;
       button.style.top = y.toFixed(2) + 'px';
-      button.classList.toggle('is-muted', !isRelated(event));
+      button.classList.toggle('is-muted', lens === 'core' && !event.core && !event.future);
+      button.classList.toggle('is-detail', !event.core && !event.future);
       button.classList.toggle('is-future', event.future);
       button.setAttribute('aria-label', event.date + ' ' + event.title + (view.zoom < PICTURE_ZOOM ? 'へ近づく' : 'の背景を読む'));
       visible.push({ event: event, button: button, x: x, y: y });
@@ -206,26 +322,37 @@
     const pictureIds = new Set(pictures.map(function (item) { return item.event.id; }));
     visible.forEach(function (item) {
       const shouldShow = pictureIds.has(item.event.id);
-      const hasImage = item.button.classList.contains('has-image');
-      if (shouldShow && !hasImage) {
-        const img = document.createElement('img');
-        img.src = item.event.image;
-        img.alt = '';
-        img.loading = 'lazy';
+      const hasVisual = item.button.classList.contains('has-image') || item.button.classList.contains('has-label');
+      if (shouldShow && !hasVisual) {
+        if (item.event.image) {
+          const img = document.createElement('img');
+          img.src = item.event.image;
+          img.alt = '';
+          img.loading = 'lazy';
+          item.button.appendChild(img);
+          item.button.classList.add('has-image');
+        } else {
+          const glyph = document.createElement('span');
+          glyph.className = 'deep-time-point__glyph';
+          glyph.textContent = item.event.icon || '✦';
+          item.button.appendChild(glyph);
+          item.button.classList.add('has-label');
+        }
         const caption = document.createElement('span');
         caption.className = 'deep-time-point__caption';
         caption.innerHTML = '<small></small>';
         caption.querySelector('small').textContent = item.event.date;
         caption.appendChild(document.createTextNode(item.event.title));
-        item.button.appendChild(img);
         item.button.appendChild(caption);
-        item.button.classList.add('has-image');
-      } else if (!shouldShow && hasImage) {
+      } else if (!shouldShow && hasVisual) {
         const img = item.button.querySelector('img');
+        const glyph = item.button.querySelector('.deep-time-point__glyph');
         const caption = item.button.querySelector('.deep-time-point__caption');
         if (img) img.remove();
+        if (glyph) glyph.remove();
         if (caption) caption.remove();
         item.button.classList.remove('has-image');
+        item.button.classList.remove('has-label');
       }
     });
   }
@@ -437,7 +564,8 @@
   function openEvent(event) {
     stopMotion();
     selected = event;
-    dialogImage.src = event.image;
+    dialogImage.hidden = !event.image;
+    if (event.image) dialogImage.src = event.image;
     dialogDate.textContent = (event.future ? '未来への問い · ' : '') + event.date;
     dialogTitle.textContent = event.title;
     dialogDescription.textContent = event.description;
@@ -449,7 +577,7 @@
       anchor.textContent = link.label + ' →';
       dialogLinks.appendChild(anchor);
     });
-    detailLink.href = '#' + event.eraId;
+    detailLink.href = event.eraId ? '#' + event.eraId : '#detailed-timeline';
     copyStatus.textContent = '';
     promptBox.hidden = true;
     dialog.showModal();
@@ -463,7 +591,7 @@
   });
   document.getElementById('deepTimeCopy').addEventListener('click', async function () {
     if (!selected) return;
-    const prompt = 'ManabiMapの年表から学びを深める対話をしてください。\n転換点：' + selected.date + '／' + selected.title + '\n説明：' + selected.description + '\n時代：' + selected.eraTitle + '\n見方：' + (lens === 'all' ? '全体' : document.querySelector('[data-time-lens="' + lens + '"]').textContent) + '\n\nまず、この出来事の前の状況・何が変わったか・後への影響を日常語で説明してください。いきなり私の意見を求めず、理解の足場を作ってください。事実と解釈、不確かな年代、未来の推測は区別してください。時系列の近さを因果と見なさず、別の地域や反対の見方にも触れてください。続いてたどれる方向を2〜3個示してください。';
+    const prompt = 'ManabiMapの年表から学びを深める対話をしてください。\n転換点：' + selected.date + '／' + selected.title + '\n説明：' + selected.description + '\n時代：' + selected.eraTitle + '\n見方：' + document.querySelector('[data-time-lens="' + lens + '"]').textContent + '\n\nまず、この出来事の前の状況・何が変わったか・後への影響を日常語で説明してください。いきなり私の意見を求めず、理解の足場を作ってください。事実と解釈、不確かな年代、未来の推測は区別してください。時系列の近さを因果と見なさず、別の地域や反対の見方にも触れてください。続いてたどれる方向を2〜3個示してください。';
     try {
       await navigator.clipboard.writeText(prompt);
       copyStatus.textContent = 'コピーしました。普段使うAIに貼り付けてください。';

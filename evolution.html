@@ -1268,7 +1268,7 @@ a { color: inherit; text-decoration: none; }
 <link rel="stylesheet" href="assets/css/brand-v2.css?v=20260731-24">
 <link rel="stylesheet" href="assets/css/evolution-renewal.css?v=20260731-24">
 <link rel="stylesheet" href="assets/css/evolution-ai-guide.css?v=20260913-2">
-<link rel="stylesheet" href="assets/css/evolution-deep-time.css?v=20260913-3">
+<link rel="stylesheet" href="assets/css/evolution-deep-time.css?v=20260914-1">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
 <script>
@@ -1347,12 +1347,13 @@ a { color: inherit; text-decoration: none; }
   <aside class="deep-time__lenses" aria-label="見方を変える">
     <span>見方を変える</span>
     <div>
-      <button type="button" data-time-lens="all" aria-pressed="true">全体</button>
+      <button type="button" data-time-lens="core" aria-pressed="true">主要</button>
+      <button type="button" data-time-lens="all" aria-pressed="false">すべて</button>
       <button type="button" data-time-lens="information" aria-pressed="false">情報</button>
       <button type="button" data-time-lens="energy" aria-pressed="false">エネルギー</button>
       <button type="button" data-time-lens="cooperation" aria-pressed="false">協力</button>
     </div>
-    <p id="deepTimeQuestion"></p>
+    <p id="deepTimeQuestion">宇宙史をつかむ主要60点。近づくと、詳細65点が星のように現れます。</p>
   </aside>
 
   <div class="deep-time__zoom" aria-label="拡大縮小">
@@ -1370,7 +1371,7 @@ a { color: inherit; text-decoration: none; }
     </nav>
     <div class="deep-time__scrubber"><label for="deepTimeScrubber">旅の現在地</label><div class="deep-time__overview"><span id="deepTimeWindow" aria-hidden="true"></span><input id="deepTimeScrubber" aria-label="138億年の中で見る時代を移動" type="range" min="0" max="1000" value="500" step="1"></div><output id="deepTimeOutput">138億年前 — 未来</output></div>
     <div class="deep-time__portion" id="deepTimePortion">見えている歴史の幅：宇宙史の100%</div>
-    <div class="deep-time__notes"><span>対数表示：昔を圧縮し、現在の細部を広げています。</span><span>歴史112点・現在地1点・未来の問い5点。選定は監査中です。</span></div>
+    <div class="deep-time__notes"><span>対数表示：昔を圧縮し、現在の細部を広げています。</span><span>主要59点・現在地1点・詳細65点・未来の問い5点。2026年9月再選定。</span></div>
     <a class="deep-time__read" href="#detailed-timeline">詳しい年表として読む ↓</a>
   </footer>
 </section>
@@ -1427,7 +1428,7 @@ a { color: inherit; text-decoration: none; }
         <div><strong>普段のAIへ貼り付ける</strong><p>ボタンで対話文をコピーし、ChatGPTなどへ貼り付けます。</p></div>
       </li>
     </ol>
-    <p class="timeline-ai-intro__note"><strong>この118件は、網羅的な正典ではなく更新中の入口です。</strong> 年代は概数を含み、仮説・長い変化・未来の問いは確定した一日と区別します。近現代の情報技術への偏りと、地域・健康・権利などの欠落も監査しています。<a href="https://github.com/pinco53/ManabiMap/blob/main/docs/timeline-editorial-audit-2026-09-13.md">118項目の選定・出典監査を読む →</a></p>
+    <p class="timeline-ai-intro__note"><strong>入口の「時の宇宙」は、再選定した主要59点・現在地1点・詳細65点・未来の問い5点です。</strong> 追加した12点は金色の記号と出典付き説明で示し、下の118カードと既存画像は崩さず残しています。これは網羅的な正典ではなく、更新履歴を開いた学びの入口です。<a href="https://github.com/pinco53/ManabiMap/blob/main/docs/timeline-reselection-2026-09-14.md">再選定の基準と追加12点を読む →</a> <a href="https://github.com/pinco53/ManabiMap/blob/main/docs/timeline-editorial-audit-2026-09-13.md">元の118項目の監査を読む →</a></p>
   </div>
 </section>
 
@@ -3395,6 +3396,6 @@ a { color: inherit; text-decoration: none; }
 <script src="assets/js/sky-clock.js"></script>
 <script src="assets/js/brand-v2.js" defer></script>
 <script src="assets/js/evolution-ai-guide.js?v=20260911-1"></script>
-<script src="assets/js/evolution-deep-time.js?v=20260913-3"></script>
+<script src="assets/js/evolution-deep-time.js?v=20260914-1"></script>
 </body>
 </html>
