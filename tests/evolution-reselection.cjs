@@ -14,6 +14,53 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 
   assert.equal(await page.locator('.deep-time-point').count(), 130, '描画点は130点');
   assert.equal(await page.locator('.deep-time-point.is-curated').count(), 12, '再選定で追加した点は12点');
+  const curatedIds = [
+    'first-stars-galaxies',
+    'ediacaran-life',
+    'indus-cities',
+    'classic-maya',
+    'east-asian-printing',
+    'great-zimbabwe',
+    'haitian-revolution',
+    'udhr',
+    'decolonization',
+    'smallpox-eradication',
+    'cedaw',
+    'climate-response'
+  ];
+  const curatedImageChecks = await page.evaluate(async ids => Promise.all(ids.map(async id => {
+    const src = `assets/images/evolution/curated/curated-${id}.webp`;
+    const response = await fetch(src);
+    const blob = await response.blob();
+    return { src, ok: response.ok, type: blob.type, size: blob.size };
+  })), curatedIds);
+  curatedImageChecks.forEach(({ src, ok, type, size }) => {
+    assert.equal(ok, true, `${src} を読み込める`);
+    assert.equal(type, 'image/webp', `${src} はWebP画像`);
+    assert.ok(size > 10_000, `${src} は空画像ではない`);
+  });
+
+  for (const id of curatedIds) {
+    await page.locator('#deepTimeReset').click();
+    await page.waitForFunction(() => Number.parseFloat(document.querySelector('#deepTimeZoomLabel').textContent) < 1.05);
+    await page.locator(`[data-event-id="deep-curated-${id}"]`).click({ force: true });
+    await page.waitForTimeout(850);
+    const pointState = await page.locator(`[data-event-id="deep-curated-${id}"]`).evaluate(point => {
+      const image = point.querySelector('img');
+      return {
+        hidden: point.hidden,
+        hasImage: point.classList.contains('has-image'),
+        imageLoaded: Boolean(image && image.complete && image.naturalWidth > 0),
+        src: image && image.getAttribute('src')
+      };
+    });
+    assert.equal(pointState.hidden, false, `${id} は選択後に表示される`);
+    assert.equal(pointState.hasImage, true, `${id} は選択後に円形画像になる`);
+    assert.equal(pointState.imageLoaded, true, `${id} の円形画像を読み込める`);
+    assert.match(pointState.src || '', new RegExp(`curated-${id}\\.webp$`), `${id} は対応する専用画像を使う`);
+  }
+  await page.locator('#deepTimeReset').click();
+  await page.waitForFunction(() => Number.parseFloat(document.querySelector('#deepTimeZoomLabel').textContent) < 1.05);
   assert.equal(await page.locator('[data-time-lens="core"]').getAttribute('aria-pressed'), 'true', '初期表示は主要層');
   assert.equal(await page.locator('.deep-time-point.is-detail:not([hidden])').count(), 0, '全景では詳細層を隠す');
 
@@ -31,7 +78,8 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
   await page.waitForTimeout(450);
   await page.evaluate(() => document.querySelector('.deep-time-point.is-curated:not([hidden])').click());
   await page.locator('#deepTimeDialog[open]').waitFor();
-  assert.equal(await page.locator('#deepTimeDialogImage').isHidden(), true, '追加点に誤った既存画像を流用しない');
+  assert.equal(await page.locator('#deepTimeDialogImage').isVisible(), true, '追加点にも専用画像を表示');
+  assert.match(await page.locator('#deepTimeDialogImage').getAttribute('src'), /evolution\/curated\/curated-.+\.webp$/, '追加点は専用画像ディレクトリを使う');
   assert.ok(await page.locator('#deepTimeDialogLinks a').count() >= 1, '追加点には確認先を示す');
 
   assert.deepEqual(errors, [], 'ページ実行時エラーなし');

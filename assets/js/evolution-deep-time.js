@@ -163,7 +163,7 @@
       id: 'deep-curated-' + event.id,
       future: false,
       position: logPosition(ageFromDate(event.date)),
-      image: '',
+      image: 'assets/images/evolution/curated/curated-' + event.id + '.webp',
       y: .40 + seeded(401 + index) * .28,
       core: true,
       curated: true
@@ -194,7 +194,10 @@
 
   function bound(center, zoom) {
     const z = Math.max(1, Math.min(MAX_ZOOM, zoom));
-    return { zoom: z, center: Math.max(.5 / z, Math.min(1 - .5 / z, center)) };
+    // The timeline's first and last events need enough visual breathing room for
+    // their circular artwork. A small amount of overscroll keeps those images
+    // from being pinned to the viewport edge when focused.
+    return { zoom: z, center: Math.max(.42 / z, Math.min(1 - .42 / z, center)) };
   }
 
   function screenX(position, camera) { return .5 + (position - camera.center) * camera.zoom * .92; }
@@ -218,6 +221,7 @@
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'deep-time-point';
+    button.dataset.eventId = event.id;
     button.classList.toggle('is-curated', event.curated);
     button.setAttribute('aria-label', event.date + ' ' + event.title + 'へ近づく');
     button.innerHTML = '<span class="deep-time-point__core"></span>';
@@ -311,9 +315,14 @@
 
     const pictures = [];
     if (view.zoom >= PICTURE_ZOOM) {
-      visible.filter(function (item) { return isRelated(item.event); }).sort(function (a, b) { return Math.abs(a.x - .5) - Math.abs(b.x - .5); }).some(function (item) {
+      const pictureEdge = surface.clientWidth <= 760 ? 30 : 42;
+      visible.filter(function (item) { return isRelated(item.event); }).sort(function (a, b) {
+        if (a.event === selected) return -1;
+        if (b.event === selected) return 1;
+        return Math.abs(a.x - .5) - Math.abs(b.x - .5);
+      }).some(function (item) {
         const px = item.x * surface.clientWidth;
-        if (px < 75 || px > surface.clientWidth - 75) return false;
+        if (px < pictureEdge || px > surface.clientWidth - pictureEdge) return false;
         const clear = pictures.every(function (placed) { return Math.hypot((item.x - placed.x) * surface.clientWidth, item.y - placed.y) > 145; });
         if (clear) pictures.push(item);
         return pictures.length >= 7;
