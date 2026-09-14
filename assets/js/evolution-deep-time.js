@@ -267,13 +267,20 @@
   const scrubber = document.getElementById('deepTimeScrubber');
   const output = document.getElementById('deepTimeOutput');
   const overviewWindow = document.getElementById('deepTimeWindow');
+  const scaleText = document.getElementById('deepTimeScale');
   const portionText = document.getElementById('deepTimePortion');
+  const questionText = document.getElementById('deepTimeQuestion');
   const touchDevice = window.matchMedia('(pointer: coarse)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let needsRender = true;
 
   function ageAt(position) {
     return Math.max(0, Math.pow(1 + MAX_AGE, 1 - Math.min(.88, Math.max(0, position)) / .88) - 1);
+  }
+  function durationLabel(years) {
+    const unit = years >= 1e8 ? 1e8 : years >= 1e4 ? 1e4 : 1;
+    if (years < 1) return Math.max(1, Math.round(years * 365)) + '日';
+    return Number((years / unit).toPrecision(2)).toLocaleString('ja-JP') + (unit === 1e8 ? '億年' : unit === 1e4 ? '万年' : '年');
   }
   function isRelated(event) {
     if (lens === 'all') return true;
@@ -386,6 +393,8 @@
     const span = ageAt(leftEdge) - ageAt(rightEdge);
     const portion = span / MAX_AGE * 100;
     portionText.textContent = leftEdge >= .88 ? '未来は年代に比例しない別枠です' : '見えている歴史の幅：宇宙史の約' + Number(portion.toPrecision(2)).toLocaleString('ja-JP', { maximumFractionDigits: 8 }) + '%';
+    const halfScale = 40 / surface.clientWidth;
+    scaleText.textContent = view.center >= .88 ? '未来への問い' : '中央付近では、この幅で約' + durationLabel(ageAt(worldX(.5 - halfScale, view)) - ageAt(worldX(.5 + halfScale, view)));
     const placed = [];
     markers.forEach(function (marker, index) {
       const x = screenX(marker.position, view);
@@ -404,7 +413,7 @@
     button.addEventListener('click', function () {
       lens = button.dataset.timeLens;
       document.querySelectorAll('[data-time-lens]').forEach(function (item) { item.setAttribute('aria-pressed', String(item === button)); });
-      document.getElementById('deepTimeQuestion').textContent = lensQuestions[lens];
+      if (questionText) questionText.textContent = lensQuestions[lens];
       needsRender = true;
     });
   });
