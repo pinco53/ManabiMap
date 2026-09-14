@@ -123,7 +123,7 @@
   ];
 
   const futureEvents = [];
-  const sourceEvents = Array.from(document.querySelectorAll('.timeline-container .event')).map(function (node, index) {
+  const sourceEvents = Array.from(document.querySelectorAll('.timeline-container .event:not([data-curated-event])')).map(function (node, index) {
     const date = (node.querySelector('.event-date') || {}).textContent || '';
     const titleNode = node.querySelector('.event-title');
     const iconNode = titleNode && titleNode.querySelector('.icon');
@@ -160,6 +160,7 @@
       ...event,
       node: null,
       index: sourceEvents.length + index,
+      detailId: 'event-curated-' + event.id,
       id: 'deep-curated-' + event.id,
       future: false,
       position: logPosition(ageFromDate(event.date)),
@@ -586,7 +587,7 @@
       anchor.textContent = link.label + ' →';
       dialogLinks.appendChild(anchor);
     });
-    detailLink.href = event.eraId ? '#' + event.eraId : '#detailed-timeline';
+    detailLink.href = event.detailId ? '#' + event.detailId : event.eraId ? '#' + event.eraId : '#detailed-timeline';
     copyStatus.textContent = '';
     promptBox.hidden = true;
     dialog.showModal();

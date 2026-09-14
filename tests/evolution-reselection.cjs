@@ -14,6 +14,9 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 
   assert.equal(await page.locator('.deep-time-point').count(), 130, '描画点は130点');
   assert.equal(await page.locator('.deep-time-point.is-curated').count(), 12, '再選定で追加した点は12点');
+  assert.equal(await page.locator('.timeline-container .event').count(), 130, '詳しい年表も130点');
+  assert.equal(await page.locator('.timeline-container .event[data-curated-event]').count(), 12, '詳しい年表へ追加12点を統合');
+  assert.equal(await page.locator('.timeline-container .timeline-ai-event-button').count(), 130, '追加点もAIガイドを利用できる');
   const curatedIds = [
     'first-stars-galaxies',
     'ediacaran-life',
@@ -39,6 +42,21 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
     assert.equal(type, 'image/webp', `${src} はWebP画像`);
     assert.ok(size > 10_000, `${src} は空画像ではない`);
   });
+
+  const originalCards = page.locator('.timeline-container .event:not([data-curated-event]) .event-card');
+  assert.equal(await originalCards.count(), 118, '既存118点を維持');
+  const originalFirstImage = await originalCards.first().evaluate(card => getComputedStyle(card).getPropertyValue('--event-image'));
+  const originalLastImage = await originalCards.last().evaluate(card => getComputedStyle(card).getPropertyValue('--event-image'));
+  assert.match(originalFirstImage, /event-001\.webp/, '既存先頭カードの画像番号を維持');
+  assert.match(originalLastImage, /event-118\.webp/, '既存末尾カードの画像番号を維持');
+
+  for (const id of curatedIds) {
+    const detailed = page.locator(`#event-curated-${id}`);
+    assert.equal(await detailed.count(), 1, `${id} を詳しい年表に表示`);
+    assert.equal(await detailed.locator('.event-link[href^="http"]').count(), 1, `${id} の確認先を表示`);
+    const detailedImage = await detailed.locator('.event-card').evaluate(card => getComputedStyle(card).getPropertyValue('--event-image'));
+    assert.match(detailedImage, new RegExp(`curated-${id}\\.webp`), `${id} は詳しい年表でも専用画像を使う`);
+  }
 
   for (const id of curatedIds) {
     await page.locator('#deepTimeReset').click();
@@ -81,10 +99,11 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
   assert.equal(await page.locator('#deepTimeDialogImage').isVisible(), true, '追加点にも専用画像を表示');
   assert.match(await page.locator('#deepTimeDialogImage').getAttribute('src'), /evolution\/curated\/curated-.+\.webp$/, '追加点は専用画像ディレクトリを使う');
   assert.ok(await page.locator('#deepTimeDialogLinks a').count() >= 1, '追加点には確認先を示す');
+  assert.match(await page.locator('#deepTimeDetailLink').getAttribute('href'), /^#event-curated-/, '追加点から詳しい年表の該当カードへ直接移動');
 
   assert.deepEqual(errors, [], 'ページ実行時エラーなし');
   await browser.close();
-  console.log('PASS: 主要60点、詳細65点の段階表示、追加12点、全130点、出典付きモーダル');
+  console.log('PASS: 時の宇宙130点、詳しい年表130点、追加12点の専用画像・出典・直接リンク、既存118画像対応');
 })().catch(error => {
   console.error(error);
   process.exitCode = 1;

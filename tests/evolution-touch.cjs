@@ -35,7 +35,8 @@ const preview = process.env.PREVIEW_URL || 'http://localhost:4173/evolution.html
       }
       await touch('touchEnd', []);
     };
-    assert.equal(await page.locator('.timeline-container .event').count(), 118);
+    assert.equal(await page.locator('.timeline-container .event').count(), 130);
+    assert.equal(await page.locator('.timeline-container .event[data-curated-event]').count(), 12);
     assert.equal(await page.locator('#era-future .event').count(), 5);
     assert.equal(await page.locator('.event-title', { hasText: '現在知られる初期の石器' }).count(), 1);
     assert.equal(await page.locator('.event-title', { hasText: 'ヒトゲノム計画の完了' }).count(), 1);
@@ -160,6 +161,6 @@ const preview = process.env.PREVIEW_URL || 'http://localhost:4173/evolution.html
     await desktop.waitForTimeout(400);
     assert.ok(+await desktop.locator('#deepTimeScrubber').inputValue() > desktopPosition, 'Mouse drag must still pan');
     assert.deepEqual(errors, []);
-    console.log('PASS: double tap, overview swipe, vertical travel, anchored pinch, two-to-one transition, star drag/tap, cancellation, reduced motion, keyboard/bounds, five viewport layouts, reading exit, mouse wheel/drag, 118-item inventory');
+    console.log('PASS: double tap, overview swipe, vertical travel, anchored pinch, two-to-one transition, star drag/tap, cancellation, reduced motion, keyboard/bounds, five viewport layouts, reading exit, mouse wheel/drag, 130-item inventory');
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });

@@ -6,6 +6,12 @@
   var timeline = document.querySelector('.evolution-page .timeline-container');
   if (!page || !hero || !timeline) return;
 
+  // Keep the detailed timeline alternating cleanly when curated points are inserted.
+  Array.prototype.slice.call(timeline.querySelectorAll('.event')).forEach(function (event, index) {
+    event.classList.toggle('event-left', index % 2 === 0);
+    event.classList.toggle('event-right', index % 2 === 1);
+  });
+
   function text(root, selector) {
     var node = root && root.querySelector(selector);
     return node ? node.textContent.replace(/\s+/g, ' ').trim() : '';
@@ -328,9 +334,11 @@
     era.events.forEach(function (event, eventIndex) {
       var card = event.element.querySelector('.event-card');
       if (!card) return;
-      imageIndex += 1;
       card.classList.add('event-card--image');
-      card.dataset.eventImage = 'assets/images/evolution/event-' + String(imageIndex).padStart(3, '0') + '.webp';
+      if (!card.dataset.eventImage) {
+        imageIndex += 1;
+        card.dataset.eventImage = 'assets/images/evolution/event-' + String(imageIndex).padStart(3, '0') + '.webp';
+      }
       imageCards.push(card);
       var eventButton = document.createElement('button');
       eventButton.type = 'button';
