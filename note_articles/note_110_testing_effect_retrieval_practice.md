@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part12
 **関連PodcastID**: podcast-part12-6
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=c4uuMyjPBv8
 **関連YouTubeID**: youtube-part12
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=c4uuMyjPBv8
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -25,7 +25,7 @@
 
 でも翌週には、ほとんど覚えていなかった。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=c4uuMyjPBv8
 
 ---
 
@@ -136,7 +136,7 @@ AIに「答えを教えてもらう」のと「問いかけてもらう」のは
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第12部第6話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第12部第6話](https://www.youtube.com/watch?v=c4uuMyjPBv8)**
 
 → **[ハルとおじいさん 第12部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part12.html)**
 
