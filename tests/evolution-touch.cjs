@@ -37,6 +37,17 @@ const preview = process.env.PREVIEW_URL || 'http://localhost:4173/evolution.html
     };
     assert.equal(await page.locator('.timeline-container .event').count(), 118);
     assert.equal(await page.locator('#era-future .event').count(), 5);
+    assert.equal(await page.locator('.event-title', { hasText: '現在知られる初期の石器' }).count(), 1);
+    assert.equal(await page.locator('.event-title', { hasText: 'ヒトゲノム計画の完了' }).count(), 1);
+    assert.equal(await page.locator('.event-title', { hasText: 'AIエージェント型サービスの拡大' }).count(), 1);
+    assert.equal(await page.locator('.event-desc', { hasText: '世界最初の汎用電子計算機' }).count(), 0);
+    assert.equal(await page.locator('.event-desc', { hasText: '全ての大規模言語モデル' }).count(), 0);
+    assert.equal(await page.locator('.event-desc', { hasText: 'AIに4勝1敗で敗北' }).count(), 0);
+    assert.ok((await page.locator('#era-future .era-summary').textContent()).includes('実現時期や確率を示すものではない'));
+    assert.equal(await page.locator('.accel-title').textContent(), '時間の尺度を、問い直す');
+    assert.ok((await page.locator('.panel-title', { hasText: '選んだ節目の「間隔」' }).count()) === 1);
+    assert.ok((await page.locator('.cosmic-event', { hasText: '初期人類の候補' }).textContent()).includes('19:33'));
+    assert.ok((await page.locator('.cosmic-event', { hasText: '初期の石器' }).textContent()).includes('21:54'));
     assert.equal((await state()).zoom, 1);
     assert.equal((await state()).width, 1);
     for (let i = 0; i < 2; i++) {
