@@ -285,9 +285,6 @@
 .deep-time__overview > span { position: absolute; top: 2px; bottom: 2px; min-width: 3px; border: 1px solid #dfcba4a3; border-radius: 3px; background: #dbc39816; pointer-events: none; }
 .deep-time__overview input { position: absolute; inset: 0; height: 100%; margin: 0; opacity: .22; }
 .deep-time__overview input:focus-visible { opacity: 1; }
-.deep-time__measure { display: flex; min-height: 26px; align-items: center; justify-content: center; gap: 10px; color: #d8c49b; font-size: 11px; }
-.deep-time__measure i { display: block; flex: 0 0 80px; width: 80px; height: 6px; border: 1px solid #d8c49b99; border-top: 0; }
-.deep-time__measure span { min-width: 0; }
 .deep-time__instruction span { min-width: 0; }
 .deep-time__portion { margin-top: 6px; color: #b4c0ce; font-size: 10px; text-align: center; font-variant-numeric: tabular-nums; }
 .deep-time__scrubber output { text-align: right; font-variant-numeric: tabular-nums; }
@@ -367,7 +364,6 @@ body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; 
   .deep-time__controls { padding: 9px 5% 11px; }
   .deep-time__instruction { font-size: 9px; line-height: 1.5; text-align: center; }
   .deep-time__instruction button { flex: 0 0 40px; height: 40px; }
-  .deep-time__measure { font-size: 10px; }
   .deep-time__stops { margin: 3px 0 6px; }
   .deep-time__stops button { min-height: 44px; padding: 5px 4px; font-size: 12px; letter-spacing: 0; }
   .deep-time__scrubber { grid-template-columns: 1fr; gap: 2px; }
@@ -402,7 +398,7 @@ body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; 
   .deep-time__axis span { writing-mode: horizontal-tb; font-size: 9px; }
   .deep-time__future { top: 155px; bottom: 168px; }
   .deep-time__zoom { top: 142px; flex-direction: row; right: 5px; }
-  .deep-time__measure, .deep-time__portion, .deep-time__notes { display: none; }
+  .deep-time__portion, .deep-time__notes { display: none; }
   .deep-time__instruction { font-size: 10px; }
   .deep-time__stops { margin: 0; }
   .deep-time__stops button { min-height: 40px; font-size: 12px; }
@@ -436,5 +432,4 @@ body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; 
   .deep-time__future { top: 240px; bottom: 275px; }
   .deep-time__zoom { top: 92px; right: 8px; }
   .deep-time__zoom #deepTimeZoomIn, .deep-time__zoom #deepTimeZoomOut { display: none; }
-  .deep-time__measure { font-size: 9px; gap: 6px; }
 }
