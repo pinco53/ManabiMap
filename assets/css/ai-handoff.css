@@ -1,0 +1,12 @@
+.ai-handoff { margin-top: 20px; padding-top: 20px; border-top: 1px solid #d8c49b40; }
+.ai-handoff label { display: grid; gap: 10px; color: #e8dfce; font-size: 14px; }
+.ai-handoff select, .ai-handoff textarea { width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #a4b4ca55; border-radius: 9px; background: #101d2c; color: #f4f0e8; font: inherit; }
+.ai-handoff .ai-handoff__launch { display: block; width: 100%; min-height: 48px; margin-top: 12px; padding: 12px; border: 1px solid #d8c49b80; border-radius: 9px; background: #e4d3b1; color: #152031; cursor: pointer; font-size: 14px; }
+.ai-handoff .ai-handoff__launch:disabled { opacity: .45; cursor: default; }
+.ai-handoff .ai-handoff__hint, .ai-handoff .ai-handoff__status { margin: 10px 0 0; color: #b7c2d1; font-size: 12px; line-height: 1.8; }
+.ai-handoff textarea { min-height: 180px; margin-top: 12px; font-size: 13px; }
+.ai-handoff a { display: inline-block; padding: 12px 0; color: #efdbb6; }
+.ai-handoff [hidden] { display: none; }
+.ai-handoff :focus-visible { outline: 2px solid #efdbb6; outline-offset: 3px; }
+.evolution-page .timeline-ai-dialog { width: min(540px, 100vw); height: 100dvh; max-height: 100dvh; margin: 0 0 0 auto; border-radius: 0; }
+.evolution-page .timeline-ai-dialog__shell { max-height: 100dvh; box-sizing: border-box; overflow-y: auto; }

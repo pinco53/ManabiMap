@@ -599,9 +599,16 @@
     const box = dialog.getBoundingClientRect();
     if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
   });
-  document.getElementById('deepTimeCopy').addEventListener('click', async function () {
-    if (!selected) return;
+  function selectedPrompt() {
+    if (!selected) return '';
     const prompt = 'ManabiMapの年表から学びを深める対話をしてください。\n転換点：' + selected.date + '／' + selected.title + '\n説明：' + selected.description + '\n時代：' + selected.eraTitle + '\n見方：' + document.querySelector('[data-time-lens="' + lens + '"]').textContent + '\n\nまず、この出来事の前の状況・何が変わったか・後への影響を日常語で説明してください。いきなり私の意見を求めず、理解の足場を作ってください。事実と解釈、不確かな年代、未来の推測は区別してください。時系列の近さを因果と見なさず、別の地域や反対の見方にも触れてください。続いてたどれる方向を2〜3個示してください。';
+    return prompt + '\n\n出典：\n' + selected.links.map(function (link) { return link.label + '：' + new URL(link.href, 'https://pinco53.github.io/ManabiMap/evolution.html').href; }).join('\n');
+  }
+  window.ManabiAI.mount(dialog.querySelector('.deep-time-dialog__dialogue'), selectedPrompt);
+
+  document.getElementById('deepTimeCopy').addEventListener('click', async function () {
+    const prompt = selectedPrompt();
+    if (!prompt) return;
     try {
       await navigator.clipboard.writeText(prompt);
       copyStatus.textContent = 'コピーしました。普段使うAIに貼り付けてください。';
@@ -707,6 +714,31 @@
     }
     requestAnimationFrame(animate);
   }
+  const returnKey = 'manabimap-time-ai-return';
+  window.addEventListener('manabimap:ai-handoff', function () {
+    stopMotion();
+    try {
+      sessionStorage.setItem(returnKey, JSON.stringify({
+        center: target.center, zoom: target.zoom, lens: lens, flowing: flowing,
+        selectedId: selected && selected.id, dialogOpen: dialog.open,
+        scrollY: window.scrollY, savedAt: Date.now()
+      }));
+    } catch (_) {}
+  });
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(returnKey));
+    sessionStorage.removeItem(returnKey);
+    if (saved && Date.now() - saved.savedAt < 86400000 && Number.isFinite(saved.center) && Number.isFinite(saved.zoom) && Object.hasOwn(lensQuestions, saved.lens)) {
+      target = bound(saved.center, saved.zoom); view = { ...target }; lens = saved.lens;
+      flowing = saved.flowing !== false;
+      document.querySelectorAll('[data-time-lens]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.timeLens === lens)); });
+      document.getElementById('deepTimeFlow').textContent = flowing ? 'Ⅱ' : '▶';
+      document.getElementById('deepTimeFlow').setAttribute('aria-label', flowing ? '粒の漂いを止める' : '粒の漂いを再開する');
+      selected = events.find(function (event) { return event.id === saved.selectedId; }) || null;
+      if (saved.dialogOpen && selected) openEvent(selected);
+      if (Number.isFinite(saved.scrollY)) requestAnimationFrame(function () { window.scrollTo(0, saved.scrollY); });
+    }
+  } catch (_) {}
   requestAnimationFrame(animate);
 
   new IntersectionObserver(function (entries) {

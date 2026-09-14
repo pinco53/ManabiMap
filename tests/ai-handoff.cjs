@@ -1,0 +1,63 @@
+const assert = require('node:assert/strict');
+const { pathToFileURL } = require('node:url');
+const { resolve } = require('node:path');
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+(async () => {
+  const browser = await chromium.launch({ channel: 'chrome', headless: true });
+  try {
+    const page = await browser.newPage({ viewport: { width: 1228, height: 863 } });
+    const errors = [];
+    page.on('pageerror', e => errors.push(e.message));
+    await page.route(/^https?:/, route => route.abort());
+    await page.addInitScript(() => {
+      window.testTransfer = { copied: '', opened: '', fail: false, blocked: false, closed: false };
+      Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async text => {
+        if (window.testTransfer.fail) throw new Error('denied');
+        window.testTransfer.copied = text;
+      } } });
+      window.open = () => window.testTransfer.blocked ? null : { opener: null, close: () => { window.testTransfer.closed = true; }, location: { replace: url => { window.testTransfer.opened = url; } } };
+    });
+    await page.goto(pathToFileURL(resolve('evolution.html')).href, { waitUntil: 'domcontentloaded' });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.evaluate(() => document.querySelector('[data-event-id="deep-curated-udhr"]').click());
+    await page.waitForFunction(() => Number.parseFloat(document.querySelector('#deepTimeZoomLabel').textContent) > 2.7);
+    await page.evaluate(() => document.querySelector('[data-event-id="deep-curated-udhr"]').click());
+    const panel = page.locator('#deepTimeDialog .ai-handoff');
+    await panel.waitFor({ state: 'visible' });
+    await panel.locator('select').selectOption('claude');
+    await panel.locator('button').click();
+    let transfer = await page.evaluate(() => window.testTransfer);
+    assert.equal(transfer.opened, 'https://claude.ai/');
+    assert.match(transfer.copied, /世界人権宣言/);
+    assert.match(transfer.copied, /https:\/\/www.un.org/);
+    const camera = await page.locator('#deepTimeZoomLabel').textContent();
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await panel.waitFor({ state: 'visible' });
+    assert.equal(await panel.locator('select').inputValue(), 'claude');
+    assert.equal(await page.locator('#deepTimeDialogTitle').textContent(), '世界人権宣言');
+    await page.waitForFunction(expected => document.querySelector('#deepTimeZoomLabel').textContent === expected, camera);
+    await page.evaluate(() => { window.testTransfer.blocked = true; });
+    await panel.locator('button').click();
+    assert.equal(await panel.locator('a').isVisible(), true);
+    assert.equal(await panel.locator('a').getAttribute('href'), 'https://claude.ai/');
+    await page.evaluate(() => { window.testTransfer.blocked = false; window.testTransfer.fail = true; });
+    await panel.locator('button').click();
+    assert.equal(await panel.locator('textarea').isVisible(), true);
+    assert.match(await panel.locator('textarea').inputValue(), /世界人権宣言/);
+    assert.equal(await page.evaluate(() => window.testTransfer.closed), true);
+    await page.locator('#deepTimeDialogClose').click();
+    await page.locator('#event-curated-udhr .timeline-ai-event-button').click();
+    const detail = page.locator('.timeline-ai-dialog .ai-handoff');
+    assert.equal(await detail.locator('select').inputValue(), 'claude');
+    await detail.locator('select').selectOption('gemini');
+    await page.evaluate(() => { window.testTransfer.fail = false; });
+    await detail.locator('button').click();
+    transfer = await page.evaluate(() => window.testTransfer);
+    assert.equal(transfer.opened, 'https://gemini.google.com/');
+    assert.match(transfer.copied, /世界人権宣言/);
+    await page.setViewportSize({ width: 390, height: 844 });
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+    assert.deepEqual(errors, []);
+    console.log('PASS: AI choice, prompt/source transfer, blocked popup, clipboard fallback, return restoration, detailed timeline, mobile width. External AI launches mocked.');
+  } finally { await browser.close(); }
+})().catch(error => { console.error(error); process.exitCode = 1; });

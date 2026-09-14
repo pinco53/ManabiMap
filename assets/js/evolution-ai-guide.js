@@ -32,6 +32,9 @@
           date: text(event, '.event-date'),
           title: text(event, '.event-title').replace(/^[^\p{L}\p{N}]+/u, ''),
           description: text(event, '.event-desc'),
+          sources: Array.from(event.querySelectorAll('.event-link')).map(function (link) {
+            return link.textContent.trim() + '：' + new URL(link.getAttribute('href'), 'https://pinco53.github.io/ManabiMap/evolution.html').href;
+          }).join('\n'),
           element: event
         };
       })
@@ -52,7 +55,7 @@
 
   function eventLines(events) {
     return events.map(function (event) {
-      return '・' + event.date + '｜' + event.title + '：' + event.description;
+      return '・' + event.date + '｜' + event.title + '：' + event.description + (event.sources ? '\n参考リンク：\n' + event.sources : '');
     }).join('\n');
   }
 
@@ -98,6 +101,7 @@
         '【選んだ転換点】',
         event.date + '｜' + event.title,
         event.description,
+        event.sources ? '参考リンク：\n' + event.sources : '',
         '',
         '【この転換点が置かれている時代】',
         era.title + '（' + era.range + '）',
@@ -226,6 +230,11 @@
   var currentContext = null;
   var currentMode = 'explain';
   var previousFocus = null;
+
+  window.ManabiAI.mount(dialog.querySelector('.timeline-ai-dialog__actions'), function () {
+    if (!currentContext || (currentMode === 'question' && !questionInput.value.trim())) return '';
+    return buildPrompt(currentContext, currentMode === 'question' ? questionInput.value : '');
+  });
 
   function renderMode(mode) {
     currentMode = mode;
