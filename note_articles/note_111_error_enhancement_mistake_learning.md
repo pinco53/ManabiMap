@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part12
 **関連PodcastID**: podcast-part12-7
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=54NP8LZqz7k
 **関連YouTubeID**: youtube-part12
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=54NP8LZqz7k
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -23,7 +23,7 @@
 みんなの視線が集まった。
 それからしばらく、手を挙げられなくなった。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=54NP8LZqz7k
 
 ---
 
@@ -146,7 +146,7 @@ AIは間違えて、そこから深く学ぶことができるのでしょうか
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第12部第7話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第12部第7話](https://www.youtube.com/watch?v=54NP8LZqz7k)**
 
 → **[ハルとおじいさん 第12部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part12.html)**
 
