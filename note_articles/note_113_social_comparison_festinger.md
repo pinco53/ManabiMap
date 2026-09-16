@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part12
 **関連PodcastID**: podcast-part12-9
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=CjcGRXuEI7Y
 **関連YouTubeID**: youtube-part12
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=CjcGRXuEI7Y
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -24,7 +24,7 @@
 
 あの感じは、何だったのだろう。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=CjcGRXuEI7Y
 
 ---
 
@@ -113,7 +113,7 @@ AIが成績データを見せるとき、それは学ぶ意欲を育てている
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第12部第9話](（Podcast URL 記入予定）)**
+→ **[Podcast で深く聴く｜ハルとおじいさん 第12部第9話](https://www.youtube.com/watch?v=CjcGRXuEI7Y)**
 
 → **[ハルとおじいさん 第12部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part12.html)**
 
