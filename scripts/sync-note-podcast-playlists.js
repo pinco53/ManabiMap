@@ -7,6 +7,25 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 const noteDir = path.join(root, 'note_articles');
 
+// note記事は note_articles/ 直下（未公開）と note_articles/公開済み/**（公開済み・部ごと）に分かれている
+function listNoteFiles() {
+  const found = [];
+  const walk = (dir, recursive) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (recursive) walk(full, true);
+      } else if (/^note_\d+.*\.md$/.test(entry.name)) {
+        found.push(full);
+      }
+    }
+  };
+  walk(noteDir, false);
+  const publishedDir = path.join(noteDir, '公開済み');
+  if (fs.existsSync(publishedDir)) walk(publishedDir, true);
+  return found.sort((a, b) => path.basename(a).localeCompare(path.basename(b)));
+}
+
 const playlists = {
   part8: 'https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC',
   revolution: 'https://www.youtube.com/playlist?list=PLJ-qAmzHO2WwJhGwN9UvRFwgltPZ-Y6ur',
@@ -58,19 +77,18 @@ function upsertMetadata(text, url) {
 }
 
 const changed = [];
-for (const file of fs.readdirSync(noteDir)) {
-  const match = file.match(/^note_(\d+).*\.md$/);
+for (const filePath of listNoteFiles()) {
+  const match = path.basename(filePath).match(/^note_(\d+).*\.md$/);
   if (!match) continue;
   const number = Number(match[1]);
   const playlistUrl = playlistByNumber.get(number);
   if (!playlistUrl) continue;
 
-  const filePath = path.join(noteDir, file);
   const before = fs.readFileSync(filePath, 'utf8');
   const after = upsertMetadata(insertBodyBlock(before, playlistUrl), playlistUrl);
   if (after === before) continue;
   fs.writeFileSync(filePath, after);
-  changed.push(file);
+  changed.push(path.relative(noteDir, filePath));
 }
 
 console.log(`Updated note podcast playlist metadata/body: ${changed.length}`);

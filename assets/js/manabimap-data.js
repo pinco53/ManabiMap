@@ -337,9 +337,6 @@
 
   const notes = [
     { id: 'note-01', number: 1, title: "ChatGPTが登場するまで、人類に何があったのか。", url: "https://note.com/manabimapcreator/n/n00c3101a661e", status: "published", tags: ["生成AI","ChatGPT","教育","人類史","学び","AI"], relatedParts: ["part3","part8-2","part8","evolution"], relatedPodcastUrl: "https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC", image: "note_articles/generated_note_images/note-1.png", question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "「なぜ学ぶのか」という問いに、うまく答えられますか？" },
-    { id: 'note-02', number: 2, title: "「機械に仕事を奪われる」という恐怖は、200年前にもあった。", status: "local-draft", tags: ["産業革命","歴史","AI","教育","仕事","人類史","学び"], relatedParts: ["part1","part8-2","part8","evolution"], question: "機械は人間を何から解放し、何に縛ったのか。", relation: "機械と時間の枝道", primaryPart: "part1", excerpt: "「AIに仕事を奪われる」という言葉を、最近よく耳にします。" },
-    { id: 'note-03', number: 3, title: "ChatGPTに同じことを聞くと、なぜ毎回答えが違うのか。", status: "local-draft", tags: ["生成AI","ChatGPT","検索","AI","教育","学び"], relatedParts: ["part3","part4","part8-2","part8"], question: "AIが考えているように見えるとき、人間が考えるとは何か。", relation: "AIと人間の枝道", primaryPart: "part3", excerpt: "ChatGPTに同じ質問を2回したことはありますか？" },
-    { id: 'note-04', number: 4, title: "スマホの中に、80年分の革命が詰まっている。", status: "local-draft", tags: ["デジタル革命","インターネット","歴史","テクノロジー","教育","学び","人類史"], relatedParts: ["part2","part8-2","part8","evolution"], question: "つながることは、近づくことと同じなのか。", relation: "つながりと思考の枝道", primaryPart: "part2", excerpt: "スマホを毎日使っていますか？" },
     { id: 'note-05', number: 5, title: "生成AIは、いったい何を「生成」しているのか。", url: "https://note.com/manabimapcreator/n/n05c7f8f23fc4", status: "published", date: "2026-03-23", target: "第8部第1話（前編・後編）", tags: ["第8部第1話（前編","後編）"], relatedParts: ["part8"], relatedPodcastUrl: "https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC", image: "note_articles/generated_note_images/note-5.png", question: "生成AIは、何を生成しているのか。", relation: "生成AIの枝道", primaryPart: "part8", excerpt: "タグ: #生成AI #AI #人工知能 #学び #哲学 #人類史 #教育" },
     { id: 'note-06', number: 6, title: "追い出された場所から、次の時代が生まれる。", url: "https://note.com/manabimapcreator/n/nf03fbdb50e71", status: "published", date: "2026-03-24", target: "第8部第2話「ルールから確率へ」前編・後編", tags: ["第8部第2話「ルールから確率へ」前編","後編"], relatedParts: ["part8"], relatedPodcastUrl: "https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC", image: "note_articles/generated_note_images/note-6.png", question: "生成AIは、何を生成しているのか。", relation: "生成AIの枝道", primaryPart: "part8", excerpt: "タグ: #AI #機械学習 #ディープラーニング #進化 #学び #歴史 #人類史" },
     { id: 'note-07', number: 7, title: "「わかってもらえた」は、ただの確率かもしれない", url: "https://note.com/manabimapcreator/n/n92652d8bad4c", status: "published", date: "2026-03-24", target: "第8部第3話（前編・後編）", tags: ["第8部第3話（前編","後編）"], relatedParts: ["part8"], relatedPodcastUrl: "https://www.youtube.com/playlist?list=PLJ-qAmzHO2WyHi5PE81uv7FzZs2pvfWyC", image: "note_articles/generated_note_images/note-7.png", question: "生成AIは、何を生成しているのか。", relation: "生成AIの枝道", primaryPart: "part8", excerpt: "テスト前夜、教科書をひたすら眺めた記憶がある。" },
@@ -511,10 +508,12 @@
     { id: 'note-174', number: 174, title: "なぜ、たったひと言の間違いで、株価が急落したのか", url: "https://note.com/manabimapcreator/n/nf7be6e960ef1", status: "published", kind: "wonder-note", date: "2026-09-12", target: "第18部第8話「AIも人間も勘違いする」", tags: [], relatedParts: ["part18","part8"], relatedPodcastId: "podcast-part18-8", relatedYouTubeId: "youtube-part18", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-174.png", question: "私たちが見ている「現実」は、世界そのものなのか。", relation: "判断と現実の枝道", primaryPart: "part18", excerpt: "自信満々に間違えたAIの答えを、" },
     { id: 'note-175', number: 175, title: "なぜ、自分だけの「色」に、気づけなかったのか", url: "https://note.com/manabimapcreator/n/n5ce5721ab04b", status: "published", kind: "wonder-note", date: "2026-09-13", target: "第18部第9話（最終話）「「現実」とは何か」", tags: [], relatedParts: ["part18"], relatedPodcastId: "podcast-part18-9", relatedYouTubeId: "youtube-part18", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-175.png", question: "私たちが見ている「現実」は、世界そのものなのか。", relation: "判断と現実の枝道", primaryPart: "part18", excerpt: "自分に見えている色が、" },
     { id: 'note-176', number: 176, title: "なぜ、「できる」と信じた瞬間に、体は変わるのか", url: "https://note.com/manabimapcreator/n/n1b7cf36e1228", status: "published", kind: "wonder-note", date: "2026-08-23", target: "第11部第15話「『できた！』が自己効力感をつくる（最終回）」", tags: [], relatedParts: ["part11"], relatedPodcastId: "podcast-part11-15", relatedPodcastUrl: "https://www.youtube.com/watch?v=zp7hH5v3KE4", relatedYouTubeId: "youtube-part11", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-176.png", question: "人は、教わる前にどう学んでいるのか。", relation: "学びの原型の枝道", primaryPart: "part11", excerpt: "補助輪を外した自転車に、初めて一人で乗った日を覚えています。" },
-    { id: 'note-177', number: 177, title: "なぜ、同じ緊張が、ある人を崩し、ある人を鍛えるのか", url: "https://note.com/manabimapcreator/n/nd3a837a3ac56", status: "published", kind: "wonder-note", date: "2026-09-14", target: "第12部第10話「不安は学びを助けるか邪魔するか」", tags: [], relatedParts: ["part12"], relatedPodcastId: "podcast-part12-10", relatedYouTubeId: "youtube-part12", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-177.png", question: "人はなぜ、一人では届かない場所へ対話によって届くのか。", relation: "対話と学習心理の枝道", primaryPart: "part12", excerpt: "大事な発表の直前、心臓がドクドクと音を立てていました。" },
-    { id: 'note-179', number: 179, title: "賢い馬は、なぜ本当は計算していなかったのか", url: "https://note.com/manabimapcreator/n/n0fb3c9a6312d", status: "published", kind: "wonder-note", date: "2026-09-15", target: "第12部第11話「AIとの対話と、人間との対話は何が違うのか」", tags: ["第12部第11話「AIとの対話と","人間との対話は何が違うのか」"], relatedParts: ["part12","part8"], relatedPodcastId: "podcast-part12-11", relatedYouTubeId: "youtube-part12", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-179.png", question: "人はなぜ、一人では届かない場所へ対話によって届くのか。", relation: "対話と学習心理の枝道", primaryPart: "part12", excerpt: "深夜、誰にも言えない悩みを、チャットボットに打ち明けたことがあります。" },
+    { id: 'note-177', number: 177, title: "なぜ、同じ緊張が、ある人を崩し、ある人を鍛えるのか", url: "https://note.com/manabimapcreator/n/nd3a837a3ac56", status: "published", kind: "wonder-note", date: "2026-09-14", target: "第12部第10話「不安は学びを助けるか邪魔するか」", tags: [], relatedParts: ["part12"], relatedPodcastId: "podcast-part12-10", relatedPodcastUrl: "https://www.youtube.com/watch?v=163uYYrIOHg", relatedYouTubeId: "youtube-part12", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-177.png", question: "人はなぜ、一人では届かない場所へ対話によって届くのか。", relation: "対話と学習心理の枝道", primaryPart: "part12", excerpt: "大事な発表の直前、心臓がドクドクと音を立てていました。" },
+    { id: 'note-179', number: 179, title: "賢い馬は、なぜ本当は計算していなかったのか", url: "https://note.com/manabimapcreator/n/n0fb3c9a6312d", status: "published", kind: "wonder-note", date: "2026-09-15", target: "第12部第11話「AIとの対話と、人間との対話は何が違うのか」", tags: ["第12部第11話「AIとの対話と","人間との対話は何が違うのか」"], relatedParts: ["part12","part8"], relatedPodcastId: "podcast-part12-11", relatedPodcastUrl: "https://www.youtube.com/watch?v=-ENhY2KZBVg", relatedYouTubeId: "youtube-part12", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-179.png", question: "人はなぜ、一人では届かない場所へ対話によって届くのか。", relation: "対話と学習心理の枝道", primaryPart: "part12", excerpt: "深夜、誰にも言えない悩みを、チャットボットに打ち明けたことがあります。" },
     { id: 'note-180', number: 180, title: "なぜ宴会場の崩壊が、記憶術を生んだのか", url: "https://note.com/manabimapcreator/n/neeabcbdb20a2", status: "published", kind: "wonder-note", date: "2026-09-16", target: "第12部第12話「答えを『聞く』と考えを『引き出す』は何が違うのか」", tags: [], relatedParts: ["part12"], relatedPodcastId: "podcast-part12-12", relatedYouTubeId: "youtube-part12", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-180.png", question: "人はなぜ、一人では届かない場所へ対話によって届くのか。", relation: "対話と学習心理の枝道", primaryPart: "part12", excerpt: "道順を調べようとして、地図アプリを開きました。" },
-    { id: 'note-182', number: 182, title: "なぜ、手帳に黒い点をつけ続けた男がいたのか", url: "https://note.com/manabimapcreator/n/nf47cb378c66e", status: "published", kind: "wonder-note", date: "2026-09-17", target: "第12部第14話「メタ認知とは何か」", tags: ["第12部第14話「メタ認知とは何か」"], relatedParts: ["part12"], relatedPodcastId: "podcast-part12-14", relatedYouTubeId: "youtube-part12", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-182.png", question: "人はなぜ、一人では届かない場所へ対話によって届くのか。", relation: "対話と学習心理の枝道", primaryPart: "part12", excerpt: "一日を振り返って、日記をつけようとしたことがあります。" }
+    { id: 'note-181', number: 181, title: "なぜ沈黙が、雷のように響くことがあるのか", url: "https://note.com/manabimapcreator/n/n796721b3af4f", status: "published", kind: "wonder-note", date: "2026-09-19", target: "第12部第13話「学習における『沈黙・待つ』の意味」", tags: ["第12部第13話「学習における『沈黙","待つ』の意味」"], relatedParts: ["part10","part12"], relatedPodcastId: "podcast-part12-13", relatedYouTubeId: "youtube-part12", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-181.png", question: "人はなぜ、一人では届かない場所へ対話によって届くのか。", relation: "対話と学習心理の枝道", primaryPart: "part12", excerpt: "誰かに難しい質問をされて、" },
+    { id: 'note-182', number: 182, title: "なぜ、手帳に黒い点をつけ続けた男がいたのか", url: "https://note.com/manabimapcreator/n/nf47cb378c66e", status: "published", kind: "wonder-note", date: "2026-09-17", target: "第12部第14話「メタ認知とは何か」", tags: ["第12部第14話「メタ認知とは何か」"], relatedParts: ["part12"], relatedPodcastId: "podcast-part12-14", relatedYouTubeId: "youtube-part12", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-182.png", question: "人はなぜ、一人では届かない場所へ対話によって届くのか。", relation: "対話と学習心理の枝道", primaryPart: "part12", excerpt: "一日を振り返って、日記をつけようとしたことがあります。" },
+    { id: 'note-183', number: 183, title: "なぜ、製本職人が科学の扉を開けたのか", url: "https://note.com/manabimapcreator/n/nb0e6fc420052", status: "published", kind: "wonder-note", date: "2026-09-18", target: "第12部第15話「学び方を学ぶ時代へ（最終回）」", tags: [], relatedParts: ["part12"], relatedPodcastId: "podcast-part12-15", relatedYouTubeId: "youtube-part12", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-183.png", question: "人はなぜ、一人では届かない場所へ対話によって届くのか。", relation: "対話と学習心理の枝道", primaryPart: "part12", excerpt: "学校を出たら、学ぶことも終わる。" }
   ];
 
   const routes = [
@@ -1713,10 +1712,37 @@
       relation: 'Podcastで深める'
     },
     {
+      id: 'podcast-part12-10',
+      type: 'podcast',
+      title: '同じ緊張が、ある人を崩し、ある人を鍛える——ヤーキーズ・ドットソン法則｜まるごと聴く 学習心理学【ハルとおじいさん #12P-10】',
+      url: 'https://youtu.be/163uYYrIOHg',
+      relatedParts: ['part12'],
+      question: '人はなぜ、一人では学べないのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part12-11',
+      type: 'podcast',
+      title: '「賢い馬」は、本当は計算していなかった——AIとの対話に足りないものとは｜まるごと聴く 学習心理学【ハルとおじいさん #12P-11】',
+      url: 'https://youtu.be/-ENhY2KZBVg',
+      relatedParts: ['part12'],
+      question: '人はなぜ、一人では学べないのか。',
+      relation: 'Podcastで深める'
+    },
+    {
       id: 'podcast-part12-chapter1',
       type: 'podcast',
       title: '第一章総まとめ——「なぜ学びは一人では完結しないのか」5話の核心を再接続｜まるごと聴く 学習心理学【ハルとおじいさん #12P-第一章】',
       url: 'https://youtu.be/JH4KuTeJ99o',
+      relatedParts: ['part12'],
+      question: '人はなぜ、一人では学べないのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part12-chapter2',
+      type: 'podcast',
+      title: '第二章総まとめ——「評価は学びを助けるのか、傷つけるのか」5話の核心を再接続｜まるごと聴く 学習心理学【ハルとおじいさん #12P-第二章】',
+      url: 'https://youtu.be/OaOCcYT1y90',
       relatedParts: ['part12'],
       question: '人はなぜ、一人では学べないのか。',
       relation: 'Podcastで深める'

@@ -6,6 +6,25 @@ const path = require('path');
 
 const root = path.resolve(__dirname, '..');
 const noteDir = path.join(root, 'note_articles');
+
+// note記事は note_articles/ 直下（未公開）と note_articles/公開済み/**（公開済み・部ごと）に分かれている
+function listNoteFiles() {
+  const found = [];
+  const walk = (dir, recursive) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (recursive) walk(full, true);
+      } else if (/^note_\d+.*\.md$/.test(entry.name)) {
+        found.push(full);
+      }
+    }
+  };
+  walk(noteDir, false);
+  const publishedDir = path.join(noteDir, '公開済み');
+  if (fs.existsSync(publishedDir)) walk(publishedDir, true);
+  return found.sort((a, b) => path.basename(a).localeCompare(path.basename(b)));
+}
 const rssUrl = 'https://note.com/manabimapcreator/rss';
 const months = {
   Jan: '01',
@@ -81,9 +100,7 @@ async function main() {
   if (!response.ok) throw new Error('note RSS HTTP ' + response.status);
 
   const publishedByTitle = parseRss(await response.text());
-  const files = fs.readdirSync(noteDir)
-    .filter((file) => /^note_\d+.*\.md$/.test(file))
-    .map((file) => path.join(noteDir, file));
+  const files = listNoteFiles();
 
   const changed = [];
   for (const file of files) {
