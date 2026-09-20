@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part12
 **関連PodcastID**: podcast-part12-12
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=DVUeZzvy2eU
 **関連YouTubeID**: youtube-part12
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=DVUeZzvy2eU
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -33,7 +33,7 @@
 便利になったはずなのに、
 なぜか、頭の中には何も残っていませんでした。
 
-（Podcast URL 記入予定）
+https://www.youtube.com/watch?v=DVUeZzvy2eU
 
 ---
 
