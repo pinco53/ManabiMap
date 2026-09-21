@@ -25,11 +25,14 @@
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/brand-v2.css?v=20260731-24">
   <link rel="stylesheet" href="../assets/css/celestial-theme.css?v=20260913-1">
+  <link rel="stylesheet" href="../assets/css/evolution-ai-guide.css?v=20260913-2">
+  <link rel="stylesheet" href="../assets/css/evolution-deep-time.css?v=20260921-1">
   <link rel="stylesheet" href="../assets/css/evolution-language.css?v=20260921-1">
-  <link rel="stylesheet" href="../assets/css/evolution-en.css?v=20260921-1">
+  <link rel="stylesheet" href="../assets/css/ai-handoff.css?v=20260921-1">
+  <link rel="stylesheet" href="../assets/css/evolution-en.css?v=20260921-3">
   <meta name="theme-color" content="#040910">
 </head>
-<body class="evolution-en celestial-site">
+<body class="evolution-en deep-in-space celestial-site">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header site-header--solid" data-site-header>
@@ -58,54 +61,100 @@
   </header>
 
   <main id="main">
-    <section class="en-hero" aria-labelledby="en-title">
-      <div class="en-hero__stars" aria-hidden="true"></div>
-      <div class="en-hero__content">
-        <p class="en-kicker">THE UNIVERSE OF TIME</p>
-        <span class="en-beta">English edition · Chapter 1 of 11</span>
-        <h1 id="en-title">From the Big Bang<br> to the questions ahead.</h1>
-        <p class="en-hero__lead">See 13.8 billion years of cosmic and human history—not as a list of dates, but as a landscape of turning points, consequences, and questions.</p>
-        <div class="en-hero__actions">
-          <a class="en-button en-button--primary" href="#chapter-one">Begin with the universe</a>
-          <a class="en-button" href="../evolution.html" lang="ja" hreflang="ja">View the complete Japanese edition</a>
+    <section class="deep-time" id="top" aria-labelledby="deep-time-title">
+      <div class="deep-time__surface" id="deepTimeSurface" role="group" tabindex="0" aria-label="Travel across 13.8 billion years" aria-describedby="deepTimeInstruction">
+        <canvas class="deep-time__canvas" id="deepTimeCanvas" aria-hidden="true"></canvas>
+        <div class="deep-time__points" id="deepTimePoints"></div>
+        <div class="deep-time__future" id="deepTimeFuture"><span>QUESTIONS AHEAD</span></div>
+        <div class="deep-time__axis" id="deepTimeAxis" aria-hidden="true"></div>
+      </div>
+
+      <div class="deep-time__title">
+        <p>THE UNIVERSE OF TIME</p>
+        <h1 id="deep-time-title"><strong id="deepTimeAge">13.8</strong><span id="deepTimeUnit">billion years</span></h1>
+        <div id="deepTimeRange">From the beginning of the universe to the questions ahead.</div>
+      </div>
+
+      <aside class="deep-time__lenses" aria-label="Change the way you see history">
+        <div class="deep-time__lens-heading">
+          <span>TURNING POINTS</span>
+          <div class="deep-time__scope" role="group" aria-label="Number of turning points shown">
+            <button type="button" data-time-scope="all" aria-pressed="true">14 translated points</button>
+          </div>
         </div>
-        <dl class="en-stats">
-          <div><dt>160</dt><dd>turning points in the complete map</dd></div>
-          <div><dt>14</dt><dd>now available in English</dd></div>
-          <div><dt>9</dt><dd>lenses for asking better questions</dd></div>
-        </dl>
+        <div class="deep-time__lens-heading">
+          <span>CHOOSE A LENS</span>
+          <div class="deep-time__lens-list" role="group" aria-label="Lenses for viewing history">
+            <button type="button" data-time-lens="all" aria-pressed="true">All</button>
+            <button type="button" data-time-lens="tools" aria-pressed="false">Tools</button>
+            <button type="button" data-time-lens="information" aria-pressed="false">Information</button>
+            <button type="button" data-time-lens="energy" aria-pressed="false">Energy</button>
+            <button type="button" data-time-lens="cooperation" aria-pressed="false">Cooperation</button>
+            <button type="button" data-time-lens="body" aria-pressed="false">Body &amp; Health</button>
+            <button type="button" data-time-lens="environment" aria-pressed="false">Environment &amp; Food</button>
+            <button type="button" data-time-lens="mobility" aria-pressed="false">Mobility</button>
+            <button type="button" data-time-lens="power" aria-pressed="false">Power</button>
+            <button type="button" data-time-lens="worldview" aria-pressed="false">Worldview</button>
+          </div>
+        </div>
+        <p id="deepTimeQuestion" aria-live="polite">See how several lenses overlap across the same history.</p>
+      </aside>
+
+      <div class="deep-time__zoom" aria-label="Zoom controls">
+        <button type="button" id="deepTimeZoomIn" aria-label="Move closer in time">＋</button>
+        <span id="deepTimeZoomLabel">1.0×</span>
+        <button type="button" id="deepTimeZoomOut" aria-label="Move farther away in time" disabled>−</button>
+        <button type="button" id="deepTimeReset" aria-label="Return to the full 13.8-billion-year view">↶</button>
+      </div>
+
+      <footer class="deep-time__controls">
+        <div class="deep-time__measure"><i aria-hidden="true"></i><span id="deepTimeScale">Feel the scale of time across this width</span></div>
+        <div class="deep-time__instruction"><span id="deepTimeInstruction">Scroll to zoom / drag to travel through time / choose a point</span><button type="button" id="deepTimeFlow" aria-label="Pause the drifting particles">Ⅱ</button></div>
+        <nav class="deep-time__stops" aria-label="Travel to an era">
+          <button type="button" data-time-stop=".5,1">Cosmos</button><button type="button" data-time-stop=".12,4">Life</button><button type="button" data-time-stop=".21,5">Primates</button>
+        </nav>
+        <div class="deep-time__scrubber"><label for="deepTimeScrubber">Current position</label><div class="deep-time__overview"><span id="deepTimeWindow" aria-hidden="true"></span><input id="deepTimeScrubber" aria-label="Move through 13.8 billion years" type="range" min="0" max="1000" value="500" step="1"></div><output id="deepTimeOutput">13.8 billion years ago — now</output></div>
+        <div class="deep-time__portion" id="deepTimePortion">Visible span: 100% of cosmic history</div>
+        <div class="deep-time__notes"><span>Logarithmic view: deep time is compressed so recent detail can open up.</span></div>
+      </footer>
+    </section>
+
+    <dialog class="deep-time-dialog" id="deepTimeDialog" aria-labelledby="deepTimeDialogTitle">
+      <button type="button" class="deep-time-dialog__close" id="deepTimeDialogClose" aria-label="Close explanation">×</button>
+      <img id="deepTimeDialogImage" alt="">
+      <p class="deep-time-dialog__date" id="deepTimeDialogDate"></p>
+      <h2 id="deepTimeDialogTitle"></h2>
+      <p class="deep-time-dialog__description" id="deepTimeDialogDescription"></p>
+      <p class="deep-time-dialog__era" id="deepTimeDialogEra"></p>
+      <p class="deep-time-dialog__themes" id="deepTimeDialogThemes"></p>
+      <div class="deep-time-dialog__links" id="deepTimeDialogLinks"></div>
+      <div class="deep-time-dialog__dialogue"><strong>Use this point to widen your view.</strong><button type="button" id="deepTimeCopy">Copy an AI inquiry →</button><span id="deepTimeCopyStatus" role="status"></span><textarea id="deepTimePrompt" readonly hidden aria-label="Inquiry to copy"></textarea></div>
+      <a href="#detailed-timeline" id="deepTimeDetailLink">Go to this point in the detailed timeline →</a>
+      <small>Dates include estimates and ranges. Evidence, interpretation, and future scenarios are kept distinct.</small>
+    </dialog>
+
+    <section class="timeline-ai-intro" id="detailed-timeline" aria-labelledby="timeline-ai-intro-title">
+      <div class="timeline-ai-intro__inner">
+        <div class="timeline-ai-intro__heading">
+          <span>HOW TO EXPLORE</span>
+          <h2 id="timeline-ai-intro-title">See the timeline.<br>Grow a question with AI.</h2>
+          <p>Choose a point that catches your attention. Each one can become an inquiry that includes what came before, what changed, and what followed. You can begin by asking for an explanation or with a question of your own.</p>
+        </div>
+        <ol class="timeline-ai-intro__steps">
+          <li><span>01</span><div><strong>Choose a point</strong><p>Start from the map above or from one turning point below.</p></div></li>
+          <li><span>02</span><div><strong>Change your lens</strong><p>Tools, energy, bodies, environments, power, and worldviews can overlap.</p></div></li>
+          <li><span>03</span><div><strong>Continue with your AI</strong><p>Copy the prepared inquiry and paste it into ChatGPT or another AI you use.</p></div></li>
+        </ol>
+        <p class="timeline-ai-intro__note"><strong>English edition in progress.</strong> This chapter includes 14 of the complete map’s 160 turning points. New chapters will inherit the same design and inquiry experience.</p>
       </div>
     </section>
 
-    <section class="en-progress" aria-labelledby="translation-progress-title">
-      <div>
-        <p class="en-kicker">A LIVING TRANSLATION</p>
-        <h2 id="translation-progress-title">The English map is growing chapter by chapter.</h2>
-      </div>
-      <p>This first release establishes the English voice, navigation, and AI inquiry format. New chapters will be added without mixing untranslated Japanese into the English reading experience.</p>
-      <ol aria-label="Translation progress">
-        <li class="is-current"><span>I</span>Cosmos &amp; Life</li>
-        <li><span>II</span>Human Origins</li>
-        <li><span>III–XI</span>Coming next</li>
-      </ol>
-    </section>
-
-    <section class="en-how" aria-labelledby="how-title">
-      <div class="en-section-heading">
-        <p class="en-kicker">HOW TO EXPLORE</p>
-        <h2 id="how-title">Learn the background first.<br>Then let the question grow.</h2>
-      </div>
-      <div class="en-how__steps">
-        <article><span>01</span><h3>Follow the sequence</h3><p>Notice what existed before each turning point, what changed, and what became possible afterward.</p></article>
-        <article><span>02</span><h3>Change your lens</h3><p>Tools, energy, bodies, environments, power, and worldviews often overlap in the same event.</p></article>
-        <article><span>03</span><h3>Continue with AI</h3><p>Copy a prepared inquiry prompt from any card and use it with the AI you already know.</p></article>
-      </div>
-    </section>
-
-    <section class="en-chapter" id="chapter-one" aria-labelledby="chapter-one-title">
-      <header class="en-chapter__header">
+    <div class="timeline-container">
+      <div class="timeline-axis" aria-hidden="true"></div>
+    <section class="en-chapter era" id="era-cosmos" data-era="cosmos" aria-labelledby="chapter-one-title">
+      <header class="en-chapter__header era-header">
         <p class="en-kicker">CHAPTER I</p>
-        <h2 id="chapter-one-title">The Beginning of the Universe and Life</h2>
+        <h2 class="era-title" id="chapter-one-title">The Beginning of the Universe and Life</h2>
         <p class="en-chapter__range">13.8 billion — 55 million years ago</p>
         <p>Time, space, matter, and life all have histories. This chapter follows the long transformation from an early hot universe to a living planet where primates appeared.</p>
       </header>
@@ -183,6 +232,7 @@
       </div>
       <p class="en-copy-status" id="enCopyStatus" role="status" aria-live="polite"></p>
     </section>
+    </div>
 
     <section class="en-next" aria-labelledby="next-title">
       <p class="en-kicker">THE MAP CONTINUES</p>
@@ -196,5 +246,7 @@
   <script src="../assets/js/brand-v2.js" defer></script>
   <script src="../assets/js/celestial-theme.js?v=20260913-1" defer></script>
   <script src="../assets/js/evolution-en.js?v=20260921-1" defer></script>
+  <script src="../assets/js/ai-handoff.js?v=20260921-1"></script>
+  <script src="../assets/js/evolution-deep-time.js?v=20260921-4"></script>
 </body>
 </html>

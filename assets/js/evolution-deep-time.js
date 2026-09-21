@@ -6,6 +6,7 @@
   const PICTURE_ZOOM = 2.7;
   const DETAIL_ZOOM = 2.35;
   const MAX_ZOOM = 48;
+  const isEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
   const section = document.getElementById('top');
   const surface = document.getElementById('deepTimeSurface');
   const pointLayer = document.getElementById('deepTimePoints');
@@ -14,7 +15,9 @@
   if (!section || !surface || !pointLayer || !axis || !canvas) return;
 
   function ageFromDate(date) {
-    if (date.indexOf('約3分後') >= 0) return MAX_AGE - 0.000006;
+    if (date.indexOf('約3分後') >= 0 || /3 minutes? after/i.test(date)) return MAX_AGE - 0.000006;
+    const englishAgo = date.match(/([\d.]+)\s*(billion|million|thousand)?\s*years? ago/i);
+    if (englishAgo) return Number(englishAgo[1]) * (englishAgo[2] && englishAgo[2].toLowerCase() === 'billion' ? 1e9 : englishAgo[2] && englishAgo[2].toLowerCase() === 'million' ? 1e6 : englishAgo[2] && englishAgo[2].toLowerCase() === 'thousand' ? 1e3 : 1);
     const ago = date.match(/([\d.]+)(億|万)?年前/);
     if (ago) return Number(ago[1]) * (ago[2] === '億' ? 1e8 : ago[2] === '万' ? 1e4 : 1);
     const centuryRange = date.match(/(\d+)〜\d+世紀/);
@@ -196,8 +199,11 @@
     '空白のまま': 'worldview'
   };
 
-  function themesFor(title) {
-    return (EVENT_LENSES[title] || '').split(/\s+/).filter(Boolean);
+  function themesFor(title, node) {
+    const labels = Array.from(node.querySelectorAll('.en-lenses span')).map(function (item) {
+      return ({ body: 'body', environment: 'environment', mobility: 'mobility', energy: 'energy', information: 'information', tools: 'tools', cooperation: 'cooperation', power: 'power', worldview: 'worldview' })[item.textContent.trim().toLowerCase()] || '';
+    }).filter(Boolean);
+    return (node.dataset.eventThemes || EVENT_LENSES[title] || labels.join(' ')).split(/\s+/).filter(Boolean);
   }
 
   // 「有名な出来事」ではなく、不可逆性・波及・地域/分野の偏り・根拠の
@@ -286,12 +292,12 @@
   const futureEvents = [];
   const curatedMetadata = new Map(CURATED_ADDITIONS.map(function (event) { return [event.id, event]; }));
   let genericImageIndex = 0;
-  const events = Array.from(document.querySelectorAll('.timeline-container .event')).map(function (node, index) {
-    const date = (node.querySelector('.event-date') || {}).textContent || '';
-    const titleNode = node.querySelector('.event-title');
+  const events = Array.from(document.querySelectorAll('.timeline-container .event, .timeline-container .en-event')).map(function (node, index) {
+    const date = (node.querySelector('.event-date') || {}).textContent || node.dataset.date || '';
+    const titleNode = node.querySelector('.event-title, h3');
     const iconNode = titleNode && titleNode.querySelector('.icon');
     const title = titleNode ? titleNode.textContent.replace(iconNode ? iconNode.textContent : '', '').trim() : '';
-    const description = ((node.querySelector('.event-desc') || {}).textContent || '').trim();
+    const description = ((node.querySelector('.event-desc, .en-event__body > p') || {}).textContent || '').trim();
     const era = node.closest('.era');
     const future = era && era.id === 'era-future';
     const futureIndex = future ? futureEvents.length : -1;
@@ -299,39 +305,52 @@
     const curated = Boolean(curatedId);
     const metadata = curatedMetadata.get(curatedId);
     const sourceIndex = curated ? 0 : ++genericImageIndex;
-    const card = node.querySelector('.event-card');
-    const explicitImage = card && card.dataset.eventImage;
+    const card = node.querySelector('.event-card, .en-event__body');
+    const inlineImage = node.querySelector('img');
+    const explicitImage = (card && card.dataset.eventImage) || (inlineImage && inlineImage.getAttribute('src'));
     const curatedImage = curatedId ? 'assets/images/evolution/curated/curated-' + curatedId + '.webp' : '';
-    const cardLinks = Array.from(node.querySelectorAll('.event-link')).map(function (link) { return { href: link.getAttribute('href'), label: link.textContent.trim() }; });
-    const combinedLinks = metadata && metadata.links ? metadata.links.concat(cardLinks) : cardLinks;
+    const cardLinks = Array.from(node.querySelectorAll('.event-link, .en-source')).map(function (link) { return { href: link.getAttribute('href'), label: link.textContent.trim() }; });
+    const combinedLinks = metadata && metadata.links ? cardLinks.concat(metadata.links) : cardLinks;
     const links = combinedLinks.filter(function (link, linkIndex) {
       return combinedLinks.findIndex(function (candidate) { return candidate.href === link.href; }) === linkIndex;
     });
     const event = {
       node: node,
       index: index,
-      detailId: node.id || '',
+      detailId: node.id || ('event-' + (index + 1)),
       id: curatedId ? 'deep-curated-' + curatedId : 'deep-event-' + (index + 1),
       date: date.trim(),
       title: title,
       description: description,
       eraId: era ? era.id : '',
-      eraTitle: era && era.querySelector('.era-title') ? era.querySelector('.era-title').textContent.trim() : '',
+      eraTitle: era && era.querySelector('.era-title, h2') ? era.querySelector('.era-title, h2').textContent.trim() : '',
       future: future,
       position: future ? .91 + futureIndex * .018 : logPosition(ageFromDate(date)),
-      image: explicitImage || curatedImage || 'assets/images/evolution/event-' + String(sourceIndex).padStart(3, '0') + '.webp',
-      themes: themesFor(title),
+      image: explicitImage || curatedImage || (isEnglish ? '../' : '') + 'assets/images/evolution/event-' + String(sourceIndex).padStart(3, '0') + '.webp',
+      themes: themesFor(title, node),
       links: links,
       y: .40 + seeded(index + 1) * .28,
-      core: Boolean(metadata) || (!curated && CORE_SOURCE_INDICES.has(sourceIndex)),
+      core: node.dataset.eventCore === 'true' || Boolean(metadata) || (!curated && CORE_SOURCE_INDICES.has(sourceIndex)),
       curated: curated,
       icon: iconNode ? iconNode.textContent.trim() : ''
     };
+    if (!node.id) node.id = event.detailId;
     if (future) futureEvents.push(event);
     return event;
   });
 
-  const lensQuestions = {
+  const lensQuestions = isEnglish ? {
+    all: 'See how several lenses overlap across the same history.',
+    tools: 'What did humans build outside the body to extend their abilities?',
+    information: 'How was knowledge recorded, copied, and shared?',
+    energy: 'How did new sources of usable power reshape life?',
+    cooperation: 'What systems allowed people to live and act together?',
+    body: 'How did survival, disease, lifespan, and population change?',
+    environment: 'How did people change nature, and how did nature change them?',
+    mobility: 'How did people, goods, pathogens, and cultures move?',
+    power: 'Who decided, and who carried the benefits and burdens?',
+    worldview: 'How did people explain the world and themselves?'
+  } : {
     all: '複数の視点を重ねながら、人類史の全体を眺めます。',
     tools: '人は何を身体の外に作り、能力を拡張した？',
     information: '知識は、どう記録され、複製され、広がった？',
@@ -343,12 +362,27 @@
     power: '誰が決め、誰が利益や負担を引き受けた？',
     worldview: '人は世界と自分自身を、どう説明してきた？'
   };
-  const lensLabels = {
+  const lensLabels = isEnglish ? {
+    tools: 'Tools', information: 'Information', energy: 'Energy', cooperation: 'Cooperation',
+    body: 'Body & Health', environment: 'Environment & Food', mobility: 'Mobility & Exchange',
+    power: 'Power & Rights', worldview: 'Meaning & Worldview'
+  } : {
     tools: '道具', information: '情報', energy: 'エネルギー', cooperation: '協力',
     body: '身体・健康', environment: '環境・食料', mobility: '移動・交換',
     power: '権力・権利', worldview: '意味・世界観'
   };
-  const lensPromptInstructions = {
+  const lensPromptInstructions = isEnglish ? {
+    all: 'Connect the most relevant lenses among tools, information, energy, cooperation, bodies, environments, mobility, power, and worldviews.',
+    tools: 'Focus on materials, skills, and which human abilities the tools extended.',
+    information: 'Focus on how knowledge was recorded, copied, transmitted, and accessed.',
+    energy: 'Focus on energy sources, output, efficiency, and environmental costs.',
+    cooperation: 'Focus on the scale of cooperation and changes in trust, rules, and organization.',
+    body: 'Focus on effects on survival, disease, lifespan, population, and bodily experience.',
+    environment: 'Focus on interactions with food, resources, ecosystems, and climate.',
+    mobility: 'Focus on what moved between regions and how those connections changed societies.',
+    power: 'Focus on who held decision-making power and how benefits, burdens, and rights were distributed.',
+    worldview: 'Focus on how people understood the world, nature, death, and themselves.'
+  } : {
     all: '道具・情報・エネルギー・協力・身体・環境・移動・権力・世界観のうち、特に関係の深い視点を結びつけてください。',
     tools: '何を材料に、どんな技能で作られ、人間の手・足・感覚・記憶の何を拡張したかを中心に説明してください。',
     information: '知識がどう記録・複製・伝達され、誰がアクセスできたかを中心に説明してください。',
@@ -360,8 +394,8 @@
     power: '誰が決定権を持ち、利益・負担・権利が誰に配分されたかを中心に説明してください。',
     worldview: '人間が世界・自然・死・自分自身をどう理解するようになったかを中心に説明してください。'
   };
-  let scope = 'core';
-  let lens = 'all';
+  let scope = (document.querySelector('[data-time-scope][aria-pressed="true"]') || {}).dataset?.timeScope || 'core';
+  let lens = (document.querySelector('[data-time-lens][aria-pressed="true"]') || {}).dataset?.timeLens || 'all';
   let target = { center: .5, zoom: 1 };
   let view = { center: .5, zoom: 1 };
   let flowing = true;
@@ -391,10 +425,16 @@
   }
 
   function ageLabel(position) {
-    if (position > .891) return '未来';
+    if (position > .891) return isEnglish ? 'future' : '未来';
     const p = Math.min(.88, Math.max(0, position));
     const age = Math.max(0, Math.pow(1 + MAX_AGE, 1 - p / .88) - 1);
-    if (age < 1) return 'いま';
+    if (age < 1) return isEnglish ? 'now' : 'いま';
+    if (isEnglish) {
+      const unit = age >= 1e9 ? 1e9 : age >= 1e6 ? 1e6 : age >= 1e3 ? 1e3 : 1;
+      const label = unit === 1e9 ? 'billion' : unit === 1e6 ? 'million' : unit === 1e3 ? 'thousand' : '';
+      const value = age / unit;
+      return Number(value.toPrecision(value >= 10 ? 3 : 2)).toLocaleString('en-US') + (label ? ' ' + label : '') + ' years ago';
+    }
     const unit = age >= 1e8 ? 1e8 : age >= 1e4 ? 1e4 : 1;
     const value = age / unit;
     return Number(value.toPrecision(value >= 100 ? 3 : 2)).toLocaleString('ja-JP') + (unit === 1e8 ? '億' : unit === 1e4 ? '万' : '') + '年前';
@@ -406,7 +446,7 @@
     button.className = 'deep-time-point';
     button.dataset.eventId = event.id;
     button.classList.toggle('is-curated', event.curated);
-    button.setAttribute('aria-label', event.date + ' ' + event.title + 'へ近づく');
+    button.setAttribute('aria-label', event.date + ' ' + event.title + (isEnglish ? ', zoom in' : 'へ近づく'));
     button.innerHTML = '<span class="deep-time-point__core"></span>';
     button.addEventListener('dblclick', function (event_) { event_.stopPropagation(); });
     button.addEventListener('click', function () {
@@ -419,7 +459,11 @@
     return button;
   });
 
-  const markerData = [
+  const markerData = isEnglish ? [
+    { age: MAX_AGE, label: '13.8B years ago' }, { age: 1e9, label: '1B years ago' },
+    { age: 1e6, label: '1M years ago' }, { age: 1e3, label: '1,000 years ago' },
+    { age: 100, label: '100 years ago' }, { age: 10, label: '10 years ago' }, { age: 0, label: 'now' }
+  ] : [
     { age: MAX_AGE, label: '138億年前' }, { age: 1e8, label: '1億年前' },
     { age: 1e6, label: '100万年前' }, { age: 1e4, label: '1万年前' },
     { age: 1e3, label: '1000年前' }, { age: 100, label: '100年前' },
@@ -460,6 +504,12 @@
     return Math.max(0, Math.pow(1 + MAX_AGE, 1 - Math.min(.88, Math.max(0, position)) / .88) - 1);
   }
   function durationLabel(years) {
+    if (isEnglish) {
+      if (years < 1) return Math.max(1, Math.round(years * 365)) + ' days';
+      const unit = years >= 1e9 ? 1e9 : years >= 1e6 ? 1e6 : years >= 1e3 ? 1e3 : 1;
+      const label = unit === 1e9 ? ' billion years' : unit === 1e6 ? ' million years' : unit === 1e3 ? ' thousand years' : ' years';
+      return Number((years / unit).toPrecision(2)).toLocaleString('en-US') + label;
+    }
     const unit = years >= 1e8 ? 1e8 : years >= 1e4 ? 1e4 : 1;
     if (years < 1) return Math.max(1, Math.round(years * 365)) + '日';
     return Number((years / unit).toPrecision(2)).toLocaleString('ja-JP') + (unit === 1e8 ? '億年' : unit === 1e4 ? '万年' : '年');
@@ -491,7 +541,7 @@
       button.classList.toggle('is-muted', scope === 'core' && !event.core && !event.future);
       button.classList.toggle('is-detail', !event.core && !event.future);
       button.classList.toggle('is-future', event.future);
-      button.setAttribute('aria-label', event.date + ' ' + event.title + (view.zoom < PICTURE_ZOOM ? 'へ近づく' : 'の背景を読む'));
+      button.setAttribute('aria-label', event.date + ' ' + event.title + (isEnglish ? (view.zoom < PICTURE_ZOOM ? ', zoom in' : ', read the background') : (view.zoom < PICTURE_ZOOM ? 'へ近づく' : 'の背景を読む')));
       visible.push({ event: event, button: button, x: x, y: y });
     });
 
@@ -552,10 +602,10 @@
     const leftEdge = Math.max(0, worldX(0, view));
     const rightEdge = Math.min(1, worldX(1, view));
     if (view.zoom < 1.15) {
-      ageText.textContent = '138';
+      ageText.textContent = isEnglish ? '13.8' : '138';
       ageText.classList.remove('is-age');
-      unitText.textContent = '億年';
-      rangeText.textContent = '宇宙のはじまりから、人類の問いへ。';
+      unitText.textContent = isEnglish ? 'billion years' : '億年';
+      rangeText.textContent = isEnglish ? 'From the beginning of the universe to the questions ahead.' : '宇宙のはじまりから、人類の問いへ。';
     } else {
       ageText.textContent = ageLabel(view.center);
       ageText.classList.add('is-age');
@@ -565,17 +615,17 @@
     zoomLabel.textContent = view.zoom.toFixed(1) + '×';
     zoomOut.disabled = target.zoom <= 1.001;
     zoomIn.disabled = target.zoom >= MAX_ZOOM - .001;
-    instruction.textContent = touchDevice.matches ? '上下で近づく・離れる ／ 左右で時代を移動 ／ 2本指で拡大' : 'スクロールで近づく ／ ドラッグで時代を移動 ／ 粒を選ぶ';
+    instruction.textContent = isEnglish ? (touchDevice.matches ? 'Move up or down to zoom / left or right to travel / pinch with two fingers' : 'Scroll to zoom / drag to travel through time / choose a point') : (touchDevice.matches ? '上下で近づく・離れる ／ 左右で時代を移動 ／ 2本指で拡大' : 'スクロールで近づく ／ ドラッグで時代を移動 ／ 粒を選ぶ');
     scrubber.value = String(Math.round(view.center * 1000));
     output.value = ageLabel(leftEdge) + ' — ' + ageLabel(rightEdge);
-    scrubber.setAttribute('aria-valuetext', ageLabel(view.center) + '付近、' + output.value);
+    scrubber.setAttribute('aria-valuetext', isEnglish ? 'Near ' + ageLabel(view.center) + ', ' + output.value : ageLabel(view.center) + '付近、' + output.value);
     overviewWindow.style.left = (100 * leftEdge) + '%';
     overviewWindow.style.width = (100 * (rightEdge - leftEdge)) + '%';
     const span = ageAt(leftEdge) - ageAt(rightEdge);
     const portion = span / MAX_AGE * 100;
-    portionText.textContent = leftEdge >= .88 ? '未来は年代に比例しない別枠です' : '見えている歴史の幅：宇宙史の約' + Number(portion.toPrecision(2)).toLocaleString('ja-JP', { maximumFractionDigits: 8 }) + '%';
+    portionText.textContent = leftEdge >= .88 ? (isEnglish ? 'Future scenarios are shown outside the proportional time scale.' : '未来は年代に比例しない別枠です') : (isEnglish ? 'Visible span: about ' + Number(portion.toPrecision(2)).toLocaleString('en-US', { maximumFractionDigits: 8 }) + '% of cosmic history' : '見えている歴史の幅：宇宙史の約' + Number(portion.toPrecision(2)).toLocaleString('ja-JP', { maximumFractionDigits: 8 }) + '%');
     const halfScale = 40 / surface.clientWidth;
-    scaleText.textContent = view.center >= .88 ? '未来への問い' : '中央付近では、この幅で約' + durationLabel(ageAt(worldX(.5 - halfScale, view)) - ageAt(worldX(.5 + halfScale, view)));
+    scaleText.textContent = view.center >= .88 ? (isEnglish ? 'Questions for the future' : '未来への問い') : (isEnglish ? 'Near the center, this width represents about ' : '中央付近では、この幅で約') + durationLabel(ageAt(worldX(.5 - halfScale, view)) - ageAt(worldX(.5 + halfScale, view)));
     const placed = [];
     markers.forEach(function (marker, index) {
       const x = screenX(marker.position, view);
@@ -622,7 +672,7 @@
   document.getElementById('deepTimeFlow').addEventListener('click', function (event) {
     flowing = !flowing;
     event.currentTarget.textContent = flowing ? 'Ⅱ' : '▶';
-    event.currentTarget.setAttribute('aria-label', flowing ? '粒の漂いを止める' : '粒の漂いを再開する');
+    event.currentTarget.setAttribute('aria-label', isEnglish ? (flowing ? 'Pause the drifting particles' : 'Resume the drifting particles') : (flowing ? '粒の漂いを止める' : '粒の漂いを再開する'));
   });
   scrubber.addEventListener('input', function () { stopMotion(); target = bound(Number(scrubber.value) / 1000, target.zoom); });
 
@@ -766,11 +816,11 @@
     selected = event;
     dialogImage.hidden = !event.image;
     if (event.image) dialogImage.src = event.image;
-    dialogDate.textContent = (event.future ? '未来への問い · ' : '') + event.date;
+    dialogDate.textContent = (event.future ? (isEnglish ? 'Question for the future · ' : '未来への問い · ') : '') + event.date;
     dialogTitle.textContent = event.title;
     dialogDescription.textContent = event.description;
     dialogEra.textContent = event.eraTitle;
-    dialogThemes.textContent = '重なる視点：' + event.themes.map(function (theme) { return lensLabels[theme] || theme; }).join(' ・ ');
+    dialogThemes.textContent = (isEnglish ? 'Overlapping lenses: ' : '重なる視点：') + event.themes.map(function (theme) { return lensLabels[theme] || theme; }).join(isEnglish ? ' · ' : ' ・ ');
     dialogLinks.replaceChildren();
     event.links.forEach(function (link) {
       const anchor = document.createElement('a');
@@ -794,9 +844,11 @@
     if (!selected) return '';
     const lensButton = document.querySelector('[data-time-lens="' + lens + '"]');
     const scopeButton = document.querySelector('[data-time-scope="' + scope + '"]');
-    const related = selected.themes.map(function (theme) { return lensLabels[theme] || theme; }).join('・');
-    const prompt = 'ManabiMapの年表から学びを深める対話をしてください。\n転換点：' + selected.date + '／' + selected.title + '\n説明：' + selected.description + '\n時代：' + selected.eraTitle + '\n表示：' + (scopeButton ? scopeButton.textContent : scope) + '\n選んだ視点：' + (lensButton ? lensButton.textContent : lens) + '\nこの出来事に重なる視点：' + related + '\n\nまず、この出来事の前の状況・何が変わったか・後への影響を日常語で説明してください。' + lensPromptInstructions[lens] + ' いきなり私の意見を求めず、理解の足場を作ってください。事実と解釈、不確かな年代、未来の推測は区別してください。時系列の近さを因果と見なさず、別の地域や反対の見方にも触れてください。続いてたどれる方向を2〜3個示してください。';
-    return prompt + '\n\n出典：\n' + selected.links.map(function (link) { return link.label + '：' + new URL(link.href, 'https://pinco53.github.io/ManabiMap/evolution.html').href; }).join('\n');
+    const related = selected.themes.map(function (theme) { return lensLabels[theme] || theme; }).join(isEnglish ? ' · ' : '・');
+    const prompt = isEnglish
+      ? 'Help me deepen my understanding of history through Manabi Map.\nTurning point: ' + selected.title + '\nDate: ' + selected.date + '\nSummary: ' + selected.description + '\nEra: ' + selected.eraTitle + '\nDisplay: ' + (scopeButton ? scopeButton.textContent : scope) + '\nSelected lens: ' + (lensButton ? lensButton.textContent : lens) + '\nOverlapping lenses: ' + related + '\n\nFirst explain in clear everyday English what came before, what changed, and what became possible afterward. ' + lensPromptInstructions[lens] + ' Build the background before asking for my opinion. Separate established evidence from interpretation, disputed dates, and future speculation. Do not treat chronological proximity as proof of causation. Include another region or an alternative perspective. End with two or three directions I could explore next.'
+      : 'ManabiMapの年表から学びを深める対話をしてください。\n転換点：' + selected.date + '／' + selected.title + '\n説明：' + selected.description + '\n時代：' + selected.eraTitle + '\n表示：' + (scopeButton ? scopeButton.textContent : scope) + '\n選んだ視点：' + (lensButton ? lensButton.textContent : lens) + '\nこの出来事に重なる視点：' + related + '\n\nまず、この出来事の前の状況・何が変わったか・後への影響を日常語で説明してください。' + lensPromptInstructions[lens] + ' いきなり私の意見を求めず、理解の足場を作ってください。事実と解釈、不確かな年代、未来の推測は区別してください。時系列の近さを因果と見なさず、別の地域や反対の見方にも触れてください。続いてたどれる方向を2〜3個示してください。';
+    return prompt + (isEnglish ? '\n\nSources:\n' : '\n\n出典：\n') + selected.links.map(function (link) { return link.label + (isEnglish ? ': ' : '：') + new URL(link.href, isEnglish ? 'https://pinco53.github.io/ManabiMap/en/evolution.html' : 'https://pinco53.github.io/ManabiMap/evolution.html').href; }).join('\n');
   }
   window.ManabiAI.mount(dialog.querySelector('.deep-time-dialog__dialogue'), selectedPrompt);
 
@@ -805,11 +857,11 @@
     if (!prompt) return;
     try {
       await navigator.clipboard.writeText(prompt);
-      copyStatus.textContent = 'コピーしました。普段使うAIに貼り付けてください。';
+      copyStatus.textContent = isEnglish ? 'Inquiry copied. Paste it into the AI you use.' : 'コピーしました。普段使うAIに貼り付けてください。';
     } catch (error) {
       promptBox.value = prompt;
       promptBox.hidden = false;
-      copyStatus.textContent = '下の対話文を選択してコピーしてください。';
+      copyStatus.textContent = isEnglish ? 'Select and copy the inquiry below.' : '下の対話文を選択してコピーしてください。';
     }
   });
 
@@ -908,7 +960,7 @@
     }
     requestAnimationFrame(animate);
   }
-  const returnKey = 'manabimap-time-ai-return';
+  const returnKey = 'manabimap-time-ai-return-' + (isEnglish ? 'en' : 'ja');
   window.addEventListener('manabimap:ai-handoff', function () {
     stopMotion();
     try {
@@ -930,7 +982,7 @@
       document.querySelectorAll('[data-time-scope]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.timeScope === scope)); });
       if (questionText) questionText.textContent = lensQuestions[lens];
       document.getElementById('deepTimeFlow').textContent = flowing ? 'Ⅱ' : '▶';
-      document.getElementById('deepTimeFlow').setAttribute('aria-label', flowing ? '粒の漂いを止める' : '粒の漂いを再開する');
+      document.getElementById('deepTimeFlow').setAttribute('aria-label', isEnglish ? (flowing ? 'Pause the drifting particles' : 'Resume the drifting particles') : (flowing ? '粒の漂いを止める' : '粒の漂いを再開する'));
       selected = events.find(function (event) { return event.id === saved.selectedId; }) || null;
       if (saved.dialogOpen && selected) openEvent(selected);
       if (Number.isFinite(saved.scrollY)) requestAnimationFrame(function () { window.scrollTo(0, saved.scrollY); });

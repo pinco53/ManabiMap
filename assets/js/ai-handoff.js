@@ -6,6 +6,7 @@
     gemini: { name: 'Gemini', url: 'https://gemini.google.com/' },
     copilot: { name: 'Copilot', url: 'https://copilot.microsoft.com/' }
   };
+  const isEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
   const key = 'manabimap-preferred-ai';
   const panels = [];
   let preference = '';
@@ -16,12 +17,12 @@
     mount: function (container, getPrompt) {
       const panel = document.createElement('section');
       panel.className = 'ai-handoff';
-      panel.innerHTML = '<label>いつものAIで話す<select aria-label="使うAI"><option value="">AIを選ぶ</option></select></label>' +
-        '<button type="button" class="ai-handoff__launch" disabled>対話文をコピーしてAIを開く ↗</button>' +
-        '<p class="ai-handoff__hint">別タブで開いたAIに貼り付けると、対話を始められます。選んだAIをこの端末に記憶します。</p>' +
+      panel.innerHTML = '<label>' + (isEnglish ? 'Continue with your AI' : 'いつものAIで話す') + '<select aria-label="' + (isEnglish ? 'AI service' : '使うAI') + '"><option value="">' + (isEnglish ? 'Choose an AI' : 'AIを選ぶ') + '</option></select></label>' +
+        '<button type="button" class="ai-handoff__launch" disabled>' + (isEnglish ? 'Copy the inquiry and open AI ↗' : '対話文をコピーしてAIを開く ↗') + '</button>' +
+        '<p class="ai-handoff__hint">' + (isEnglish ? 'Open your chosen AI in a new tab, then paste the copied inquiry. Your choice is remembered on this device.' : '別タブで開いたAIに貼り付けると、対話を始められます。選んだAIをこの端末に記憶します。') + '</p>' +
         '<p class="ai-handoff__status" role="status"></p>' +
-        '<textarea hidden readonly aria-label="AIに渡す対話文"></textarea>' +
-        '<a hidden target="_blank" rel="noopener noreferrer">AIを開く ↗</a>';
+        '<textarea hidden readonly aria-label="' + (isEnglish ? 'Inquiry to give the AI' : 'AIに渡す対話文') + '"></textarea>' +
+        '<a hidden target="_blank" rel="noopener noreferrer">' + (isEnglish ? 'Open AI ↗' : 'AIを開く ↗') + '</a>';
       const select = panel.querySelector('select');
       Object.entries(providers).forEach(function ([id, provider]) {
         const option = document.createElement('option');
@@ -47,22 +48,22 @@
       button.addEventListener('click', async function () {
         const provider = providers[select.value];
         const prompt = getPrompt();
-        if (!provider || !prompt) { status.textContent = 'テーマや質問を選んでください。'; return; }
+        if (!provider || !prompt) { status.textContent = isEnglish ? 'Choose a turning point or question first.' : 'テーマや質問を選んでください。'; return; }
         window.dispatchEvent(new Event('manabimap:ai-handoff'));
         // Reserve the tab during the user's click; clipboard work is asynchronous.
         const tab = window.open('about:blank', '_blank');
         if (tab) tab.opener = null;
         button.disabled = true;
-        link.href = provider.url; link.textContent = provider.name + 'を開く ↗';
+        link.href = provider.url; link.textContent = isEnglish ? 'Open ' + provider.name + ' ↗' : provider.name + 'を開く ↗';
         try {
           await navigator.clipboard.writeText(prompt);
           if (tab) { tab.location.replace(provider.url); }
           else { link.hidden = false; }
-          status.textContent = tab ? 'コピーしました。AIに貼り付けてください。年表はこのタブに残っています。' : 'コピーしました。下のリンクからAIを開いて貼り付けてください。';
+          status.textContent = isEnglish ? (tab ? 'Copied. Paste the inquiry into the AI. The timeline remains open in this tab.' : 'Copied. Open the AI from the link below and paste the inquiry.') : (tab ? 'コピーしました。AIに貼り付けてください。年表はこのタブに残っています。' : 'コピーしました。下のリンクからAIを開いて貼り付けてください。');
         } catch (_) {
           if (tab) tab.close();
           fallback.value = prompt; fallback.hidden = false; link.hidden = false;
-          status.textContent = '自動コピーできませんでした。下の文章をコピーしてからAIを開いてください。';
+          status.textContent = isEnglish ? 'Automatic copy was unavailable. Copy the text below, then open the AI.' : '自動コピーできませんでした。下の文章をコピーしてからAIを開いてください。';
           fallback.focus(); fallback.select();
         } finally { button.disabled = false; }
       });
