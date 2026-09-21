@@ -301,6 +301,7 @@
     const sourceIndex = curated ? 0 : ++genericImageIndex;
     const card = node.querySelector('.event-card');
     const explicitImage = card && card.dataset.eventImage;
+    const curatedImage = curatedId ? 'assets/images/evolution/curated/curated-' + curatedId + '.webp' : '';
     const cardLinks = Array.from(node.querySelectorAll('.event-link')).map(function (link) { return { href: link.getAttribute('href'), label: link.textContent.trim() }; });
     const combinedLinks = metadata && metadata.links ? metadata.links.concat(cardLinks) : cardLinks;
     const links = combinedLinks.filter(function (link, linkIndex) {
@@ -318,7 +319,7 @@
       eraTitle: era && era.querySelector('.era-title') ? era.querySelector('.era-title').textContent.trim() : '',
       future: future,
       position: future ? .91 + futureIndex * .018 : logPosition(ageFromDate(date)),
-      image: explicitImage || 'assets/images/evolution/event-' + String(sourceIndex).padStart(3, '0') + '.webp',
+      image: explicitImage || curatedImage || 'assets/images/evolution/event-' + String(sourceIndex).padStart(3, '0') + '.webp',
       themes: themesFor(title),
       links: links,
       y: .40 + seeded(index + 1) * .28,
