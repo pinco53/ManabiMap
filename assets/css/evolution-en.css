@@ -201,6 +201,19 @@ body.evolution-en::before {
   content: "";
 }
 .en-chapter__header > p:last-child { max-width: 680px; margin: 22px auto 0; }
+.en-era-divider {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 18px 0 42px;
+  color: rgba(210,183,119,.72);
+  font-family: Cinzel, serif;
+  font-size: 10px;
+  letter-spacing: .22em;
+  white-space: nowrap;
+}
+.en-era-divider::before,
+.en-era-divider::after { width: 100%; height: 1px; background: rgba(207,196,230,.14); content: ""; }
 .en-timeline { gap: 58px 92px; }
 .en-timeline::before { width: 2px; background: linear-gradient(transparent, rgba(207,196,230,.68) 4%, rgba(125,149,184,.38) 96%, transparent); }
 .en-event {
@@ -272,6 +285,7 @@ body.evolution-en::before {
   .evolution-en .deep-time__lenses { width: auto; }
   .evolution-en .timeline-ai-intro { padding-inline: 16px; }
   .en-chapter__header { padding-inline: 14px; }
+  .en-era-divider { gap: 12px; margin-block: 0 22px; font-size: 8px; letter-spacing: .13em; }
   .en-event { min-height: 0; }
   .en-event > img { height: 100%; opacity: .34; }
   .en-event__body { min-height: 0; padding: 30px 26px; }
