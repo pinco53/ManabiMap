@@ -31,12 +31,173 @@
     return .88 * (1 - Math.log10(1 + age) / Math.log10(1 + MAX_AGE));
   }
 
-  function themesFor(text) {
-    const result = [];
-    if (/文字|言葉|紙|印刷|通信|情報|計算|大学|百科|ネット|Web|コンピュー|AI|知識|記録|理論|法則|分類|教育|メディア|スマートフォン|SNS/i.test(text)) result.push('information');
-    if (/宇宙|星|生命|光合成|火|鉄|蒸気|電気|電球|原子|核|エネルギー|石油|飛行|ロケット|気候|動力/i.test(text)) result.push('energy');
-    if (/人類|農業|定住|都市|文明|法典|宗教|帝国|民主|革命|戦争|社会|協力|共同|国家|パンデミック|つなが|制度|市場|家畜/i.test(text)) result.push('cooperation');
-    return result;
+  // Each turning point has been read and tagged explicitly. A point can belong
+  // to several lenses: overlap is part of the learning experience, not an error.
+  const EVENT_LENSES = {
+    'ビッグバン': 'energy worldview',
+    '軽元素の原子核': 'energy environment worldview',
+    '最初の星と銀河': 'energy environment worldview',
+    '地球の誕生': 'environment energy',
+    '月の誕生': 'environment energy',
+    '初期生命の痕跡': 'body environment',
+    '酸素を生む光合成と大酸化': 'energy environment body',
+    '真核生物の登場': 'body environment',
+    '複雑な多細胞生物の広がり': 'body environment',
+    'カンブリア爆発': 'body environment',
+    '陸上に生命が上陸': 'body environment mobility',
+    '恐竜の時代': 'body environment',
+    '大量絶滅と非鳥類型恐竜の消失': 'environment body',
+    '霊長類の登場': 'body environment',
+    '初期人類の候補': 'body environment',
+    'アウストラロピテクス': 'body mobility',
+    '現在知られる初期の石器': 'tools body',
+    'アフリカを出る': 'mobility environment body cooperation',
+    '火の制御': 'tools energy body cooperation',
+    'ホモ・サピエンス誕生': 'body cooperation',
+    '埋葬と死者へのまなざし': 'worldview cooperation',
+    '象徴行動の広がり': 'worldview information cooperation',
+    '世界への大拡散': 'mobility environment cooperation',
+    '洞窟壁画・装飾品': 'tools information worldview',
+    'ネアンデルタール人の消失': 'body environment',
+    '土器の発明': 'tools environment cooperation',
+    '犬の家畜化': 'body environment cooperation',
+    '農業革命': 'tools energy environment cooperation',
+    'ギョベクリ・テペ': 'worldview cooperation tools',
+    '定住と家畜化': 'cooperation environment body',
+    '灌漑と水の共同管理': 'tools energy environment cooperation power',
+    '初期都市ウルク': 'cooperation power information tools',
+    '馬の家畜化と移動圏の拡大': 'tools mobility energy cooperation',
+    '車輪の発明': 'tools mobility energy',
+    '青銅器と長距離交易': 'tools energy mobility power',
+    '文字の発明': 'information tools power cooperation',
+    'エジプト文明・ヒエログリフ': 'information cooperation power worldview',
+    'インダスの計画都市': 'tools cooperation environment power',
+    'ハンムラビ法典': 'information power cooperation',
+    '鉄器時代': 'tools energy power',
+    'アルファベット': 'information tools',
+    '枢軸時代のはじまり': 'worldview information cooperation',
+    '鋳造貨幣の普及': 'information cooperation power mobility',
+    '仏教の成立と伝播': 'worldview cooperation mobility information',
+    'アテネの民主政': 'power cooperation information',
+    'ゼロという数と演算へ': 'information tools worldview',
+    '秦の中国統一': 'power cooperation information',
+    'ローマ帝国成立': 'power cooperation mobility',
+    'シルクロードの形成': 'mobility cooperation information',
+    '紙の製法改良と記録': 'information tools cooperation',
+    'キリスト教公認': 'worldview cooperation power',
+    'マヤ文明の都市と知': 'information cooperation worldview tools',
+    '科挙と官僚制': 'information power cooperation',
+    'イスラム黄金期': 'information worldview cooperation tools',
+    'インド洋交易圏': 'mobility cooperation power environment',
+    '東アジアの印刷文化': 'information tools cooperation',
+    '火薬の発明': 'tools energy power',
+    '磁気羅針盤と外洋航海': 'tools mobility information',
+    'ボローニャ大学の伝統上の創立年': 'information cooperation worldview',
+    'マグナ・カルタ': 'power information cooperation',
+    'モンゴル帝国とユーラシア交流': 'power mobility cooperation information',
+    'グレート・ジンバブエと交易圏': 'mobility cooperation power tools',
+    '黒死病パンデミック': 'body mobility environment power cooperation',
+    '複式簿記の普及': 'information tools cooperation power',
+    'グーテンベルク活版印刷': 'tools information cooperation power',
+    'コロンブスの航海': 'mobility tools power environment',
+    '宗教改革': 'worldview information power cooperation',
+    'コロンブス交換': 'mobility environment body power',
+    '大西洋奴隷貿易': 'power mobility cooperation body',
+    'コペルニクスの地動説': 'worldview information tools',
+    '株式会社と証券市場': 'cooperation power information mobility',
+    'ガリレオの望遠鏡': 'tools information worldview',
+    'デカルト『方法序説』': 'worldview information',
+    'ニュートン『プリンキピア』': 'information worldview energy',
+    'リンネの分類学': 'information worldview environment',
+    '『百科全書』刊行開始': 'information cooperation power',
+    'アメリカ独立宣言': 'power information cooperation',
+    'フランス革命': 'power cooperation information',
+    'ワットの蒸気機関': 'tools energy environment power',
+    '工場制生産': 'tools energy power cooperation body',
+    '種痘とワクチン': 'body information cooperation tools',
+    '蒸気機関車': 'tools energy mobility environment',
+    'ハイチ独立と奴隷制への挑戦': 'power cooperation worldview',
+    '奴隷制廃止の世界的展開': 'power cooperation information',
+    '電信機': 'tools information energy mobility cooperation',
+    '外科麻酔の公開実演': 'tools body information',
+    '上下水道と公衆衛生': 'tools body environment cooperation power',
+    'ダーウィン『種の起源』': 'information worldview body environment',
+    '細菌説の確立': 'information body tools',
+    '義務教育と識字の拡大': 'information cooperation power',
+    'メンデルの法則': 'information body worldview',
+    '周期表': 'information tools worldview',
+    '電話の発明': 'tools information energy cooperation',
+    '実用的な白熱電灯と電力網': 'tools energy cooperation environment',
+    '労働運動と8時間労働': 'power cooperation body',
+    '1895年前後の見る・記録する・送る技術': 'tools information worldview',
+    'ライト兄弟の初飛行': 'tools energy mobility',
+    'アインシュタインの特殊相対性理論': 'information worldview energy',
+    'ハーバー・ボッシュ法': 'tools energy environment body power',
+    '女性参政権の拡大': 'power cooperation information',
+    '第一次世界大戦': 'power tools energy mobility body',
+    '一般相対性理論': 'information worldview energy',
+    'ロシア革命': 'power cooperation',
+    'ラジオ・映画と大衆社会': 'tools information cooperation worldview power',
+    '不確定性原理': 'information worldview',
+    'ペニシリンの発見': 'body tools information',
+    '世界恐慌と福祉国家': 'power cooperation information',
+    'チューリング・マシン': 'tools information worldview',
+    '第二次世界大戦': 'power tools energy mobility body',
+    '広島・長崎': 'power energy tools body environment',
+    'ENIAC': 'tools information energy',
+    'トランジスタの発明': 'tools information energy',
+    'シャノンの情報理論': 'information tools',
+    '世界人権宣言': 'power cooperation information',
+    'チューリング・テスト': 'information worldview tools',
+    'DNA二重らせん': 'information body tools',
+    'スプートニク': 'tools energy mobility power',
+    '脱植民地化の世界的展開': 'power cooperation mobility',
+    '公民権運動': 'power cooperation information',
+    '地球の出': 'information worldview environment tools',
+    'アポロ11号 月面着陸': 'tools energy mobility power',
+    'ARPANETの誕生': 'tools information cooperation',
+    'マイクロプロセッサ': 'tools information energy',
+    'パーソナルコンピューター産業の拡大': 'tools information cooperation',
+    '女性差別撤廃条約': 'power cooperation information',
+    '天然痘根絶': 'body information cooperation tools',
+    'IBM PC発売': 'tools information cooperation',
+    '気候変動を地球規模で捉える': 'environment information power cooperation energy',
+    'ベルリンの壁崩壊': 'power cooperation mobility',
+    'World Wide Web': 'tools information cooperation',
+    'Linux公開': 'tools information cooperation power',
+    '消費者向けWebの拡大': 'tools information cooperation power',
+    'Google創業': 'tools information cooperation power',
+    '2001年の異なる二つの転換': 'information cooperation power worldview',
+    'ヒトゲノム計画の完了': 'body information tools cooperation',
+    'Facebook': 'information cooperation power tools',
+    'YouTube': 'information tools cooperation worldview',
+    'Twitter': 'information cooperation power tools',
+    'iPhone発売': 'tools information energy cooperation',
+    'リーマンショック': 'power cooperation information',
+    'ビットコイン論文': 'information tools power cooperation',
+    '東日本大震災': 'environment energy body information cooperation',
+    'IBM Watson がクイズ王に勝利': 'tools information worldview',
+    'AlexNet ── ディープラーニング覚醒': 'tools information',
+    'GAN登場': 'tools information worldview',
+    'AlphaGo vs イ・セドル': 'tools information worldview',
+    'Transformer論文': 'tools information',
+    'BERT / GPT-1': 'tools information',
+    'COVID-19パンデミック': 'body mobility cooperation power information environment',
+    'GPT-3': 'tools information',
+    'ChatGPT公開': 'tools information cooperation worldview',
+    '生成AIとマルチモーダル化': 'tools information worldview',
+    '動画生成と推論モデル': 'tools information worldview',
+    'AIエージェント型サービスの拡大': 'tools information cooperation power',
+    'あなたがこの年表を読んでいる': 'information worldview cooperation',
+    'AGI（汎用人工知能）？': 'tools information power worldview',
+    '生命編集の拡大': 'tools body power environment',
+    '技術的特異点？': 'tools energy information worldview',
+    '地球の外へ？': 'tools energy mobility environment power',
+    '空白のまま': 'worldview'
+  };
+
+  function themesFor(title) {
+    return (EVENT_LENSES[title] || '').split(/\s+/).filter(Boolean);
   }
 
   // 「有名な出来事」ではなく、不可逆性・波及・地域/分野の偏り・根拠の
@@ -123,7 +284,9 @@
   ];
 
   const futureEvents = [];
-  const sourceEvents = Array.from(document.querySelectorAll('.timeline-container .event:not([data-curated-event])')).map(function (node, index) {
+  const curatedMetadata = new Map(CURATED_ADDITIONS.map(function (event) { return [event.id, event]; }));
+  let genericImageIndex = 0;
+  const events = Array.from(document.querySelectorAll('.timeline-container .event')).map(function (node, index) {
     const date = (node.querySelector('.event-date') || {}).textContent || '';
     const titleNode = node.querySelector('.event-title');
     const iconNode = titleNode && titleNode.querySelector('.icon');
@@ -132,10 +295,22 @@
     const era = node.closest('.era');
     const future = era && era.id === 'era-future';
     const futureIndex = future ? futureEvents.length : -1;
+    const curatedId = node.dataset.curatedEvent || '';
+    const curated = Boolean(curatedId);
+    const metadata = curatedMetadata.get(curatedId);
+    const sourceIndex = curated ? 0 : ++genericImageIndex;
+    const card = node.querySelector('.event-card');
+    const explicitImage = card && card.dataset.eventImage;
+    const cardLinks = Array.from(node.querySelectorAll('.event-link')).map(function (link) { return { href: link.getAttribute('href'), label: link.textContent.trim() }; });
+    const combinedLinks = metadata && metadata.links ? metadata.links.concat(cardLinks) : cardLinks;
+    const links = combinedLinks.filter(function (link, linkIndex) {
+      return combinedLinks.findIndex(function (candidate) { return candidate.href === link.href; }) === linkIndex;
+    });
     const event = {
       node: node,
       index: index,
-      id: 'deep-event-' + (index + 1),
+      detailId: node.id || '',
+      id: curatedId ? 'deep-curated-' + curatedId : 'deep-event-' + (index + 1),
       date: date.trim(),
       title: title,
       description: description,
@@ -143,43 +318,49 @@
       eraTitle: era && era.querySelector('.era-title') ? era.querySelector('.era-title').textContent.trim() : '',
       future: future,
       position: future ? .91 + futureIndex * .018 : logPosition(ageFromDate(date)),
-      image: 'assets/images/evolution/event-' + String(index + 1).padStart(3, '0') + '.webp',
-      themes: themesFor(title + ' ' + description),
-      links: Array.from(node.querySelectorAll('.event-link')).map(function (link) { return { href: link.getAttribute('href'), label: link.textContent.trim() }; }),
+      image: explicitImage || 'assets/images/evolution/event-' + String(sourceIndex).padStart(3, '0') + '.webp',
+      themes: themesFor(title),
+      links: links,
       y: .40 + seeded(index + 1) * .28,
-      core: CORE_SOURCE_INDICES.has(index + 1),
-      curated: false,
+      core: Boolean(metadata) || (!curated && CORE_SOURCE_INDICES.has(sourceIndex)),
+      curated: curated,
       icon: iconNode ? iconNode.textContent.trim() : ''
     };
     if (future) futureEvents.push(event);
     return event;
   });
 
-  const curatedEvents = CURATED_ADDITIONS.map(function (event, index) {
-    return {
-      ...event,
-      node: null,
-      index: sourceEvents.length + index,
-      detailId: 'event-curated-' + event.id,
-      id: 'deep-curated-' + event.id,
-      future: false,
-      position: logPosition(ageFromDate(event.date)),
-      image: 'assets/images/evolution/curated/curated-' + event.id + '.webp',
-      y: .40 + seeded(401 + index) * .28,
-      core: true,
-      curated: true
-    };
-  });
-  const events = sourceEvents.concat(curatedEvents);
-
   const lensQuestions = {
-    core: '宇宙史をつかむ主要60点。近づくと、詳細65点が星のように現れます。',
-    all: '主要・詳細・現在地・未来の問いを、すべて表示します。',
-    information: '知識は、どう人の外へ広がった？',
-    energy: '使える力が変わると、暮らしはどう変わる？',
-    cooperation: '人は、どんな仕組みで共に生きてきた？'
+    all: '複数の視点を重ねながら、人類史の全体を眺めます。',
+    tools: '人は何を身体の外に作り、能力を拡張した？',
+    information: '知識は、どう記録され、複製され、広がった？',
+    energy: '使える力が変わると、暮らしはどう変わった？',
+    cooperation: '人は、どんな仕組みで共に生きてきた？',
+    body: '生存、病気、寿命、人口はどう変わった？',
+    environment: '人は自然をどう変え、自然にどう変えられた？',
+    mobility: '人・物・病原体・文化は、どう移動した？',
+    power: '誰が決め、誰が利益や負担を引き受けた？',
+    worldview: '人は世界と自分自身を、どう説明してきた？'
   };
-  let lens = 'core';
+  const lensLabels = {
+    tools: '道具', information: '情報', energy: 'エネルギー', cooperation: '協力',
+    body: '身体・健康', environment: '環境・食料', mobility: '移動・交換',
+    power: '権力・権利', worldview: '意味・世界観'
+  };
+  const lensPromptInstructions = {
+    all: '道具・情報・エネルギー・協力・身体・環境・移動・権力・世界観のうち、特に関係の深い視点を結びつけてください。',
+    tools: '何を材料に、どんな技能で作られ、人間の手・足・感覚・記憶の何を拡張したかを中心に説明してください。',
+    information: '知識がどう記録・複製・伝達され、誰がアクセスできたかを中心に説明してください。',
+    energy: 'どのエネルギー源を利用し、出力・効率・環境負荷がどう変わったかを中心に説明してください。',
+    cooperation: '何人ほどの協力を可能にし、信頼・規則・組織をどう変えたかを中心に説明してください。',
+    body: '生存、病気、寿命、人口、身体感覚への影響を中心に説明してください。',
+    environment: '食料・資源・生態系・気候との相互作用を中心に説明してください。',
+    mobility: '人・物・病原体・文化がどこからどこへ動き、地域間の関係をどう変えたかを中心に説明してください。',
+    power: '誰が決定権を持ち、利益・負担・権利が誰に配分されたかを中心に説明してください。',
+    worldview: '人間が世界・自然・死・自分自身をどう理解するようになったかを中心に説明してください。'
+  };
+  let scope = 'core';
+  let lens = 'all';
   let target = { center: .5, zoom: 1 };
   let view = { center: .5, zoom: 1 };
   let flowing = true;
@@ -284,12 +465,11 @@
   }
   function isRelated(event) {
     if (lens === 'all') return true;
-    if (lens === 'core') return event.core || event.future;
     return event.themes.indexOf(lens) >= 0;
   }
 
   function isUnlocked(event) {
-    if (lens === 'all') return true;
+    if (scope === 'all') return true;
     if (event.future || event.core) return true;
     return view.zoom >= DETAIL_ZOOM;
   }
@@ -301,13 +481,13 @@
     events.forEach(function (event, index) {
       const x = screenX(event.position, view);
       const button = nodes[index];
-      const shown = x > .025 && x < .975 && isUnlocked(event) && (lens === 'core' || lens === 'all' || isRelated(event));
+      const shown = x > .025 && x < .975 && isUnlocked(event) && isRelated(event);
       button.hidden = !shown;
       if (!shown) return;
       button.style.left = (x * 100).toFixed(3) + '%';
       const y = compact ? (.42 + (event.y - .4) * .38) * surface.clientHeight : shortPhone ? 240 + (event.y - .4) / .28 * Math.max(30, axis.offsetTop - 260) : event.y * surface.clientHeight;
       button.style.top = y.toFixed(2) + 'px';
-      button.classList.toggle('is-muted', lens === 'core' && !event.core && !event.future);
+      button.classList.toggle('is-muted', scope === 'core' && !event.core && !event.future);
       button.classList.toggle('is-detail', !event.core && !event.future);
       button.classList.toggle('is-future', event.future);
       button.setAttribute('aria-label', event.date + ' ' + event.title + (view.zoom < PICTURE_ZOOM ? 'へ近づく' : 'の背景を読む'));
@@ -414,6 +594,14 @@
       lens = button.dataset.timeLens;
       document.querySelectorAll('[data-time-lens]').forEach(function (item) { item.setAttribute('aria-pressed', String(item === button)); });
       if (questionText) questionText.textContent = lensQuestions[lens];
+      needsRender = true;
+    });
+  });
+
+  document.querySelectorAll('[data-time-scope]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      scope = button.dataset.timeScope;
+      document.querySelectorAll('[data-time-scope]').forEach(function (item) { item.setAttribute('aria-pressed', String(item === button)); });
       needsRender = true;
     });
   });
@@ -566,6 +754,7 @@
   const dialogTitle = document.getElementById('deepTimeDialogTitle');
   const dialogDescription = document.getElementById('deepTimeDialogDescription');
   const dialogEra = document.getElementById('deepTimeDialogEra');
+  const dialogThemes = document.getElementById('deepTimeDialogThemes');
   const dialogLinks = document.getElementById('deepTimeDialogLinks');
   const detailLink = document.getElementById('deepTimeDetailLink');
   const copyStatus = document.getElementById('deepTimeCopyStatus');
@@ -580,6 +769,7 @@
     dialogTitle.textContent = event.title;
     dialogDescription.textContent = event.description;
     dialogEra.textContent = event.eraTitle;
+    dialogThemes.textContent = '重なる視点：' + event.themes.map(function (theme) { return lensLabels[theme] || theme; }).join(' ・ ');
     dialogLinks.replaceChildren();
     event.links.forEach(function (link) {
       const anchor = document.createElement('a');
@@ -601,7 +791,10 @@
   });
   function selectedPrompt() {
     if (!selected) return '';
-    const prompt = 'ManabiMapの年表から学びを深める対話をしてください。\n転換点：' + selected.date + '／' + selected.title + '\n説明：' + selected.description + '\n時代：' + selected.eraTitle + '\n見方：' + document.querySelector('[data-time-lens="' + lens + '"]').textContent + '\n\nまず、この出来事の前の状況・何が変わったか・後への影響を日常語で説明してください。いきなり私の意見を求めず、理解の足場を作ってください。事実と解釈、不確かな年代、未来の推測は区別してください。時系列の近さを因果と見なさず、別の地域や反対の見方にも触れてください。続いてたどれる方向を2〜3個示してください。';
+    const lensButton = document.querySelector('[data-time-lens="' + lens + '"]');
+    const scopeButton = document.querySelector('[data-time-scope="' + scope + '"]');
+    const related = selected.themes.map(function (theme) { return lensLabels[theme] || theme; }).join('・');
+    const prompt = 'ManabiMapの年表から学びを深める対話をしてください。\n転換点：' + selected.date + '／' + selected.title + '\n説明：' + selected.description + '\n時代：' + selected.eraTitle + '\n表示：' + (scopeButton ? scopeButton.textContent : scope) + '\n選んだ視点：' + (lensButton ? lensButton.textContent : lens) + '\nこの出来事に重なる視点：' + related + '\n\nまず、この出来事の前の状況・何が変わったか・後への影響を日常語で説明してください。' + lensPromptInstructions[lens] + ' いきなり私の意見を求めず、理解の足場を作ってください。事実と解釈、不確かな年代、未来の推測は区別してください。時系列の近さを因果と見なさず、別の地域や反対の見方にも触れてください。続いてたどれる方向を2〜3個示してください。';
     return prompt + '\n\n出典：\n' + selected.links.map(function (link) { return link.label + '：' + new URL(link.href, 'https://pinco53.github.io/ManabiMap/evolution.html').href; }).join('\n');
   }
   window.ManabiAI.mount(dialog.querySelector('.deep-time-dialog__dialogue'), selectedPrompt);
@@ -719,7 +912,7 @@
     stopMotion();
     try {
       sessionStorage.setItem(returnKey, JSON.stringify({
-        center: target.center, zoom: target.zoom, lens: lens, flowing: flowing,
+        center: target.center, zoom: target.zoom, scope: scope, lens: lens, flowing: flowing,
         selectedId: selected && selected.id, dialogOpen: dialog.open,
         scrollY: window.scrollY, savedAt: Date.now()
       }));
@@ -730,8 +923,11 @@
     sessionStorage.removeItem(returnKey);
     if (saved && Date.now() - saved.savedAt < 86400000 && Number.isFinite(saved.center) && Number.isFinite(saved.zoom) && Object.hasOwn(lensQuestions, saved.lens)) {
       target = bound(saved.center, saved.zoom); view = { ...target }; lens = saved.lens;
+      scope = saved.scope === 'all' ? 'all' : 'core';
       flowing = saved.flowing !== false;
       document.querySelectorAll('[data-time-lens]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.timeLens === lens)); });
+      document.querySelectorAll('[data-time-scope]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.timeScope === scope)); });
+      if (questionText) questionText.textContent = lensQuestions[lens];
       document.getElementById('deepTimeFlow').textContent = flowing ? 'Ⅱ' : '▶';
       document.getElementById('deepTimeFlow').setAttribute('aria-label', flowing ? '粒の漂いを止める' : '粒の漂いを再開する');
       selected = events.find(function (event) { return event.id === saved.selectedId; }) || null;

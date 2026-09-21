@@ -1268,7 +1268,7 @@ a { color: inherit; text-decoration: none; }
 <link rel="stylesheet" href="assets/css/brand-v2.css?v=20260731-24">
 <link rel="stylesheet" href="assets/css/evolution-renewal.css?v=20260731-24">
 <link rel="stylesheet" href="assets/css/evolution-ai-guide.css?v=20260913-2">
-<link rel="stylesheet" href="assets/css/evolution-deep-time.css?v=20260914-3">
+<link rel="stylesheet" href="assets/css/evolution-deep-time.css?v=20260921-1">
 <link rel="stylesheet" href="assets/css/ai-handoff.css?v=20260914-1">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
@@ -1346,14 +1346,29 @@ a { color: inherit; text-decoration: none; }
   </div>
 
   <aside class="deep-time__lenses" aria-label="見方を変える">
-    <span>見方を変える</span>
-    <div>
-      <button type="button" data-time-lens="core" aria-pressed="true">主要</button>
-      <button type="button" data-time-lens="all" aria-pressed="false">すべて</button>
-      <button type="button" data-time-lens="information" aria-pressed="false">情報</button>
-      <button type="button" data-time-lens="energy" aria-pressed="false">エネルギー</button>
-      <button type="button" data-time-lens="cooperation" aria-pressed="false">協力</button>
+    <div class="deep-time__lens-heading">
+      <span>表示する転換点</span>
+      <div class="deep-time__scope" role="group" aria-label="表示する転換点の数">
+        <button type="button" data-time-scope="core" aria-pressed="true">主要60＋未来</button>
+        <button type="button" data-time-scope="all" aria-pressed="false">160すべて</button>
+      </div>
     </div>
+    <div class="deep-time__lens-heading">
+      <span>どの視点で見る？</span>
+      <div class="deep-time__lens-list" role="group" aria-label="人類史を見る視点">
+        <button type="button" data-time-lens="all" aria-pressed="true">総合</button>
+        <button type="button" data-time-lens="tools" aria-pressed="false">道具</button>
+        <button type="button" data-time-lens="information" aria-pressed="false">情報</button>
+        <button type="button" data-time-lens="energy" aria-pressed="false">エネルギー</button>
+        <button type="button" data-time-lens="cooperation" aria-pressed="false">協力</button>
+        <button type="button" data-time-lens="body" aria-pressed="false">身体・健康</button>
+        <button type="button" data-time-lens="environment" aria-pressed="false">環境・食料</button>
+        <button type="button" data-time-lens="mobility" aria-pressed="false">移動・交換</button>
+        <button type="button" data-time-lens="power" aria-pressed="false">権力・権利</button>
+        <button type="button" data-time-lens="worldview" aria-pressed="false">意味・世界観</button>
+      </div>
+    </div>
+    <p id="deepTimeQuestion" aria-live="polite">複数の視点を重ねながら、人類史の全体を眺めます。</p>
   </aside>
 
   <div class="deep-time__zoom" aria-label="拡大縮小">
@@ -1382,6 +1397,7 @@ a { color: inherit; text-decoration: none; }
   <h2 id="deepTimeDialogTitle"></h2>
   <p class="deep-time-dialog__description" id="deepTimeDialogDescription"></p>
   <p class="deep-time-dialog__era" id="deepTimeDialogEra"></p>
+  <p class="deep-time-dialog__themes" id="deepTimeDialogThemes"></p>
   <div class="deep-time-dialog__links" id="deepTimeDialogLinks"></div>
   <div class="deep-time-dialog__dialogue"><strong>この一点から、見方を広げる。</strong><button type="button" id="deepTimeCopy">AIと深める対話文をコピー →</button><span id="deepTimeCopyStatus" role="status"></span><textarea id="deepTimePrompt" readonly hidden aria-label="コピーする対話文"></textarea></div>
   <a href="#detailed-timeline" id="deepTimeDetailLink">詳しい年表の同じ時代へ →</a>
@@ -3791,6 +3807,6 @@ a { color: inherit; text-decoration: none; }
 <script src="assets/js/brand-v2.js" defer></script>
 <script src="assets/js/ai-handoff.js?v=20260914-1"></script>
 <script src="assets/js/evolution-ai-guide.js?v=20260914-2"></script>
-<script src="assets/js/evolution-deep-time.js?v=20260914-6"></script>
+<script src="assets/js/evolution-deep-time.js?v=20260921-1"></script>
 </body>
 </html>

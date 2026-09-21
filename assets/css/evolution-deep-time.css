@@ -87,41 +87,47 @@
 .deep-time__lenses {
   position: absolute;
   z-index: 5;
-  top: 112px;
-  right: 4vw;
-  max-width: 260px;
+  top: 96px;
+  right: 3vw;
+  width: min(370px, 38vw);
   text-align: right;
 }
 
-.deep-time__lenses > span {
+.deep-time__lens-heading { margin-top: 12px; }
+.deep-time__lens-heading:first-child { margin-top: 0; }
+
+.deep-time__lens-heading > span {
+  display: block;
+  margin-bottom: 6px;
   color: var(--deep-muted);
   font-size: 10px;
   letter-spacing: .15em;
 }
 
-.deep-time__lenses > div {
+.deep-time__scope,
+.deep-time__lens-list {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
 }
 
 .deep-time__lenses button {
-  min-height: 32px;
-  padding: 4px 15px 4px 12px;
-  border: 0;
-  border-right: 1px solid transparent;
-  background: transparent;
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid #8390a329;
+  border-radius: 999px;
+  background: #07101a80;
   color: #929bab;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 11px;
+  white-space: nowrap;
 }
 
 .deep-time__lenses button:hover,
 .deep-time__lenses button:focus-visible { color: #fff; }
-.deep-time__lenses button[aria-pressed="true"] { border-color: #b99a62; color: #e9ca94; }
-.deep-time__lenses p { max-width: 220px; margin: 13px 0 0; color: #c1b499; font-size: 12px; line-height: 1.7; }
+.deep-time__lenses button[aria-pressed="true"] { border-color: #b99a62aa; background: #b99a621a; color: #f0d49f; }
+.deep-time__lenses p { max-width: 340px; margin: 10px 0 0 auto; color: #c1b499; font-size: 11px; line-height: 1.65; }
 
 .deep-time-point {
   position: absolute;
@@ -316,6 +322,7 @@
 .deep-time-dialog h2 { margin: 0; color: #f0e8d7; font-family: 'Shippori Mincho', serif; font-size: 25px; font-weight: 400; line-height: 1.5; }
 .deep-time-dialog__description { margin: 18px 0 10px; color: #c4c9cc; font-size: 15px; line-height: 1.95; }
 .deep-time-dialog__era { color: #8091a4; font-size: 11px; }
+.deep-time-dialog__themes { margin: 8px 0 0; color: #c8b788; font-size: 11px; line-height: 1.7; }
 .deep-time-dialog__links { display: flex; flex-direction: column; gap: 10px; margin: 18px 0; }
 .deep-time-dialog__links a,
 .deep-time-dialog > a { color: #cbbb9c; font-size: 13px; }
@@ -348,11 +355,21 @@ body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; 
   .deep-time__title h1 strong.is-age { font-size: 44px; }
   .deep-time__title h1 span { font-size: 30px; }
   .deep-time__title > div { margin-top: 8px; font-size: 11px; }
-  .deep-time__lenses { top: 230px; right: auto; left: 5%; max-width: 90%; text-align: left; }
-  .deep-time__lenses > span { display: none; }
-  .deep-time__lenses > div { flex-direction: row; margin: 0; }
-  .deep-time__lenses button { min-height: 32px; padding: 5px 10px; border-right: 0; border-bottom: 1px solid transparent; font-size: 11px; }
-  .deep-time__lenses p { max-width: none; margin-top: 4px; font-size: 10px; }
+  .deep-time__lenses { top: 205px; right: 5%; left: 5%; width: auto; text-align: left; }
+  .deep-time__lens-heading { margin-top: 7px; }
+  .deep-time__lens-heading > span { margin-bottom: 3px; font-size: 9px; }
+  .deep-time__scope { justify-content: flex-start; }
+  .deep-time__lens-list {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 0 0 5px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .deep-time__lens-list::-webkit-scrollbar { display: none; }
+  .deep-time__lenses button { min-height: 34px; padding: 5px 10px; font-size: 11px; }
+  .deep-time__lenses p { max-width: none; margin: 3px 0 0; font-size: 10px; }
   .deep-time-point.has-image,
   .deep-time-point.has-label { width: 56px; height: 56px; }
   .deep-time-point__glyph { font-size: 19px; }
@@ -394,10 +411,12 @@ body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; 
   .deep-time__title h1 strong, .deep-time__title h1 strong.is-age { font-size: 42px; }
   .deep-time__title h1 span { font-size: 24px; }
   .deep-time__title > div { display: none; }
-  .deep-time__lenses { top: 86px; left: auto; right: 5%; max-width: 55%; }
-  .deep-time__lenses > span, .deep-time__lenses p { display: none; }
-  .deep-time__lenses > div { flex-direction: row; margin: 0; }
-  .deep-time__lenses button { padding: 4px 8px; font-size: 11px; }
+  .deep-time__lenses { top: 78px; left: auto; right: 5%; width: 58%; }
+  .deep-time__lens-heading { margin-top: 5px; }
+  .deep-time__lens-heading > span, .deep-time__lenses p { display: none; }
+  .deep-time__scope, .deep-time__lens-list { flex-wrap: nowrap; justify-content: flex-end; overflow-x: auto; scrollbar-width: none; }
+  .deep-time__scope::-webkit-scrollbar, .deep-time__lens-list::-webkit-scrollbar { display: none; }
+  .deep-time__lenses button { min-height: 30px; padding: 4px 8px; font-size: 10px; }
   .deep-time__axis { bottom: 142px; }
   .deep-time__axis span { writing-mode: horizontal-tb; font-size: 9px; }
   .deep-time__future { top: 155px; bottom: 168px; }
@@ -429,7 +448,8 @@ body.deep-in-space .site-header .mobile-nav summary span { background: #e8e4dc; 
   .deep-time__title h1 strong { font-size: 58px; }
   .deep-time__title h1 strong.is-age { font-size: 34px; }
   .deep-time__title > div { display: none; }
-  .deep-time__lenses { top: 176px; }
+  .deep-time__lenses { top: 154px; }
+  .deep-time__lens-heading > span { display: none; }
   .deep-time__lenses p { display: none; }
   .deep-time__notes { display: none; }
   .deep-time__axis { bottom: 248px; }
