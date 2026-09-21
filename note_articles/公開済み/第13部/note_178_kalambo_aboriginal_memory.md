@@ -2,13 +2,14 @@
 
 **記事種別**: wonder-note
 **対象**: 第13部第1回「人間を人間にしたもの」
-**保存日**: 2026-08-23
-**公開状態**: local-draft
+**保存日**: 2026-09-21
+**URL**: https://note.com/manabimapcreator/n/n9268e512011a
+**公開状態**: published
 **主対象パート**: part13
 **関連PodcastID**: podcast-part13-1
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://youtu.be/C8LTxOwFHbc
 **関連YouTubeID**: youtube-part13
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://youtu.be/C8LTxOwFHbc
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -32,7 +33,6 @@
 会ったこともない人の手の記憶が、
 今、私の指先に残っています。
 
-（Podcast URL 記入予定）
 
 ---
 
@@ -127,13 +127,15 @@ AIが答えを返すとき、
 
 ---
 
-→ **[Podcast で深く聴く｜ハルとおじいさん 第13部第1回](（Podcast URL 記入予定）)**
+→ **[Podcastで深く聴く｜なぜ、会ったこともない誰かの知恵が、今も届くのか](https://youtu.be/C8LTxOwFHbc)**
 
 → **[ハルとおじいさん 第13部｜学びの地図](https://pinco53.github.io/ManabiMap/parts/part13.html)**
 
 ---
 
 *ハルとおじいさん YouTube チャンネル → https://www.youtube.com/@ManabiMap*
+
+→ **[YouTubeで聴く｜なぜ、会ったこともない誰かの知恵が、今も届くのか](https://youtu.be/C8LTxOwFHbc)**
 
 #累積文化 #カランボ滝 #木造構造物 #アボリジニ口承伝承 #海面上昇の記憶
 #ホモハイデルベルゲンシス #考古学 #人類進化 #口承文化
