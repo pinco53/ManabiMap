@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part12
 **関連PodcastID**: podcast-part12-14
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=p85lfaeT6qs
 **関連YouTubeID**: youtube-part12
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=p85lfaeT6qs
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -29,7 +29,7 @@
 
 何をどう振り返れば、自分のことが見えてくるのでしょうか。
 
-（Podcast URL 記入予定）
+→ **[Podcastで深く聴く｜なぜ、手帳に黒い点をつけ続けた男がいたのか](https://www.youtube.com/watch?v=p85lfaeT6qs)**
 
 ---
 
@@ -120,6 +120,10 @@ AIは、質問されれば「なぜそう答えたか」を説明できます。
 
 自分を知ることは、
 才能ではなく、記録から始まるのかもしれません。
+
+---
+
+→ **[YouTubeで聴く｜なぜ、手帳に黒い点をつけ続けた男がいたのか](https://www.youtube.com/watch?v=p85lfaeT6qs)**
 ```
 
 ---
