@@ -22,6 +22,8 @@
     if (englishCenturyBce) return PRESENT + Number(englishCenturyBce[1]) * 100 - 50;
     const englishBce = date.match(/([\d,]+)\s*(?:BCE|BC)/i);
     if (englishBce) return PRESENT + Number(englishBce[1].replace(/,/g, '')) - 1;
+    const englishCenturyCe = date.match(/(\d+)(?:st|nd|rd|th)(?:\s*[–—-]\s*\d+(?:st|nd|rd|th))?\s+centur(?:y|ies)(?:\s+(?:CE|AD))?/i);
+    if (englishCenturyCe) return Math.max(0, PRESENT - ((Number(englishCenturyCe[1]) - 1) * 100 + 1));
     const ago = date.match(/([\d.]+)(億|万)?年前/);
     if (ago) return Number(ago[1]) * (ago[2] === '億' ? 1e8 : ago[2] === '万' ? 1e4 : 1);
     const centuryRange = date.match(/(\d+)〜\d+世紀/);
