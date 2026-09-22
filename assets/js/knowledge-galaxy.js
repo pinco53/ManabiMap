@@ -210,7 +210,10 @@
     if (nearest && nearest.distance < 48) openCard(parts.find(function (part) { return part.id === nearest.id; }));
   });
 
-  const STAR_COUNT = 320000;
+  // Keep the named learning stars readable while giving the surrounding
+  // galaxy enough fine-grained light to feel deep rather than empty.
+  const STAR_COUNT = 500000;
+  const MOBILE_STAR_COUNT = 250000;
   const STRIDE = 8;
   const gl = starCanvas.getContext('webgl', { alpha: false, antialias: false, powerPreference: 'high-performance' });
   let galaxyReady = false, galaxyUniforms = {}, galaxyDpr = 1, galaxyTime = 0, galaxyZoom = .84 + depth * .018;
@@ -250,7 +253,7 @@
   new ResizeObserver(function(){resizeField();resizeStars();}).observe(section);
   resizeField(); resizeStars(); updateInterface();
   let previous=performance.now();
-  function animate(now){const dt=Math.min((now-previous)/1000,.05);previous=now;if(inView&&!document.hidden){const smoothing=reduced.matches?1:1-Math.exp(-dt*5);pointer.x+=(pointer.targetX-pointer.x)*smoothing;pointer.y+=(pointer.targetY-pointer.y)*smoothing;drawField();if(galaxyReady){if(!reduced.matches)galaxyTime+=dt;galaxyZoom+=(.84+depth*.018-galaxyZoom)*smoothing;gl.clear(gl.COLOR_BUFFER_BIT);gl.uniform2f(galaxyUniforms.resolution,starCanvas.width,starCanvas.height);gl.uniform2f(galaxyUniforms.pointer,reduced.matches||!pointer.active?0:(pointer.x/width-.5),reduced.matches||!pointer.active?0:(.5-pointer.y/height));gl.uniform1f(galaxyUniforms.scale,galaxyZoom);gl.uniform1f(galaxyUniforms.dpr,galaxyDpr);gl.uniform1f(galaxyUniforms.time,galaxyTime);gl.drawArrays(gl.POINTS,0,width<760?180000:STAR_COUNT);}}requestAnimationFrame(animate);}
+  function animate(now){const dt=Math.min((now-previous)/1000,.05);previous=now;if(inView&&!document.hidden){const smoothing=reduced.matches?1:1-Math.exp(-dt*5);pointer.x+=(pointer.targetX-pointer.x)*smoothing;pointer.y+=(pointer.targetY-pointer.y)*smoothing;drawField();if(galaxyReady){if(!reduced.matches)galaxyTime+=dt;galaxyZoom+=(.84+depth*.018-galaxyZoom)*smoothing;gl.clear(gl.COLOR_BUFFER_BIT);gl.uniform2f(galaxyUniforms.resolution,starCanvas.width,starCanvas.height);gl.uniform2f(galaxyUniforms.pointer,reduced.matches||!pointer.active?0:(pointer.x/width-.5),reduced.matches||!pointer.active?0:(.5-pointer.y/height));gl.uniform1f(galaxyUniforms.scale,galaxyZoom);gl.uniform1f(galaxyUniforms.dpr,galaxyDpr);gl.uniform1f(galaxyUniforms.time,galaxyTime);gl.drawArrays(gl.POINTS,0,width<760?MOBILE_STAR_COUNT:STAR_COUNT);}}requestAnimationFrame(animate);}
   requestAnimationFrame(animate);
   new IntersectionObserver(function(entries){inView=entries[0].isIntersecting;document.body.classList.toggle('galaxy-in-view',inView);},{threshold:.1}).observe(section);
 })();
