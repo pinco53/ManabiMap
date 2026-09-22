@@ -127,7 +127,7 @@ body.celestial-site :is(.simple-page-hero, .page-hero)::after,
 body.celestial-site.media-hub .hero::before { display: none; }
 body.celestial-site :is(.concept-hero-lens, .cover-constellation, .map-hero__stars) { opacity: .08; }
 body.celestial-site .celestial-hero > :not(.celestial-dust) { position: relative; z-index: 1; }
-body.celestial-site .celestial-hero > canvas.celestial-dust { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; opacity: .65; }
+body.celestial-site .celestial-hero > canvas.celestial-dust { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; opacity: .78; }
 body.celestial-site :is(.simple-page-hero__inner, .map-hero__inner, .page-hero__inner) { width: min(100%, 1180px); margin-inline: auto; }
 body.celestial-site :is(.simple-page-hero, .page-hero) { padding: clamp(54px, 7vw, 100px) 24px clamp(64px, 8vw, 112px); }
 body.celestial-site :is(.simple-page-hero, .map-hero, .page-hero) h1 { color: var(--starlight); font-size: clamp(38px, 5.5vw, 72px); font-weight: 500; line-height: 1.4; letter-spacing: .06em; text-shadow: 0 3px 28px #0008; }

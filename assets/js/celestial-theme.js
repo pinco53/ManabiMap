@@ -21,16 +21,55 @@
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
     let seed = 1382026;
     const random = () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; };
-    const count = width < 600 ? 6500 : 16000;
+    const scatter = () => random() + random() + random() - 1.5;
+    const compact = width < 600;
+    const count = compact ? 18000 : 48000;
+    const centerX = width * (compact ? .62 : .78);
+    const centerY = height * (compact ? .55 : .48);
+    const spanX = Math.min(width * (compact ? .72 : .62), height * 1.45);
+    const spanY = Math.min(height * .47, width * .31);
+
+    context.save();
+    context.translate(centerX, centerY);
+    context.scale(1, .5);
+    const coreGlow = context.createRadialGradient(0, 0, 0, 0, 0, spanY * 1.05);
+    coreGlow.addColorStop(0, 'rgba(224,201,152,.18)');
+    coreGlow.addColorStop(.22, 'rgba(161,181,207,.08)');
+    coreGlow.addColorStop(1, 'rgba(70,102,140,0)');
+    context.fillStyle = coreGlow;
+    context.fillRect(-spanY * 1.1, -spanY * 1.1, spanY * 2.2, spanY * 2.2);
+    context.restore();
+
     for (let i = 0; i < count; i++) {
-      const field = i < count * .08;
-      const angle = random() * Math.PI * 2;
-      const radius = Math.pow(random(), 1.75);
-      const x = field ? random() * width : width * .78 + Math.cos(angle) * radius * width * .58;
-      const y = field ? random() * height : height * .48 + Math.sin(angle) * radius * height * .4 - (x - width * .78) * .15;
-      const alpha = (.1 + random() * .42) * (field ? 1 : .8 - radius * .4);
-      context.fillStyle = radius < .32 && !field ? `rgba(224,201,152,${alpha})` : `rgba(185,205,228,${alpha})`;
-      const size = random() < .005 ? 1.6 : .3 + random() * .65;
+      const population = random();
+      let x, y, radius = 1, alpha;
+      if (population < .13) {
+        x = random() * width;
+        y = random() * height;
+        alpha = .08 + random() * .32;
+      } else {
+        let angle;
+        if (population < .25) {
+          radius = Math.pow(random(), 2.7) * .24;
+          angle = random() * Math.PI * 2;
+          alpha = .18 + random() * .5;
+        } else if (population < .91) {
+          radius = .035 + Math.pow(random(), .78) * .98;
+          const arm = Math.floor(random() * 4);
+          angle = arm * Math.PI / 2 + radius * 5.35 + scatter() * (.1 + radius * .2);
+          alpha = (.1 + random() * .46) * (1 - radius * .28);
+        } else {
+          radius = Math.sqrt(random()) * 1.18;
+          angle = random() * Math.PI * 2;
+          alpha = (.055 + random() * .19) * (1 - Math.min(radius, 1) * .35);
+        }
+        const localX = Math.cos(angle) * radius * spanX;
+        const localY = Math.sin(angle) * radius * spanY + scatter() * spanY * (.025 + radius * .055);
+        x = centerX + localX * .985 - localY * .174;
+        y = centerY + localX * .174 + localY * .985;
+      }
+      context.fillStyle = radius < .3 && population >= .13 ? `rgba(226,204,158,${alpha})` : `rgba(184,205,230,${alpha})`;
+      const size = random() < .007 ? 1.7 : .28 + random() * .72;
       context.fillRect(x, y, size, size);
     }
   }
