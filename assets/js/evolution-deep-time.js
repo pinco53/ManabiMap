@@ -18,6 +18,10 @@
     if (date.indexOf('約3分後') >= 0 || /3 minutes? after/i.test(date)) return MAX_AGE - 0.000006;
     const englishAgo = date.match(/([\d.]+)\s*(billion|million|thousand)?\s*years? ago/i);
     if (englishAgo) return Number(englishAgo[1]) * (englishAgo[2] && englishAgo[2].toLowerCase() === 'billion' ? 1e9 : englishAgo[2] && englishAgo[2].toLowerCase() === 'million' ? 1e6 : englishAgo[2] && englishAgo[2].toLowerCase() === 'thousand' ? 1e3 : 1);
+    const englishCenturyBce = date.match(/(\d+)(?:st|nd|rd|th)\s+century\s+(?:BCE|BC)/i);
+    if (englishCenturyBce) return PRESENT + Number(englishCenturyBce[1]) * 100 - 50;
+    const englishBce = date.match(/([\d,]+)\s*(?:BCE|BC)/i);
+    if (englishBce) return PRESENT + Number(englishBce[1].replace(/,/g, '')) - 1;
     const ago = date.match(/([\d.]+)(億|万)?年前/);
     if (ago) return Number(ago[1]) * (ago[2] === '億' ? 1e8 : ago[2] === '万' ? 1e4 : 1);
     const centuryRange = date.match(/(\d+)〜\d+世紀/);
