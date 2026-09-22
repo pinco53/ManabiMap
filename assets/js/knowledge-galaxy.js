@@ -212,8 +212,8 @@
 
   // Keep the named learning stars readable while giving the surrounding
   // galaxy enough fine-grained light to feel deep rather than empty.
-  const STAR_COUNT = 500000;
-  const MOBILE_STAR_COUNT = 250000;
+  const STAR_COUNT = 800000;
+  const MOBILE_STAR_COUNT = 400000;
   const STRIDE = 8;
   const gl = starCanvas.getContext('webgl', { alpha: false, antialias: false, powerPreference: 'high-performance' });
   let galaxyReady = false, galaxyUniforms = {}, galaxyDpr = 1, galaxyTime = 0, galaxyZoom = .84 + depth * .018;
