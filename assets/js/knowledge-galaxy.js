@@ -65,7 +65,7 @@
     const english = englishParts[part.id];
     const localized = isEnglish && english ? {
       title: english[0], questions: [english[1]], group: englishGroups[part.group] || 'MANABI MAP',
-      pageUrl: part.pageUrl ? '../' + part.pageUrl : '../map.html'
+      pageUrl: 'part.html?id=' + encodeURIComponent(part.id)
     } : {};
     return Object.assign({}, part, localized, { lenses: lenses });
   });
