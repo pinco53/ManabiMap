@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manabi Map | Explore the World, Think with AI</title>
+  <meta name="description" content="Explore the turning points, tools, ideas, and questions that shaped humanity—then use AI dialogue to develop your own thinking.">
+  <meta name="theme-color" content="#040910">
+  <link rel="canonical" href="https://pinco53.github.io/ManabiMap/en/">
+  <link rel="alternate" hreflang="ja" href="https://pinco53.github.io/ManabiMap/">
+  <link rel="alternate" hreflang="en" href="https://pinco53.github.io/ManabiMap/en/">
+  <link rel="alternate" hreflang="x-default" href="https://pinco53.github.io/ManabiMap/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Manabi Map">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Manabi Map | Explore the World, Think with AI">
+  <meta property="og:description" content="A galaxy of questions connecting human history, knowledge, and AI.">
+  <meta property="og:url" content="https://pinco53.github.io/ManabiMap/en/">
+  <meta property="og:image" content="https://pinco53.github.io/ManabiMap/assets/social/og-manabimap-lens-20260801.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://pinco53.github.io/ManabiMap/assets/social/og-manabimap-lens-20260801.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Zen+Old+Mincho:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/brand-v2.css?v=20260906-9">
+  <link rel="stylesheet" href="../assets/css/knowledge-galaxy.css?v=20260923-1">
+  <link rel="stylesheet" href="../assets/css/celestial-theme.css?v=20260923-1" media="screen">
+</head>
+<body class="galaxy-in-view celestial-site">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-site-header>
+    <a class="brand" href="index.html" aria-label="Manabi Map English home">
+      <svg class="brand__mark" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="8"></circle><ellipse cx="28" cy="28" rx="23" ry="13"></ellipse><ellipse cx="28" cy="28" rx="13" ry="23" transform="rotate(34 28 28)"></ellipse><circle class="brand__star" cx="49" cy="24" r="2.4"></circle></svg>
+      <span class="brand__text"><span class="brand__name">Manabi Map</span><span class="brand__concept">A LENS ON KNOWLEDGE</span></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="evolution.html">Timeline</a><a href="../map.html">Learning Map <small>JP</small></a><a href="../note.html">Read <small>JP</small></a><a href="../podcast.html">Listen <small>JP</small></a><a href="../index.html" lang="ja" hreflang="ja">JA</a></nav>
+    <details class="mobile-nav"><summary aria-label="Open menu"><span></span><span></span><span></span></summary><nav aria-label="Mobile navigation"><a href="evolution.html">Timeline</a><a href="../map.html">Learning Map · Japanese</a><a href="../note.html">Read · Japanese</a><a href="../podcast.html">Listen · Japanese</a><a href="../index.html" lang="ja" hreflang="ja">日本語</a></nav></details>
+  </header>
+
+  <main id="main">
+    <section class="knowledge-galaxy" id="galaxy" aria-labelledby="galaxy-question">
+      <canvas class="knowledge-galaxy__stars" id="knowledgeGalaxyStars" aria-hidden="true"></canvas>
+      <canvas class="knowledge-galaxy__field" id="knowledgeGalaxyField" aria-label="An interactive galaxy of Manabi Map's learning themes"></canvas>
+      <div class="knowledge-galaxy__grain" aria-hidden="true"></div>
+
+      <div class="knowledge-galaxy__count"><strong id="galaxyStarCount">—</strong><span>STARS OF LEARNING</span><i></i><strong id="galaxyPartCount">—</strong><span>CONSTELLATIONS</span></div>
+      <button class="knowledge-galaxy__random" id="galaxyRandom" type="button"><span aria-hidden="true">✦</span> Take me to a question</button>
+
+      <aside class="knowledge-galaxy__lenses" aria-label="Choose the gravity of a question">
+        <div class="knowledge-galaxy__lens-title"><span aria-hidden="true">✦</span><span>CHOOSE<br>A GRAVITY</span></div>
+        <button type="button" data-galaxy-lens="all"><i></i><span>All</span><b></b></button>
+        <button type="button" data-galaxy-lens="thinking" aria-pressed="true"><i></i><span>Humans &amp; AI</span><b></b></button>
+        <button type="button" data-galaxy-lens="learning"><i></i><span>Learning</span><b></b></button>
+        <button type="button" data-galaxy-lens="language"><i></i><span>Language &amp; Thought</span><b></b></button>
+        <button type="button" data-galaxy-lens="tool"><i></i><span>Tools &amp; Humans</span><b></b></button>
+        <button type="button" data-galaxy-lens="number"><i></i><span>Numbers &amp; Value</span><b></b></button>
+      </aside>
+
+      <div class="knowledge-galaxy__question" aria-live="polite">
+        <span>GRAVITY / SELECTED QUESTION</span>
+        <h1 id="galaxy-question">In an age when AI can produce answers,<br>what does it mean for humans to think?</h1>
+        <p id="galaxyQuestionCount"></p>
+      </div>
+
+      <div class="knowledge-galaxy__hint" aria-hidden="true"><span>Move the stars</span><i></i><span>Choose a point</span><i></i><span>Scroll to dive deeper</span></div>
+
+      <aside class="knowledge-galaxy-card" id="galaxyCard" aria-live="polite" aria-hidden="true">
+        <button class="knowledge-galaxy-card__close" id="galaxyCardClose" type="button" aria-label="Close details">×</button>
+        <p id="galaxyCardGroup"></p><small id="galaxyCardPart"></small><h2 id="galaxyCardTitle"></h2><blockquote id="galaxyCardQuestion"></blockquote>
+        <div class="knowledge-galaxy-card__entries"><a id="galaxyCardPartLink" href="../map.html">Open part · JP</a><a href="../note.html">Read · JP</a><a href="../podcast.html">Listen · JP</a></div>
+        <a class="knowledge-galaxy-card__dialogue" href="../questions.html"><small>THINK WITH AI · JP</small><span>Continue from this question</span><b>→</b></a>
+      </aside>
+
+      <a class="knowledge-galaxy__timeline" href="evolution.html">Travel the 13.8-billion-year timeline <span>→</span></a>
+      <a class="knowledge-galaxy__continue" href="#start">Choose a path ↓</a>
+
+      <footer class="knowledge-galaxy__depth">
+        <div><span>DEPTH OF VIEW</span><strong id="galaxyDepthText">See the whole</strong></div><small>Whole</small><input id="galaxyDepth" aria-label="Change the depth of the map" type="range" min="0" max="100" value="18"><small>Parts &amp; essays</small><output id="galaxyDepthOutput">18 / 100</output>
+      </footer>
+    </section>
+
+    <section class="home-core section" id="start" aria-label="Choose where to begin">
+      <div class="section__inner">
+        <header class="home-core__heading"><p class="section-label">CHOOSE ONE</p></header>
+        <div class="home-core__grid">
+          <a class="home-core__card home-core__card--primary" href="evolution.html"><span>01</span><strong>Explore the Timeline</strong><small>13.8 billion years of turning points</small><em>→</em></a>
+          <a class="home-core__card" href="../map.html"><span>02</span><strong>Learning Map</strong><small>Choose a part · Japanese</small><em>→</em></a>
+          <a class="home-core__card" href="../note.html"><span>03</span><strong>Read</strong><small>Essays · Japanese</small><em>→</em></a>
+          <a class="home-core__card" href="../podcast.html"><span>04</span><strong>Listen</strong><small>Podcasts · Japanese</small><em>→</em></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-first" aria-labelledby="home-first-title">
+      <div class="home-first__inner">
+        <div><p class="section-label section-label--light">FIRST VISIT</p><h2 id="home-first-title">Begin with a question.</h2></div>
+        <p>Follow it into history, science, language, and AI. Manabi Map is becoming bilingual; most essays and audio are currently in Japanese.</p>
+        <a class="button button--light-filled" href="evolution.html">Explore the English timeline</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div><a class="brand brand--footer" href="index.html"><span class="brand__name">Manabi Map</span><span class="brand__concept">A LENS ON KNOWLEDGE</span></a><p>See the world more clearly, then think it through with AI.</p></div>
+      <nav aria-label="Footer navigation"><a href="evolution.html">Timeline</a><a href="../map.html">Learning Map · JP</a><a href="../note.html">Read · JP</a><a href="../podcast.html">Listen · JP</a><a href="../index.html" lang="ja" hreflang="ja">日本語</a></nav>
+      <p class="site-footer__copyright">© 2025–2026 Manabi Map</p>
+    </div>
+  </footer>
+  <script src="../assets/js/manabimap-data.js?v=20260906-2"></script>
+  <script src="../assets/js/brand-v2.js" defer></script>
+  <script src="../assets/js/knowledge-galaxy.js?v=20260923-1"></script>
+</body>
+</html>

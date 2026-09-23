@@ -6,13 +6,51 @@
   const fieldCanvas = document.getElementById('knowledgeGalaxyField');
   if (!data || !section || !starCanvas || !fieldCanvas) return;
 
-  const lensMeta = {
+  const isEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
+  const lensMetaJa = {
     all: { label: 'すべて', question: '世界の知識は、どこでつながっている？' },
     thinking: { label: '人間とAI', question: 'AIが答えを出せる時代に、人間が考えるとは何か。' },
     learning: { label: '学ぶこと', question: '学ぶとは、答えを増やすことか、問いを増やすことか。' },
     language: { label: '言葉と思考', question: '言葉は思考を作るのか、思考が言葉を作るのか。' },
     tool: { label: '道具と人間', question: '道具を使うことと、道具に使われることの境界はどこか。' },
     number: { label: '数と価値', question: '数字で測れないものに、どう価値を与えるのか。' }
+  };
+  const lensMetaEn = {
+    all: { label: 'All', question: "Where does the world's knowledge connect?" },
+    thinking: { label: 'Humans & AI', question: 'In an age when AI can produce answers, what does it mean for humans to think?' },
+    learning: { label: 'Learning', question: 'Is learning about gaining answers—or growing questions?' },
+    language: { label: 'Language & Thought', question: 'Does language shape thought, or does thought shape language?' },
+    tool: { label: 'Tools & Humans', question: 'Where is the boundary between using tools and being used by them?' },
+    number: { label: 'Numbers & Value', question: 'How do we value what cannot be measured?' }
+  };
+  const lensMeta = isEnglish ? lensMetaEn : lensMetaJa;
+  const englishParts = {
+    part1: ['The Age of Steam', 'What did machines free humans from—and what did they bind us to?'],
+    part2: ['A Connected World', 'Is being connected the same as being close?'],
+    part3: ['Living with AI', 'When AI seems to think, what does it mean for a human to think?'],
+    part4: ['The Adventure of Writing and Knowledge', 'How did human memory change once knowledge could live outside the mind?'],
+    part5: ['The Journey of Language and Thought', 'How does thought exist in a world without words?'],
+    part6: ['Numbers and the World', 'Did numbers make the world easier to see—or narrower?'],
+    part7: ['Beyond Human Assumptions', 'What becomes visible when we let go of what humans take for granted?'],
+    part8: ['Between AI and Humans', 'What is generative AI actually generating?'],
+    'part8-2': ['The Day AI Enters Everyday Life', 'In an age when AI can do homework, what does it mean to be educated?'],
+    part9: ["The Body's Deep Time", 'How do we live in the age of generative AI with bodies shaped in the Paleolithic?'],
+    part10: ['The Depths of Sensibility', 'Can human sensibility be reproduced?'],
+    part11: ['How Do Humans Begin to Learn?', 'How do we learn before anyone teaches us?'],
+    part12: ["Why Can't We Learn Alone?", 'Why can dialogue take us where we cannot reach alone?'],
+    part13: ['What Is Learning?', 'Why do humans learn, and why do we sometimes close ourselves to learning?'],
+    part14: ['The Earth Is Moving', 'Is science about knowing the right answer?'],
+    part15: ['Maybe You Only Think You Understand', 'Are understanding and thinking the same?'],
+    part16: ['Energy and Human History', 'Each time we gained a new source of energy, what did it free us from?'],
+    part17: ['Exchange and Cooperation', 'How did humans become able to cooperate with strangers?'],
+    part18: ['Why Do Humans Misunderstand?', 'Is the reality we see the world itself?'],
+    part19: ['Why Do Humans Move?', 'Why do humans leave the places where they are?'],
+    part20: ['If We Have Surplus, Why Is It Still Not Enough?', 'Can we allow spare capacity to remain spare?']
+  };
+  const englishGroups = {
+    '三大革命': 'THREE REVOLUTIONS', '文明の道具': 'TOOLS OF CIVILIZATION', '前提を超える': 'BEYOND ASSUMPTIONS',
+    'いま、ここ': 'THE PRESENT MOMENT', '身体と進化': 'BODY & EVOLUTION', '人間と学び': 'HUMANS & LEARNING',
+    '見方を更新する': 'RENEWING THE VIEW', '文明と未来': 'CIVILIZATION & FUTURES', '見方と判断': 'PERCEPTION & JUDGMENT'
   };
   const lensKeys = Object.keys(lensMeta);
   const parts = data.parts.map(function (part) {
@@ -24,7 +62,12 @@
     if (/道具|機械|技術|AI|蒸気|コンピュータ|エネルギー|デジタル|交換|移動/.test(text)) lenses.push('tool');
     if (/数字|価値|測|計算|エネルギー|交換|余っ|足り|経済/.test(text)) lenses.push('number');
     if (!lenses.length) lenses.push('learning');
-    return Object.assign({}, part, { lenses: lenses });
+    const english = englishParts[part.id];
+    const localized = isEnglish && english ? {
+      title: english[0], questions: [english[1]], group: englishGroups[part.group] || 'MANABI MAP',
+      pageUrl: part.pageUrl ? '../' + part.pageUrl : '../map.html'
+    } : {};
+    return Object.assign({}, part, localized, { lenses: lenses });
   });
 
   let activeLens = 'thinking';
@@ -55,8 +98,11 @@
   const depthOutput = document.getElementById('galaxyDepthOutput');
   function updateInterface() {
     questionTitle.textContent = lensMeta[activeLens].question;
-    questionCount.textContent = parts.filter(related).length + 'の学びが、この問いの重力に引き寄せられています。';
-    depthText.textContent = depth < 34 ? '全体を眺める' : depth < 70 ? '部のあいだを歩く' : '一つの問いへ潜る';
+    const relatedCount = parts.filter(related).length;
+    questionCount.textContent = isEnglish ? relatedCount + ' paths of learning are drawn into this question.' : relatedCount + 'の学びが、この問いの重力に引き寄せられています。';
+    depthText.textContent = isEnglish
+      ? (depth < 34 ? 'See the whole' : depth < 70 ? 'Walk among the parts' : 'Dive into one question')
+      : (depth < 34 ? '全体を眺める' : depth < 70 ? '部のあいだを歩く' : '一つの問いへ潜る');
     depthOutput.value = Math.round(depth) + ' / 100';
     depthInput.value = String(Math.round(depth));
   }
@@ -85,7 +131,7 @@
     document.getElementById('galaxyCardPart').textContent = 'PART ' + part.number;
     document.getElementById('galaxyCardTitle').textContent = part.title;
     document.getElementById('galaxyCardQuestion').textContent = (part.questions && part.questions[0]) || part.subtitle || '';
-    document.getElementById('galaxyCardPartLink').href = part.pageUrl || 'map.html';
+    document.getElementById('galaxyCardPartLink').href = part.pageUrl || (isEnglish ? '../map.html' : 'map.html');
     card.classList.add('is-open');
     card.setAttribute('aria-hidden', 'false');
   }
@@ -190,8 +236,10 @@
       field.beginPath(); field.arc(target.x, target.y, isSelected ? 20 : 12, 0, Math.PI * 2); field.fillStyle = visible ? '#dbebff1f' : '#8496ae0a'; field.fill();
       field.beginPath(); field.arc(target.x, target.y, isSelected ? 6 : visible ? 4 : 2, 0, Math.PI * 2); field.fillStyle = visible ? '#e8f2ff' : '#4d5868'; field.fill();
       if (isSelected) { field.beginPath(); field.arc(target.x, target.y, 13 + Math.sin(frame * .05) * 2, 0, Math.PI * 2); field.strokeStyle = '#e8f2ffc7'; field.lineWidth = 1.2; field.stroke(); }
-      if (visible && (isSelected || near || (width > 760 && depth < 62))) {
-        field.font = (isSelected ? '600 13px' : '500 10px') + ' "Noto Sans JP", sans-serif';
+      const behindQuestion = width > 760 && target.y < 310 && target.x > 210 && target.x < 780;
+      const overviewLabel = width > 760 && depth < 62 && !behindQuestion && (!isEnglish || index % 2 === 0);
+      if (visible && (isSelected || near || overviewLabel)) {
+        field.font = (isSelected ? '600 13px' : '500 10px') + (isEnglish ? ' "Inter", sans-serif' : ' "Noto Sans JP", sans-serif');
         field.fillStyle = isSelected ? '#fff' : '#ebebf6d1';
         field.fillText(part.number + '  ' + part.title, target.x + 12, target.y - 7);
       }

@@ -23,7 +23,9 @@
     const random = () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; };
     const scatter = () => random() + random() + random() - 1.5;
     const compact = width < 600;
-    const count = compact ? 18000 : 48000;
+    // A dense field keeps every inner-page hero feeling like the same galaxy.
+    // Most added stars are intentionally tiny and faint so the copy stays clear.
+    const count = compact ? 42000 : 110000;
     const centerX = width * (compact ? .62 : .78);
     const centerY = height * (compact ? .55 : .48);
     const spanX = Math.min(width * (compact ? .72 : .62), height * 1.45);
@@ -43,25 +45,25 @@
     for (let i = 0; i < count; i++) {
       const population = random();
       let x, y, radius = 1, alpha;
-      if (population < .13) {
+      if (population < .18) {
         x = random() * width;
         y = random() * height;
-        alpha = .08 + random() * .32;
+        alpha = .055 + random() * .27;
       } else {
         let angle;
-        if (population < .25) {
+        if (population < .30) {
           radius = Math.pow(random(), 2.7) * .24;
           angle = random() * Math.PI * 2;
-          alpha = .18 + random() * .5;
-        } else if (population < .91) {
+          alpha = .14 + random() * .43;
+        } else if (population < .93) {
           radius = .035 + Math.pow(random(), .78) * .98;
           const arm = Math.floor(random() * 4);
           angle = arm * Math.PI / 2 + radius * 5.35 + scatter() * (.1 + radius * .2);
-          alpha = (.1 + random() * .46) * (1 - radius * .28);
+          alpha = (.07 + random() * .37) * (1 - radius * .28);
         } else {
           radius = Math.sqrt(random()) * 1.18;
           angle = random() * Math.PI * 2;
-          alpha = (.055 + random() * .19) * (1 - Math.min(radius, 1) * .35);
+          alpha = (.04 + random() * .15) * (1 - Math.min(radius, 1) * .35);
         }
         const localX = Math.cos(angle) * radius * spanX;
         const localY = Math.sin(angle) * radius * spanY + scatter() * spanY * (.025 + radius * .055);
@@ -69,7 +71,7 @@
         y = centerY + localX * .174 + localY * .985;
       }
       context.fillStyle = radius < .3 && population >= .13 ? `rgba(226,204,158,${alpha})` : `rgba(184,205,230,${alpha})`;
-      const size = random() < .007 ? 1.7 : .28 + random() * .72;
+      const size = random() < .004 ? 1.55 : .2 + random() * .58;
       context.fillRect(x, y, size, size);
     }
   }

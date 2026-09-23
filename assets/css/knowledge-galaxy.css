@@ -78,6 +78,11 @@
 .knowledge-galaxy__depth input::-webkit-slider-thumb { width: 13px; height: 13px; margin-top: -6px; appearance: none; border: 2px solid #06101c; border-radius: 50%; background: var(--galaxy-tone); box-shadow: 0 0 0 4px #dce9ff2e, 0 0 18px var(--galaxy-tone); }
 .knowledge-galaxy__depth output { color: #fff; font: 400 13px 'Zen Old Mincho', serif; text-align: right; white-space: nowrap; }
 
+html[lang="en"] .knowledge-galaxy__question h1 { max-width: 650px; font-size: clamp(21px, 2.05vw, 34px); line-height: 1.4; letter-spacing: .01em; }
+html[lang="en"] .knowledge-galaxy__question p { max-width: 560px; }
+html[lang="en"] .knowledge-galaxy-card h2 { font-size: 25px; line-height: 1.25; }
+html[lang="en"] .knowledge-galaxy-card blockquote { font-family: Inter, sans-serif; font-size: 13px; line-height: 1.65; }
+
 body.galaxy-in-view .site-header,
 body.galaxy-in-view .site-header.is-scrolled { border-bottom-color: #a8b3c11f; background: #02060ce8; box-shadow: none; }
 body.galaxy-in-view .site-header .brand,
