@@ -10,6 +10,7 @@
   var index = data.parts.indexOf(part);
   var previous = data.parts[(index - 1 + data.parts.length) % data.parts.length];
   var next = data.parts[(index + 1) % data.parts.length];
+  function routeFor(item) { return item.englishUrl || ('part.html?id=' + encodeURIComponent(item.id)); }
 
   function setText(id, value) {
     var node = document.getElementById(id);
@@ -49,10 +50,10 @@
   var japaneseLink = document.getElementById('englishPartJapanese');
   japaneseLink.href = part.japaneseUrl;
   var previousLink = document.getElementById('englishPartPrevious');
-  previousLink.href = 'part.html?id=' + encodeURIComponent(previous.id);
+  previousLink.href = routeFor(previous);
   previousLink.textContent = '← PART ' + previous.number + ' · ' + previous.title;
   var nextLink = document.getElementById('englishPartNext');
-  nextLink.href = 'part.html?id=' + encodeURIComponent(next.id);
+  nextLink.href = routeFor(next);
   nextLink.textContent = 'PART ' + next.number + ' · ' + next.title + ' →';
 
   var copyButton = document.getElementById('englishPartCopy');

@@ -63,9 +63,10 @@
     if (/数字|価値|測|計算|エネルギー|交換|余っ|足り|経済/.test(text)) lenses.push('number');
     if (!lenses.length) lenses.push('learning');
     const english = englishParts[part.id];
+    const fullEnglishPart = window.ManabiMapEnglish && window.ManabiMapEnglish.partsById && window.ManabiMapEnglish.partsById[part.id];
     const localized = isEnglish && english ? {
       title: english[0], questions: [english[1]], group: englishGroups[part.group] || 'MANABI MAP',
-      pageUrl: 'part.html?id=' + encodeURIComponent(part.id)
+      pageUrl: fullEnglishPart && fullEnglishPart.englishUrl ? fullEnglishPart.englishUrl : 'part.html?id=' + encodeURIComponent(part.id)
     } : {};
     return Object.assign({}, part, localized, { lenses: lenses });
   });

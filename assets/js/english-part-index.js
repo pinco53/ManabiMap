@@ -23,12 +23,14 @@
       '<header><h2 id="' + headingId + '">' + escapeHtml(group.name) + '</h2><span>' + group.parts.length + (group.parts.length === 1 ? ' map' : ' maps') + '</span></header>' +
       '<div class="simple-part-grid">' + group.parts.map(function (part) {
         var tags = part.tags.slice(0, 3).map(function (tag) { return '<span>' + escapeHtml(tag) + '</span>'; }).join('');
-        return '<a class="simple-part-card" href="part.html?id=' + encodeURIComponent(part.id) + '">' +
+        var href = part.englishUrl || ('part.html?id=' + encodeURIComponent(part.id));
+        var action = part.englishUrl ? 'Read the full English edition' : 'Open this learning map';
+        return '<a class="simple-part-card" href="' + escapeHtml(href) + '">' +
           '<span class="simple-part-card__number">PART ' + escapeHtml(part.number) + '</span>' +
           '<h3>' + escapeHtml(part.title) + '</h3>' +
           '<p>' + escapeHtml(part.subtitle) + '</p>' +
           '<span class="simple-part-card__tags">' + tags + '</span>' +
-          '<strong>Open this learning map <span aria-hidden="true">→</span></strong>' +
+          '<strong>' + action + ' <span aria-hidden="true">→</span></strong>' +
         '</a>';
       }).join('') + '</div>' +
     '</section>';
