@@ -7,9 +7,9 @@
 **公開状態**: published
 **主対象パート**: part12
 **関連PodcastID**: podcast-part12-15
-**関連PodcastURL**: （アップロード後に記入）
+**関連PodcastURL**: https://www.youtube.com/watch?v=bRSBIGUuL7w
 **関連YouTubeID**: youtube-part12
-**関連YouTubeURL**: （アップロード後に記入）
+**関連YouTubeURL**: https://www.youtube.com/watch?v=bRSBIGUuL7w
 **CTA文言**: Podcastで深く聴く
 
 ---
@@ -28,7 +28,7 @@
 教えてくれる先生も、決まったカリキュラムもないのに、
 なぜ、その人たちは学び続けられるのでしょうか。
 
-（Podcast URL 記入予定）
+（Podcast: https://www.youtube.com/watch?v=bRSBIGUuL7w）
 
 ---
 
