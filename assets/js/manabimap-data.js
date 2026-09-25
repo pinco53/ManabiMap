@@ -518,6 +518,7 @@
     { id: 'note-184', number: 184, title: "なぜ尖った帽子は、賢さの印から恥の印になったのか", url: "https://note.com/manabimapcreator/n/n699315b7d3b9", status: "published", kind: "wonder-note", date: "2026-09-22", target: "第13部第2回「なぜ人は学びを閉じてしまうのか」", tags: [], relatedParts: ["part13"], relatedPodcastId: "podcast-part13-2", relatedPodcastUrl: "https://youtu.be/f9aHz-9mSVA", relatedYouTubeId: "youtube-part13", relatedYouTubeUrl: "https://youtu.be/f9aHz-9mSVA", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-184.png", question: "人はなぜ学び、なぜ学びを閉じるのか。", relation: "学びの地図の枝道", primaryPart: "part13", excerpt: "授業中、間違った答えを言って、" },
     { id: 'note-185', number: 185, title: "なぜ学校のベルは、工場のベルに似ているのか", url: "https://note.com/manabimapcreator/n/n225425e193c9", status: "published", kind: "wonder-note", date: "2026-09-23", target: "第13部第3回「学校は何を学ばせているのか」", tags: [], relatedParts: ["part13"], relatedPodcastId: "podcast-part13-3", relatedPodcastUrl: "https://youtu.be/NBHmEDxE_lY", relatedYouTubeId: "youtube-part13", relatedYouTubeUrl: "https://youtu.be/NBHmEDxE_lY", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-185.png", question: "人はなぜ学び、なぜ学びを閉じるのか。", relation: "学びの地図の枝道", primaryPart: "part13", excerpt: "チャイムが鳴ると、授業が始まる。" },
     { id: 'note-186', number: 186, title: "なぜ子ども時代が、何十年も後の体に残るのか", url: "https://note.com/manabimapcreator/n/n1cc9d3fc45c3", status: "published", kind: "wonder-note", date: "2026-09-24", target: "第13部第4回「家庭は何を学ばせているのか」", tags: [], relatedParts: ["part13"], relatedPodcastId: "podcast-part13-4", relatedPodcastUrl: "https://youtu.be/rOXXm-ldnQk", relatedYouTubeId: "youtube-part13", relatedYouTubeUrl: "https://youtu.be/rOXXm-ldnQk", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-186.png", question: "人はなぜ学び、なぜ学びを閉じるのか。", relation: "学びの地図の枝道", primaryPart: "part13", excerpt: "実家の食卓を、ふと思い出すことがあります。" },
+    { id: 'note-187', number: 187, title: "なぜ2600年前の地図も、自分の街を中心に描いたのか", url: "https://note.com/manabimapcreator/n/n0544dd0b7514", status: "published", kind: "wonder-note", date: "2026-09-25", target: "第14部第1回「人はなぜ自分のいる場所を世界の中心だと思うのか」", tags: [], relatedParts: ["part14"], relatedPodcastId: "podcast-part14-1", relatedPodcastUrl: "https://www.youtube.com/watch?v=vtva1rau3Ro", relatedYouTubeId: "youtube-part14", relatedYouTubeUrl: "https://www.youtube.com/watch?v=vtva1rau3Ro", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-187.png", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "旅行先で地図アプリを開くと、" },
     { id: 'note-217', number: 217, title: "火が、人間の脳を大きくした", url: "https://note.com/manabimapcreator/n/n9d954ce96557", status: "published", kind: "wonder-note", date: "2026-09-20", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-3", relatedPodcastUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", relatedYouTubeId: "youtube-part9-3", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-217.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "生の肉と、焼いた肉。同じ量を食べても、満足感がまるで違うと感じたことはないでしょうか。" }
   ];
 
@@ -1775,6 +1776,15 @@
       type: 'podcast',
       title: '第二章総まとめ——「評価は学びを助けるのか、傷つけるのか」5話の核心を再接続｜まるごと聴く 学習心理学【ハルとおじいさん #12P-第二章】',
       url: 'https://youtu.be/OaOCcYT1y90',
+      relatedParts: ['part12'],
+      question: '人はなぜ、一人では学べないのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part12-chapter3',
+      type: 'podcast',
+      title: '第三章総まとめ——「AIとの対話は、人間との対話と何が違うのか」5話の核心を再接続、そして第12部完結｜まるごと聴く 学習心理学【ハルとおじいさん #12P-第三章】',
+      url: 'https://youtu.be/_BLKCfpExpk',
       relatedParts: ['part12'],
       question: '人はなぜ、一人では学べないのか。',
       relation: 'Podcastで深める'
