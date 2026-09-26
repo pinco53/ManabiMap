@@ -1790,6 +1790,15 @@
       relation: 'Podcastで深める'
     },
     {
+      id: 'podcast-part19-1',
+      type: 'podcast',
+      title: '人はなぜ、今いる場所を離れるのか｜まるごと聴く 移動が人類を変えた理由【ハルとおじいさん #19P-1】',
+      url: 'https://youtu.be/WsUETfm1VX0',
+      relatedParts: ['part19'],
+      question: '人間は、なぜ今いる場所を離れるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
       id: 'podcast-part13-1',
       type: 'podcast',
       title: '人間を人間にしたものは何か｜まるごと聴く 累積文化と学びのリレー【ハルとおじいさん #13P-1】',
