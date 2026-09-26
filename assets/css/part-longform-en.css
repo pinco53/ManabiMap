@@ -13,6 +13,20 @@
 .en-longform[data-part="5"] .en-longform__hero h1::before { content: "PART 05"; }
 .en-longform[data-part="6"] .en-longform__hero h1::before { content: "PART 06"; }
 .en-longform[data-part="7"] .en-longform__hero h1::before { content: "PART 07"; }
+body[data-english-part="part8"] .en-longform__hero h1::before { content: "PART 08-1"; }
+body[data-english-part="part8-2"] .en-longform__hero h1::before { content: "PART 08-2"; }
+body[data-english-part="part9"] .en-longform__hero h1::before { content: "PART 09"; }
+body[data-english-part="part10"] .en-longform__hero h1::before { content: "PART 10"; }
+body[data-english-part="part11"] .en-longform__hero h1::before { content: "PART 11"; }
+body[data-english-part="part12"] .en-longform__hero h1::before { content: "PART 12"; }
+body[data-english-part="part13"] .en-longform__hero h1::before { content: "PART 13"; }
+body[data-english-part="part14"] .en-longform__hero h1::before { content: "PART 14"; }
+body[data-english-part="part15"] .en-longform__hero h1::before { content: "PART 15"; }
+body[data-english-part="part16"] .en-longform__hero h1::before { content: "PART 16"; }
+body[data-english-part="part17"] .en-longform__hero h1::before { content: "PART 17"; }
+body[data-english-part="part18"] .en-longform__hero h1::before { content: "PART 18"; }
+body[data-english-part="part19"] .en-longform__hero h1::before { content: "PART 19"; }
+body[data-english-part="part20"] .en-longform__hero h1::before { content: "PART 20"; }
 .en-longform__subtitle { max-width: 760px; margin: 0 auto; color: var(--starlight-soft); font-size: clamp(14px, 1.5vw, 18px); line-height: 1.8; letter-spacing: .1em; }
 .en-longform__questions { position: relative; display: grid; justify-items: center; max-width: 850px; margin: 27px auto 0; padding-bottom: 70px; }
 .en-longform__questions::before { content: "THIS PART ASKS"; margin-bottom: 17px; color: #c99078; font-size: 9px; font-weight: 600; letter-spacing: .18em; }
@@ -84,6 +98,9 @@ body.celestial-site.en-longform .en-longform__hero-actions .button--light-filled
 .en-longform__bridge { margin-top: 70px; padding: clamp(30px, 5vw, 54px); border: 1px solid #8ba9c94d; border-radius: 20px; background: radial-gradient(circle at 90% 15%, #8ba9c91c, transparent 42%), var(--surface); }
 .en-longform__bridge strong { display: block; margin: 16px 0; font: 500 clamp(25px, 3vw, 38px)/1.45 var(--stellar-serif); }
 .en-longform__footer-nav { display: flex; justify-content: space-between; gap: 18px; margin-top: 50px; flex-wrap: wrap; }
+.en-longform__prompt-box { display: grid; gap: 16px; margin-top: 32px; }
+.en-longform__prompt-box textarea { width: 100%; min-height: 210px; padding: 24px; resize: vertical; border: 1px solid #d7be8b4d; border-radius: 14px; color: var(--starlight); background: #040910cc; font: 14px/1.9 Inter, sans-serif; }
+.en-longform__prompt-box .button { width: fit-content; }
 
 @media (max-width: 720px) {
   .en-longform__hero { min-height: calc(100svh - 68px); }
