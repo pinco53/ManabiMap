@@ -1,0 +1,319 @@
+/* Shared connector panel for each "学びの地図" part page. */
+.part-map-bridge {
+  width: min(980px, calc(100% - 32px));
+  margin: 28px auto 42px;
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background:
+    radial-gradient(ellipse 520px 220px at 18% 0%, rgba(0,212,255,0.16), transparent 70%),
+    radial-gradient(ellipse 420px 200px at 86% 12%, rgba(191,95,255,0.12), transparent 72%),
+    linear-gradient(145deg, rgba(10,10,18,0.96), rgba(18,18,32,0.94));
+  color: #e8edf8;
+  box-shadow: 0 20px 56px rgba(0,0,0,0.28);
+  overflow: hidden;
+}
+
+.part-map-bridge * {
+  box-sizing: border-box;
+}
+
+.part-map-bridge__head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: start;
+  padding: 24px 26px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.part-map-bridge__label {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: #00d4ff;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.part-map-bridge__title {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.35;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.part-map-bridge__subtitle {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #aab4c8;
+}
+
+.part-map-bridge__top-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 15px;
+  border-radius: 6px;
+  border: 1px solid #00d4ff;
+  color: #00d4ff;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.part-map-bridge__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 0;
+}
+
+.part-map-bridge__main,
+.part-map-bridge__side {
+  padding: 22px 26px 24px;
+}
+
+.part-map-bridge__side {
+  border-left: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.025);
+}
+
+.part-map-bridge__section-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: #8d99b3;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.part-map-bridge__questions {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.part-map-bridge__question {
+  position: relative;
+  padding: 13px 15px;
+  border-left: 1px solid rgba(0,212,255,0.55);
+  background: rgba(0,212,255,0.06);
+  color: #eef6ff;
+  font-family: 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 13px;
+  line-height: 1.85;
+}
+/* 星座の端点。問いの線の起点に小さな星をひとつ。 */
+.part-map-bridge__question::before {
+  content: '';
+  position: absolute;
+  left: -2.5px;
+  top: 13px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #00d4ff;
+  box-shadow: 0 0 8px rgba(0,212,255,0.7);
+}
+
+.part-map-bridge__route-summary {
+  margin-bottom: 20px;
+}
+
+.part-map-bridge__route-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.part-map-bridge__route-steps span {
+  position: relative;
+  min-height: 44px;
+  padding: 9px 10px;
+  border: 1px solid rgba(0,212,255,0.18);
+  border-radius: 8px;
+  background: rgba(0,212,255,0.055);
+  color: #dffaff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.55;
+}
+/* ステップ間をつなぐ星座の糸（デスクトップの横並びのみ） */
+.part-map-bridge__route-steps span + span::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  width: 8px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0,212,255,0.6), rgba(0,212,255,0.25));
+}
+
+.part-map-bridge__links,
+.part-map-bridge__notes,
+.part-map-bridge__next {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.part-map-bridge__lanes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.part-map-bridge__lane {
+  display: grid;
+  gap: 8px;
+  min-height: 160px;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.16);
+}
+
+.part-map-bridge__lane-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.part-map-bridge__lane--watch .part-map-bridge__lane-label { color: #ffd700; }
+.part-map-bridge__lane--listen .part-map-bridge__lane-label { color: #ffb86b; }
+.part-map-bridge__lane--read .part-map-bridge__lane-label { color: #41c9b4; }
+
+.part-map-bridge__lane-title {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.part-map-bridge__lane-text {
+  color: #aab4c8;
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.part-map-bridge__lane-action {
+  align-self: end;
+  width: fit-content;
+  margin-top: auto;
+  min-height: 32px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.part-map-bridge__lane--watch .part-map-bridge__lane-action { color: #ffd700; }
+.part-map-bridge__lane--listen .part-map-bridge__lane-action { color: #ffb86b; }
+.part-map-bridge__lane--read .part-map-bridge__lane-action { color: #41c9b4; }
+
+.part-map-bridge__lane--empty {
+  opacity: 0.72;
+}
+
+.part-map-bridge__button,
+.part-map-bridge__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.16);
+  color: #dfe8f8;
+  background: rgba(0,0,0,0.18);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.part-map-bridge__button {
+  border-radius: 6px;
+  border-color: currentColor;
+  color: #00d4ff;
+  padding: 8px 14px;
+}
+
+.part-map-bridge__button--video {
+  color: #ffd700;
+}
+
+.part-map-bridge__button--note {
+  color: #41c9b4;
+}
+
+.part-map-bridge__note-empty {
+  font-size: 12px;
+  color: #8d99b3;
+  line-height: 1.7;
+}
+
+.part-map-bridge__block + .part-map-bridge__block {
+  margin-top: 20px;
+}
+
+.shooting-star-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 20;
+  mix-blend-mode: screen;
+}
+
+@media (max-width: 760px) {
+  .part-map-bridge {
+    width: min(100% - 18px, 980px);
+    margin-top: 18px;
+  }
+
+  .part-map-bridge__head,
+  .part-map-bridge__body {
+    display: block;
+  }
+
+  .part-map-bridge__head {
+    padding: 22px 18px 18px;
+  }
+
+  .part-map-bridge__top-link {
+    margin-top: 14px;
+  }
+
+  .part-map-bridge__main,
+  .part-map-bridge__side {
+    padding: 20px 18px;
+  }
+
+  .part-map-bridge__side {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .part-map-bridge__lanes {
+    grid-template-columns: 1fr;
+  }
+
+  .part-map-bridge__route-steps {
+    grid-template-columns: 1fr;
+  }
+
+  /* 縦積みでは横の糸を消す */
+  .part-map-bridge__route-steps span + span::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shooting-star-canvas {
+    display: none;
+  }
+}

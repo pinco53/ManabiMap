@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+  <title>AIと対話する｜Manabi Map</title>
+  <script>
+    (function () {
+      var routes = {
+        understanding: 'parts/part15.html#theme-01',
+        thinking: 'parts/part3.html#theme-01',
+        language: 'parts/part5.html#theme-01',
+        number: 'parts/part6.html#theme-01',
+        connection: 'parts/part2.html#theme-01',
+        cooperation: 'parts/part17.html#theme-01',
+        reality: 'parts/part18.html#theme-01'
+      };
+      var id = new URLSearchParams(window.location.search).get('id');
+      window.location.replace(routes[id] || 'questions.html');
+    })();
+  </script>
+</head>
+<body><p>AI対話の入口を整理しました。<a href="questions.html">部を選ぶ</a>からお進みください。</p></body>
+</html>

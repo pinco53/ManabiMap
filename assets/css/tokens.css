@@ -1,0 +1,173 @@
+/* ==========================================================================
+   ManabiMap Design Tokens
+   共通デザイントークン。夜の星図（黒基調＋ネオン）を貫く基盤。
+   DESIGN_ENHANCEMENT_PLAN_2026-07-05.md Phase 1
+   ========================================================================== */
+
+:root {
+  /* ---- 背景 ---- */
+  --bg: #08080d;
+  --bg-panel: #10101a;
+  --bg-card: #10101a;
+  --bg-card-hover: #18182a;
+
+  /* ---- 文字 ---- */
+  --text: #e8e8f0;
+  --text-dim: #a3a3bf;
+  --text-bright: #ffffff;
+
+  /* ---- 境界線 ---- */
+  --border: #2a2a40;
+
+  /* ---- 媒体アクセント色（意味固定・変更禁止） ---- */
+  --map: #00d4ff;      /* 地図 / YouTube */
+  --podcast: #ffb86b;  /* Podcast */
+  --zukai: #8da2ff;    /* 図解 */
+  --note-green: #41c9b4; /* note */
+  --youtube-red: #ff4d67; /* 動画 */
+
+  /* ---- 部のテーマカラー（Phase 7: 連続した知的スペクトル） ----
+     「暁の銅から深い夜の紫へ」— 部が進むほど夜が深まる連続色相環。
+     生成規則: 第n部 hue ≈ 24 + (n-1)×34、彩度45〜50%・明度60〜62%（暗背景向け）。
+     新しい部を追加するときは次の hue を継ぐ（第10部 ≈ h296 藤紫の先、
+     h330 の薔薇、h358 の紅…と一周して続く）。
+     ※ part-connector.js の NAV_ACCENTS にも同じ値のミラーがある。変更時は同期すること。 */
+  --part1: #c98f69;   /* 檜皮 ── 蒸気の時代 (h24) */
+  --part2: #cfbb6e;   /* 琥珀 ── つながる世界 (h48) */
+  --part3: #a7c973;   /* 柳 ── AIと生きる未来 (h84) */
+  --part4: #73c984;   /* 常磐 ── 文字と知識の冒険 (h132) */
+  --part5: #73c9b8;   /* 青磁 ── 言葉と思考の旅 (h168) */
+  --part6: #73afc9;   /* 浅葱 ── 数字と世界 (h198) */
+  --part7: #7384c9;   /* 縹 ── 人間の前提を外す (h228) */
+  --part8: #8d73c9;   /* 菫 ── AIと人間のあいだ (h258) */
+  --part8-2: #a473c9; /* 紫苑 ── AIが日常に入る日 (h274) */
+  --part9: #bb73c9;   /* 藤紫 ── 身体という時間 (h290) */
+  --part10: #c97391;  /* 薔薇 ── 感性という深層 */
+  --part11: #d06f6f;  /* 珊瑚 ── 人はどう学び始めるのか */
+  --part12: #c88855;  /* 琥珀茶 ── 一人では学べない */
+  --part13: #9c9250;  /* 苔金 ── 学びとは何か */
+  --part14: #6f9b73;  /* 若竹 ── 地球は動いている */
+  --part15: #5f9290;  /* 青磁深 ── わかったつもり */
+  --part16: #547fa6;  /* 瑠璃 ── エネルギーと人類史 */
+  --part17: #496f9b;  /* 群青 ── 交換と協働 */
+  --part18: #746a9f;  /* 藤納戸 ── 人はなぜ勘違いするのか */
+  --part19: #8a667f;  /* 葡萄鼠 ── 人類はなぜ移動するのか */
+  --part20: #a47c55;  /* 胡桃 ── 余ったのに、なぜ足りないのか */
+
+  /* ---- ネオン装飾色（index / evolution 共通） ---- */
+  --neon-orange: #ff6b2b;
+  --neon-blue: #4da6ff;
+  --neon-cyan: #00e5ff;
+  --neon-green: #39ff14;
+  --neon-purple: #bf5fff;
+  --neon-gold: #ffd700;
+  --neon-magenta: #ff2d95;
+  --neon-sky: #00d4ff;
+
+  /* ---- 形・間隔 ---- */
+  --radius-card: 14px;
+  --tracking-wide: 0.08em;
+
+  /* ---- 動き ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ---- 影・光（Phase 3 で媒体色に応じて希釈利用） ---- */
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-glow-color: rgba(255, 255, 255, 0.12);
+
+  /* ---- 書体（Phase 2） ---- */
+  --font-display: 'Cinzel', 'Noto Sans JP', serif; /* 英字ラベル・見出し専用 */
+  --font-mincho: 'Shippori Mincho', 'Noto Sans JP', serif; /* 問い・引用・リード文専用。本文には使わない */
+}
+
+/* ---- 組版ユーティリティ（Phase 2） ---- */
+.u-palt { font-feature-settings: "palt"; }
+.u-nums { font-variant-numeric: tabular-nums; }
+
+/* ---- 質感ユーティリティ（Phase 3） ----
+   極薄のフィルムグレイン。装飾のみ・操作を妨げない。 */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  background-repeat: repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* 部ページ（和紙テーマ）用の暖色バリアント。夜の星図と質感の対をなす。 */
+.grain-overlay.is-warm {
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  filter: sepia(0.5) saturate(1.3);
+}
+
+/* ---- スクロールリビール（Phase 4） ----
+   reveal.js が付与する。index/evolution の既存実装と同じクラス名。
+   ページ内<style>の同名定義がある場合はそちらが優先される（読み込み順）。 */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.reveal-init.reveal-on {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init, .reveal-init.reveal-on {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---- ページ間トランジション（Phase 4） ----
+   対応ブラウザのみ0.25秒のクロスフェード。非対応では何も起きない。 */
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+}
+
+/* ---- 知的装置（Phase 5） ---- */
+/* ハブページのタイトル下に置くエピグラフ。問い・誘いのトーンの一文のみ。 */
+.hub-epigraph {
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: 13.5px;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+}
+
+/* 記事カード等で使う控えめな補足。左に極細のアクセント線。適用は任意。 */
+.aside-note {
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: 12.5px;
+  line-height: 1.9;
+  color: var(--text-dim);
+  padding-left: 12px;
+  border-left: 1px solid color-mix(in srgb, var(--note-green), transparent 50%);
+}
+
+/* 経緯線風のセクション区切り。星図の目盛りのような、控えめな一本線＋中央の点。 */
+.meridian-divider {
+  position: relative;
+  height: 1px;
+  max-width: 1120px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--border) 22%, var(--border) 78%, transparent);
+}
+.meridian-divider::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 1px solid var(--text-dim);
+  background: var(--bg);
+}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+  <title>読む・聴く｜Manabi Map</title>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      window.location.replace(params.get('format') === 'listen' ? 'podcast.html' : 'note.html');
+    })();
+  </script>
+</head>
+<body><p>ページを整理しました。<a href="note.html">読む</a>、または<a href="podcast.html">聴く</a>からお進みください。</p></body>
+</html>
