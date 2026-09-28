@@ -519,6 +519,9 @@
     { id: 'note-185', number: 185, title: "なぜ学校のベルは、工場のベルに似ているのか", url: "https://note.com/manabimapcreator/n/n225425e193c9", status: "published", kind: "wonder-note", date: "2026-09-23", target: "第13部第3回「学校は何を学ばせているのか」", tags: [], relatedParts: ["part13"], relatedPodcastId: "podcast-part13-3", relatedPodcastUrl: "https://youtu.be/NBHmEDxE_lY", relatedYouTubeId: "youtube-part13", relatedYouTubeUrl: "https://youtu.be/NBHmEDxE_lY", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-185.png", question: "人はなぜ学び、なぜ学びを閉じるのか。", relation: "学びの地図の枝道", primaryPart: "part13", excerpt: "チャイムが鳴ると、授業が始まる。" },
     { id: 'note-186', number: 186, title: "なぜ子ども時代が、何十年も後の体に残るのか", url: "https://note.com/manabimapcreator/n/n1cc9d3fc45c3", status: "published", kind: "wonder-note", date: "2026-09-24", target: "第13部第4回「家庭は何を学ばせているのか」", tags: [], relatedParts: ["part13"], relatedPodcastId: "podcast-part13-4", relatedPodcastUrl: "https://youtu.be/rOXXm-ldnQk", relatedYouTubeId: "youtube-part13", relatedYouTubeUrl: "https://youtu.be/rOXXm-ldnQk", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-186.png", question: "人はなぜ学び、なぜ学びを閉じるのか。", relation: "学びの地図の枝道", primaryPart: "part13", excerpt: "実家の食卓を、ふと思い出すことがあります。" },
     { id: 'note-187', number: 187, title: "なぜ2600年前の地図も、自分の街を中心に描いたのか", url: "https://note.com/manabimapcreator/n/n0544dd0b7514", status: "published", kind: "wonder-note", date: "2026-09-25", target: "第14部第1回「人はなぜ自分のいる場所を世界の中心だと思うのか」", tags: [], relatedParts: ["part14"], relatedPodcastId: "podcast-part14-1", relatedPodcastUrl: "https://www.youtube.com/watch?v=vtva1rau3Ro", relatedYouTubeId: "youtube-part14", relatedYouTubeUrl: "https://www.youtube.com/watch?v=vtva1rau3Ro", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-187.png", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "旅行先で地図アプリを開くと、" },
+    { id: 'note-188', number: 188, title: "なぜ布地屋は、誰も見たことのない世界を見つけたのか", url: "https://note.com/manabimapcreator/n/nb100938f33c3", status: "published", kind: "wonder-note", date: "2026-09-26", target: "第14部第2回「道具が認識を変える」", tags: ["第14部第2回「道具が認識を変える」"], relatedParts: ["part14","part17"], relatedPodcastId: "podcast-part14-2", relatedPodcastUrl: "https://www.youtube.com/watch?v=xgIZKmhwq2o", relatedYouTubeId: "youtube-part14", relatedYouTubeUrl: "https://www.youtube.com/watch?v=xgIZKmhwq2o", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-188.png", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "肉眼では、水はただの水にしか見えません。" },
+    { id: 'note-189', number: 189, title: "なぜ天才は、自分の発見を「絶望」と呼んだのか", url: "https://note.com/manabimapcreator/n/n5e9a459d12c1", status: "published", kind: "wonder-note", date: "2026-09-27", target: "第14部第3回「美しさより、事実に合わせる勇気」", tags: ["第14部第3回「美しさより","事実に合わせる勇気」"], relatedParts: ["part14"], relatedPodcastId: "podcast-part14-3", relatedPodcastUrl: "https://www.youtube.com/watch?v=VD9Lkom9CWQ", relatedYouTubeId: "youtube-part14", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VD9Lkom9CWQ", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-189.png", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "パズルを解いていて、" },
+    { id: 'note-190', number: 190, title: "なぜ、一人の若い医師が医学の常識を書き換えたのか", url: "https://note.com/manabimapcreator/n/nbd571ab260af", status: "published", kind: "wonder-note", date: "2026-09-28", target: "第14部第4回「新しい知は、なぜ最初に危険だと言われるのか」", tags: ["第14部第4回「新しい知は","なぜ最初に危険だと言われるのか」"], relatedParts: ["part14"], relatedPodcastId: "podcast-part14-4", relatedPodcastUrl: "https://www.youtube.com/watch?v=VmRS4H4Uj-U", relatedYouTubeId: "youtube-part14", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VmRS4H4Uj-U", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-190.png", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "長いあいだ正しいとされてきた説明と、" },
     { id: 'note-217', number: 217, title: "火が、人間の脳を大きくした", url: "https://note.com/manabimapcreator/n/n9d954ce96557", status: "published", kind: "wonder-note", date: "2026-09-20", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-3", relatedPodcastUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", relatedYouTubeId: "youtube-part9-3", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-217.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "生の肉と、焼いた肉。同じ量を食べても、満足感がまるで違うと感じたことはないでしょうか。" }
   ];
 
@@ -1794,6 +1797,24 @@
       type: 'podcast',
       title: '人はなぜ、今いる場所を離れるのか｜まるごと聴く 移動が人類を変えた理由【ハルとおじいさん #19P-1】',
       url: 'https://youtu.be/WsUETfm1VX0',
+      relatedParts: ['part19'],
+      question: '人間は、なぜ今いる場所を離れるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part19-2',
+      type: 'podcast',
+      title: '人間の身体は、移動するために作られたのか｜まるごと聴く 持久狩猟と歩く力の秘密【ハルとおじいさん #19P-2】',
+      url: 'https://youtu.be/QFN1Rqpb0gc',
+      relatedParts: ['part19'],
+      question: '人間は、なぜ今いる場所を離れるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part19-3',
+      type: 'podcast',
+      title: '移動した人類は、同じ人類ではいられない｜まるごと聴く ネアンデルタール人と混ざった僕ら【ハルとおじいさん #19P-3】',
+      url: 'https://youtu.be/cCBSWwQOJ90',
       relatedParts: ['part19'],
       question: '人間は、なぜ今いる場所を離れるのか。',
       relation: 'Podcastで深める'
