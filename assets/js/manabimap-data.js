@@ -523,6 +523,8 @@
     { id: 'note-189', number: 189, title: "なぜ天才は、自分の発見を「絶望」と呼んだのか", url: "https://note.com/manabimapcreator/n/n5e9a459d12c1", status: "published", kind: "wonder-note", date: "2026-09-27", target: "第14部第3回「美しさより、事実に合わせる勇気」", tags: ["第14部第3回「美しさより","事実に合わせる勇気」"], relatedParts: ["part14"], relatedPodcastId: "podcast-part14-3", relatedPodcastUrl: "https://www.youtube.com/watch?v=VD9Lkom9CWQ", relatedYouTubeId: "youtube-part14", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VD9Lkom9CWQ", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-189.png", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "パズルを解いていて、" },
     { id: 'note-190', number: 190, title: "なぜ、一人の若い医師が医学の常識を書き換えたのか", url: "https://note.com/manabimapcreator/n/nbd571ab260af", status: "published", kind: "wonder-note", date: "2026-09-28", target: "第14部第4回「新しい知は、なぜ最初に危険だと言われるのか」", tags: ["第14部第4回「新しい知は","なぜ最初に危険だと言われるのか」"], relatedParts: ["part14"], relatedPodcastId: "podcast-part14-4", relatedPodcastUrl: "https://www.youtube.com/watch?v=VmRS4H4Uj-U", relatedYouTubeId: "youtube-part14", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VmRS4H4Uj-U", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-190.png", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "長いあいだ正しいとされてきた説明と、" },
     { id: 'note-191', number: 191, title: "なぜノーベル賞学者も、自分の思い込みに気づけなかったのか", url: "https://note.com/manabimapcreator/n/n9562e7b5c265", status: "published", kind: "wonder-note", date: "2026-09-29", target: "第14部第5回「自分の中の天動説を探す（最終回）」", tags: [], relatedParts: ["part14"], relatedPodcastId: "podcast-part14-5", relatedPodcastUrl: "https://www.youtube.com/watch?v=xpSS_6HFfkc", relatedYouTubeId: "youtube-part14", relatedYouTubeUrl: "https://www.youtube.com/watch?v=xpSS_6HFfkc", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-191.png", question: "科学とは、正解を知ることなのか。", relation: "見方を更新する枝道", primaryPart: "part14", excerpt: "一度「これは効く」と信じ込んだものを、" },
+    { id: 'note-192', number: 192, title: "なぜ、星と波だけで、大海原を渡れたのか", url: "https://note.com/manabimapcreator/n/n5bd4f2d8ac3e", status: "published", kind: "wonder-note", date: "2026-09-30", target: "第19部第4話「地図のない海へ、なぜ人は漕ぎ出したのか」", tags: ["第19部第4話「地図のない海へ","なぜ人は漕ぎ出したのか」"], relatedParts: ["part19"], relatedPodcastId: "podcast-part19-4", relatedPodcastUrl: "https://www.youtube.com/watch?v=mgU3YAxSOYw", relatedYouTubeId: "youtube-part19", relatedYouTubeUrl: "https://www.youtube.com/watch?v=mgU3YAxSOYw", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-192.png", question: "人間は、なぜ今いる場所を離れるのか。", relation: "移動と変化の枝道", primaryPart: "part19", excerpt: "引っ越しの荷造りをしていたとき、" },
+    { id: 'note-193', number: 193, title: "なぜ、弱った仲間を置いていかなかったのか", url: "https://note.com/manabimapcreator/n/n84f969c8718b", status: "published", kind: "wonder-note", date: "2026-10-01", target: "第19部第1話「人はなぜ、今いる場所を離れるのか」", tags: ["第19部第1話「人はなぜ","今いる場所を離れるのか」"], relatedParts: ["part19"], relatedPodcastId: "podcast-part19-1", relatedPodcastUrl: "https://www.youtube.com/watch?v=WsUETfm1VX0", relatedYouTubeId: "youtube-part19", relatedYouTubeUrl: "https://www.youtube.com/watch?v=WsUETfm1VX0", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-193.png", question: "人間は、なぜ今いる場所を離れるのか。", relation: "移動と変化の枝道", primaryPart: "part19", excerpt: "先週、駅の階段で、大きなスーツケースを運べずに立ち尽くしている人を見かけました。" },
     { id: 'note-217', number: 217, title: "火が、人間の脳を大きくした", url: "https://note.com/manabimapcreator/n/n9d954ce96557", status: "published", kind: "wonder-note", date: "2026-09-20", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-3", relatedPodcastUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", relatedYouTubeId: "youtube-part9-3", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-217.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "生の肉と、焼いた肉。同じ量を食べても、満足感がまるで違うと感じたことはないでしょうか。" }
   ];
 
@@ -1816,6 +1818,33 @@
       type: 'podcast',
       title: '移動した人類は、同じ人類ではいられない｜まるごと聴く ネアンデルタール人と混ざった僕ら【ハルとおじいさん #19P-3】',
       url: 'https://youtu.be/cCBSWwQOJ90',
+      relatedParts: ['part19'],
+      question: '人間は、なぜ今いる場所を離れるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part19-4',
+      type: 'podcast',
+      title: '地図のない海へ、なぜ人は漕ぎ出したのか｜まるごと聴く 星と波を読んだ航海者たち【ハルとおじいさん #19P-4】',
+      url: 'https://youtu.be/mgU3YAxSOYw',
+      relatedParts: ['part19'],
+      question: '人間は、なぜ今いる場所を離れるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part19-stage1',
+      type: 'podcast',
+      title: '移動が、人類を作った｜まるごと聴く 第1段階まとめ・アフリカから世界へ【ハルとおじいさん #19P-S1】',
+      url: 'https://youtu.be/hHCsgitkDqY',
+      relatedParts: ['part19'],
+      question: '人間は、なぜ今いる場所を離れるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part19-5',
+      type: 'podcast',
+      title: '人はなぜ、故郷を必要とするのか｜まるごと聴く 離れて生まれる場所の物語【ハルとおじいさん #19P-5】',
+      url: 'https://youtu.be/CYgGjsQH-Wk',
       relatedParts: ['part19'],
       question: '人間は、なぜ今いる場所を離れるのか。',
       relation: 'Podcastで深める'
