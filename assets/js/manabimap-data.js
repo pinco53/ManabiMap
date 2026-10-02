@@ -1860,6 +1860,15 @@
       relation: 'Podcastで深める'
     },
     {
+      id: 'podcast-part19-7',
+      type: 'podcast',
+      title: '移動できる人と、移動できない人｜まるごと聴く 3%という数字の意味【ハルとおじいさん #19P-7】',
+      url: 'https://youtu.be/llqvNXjKzDA',
+      relatedParts: ['part19'],
+      question: '人間は、なぜ今いる場所を離れるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
       id: 'podcast-part13-1',
       type: 'podcast',
       title: '人間を人間にしたものは何か｜まるごと聴く 累積文化と学びのリレー【ハルとおじいさん #13P-1】',
