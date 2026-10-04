@@ -526,6 +526,9 @@
     { id: 'note-192', number: 192, title: "なぜ、星と波だけで、大海原を渡れたのか", url: "https://note.com/manabimapcreator/n/n5bd4f2d8ac3e", status: "published", kind: "wonder-note", date: "2026-09-30", target: "第19部第4話「地図のない海へ、なぜ人は漕ぎ出したのか」", tags: ["第19部第4話「地図のない海へ","なぜ人は漕ぎ出したのか」"], relatedParts: ["part19"], relatedPodcastId: "podcast-part19-4", relatedPodcastUrl: "https://www.youtube.com/watch?v=mgU3YAxSOYw", relatedYouTubeId: "youtube-part19", relatedYouTubeUrl: "https://www.youtube.com/watch?v=mgU3YAxSOYw", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-192.png", question: "人間は、なぜ今いる場所を離れるのか。", relation: "移動と変化の枝道", primaryPart: "part19", excerpt: "引っ越しの荷造りをしていたとき、" },
     { id: 'note-193', number: 193, title: "なぜ、弱った仲間を置いていかなかったのか", url: "https://note.com/manabimapcreator/n/n84f969c8718b", status: "published", kind: "wonder-note", date: "2026-10-01", target: "第19部第1話「人はなぜ、今いる場所を離れるのか」", tags: ["第19部第1話「人はなぜ","今いる場所を離れるのか」"], relatedParts: ["part19"], relatedPodcastId: "podcast-part19-1", relatedPodcastUrl: "https://www.youtube.com/watch?v=WsUETfm1VX0", relatedYouTubeId: "youtube-part19", relatedYouTubeUrl: "https://www.youtube.com/watch?v=WsUETfm1VX0", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-193.png", question: "人間は、なぜ今いる場所を離れるのか。", relation: "移動と変化の枝道", primaryPart: "part19", excerpt: "先週、駅の階段で、大きなスーツケースを運べずに立ち尽くしている人を見かけました。" },
     { id: 'note-194', number: 194, title: "追跡する人は、なぜ科学者に似ているのか", url: "https://note.com/manabimapcreator/n/nac3d78a4fa83", status: "published", kind: "wonder-note", date: "2026-10-02", target: "第19部第2話「人間の身体は、移動するために作られたのか」", tags: ["第19部第2話「人間の身体は","移動するために作られたのか」"], relatedParts: ["part19"], relatedPodcastId: "podcast-part19-2", relatedPodcastUrl: "https://www.youtube.com/watch?v=QFN1Rqpb0gc", relatedYouTubeId: "youtube-part19", relatedYouTubeUrl: "https://www.youtube.com/watch?v=QFN1Rqpb0gc", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-194.png", question: "人間は、なぜ今いる場所を離れるのか。", relation: "移動と変化の枝道", primaryPart: "part19", excerpt: "今朝、公園を歩いていたら、地面に残った小さな足跡に気づいて、思わず立ち止まりました。" },
+    { id: 'note-195', number: 195, title: "父と母が、別々の人類だった少女がいた", url: "https://note.com/manabimapcreator/n/nbe6d54e89c91", status: "published", kind: "wonder-note", date: "2026-10-03", target: "第19部第3話「移動した人類は、同じ人類ではいられない」", tags: ["第19部第3話「移動した人類は","同じ人類ではいられない」"], relatedParts: ["part19"], relatedPodcastId: "podcast-part19-3", relatedPodcastUrl: "https://www.youtube.com/watch?v=cCBSWwQOJ90", relatedYouTubeId: "youtube-part19", relatedYouTubeUrl: "https://www.youtube.com/watch?v=cCBSWwQOJ90", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-195.png", question: "人間は、なぜ今いる場所を離れるのか。", relation: "移動と変化の枝道", primaryPart: "part19", excerpt: "友達に、両親がそれぞれ違う国の出身の子がいます。" },
+    { id: 'note-196', number: 196, title: "「もう存在しない故郷」を、一語で表す言葉があった", url: "https://note.com/manabimapcreator/n/n7996996bcec6", status: "published", kind: "wonder-note", date: "2026-10-04", target: "第19部第5話「人はなぜ、故郷を必要とするのか」", tags: ["第19部第5話「人はなぜ","故郷を必要とするのか」"], relatedParts: ["part19"], relatedPodcastId: "podcast-part19-5", relatedPodcastUrl: "https://www.youtube.com/watch?v=CYgGjsQH-Wk", relatedYouTubeId: "youtube-part19", relatedYouTubeUrl: "https://www.youtube.com/watch?v=CYgGjsQH-Wk", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-196.png", question: "人間は、なぜ今いる場所を離れるのか。", relation: "移動と変化の枝道", primaryPart: "part19", excerpt: "先日、子どもの頃によく通った駄菓子屋の前を通りかかったら、跡形もなく更地になっていました。" },
+    { id: 'note-197', number: 197, title: "「権利を持つ権利」を、初めて言葉にした人", url: "https://note.com/manabimapcreator/n/n61e1e65d4da4", status: "published", kind: "wonder-note", date: "2026-10-05", target: "第19部第6話「移動は自由か、それとも暴力か」", tags: ["第19部第6話「移動は自由か","それとも暴力か」"], relatedParts: ["part19"], relatedPodcastId: "podcast-part19-6", relatedPodcastUrl: "https://www.youtube.com/watch?v=ro4p7Z7WALk", relatedYouTubeId: "youtube-part19", relatedYouTubeUrl: "https://www.youtube.com/watch?v=ro4p7Z7WALk", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-197.png", question: "人間は、なぜ今いる場所を離れるのか。", relation: "移動と変化の枝道", primaryPart: "part19", excerpt: "先日、口座を開こうとしたら、本人確認書類が足りず、その場で手続きが止まってしまいました。" },
     { id: 'note-217', number: 217, title: "火が、人間の脳を大きくした", url: "https://note.com/manabimapcreator/n/n9d954ce96557", status: "published", kind: "wonder-note", date: "2026-09-20", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-3", relatedPodcastUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", relatedYouTubeId: "youtube-part9-3", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-217.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "生の肉と、焼いた肉。同じ量を食べても、満足感がまるで違うと感じたことはないでしょうか。" }
   ];
 
@@ -1864,6 +1867,24 @@
       type: 'podcast',
       title: '移動できる人と、移動できない人｜まるごと聴く 3%という数字の意味【ハルとおじいさん #19P-7】',
       url: 'https://youtu.be/llqvNXjKzDA',
+      relatedParts: ['part19'],
+      question: '人間は、なぜ今いる場所を離れるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part19-stage2',
+      type: 'podcast',
+      title: '自由と格差、移動が作り直した世界｜まるごと聴く 第2段階まとめ【ハルとおじいさん #19P-S2】',
+      url: 'https://youtu.be/Xi8XCq8THlY',
+      relatedParts: ['part19'],
+      question: '人間は、なぜ今いる場所を離れるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part19-8',
+      type: 'podcast',
+      title: '移動すると、なぜ自分の常識が見えるのか｜まるごと聴く ダーウィンが22年隠した理由【ハルとおじいさん #19P-8】',
+      url: 'https://youtu.be/rDFlNbVseAc',
       relatedParts: ['part19'],
       question: '人間は、なぜ今いる場所を離れるのか。',
       relation: 'Podcastで深める'
