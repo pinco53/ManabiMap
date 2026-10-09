@@ -1921,6 +1921,24 @@
       relation: 'Podcastで深める'
     },
     {
+      id: 'podcast-part19-stage3',
+      type: 'podcast',
+      title: '視点の移動、自分の常識を見つめ直す｜まるごと聴く 第3段階まとめ【ハルとおじいさん #19P-S3】',
+      url: 'https://youtu.be/jHVoeBpdIjs',
+      relatedParts: ['part19'],
+      question: '人間は、なぜ今いる場所を離れるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part20-1',
+      type: 'podcast',
+      title: '最初に余ったのは、時間だった｜まるごと聴く 農業が奪った15時間【ハルとおじいさん #20P-1】',
+      url: 'https://youtu.be/uo8c1W6Aor8',
+      relatedParts: ['part20'],
+      question: '余ったのに、なぜ足りないのか。',
+      relation: 'Podcastで深める'
+    },
+    {
       id: 'podcast-part13-1',
       type: 'podcast',
       title: '人間を人間にしたものは何か｜まるごと聴く 累積文化と学びのリレー【ハルとおじいさん #13P-1】',
