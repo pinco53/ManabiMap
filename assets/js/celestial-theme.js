@@ -1,6 +1,20 @@
 /* Decorative star dust: drawn once per size, no animation loop or interaction. */
 (() => {
   'use strict';
+  if (document.documentElement.lang === 'ja') {
+    document.querySelectorAll('.site-header .desktop-nav, .site-header .mobile-nav nav, .media-v2-header > nav, .media-v2-header > details nav, .part-v2-header > nav, .part-v2-header > details nav').forEach((nav) => {
+      if (nav.querySelector('a[href$="edu.html"]')) return;
+      const link = document.createElement('a');
+      link.href = location.pathname.includes('/parts/') ? '../edu.html' : 'edu.html';
+      link.textContent = 'EDU';
+      if (location.pathname.endsWith('/edu.html') || location.pathname.endsWith('/part31.html')) link.setAttribute('aria-current', 'page');
+      const start = Array.from(nav.querySelectorAll('a')).find((item) => item.getAttribute('href') === (location.pathname.includes('/parts/') ? '../start.html' : 'start.html'));
+      const language = nav.querySelector('a[lang="en"]');
+      if (start) start.after(link);
+      else if (language) language.before(link);
+      else nav.append(link);
+    });
+  }
   const hero = document.querySelector('.simple-page-hero, .map-hero--simple, .page-hero, body[data-part] .cover, body.media-hub .hero');
   if (!hero) return;
   const canvas = document.createElement('canvas');

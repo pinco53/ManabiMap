@@ -1,0 +1,39 @@
+.edu-history-bridges__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.edu-history-bridge { min-width: 0; padding: 24px; border: 1px solid #d7be8b4b; border-radius: 14px; background: #0b1420; }
+.edu-history-bridge a { color: #d7be8b; font: 600 12px "Noto Sans JP", sans-serif; text-decoration: none; }
+.edu-history-bridge a:hover { text-decoration: underline; }
+.edu-history-bridge p { margin: 14px 0 0; color: #c7ced6; font-size: 12px; line-height: 1.9; }
+.edu-history-timeline { margin-top: 100px; }
+.edu-history-labels, .edu-history-row { display: grid; grid-template-columns: 100px repeat(2, minmax(0, 1fr)); gap: 18px; }
+.edu-history-labels { padding: 0 0 12px; color: #d7be8b; font: 600 11px Inter, sans-serif; letter-spacing: .12em; }
+.edu-history-labels span:nth-child(2) { color: #a7d4e4; }
+.edu-history-decade { padding: 24px 0 10px; border-top: 1px solid #d7be8b35; scroll-margin-top: 90px; }
+.edu-history-decade > h3 { margin: 0 0 18px; color: #d7be8b; font: 600 13px Inter, sans-serif; white-space: nowrap; }
+.edu-history-row { padding: 0 0 14px; scroll-margin-top: 90px; }
+.edu-history-row__year { padding-top: 6px; color: #a6b2c1; font: 600 12px Inter, sans-serif; }
+.edu-history-lane { min-width: 0; display: grid; align-content: start; gap: 14px; }
+.edu-history-lane__empty { min-height: 100%; border-left: 1px solid #ffffff13; }
+.edu-history-event { min-width: 0; padding: 22px; border: 1px solid #b5c95e36; border-left: 3px solid #8bbbd0; border-radius: 0 12px 12px 0; background: #0b1420; }
+.edu-history-lane--japan .edu-history-event { border-left-color: #d7be8b; }
+.edu-history-event__top { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.edu-history-event time { color: #a7d4e4; font: 600 13px Inter, sans-serif; }
+.edu-history-lane--japan .edu-history-event time { color: #d7be8b; }
+.edu-history-event h4 { margin: 14px 0 10px; color: #fffdf9; font: 500 clamp(17px, 2vw, 21px)/1.6 "Zen Old Mincho", serif; }
+.edu-history-event p { margin: 0; color: #c7ced6; font-size: 12px; line-height: 1.95; }
+.edu-history-event__links { display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px; margin-top: 17px; }
+.edu-history-event__links > span:first-child { width: 100%; color: #a6b2c1; font-size: 10px; }
+.edu-history-event__links a, .edu-history-event__links .edu-history-pending { display: inline-block; padding: 4px 8px; border: 1px solid #d7be8b4b; border-radius: 5px; color: #d7be8b; font-size: 11px; line-height: 1.6; text-decoration: none; }
+.edu-history-event__links a:hover { background: #d7be8b18; }
+.edu-history-event__links .edu-history-pending { border-color: #a6b2c133; color: #a6b2c1; }
+@media (max-width: 760px) {
+  .edu-history-bridges__grid { grid-template-columns: 1fr; }
+  .edu-history-timeline { margin-top: 70px; }
+  .edu-history-labels { display: none; }
+  .edu-history-row { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .edu-history-row__year { padding: 0; }
+  .edu-history-lane::before { display: block; color: #a7d4e4; font: 600 10px Inter, sans-serif; letter-spacing: .12em; content: "WORLD · 世界"; }
+  .edu-history-lane--japan::before { color: #d7be8b; content: "JAPAN · 日本"; }
+  .edu-history-lane.is-empty { display: none; }
+  .edu-history-lane__empty { min-height: 10px; }
+  .edu-history-event { padding: 19px; }
+}
