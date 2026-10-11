@@ -264,6 +264,15 @@
   transform: scale(1.025);
 }
 
+.evolution-page .philosophy-event .event-card--image::before {
+  background-position: center;
+  opacity: .86;
+}
+
+.evolution-page .philosophy-event .event-card--image::after {
+  background: linear-gradient(90deg, rgba(9, 16, 35, .84), rgba(13, 18, 37, .48));
+}
+
 .timeline-ai-primary:focus-visible,
 .timeline-ai-era-button:focus-visible,
 .timeline-ai-event-button:focus-visible,

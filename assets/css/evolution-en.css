@@ -247,6 +247,13 @@ body.evolution-en::before {
 }
 .en-event::after { top: 58px; }
 .en-event__body { min-height: 330px; box-sizing: border-box; padding: 38px 36px 32px; }
+.en-event.philosophy-event {
+  border-color: rgba(202, 177, 235, .38);
+  background: #121929;
+}
+.en-event.philosophy-event > img { opacity: .62; }
+.en-event.philosophy-event::before { background: linear-gradient(105deg, rgba(13, 19, 35, .88), rgba(20, 20, 42, .45)); }
+.en-event.philosophy-event p strong { color: #e5d0f6; font-weight: 600; }
 .en-event time { color: #d3b9df; font-size: 11px; }
 .en-event h3 { max-width: 92%; margin-top: 12px; font-size: clamp(23px, 2.4vw, 30px); }
 .en-event p { max-width: 93%; color: #c0c7d1; font-size: 14px; }

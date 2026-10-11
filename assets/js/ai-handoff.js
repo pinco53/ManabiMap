@@ -8,13 +8,15 @@
   };
   const isEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
   const key = 'manabimap-preferred-ai';
-  const panels = [];
+  const panels = new Map();
   let preference = '';
   try { preference = localStorage.getItem(key) || ''; } catch (_) {}
   if (!providers[preference]) preference = '';
 
   window.ManabiAI = {
-    mount: function (container, getPrompt) {
+    mount: function (container, getPrompt, options) {
+      options = options || {};
+      panels.forEach(function (_, element) { if (!element.isConnected) panels.delete(element); });
       const panel = document.createElement('section');
       panel.className = 'ai-handoff';
       panel.innerHTML = '<label>' + (isEnglish ? 'Continue with your AI' : 'いつものAIで話す') + '<select aria-label="' + (isEnglish ? 'AI service' : '使うAI') + '"><option value="">' + (isEnglish ? 'Choose an AI' : 'AIを選ぶ') + '</option></select></label>' +
@@ -37,13 +39,16 @@
         button.disabled = !providers[preference];
         fallback.hidden = true; link.hidden = true; status.textContent = '';
       }
-      panels.push(sync); sync();
+      panels.set(panel, sync); sync();
+      container.addEventListener('manabimap:prompt-changed', sync);
       const dialog = container.closest('dialog');
       if (dialog) dialog.addEventListener('close', sync);
       select.addEventListener('change', function () {
         preference = select.value;
         try { localStorage.setItem(key, preference); } catch (_) {}
-        panels.forEach(fn => fn());
+        panels.forEach(function (fn, element) {
+          if (element.isConnected) fn(); else panels.delete(element);
+        });
       });
       button.addEventListener('click', async function () {
         const provider = providers[select.value];
@@ -51,15 +56,17 @@
         if (!provider || !prompt) { status.textContent = isEnglish ? 'Choose a turning point or question first.' : 'テーマや質問を選んでください。'; return; }
         window.dispatchEvent(new Event('manabimap:ai-handoff'));
         // Reserve the tab during the user's click; clipboard work is asynchronous.
-        const tab = window.open('about:blank', '_blank');
+        let tab = null;
+        try { tab = window.open('about:blank', '_blank'); } catch (_) {}
         if (tab) tab.opener = null;
         button.disabled = true;
         link.href = provider.url; link.textContent = isEnglish ? 'Open ' + provider.name + ' ↗' : provider.name + 'を開く ↗';
         try {
           await navigator.clipboard.writeText(prompt);
+          if (options.onLaunch) options.onLaunch();
           if (tab) { tab.location.replace(provider.url); }
           else { link.hidden = false; }
-          status.textContent = isEnglish ? (tab ? 'Copied. Paste the inquiry into the AI. The timeline remains open in this tab.' : 'Copied. Open the AI from the link below and paste the inquiry.') : (tab ? 'コピーしました。AIに貼り付けてください。年表はこのタブに残っています。' : 'コピーしました。下のリンクからAIを開いて貼り付けてください。');
+          status.textContent = isEnglish ? (tab ? 'Copied. Paste the inquiry into the AI. This page remains open in this tab.' : 'Copied. Open the AI from the link below and paste the inquiry.') : (tab ? 'コピーしました。AIに貼り付けてください。このページは元のタブに残っています。' : 'コピーしました。下のリンクからAIを開いて貼り付けてください。');
         } catch (_) {
           if (tab) tab.close();
           fallback.value = prompt; fallback.hidden = false; link.hidden = false;
@@ -67,6 +74,7 @@
           fallback.focus(); fallback.select();
         } finally { button.disabled = false; }
       });
+      link.addEventListener('click', function () { if (options.onLaunch) options.onLaunch(); });
       container.appendChild(panel);
     }
   };

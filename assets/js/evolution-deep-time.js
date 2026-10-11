@@ -207,9 +207,11 @@
 
   function themesFor(title, node) {
     const labels = Array.from(node.querySelectorAll('.en-lenses span')).map(function (item) {
-      return ({ body: 'body', environment: 'environment', mobility: 'mobility', energy: 'energy', information: 'information', tools: 'tools', cooperation: 'cooperation', power: 'power', worldview: 'worldview' })[item.textContent.trim().toLowerCase()] || '';
+      return ({ body: 'body', environment: 'environment', mobility: 'mobility', energy: 'energy', information: 'information', tools: 'tools', cooperation: 'cooperation', power: 'power', worldview: 'worldview', philosophy: 'philosophy' })[item.textContent.trim().toLowerCase()] || '';
     }).filter(Boolean);
-    return (node.dataset.eventThemes || EVENT_LENSES[title] || labels.join(' ')).split(/\s+/).filter(Boolean);
+    const themes = (node.dataset.eventThemes || EVENT_LENSES[title] || labels.join(' ')).split(/\s+/).filter(Boolean);
+    if (node.dataset.eventPhilosophy === 'true' && !themes.includes('philosophy')) themes.push('philosophy');
+    return themes;
   }
 
   // 「有名な出来事」ではなく、不可逆性・波及・地域/分野の偏り・根拠の
@@ -310,10 +312,11 @@
     const curatedId = node.dataset.curatedEvent || '';
     const curated = Boolean(curatedId);
     const metadata = curatedMetadata.get(curatedId);
-    const sourceIndex = curated ? 0 : ++genericImageIndex;
+    const noImage = node.dataset.eventNoImage === 'true';
+    const sourceIndex = curated || noImage || node.dataset.eventIndependentImage === 'true' ? 0 : ++genericImageIndex;
     const card = node.querySelector('.event-card, .en-event__body');
     const inlineImage = node.querySelector('img');
-    const explicitImage = (card && card.dataset.eventImage) || (inlineImage && inlineImage.getAttribute('src'));
+    const explicitImage = node.dataset.eventIllustration || (card && card.dataset.eventImage) || (inlineImage && inlineImage.getAttribute('src'));
     const curatedImage = curatedId ? 'assets/images/evolution/curated/curated-' + curatedId + '.webp' : '';
     const cardLinks = Array.from(node.querySelectorAll('.event-link, .en-source')).map(function (link) { return { href: link.getAttribute('href'), label: link.textContent.trim() }; });
     const combinedLinks = metadata && metadata.links ? cardLinks.concat(metadata.links) : cardLinks;
@@ -332,7 +335,7 @@
       eraTitle: era && era.querySelector('.era-title, h2') ? era.querySelector('.era-title, h2').textContent.trim() : '',
       future: future,
       position: future ? .91 + futureIndex * .018 : logPosition(ageFromDate(date)),
-      image: explicitImage || curatedImage || (isEnglish ? '../' : '') + 'assets/images/evolution/event-' + String(sourceIndex).padStart(3, '0') + '.webp',
+      image: noImage ? '' : explicitImage || curatedImage || (isEnglish ? '../' : '') + 'assets/images/evolution/event-' + String(sourceIndex).padStart(3, '0') + '.webp',
       themes: themesFor(title, node),
       links: links,
       y: .40 + seeded(index + 1) * .28,
@@ -355,7 +358,8 @@
     environment: 'How did people change nature, and how did nature change them?',
     mobility: 'How did people, goods, pathogens, and cultures move?',
     power: 'Who decided, and who carried the benefits and burdens?',
-    worldview: 'How did people explain the world and themselves?'
+    worldview: 'How did people explain the world and themselves?',
+    philosophy: 'Which questions changed how people reasoned about knowledge, ethics, and society?'
   } : {
     all: '複数の視点を重ねながら、人類史の全体を眺めます。',
     tools: '人は何を身体の外に作り、能力を拡張した？',
@@ -366,19 +370,20 @@
     environment: '人は自然をどう変え、自然にどう変えられた？',
     mobility: '人・物・病原体・文化は、どう移動した？',
     power: '誰が決め、誰が利益や負担を引き受けた？',
-    worldview: '人は世界と自分自身を、どう説明してきた？'
+    worldview: '人は世界と自分自身を、どう説明してきた？',
+    philosophy: '知識・善・社会をめぐる問いは、どう受け継がれ、変わった？'
   };
   const lensLabels = isEnglish ? {
     tools: 'Tools', information: 'Information', energy: 'Energy', cooperation: 'Cooperation',
     body: 'Body & Health', environment: 'Environment & Food', mobility: 'Mobility & Exchange',
-    power: 'Power & Rights', worldview: 'Meaning & Worldview'
+    power: 'Power & Rights', worldview: 'Meaning & Worldview', philosophy: 'Philosophy'
   } : {
     tools: '道具', information: '情報', energy: 'エネルギー', cooperation: '協力',
     body: '身体・健康', environment: '環境・食料', mobility: '移動・交換',
-    power: '権力・権利', worldview: '意味・世界観'
+    power: '権力・権利', worldview: '意味・世界観', philosophy: '哲学・思想'
   };
   const lensPromptInstructions = isEnglish ? {
-    all: 'Connect the most relevant lenses among tools, information, energy, cooperation, bodies, environments, mobility, power, and worldviews.',
+    all: 'Connect the most relevant lenses among tools, information, energy, cooperation, bodies, environments, mobility, power, worldviews, and philosophy.',
     tools: 'Focus on materials, skills, and which human abilities the tools extended.',
     information: 'Focus on how knowledge was recorded, copied, transmitted, and accessed.',
     energy: 'Focus on energy sources, output, efficiency, and environmental costs.',
@@ -387,9 +392,10 @@
     environment: 'Focus on interactions with food, resources, ecosystems, and climate.',
     mobility: 'Focus on what moved between regions and how those connections changed societies.',
     power: 'Focus on who held decision-making power and how benefits, burdens, and rights were distributed.',
-    worldview: 'Focus on how people understood the world, nature, death, and themselves.'
+    worldview: 'Focus on how people understood the world, nature, death, and themselves.',
+    philosophy: 'Trace the question, the argument, its historical setting, and later disagreements. Compare traditions without claiming a single origin or inevitable progress.'
   } : {
-    all: '道具・情報・エネルギー・協力・身体・環境・移動・権力・世界観のうち、特に関係の深い視点を結びつけてください。',
+    all: '道具・情報・エネルギー・協力・身体・環境・移動・権力・世界観・哲学のうち、特に関係の深い視点を結びつけてください。',
     tools: '何を材料に、どんな技能で作られ、人間の手・足・感覚・記憶の何を拡張したかを中心に説明してください。',
     information: '知識がどう記録・複製・伝達され、誰がアクセスできたかを中心に説明してください。',
     energy: 'どのエネルギー源を利用し、出力・効率・環境負荷がどう変わったかを中心に説明してください。',
@@ -398,7 +404,8 @@
     environment: '食料・資源・生態系・気候との相互作用を中心に説明してください。',
     mobility: '人・物・病原体・文化がどこからどこへ動き、地域間の関係をどう変えたかを中心に説明してください。',
     power: '誰が決定権を持ち、利益・負担・権利が誰に配分されたかを中心に説明してください。',
-    worldview: '人間が世界・自然・死・自分自身をどう理解するようになったかを中心に説明してください。'
+    worldview: '人間が世界・自然・死・自分自身をどう理解するようになったかを中心に説明してください。',
+    philosophy: 'その思想が立てた問い、論拠、当時の背景、後世の異論を順に説明してください。地域ごとの思想を単一の起源や一直線の進歩として扱わないでください。'
   };
   let scope = (document.querySelector('[data-time-scope][aria-pressed="true"]') || {}).dataset?.timeScope || 'core';
   let lens = (document.querySelector('[data-time-lens][aria-pressed="true"]') || {}).dataset?.timeLens || 'all';

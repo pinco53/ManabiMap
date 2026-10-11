@@ -150,6 +150,20 @@
   transform: translateY(-2px);
 }
 
+.evolution-page .philosophy-event .event-card {
+  border-color: rgba(202, 177, 235, .34);
+  background: #101a2d;
+  text-align: left;
+}
+
+.evolution-page .philosophy-event .event-date { text-align: left; }
+.evolution-page .philosophy-event .event-link-row { justify-content: flex-start; }
+
+.evolution-page .philosophy-event .event-desc strong {
+  color: #e5d0f6;
+  font-weight: 600;
+}
+
 .evolution-page .event-left .event-card {
   padding-right: 24px;
 }
