@@ -1,39 +1,115 @@
-.edu-history-bridges__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.edu-history-bridge { min-width: 0; padding: 24px; border: 1px solid #d7be8b4b; border-radius: 14px; background: #0b1420; }
-.edu-history-bridge a { color: #d7be8b; font: 600 12px "Noto Sans JP", sans-serif; text-decoration: none; }
-.edu-history-bridge a:hover { text-decoration: underline; }
-.edu-history-bridge p { margin: 14px 0 0; color: #c7ced6; font-size: 12px; line-height: 1.9; }
-.edu-history-timeline { margin-top: 100px; }
-.edu-history-labels, .edu-history-row { display: grid; grid-template-columns: 100px repeat(2, minmax(0, 1fr)); gap: 18px; }
-.edu-history-labels { padding: 0 0 12px; color: #d7be8b; font: 600 11px Inter, sans-serif; letter-spacing: .12em; }
-.edu-history-labels span:nth-child(2) { color: #a7d4e4; }
-.edu-history-decade { padding: 24px 0 10px; border-top: 1px solid #d7be8b35; scroll-margin-top: 90px; }
-.edu-history-decade > h3 { margin: 0 0 18px; color: #d7be8b; font: 600 13px Inter, sans-serif; white-space: nowrap; }
-.edu-history-row { padding: 0 0 14px; scroll-margin-top: 90px; }
-.edu-history-row__year { padding-top: 6px; color: #a6b2c1; font: 600 12px Inter, sans-serif; }
-.edu-history-lane { min-width: 0; display: grid; align-content: start; gap: 14px; }
-.edu-history-lane__empty { min-height: 100%; border-left: 1px solid #ffffff13; }
-.edu-history-event { min-width: 0; padding: 22px; border: 1px solid #b5c95e36; border-left: 3px solid #8bbbd0; border-radius: 0 12px 12px 0; background: #0b1420; }
-.edu-history-lane--japan .edu-history-event { border-left-color: #d7be8b; }
-.edu-history-event__top { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
-.edu-history-event time { color: #a7d4e4; font: 600 13px Inter, sans-serif; }
-.edu-history-lane--japan .edu-history-event time { color: #d7be8b; }
-.edu-history-event h4 { margin: 14px 0 10px; color: #fffdf9; font: 500 clamp(17px, 2vw, 21px)/1.6 "Zen Old Mincho", serif; }
-.edu-history-event p { margin: 0; color: #c7ced6; font-size: 12px; line-height: 1.95; }
-.edu-history-event__links { display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px; margin-top: 17px; }
-.edu-history-event__links > span:first-child { width: 100%; color: #a6b2c1; font-size: 10px; }
-.edu-history-event__links a, .edu-history-event__links .edu-history-pending { display: inline-block; padding: 4px 8px; border: 1px solid #d7be8b4b; border-radius: 5px; color: #d7be8b; font-size: 11px; line-height: 1.6; text-decoration: none; }
-.edu-history-event__links a:hover { background: #d7be8b18; }
-.edu-history-event__links .edu-history-pending { border-color: #a6b2c133; color: #a6b2c1; }
-@media (max-width: 760px) {
-  .edu-history-bridges__grid { grid-template-columns: 1fr; }
-  .edu-history-timeline { margin-top: 70px; }
-  .edu-history-labels { display: none; }
-  .edu-history-row { grid-template-columns: minmax(0, 1fr); gap: 18px; }
-  .edu-history-row__year { padding: 0; }
-  .edu-history-lane::before { display: block; color: #a7d4e4; font: 600 10px Inter, sans-serif; letter-spacing: .12em; content: "WORLD · 世界"; }
-  .edu-history-lane--japan::before { color: #d7be8b; content: "JAPAN · 日本"; }
-  .edu-history-lane.is-empty { display: none; }
-  .edu-history-lane__empty { min-height: 10px; }
-  .edu-history-event { padding: 19px; }
+.edu-history-site .edu-catalog-hero { position: relative; min-height: 0; padding: clamp(150px, 12vw, 190px) 0 clamp(78px, 8vw, 112px); background: radial-gradient(ellipse at 83% 55%, rgba(126, 172, 161, .12), transparent 39%), linear-gradient(115deg, #08121a, #0b1720 64%, #111d1e); }
+.edu-history-site .edu-catalog-hero::after { position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: linear-gradient(90deg, #8fbab0 0 50%, #ddb174 50% 100%); opacity: .72; content: ""; }
+.edu-history-site .edu-catalog-hero > .edu-wrap { padding-inline: clamp(16px, 2vw, 28px); }
+.edu-history-site .edu-catalog-hero .edu-kicker { color: #c6b08a; }
+.edu-history-site .edu-catalog-hero .edu-mark { border-color: #8fbab080; color: #a8ccc4; }
+.edu-history-site .edu-catalog-hero__trail { margin: 28px 0 22px; color: #aab5b3; }
+.edu-history-site .edu-catalog-hero__trail a { color: #ddbe8b; }
+.edu-history-site .edu-catalog-hero h1 { max-width: 950px; font-size: clamp(44px, 6vw, 74px); line-height: 1.35; letter-spacing: .04em; }
+.edu-history-site .edu-catalog-hero h1 small { display: block; margin-top: 16px; color: #dfbb83; font: 400 clamp(17px, 2.1vw, 23px)/1.7 "Zen Old Mincho", serif; letter-spacing: .08em; }
+.edu-history-site .edu-catalog-hero p:last-child { max-width: 650px; margin-top: 28px; color: #bcc9c4; font-size: 14px; line-height: 2.1; }
+
+.edu-history-bridges__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(17px, 3vw, 36px); }
+.edu-history-bridge { --bridge-accent: #ddb174; min-width: 0; padding: 23px 3px 8px; border: 0; border-top: 1px solid var(--bridge-accent); border-radius: 0; background: none; }
+.edu-history-bridge:nth-child(2) { --bridge-accent: #8fbab0; }
+.edu-history-bridge:nth-child(3) { --bridge-accent: #b3a1c6; }
+.edu-history-bridge a { color: var(--bridge-accent); font: 400 clamp(17px, 1.7vw, 21px)/1.6 "Zen Old Mincho", serif; text-decoration: none; }
+.edu-history-bridge a:hover, .edu-history-bridge a:focus-visible { color: #f0e9dc; text-decoration: underline; text-underline-offset: 5px; }
+.edu-history-bridge p { margin: 13px 0 0; color: #b9c3c3; font-size: 12px; line-height: 1.9; }
+
+/* An open chronology: a shared time rail, with two editorial voices. */
+.edu-history-timeline {
+  --history-world: #91bcb2;
+  --history-japan: #e0b57a;
+  --history-year-width: 112px;
+  --history-gap: 30px;
+  --history-rail: 124px;
+  margin-top: clamp(90px, 11vw, 145px);
+  border-top: 1px solid rgba(213, 185, 134, .44);
+  color: #e9e7e2;
 }
+.edu-history-timeline__masthead {
+  display: grid;
+  grid-template-columns: var(--history-year-width) minmax(0, 1fr);
+  gap: var(--history-gap);
+  padding: 46px 0 62px;
+  border-bottom: 1px solid rgba(216, 219, 218, .17);
+}
+.edu-history-timeline__rubric { padding-top: 8px; color: var(--history-japan); font: 500 10px/1.8 Inter, sans-serif; letter-spacing: .22em; }
+.edu-history-timeline__range { margin: 0 0 16px; color: #acada7; font: 500 11px/1.5 Inter, sans-serif; letter-spacing: .2em; font-variant-numeric: tabular-nums; }
+.edu-history-timeline__masthead h2 { max-width: 780px; margin: 0; color: #f4f0e6; font: 400 clamp(34px, 4.3vw, 55px)/1.38 "Zen Old Mincho", serif; letter-spacing: .04em; }
+.edu-history-timeline__intro { max-width: 650px; margin: 21px 0 0; color: #b7bdbd; font-size: 13px; line-height: 2.05; }
+.edu-history-timeline__key { display: flex; flex-wrap: wrap; gap: 12px 36px; margin-top: 36px; }
+.edu-history-timeline__key span { display: inline-flex; align-items: baseline; gap: 19px; padding: 0 0 9px; border-bottom: 1px solid currentColor; font: 500 11px/1.5 Inter, sans-serif; letter-spacing: .13em; }
+.edu-history-timeline__key-world { color: var(--history-world); }
+.edu-history-timeline__key-japan { color: var(--history-japan); }
+.edu-history-timeline__key b { color: #c5c8c5; font-weight: 400; letter-spacing: 0; }
+.edu-history-decade { position: relative; padding: 33px 0 5px; border-bottom: 1px solid rgba(216, 219, 218, .13); scroll-margin-top: 100px; }
+.edu-history-decade::before { position: absolute; top: 94px; bottom: 0; left: var(--history-rail); width: 1px; background: rgba(216, 219, 218, .17); content: ""; }
+.edu-history-decade:last-child { border-bottom: 0; }
+.edu-history-decade > h3 { display: flex; align-items: baseline; gap: 26px; margin: 0 0 25px; color: #b8ae9b; font: 400 clamp(23px, 2.4vw, 30px)/1.5 "Zen Old Mincho", serif; letter-spacing: .03em; }
+.edu-history-decade > h3::after { height: 1px; flex: 1; align-self: center; background: rgba(216, 219, 218, .13); content: ""; }
+.edu-history-row { display: grid; grid-template-columns: var(--history-year-width) repeat(2, minmax(0, 1fr)); gap: var(--history-gap); padding-bottom: 17px; scroll-margin-top: 100px; }
+.edu-history-row__year { position: relative; padding-top: 17px; color: #a6aaa9; font: 500 15px/1.5 Inter, sans-serif; font-variant-numeric: tabular-nums; }
+.edu-history-row__year::after { position: absolute; top: 23px; left: calc(var(--history-rail) - 4px); width: 7px; height: 7px; border: 1px solid #c0ab83; border-radius: 50%; background: #071019; content: ""; }
+.edu-history-row--world .edu-history-row__year { color: var(--history-world); }
+.edu-history-row--japan .edu-history-row__year { color: var(--history-japan); }
+.edu-history-row--world .edu-history-row__year::after { border-color: var(--history-world); background: var(--history-world); }
+.edu-history-row--japan .edu-history-row__year::after { border-color: var(--history-japan); background: var(--history-japan); }
+.edu-history-row--paired .edu-history-row__year::after { border-color: #d4c4a6; background: linear-gradient(90deg, var(--history-world) 50%, var(--history-japan) 50%); }
+.edu-history-lane { --history-accent: var(--history-world); min-width: 0; display: grid; align-content: start; gap: 18px; }
+.edu-history-lane--japan { --history-accent: var(--history-japan); }
+.edu-history-lane.is-empty { display: none; }
+.edu-history-row--solo .edu-history-lane:not(.is-empty) { grid-column: 2 / -1; }
+.edu-history-event { min-width: 0; padding: 17px 0 25px; border-top: 1px solid rgba(216, 219, 218, .25); transition: border-color .2s ease; }
+.edu-history-event:hover, .edu-history-event:focus-within { border-top-color: var(--history-accent); }
+.edu-history-row--solo .edu-history-event { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1fr); column-gap: clamp(26px, 5vw, 76px); align-items: start; }
+.edu-history-row--solo .edu-history-event__top { grid-column: 1; grid-row: 1; }
+.edu-history-row--solo .edu-history-event h4 { grid-column: 1; grid-row: 2; }
+.edu-history-row--solo .edu-history-event p { grid-column: 2; grid-row: 1 / span 2; }
+.edu-history-row--solo .edu-history-event__links { grid-column: 2; }
+.edu-history-event__top { display: flex; align-items: center; flex-wrap: wrap; gap: 7px 17px; }
+.edu-history-event__eyebrow { color: var(--history-accent); font: 600 10px/1.7 Inter, sans-serif; letter-spacing: .18em; }
+.edu-history-event .edu-catalog-badge { max-width: none; padding: 0; border: 0; border-radius: 0; background: none; font-size: 10px; }
+.edu-history-event .edu-catalog-badge b { font-size: 13px; }
+.edu-history-event h4 { margin: 10px 0 0; color: #f0eee8; font: 400 clamp(20px, 2.25vw, 27px)/1.55 "Zen Old Mincho", serif; letter-spacing: .025em; }
+.edu-history-event p { max-width: 62ch; margin: 0; color: #c1c7c8; font-size: 13px; line-height: 2; }
+.edu-history-row--paired .edu-history-event h4 { font-size: clamp(19px, 1.9vw, 23px); }
+.edu-history-row--paired .edu-history-event p { margin-top: 12px; }
+.edu-history-event__links { display: flex; align-items: baseline; flex-wrap: wrap; gap: 7px 15px; margin-top: 12px; }
+.edu-history-event__links > span:first-child { color: #929c9e; font-size: 10px; }
+.edu-history-event__links a { color: #dbc69f; font-size: 11px; line-height: 1.7; text-decoration: none; border-bottom: 1px solid rgba(219, 198, 159, .4); }
+.edu-history-event__links a:hover, .edu-history-event__links a:focus-visible { color: #fff0cf; border-color: currentColor; }
+.edu-history-event__links .edu-history-pending { color: #899496; font-size: 11px; }
+.edu-history-sources { margin-block: 110px 100px; padding-top: 28px; border-top: 1px solid rgba(224,181,122,.45); color: #bcc7c5; }
+.edu-history-sources h2 { margin: 0 0 15px; color: #f2eee6; font: 400 clamp(24px, 3vw, 34px)/1.5 "Zen Old Mincho", serif; }
+.edu-history-sources p { max-width: 75ch; margin: 0; font-size: 12px; line-height: 2; }
+.edu-history-sources ul { display: flex; flex-wrap: wrap; gap: 8px 23px; max-width: 900px; margin: 21px 0 0; padding: 0; list-style: none; }
+.edu-history-sources a { color: #ddc291; font-size: 11px; line-height: 1.8; text-decoration: underline; text-underline-offset: 4px; }
+
+@media (max-width: 760px) {
+  .edu-history-site .edu-catalog-hero { padding: 126px 0 74px; }
+  .edu-history-site .edu-catalog-hero > .edu-wrap { padding-inline: 0; }
+  .edu-history-site .edu-catalog-hero h1 { font-size: clamp(38px, 9vw, 50px); }
+  .edu-history-site .edu-catalog-hero h1 small { font-size: 17px; }
+  .edu-history-bridges__grid { grid-template-columns: 1fr; }
+  .edu-history-timeline { --history-year-width: 58px; --history-gap: 16px; --history-rail: 65px; margin-top: 76px; }
+  .edu-history-timeline__masthead { display: block; padding: 34px 0 43px; }
+  .edu-history-timeline__rubric { display: block; margin-bottom: 21px; padding: 0; }
+  .edu-history-timeline__masthead h2 { font-size: clamp(31px, 7vw, 42px); }
+  .edu-history-timeline__intro { font-size: 12px; }
+  .edu-history-timeline__key { gap: 16px 26px; margin-top: 28px; }
+  .edu-history-decade { padding-top: 26px; }
+  .edu-history-decade::before { top: 78px; }
+  .edu-history-decade > h3 { margin-bottom: 18px; font-size: 23px; }
+  .edu-history-row { grid-template-columns: var(--history-year-width) minmax(0, 1fr); gap: var(--history-gap); padding-bottom: 22px; }
+  .edu-history-row__year { grid-column: 1; grid-row: 1; padding-top: 16px; font-size: 12px; }
+  .edu-history-row__year::after { top: 21px; }
+  .edu-history-row .edu-history-lane:not(.is-empty) { grid-column: 2 / -1; }
+  .edu-history-row--solo .edu-history-event { display: block; }
+  .edu-history-event { padding: 15px 0 17px; }
+  .edu-history-event h4, .edu-history-row--paired .edu-history-event h4 { font-size: 20px; }
+  .edu-history-event p { margin-top: 9px; font-size: 12px; }
+  .edu-history-row--paired .edu-history-event p { margin-top: 9px; }
+}
+@media (prefers-reduced-motion: reduce) { .edu-history-event { transition: none; } }

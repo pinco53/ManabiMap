@@ -8,11 +8,13 @@
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/brand-v2.css">
   <link rel="stylesheet" href="assets/css/celestial-theme.css" media="screen">
-  <link rel="stylesheet" href="assets/css/philosophy-history.css?v=20261012-1">
+  <link rel="stylesheet" href="assets/css/philosophy-history.css?v=20261012-2">
+  <link rel="stylesheet" href="assets/css/ai-handoff.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Sans+JP:wght@400;500;600&amp;family=Zen+Old+Mincho:wght@400;500;600&amp;display=swap">
   <script src="assets/js/celestial-theme.js" defer></script>
   <script src="assets/js/philosophy-history-data.js?v=20261012-1" defer></script>
-  <script src="assets/js/philosophy-history.js?v=20261012-1" defer></script>
+  <script src="assets/js/ai-handoff.js" defer></script>
+  <script src="assets/js/philosophy-history.js?v=20261012-2" defer></script>
 </head>
 <body class="celestial-site philosophy-page">
   <a class="skip-link" href="#main">本文へ移動</a>
@@ -36,11 +38,24 @@
         <p class="ph-index__label">CHOOSE A THREAD<span>読みたい流れから始められます</span></p>
         <div id="ph-index-links"><a href="#west">01 西洋哲学</a><a href="#east">02 東洋哲学</a><a href="#crossroads">03 世界を交差した思想</a></div>
       </nav>
-      <p class="ph-reading-note">各項目には、思想の核・転換点・今も残る問いを約400字で記しました。年代は代表的な著作や活動、または記録の目安であり、思想が一点から突然始まったことを意味しません。「西洋」「東洋」は読み進めるための仮の区分です。</p>
+      <p class="ph-reading-note">各項目には、思想の核・転換点・今も残る問いを約400字で記しました。「思考法と対話する」から、その思想特有の考え方をAIとの往復で試せます。年代は代表的な著作や活動、または記録の目安であり、思想が一点から突然始まったことを意味しません。「西洋」「東洋」は読み進めるための仮の区分です。</p>
       <div id="ph-timelines"><p class="ph-loading" role="status">年表を読み込んでいます。</p></div>
       <aside class="ph-afterword"><p class="ph-eyebrow">AFTER THE TIMELINES</p><h2>年表の外にも、問いは続く。</h2><p>ここに載せたのは思想史の全体ではなく、人類の見方を変えた代表点です。思想は一人や一地域で完結しません。各項目の参考資料から異論をたどり、<a href="evolution.html">人類史の年表</a>に戻って、同時代の技術・政治・生活の変化と重ねて読んでください。</p></aside>
     </div>
   </main>
+  <dialog class="ph-dialog" id="ph-dialog" aria-labelledby="ph-dialog-title">
+    <div class="ph-dialog__inner">
+      <button class="ph-dialog__close" type="button" aria-label="対話の準備を閉じる">×</button>
+      <p class="ph-eyebrow">THINK WITH A PHILOSOPHER</p>
+      <h2 id="ph-dialog-title">思考法と対話する</h2>
+      <p class="ph-dialog__caution">本人の人格や発言を再現するものではありません。史料と研究に照らして思考の手順を再構成する、学習用の対話です。</p>
+      <p class="ph-dialog__method" id="ph-dialog-method"></p>
+      <fieldset class="ph-dialog__mode"><legend>どこから始めますか？</legend><label><input type="radio" name="ph-dialog-mode" value="experience" checked> まず思考法を体験する</label><label><input type="radio" name="ph-dialog-mode" value="question"> 自分の問いから始める</label></fieldset>
+      <label class="ph-dialog__question" for="ph-dialog-question">聞いてみたいこと（自由入力・任意）</label>
+      <textarea id="ph-dialog-question" rows="3" placeholder="例：よく生きるとは、どういうことですか？"></textarea>
+      <div id="ph-dialog-ai"></div>
+    </div>
+  </dialog>
   <footer class="site-footer"><div class="site-footer__inner"><div><a class="brand brand--footer" href="index.html"><span class="brand__name">Manabi Map</span><span class="brand__concept">知の重力レンズ</span></a><p>世界を知り、AIとの対話で自分の思考へつなぐ。</p></div><nav aria-label="フッターナビゲーション"><a href="evolution.html">人類史の年表</a><a href="#west">西洋哲学</a><a href="#east">東洋哲学</a><a href="#crossroads">世界を交差した思想</a></nav><p class="site-footer__copyright">© 2025–2026 Manabi Map</p></div></footer>
 </body>
 </html>

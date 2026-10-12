@@ -46,6 +46,23 @@
 .ph-entry__essay { max-width: 72ch; margin: 14px 0 0; color: #bec8c7; font: 400 13px/2.15 "Noto Sans JP", sans-serif; line-break: strict; overflow-wrap: anywhere; }
 .ph-entry__source { display: inline-block; margin-top: 20px; padding-bottom: 4px; border-bottom: 1px solid rgba(221, 190, 141, .45); color: #dec496; font-size: 11px; text-decoration: none; }
 .ph-entry__source:hover, .ph-entry__source:focus-visible { color: #f8dfb6; border-bottom-color: currentColor; }
+.ph-entry__dialogue { display: block; margin-top: 19px; padding: 12px 18px; border: 1px solid var(--ph-accent); border-radius: 999px; background: rgba(145,188,178,.09); color: #f4eee2; font: 500 12px/1.6 "Noto Sans JP", sans-serif; text-align: left; cursor: pointer; transition: background .2s ease, transform .2s ease; }
+.ph-entry__dialogue:hover, .ph-entry__dialogue:focus-visible { background: rgba(145,188,178,.21); transform: translateY(-2px); }
+.ph-dialog { width: min(640px, calc(100vw - 28px)); max-height: min(88vh, 850px); padding: 0; border: 1px solid rgba(221,188,134,.55); border-radius: 16px; background: #101b23; color: #eeeae2; box-shadow: 0 28px 90px #000b; }
+.ph-dialog::backdrop { background: rgba(2,8,14,.83); backdrop-filter: blur(6px); }
+.ph-dialog__inner { position: relative; padding: clamp(24px, 5vw, 44px); }
+.ph-dialog__close { position: absolute; top: 12px; right: 16px; border: 0; background: transparent; color: #e1d5c1; font-size: 30px; cursor: pointer; }
+.ph-dialog h2 { margin: 13px 28px 20px 0; font: 400 clamp(24px, 4vw, 34px)/1.5 "Zen Old Mincho", serif; }
+.ph-dialog__caution { color: #bfcbca; font-size: 12px; line-height: 1.9; }
+.ph-dialog__method { margin: 21px 0; padding: 13px 16px; border-left: 2px solid #ddb174; background: #dcbf8b0d; color: #e7d7b9; font-size: 12px; line-height: 1.9; }
+.ph-dialog__mode { display: grid; gap: 11px; margin: 22px 0; padding: 0; border: 0; }
+.ph-dialog__mode legend, .ph-dialog__question { margin-bottom: 10px; color: #d9e4df; font-size: 12px; }
+.ph-dialog__mode label { display: block; color: #d8e1dd; font-size: 13px; cursor: pointer; }
+.ph-dialog__mode input { accent-color: #ddb174; }
+.ph-dialog__question { display: block; }
+#ph-dialog-question { display: block; box-sizing: border-box; width: 100%; padding: 12px 14px; border: 1px solid #688078; border-radius: 8px; background: #09151c; color: #f5f0e8; font: 13px/1.8 "Noto Sans JP", sans-serif; resize: vertical; }
+#ph-dialog-question:focus-visible { outline: 2px solid #ddb174; outline-offset: 2px; }
+#ph-dialog-ai { margin-top: 19px; }
 .ph-timeline__ending { display: flex; justify-content: space-between; gap: 20px; padding: 22px 0 0; color: var(--ph-accent); font: 500 11px/1.8 "Noto Sans JP", sans-serif; }
 .ph-timeline__ending a { color: #c2ccca; text-decoration: none; }
 .ph-timeline__ending a:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
@@ -86,4 +103,4 @@
   .ph-entry__essay { margin-top: 9px; font-size: 12px; line-height: 2.05; }
   .ph-afterword { margin-bottom: 90px; }
 }
-@media (prefers-reduced-motion: reduce) { #ph-index-links a { transition: none; } }
+@media (prefers-reduced-motion: reduce) { #ph-index-links a, .ph-entry__dialogue { transition: none; } }
