@@ -537,7 +537,8 @@
     { id: 'note-203', number: 203, title: "縄文人は、1日2時間しか働いていなかった", url: "https://note.com/manabimapcreator/n/nc5197d55a06d", status: "published", kind: "wonder-note", date: "2026-10-11", target: "第20部第1話「最初に余ったのは、時間だった」", tags: ["第20部第1話「最初に余ったのは","時間だった」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-1", relatedPodcastUrl: "https://youtu.be/uo8c1W6Aor8", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/uo8c1W6Aor8", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-203.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "先日、予定がすべてキャンセルになって、まるまる一日が、ぽっかり空いてしまいました。" },
     { id: 'note-204', number: 204, title: "リスは、見られていると、嘘をつく", url: "https://note.com/manabimapcreator/n/na1ecb7652137", status: "published", kind: "wonder-note", date: "2026-10-12", target: "第20部第2話「腐らないものを、持ってしまった」", tags: ["第20部第2話「腐らないものを","持ってしまった」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-2", relatedPodcastUrl: "https://youtu.be/myjYTsGpfAg", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/myjYTsGpfAg", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-204.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "お菓子を引き出しにしまったとき、なんとなく、部屋を見回してしまいました。" },
     { id: 'note-205', number: 205, title: "エアナーシルは、4000年近く経った今も、まだ怒られている", url: "https://note.com/manabimapcreator/n/n8681e17be9de", status: "published", kind: "wonder-note", date: "2026-10-13", target: "第20部第3話「見張る人が、必要になった」", tags: ["第20部第3話「見張る人が","必要になった」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-3", relatedPodcastUrl: "https://youtu.be/Gw1EXd59PSA", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/Gw1EXd59PSA", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-205.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "先日、注文した品物が、写真と全然違っていて、思わず、レビュー欄に、長文の苦情を書いてしまいました。" },
-    { id: 'note-206', number: 206, title: "5億7000万円を当てた女性が、トレーラーハウスに住むまで", url: "https://note.com/manabimapcreator/n/n50d92d496fdb", status: "published", kind: "wonder-note", date: "2026-10-14", target: "第20部第4話「宝くじに当たった人は、幸せになったのか」", tags: ["第20部第4話「宝くじに当たった人は","幸せになったのか」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-4", relatedYouTubeId: "youtube-part20", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-206.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "先週、道端で小銭を拾いました。たった数百円なのに、その日は、なんだか、いつもより強気になって、少し高いランチを、迷わず選んでしまいました。" },
+    { id: 'note-206', number: 206, title: "5億7000万円を当てた女性が、トレーラーハウスに住むまで", url: "https://note.com/manabimapcreator/n/n50d92d496fdb", status: "published", kind: "wonder-note", date: "2026-10-14", target: "第20部第4話「宝くじに当たった人は、幸せになったのか」", tags: ["第20部第4話「宝くじに当たった人は","幸せになったのか」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-4", relatedPodcastUrl: "https://youtu.be/rvypaJE24Ww", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/rvypaJE24Ww", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-206.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "先週、道端で小銭を拾いました。たった数百円なのに、その日は、なんだか、いつもより強気になって、少し高いランチを、迷わず選んでしまいました。" },
+    { id: 'note-207', number: 207, title: "たった一枚のガウンが、書斎をまるごと変えた", url: "https://note.com/manabimapcreator/n/n86580152d8f0", status: "published", kind: "wonder-note", date: "2026-10-15", target: "第20部第5話「持っているのに、足りない気がする」", tags: ["第20部第5話「持っているのに","足りない気がする」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-5", relatedPodcastUrl: "https://youtu.be/vPUaUhVWpNY", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/vPUaUhVWpNY", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-207.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "新しいスマホケースを買ったら、なぜか、机の上のペン立てや、充電コードまで、急に古ぼけて見えてきました。" },
     { id: 'note-217', number: 217, title: "火が、人間の脳を大きくした", url: "https://note.com/manabimapcreator/n/n9d954ce96557", status: "published", kind: "wonder-note", date: "2026-09-20", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-3", relatedPodcastUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", relatedYouTubeId: "youtube-part9-3", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-217.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "生の肉と、焼いた肉。同じ量を食べても、満足感がまるで違うと感じたことはないでしょうか。" }
   ];
 
@@ -1966,6 +1967,24 @@
       type: 'podcast',
       title: '宝くじに当たった人は、幸せになったのか｜まるごと聴く ヘドニックトレッドミル【ハルとおじいさん #20P-4】',
       url: 'https://youtu.be/rvypaJE24Ww',
+      relatedParts: ['part20'],
+      question: '余ったのに、なぜ足りないのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part20-5',
+      type: 'podcast',
+      title: '持っているのに、足りない気がする｜まるごと聴く 地位を示す財という罠【ハルとおじいさん #20P-5】',
+      url: 'https://youtu.be/vPUaUhVWpNY',
+      relatedParts: ['part20'],
+      question: '余ったのに、なぜ足りないのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part20-6',
+      type: 'podcast',
+      title: '選べるほど、選べなくなる｜まるごと聴く 24種類のジャムの実験【ハルとおじいさん #20P-6】',
+      url: 'https://youtu.be/nk_y5x_OL8g',
       relatedParts: ['part20'],
       question: '余ったのに、なぜ足りないのか。',
       relation: 'Podcastで深める'
