@@ -540,6 +540,7 @@
     { id: 'note-206', number: 206, title: "5億7000万円を当てた女性が、トレーラーハウスに住むまで", url: "https://note.com/manabimapcreator/n/n50d92d496fdb", status: "published", kind: "wonder-note", date: "2026-10-14", target: "第20部第4話「宝くじに当たった人は、幸せになったのか」", tags: ["第20部第4話「宝くじに当たった人は","幸せになったのか」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-4", relatedPodcastUrl: "https://youtu.be/rvypaJE24Ww", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/rvypaJE24Ww", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-206.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "先週、道端で小銭を拾いました。たった数百円なのに、その日は、なんだか、いつもより強気になって、少し高いランチを、迷わず選んでしまいました。" },
     { id: 'note-207', number: 207, title: "たった一枚のガウンが、書斎をまるごと変えた", url: "https://note.com/manabimapcreator/n/n86580152d8f0", status: "published", kind: "wonder-note", date: "2026-10-15", target: "第20部第5話「持っているのに、足りない気がする」", tags: ["第20部第5話「持っているのに","足りない気がする」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-5", relatedPodcastUrl: "https://youtu.be/vPUaUhVWpNY", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/vPUaUhVWpNY", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-207.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "新しいスマホケースを買ったら、なぜか、机の上のペン立てや、充電コードまで、急に古ぼけて見えてきました。" },
     { id: 'note-208', number: 208, title: "仮釈放が認められるかどうかは、空腹で決まっていた", url: "https://note.com/manabimapcreator/n/n1778f6a575af", status: "published", kind: "wonder-note", date: "2026-10-16", target: "第20部第6話「選べるほど、選べなくなる」", tags: ["第20部第6話「選べるほど","選べなくなる」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-6", relatedPodcastUrl: "https://youtu.be/nk_y5x_OL8g", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/nk_y5x_OL8g", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-208.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "夕方、疲れきった状態で、家族に、ついきつい言い方をしてしまったことがあります。" },
+    { id: 'note-209', number: 209, title: "省エネなはずのLEDが、地球を明るくし続けている", url: "https://note.com/manabimapcreator/n/n4980f60f158c", status: "published", kind: "wonder-note", date: "2026-10-17", target: "第20部第7話「効率がよくなるほど、使う量が増える」", tags: ["第20部第7話「効率がよくなるほど","使う量が増える」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-7", relatedPodcastUrl: "https://youtu.be/uwtaEJpF8NU", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/uwtaEJpF8NU", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-209.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "子どもの頃、田舎の祖父母の家で見た夜空には、数えきれないほどの星が、見えていました。" },
     { id: 'note-217', number: 217, title: "火が、人間の脳を大きくした", url: "https://note.com/manabimapcreator/n/n9d954ce96557", status: "published", kind: "wonder-note", date: "2026-09-20", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-3", relatedPodcastUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", relatedYouTubeId: "youtube-part9-3", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-217.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "生の肉と、焼いた肉。同じ量を食べても、満足感がまるで違うと感じたことはないでしょうか。" }
   ];
 
@@ -1995,6 +1996,24 @@
       type: 'podcast',
       title: '効率がよくなるほど、使う量が増える｜まるごと聴く ジェヴォンズのパラドックス【ハルとおじいさん #20P-7】',
       url: 'https://youtu.be/uwtaEJpF8NU',
+      relatedParts: ['part20'],
+      question: '余ったのに、なぜ足りないのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part20-8',
+      type: 'podcast',
+      title: '便利は、期待値も上げた｜まるごと聴く ケインズの外れた予言【ハルとおじいさん #20P-8】',
+      url: 'https://youtu.be/YjWPUu--fJ0',
+      relatedParts: ['part20'],
+      question: '余ったのに、なぜ足りないのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part20-9',
+      type: 'podcast',
+      title: 'AIで浮いた時間を、誰が決めるのか｜まるごと聴く シリーズ最終話・余剰の行き先【ハルとおじいさん #20P-9】',
+      url: 'https://youtu.be/cWj6oWpNGj4',
       relatedParts: ['part20'],
       question: '余ったのに、なぜ足りないのか。',
       relation: 'Podcastで深める'
