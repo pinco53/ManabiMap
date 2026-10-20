@@ -543,6 +543,7 @@
     { id: 'note-209', number: 209, title: "省エネなはずのLEDが、地球を明るくし続けている", url: "https://note.com/manabimapcreator/n/n4980f60f158c", status: "published", kind: "wonder-note", date: "2026-10-17", target: "第20部第7話「効率がよくなるほど、使う量が増える」", tags: ["第20部第7話「効率がよくなるほど","使う量が増える」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-7", relatedPodcastUrl: "https://youtu.be/uwtaEJpF8NU", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/uwtaEJpF8NU", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-209.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "子どもの頃、田舎の祖父母の家で見た夜空には、数えきれないほどの星が、見えていました。" },
     { id: 'note-210', number: 210, title: "「8時間、8時間、8時間」は、ある工場主の理想だった", url: "https://note.com/manabimapcreator/n/n013d9b387eed", status: "published", kind: "wonder-note", date: "2026-10-18", target: "第20部第8話「便利は、期待値も上げた」", tags: ["第20部第8話「便利は","期待値も上げた」"], relatedParts: ["part20"], relatedPodcastId: "podcast-part20-8", relatedPodcastUrl: "https://youtu.be/YjWPUu--fJ0", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/YjWPUu--fJ0", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-210.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "休みの日のはずなのに、ふと気づくと、仕事のメッセージを、確認してしまっていました。" },
     { id: 'note-211', number: 211, title: "GDPより大事なものがある、と16歳の国王は言った", url: "https://note.com/manabimapcreator/n/n75c65fd38c73", status: "published", kind: "wonder-note", date: "2026-10-19", target: "第20部第9話「AIで浮いた時間を、誰が決めるのか」（最終話）", tags: ["第20部第9話「AIで浮いた時間を","誰が決めるのか」（最終話）"], relatedParts: ["part8","part20"], relatedPodcastId: "podcast-part20-9", relatedPodcastUrl: "https://youtu.be/cWj6oWpNGj4", relatedYouTubeId: "youtube-part20", relatedYouTubeUrl: "https://youtu.be/cWj6oWpNGj4", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-211.png", question: "余ったのに、なぜ足りないのか。", relation: "余剰と幸福の枝道", primaryPart: "part20", excerpt: "一日の終わりに、今日は「良い日だったか」と、自分に聞いてみることがあります。" },
+    { id: 'note-215', number: 215, title: "計算の天才が、なぜポーカーに本気になったのか", url: "https://note.com/manabimapcreator/n/n92a1f9fef42b", status: "published", kind: "wonder-note", date: "2026-10-20", target: "第7部第4話「フォン・ノイマン 思考を作る」", tags: ["第7部第4話「フォン","ノイマン","思考を作る」"], relatedParts: ["part5","part7"], relatedPodcastId: "podcast-part7-4", relatedPodcastUrl: "https://www.youtube.com/watch?v=x7FsQFtMujI", relatedYouTubeId: "youtube-part7-4", relatedYouTubeUrl: "https://www.youtube.com/watch?v=x7FsQFtMujI", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-215.png", question: "人間の当たり前を外すと、世界はどう見え直すのか。", relation: "前提を外す枝道", primaryPart: "part7", excerpt: "トランプゲームで、勝つために大切なのは、良い手札でしょうか。" },
     { id: 'note-217', number: 217, title: "火が、人間の脳を大きくした", url: "https://note.com/manabimapcreator/n/n9d954ce96557", status: "published", kind: "wonder-note", date: "2026-09-20", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-3", relatedPodcastUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", relatedYouTubeId: "youtube-part9-3", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-217.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "生の肉と、焼いた肉。同じ量を食べても、満足感がまるで違うと感じたことはないでしょうか。" }
   ];
 
@@ -2018,6 +2019,24 @@
       url: 'https://youtu.be/cWj6oWpNGj4',
       relatedParts: ['part20'],
       question: '余ったのに、なぜ足りないのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part21-1',
+      type: 'podcast',
+      title: '頭の良さは、生まれつき決まっている？｜まるごと聴く フレッド・ゲージと走るネズミの脳【ManabiMap #21P-1】',
+      url: 'https://youtu.be/_WAJMI0F6yQ',
+      relatedParts: ['part21'],
+      question: '運動は、脳と学びにどう関わるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part21-2',
+      type: 'podcast',
+      title: '走ったあと、頭の中で何が起きている？｜まるごと聴く カール・コットマンと脳の肥料BDNF【ManabiMap #21P-2】',
+      url: 'https://youtu.be/yucvLIaZUa8',
+      relatedParts: ['part21'],
+      question: '運動は、脳と学びにどう関わるのか。',
       relation: 'Podcastで深める'
     },
     {
