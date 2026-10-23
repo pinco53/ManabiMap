@@ -547,7 +547,8 @@
     { id: 'note-217', number: 217, title: "火が、人間の脳を大きくした", url: "https://note.com/manabimapcreator/n/n9d954ce96557", status: "published", kind: "wonder-note", date: "2026-09-20", target: "第9部第3話「脳はなぜ大きくなったか」", tags: [], relatedParts: ["part9"], relatedPodcastId: "podcast-part9-3", relatedPodcastUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", relatedYouTubeId: "youtube-part9-3", relatedYouTubeUrl: "https://www.youtube.com/watch?v=VlhvEkIYyik", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-217.png", question: "旧石器時代の身体で、生成AI時代をどう生きるのか。", relation: "身体と進化の枝道", primaryPart: "part9", excerpt: "生の肉と、焼いた肉。同じ量を食べても、満足感がまるで違うと感じたことはないでしょうか。" },
     { id: 'note-218', number: 218, title: "頭の良さは、生まれつき決まっているのか？ カナリアとタクシー運転手の脳", url: "https://note.com/manabimapcreator/n/nc0cd17fd99bb", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-21", target: "第21部第1話「走ったネズミの脳に、新しい細胞が生まれた」", tags: ["第21部第1話「走ったネズミの脳に","新しい細胞が生まれた」"], relatedParts: [], relatedPodcastId: "podcast-part21-1", relatedPodcastUrl: "https://youtu.be/_WAJMI0F6yQ", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-218.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "子どもの算数のテストを見ながら、" },
     { id: 'note-219', number: 219, title: "なぜ「脳の肥料」は、寝室の実験室で見つかったのか", url: "https://note.com/manabimapcreator/n/n9c33852cb902", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-22", target: "第21部第2話「運動すると、脳に『肥料』が出る」", tags: ["第21部第2話「運動すると","脳に『肥料』が出る」"], relatedParts: [], relatedPodcastId: "podcast-part21-2", relatedPodcastUrl: "https://youtu.be/yucvLIaZUa8", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-219.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "雨の日の放課後、子どもがなかなか宿題に手をつけません。" },
-    { id: 'note-220', number: 220, title: "子どもの体を「数字」で測りはじめたのは、いつからなのか", url: "https://note.com/manabimapcreator/n/n1b471c4d06dc", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-23", target: "第21部第3話「0時間目の体育で、テストの点が上がった？」", tags: ["第21部第3話「0時間目の体育で","テストの点が上がった？」"], relatedParts: [], relatedPodcastId: "podcast-part21-3", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-220.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "子どもが、体力テストの結果を持って帰ってきました。" }
+    { id: 'note-220', number: 220, title: "子どもの体を「数字」で測りはじめたのは、いつからなのか", url: "https://note.com/manabimapcreator/n/n1b471c4d06dc", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-23", target: "第21部第3話「0時間目の体育で、テストの点が上がった？」", tags: ["第21部第3話「0時間目の体育で","テストの点が上がった？」"], relatedParts: [], relatedPodcastId: "podcast-part21-3", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-220.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "子どもが、体力テストの結果を持って帰ってきました。" },
+    { id: 'note-221', number: 221, title: "なぜダーウィンは、小石を蹴りながら考えたのか", url: "https://note.com/manabimapcreator/n/nfd7912484342", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-24", target: "第21部第4話「20分歩いた子は、読む力が上がった」", tags: ["第21部第4話「20分歩いた子は","読む力が上がった」"], relatedParts: [], relatedPodcastId: "podcast-part21-4", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-221.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "考えごとが行きづまったとき、" }
   ];
 
   const routes = [
@@ -2065,6 +2066,15 @@
       type: 'podcast',
       title: '「じっとしなさい」は、何を止めている？｜まるごと聴く ジョン・レイティとADHDと運動【ManabiMap #21P-5】',
       url: 'https://youtu.be/9z-BPkH-ROs',
+      relatedParts: ['part21'],
+      question: '運動は、脳と学びにどう関わるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part21-6',
+      type: 'podcast',
+      title: '運動しない人たちが教えてくれたこと｜まるごと聴く ハーマン・ポンツァーとハッザ族【ManabiMap #21P-6】',
+      url: 'https://youtu.be/Ey9fKSqUAqM',
       relatedParts: ['part21'],
       question: '運動は、脳と学びにどう関わるのか。',
       relation: 'Podcastで深める'
