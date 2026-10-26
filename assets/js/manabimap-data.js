@@ -548,7 +548,9 @@
     { id: 'note-218', number: 218, title: "頭の良さは、生まれつき決まっているのか？ カナリアとタクシー運転手の脳", url: "https://note.com/manabimapcreator/n/nc0cd17fd99bb", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-21", target: "第21部第1話「走ったネズミの脳に、新しい細胞が生まれた」", tags: ["第21部第1話「走ったネズミの脳に","新しい細胞が生まれた」"], relatedParts: [], relatedPodcastId: "podcast-part21-1", relatedPodcastUrl: "https://youtu.be/_WAJMI0F6yQ", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-218.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "子どもの算数のテストを見ながら、" },
     { id: 'note-219', number: 219, title: "なぜ「脳の肥料」は、寝室の実験室で見つかったのか", url: "https://note.com/manabimapcreator/n/n9c33852cb902", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-22", target: "第21部第2話「運動すると、脳に『肥料』が出る」", tags: ["第21部第2話「運動すると","脳に『肥料』が出る」"], relatedParts: [], relatedPodcastId: "podcast-part21-2", relatedPodcastUrl: "https://youtu.be/yucvLIaZUa8", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-219.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "雨の日の放課後、子どもがなかなか宿題に手をつけません。" },
     { id: 'note-220', number: 220, title: "子どもの体を「数字」で測りはじめたのは、いつからなのか", url: "https://note.com/manabimapcreator/n/n1b471c4d06dc", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-23", target: "第21部第3話「0時間目の体育で、テストの点が上がった？」", tags: ["第21部第3話「0時間目の体育で","テストの点が上がった？」"], relatedParts: [], relatedPodcastId: "podcast-part21-3", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-220.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "子どもが、体力テストの結果を持って帰ってきました。" },
-    { id: 'note-221', number: 221, title: "なぜダーウィンは、小石を蹴りながら考えたのか", url: "https://note.com/manabimapcreator/n/nfd7912484342", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-24", target: "第21部第4話「20分歩いた子は、読む力が上がった」", tags: ["第21部第4話「20分歩いた子は","読む力が上がった」"], relatedParts: [], relatedPodcastId: "podcast-part21-4", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-221.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "考えごとが行きづまったとき、" }
+    { id: 'note-221', number: 221, title: "なぜダーウィンは、小石を蹴りながら考えたのか", url: "https://note.com/manabimapcreator/n/nfd7912484342", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-24", target: "第21部第4話「20分歩いた子は、読む力が上がった」", tags: ["第21部第4話「20分歩いた子は","読む力が上がった」"], relatedParts: [], relatedPodcastId: "podcast-part21-4", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-221.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "考えごとが行きづまったとき、" },
+    { id: 'note-222', number: 222, title: "「じっとしていられない子」は、いつから叱られてきたのか", url: "https://note.com/manabimapcreator/n/na9bc68d0d48a", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-25", target: "第21部第5話「じっとしていられない子に、走る時間を」", tags: ["走る時間を」"], relatedParts: [], relatedPodcastId: "podcast-part21-5", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-222.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "夕ごはんのとき、子どもがいすを前後に揺らしています。" },
+    { id: 'note-223', number: 223, title: "「運動の時間」は、いつ生まれたのか", url: "https://note.com/manabimapcreator/n/nd021f11ff587", status: "published", kind: "wonder-note（学びシリーズ・教育路線：第3層を「家庭と教室の同じ構造」に置き換え）", date: "2026-10-26", target: "第21部第6話（最終話）「狩猟採集民は『運動』をしない」", tags: [], relatedParts: [], relatedPodcastId: "podcast-part21-6", relatedYouTubeId: "なし（学びシリーズはPodcastのみ）", ctaCopy: "Podcastで深く聴く", image: "note_articles/generated_note_images/note-223.png", question: "学ぶとは、答えを増やすことか、問いを増やすことか。", relation: "制作と学びの枝道", primaryPart: "note", excerpt: "夏休みの朝、公園から、あのピアノの音が聞こえてきます。" }
   ];
 
   const routes = [
@@ -2077,6 +2079,24 @@
       url: 'https://youtu.be/Ey9fKSqUAqM',
       relatedParts: ['part21'],
       question: '運動は、脳と学びにどう関わるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part22-1',
+      type: 'podcast',
+      title: '答えを教えるより、聞くほうが伸びる？｜まるごと聴く ベサニー・リトル＝ジョンソンと説明する子ども【ManabiMap #22P-1】',
+      url: 'https://youtu.be/oBhieFggzjQ',
+      relatedParts: ['part22'],
+      question: '親子の対話は、子どもの学びをどう変えるのか。',
+      relation: 'Podcastで深める'
+    },
+    {
+      id: 'podcast-part22-2',
+      type: 'podcast',
+      title: '2回読んでも、わからないのはなぜ？｜まるごと聴く ミシュリン・チーと自己説明【ManabiMap #22P-2】',
+      url: 'https://youtu.be/lwhNZvG05js',
+      relatedParts: ['part22'],
+      question: '親子の対話は、子どもの学びをどう変えるのか。',
       relation: 'Podcastで深める'
     },
     {
