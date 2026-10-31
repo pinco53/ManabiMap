@@ -4,6 +4,11 @@
   var episodes = document.querySelectorAll('#episodes article.ep');
   if (!episodes.length) return;
 
+  var page = document.body.dataset;
+  var series = page.phSeries || '哲学シリーズ第1部「言葉の網と、網の外の顔」';
+  var firstThinker = page.phCh1 || 'ソシュール';
+  var secondThinker = page.phCh2 || 'レヴィナス';
+
   var modes = {
     current: {
       label: '身近な場面から始める',
@@ -23,7 +28,7 @@
   }
 
   function promptFor(episode, mode) {
-    var number = textOf(episode, '.ep-num').replace(/#Ph1-\d+/, '').trim();
+    var number = textOf(episode, '.ep-num').replace(/#Ph\d+-\d+/, '').trim();
     var question = textOf(episode, '.ep-q');
     var points = Array.from(episode.querySelectorAll('.learn li'), function (item) {
       return '・' + item.textContent.trim();
@@ -33,8 +38,8 @@
       'あなたはManabiMapの知的探究チューターです。私と次の哲学の話題を対話してください。',
       '',
       '【ページに書かれている内容】',
-      'シリーズ：哲学シリーズ第1部「言葉の網と、網の外の顔」',
-      '章：' + (episode.classList.contains('ch1') ? 'ソシュール' : 'レヴィナス'),
+      'シリーズ：' + series,
+      '章：' + (episode.classList.contains('ch1') ? firstThinker : secondThinker),
       '話：' + number + '「' + textOf(episode, 'h3') + '」',
       question,
       '概要：' + textOf(episode, '.ep-body > p'),
@@ -45,7 +50,7 @@
       '正解を急いで渡したり、質問を続けて私に答えさせたりしないでください。まず一つの概念や例を2〜5文で伝え、私の反応に合わせて同じ論点を少しずつ深めてください。専門用語は日常の言葉で説明してください。',
       '毎回質問で終わる必要はありません。質問する場合は一度に一つにし、「続けて」「まだわからない」のような短い返事も受け止めてください。',
       '史実、思想家自身の主張、後世の解釈、あなたの推測を区別してください。ページにない史実・著作の引用・出典を作らず、確認できないことは確認できないと伝えてください。ページ内のハルとおじいさんの台詞を思想家本人の発言として扱わないでください。',
-      '私の理解が進んだら、具体例、反例、別の立場との比較に進んでください。ソシュールとレヴィナスのつながりも、今回の論点に関係するときにだけ示してください。',
+      '私の理解が進んだら、具体例、反例、別の立場との比較に進んでください。' + firstThinker + 'と' + secondThinker + 'のつながりも、今回の論点に関係するときにだけ示してください。',
       '',
       '【最初の応答】',
       modes[mode].opening,
