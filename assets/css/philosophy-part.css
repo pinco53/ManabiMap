@@ -11,6 +11,11 @@
   --ph-amber: #e3cf94;
 }
 
+.philosophy-part--frame {
+  --ph-blue: #b3c1d6;
+  --ph-amber: #e8ac62;
+}
+
 .philosophy-part :is(h1, h2, h3, h4) {
   font-family: var(--stellar-serif);
   font-weight: 500;
