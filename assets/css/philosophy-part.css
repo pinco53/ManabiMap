@@ -16,6 +16,18 @@
   --ph-amber: #e8ac62;
 }
 
+/* 東洋第1部：第一章は菩提樹の緑とサフラン、第二章は夜明け前の藍 */
+.philosophy-part--emptiness {
+  --ph-blue: #b8d98f;
+  --ph-amber: #a9b6f2;
+}
+.philosophy-part--emptiness .ep.ch1 .ep-head { background: #f0a8400a; }
+.philosophy-part--emptiness .ep.ch1 .pull { border-left-color: #f0a840; background: #f0a8400c; }
+.philosophy-part--emptiness .ep.ch2 .ep-head { background: #a9b6f208; }
+.philosophy-part--emptiness .ep.ch2 .pull { background: #a9b6f20c; }
+.philosophy-part--emptiness .kw { border-color: #b8d98f44; background: #b8d98f0b; }
+.philosophy-part--emptiness .ep.ch2 .kw { border-color: #a9b6f244; background: #a9b6f20b; }
+
 .philosophy-part :is(h1, h2, h3, h4) {
   font-family: var(--stellar-serif);
   font-weight: 500;
