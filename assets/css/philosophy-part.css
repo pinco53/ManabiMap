@@ -40,6 +40,18 @@
 .philosophy-part--form .kw { border-color: #f0937a44; background: #f0937a0b; }
 .philosophy-part--form .ep.ch2 .kw { border-color: #8fd6c644; background: #8fd6c60b; }
 
+/* 数学第1部：第一章（微分）はネオンイエロー、第二章（積分）はネオンパープル */
+.philosophy-part--calculus {
+  --ph-blue: #ffe81a;
+  --ph-amber: #c04bff;
+}
+.philosophy-part--calculus .ep.ch1 .ep-head { background: #ffe81a08; }
+.philosophy-part--calculus .ep.ch1 .pull { background: #ffe81a0c; }
+.philosophy-part--calculus .ep.ch2 .ep-head { background: #c04bff0a; }
+.philosophy-part--calculus .ep.ch2 .pull { background: #c04bff0c; }
+.philosophy-part--calculus .kw { border-color: #ffe81a44; background: #ffe81a0b; }
+.philosophy-part--calculus .ep.ch2 .kw { border-color: #c04bff44; background: #c04bff0b; }
+
 .philosophy-part :is(h1, h2, h3, h4) {
   font-family: var(--stellar-serif);
   font-weight: 500;

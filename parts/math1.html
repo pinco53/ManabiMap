@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数学シリーズ第1部 小学生にもわかる 微分と積分｜ManabiMap 学びの地図</title>
+<meta name="description" content="微分＝勢いはかり、積分＝つみ上げ箱。速さ・グラフの坂・いまの速さ・てっぺんから、短冊・反対どうし・ハレーすい星・AIの学び方・バタフライ効果まで、小学生にもわかるPodcast全10話の学びの地図。">
+<link rel="canonical" href="https://pinco53.github.io/ManabiMap/parts/math1.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Manabi Map">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="数学シリーズ第1部 小学生にもわかる 微分と積分｜ManabiMap">
+<meta property="og:description" content="微分と積分。「変わること」は、つかまえられるのか。">
+<meta property="og:url" content="https://pinco53.github.io/ManabiMap/parts/math1.html">
+<meta property="og:image" content="https://pinco53.github.io/ManabiMap/assets/social/og-manabimap-lens-20260801.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QL1PVK5PRF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QL1PVK5PRF');</script>
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/brand-v2.css">
+<link rel="stylesheet" href="../assets/css/celestial-theme.css" media="screen">
+<link rel="stylesheet" href="../assets/css/episode-ai-guide.css?v=20260905-2">
+<link rel="stylesheet" href="../assets/css/philosophy-part.css?v=20261108-2">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&family=Zen+Old+Mincho:wght@400;500;600&display=swap">
+<meta name="theme-color" content="#040910">
+<script src="../assets/js/celestial-theme.js" defer></script>
+</head>
+<body class="celestial-site philosophy-part philosophy-part--calculus" data-ph-series="数学シリーズ第1部「小学生にもわかる 微分と積分」" data-ph-ch1="微分（勢いはかり）" data-ph-ch2="積分（つみ上げ箱）">
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header site-header--solid" data-site-header>
+  <a class="brand" href="../index.html" aria-label="Manabi Map トップ"><svg class="brand__mark" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="8"></circle><ellipse cx="28" cy="28" rx="23" ry="13"></ellipse><ellipse cx="28" cy="28" rx="13" ry="23" transform="rotate(34 28 28)"></ellipse><circle class="brand__star" cx="49" cy="24" r="2.4"></circle></svg><span class="brand__text"><span class="brand__name">Manabi Map</span><span class="brand__concept">知の重力レンズ</span></span></a>
+  <nav class="desktop-nav" aria-label="メインナビゲーション"><a href="../questions.html">AIと対話する</a><a href="../map.html" aria-current="page">学びの地図</a><a href="../note.html">読む</a><a href="../podcast.html">聴く</a><a href="../start.html">はじめての方へ</a><a href="../edu.html">EDU</a><a href="../en/index.html" lang="en">EN</a></nav>
+  <details class="mobile-nav"><summary aria-label="メニューを開く"><span></span><span></span><span></span></summary><nav aria-label="モバイルナビゲーション"><a href="../questions.html">AIと対話する</a><a href="../map.html" aria-current="page">学びの地図</a><a href="../note.html">読む</a><a href="../podcast.html">聴く</a><a href="../start.html">はじめての方へ</a><a href="../edu.html">EDU</a><a href="../en/index.html" lang="en">English</a></nav></details>
+</header>
+
+<div class="cover simple-page-hero">
+  <div class="cover__inner">
+    <nav class="cover__crumb" aria-label="現在地"><a href="../index.html">トップ</a><span aria-hidden="true"> / </span><a href="../map.html">学びの地図</a><span aria-hidden="true"> / </span><span>数学シリーズ 第1部</span></nav>
+    <p class="series">MANABI MAP · MATH SERIES 01</p>
+    <h1>小学生にもわかる<br>微分と積分</h1>
+    <p class="sub">勢いはかりと、つみ上げ箱</p>
+    <p class="tag">「微分を知ると、世界を全部あらわせる」。<br>その言葉は、本当なのか。<br>12歳のハルと、こだまのおじいさんが、記号を使わずにたしかめる。</p>
+    <div class="cover__actions"><a href="#episodes">全10話を見る <span aria-hidden="true">↘</span></a><a href="#axis">2つの道具をつなぐ問い <span aria-hidden="true">↘</span></a></div>
+    <p class="meta">Podcast 全10話 ／ 各話約9分 ／ 2026年12月15日から毎日18時に公開</p>
+  </div>
+</div>
+
+<main id="main">
+<nav class="part-index" aria-label="このページの目次"><a href="#intro">はじめに</a><a href="#axis">2つの道具</a><a href="#timeline">人物と発見</a><a href="#episodes">全10話</a><a href="#glossary">キーワード</a><a href="#questions">考えてみたい問い</a></nav>
+<section id="intro">
+  <p class="label">Introduction</p>
+  <h2>なぜ、小学生に微分と積分なのか</h2>
+  <div class="essay">
+    <p>微分と積分と聞くと、記号がたくさんならんだ、高校の数学を思いうかべるかもしれません。でも、その中身はとてもシンプルです。微分は「いま、どれくらいの勢いで変わっている？」をはかる道具。積分は「少しずつを、全部たすと？」を調べる道具。このシリーズでは、それぞれを「勢いはかり」と「つみ上げ箱」と呼びます。</p>
+    <p>世界のものは、ほとんど止まっていません。冷めていくお湯、伸びていく身長、動いていく日なた、空をめぐる星。変わり方のきまりを勢いはかりで書き、それをつみ上げ箱で少しずつ足していくと、まだ起きていない未来まで予想できる。この見方が、およそ350年前から、科学のやり方を大きく変えました。</p>
+    <p>この部で見たいのは、計算のしかただけではありません。ガリレオは速さを「感じるもの」から「はかって確かめるもの」に変え、オレームとデカルトは変化を「目に見える線」にし、ニュートンとライプニッツは「勢い」と「たまった量」が表と裏であることを道具にしました。その見方が、スピードメーターや天気予報、探査機、そしていまのAIの学び方にまで、どうつながったのかを一話ずつたどります。</p>
+    <p>そして最後には、「全部あらわせる」は言いすぎかもしれない、というところまで行きます。ほんの小さなずれが大きく育つバタフライ効果。めがねにも見えないものがあると知ることも、大事な学びです。音声だけでわかるように、数は10円や60キロのような耳で聞いてわかるものだけを使っています。</p>
+  </div>
+</section>
+
+<section id="axis">
+  <p class="label">Axis</p>
+  <h2>シリーズを貫く軸</h2>
+  <div class="axis">
+    <div class="l"><h3>勢いはかり（微分）</h3><ul><li>速さ＝道のり÷時間</li><li>グラフの坂＝変わる勢い</li><li>うんと短い時間で見ると、いまの速さ</li><li>坂が0のところが、てっぺんと谷底</li></ul></div>
+    <div class="m">反対どうし</div>
+    <div class="r"><h3>つみ上げ箱（積分）</h3><ul><li>細かく切って、全部たす</li><li>曲がった形も、まっすぐなかけらの集まり</li><li>速さをつみ上げると、道のり</li><li>いまの勢いをつみ上げると、未来の予想</li></ul></div>
+  </div>
+  <div class="cq"><p class="label">Central Question</p><p>「変わること」は、つかまえられるのか。</p></div>
+</section>
+
+<section id="timeline">
+  <p class="label">Timeline</p>
+  <h2>人物と発見</h2>
+  <div class="tls">
+    <div class="tl"><h3>勢いをはかった人たち</h3><ol><li class="s"><span class="y">前500ごろ</span><span class="d">ヘラクレイトス「同じ川に2度入ることはできない」（伝承）</span></li><li class="s"><span class="y">前5世紀</span><span class="d">ゼノン、飛ぶ矢は止まっているというパラドックス</span></li><li class="s"><span class="y">1350ごろ</span><span class="d">ニコル・オレーム、変わる量を線の長さで描く</span></li><li class="s"><span class="y">1637</span><span class="d">デカルト、場所を2つの数であらわす方法を広める</span></li><li class="s"><span class="y">1630年代</span><span class="d">フェルマー、てっぺんと谷底の見つけ方</span></li><li class="s"><span class="y">1638</span><span class="d">ガリレオ『新科学対話』。坂と水時計の実験</span></li><li class="s"><span class="y">1665–66</span><span class="d">ニュートン、ふるさとの村で「りゅうりつ」を考える</span></li><li class="s"><span class="y">1847</span><span class="d">コーシー、坂をくだる方法の短い論文</span></li></ol></div>
+    <div class="tl"><h3>つみ上げた人たち</h3><ol><li class="l"><span class="y">前3世紀</span><span class="d">アルキメデス、96角形で円周率をはさみうち</span></li><li class="l"><span class="y">1613 / 1615</span><span class="d">ケプラー、ワインだるを輪切りにして量る本</span></li><li class="l"><span class="y">1675</span><span class="d">ライプニッツ、総和のSをのばした記号を書く</span></li><li class="l"><span class="y">1687</span><span class="d">ニュートン『プリンキピア』</span></li><li class="l"><span class="y">1722</span><span class="d">たけべかたひろ、円周率を40けた以上</span></li><li class="l"><span class="y">1758</span><span class="d">ハレーすい星、予言どおりに戻る</span></li><li class="l"><span class="y">1961</span><span class="d">ローレンツ、小さなずれが育つことに気づく</span></li><li class="l"><span class="y">いま</span><span class="d">天気予報、探査機、AIの学習を支える</span></li></ol></div>
+  </div>
+</section>
+
+<section id="episodes">
+  <p class="label">Episodes</p>
+  <h2>全10話の学びの地図</h2>
+  <div class="ch-title ch1">第一章 勢いはかり（微分）「いま、どれくらいの勢いで変わっている？」<small>第1〜5話 ／ ネオンイエロー</small></div>
+<article class="ep ch1" id="ep1">
+  <header class="ep-head"><span class="ep-num">第1話 <small>#Ma1-1</small></span><h3>微分を知ると、世界を全部あらわせるのか</h3><p class="ep-q">問い：世界のものは、本当に止まっていないのか</p></header>
+  <div class="ep-body">
+    <p>大学の先生が言った「微分を知ると、世界を全部あらわせる」。12歳のハルは、計算のこつだろうと考えます。1時間で10度と5分で10度、同じ10度でも勢いがちがうお湯。10円貯金。動く日なたと黒猫。勢いはかりとつみ上げ箱という2つの道具に出会う、シリーズの入口。</p>
+    <ul class="learn"><li>同じ川に2度入ることはできない（ヘラクレイトス）</li><li>変わった量と、変わる勢いはちがう</li><li>微分＝勢いはかり、積分＝つみ上げ箱</li><li>変わり方のきまりがわかれば、10分後のお湯も予想できる</li><li>世界を「もの」ではなく「変わり方のきまり」として見る近代科学の出発点</li></ul>
+    <blockquote class="pull"><p>止まって見える机のまわりでも、日なたや温度や僕の身長が、少しずつ変わっているんだと思った。</p><cite>── ハル（第1話）</cite></blockquote>
+    <div class="kws"><span class="kw">微分</span><span class="kw">積分</span><span class="kw">反対どうし</span><span class="kw">ヘラクレイトス</span></div>
+    <p class="ep-links"><span class="soon">🎙️ Podcast（12月15日 18:00 公開予定）</span></p>
+  </div>
+</article>
+<article class="ep ch1" id="ep2">
+  <header class="ep-head"><span class="ep-num">第2話 <small>#Ma1-2</small></span><h3>速さって、なんだろう</h3><p class="ep-q">問い：速いか遅いかは、どうやって決めるのか</p></header>
+  <div class="ep-body">
+    <p>ふでばこと消しゴムを同時に落としたら、同時に床についた。速さは「道のり÷時間」。50メートル10秒なら1秒に5メートル。ガリレオは、ゆるい坂に玉を転がし、流れ出た水の重さで時間をはかって、「重いほど速く落ちる」という2000年の思いこみをくつがえした。</p>
+    <ul class="learn"><li>30分で30キロと、1時間で60キロは同じ速さ</li><li>坂と水時計：落ちる速さを、ゆっくりにしてはかる</li><li>1、4、9：玉はどんどん速くなる</li><li>1971年、月の上で同時に落ちたハンマーと羽</li><li>影響：速さは感じるものから、はかって確かめるものへ</li></ul>
+    <blockquote class="pull"><p>速さは、なんとなく感じるものじゃなくて、道のりと時間をはかって割れば、だれとでも比べられるものなんだと思った。</p><cite>── ハル（第2話）</cite></blockquote>
+    <div class="kws"><span class="kw">道のり÷時間</span><span class="kw">実験で確かめる</span><span class="kw">平均の速さ</span><span class="kw">ガリレオ</span></div>
+    <p class="ep-links"><span class="soon">🎙️ Podcast（12月16日 18:00 公開予定）</span></p>
+  </div>
+</article>
+<article class="ep ch1" id="ep3">
+  <header class="ep-head"><span class="ep-num">第3話 <small>#Ma1-3</small></span><h3>グラフの坂は、何を教えてくれるのか</h3><p class="ep-q">問い：線のかたむきに、何がかくれているのか</p></header>
+  <div class="ep-body">
+    <p>遠足のしおりの山のグラフ。きついのは高いところ？ じゃ口を全開・半分・止めたときのお湯の深さ、たて÷よこで出す坂の急さ。上り坂はプラス、下り坂はマイナス、平らは0。変わる量を線の絵にした14世紀のオレームと、方眼グラフのもとを広めたデカルトをたどる回。</p>
+    <ul class="learn"><li>高さと坂はちがう</li><li>かたむき＝たて÷よこ＝変わる勢い</li><li>上り坂はプラス、下り坂はマイナス、平らは0</li><li>ガリレオの1、4、9は、上に曲がっていく線</li><li>影響：天気・成長・心臓。グラフで変化を読む文化</li></ul>
+    <blockquote class="pull"><p>グラフは高さを見るだけじゃなくて、線の坂を見ると、どれくらいの勢いで変わっているのかが読めるんだと思った。</p><cite>── ハル（第3話）</cite></blockquote>
+    <div class="kws"><span class="kw">グラフ</span><span class="kw">かたむき</span><span class="kw">高さと坂</span><span class="kw">オレームとデカルト</span></div>
+    <p class="ep-links"><span class="soon">🎙️ Podcast（12月17日 18:00 公開予定）</span></p>
+  </div>
+</article>
+<article class="ep ch1" id="ep4">
+  <header class="ep-head"><span class="ep-num">第4話 <small>#Ma1-4</small></span><h3>「いま」の速さは、つかまえられるのか</h3><p class="ep-q">問い：一瞬のあいだにも、速さはあるのか</p></header>
+  <div class="ep-body">
+    <p>スピードメーターの42は、どうして「いま」の速さなのか。一瞬なら矢は止まっているというゼノンのふしぎ。時間を短くするほど、5、4.1、4.01と近づいていく数。ペストで大学が閉じたあいだに、ニュートンが考えた「りゅうりつ」。こだまのおじいさんが、一瞬一瞬の積み重ねを話す回。</p>
+    <ul class="learn"><li>飛ぶ矢は止まっている？（ゼノンのパラドックス）</li><li>1しゃくの棒を毎日半分に（荘子の本）</li><li>0にはせず、0のすぐそばまで近づける</li><li>三角形を小さくすると、1点にふれる線になる</li><li>影響：スピードメーター、手ぶれ補正、動きのきまり</li></ul>
+    <blockquote class="pull"><p>一瞬だけ見ると止まっていても、時間をうんと短くしながら近づいていけば、いまの勢いはつかまえられるんだと思った。</p><cite>── ハル（第4話）</cite></blockquote>
+    <div class="kws"><span class="kw">ゼノンの矢</span><span class="kw">近づけていく</span><span class="kw">微分</span><span class="kw">ゼノンとニュートン</span></div>
+    <p class="ep-links"><span class="soon">🎙️ Podcast（12月18日 18:00 公開予定）</span></p>
+  </div>
+</article>
+<article class="ep ch1" id="ep5">
+  <header class="ep-head"><span class="ep-num">第5話 <small>#Ma1-5</small></span><h3>いちばん高いところは、どうやって見つけるのか</h3><p class="ep-q">問い：てっぺんでは、いったい何が起きているのか</p></header>
+  <div class="ep-body">
+    <p>12センチの紙のすみを切って作る箱。まんなかの3センチなら108、でも2センチなら128。投げたボールはてっぺんで一瞬止まる。坂が0になる場所を探したフェルマー、光はいちばん短い時間の道を通るという考え、1999年に証明されたはちの巣の六角形。第一章の最終回。</p>
+    <ul class="learn"><li>いちばんよい場所は、まんなかとはかぎらない</li><li>てっぺんと谷底では、坂が0</li><li>てっぺんのまわりは平ら（1.9でも2.1でも約127.7）</li><li>フェルマーと、光のいちばん速い道</li><li>影響：缶の形、橋、地図アプリ。さいてきか</li></ul>
+    <blockquote class="pull"><p>いちばんよいところは、まんなかとはかぎらなくて、坂が0になって平らになる場所を探せばいいんだと思った。</p><cite>── ハル（第5話）</cite></blockquote>
+    <div class="kws"><span class="kw">坂が0</span><span class="kw">てっぺんは平ら</span><span class="kw">さいてきか</span><span class="kw">フェルマー</span></div>
+    <p class="ep-links"><span class="soon">🎙️ Podcast（12月19日 18:00 公開予定）</span></p>
+  </div>
+</article>
+  <div class="ch-title ch2">第二章 つみ上げ箱（積分）「少しずつを、全部たすと？」<small>第6〜10話 ／ ネオンパープル</small></div>
+<article class="ep ch2" id="ep6">
+  <header class="ep-head"><span class="ep-num">第6話 <small>#Ma1-6</small></span><h3>細かく切ってたせば、丸の広さがわかるのか</h3><p class="ep-q">問い：曲がった形の広さは、どうやってはかるのか</p></header>
+  <div class="ep-body">
+    <p>円の面積の3.14は、だれかが決めた約束？ ピザを細い三角に切って交互に並べると、長四角に近づいていく。96角形で円をはさみうちにしたアルキメデス。1613年、再婚のワインだるの量り方に納得できず、たるを輪切りにして足したケプラー。積分＝つみ上げ箱の入口。</p>
+    <ul class="learn"><li>ピザを並べかえると、半径×半径×3.14</li><li>96角形のはさみうち：3.1408より大きく3.1429より小さい</li><li>ケプラーのワインだると、1615年の本</li><li>曲線の下を細い短冊でうめて、全部たす</li><li>影響：ダム、CT、3Dプリンター</li></ul>
+    <blockquote class="pull"><p>3.14は、だれかが決めた約束じゃなくて、丸を細かく切って、はさみうちで追いつめた数なんだと思った。</p><cite>── ハル（第6話）</cite></blockquote>
+    <div class="kws"><span class="kw">はさみうち</span><span class="kw">輪切りにしてたす</span><span class="kw">積分</span><span class="kw">アルキメデスとケプラー</span></div>
+    <p class="ep-links"><span class="soon">🎙️ Podcast（12月20日 18:00 公開予定）</span></p>
+  </div>
+</article>
+<article class="ep ch2" id="ep7">
+  <header class="ep-head"><span class="ep-num">第7話 <small>#Ma1-7</small></span><h3>微分と積分は、なぜ反対どうしなのか</h3><p class="ep-q">問い：速さと道のりは、どうつながっているのか</p></header>
+  <div class="ep-body">
+    <p>時速60キロで2時間。速さのグラフの下の長四角の広さは120、走った道のりも120キロ。速さをつみ上げると道のり、道のりの坂は速さ。ガリレオの1、4、9が三角形の広さからふたたび現れる。1675年、総和の頭文字Sをのばした記号を書いたライプニッツと、ニュートンとの争い。</p>
+    <ul class="learn"><li>速さのグラフの下の広さ＝道のり</li><li>道のりを勢いはかりに→速さ、速さをつみ上げ箱に→道のり</li><li>3×6÷2＝9：ガリレオの玉ふたたび</li><li>∫とd：記号が考えを速くする</li><li>どちらが先か：1712年の報告と、いまの見方</li></ul>
+    <blockquote class="pull"><p>勢いはかりとつみ上げ箱は、別々の道具じゃなくて、行ったり帰ったりできる、表と裏なんだと思った。</p><cite>── ハル（第7話）</cite></blockquote>
+    <div class="kws"><span class="kw">広さは道のり</span><span class="kw">反対どうし</span><span class="kw">ニュートンとライプニッツ</span><span class="kw">ニュートンとライプニッツ</span></div>
+    <p class="ep-links"><span class="soon">🎙️ Podcast（12月21日 18:00 公開予定）</span></p>
+  </div>
+</article>
+<article class="ep ch2" id="ep8">
+  <header class="ep-head"><span class="ep-num">第8話 <small>#Ma1-8</small></span><h3>76年後に戻ってくる星は、なぜわかったのか</h3><p class="ep-q">問い：まだ起きていない未来は、どうやって予想できるのか</p></header>
+  <div class="ep-body">
+    <p>ハレーすい星は、なぜ35年先の2061年に来るとわかるのか。1531年、1607年、1682年の記録と、ニュートンの動きのきまり。1758年の再来を予言して、見届けずに亡くなったハレー。冷めるお湯を1分ずつ予想してみると、未来の予想が占いではない理由が見えてくる。</p>
+    <ul class="learn"><li>3つのすい星は、同じ1つのすい星</li><li>プリンキピア（1687）：力がかかると速さの勢いが変わる</li><li>1758年のクリスマスの夜、予言は当たった</li><li>80度→74度→68.6度：いまの勢いを少しずつつみ上げる</li><li>影響：はやぶさ、天気予報。ただし天気は外れることも</li></ul>
+    <blockquote class="pull"><p>未来の予想は占いじゃなくて、いまの変わり方のきまりを見つけて、少しずつつみ上げていけば、できるものなんだと思った。</p><cite>── ハル（第8話）</cite></blockquote>
+    <div class="kws"><span class="kw">ハレーすい星</span><span class="kw">プリンキピア</span><span class="kw">少しずつつみ上げる</span><span class="kw">ハレー</span></div>
+    <p class="ep-links"><span class="soon">🎙️ Podcast（12月22日 18:00 公開予定）</span></p>
+  </div>
+</article>
+<article class="ep ch2" id="ep9">
+  <header class="ep-head"><span class="ep-num">第9話 <small>#Ma1-9</small></span><h3>AIは、どうやって坂をくだって学ぶのか</h3><p class="ep-q">問い：まちがえることは、学ぶことになるのか</p></header>
+  <div class="ep-body">
+    <p>上手なのに足が5本のねこを描くAI。りんごの値段を当てるつまみ、まちがいの大きさがつくる谷。霧の山で足もとの坂をはかって一歩ずつ下りるように、AIは微分でまちがいの坂をはかり、何十億個のつまみを少しずつ回す。1847年のコーシーの3ページの論文から、いまの生成AIまで。こだまのおじいさんが、自分の学び方を話す回。</p>
+    <ul class="learn"><li>AIの中の、ものすごくたくさんのつまみ</li><li>まちがいの谷と、谷底では坂が0</li><li>霧の山：足もとの坂だけで下りる</li><li>コーシー（1847）と、1986年ごろに広まった、うしろ向きに坂を伝える方法</li><li>影響：まちがいを直させる学び方と、生成AI</li></ul>
+    <blockquote class="pull"><p>まちがえるのは悪いことじゃなくて、まちがいの坂をはかって少しずつ直すことが、AIにとっても僕にとっても学ぶことなんだと思った。</p><cite>── ハル（第9話）</cite></blockquote>
+    <div class="kws"><span class="kw">まちがいの谷</span><span class="kw">坂をくだる</span><span class="kw">コーシー</span><span class="kw">コーシー</span></div>
+    <p class="ep-links"><span class="soon">🎙️ Podcast（12月23日 18:00 公開予定）</span></p>
+  </div>
+</article>
+<article class="ep ch2" id="ep10">
+  <header class="ep-head"><span class="ep-num">第10話 <small>#Ma1-10</small></span><h3>微分と積分で、世界は全部あらわせるのか</h3><p class="ep-q">問い：小さなずれは、どこまで大きくなるのか</p></header>
+  <div class="ep-body">
+    <p>星は35年先までわかるのに、天気は2週間先もわからない。すべてを見通すラプラスの悪魔。1961年、0.506127を0.506にしただけで、天気の計算がまったくちがう形になったローレンツのバタフライ効果。江戸のせきたかかず、たけべかたひろと算額。「全部あらわせる」に、ハルが自分の答えを出す最終回。</p>
+    <ul class="learn"><li>ラプラスの悪魔：いまをすべて知れば未来も見通せる？</li><li>0.506127と0.506：小さなずれが育つ</li><li>降水確率：わからないことを正直に言う工夫</li><li>江戸の円周率と算額</li><li>微分はめがね、積分は箱。めがねにも見えないものがある</li></ul>
+    <blockquote class="pull"><p>微分と積分は世界を全部つかまえる魔法じゃなくて、変わっていく世界を少しよく見るためのめがねと箱なんだと思った。</p><cite>── ハル（第10話）</cite></blockquote>
+    <div class="kws"><span class="kw">勢いはかり</span><span class="kw">つみ上げ箱</span><span class="kw">バタフライ効果</span><span class="kw">ローレンツ</span></div>
+    <p class="ep-links"><span class="soon">🎙️ Podcast（12月24日 18:00 公開予定）</span></p>
+  </div>
+</article>
+</section>
+
+<section id="glossary">
+  <p class="label">Glossary</p>
+  <h2>キーワード集</h2>
+  <dl><div class="gl"><dt>微分 <small>びぶん</small></dt><dd>いま、どれくらいの勢いで変わっているかを調べる道具。このシリーズでは「勢いはかり」と呼ぶ。</dd></div><div class="gl"><dt>積分 <small>せきぶん</small></dt><dd>少しずつを全部たすと、どうなるかを調べる道具。このシリーズでは「つみ上げ箱」と呼ぶ。</dd></div><div class="gl"><dt>速さ</dt><dd>進んだ道のり÷かかった時間。勢いはかりの、いちばんはじめの目もり。</dd></div><div class="gl"><dt>平均の速さ</dt><dd>全部の道のりを全部の時間で割った速さ。とちゅうで変わる速さは見えない。</dd></div><div class="gl"><dt>かたむき（坂の急さ）</dt><dd>グラフの線の上で、たてに上がった分÷よこに進んだ分。変わる勢いを目で見る形。</dd></div><div class="gl"><dt>いまの速さ</dt><dd>時間を0にはせず、0のすぐそばまで短くしていったときに、平均の速さが近づいていく先の数。</dd></div><div class="gl"><dt>1点にふれる線</dt><dd>曲がった線に1点だけでそっとふれるまっすぐな線。その坂が、その瞬間の勢い。</dd></div><div class="gl"><dt>坂が0</dt><dd>てっぺんや谷底。増えも減りもしていない場所。いちばんよいところを探す手がかり。</dd></div><div class="gl"><dt>さいてきか</dt><dd>いちばんよい形や、いちばん早い道を探すこと。坂が0の場所から探す。</dd></div><div class="gl"><dt>短冊</dt><dd>曲線の下をうめる細い長四角。細くするほど、ぴったりの広さに近づく。</dd></div><div class="gl"><dt>えんしゅうりつ</dt><dd>丸のふちの長さが直径の何倍か。3.14159…と終わらずに続く。</dd></div><div class="gl"><dt>反対どうし</dt><dd>道のりを勢いはかりにかけると速さ、速さをつみ上げ箱にかけると道のりにもどる関係。</dd></div><div class="gl"><dt>バタフライ効果</dt><dd>ほんの小さなずれが、つみ上げるうちに大きく育つこと。遠い未来の予想がむずかしい理由。</dd></div></dl>
+</section>
+
+<section id="questions">
+  <p class="label">Questions</p>
+  <h2>考えてみたい問い</h2>
+  <ol class="dq"><li>あなたの身のまわりで、止まって見えるのに、じつは少しずつ変わっているものは何でしょうか。</li><li>「どれだけ変わったか」と「どれくらいの勢いで変わったか」がちがう例を、1つ見つけられますか。</li><li>いちばんよい答えが、まんなかではなかった経験はありますか。</li><li>小さな積み重ねが、大きな形になったことは何でしょうか。</li><li>まちがいを直すとき、あなたは、どうやって「どっちに直すか」を決めていますか。</li><li>勢いはかりでは、はかれないものは何でしょうか。</li></ol>
+  <div class="bridge">
+    <p><strong>このあとに読むなら</strong></p>
+    <p>まずは、身のまわりで変わっているものを1つ選んで、毎日はかってグラフにしてみてください。線の坂を見るだけで、第3話から第5話の話が手の中に入ってきます。中学生になったら「比例」と「1次関数」、高校で「微分」と「積分」に出会ったとき、このシリーズの合言葉を思い出してください。</p>
+    <p><strong>つながる部</strong></p>
+    <p>ガリレオとケプラーとニュートンは、<a href="part14.html">第14部「地球は動いている」</a>で空を見上げた人たちです。坂をくだって学ぶAIは、<a href="part8.html">第8部（生成AI）</a>とAI源流の話とつながります。ゼノンやデカルトは、<a href="philosophy3.html">西洋哲学シリーズ</a>、1しゃくの棒の話は<a href="eastern2.html">東洋哲学シリーズ第2部</a>の荘子に出てきます。</p>
+  </div>
+</section>
+</main>
+
+
+<footer class="site-footer"><div class="site-footer__inner"><div><a class="brand brand--footer" href="../index.html"><span class="brand__name">Manabi Map</span><span class="brand__concept">知の重力レンズ</span></a><p>世界を知り、AIとの対話で自分の思考へつなぐ。</p></div><nav aria-label="フッターナビゲーション"><a href="../map.html">学びの地図</a><a href="../philosophy-history.html">哲学の歴史年表</a><a href="../podcast.html">聴く</a></nav><p class="site-footer__copyright">© 2025–2026 Manabi Map<br>逸話には、伝えられている話や伝説を含みます。資料によって細部が異なる場合があります。</p></div></footer>
+<script src="../assets/js/philosophy-ai-guide.js?v=20261031-1" defer></script>
+</body>
+</html>
