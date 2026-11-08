@@ -28,6 +28,18 @@
 .philosophy-part--emptiness .kw { border-color: #b8d98f44; background: #b8d98f0b; }
 .philosophy-part--emptiness .ep.ch2 .kw { border-color: #a9b6f244; background: #a9b6f20b; }
 
+/* 東洋第2部：第一章は朱と墨、第二章は山水の青緑と霧の白 */
+.philosophy-part--form {
+  --ph-blue: #f0937a;
+  --ph-amber: #8fd6c6;
+}
+.philosophy-part--form .ep.ch1 .ep-head { background: #f0937a08; }
+.philosophy-part--form .ep.ch1 .pull { background: #f0937a0c; }
+.philosophy-part--form .ep.ch2 .ep-head { background: #8fd6c608; }
+.philosophy-part--form .ep.ch2 .pull { background: #8fd6c60c; }
+.philosophy-part--form .kw { border-color: #f0937a44; background: #f0937a0b; }
+.philosophy-part--form .ep.ch2 .kw { border-color: #8fd6c644; background: #8fd6c60b; }
+
 .philosophy-part :is(h1, h2, h3, h4) {
   font-family: var(--stellar-serif);
   font-weight: 500;
