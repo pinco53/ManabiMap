@@ -52,6 +52,18 @@
 .philosophy-part--calculus .kw { border-color: #ffe81a44; background: #ffe81a0b; }
 .philosophy-part--calculus .ep.ch2 .kw { border-color: #c04bff44; background: #c04bff0b; }
 
+/* 哲学第4部：第一章は書斎の生成りと青インク、第二章は黒い森の深緑と木の茶 */
+.philosophy-part--world {
+  --ph-blue: #9fbbe8;
+  --ph-amber: #8fc79a;
+}
+.philosophy-part--world .ep.ch1 .ep-head { background: #efe4c80a; }
+.philosophy-part--world .ep.ch1 .pull { border-left-color: #9fbbe8; background: #9fbbe80c; }
+.philosophy-part--world .ep.ch2 .ep-head { background: #8fc79a08; }
+.philosophy-part--world .ep.ch2 .pull { border-left-color: #c49a6c; background: #c49a6c0c; }
+.philosophy-part--world .kw { border-color: #9fbbe844; background: #9fbbe80b; }
+.philosophy-part--world .ep.ch2 .kw { border-color: #8fc79a44; background: #8fc79a0b; }
+
 .philosophy-part :is(h1, h2, h3, h4) {
   font-family: var(--stellar-serif);
   font-weight: 500;
