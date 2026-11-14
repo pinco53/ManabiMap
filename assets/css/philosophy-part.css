@@ -64,6 +64,18 @@
 .philosophy-part--world .kw { border-color: #9fbbe844; background: #9fbbe80b; }
 .philosophy-part--world .ep.ch2 .kw { border-color: #8fc79a44; background: #8fc79a0b; }
 
+/* 数学第2部：第一章（確率）はネオンシアン、第二章（統計）はネオンオレンジ */
+.philosophy-part--chance {
+  --ph-blue: #29e6ff;
+  --ph-amber: #ff8a1f;
+}
+.philosophy-part--chance .ep.ch1 .ep-head { background: #29e6ff08; }
+.philosophy-part--chance .ep.ch1 .pull { background: #29e6ff0c; }
+.philosophy-part--chance .ep.ch2 .ep-head { background: #ff8a1f0a; }
+.philosophy-part--chance .ep.ch2 .pull { background: #ff8a1f0c; }
+.philosophy-part--chance .kw { border-color: #29e6ff44; background: #29e6ff0b; }
+.philosophy-part--chance .ep.ch2 .kw { border-color: #ff8a1f44; background: #ff8a1f0b; }
+
 .philosophy-part :is(h1, h2, h3, h4) {
   font-family: var(--stellar-serif);
   font-weight: 500;
