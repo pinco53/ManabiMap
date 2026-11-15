@@ -35,7 +35,7 @@
 
 | 生成物 | サイズ（非圧縮） |
 |---|---|
-| atlas-core.json | 164 KB |
+| atlas-core.json | 165 KB |
 | atlas-events.json | 339 KB |
 | atlas-detail.json | 325 KB |
 | atlas-index.json | 27 KB |

@@ -8,6 +8,7 @@ import { Graph, IdRegistry, readJson, writeIfChanged, exists, read } from './uti
 import { validate } from './validate.mjs';
 import { report } from './report.mjs';
 import { enrich } from './enrich.mjs';
+import { layout } from './layout.mjs';
 import human from './adapters/human.mjs';
 import edu from './adapters/edu.mjs';
 import philosophyHistory from './adapters/philosophy-history.mjs';
@@ -37,7 +38,9 @@ sources['追記 data/atlas/*.json'] = Object.fromEntries(Object.entries(enrich(g
 const previous = exists(OUT + 'atlas-index.json') ? JSON.parse(read(OUT + 'atlas-index.json')) : null;
 const result = validate(g, { previous, retired: readJson('data/atlas/retired-ids.json', []), registry: ids, allowShrink: flags.has('--allow-shrink') });
 
+const placed = layout(g);
 const nodes = [...g.nodes.values()];
+nodes.forEach((n) => { if (placed.positions[n.id]) n.pos = placed.positions[n.id]; });
 const fileOf = (id) => Object.keys(FILES).find((name) => FILES[name].includes(g.nodes.get(id).type));
 const rank = { core: 0, events: 1, detail: 2 };
 const outputs = {};
@@ -62,9 +65,10 @@ if (result.errors.length) { result.errors.forEach((e) => console.error('ERROR  '
 const targets = { ...Object.fromEntries(Object.entries(outputs).map(([name, body]) => [OUT + name, body])), 'docs/manabimap-next/reports/atlas-report.md': reportText };
 if (flags.has('--check')) {
   const stale = Object.entries(targets).filter(([rel, body]) => !exists(rel) || read(rel) !== body).map(([rel]) => rel);
-  if (stale.length || ids.added.length) { console.error('STALE  生成物が最新ではありません。node tools/atlas/build.mjs を実行してください:\n  ' + stale.join('\n  ')); process.exit(1); }
+  if (stale.length || ids.added.length || placed.changed) { console.error('STALE  生成物が最新ではありません。node tools/atlas/build.mjs を実行してください:\n  ' + stale.join('\n  ')); process.exit(1); }
   console.log('OK  生成物は最新です');
 } else {
   if (ids.save()) console.log(`id-registry.json: +${ids.added.length}`);
+  if (placed.save()) console.log('layout.lock.json updated');
   Object.entries(targets).forEach(([rel, body]) => { if (writeIfChanged(rel, body)) console.log('wrote ' + rel); });
 }

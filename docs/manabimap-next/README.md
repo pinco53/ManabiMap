@@ -1,7 +1,7 @@
 # ManabiMap Next — 次世代知的探索プラットフォーム 基本設計
 
 > 既存の本番 HTML・CSS・JavaScript・画像には一切手を入れていません。
-> 追加しているのは、設計資料（`docs/manabimap-next/`）と、フェーズ1の新規ファイル（`tools/atlas/`、`data/atlas/`、`assets/atlas/data/`）のみです。main へのマージは、レビューと合意ののちに別途判断してください。
+> 追加しているのは、設計資料（`docs/manabimap-next/`）と、新規ファイル（`tools/atlas/`、`data/atlas/`、`assets/atlas/`、`atlas.html`）のみです。main へのマージは、レビューと合意ののちに別途判断してください。
 
 ## 何を決めるための資料か
 
@@ -26,9 +26,12 @@
 |---|---|
 | 0 設計レビュー | 案Bで合意 |
 | 1 データの土台 | **一通り完了**（41作品・436出来事・概念39・大きな問い13・理由つきの橋38本）。内容の確認が残る → [08](08-implementation-plan.md)、[実測レポート](reports/atlas-report.md) |
-| 2 以降 | 未着手 |
+| 2 Atlas試作 | **試作を実装済み**（`atlas.html`、未リンク）。自動テスト23項目に合格。人に使ってもらう検証は未実施 |
+| 3 以降 | 未着手 |
 
-フェーズ1で追加したのは `tools/atlas/`（ビルド）、`data/atlas/`（追記データ）、`assets/atlas/data/`（生成物）のみで、既存ファイルは変更していません。
+追加したのは `tools/atlas/`（ビルドとテスト）、`data/atlas/`（追記データ）、`assets/atlas/`（生成物と試作の画面）、`atlas.html`（試作ページ）のみで、既存ファイルは変更していません。
+
+試作の見方：リポジトリの直下で `python3 -m http.server 8765` を実行し、`http://localhost:8765/atlas.html` を開きます。
 
 ## 結論（先に）
 
