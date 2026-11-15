@@ -1,0 +1,664 @@
+[
+ {
+  "id": "concept:language",
+  "title": {
+   "ja": "言葉"
+  },
+  "summary": {
+   "ja": "世界を切り分け、考えを形にする道具。使う人の見方そのものも形づくる。"
+  },
+  "aliases": [
+   "language",
+   "ai-language"
+  ],
+  "works": [
+   "work:philosophy1",
+   "work:eastern1",
+   "work:eastern2",
+   "work:part4"
+  ]
+ },
+ {
+  "id": "concept:writing-and-record",
+  "title": {
+   "ja": "文字と記録"
+  },
+  "summary": {
+   "ja": "記憶を頭の外に置く技術。残せるようになった知識は、社会の仕組みも変えた。"
+  },
+  "aliases": [
+   "writing",
+   "external-memory",
+   "printing",
+   "search-engine"
+  ],
+  "works": [
+   "work:philosophy2"
+  ]
+ },
+ {
+  "id": "concept:three-revolutions",
+  "title": {
+   "ja": "三つの革命"
+  },
+  "summary": {
+   "ja": "産業・デジタル・AI。道具が変わるたびに、働き方と学び方が組み替えられた。"
+  },
+  "aliases": [
+   "industrial-revolution",
+   "digital-revolution",
+   "ai-revolution"
+  ],
+  "works": []
+ },
+ {
+  "id": "concept:generative-ai",
+  "title": {
+   "ja": "生成AI"
+  },
+  "summary": {
+   "ja": "言葉の続きを確率で選ぶことで、考えているように見える文章を作る技術。"
+  },
+  "aliases": [
+   "generative-ai",
+   "large-language-model",
+   "chatgpt",
+   "ai-history"
+  ],
+  "works": [
+   "work:math1",
+   "work:math2",
+   "work:philosophy1"
+  ]
+ },
+ {
+  "id": "concept:computation",
+  "title": {
+   "ja": "計算"
+  },
+  "summary": {
+   "ja": "手順に分ければ機械にも任せられる、という発見。AIの土台になった。"
+  },
+  "aliases": [
+   "turing-machine",
+   "von-neumann"
+  ],
+  "works": [
+   "work:part8",
+   "work:math1"
+  ]
+ },
+ {
+  "id": "concept:probability",
+  "title": {
+   "ja": "確率と不確実性"
+  },
+  "summary": {
+   "ja": "まだ起きていないこと、確かめきれないことを、数であつかう考え方。"
+  },
+  "aliases": [
+   "probability",
+   "uncertainty",
+   "statistics",
+   "prediction"
+  ],
+  "works": [
+   "work:math2"
+  ]
+ },
+ {
+  "id": "concept:number",
+  "title": {
+   "ja": "数"
+  },
+  "summary": {
+   "ja": "数えること、比べること。世界を見やすくし、同時に見えなくもする。"
+  },
+  "aliases": [
+   "number"
+  ],
+  "works": [
+   "work:math1",
+   "work:math2"
+  ]
+ },
+ {
+  "id": "concept:measurement",
+  "title": {
+   "ja": "測ること"
+  },
+  "summary": {
+   "ja": "物差しを当てると、当てたものだけが見えるようになる。学力も才能も。"
+  },
+  "aliases": [
+   "measurement",
+   "academic-ability"
+  ],
+  "works": [
+   "work:part32",
+   "work:part24",
+   "work:math2"
+  ]
+ },
+ {
+  "id": "concept:evidence",
+  "title": {
+   "ja": "証拠と確からしさ"
+  },
+  "summary": {
+   "ja": "観察・実験・追試によって、思い込みと事実を分けていく手続き。"
+  },
+  "aliases": [
+   "science",
+   "observation"
+  ],
+  "works": [
+   "work:math2",
+   "work:part24",
+   "work:part31"
+  ]
+ },
+ {
+  "id": "concept:paradigm",
+  "title": {
+   "ja": "見方の転換"
+  },
+  "summary": {
+   "ja": "知識が増えるのではなく、世界の見え方そのものが入れ替わること。"
+  },
+  "aliases": [
+   "paradigm",
+   "relativity",
+   "quantum-thinking"
+  ],
+  "works": [
+   "work:part15",
+   "work:philosophy3",
+   "work:philosophy4"
+  ]
+ },
+ {
+  "id": "concept:perception",
+  "title": {
+   "ja": "知覚と現実"
+  },
+  "summary": {
+   "ja": "見えているものは、世界そのものではなく、こちら側の枠組みを通ったもの。"
+  },
+  "aliases": [
+   "perception",
+   "memory"
+  ],
+  "works": [
+   "work:philosophy3",
+   "work:philosophy4",
+   "work:part25"
+  ]
+ },
+ {
+  "id": "concept:cognitive-bias",
+  "title": {
+   "ja": "思い込み"
+  },
+  "summary": {
+   "ja": "判断を気づかないうちに傾ける、心のくせ。"
+  },
+  "aliases": [
+   "cognitive-bias"
+  ],
+  "works": [
+   "work:part24",
+   "work:part25",
+   "work:math2"
+  ]
+ },
+ {
+  "id": "concept:attention",
+  "title": {
+   "ja": "注意"
+  },
+  "summary": {
+   "ja": "一度に向けられる先は限られている。何に向けるかが、何を経験するかを決める。"
+  },
+  "aliases": [
+   "attention-economy"
+  ],
+  "works": [
+   "work:part18",
+   "work:part25",
+   "work:part28",
+   "work:part31"
+  ]
+ },
+ {
+  "id": "concept:metacognition",
+  "title": {
+   "ja": "メタ認知"
+  },
+  "summary": {
+   "ja": "自分の考えを、一歩引いて見ること。わかったつもりに気づく力。"
+  },
+  "aliases": [
+   "metacognition"
+  ],
+  "works": [
+   "work:part22",
+   "work:part26"
+  ]
+ },
+ {
+  "id": "concept:dialogue",
+  "title": {
+   "ja": "対話"
+  },
+  "summary": {
+   "ja": "相手に説明し、問い返されることで、一人では届かない考えに届く。"
+  },
+  "aliases": [
+   "dialogue"
+  ],
+  "works": [
+   "work:part22",
+   "work:part15",
+   "work:philosophy1"
+  ]
+ },
+ {
+  "id": "concept:others",
+  "title": {
+   "ja": "他者"
+  },
+  "summary": {
+   "ja": "自分の思いどおりにならない相手。応えることから、関係と責任が始まる。"
+  },
+  "aliases": [
+   "empathy"
+  ],
+  "works": [
+   "work:philosophy1",
+   "work:part12",
+   "work:part2",
+   "work:eastern1"
+  ]
+ },
+ {
+  "id": "concept:self",
+  "title": {
+   "ja": "「私」"
+  },
+  "summary": {
+   "ja": "変わり続けるのに同じだと感じている、この自分とは何か。"
+  },
+  "aliases": [
+   "identity"
+  ],
+  "works": [
+   "work:eastern1",
+   "work:philosophy1",
+   "work:philosophy3"
+  ]
+ },
+ {
+  "id": "concept:cooperation",
+  "title": {
+   "ja": "協力"
+  },
+  "summary": {
+   "ja": "血縁も顔見知りも超えて、力を合わせる仕組み。"
+  },
+  "aliases": [
+   "cooperation"
+  ],
+  "works": [
+   "work:part29",
+   "work:part30",
+   "work:part12"
+  ]
+ },
+ {
+  "id": "concept:exchange",
+  "title": {
+   "ja": "贈与と交換"
+  },
+  "summary": {
+   "ja": "物や人のやりとりが、集団と集団を結びつける。"
+  },
+  "aliases": [
+   "exchange",
+   "money",
+   "division-of-labor"
+  ],
+  "works": [
+   "work:philosophy2"
+  ]
+ },
+ {
+  "id": "concept:inequality",
+  "title": {
+   "ja": "不平等"
+  },
+  "summary": {
+   "ja": "差はどこから生まれ、誰が引き受けているのか。"
+  },
+  "aliases": [],
+  "works": [
+   "work:philosophy2",
+   "work:part23",
+   "work:part20"
+  ]
+ },
+ {
+  "id": "concept:freedom-autonomy",
+  "title": {
+   "ja": "自由と自律"
+  },
+  "summary": {
+   "ja": "自分で考え、自分で決めること。与えられた自由は自由か、という問いを含む。"
+  },
+  "aliases": [
+   "human-agency",
+   "ownership-of-thinking"
+  ],
+  "works": [
+   "work:philosophy3",
+   "work:philosophy2",
+   "work:part27"
+  ]
+ },
+ {
+  "id": "concept:education",
+  "title": {
+   "ja": "教育と学校"
+  },
+  "summary": {
+   "ja": "子どもを社会に合わせる場であり、社会を問い直す人を育てる場でもある。"
+  },
+  "aliases": [
+   "education",
+   "school-clock"
+  ],
+  "works": [
+   "work:philosophy2",
+   "work:philosophy3",
+   "work:part29",
+   "work:part32",
+   "work:part13"
+  ]
+ },
+ {
+  "id": "concept:cumulative-culture",
+  "title": {
+   "ja": "受け継がれる文化"
+  },
+  "summary": {
+   "ja": "前の世代の工夫に積み上げていく、ヒトに特有の学び方。"
+  },
+  "aliases": [
+   "culture"
+  ],
+  "works": [
+   "work:part30",
+   "work:eastern2",
+   "work:part4"
+  ]
+ },
+ {
+  "id": "concept:development",
+  "title": {
+   "ja": "発達"
+  },
+  "summary": {
+   "ja": "生まれ持ったものと環境とのやりとりの中で、時間をかけて育つこと。"
+  },
+  "aliases": [
+   "development",
+   "attachment"
+  ],
+  "works": [
+   "work:part23",
+   "work:part27",
+   "work:part28",
+   "work:part30"
+  ]
+ },
+ {
+  "id": "concept:play",
+  "title": {
+   "ja": "遊び"
+  },
+  "summary": {
+   "ja": "目的のない探索。学びの原型であり、脳が育つ時間でもある。"
+  },
+  "aliases": [
+   "play"
+  ],
+  "works": [
+   "work:part31"
+  ]
+ },
+ {
+  "id": "concept:practice",
+  "title": {
+   "ja": "練習と熟達"
+  },
+  "summary": {
+   "ja": "くり返しの中で、ある日ふっとできるようになる。量だけでなく、やり方と段階がある。"
+  },
+  "aliases": [],
+  "works": [
+   "work:part26",
+   "work:eastern2"
+  ]
+ },
+ {
+  "id": "concept:motivation",
+  "title": {
+   "ja": "動機づけ"
+  },
+  "summary": {
+   "ja": "人を動かすのは、ご褒美か、期待か、自分で決めたという感覚か。"
+  },
+  "aliases": [],
+  "works": [
+   "work:part24",
+   "work:part25",
+   "work:part27",
+   "work:part13",
+   "work:philosophy2"
+  ]
+ },
+ {
+  "id": "concept:body",
+  "title": {
+   "ja": "身体"
+  },
+  "summary": {
+   "ja": "考えることも学ぶことも、身体の上で起きている。"
+  },
+  "aliases": [
+   "body"
+  ],
+  "works": [
+   "work:part19",
+   "work:part21",
+   "work:part28",
+   "work:part31"
+  ]
+ },
+ {
+  "id": "concept:evolution",
+  "title": {
+   "ja": "進化"
+  },
+  "summary": {
+   "ja": "いまの身体と心は、長い時間をかけて別の環境に合わせて作られた。"
+  },
+  "aliases": [
+   "evolution",
+   "human-evolution"
+  ],
+  "works": [
+   "work:part21",
+   "work:part30"
+  ]
+ },
+ {
+  "id": "concept:mobility",
+  "title": {
+   "ja": "移動"
+  },
+  "summary": {
+   "ja": "人も思想も、動くことで変わり、動いた先を変える。"
+  },
+  "aliases": [
+   "migration",
+   "mobility"
+  ],
+  "works": [
+   "work:eastern1"
+  ]
+ },
+ {
+  "id": "concept:tools-technology",
+  "title": {
+   "ja": "道具と技術"
+  },
+  "summary": {
+   "ja": "身体の外に作った能力。使ううちに、使う側の見方も変えていく。"
+  },
+  "aliases": [
+   "steam-engine",
+   "internet",
+   "sns",
+   "electricity"
+  ],
+  "works": [
+   "work:part3",
+   "work:part4",
+   "work:philosophy4"
+  ]
+ },
+ {
+  "id": "concept:energy",
+  "title": {
+   "ja": "エネルギー"
+  },
+  "summary": {
+   "ja": "使える力が変わると、暮らしと社会の形が変わる。"
+  },
+  "aliases": [
+   "energy"
+  ],
+  "works": [
+   "work:part1"
+  ]
+ },
+ {
+  "id": "concept:time",
+  "title": {
+   "ja": "時間"
+  },
+  "summary": {
+   "ja": "時計の時間、身体の時間、「いま」という時間。どの時間で生きるかは選べるのか。"
+  },
+  "aliases": [
+   "labor-time"
+  ],
+  "works": [
+   "work:part9",
+   "work:part20",
+   "work:philosophy4",
+   "work:math1"
+  ]
+ },
+ {
+  "id": "concept:change-rate",
+  "title": {
+   "ja": "変化をとらえる"
+  },
+  "summary": {
+   "ja": "止まって見えるものも動いている。動きそのものを測る方法。"
+  },
+  "aliases": [],
+  "works": [
+   "work:math1",
+   "work:part14",
+   "work:part7"
+  ]
+ },
+ {
+  "id": "concept:enough",
+  "title": {
+   "ja": "足りること・余白"
+  },
+  "summary": {
+   "ja": "手に入れても満たされないのはなぜか。役に立たない時間やものの価値。"
+  },
+  "aliases": [
+   "surplus",
+   "happiness"
+  ],
+  "works": [
+   "work:eastern1",
+   "work:eastern2",
+   "work:part31"
+  ]
+ },
+ {
+  "id": "concept:meaning",
+  "title": {
+   "ja": "意味"
+  },
+  "summary": {
+   "ja": "意味は、ものの中にあるのか、ちがいの中にあるのか、関係の中にあるのか。"
+  },
+  "aliases": [
+   "meaning"
+  ],
+  "works": [
+   "work:philosophy1",
+   "work:part8"
+  ]
+ },
+ {
+  "id": "concept:structure",
+  "title": {
+   "ja": "構造"
+  },
+  "summary": {
+   "ja": "一つひとつの中身ではなく、関係の組み合わさり方に注目する見方。"
+  },
+  "aliases": [],
+  "works": [
+   "work:philosophy1",
+   "work:philosophy2",
+   "work:part5"
+  ]
+ },
+ {
+  "id": "concept:mortality",
+  "title": {
+   "ja": "死と喪失"
+  },
+  "summary": {
+   "ja": "失うこと、いつか終わることが、生き方をどう変えるか。"
+  },
+  "aliases": [],
+  "works": [
+   "work:eastern1",
+   "work:eastern2",
+   "work:philosophy4"
+  ]
+ },
+ {
+  "id": "concept:story",
+  "title": {
+   "ja": "物語"
+  },
+  "summary": {
+   "ja": "出来事をつなぎ、意味を与える語り。昔話や神話は、心の深いところを映す。"
+  },
+  "aliases": [],
+  "works": []
+ }
+]

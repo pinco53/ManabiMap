@@ -1,1 +1,564 @@
-[]
+[
+ {
+  "from": "work:philosophy1",
+  "to": "work:part5",
+  "type": "bridges",
+  "via": [
+   "concept:language",
+   "q:language"
+  ],
+  "why": {
+   "ja": "ソシュールは「言葉はものに貼るラベルではない」と考え、意味は言葉どうしのちがいから生まれるとした。第5部の「言葉は思考を作るのか」を、言語学の側から掘り下げる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy1",
+  "to": "work:part12",
+  "type": "bridges",
+  "via": [
+   "concept:others",
+   "concept:dialogue"
+  ],
+  "why": {
+   "ja": "レヴィナスは、他者の「顔」に応えることから責任が始まると考えた。第12部が学習心理学から示す「人は一人では学べない」を、他者とは誰かという問いから支える。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy1",
+  "to": "work:part8",
+  "type": "bridges",
+  "via": [
+   "concept:generative-ai",
+   "concept:meaning"
+  ],
+  "why": {
+   "ja": "哲学1は最後に「AIの言葉には、語られたことだけでなく語ることもあるのか」と問う。第8部の「生成AIは何を生成しているのか」を、言葉の意味の側から考える入口になる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy2",
+  "to": "work:part17",
+  "type": "bridges",
+  "via": [
+   "concept:exchange",
+   "concept:structure"
+  ],
+  "why": {
+   "ja": "レヴィ＝ストロースは、結婚の決まりを集団どうしの交換の仕組みとして読み解いた。第17部が追う贈与と交換の歴史を、人類学の「構造」という見方から照らす。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy2",
+  "to": "work:part11",
+  "type": "bridges",
+  "via": [
+   "concept:development",
+   "q:growth"
+  ],
+  "why": {
+   "ja": "ルソーは「教えないことが教育ではないか」と考えた。第11部の「人は、教わる前にどう学んでいるのか」と同じ問いを、250年前に立てている。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy2",
+  "to": "work:part4",
+  "type": "bridges",
+  "via": [
+   "concept:writing-and-record"
+  ],
+  "why": {
+   "ja": "哲学2は「文字を学ぶことは、いいことだけなのか」と問う。第4部が描く、知識を外に残せるようになった恩恵の、もう一つの面を見せる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy3",
+  "to": "work:part18",
+  "type": "bridges",
+  "via": [
+   "concept:perception",
+   "q:reality"
+  ],
+  "why": {
+   "ja": "カントは、世界は見たとおりにあるのではなく、見る側の枠組みを通して現れると考えた。第18部の「私たちが見ている現実は、世界そのものなのか」を哲学の言葉で先取りしている。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy3",
+  "to": "work:part14",
+  "type": "bridges",
+  "via": [
+   "concept:paradigm"
+  ],
+  "why": {
+   "ja": "カントは自分の考え方の逆転を、地動説になぞらえて「コペルニクス的転回」と呼んだ。第14部の地動説は、見方を入れ替えるという発想そのものの原型になった。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy3",
+  "to": "work:part13",
+  "type": "bridges",
+  "via": [
+   "concept:education",
+   "q:growth"
+  ],
+  "why": {
+   "ja": "カントは教育なしに人は人になれないのかを問い、ヘーゲルは校長として学校を考えた。第13部の「学びとは何か」を、近代の哲学者がどう考えたかがわかる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy3",
+  "to": "work:part3",
+  "type": "bridges",
+  "via": [
+   "concept:freedom-autonomy",
+   "q:thinking"
+  ],
+  "why": {
+   "ja": "カントの啓蒙は、他人の指示ではなく自分の理性で考えることを求めた。第3部の「AIが答えを出せる時代に、人間が考えるとは何か」は、その問いの現代版にあたる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy4",
+  "to": "work:part10",
+  "type": "bridges",
+  "via": [
+   "concept:meaning",
+   "concept:perception"
+  ],
+  "why": {
+   "ja": "フッサールは、科学が数値に置きかえる前の、生きられた経験の世界に立ち返ろうとした。第10部の「意味は体験と関係の中にあるのか」という問いの哲学的な土台になる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy4",
+  "to": "work:part1",
+  "type": "bridges",
+  "via": [
+   "concept:tools-technology",
+   "q:tool"
+  ],
+  "why": {
+   "ja": "ハイデガーは、技術を単なる道具ではなく、世界の見え方を変えるものとして問うた。第1部の「機械は人間を何から解放し、何に縛ったのか」を哲学の側から深める。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:philosophy4",
+  "to": "work:part7",
+  "type": "bridges",
+  "via": [
+   "concept:paradigm"
+  ],
+  "why": {
+   "ja": "フッサールの「当たり前をかっこに入れる」という方法は、第7部の科学者たちが行った「人間の当たり前を外す」ことを、ものの見方の技術として取り出したものといえる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:eastern1",
+  "to": "work:part20",
+  "type": "bridges",
+  "via": [
+   "concept:enough",
+   "q:enough"
+  ],
+  "why": {
+   "ja": "ブッダは、手に入れても満たされない理由を、ものの不足ではなく心の働きに見た。第20部の「余ったのに、なぜ足りないのか」に、2500年前から別の答え方がある。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:eastern1",
+  "to": "work:part19",
+  "type": "bridges",
+  "via": [
+   "concept:mobility"
+  ],
+  "why": {
+   "ja": "東洋哲学1の最後は、空の思想が翻訳されながら各地へ伝わる旅をたどる。第19部の「移動によって、何が動いたのか」の、思想における実例になる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:eastern2",
+  "to": "work:part13",
+  "type": "bridges",
+  "via": [
+   "concept:cumulative-culture",
+   "q:learning"
+  ],
+  "why": {
+   "ja": "孔子は、古いものを学び直すことの中に新しさを見いだした。第13部が人類史から示す、受け継いで積み上げる学びを、一人の教師の言葉として読める。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:eastern2",
+  "to": "work:part26",
+  "type": "bridges",
+  "via": [
+   "concept:practice"
+  ],
+  "why": {
+   "ja": "論語の冒頭「学んで、ときにこれを習う」は、くり返すうちにふっとわかる経験を語る。第26部が研究から示す、練習の質と段階の話と重なる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:eastern2",
+  "to": "work:part6",
+  "type": "bridges",
+  "via": [
+   "concept:measurement",
+   "q:number"
+  ],
+  "why": {
+   "ja": "荘子の「無用の用」は、役に立つかどうかという物差しそのものを疑う。第6部の「数字で測れるものだけが、価値あるものなのか」と同じ場所を、別の時代から突く。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:math1",
+  "to": "work:part6",
+  "type": "bridges",
+  "via": [
+   "concept:number",
+   "concept:change-rate"
+  ],
+  "why": {
+   "ja": "数学1は、数で「変化の勢い」まで測れるようになった話。第6部の「数は世界を見やすくしたのか」の、最も強力な実例になる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:math1",
+  "to": "work:part14",
+  "type": "bridges",
+  "via": [
+   "concept:change-rate",
+   "concept:evidence"
+  ],
+  "why": {
+   "ja": "数学1は、微分積分がハレーすい星の再来を言い当てた話をたどる。第14部の地動説が開いた「動く世界」を、計算で予測できるものに変えた続きにあたる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:math1",
+  "to": "work:part8",
+  "type": "bridges",
+  "via": [
+   "concept:generative-ai",
+   "concept:computation"
+  ],
+  "why": {
+   "ja": "数学1は「AIは、どうやって坂をくだって学ぶのか」を扱う。第8部が歴史として語るAIの学習を、微分という道具から理解できる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:math2",
+  "to": "work:part8",
+  "type": "bridges",
+  "via": [
+   "concept:probability",
+   "concept:generative-ai"
+  ],
+  "why": {
+   "ja": "数学2は「AIは、サイコロを振って話しているのか」で終わる。第8部の「ルールから確率へ」という転換を、確率そのものから学び直せる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:math2",
+  "to": "work:part18",
+  "type": "bridges",
+  "via": [
+   "concept:cognitive-bias",
+   "q:uncertainty"
+  ],
+  "why": {
+   "ja": "「次こそ当たる」と感じる心のくせを、数学2は確率から説明する。第18部が心理学から示す勘違いの仕組みを、計算で確かめられる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:math2",
+  "to": "work:part15",
+  "type": "bridges",
+  "via": [
+   "concept:probability",
+   "q:uncertainty"
+  ],
+  "why": {
+   "ja": "数学2は、新しい手がかりを得るたびに確からしさを更新する考え方を扱う。第15部の「わからなさを抱えたまま考え続ける」ための、具体的な道具になる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:math2",
+  "to": "work:part24",
+  "type": "bridges",
+  "via": [
+   "concept:evidence"
+  ],
+  "why": {
+   "ja": "数学2の「たまたまと本当は、どう見分けるのか」は、第24部が教育研究のその後を検証するときに使う考え方そのもの。研究結果の読み方の土台になる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part30",
+  "to": "work:part13",
+  "type": "bridges",
+  "via": [
+   "concept:cumulative-culture",
+   "q:learning"
+  ],
+  "why": {
+   "ja": "第30部は、チンパンジーとの比較から、教える・真似るというヒトの学び方の特別さを示す。第13部の累積文化の話を、霊長類研究から裏づける。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part28",
+  "to": "work:part9",
+  "type": "bridges",
+  "via": [
+   "concept:body",
+   "concept:development"
+  ],
+  "why": {
+   "ja": "第28部は、思春期の眠りや衝動を、脳の発達から説明する。第9部の「旧石器時代の身体で現代を生きる」という見方を、10代の身体に当てはめたものになる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part28",
+  "to": "work:part2",
+  "type": "bridges",
+  "via": [
+   "concept:attention",
+   "q:others"
+  ],
+  "why": {
+   "ja": "第28部は、仲間外れのつらさやスマホの影響を研究から確かめる。第2部の「つながることは、近づくことと同じなのか」を、思春期の当事者の側から見る。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part21",
+  "to": "work:part9",
+  "type": "bridges",
+  "via": [
+   "concept:body",
+   "concept:evolution"
+  ],
+  "why": {
+   "ja": "第21部は、運動が脳を育てる研究を紹介し、狩猟採集民の暮らしにも触れる。第9部の、動くことを前提に作られた身体という見方とつながる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part24",
+  "to": "work:part18",
+  "type": "bridges",
+  "via": [
+   "concept:cognitive-bias"
+  ],
+  "why": {
+   "ja": "第24部は、自分の力についての思い込みが結果を変えるかを検証する。第18部の、脳が現実を作るという話を、子どもの学びの場面で確かめる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part22",
+  "to": "work:part12",
+  "type": "bridges",
+  "via": [
+   "concept:dialogue",
+   "concept:metacognition"
+  ],
+  "why": {
+   "ja": "第22部は、説明することと聞いてもらうことが理解を深める研究を紹介する。第12部の「人は対話によって一人では届かない場所へ届く」の、家庭での実践編になる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part23",
+  "to": "work:part11",
+  "type": "bridges",
+  "via": [
+   "concept:development",
+   "q:growth"
+  ],
+  "why": {
+   "ja": "第23部は、遺伝と環境がどう組み合わさるかを研究からたどる。第11部が描く、愛着と関わりの中で始まる学びの背景にあたる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part25",
+  "to": "work:part18",
+  "type": "bridges",
+  "via": [
+   "concept:attention",
+   "concept:perception"
+  ],
+  "why": {
+   "ja": "第25部は「目の前のゴリラが見えなかった」実験を紹介する。第18部の、注意を向けたものしか見えないという話の代表的な実例になる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part27",
+  "to": "work:part11",
+  "type": "bridges",
+  "via": [
+   "concept:development",
+   "concept:motivation"
+  ],
+  "why": {
+   "ja": "第27部は、大人のふるまいを見て子どもが学ぶ研究を紹介する。第11部の、模倣から始まる学びを、大人の側の責任として読み直す。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part29",
+  "to": "work:part17",
+  "type": "bridges",
+  "via": [
+   "concept:cooperation",
+   "q:others"
+  ],
+  "why": {
+   "ja": "第29部は、対立した集団が共通の目標で協力に転じた研究を紹介する。第17部の「なぜ人類は見知らぬ他人と協力できるのか」を、教室という小さな社会で確かめる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part31",
+  "to": "work:part20",
+  "type": "bridges",
+  "via": [
+   "concept:enough",
+   "concept:play"
+  ],
+  "why": {
+   "ja": "第31部は、眠り・遊び・自然の時間が脳を育てることを示す。第20部の「余白を、余白のまま持つことはできるか」に、子どもの発達から答える。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part32",
+  "to": "work:part8-2",
+  "type": "bridges",
+  "via": [
+   "concept:measurement",
+   "q:number"
+  ],
+  "why": {
+   "ja": "第32部は、学校の物差しでは見えない才能を扱う。第8-2部の「AIが宿題を解ける時代に、学力とは何か」と、測ることの限界という同じ問題を見ている。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ },
+ {
+  "from": "work:part26",
+  "to": "work:part15",
+  "type": "bridges",
+  "via": [
+   "concept:metacognition"
+  ],
+  "why": {
+   "ja": "第26部は、効果が低いのに「わかった気になる」勉強法を研究から示す。第15部の「わかったと考えたは同じなのか」を、学び方の具体例で確かめられる。"
+  },
+  "strength": 2,
+  "review": "pending",
+  "basis": "題・要約・話の見出しから作成"
+ }
+]

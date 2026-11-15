@@ -31,10 +31,16 @@ export function report(g, result, { sources, counts, outputs, suggested }) {
   add('レンズごとの所属数：');
   table(['レンズ', '作品', '出来事'], lensUse);
 
-  add('## 4. いまあるシリーズ横断のつながり', '', '既存データと既存ページのリンクから読み取れたもの（理由文なし）。');
-  const cross = g.edges.filter((e) => g.nodes.get(e.from)?.type === 'work' && g.nodes.get(e.to)?.type === 'work' && g.nodes.get(e.from).series !== g.nodes.get(e.to).series);
+  add('## 4. シリーズ横断のつながり', '', '### 既存ページのリンクから読み取れたもの（理由文なし）');
+  const cross = g.edges.filter((e) => e.origin !== 'curated' && g.nodes.get(e.from)?.type === 'work' && g.nodes.get(e.to)?.type === 'work' && g.nodes.get(e.from).series !== g.nodes.get(e.to).series);
   table(['から', 'へ', '種類', '出どころ'], cross.map((e) => [`${title(e.from)}（${e.from}）`, `${title(e.to)}（${e.to}）`, e.type, e.origin]));
-  add(`理由つきの橋（\`edges.json\`）：**${g.edges.filter((e) => e.origin === 'curated').length}本**　／　候補（\`edges.suggested.json\`、未公開）：${suggested}本`, '');
+  add('### 理由つきの橋', '');
+  table(['から', 'へ', '理由'], g.edges.filter((e) => e.origin === 'curated' && e.type === 'bridges').map((e) => [title(e.from), title(e.to), e.why.ja]));
+  add('### 大きな問いと、そこに集まる作品', '');
+  table(['大きな問い', '作品数', 'シリーズ数'], nodes.filter((n) => n.type === 'question' && n.level === 'big').map((q) => { const ws = [...new Set(g.edges.filter((e) => e.type === 'asks' && e.to === q.id && g.nodes.get(e.from)?.type === 'work').map((e) => e.from))]; return [q.text.ja, ws.length, new Set(ws.map((w) => g.nodes.get(w).series)).size]; }));
+  add('### 概念と、それを扱う作品', '');
+  table(['概念', '作品数', 'シリーズ数'], nodes.filter((n) => n.type === 'concept').map((c) => { const ws = [...new Set(g.edges.filter((e) => e.type === 'about' && e.to === c.id && g.nodes.get(e.from)?.type === 'work').map((e) => e.from))]; return [c.title?.ja || c.id, ws.length, new Set(ws.map((w) => g.nodes.get(w).series)).size]; }));
+  add(`理由つきの橋（\`edges.json\`）：**${g.edges.filter((e) => e.origin === 'curated' && e.type === 'bridges').length}本**　／　候補（\`edges.suggested.json\`、未公開）：${suggested}本`, '');
   const linkedWorks = new Set(g.edges.filter((e) => e.type === 'happenedAt' && g.nodes.get(e.to)?.stream === 'deep-time').map((e) => e.from));
   add(`年表の出来事と結びついた作品：${linkedWorks.size} / ${works.length}（年表 → 作品のリンク ${g.edges.filter((e) => e.type === 'happenedAt' && g.nodes.get(e.to)?.stream === 'deep-time').length}本を両方向で利用可能に）`, '');
 

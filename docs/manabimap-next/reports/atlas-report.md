@@ -2,7 +2,7 @@
 
 > 自動生成（`node tools/atlas/build.mjs`）。手で編集しないでください。
 
-**エラー 0件 ／ 編集待ち 315件 ／ 注意 3件 ／ 既存データの参照切れ 0件**
+**エラー 0件 ／ 編集待ち 100件 ／ 注意 8件 ／ 既存データの参照切れ 0件**
 
 ## 1. 取り込んだもの
 
@@ -12,38 +12,39 @@
 | EDU edu-data/*.js | works 12、people 50、cards 60、evidence 15、history 51 |
 | 哲学史 philosophy-history-data.js | entries 32、lanes 3 |
 | 年表 evolution.html ほか | events 160、philosophyPoints 24、workLinks 49、core 84 |
-| 静的ページ parts/(philosophy|eastern|math)*.html | works 8、episodes 80、lifeEvents 169、people 10 |
+| 静的ページ parts/(philosophy|eastern|math)*.html | works 8、episodes 80、lifeEvents 169、people 11 |
+| 追記 data/atlas/*.json | concepts dictionary 39/folded 81/keywords 12、questions big 13/parents 107、sameAs 20、bridges 38 |
 
 | 種類 | 件数 |
 |---|---|
 | family | 2 |
-| series | 10 |
+| series | 11 |
 | lens | 13 |
 | page | 4 |
-| concept | 73 |
 | work | 41 |
-| question | 112 |
+| question | 120 |
 | route | 6 |
 | media | 407 |
 | episode | 152 |
-| person | 60 |
+| person | 61 |
 | study | 75 |
 | event | 436 |
 | stream | 1 |
-| （つながり） | 1420 |
+| concept | 39 |
+| （つながり） | 1645 |
 
 | 生成物 | サイズ（非圧縮） |
 |---|---|
-| atlas-core.json | 130 KB |
-| atlas-events.json | 336 KB |
-| atlas-detail.json | 324 KB |
-| atlas-index.json | 28 KB |
+| atlas-core.json | 164 KB |
+| atlas-events.json | 339 KB |
+| atlas-detail.json | 325 KB |
+| atlas-index.json | 27 KB |
 
 ## 2. シリーズ別の作品
 
 | シリーズ | 状態 | 作品数 | 時間あり | 英語題あり | 話 |
 |---|---|---|---|---|---|
-| ハルとおじいさん（`series:human`） | published | 21 | 0 | 21 | 0 |
+| ハルとおじいさん（`series:human`） | published | 21 | 21 | 21 | 0 |
 | EDU（`series:edu`） | published | 12 | 12 | 0 | 72 |
 | 西洋哲学（`series:philosophy-west`） | published | 4 | 4 | 0 | 40 |
 | 東洋哲学（`series:philosophy-east`） | published | 2 | 2 | 0 | 20 |
@@ -53,6 +54,7 @@
 | 物理（`series:physics`） | planned | 0 | 0 | 0 | 0 |
 | 生命（`series:life`） | planned | 0 | 0 | 0 | 0 |
 | AIの源流（`series:ai-origins`） | planned | 0 | 0 | 0 | 0 |
+| おはなし おはなし（`series:ohanashi`） | planned | 0 | 0 | 0 | 0 |
 
 本編（ハルとおじいさん）の「話」は、ページの作りが3通りあるため未取り込みです（次の作業）。
 
@@ -83,9 +85,9 @@
 | 意味・世界観 | 0 | 63 |
 | 哲学・思想 | 0 | 56 |
 
-## 4. いまあるシリーズ横断のつながり
+## 4. シリーズ横断のつながり
 
-既存データと既存ページのリンクから読み取れたもの（理由文なし）。
+### 既存ページのリンクから読み取れたもの（理由文なし）
 
 | から | へ | 種類 | 出どころ |
 |---|---|---|---|
@@ -101,36 +103,129 @@
 | 偶然は、計算できるのか（work:math2） | AIと人間のあいだ（work:part8） | relatesTo | derived:html-link |
 | 経験そのものへ、世界の中へ（work:philosophy4） | 人をつくる型と、型のない道（work:eastern2） | relatesTo | derived:html-link |
 
-理由つきの橋（`edges.json`）：**0本**　／　候補（`edges.suggested.json`、未公開）：14本
+### 理由つきの橋
 
-年表の出来事と結びついた作品：12 / 41（年表 → 作品のリンク 49本を両方向で利用可能に）
+| から | へ | 理由 |
+|---|---|---|
+| 言葉の網と、網の外の顔 | 言葉と思考の旅 | ソシュールは「言葉はものに貼るラベルではない」と考え、意味は言葉どうしのちがいから生まれるとした。第5部の「言葉は思考を作るのか」を、言語学の側から掘り下げる。 |
+| 言葉の網と、網の外の顔 | 人はなぜ、一人では学べないのか | レヴィナスは、他者の「顔」に応えることから責任が始まると考えた。第12部が学習心理学から示す「人は一人では学べない」を、他者とは誰かという問いから支える。 |
+| 言葉の網と、網の外の顔 | AIと人間のあいだ | 哲学1は最後に「AIの言葉には、語られたことだけでなく語ることもあるのか」と問う。第8部の「生成AIは何を生成しているのか」を、言葉の意味の側から考える入口になる。 |
+| 野生の思考と、子どもの発見 | 交換と協働 | レヴィ＝ストロースは、結婚の決まりを集団どうしの交換の仕組みとして読み解いた。第17部が追う贈与と交換の歴史を、人類学の「構造」という見方から照らす。 |
+| 野生の思考と、子どもの発見 | 人はどう学び始めるのか | ルソーは「教えないことが教育ではないか」と考えた。第11部の「人は、教わる前にどう学んでいるのか」と同じ問いを、250年前に立てている。 |
+| 野生の思考と、子どもの発見 | 文字と知識の冒険 | 哲学2は「文字を学ぶことは、いいことだけなのか」と問う。第4部が描く、知識を外に残せるようになった恩恵の、もう一つの面を見せる。 |
+| 世界の枠組みと、育つ自由 | 人はなぜ勘違いするのか | カントは、世界は見たとおりにあるのではなく、見る側の枠組みを通して現れると考えた。第18部の「私たちが見ている現実は、世界そのものなのか」を哲学の言葉で先取りしている。 |
+| 世界の枠組みと、育つ自由 | 地球は動いている | カントは自分の考え方の逆転を、地動説になぞらえて「コペルニクス的転回」と呼んだ。第14部の地動説は、見方を入れ替えるという発想そのものの原型になった。 |
+| 世界の枠組みと、育つ自由 | 学びとは何か | カントは教育なしに人は人になれないのかを問い、ヘーゲルは校長として学校を考えた。第13部の「学びとは何か」を、近代の哲学者がどう考えたかがわかる。 |
+| 世界の枠組みと、育つ自由 | AIと生きる未来 | カントの啓蒙は、他人の指示ではなく自分の理性で考えることを求めた。第3部の「AIが答えを出せる時代に、人間が考えるとは何か」は、その問いの現代版にあたる。 |
+| 経験そのものへ、世界の中へ | 感性という深層 | フッサールは、科学が数値に置きかえる前の、生きられた経験の世界に立ち返ろうとした。第10部の「意味は体験と関係の中にあるのか」という問いの哲学的な土台になる。 |
+| 経験そのものへ、世界の中へ | 蒸気の時代 | ハイデガーは、技術を単なる道具ではなく、世界の見え方を変えるものとして問うた。第1部の「機械は人間を何から解放し、何に縛ったのか」を哲学の側から深める。 |
+| 経験そのものへ、世界の中へ | 人間の前提を外す | フッサールの「当たり前をかっこに入れる」という方法は、第7部の科学者たちが行った「人間の当たり前を外す」ことを、ものの見方の技術として取り出したものといえる。 |
+| 苦しみの出口と、空っぽの私 | 余ったのに、なぜ足りないのか | ブッダは、手に入れても満たされない理由を、ものの不足ではなく心の働きに見た。第20部の「余ったのに、なぜ足りないのか」に、2500年前から別の答え方がある。 |
+| 苦しみの出口と、空っぽの私 | 人類はなぜ移動するのか | 東洋哲学1の最後は、空の思想が翻訳されながら各地へ伝わる旅をたどる。第19部の「移動によって、何が動いたのか」の、思想における実例になる。 |
+| 人をつくる型と、型のない道 | 学びとは何か | 孔子は、古いものを学び直すことの中に新しさを見いだした。第13部が人類史から示す、受け継いで積み上げる学びを、一人の教師の言葉として読める。 |
+| 人をつくる型と、型のない道 | 上達には段階がある | 論語の冒頭「学んで、ときにこれを習う」は、くり返すうちにふっとわかる経験を語る。第26部が研究から示す、練習の質と段階の話と重なる。 |
+| 人をつくる型と、型のない道 | 数字と世界 | 荘子の「無用の用」は、役に立つかどうかという物差しそのものを疑う。第6部の「数字で測れるものだけが、価値あるものなのか」と同じ場所を、別の時代から突く。 |
+| 小学生にもわかる微分と積分 | 数字と世界 | 数学1は、数で「変化の勢い」まで測れるようになった話。第6部の「数は世界を見やすくしたのか」の、最も強力な実例になる。 |
+| 小学生にもわかる微分と積分 | 地球は動いている | 数学1は、微分積分がハレーすい星の再来を言い当てた話をたどる。第14部の地動説が開いた「動く世界」を、計算で予測できるものに変えた続きにあたる。 |
+| 小学生にもわかる微分と積分 | AIと人間のあいだ | 数学1は「AIは、どうやって坂をくだって学ぶのか」を扱う。第8部が歴史として語るAIの学習を、微分という道具から理解できる。 |
+| 偶然は、計算できるのか | AIと人間のあいだ | 数学2は「AIは、サイコロを振って話しているのか」で終わる。第8部の「ルールから確率へ」という転換を、確率そのものから学び直せる。 |
+| 偶然は、計算できるのか | 人はなぜ勘違いするのか | 「次こそ当たる」と感じる心のくせを、数学2は確率から説明する。第18部が心理学から示す勘違いの仕組みを、計算で確かめられる。 |
+| 偶然は、計算できるのか | それ、わかったつもりかも | 数学2は、新しい手がかりを得るたびに確からしさを更新する考え方を扱う。第15部の「わからなさを抱えたまま考え続ける」ための、具体的な道具になる。 |
+| 偶然は、計算できるのか | 思い込みが、力を変える | 数学2の「たまたまと本当は、どう見分けるのか」は、第24部が教育研究のその後を検証するときに使う考え方そのもの。研究結果の読み方の土台になる。 |
+| ヒトだけの学び方 | 学びとは何か | 第30部は、チンパンジーとの比較から、教える・真似るというヒトの学び方の特別さを示す。第13部の累積文化の話を、霊長類研究から裏づける。 |
+| 工事中の脳 | 身体という時間 | 第28部は、思春期の眠りや衝動を、脳の発達から説明する。第9部の「旧石器時代の身体で現代を生きる」という見方を、10代の身体に当てはめたものになる。 |
+| 工事中の脳 | つながる世界 | 第28部は、仲間外れのつらさやスマホの影響を研究から確かめる。第2部の「つながることは、近づくことと同じなのか」を、思春期の当事者の側から見る。 |
+| 運動は、脳の肥料だった | 身体という時間 | 第21部は、運動が脳を育てる研究を紹介し、狩猟採集民の暮らしにも触れる。第9部の、動くことを前提に作られた身体という見方とつながる。 |
+| 思い込みが、力を変える | 人はなぜ勘違いするのか | 第24部は、自分の力についての思い込みが結果を変えるかを検証する。第18部の、脳が現実を作るという話を、子どもの学びの場面で確かめる。 |
+| 聞くだけで、子どもは伸びる | 人はなぜ、一人では学べないのか | 第22部は、説明することと聞いてもらうことが理解を深める研究を紹介する。第12部の「人は対話によって一人では届かない場所へ届く」の、家庭での実践編になる。 |
+| 生まれか、育ちか | 人はどう学び始めるのか | 第23部は、遺伝と環境がどう組み合わさるかを研究からたどる。第11部が描く、愛着と関わりの中で始まる学びの背景にあたる。 |
+| なりたい自分に、なれるのか | 人はなぜ勘違いするのか | 第25部は「目の前のゴリラが見えなかった」実験を紹介する。第18部の、注意を向けたものしか見えないという話の代表的な実例になる。 |
+| その一言が、子どもを変えた | 人はどう学び始めるのか | 第27部は、大人のふるまいを見て子どもが学ぶ研究を紹介する。第11部の、模倣から始まる学びを、大人の側の責任として読み直す。 |
+| 一人の学びから、みんなの学びへ | 交換と協働 | 第29部は、対立した集団が共通の目標で協力に転じた研究を紹介する。第17部の「なぜ人類は見知らぬ他人と協力できるのか」を、教室という小さな社会で確かめる。 |
+| 眠り・遊び・自然 | 余ったのに、なぜ足りないのか | 第31部は、眠り・遊び・自然の時間が脳を育てることを示す。第20部の「余白を、余白のまま持つことはできるか」に、子どもの発達から答える。 |
+| 才能は、どこで見つかるのか | AIが日常に入る日 | 第32部は、学校の物差しでは見えない才能を扱う。第8-2部の「AIが宿題を解ける時代に、学力とは何か」と、測ることの限界という同じ問題を見ている。 |
+| 上達には段階がある | それ、わかったつもりかも | 第26部は、効果が低いのに「わかった気になる」勉強法を研究から示す。第15部の「わかったと考えたは同じなのか」を、学び方の具体例で確かめられる。 |
+
+### 大きな問いと、そこに集まる作品
+
+| 大きな問い | 作品数 | シリーズ数 |
+|---|---|---|
+| 道具を使うことと、道具に使われることの境界はどこにあるのか。 | 7 | 2 |
+| AIが答えを出せる時代に、人間が考えるとは何か。 | 9 | 3 |
+| 言葉は思考を作るのか、思考が言葉を作るのか。 | 5 | 3 |
+| 数字で測れないものに、どう価値を与えるのか。 | 7 | 4 |
+| 学ぶとは、答えを増やすことか、問いを増やすことか。 | 11 | 5 |
+| 私たちが見ている世界は、世界そのものなのか。 | 7 | 3 |
+| 「私」とは何か。どこまでが自分なのか。 | 3 | 2 |
+| 人はなぜ、他者とともに生きるのか。 | 11 | 4 |
+| 身体は、考えることや学ぶことに何をもたらすのか。 | 4 | 2 |
+| どれだけあれば、足りるのか。 | 3 | 2 |
+| わからないことと、どう付き合うのか。 | 2 | 2 |
+| 人は、何によって育つのか。 | 9 | 4 |
+| 変わり続ける世界を、どうとらえるのか。 | 3 | 2 |
+
+### 概念と、それを扱う作品
+
+| 概念 | 作品数 | シリーズ数 |
+|---|---|---|
+| 言葉 | 6 | 3 |
+| 文字と記録 | 3 | 2 |
+| 三つの革命 | 6 | 1 |
+| 生成AI | 7 | 3 |
+| 計算 | 3 | 2 |
+| 確率と不確実性 | 4 | 2 |
+| 数 | 4 | 2 |
+| 測ること | 5 | 3 |
+| 証拠と確からしさ | 4 | 3 |
+| 見方の転換 | 5 | 2 |
+| 知覚と現実 | 4 | 3 |
+| 思い込み | 4 | 3 |
+| 注意 | 7 | 2 |
+| メタ認知 | 5 | 2 |
+| 対話 | 4 | 3 |
+| 他者 | 5 | 3 |
+| 「私」 | 4 | 3 |
+| 協力 | 4 | 2 |
+| 贈与と交換 | 2 | 2 |
+| 不平等 | 3 | 3 |
+| 自由と自律 | 5 | 3 |
+| 教育と学校 | 8 | 3 |
+| 受け継がれる文化 | 4 | 3 |
+| 発達 | 5 | 2 |
+| 遊び | 2 | 2 |
+| 練習と熟達 | 2 | 2 |
+| 動機づけ | 5 | 3 |
+| 身体 | 5 | 2 |
+| 進化 | 4 | 2 |
+| 移動 | 2 | 2 |
+| 道具と技術 | 6 | 2 |
+| エネルギー | 2 | 1 |
+| 時間 | 5 | 3 |
+| 変化をとらえる | 3 | 2 |
+| 足りること・余白 | 4 | 3 |
+| 意味 | 3 | 2 |
+| 構造 | 3 | 2 |
+| 死と喪失 | 3 | 2 |
+| 物語 | 0 | 0 |
+
+理由つきの橋（`edges.json`）：**38本**　／　候補（`edges.suggested.json`、未公開）：3本
+
+年表の出来事と結びついた作品：18 / 41（年表 → 作品のリンク 59本を両方向で利用可能に）
 
 ## 5. 編集待ち
 
 ビルドは止めないが、公開前に埋める必要があるもの。
-### 時間の範囲が未入力の作品（21件）
+### 理由つきの橋（bridges）を持たない作品（1件）
+
+`work:part16`
+
+### 内容の確認待ちの橋（review: pending）（38件）
+
+`work:philosophy1 → work:part5`、`work:philosophy1 → work:part12`、`work:philosophy1 → work:part8`、`work:philosophy2 → work:part17`、`work:philosophy2 → work:part11`、`work:philosophy2 → work:part4`、`work:philosophy3 → work:part18`、`work:philosophy3 → work:part14`、`work:philosophy3 → work:part13`、`work:philosophy3 → work:part3`、`work:philosophy4 → work:part10`、`work:philosophy4 → work:part1`、`work:philosophy4 → work:part7`、`work:eastern1 → work:part20`、`work:eastern1 → work:part19`、`work:eastern2 → work:part13`、`work:eastern2 → work:part26`、`work:eastern2 → work:part6`、`work:math1 → work:part6`、`work:math1 → work:part14`、`work:math1 → work:part8`、`work:math2 → work:part8`、`work:math2 → work:part18`、`work:math2 → work:part15` ほか14件
+
+### 時間の範囲が下書きの作品（curated-draft）（21件）
 
 `work:part1`、`work:part2`、`work:part3`、`work:part4`、`work:part5`、`work:part6`、`work:part7`、`work:part8`、`work:part8-2`、`work:part9`、`work:part10`、`work:part11`、`work:part12`、`work:part13`、`work:part14`、`work:part15`、`work:part16`、`work:part17`、`work:part18`、`work:part19`、`work:part20`
-
-### 概念が2つ未満の作品（20件）
-
-`work:part21`、`work:part22`、`work:part23`、`work:part24`、`work:part25`、`work:part26`、`work:part27`、`work:part28`、`work:part29`、`work:part30`、`work:part31`、`work:part32`、`work:eastern1`、`work:eastern2`、`work:math1`、`work:math2`、`work:philosophy1`、`work:philosophy2`、`work:philosophy3`、`work:philosophy4`
-
-### 理由つきの橋（bridges）を持たない作品（41件）
-
-`work:part1`、`work:part2`、`work:part3`、`work:part4`、`work:part5`、`work:part6`、`work:part7`、`work:part8`、`work:part8-2`、`work:part9`、`work:part10`、`work:part11`、`work:part12`、`work:part13`、`work:part14`、`work:part15`、`work:part16`、`work:part17`、`work:part18`、`work:part19`、`work:part20`、`work:part21`、`work:part22`、`work:part23` ほか17件
-
-### 2歩以内に別シリーズへ行けない作品（23件）
-
-`work:part1`、`work:part6`、`work:part9`、`work:part10`、`work:part11`、`work:part12`、`work:part16`、`work:part17`、`work:part18`、`work:part19`、`work:part20`、`work:part21`、`work:part22`、`work:part23`、`work:part24`、`work:part25`、`work:part26`、`work:part27`、`work:part28`、`work:part29`、`work:part30`、`work:part31`、`work:part32`
-
-### 説明のない概念（名前だけ使われている）（63件）
-
-`concept:steam-engine`、`concept:labor-time`、`concept:school-clock`、`concept:internet`、`concept:sns`、`concept:chatgpt`、`concept:human-agency`、`concept:external-memory`、`concept:printing`、`concept:search-engine`、`concept:inner-voice`、`concept:abstraction`、`concept:causality`、`concept:ai-language`、`concept:zero`、`concept:statistics`、`concept:prediction`、`concept:relativity`、`concept:quantum-thinking`、`concept:turing-machine`、`concept:von-neumann`、`concept:large-language-model`、`concept:probability`、`concept:ai-history` ほか39件
-
-### 大きな問いに結びついていない作品の問い（107件）
-
-`q:part1.1`、`q:part1.2`、`q:part2.1`、`q:part2.2`、`q:part3.1`、`q:part3.2`、`q:part4.1`、`q:part4.2`、`q:part5.1`、`q:part5.2`、`q:part6.1`、`q:part6.2`、`q:part7.1`、`q:part7.2`、`q:part8.1`、`q:part8.2`、`q:part8-2.1`、`q:part8-2.2`、`q:part9.1`、`q:part9.2`、`q:part10.1`、`q:part10.2`、`q:part11.1`、`q:part11.2` ほか83件
 
 ### 英語の題がない作品（20件）
 
@@ -145,7 +240,12 @@
 なし。
 ## 7. 注意
 
-- どこにもつながっていない person: 18件（例 person:P-J01, person:P-J02, person:P-J06, person:P-J10, person:P-J12）
-- 1作品にしか現れない概念: 62 / 73件（横断に使えるのは残り 11件）
-- 同じ題材らしい出来事（統合候補）: 19組 — event:philosophy-upanishads ⇔ event:phist-east-upanishads / event:philosophy-confucius ⇔ event:phist-east-confucius / event:philosophy-mozi ⇔ event:phist-east-mohism / event:philosophy-socrates ⇔ event:phist-west-socrates-plato / event:philosophy-aristotle ⇔ event:phist-west-aristotle / event:philosophy-nagarjuna ⇔ event:phist-east-nagarjuna / event:philosophy-al-ghazali ⇔ event:phist-crossroads-al-ghazali / event:philosophy-zhu-xi ⇔ event:phist-east-zhu-xi / event:philosophy-aquinas ⇔ event:phist-west-aquinas / event:philosophy-locke ⇔ event:phist-west-locke / event:philosophy-kant ⇔ event:phist-west-kant / event:philosophy-wollstonecraft ⇔ event:phist-west-wollstonecraft / event:philosophy-marx ⇔ event:phist-west-marx / event:philosophy-du-bois ⇔ event:phist-crossroads-du-bois / event:philosophy-satyagraha ⇔ event:phist-crossroads-gandhi / event:philosophy-beauvoir ⇔ event:phist-west-beauvoir / event:philosophy-land-ethic ⇔ event:phist-crossroads-land-ethic / event:philosophy-fanon ⇔ event:phist-crossroads-fanon / event:philosophy-intersectionality ⇔ event:phist-crossroads-intersectionality
+- どこにもつながっていない person: 17件（例 person:P-J02, person:P-J06, person:P-J10, person:P-J12, person:P-J17）
+- 構想中のシリーズ「科学」: 作品ページ 0
+- 構想中のシリーズ「宇宙」: 作品ページ 0
+- 構想中のシリーズ「物理」: 作品ページ 0
+- 構想中のシリーズ「生命」: 作品ページ 0
+- 構想中のシリーズ「AIの源流」: 作品ページ 0、先行するメディア 8本 — Podcast 8本が先行して公開済み（現在は第8部の関連メディア）。作品ページは未作成。
+- 構想中のシリーズ「おはなし おはなし」: 作品ページ 0 — リポジトリ内に作品ページ・データは未登録。内容が決まり次第、作品と橋を追加する。
+- 1作品にしか現れない概念: 1 / 39件（横断に使えるのは残り 38件）
 

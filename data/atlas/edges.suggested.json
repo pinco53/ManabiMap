@@ -1,19 +1,23 @@
 {
-  "_note": "シリーズ横断の接続候補。題材からの推定で、内容は未確認。公開データには含まれない。採用するものは why（理由の一文）を書いて edges.json へ移す。",
-  "edges": [
-    { "from": "work:philosophy1", "to": "work:part5", "type": "bridges", "hint": "ソシュール／言葉が世界を切り分ける" },
-    { "from": "work:philosophy1", "to": "work:part12", "type": "bridges", "hint": "レヴィナス／他者・対話" },
-    { "from": "work:philosophy2", "to": "work:part17", "type": "bridges", "hint": "レヴィ＝ストロース／贈与・交換" },
-    { "from": "work:philosophy2", "to": "work:part11", "type": "bridges", "hint": "ルソー／子どもの発見" },
-    { "from": "work:philosophy3", "to": "work:part18", "type": "bridges", "hint": "カント／認識の枠組み" },
-    { "from": "work:philosophy4", "to": "work:part10", "type": "bridges", "hint": "フッサール・ハイデガー／経験・身体" },
-    { "from": "work:eastern1", "to": "work:part20", "type": "bridges", "hint": "ブッダ／苦・足るを知る" },
-    { "from": "work:eastern2", "to": "work:part13", "type": "bridges", "hint": "孔子／型と学び" },
-    { "from": "work:math1", "to": "work:part6", "type": "bridges", "hint": "微分積分／変化を測る" },
-    { "from": "work:math2", "to": "work:part18", "type": "bridges", "hint": "確率統計／判断の誤り・不確実性" },
-    { "from": "work:part30", "to": "work:part13", "type": "bridges", "hint": "ヒトだけの学び方／累積文化" },
-    { "from": "work:part28", "to": "work:part9", "type": "bridges", "hint": "工事中の脳／発達と進化" },
-    { "from": "work:part21", "to": "work:part9", "type": "bridges", "hint": "運動と脳／身体と学び" },
-    { "from": "work:part24", "to": "work:part18", "type": "bridges", "hint": "思い込み／信念・メタ認知" }
-  ]
+ "_note": "シリーズ横断の接続候補。公開データには含まれない。採用するものは why（理由の一文）を書いて edges.json へ移す。",
+ "edges": [
+  {
+   "from": "work:part16",
+   "to": "series:physics",
+   "type": "bridges",
+   "hint": "第16部 エネルギーと人類史は、構想中の「物理」シリーズができたときに最初の橋をかける候補"
+  },
+  {
+   "from": "work:part10",
+   "to": "series:ohanashi",
+   "type": "bridges",
+   "hint": "第10部 感性という深層は、「おはなし おはなし」（昔話・神話と心の深層）への橋の候補"
+  },
+  {
+   "from": "work:part7",
+   "to": "series:ai-origins",
+   "type": "bridges",
+   "hint": "第7部（チューリング、フォン・ノイマン）は「AIの源流」への橋の候補"
+  }
+ ]
 }

@@ -37,10 +37,14 @@ node tools/atlas/build.mjs --assign-ids
 
 | 人が編集する（`data/atlas/`） | 内容 |
 |---|---|
-| `series.json`、`families.json` | シリーズと系統。`match` は静的ページのファイル名との対応 |
+| `series.json`、`families.json` | シリーズと系統。`match` は静的ページのファイル名、`mediaMatch` は先行するメディアのID、`people`・`concepts` は作品ができる前の入口 |
 | `lenses.json` | レンズ（現行の銀河5種・年表10種との対応つき） |
-| `people.json` | 静的ページに登場する人物 |
-| `edges.json` | 理由つきの横断接続（`why` 必須） |
+| `people.json` | 静的ページに登場する人物、構想中のシリーズに関わる人物 |
+| `concepts.json` | 概念辞書。`aliases` は既存データの語、`works` は追加で結びつける作品 |
+| `questions.json` | 大きな問いと、作品の問いの親子関係 |
+| `works.overrides.json` | 作品への追記（いまは時間の範囲） |
+| `links.json` | 出来事どうしの対応（`sameAs`）、作品と出来事、出来事と人物 |
+| `edges.json` | 理由つきの横断接続（`why` 必須）。`review: "pending"` は内容の確認待ち。確認したら `"ok"` に書き換える |
 | `edges.suggested.json` | 接続の候補。公開データには入らない |
 | `id-registry.json` | 固定 ID の台帳（下記）。手では消さない |
 | `retired-ids.json`（任意） | 意図して廃止した ID の一覧 |
@@ -69,3 +73,12 @@ node tools/atlas/build.mjs --assign-ids
 | エラー | 構造が壊れている（ID 重複、参照先なし、ファイルなし、時間の矛盾、件数の急減、公開済み ID の消失） | 止まる |
 | 編集待ち | 人が埋める必要がある（時間、概念、問いの親子、橋の理由文など） | 止まらない |
 | 注意 | 見ておくとよい（孤立、統合候補、固定 ID の対応先なし） | 止まらない |
+
+## 新しいシリーズを足すには
+
+1. `data/atlas/series.json` に1件追加する（`id`、`title`、`summary`、`status`）。作品がまだ無ければ `status: "planned"`。
+2. 作品ページが哲学・数学と同じ作りなら、`match` にファイル名の正規表現を書くだけで作品・話・問い・年表が取り込まれる。
+3. `data/atlas/concepts.json` の該当する語の `works` に作品を足す（2語以上）。
+4. `data/atlas/questions.json` の `parents` に、作品の問いの親を書く。
+5. `data/atlas/edges.json` に、既存作品への橋を理由つきで書く（最初の作品は3本、以降は1本以上）。
+6. `node tools/atlas/build.mjs --assign-ids` を実行し、レポートの「編集待ち」を確認する。

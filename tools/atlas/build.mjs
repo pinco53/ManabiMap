@@ -7,6 +7,7 @@ import crypto from 'node:crypto';
 import { Graph, IdRegistry, readJson, writeIfChanged, exists, read } from './util.mjs';
 import { validate } from './validate.mjs';
 import { report } from './report.mjs';
+import { enrich } from './enrich.mjs';
 import human from './adapters/human.mjs';
 import edu from './adapters/edu.mjs';
 import philosophyHistory from './adapters/philosophy-history.mjs';
@@ -25,13 +26,13 @@ const g = new Graph();
 const ids = new IdRegistry('data/atlas/id-registry.json', flags.has('--assign-ids'));
 const series = readJson('data/atlas/series.json', []);
 readJson('data/atlas/families.json', []).forEach((f) => g.node({ type: 'family', ...f }));
-series.forEach((s) => g.node({ type: 'series', ...s }));
+series.forEach((s) => g.node({ type: 'series', ...structuredClone(s) }));
 readJson('data/atlas/lenses.json', []).forEach((l) => g.node({ type: 'lens', ...l }));
 
 const ctx = { ids, series, people: readJson('data/atlas/people.json', []) };
 const sources = { '本編 manabimap-data.js': human(g, ctx), 'EDU edu-data/*.js': edu(g, ctx), '哲学史 philosophy-history-data.js': philosophyHistory(g, ctx),
   '年表 evolution.html ほか': timeline(g, ctx), '静的ページ parts/(philosophy|eastern|math)*.html': staticParts(g, ctx) };
-readJson('data/atlas/edges.json', []).forEach((e) => g.edge(e.from, e.to, e.type, { ...e, origin: 'curated' }));
+sources['追記 data/atlas/*.json'] = Object.fromEntries(Object.entries(enrich(g)).map(([k, v]) => [k, typeof v === 'object' ? Object.entries(v).map(([a, b]) => `${a} ${b}`).join('/') : v]));
 
 const previous = exists(OUT + 'atlas-index.json') ? JSON.parse(read(OUT + 'atlas-index.json')) : null;
 const result = validate(g, { previous, retired: readJson('data/atlas/retired-ids.json', []), registry: ids, allowShrink: flags.has('--allow-shrink') });

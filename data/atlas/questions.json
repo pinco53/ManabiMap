@@ -1,0 +1,161 @@
+{
+ "big": [
+  {
+   "id": "q:reality",
+   "text": {
+    "ja": "私たちが見ている世界は、世界そのものなのか。"
+   }
+  },
+  {
+   "id": "q:self",
+   "text": {
+    "ja": "「私」とは何か。どこまでが自分なのか。"
+   }
+  },
+  {
+   "id": "q:others",
+   "text": {
+    "ja": "人はなぜ、他者とともに生きるのか。"
+   }
+  },
+  {
+   "id": "q:body",
+   "text": {
+    "ja": "身体は、考えることや学ぶことに何をもたらすのか。"
+   }
+  },
+  {
+   "id": "q:enough",
+   "text": {
+    "ja": "どれだけあれば、足りるのか。"
+   }
+  },
+  {
+   "id": "q:uncertainty",
+   "text": {
+    "ja": "わからないことと、どう付き合うのか。"
+   }
+  },
+  {
+   "id": "q:growth",
+   "text": {
+    "ja": "人は、何によって育つのか。"
+   }
+  },
+  {
+   "id": "q:change",
+   "text": {
+    "ja": "変わり続ける世界を、どうとらえるのか。"
+   }
+  }
+ ],
+ "parents": {
+  "q:part1.1": "q:tool",
+  "q:part1.2": "q:tool",
+  "q:part2.1": "q:others",
+  "q:part2.2": "q:tool",
+  "q:part3.1": "q:thinking",
+  "q:part3.2": "q:number",
+  "q:part4.1": "q:tool",
+  "q:part4.2": "q:learning",
+  "q:part5.1": "q:language",
+  "q:part5.2": "q:language",
+  "q:part6.1": "q:number",
+  "q:part6.2": "q:number",
+  "q:part7.1": "q:reality",
+  "q:part7.2": "q:reality",
+  "q:part8.1": "q:thinking",
+  "q:part8.2": "q:thinking",
+  "q:part8-2.1": "q:learning",
+  "q:part8-2.2": "q:thinking",
+  "q:part9.1": "q:body",
+  "q:part9.2": "q:body",
+  "q:part10.1": "q:thinking",
+  "q:part10.2": "q:others",
+  "q:part11.1": "q:growth",
+  "q:part11.2": "q:learning",
+  "q:part12.1": "q:others",
+  "q:part12.2": "q:thinking",
+  "q:part13.1": "q:learning",
+  "q:part13.2": "q:growth",
+  "q:part14.1": "q:reality",
+  "q:part14.2": "q:reality",
+  "q:part15.1": "q:uncertainty",
+  "q:part15.2": "q:uncertainty",
+  "q:part16.1": "q:tool",
+  "q:part16.2": "q:change",
+  "q:part17.1": "q:others",
+  "q:part17.2": "q:tool",
+  "q:part18.1": "q:reality",
+  "q:part18.2": "q:reality",
+  "q:part19.1": "q:change",
+  "q:part19.2": "q:change",
+  "q:part20.1": "q:enough",
+  "q:part20.2": "q:enough",
+  "q:part21.1": "q:body",
+  "q:part22.1": "q:others",
+  "q:part23.1": "q:growth",
+  "q:part24.1": "q:growth",
+  "q:part25.1": "q:growth",
+  "q:part26.1": "q:learning",
+  "q:part27.1": "q:growth",
+  "q:part28.1": "q:body",
+  "q:part29.1": "q:others",
+  "q:part30.1": "q:learning",
+  "q:part31.1": "q:body",
+  "q:part32.1": "q:number",
+  "q:eastern1.1": "q:enough",
+  "q:eastern1.2": "q:enough",
+  "q:eastern1.3": "q:reality",
+  "q:eastern1.4": "q:self",
+  "q:eastern1.5": "q:others",
+  "q:eastern1.6": "q:self",
+  "q:eastern1.7": "q:language",
+  "q:eastern2.1": "q:growth",
+  "q:eastern2.2": "q:learning",
+  "q:eastern2.3": "q:growth",
+  "q:eastern2.4": "q:others",
+  "q:eastern2.5": "q:language",
+  "q:eastern2.6": "q:enough",
+  "q:eastern2.7": "q:number",
+  "q:math1.1": "q:change",
+  "q:math1.2": "q:change",
+  "q:math1.3": "q:number",
+  "q:math1.4": "q:change",
+  "q:math1.5": "q:learning",
+  "q:math1.6": "q:number",
+  "q:math2.1": "q:uncertainty",
+  "q:math2.2": "q:uncertainty",
+  "q:math2.3": "q:uncertainty",
+  "q:math2.4": "q:number",
+  "q:math2.5": "q:uncertainty",
+  "q:math2.6": "q:thinking",
+  "q:philosophy1.1": "q:language",
+  "q:philosophy1.2": "q:language",
+  "q:philosophy1.3": "q:self",
+  "q:philosophy1.4": "q:others",
+  "q:philosophy1.5": "q:others",
+  "q:philosophy1.6": "q:thinking",
+  "q:philosophy2.1": "q:reality",
+  "q:philosophy2.2": "q:self",
+  "q:philosophy2.3": "q:learning",
+  "q:philosophy2.4": "q:growth",
+  "q:philosophy2.5": "q:growth",
+  "q:philosophy2.6": "q:learning",
+  "q:philosophy2.7": "q:thinking",
+  "q:philosophy3.1": "q:growth",
+  "q:philosophy3.2": "q:reality",
+  "q:philosophy3.3": "q:others",
+  "q:philosophy3.4": "q:thinking",
+  "q:philosophy3.5": "q:learning",
+  "q:philosophy3.6": "q:growth",
+  "q:philosophy3.7": "q:reality",
+  "q:philosophy4.1": "q:reality",
+  "q:philosophy4.2": "q:reality",
+  "q:philosophy4.3": "q:reality",
+  "q:philosophy4.4": "q:reality",
+  "q:philosophy4.5": "q:tool",
+  "q:philosophy4.6": "q:others",
+  "q:philosophy4.7": "q:learning"
+ }
+}

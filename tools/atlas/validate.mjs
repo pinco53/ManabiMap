@@ -35,7 +35,9 @@ export function validate(g, { previous = null, retired = [], registry = null, al
   });
   works.forEach((w) => { if (!w.series) errors.push(`${w.id}: シリーズがありません`); if (!w.url || !w.url.ja) errors.push(`${w.id}: URL がありません`); });
   g.edges.filter((e) => e.origin === 'curated' && CROSS.has(e.type)).forEach((e) => {
+    if (g.nodes.get(e.from)?.type !== 'work' || g.nodes.get(e.to)?.type !== 'work') return;
     if (!e.why || !e.why.ja || e.why.ja.length < 20) errors.push(`edges.json: ${e.from} → ${e.to} に理由（why、20字以上）がありません`);
+    (e.via || []).filter((id) => !nodes.has(id)).forEach((id) => errors.push(`edges.json: ${e.from} → ${e.to} の via ${id} が存在しません`));
   });
 
   // --- compared with the last published build ------------------------------------------------
@@ -68,21 +70,24 @@ export function validate(g, { previous = null, retired = [], registry = null, al
   group('2歩以内に別シリーズへ行けない作品', works.filter((w) => !crossesSeries(w, 2)).map((w) => w.id));
   group('説明のない概念（名前だけ使われている）', ofType('concept').filter((c) => c.status === 'undefined').map((c) => c.id));
   group('大きな問いに結びついていない作品の問い', ofType('question').filter((q) => q.level === 'work' && !q.parent).map((q) => q.id));
+  group('内容の確認待ちの橋（review: pending）', g.edges.filter((e) => e.review === 'pending').map((e) => `${e.from} → ${e.to}`));
+  group('時間の範囲が下書きの作品（curated-draft）', works.filter((w) => (w.time || []).some((t) => t.origin === 'curated-draft')).map((w) => w.id));
   group('英語の題がない作品', works.filter((w) => !w.title.en).map((w) => w.id));
   group('年が読み取れない出来事', ofType('event').filter((e) => !(e.time || []).length).map((e) => `${e.id}（${e.timeLabel?.ja || '—'}）`));
 
   // --- warnings ------------------------------------------------------------------------------
   const touched = new Set(g.edges.flatMap((e) => [e.from, e.to]));
   ['concept', 'person'].forEach((type) => { const lonely = ofType(type).filter((n) => !touched.has(n.id)); if (lonely.length) warnings.push(`どこにもつながっていない ${type}: ${lonely.length}件（例 ${lonely.slice(0, 5).map((n) => n.id).join(', ')}）`); });
+  ofType('series').filter((s) => s.status === 'planned').forEach((s) => warnings.push(`構想中のシリーズ「${s.title.ja}」: 作品ページ 0${s.mediaCount ? `、先行するメディア ${s.mediaCount}本` : ''}${s.note ? ' — ' + s.note : ''}`));
   const lone = ofType('concept').filter((c) => new Set(g.edges.filter((e) => e.to === c.id && e.type === 'about').map((e) => e.from)).size < 2).length;
   warnings.push(`1作品にしか現れない概念: ${lone} / ${ofType('concept').length}件（横断に使えるのは残り ${ofType('concept').length - lone}件）`);
   const token = (title) => title.split(/[と・、の（]/)[0];
   const merge = [];
   ofType('event').filter((e) => e.layer === 'philosophy').forEach((p) => ofType('event').filter((e) => e.stream === 'philosophy-history').forEach((h) => {
     const a = token(p.title.ja), b = token(h.title.ja);
-    if (a.length >= 2 && (h.title.ja.includes(a) || p.title.ja.includes(b))) merge.push(`${p.id} ⇔ ${h.id}`);
+    if (a.length >= 2 && (h.title.ja.includes(a) || p.title.ja.includes(b)) && !g.edges.some((e) => e.type === 'sameAs' && e.from === p.id && e.to === h.id)) merge.push(`${p.id} ⇔ ${h.id}`);
   }));
-  if (merge.length) warnings.push(`同じ題材らしい出来事（統合候補）: ${merge.length}組 — ${merge.join(' / ')}`);
+  if (merge.length) warnings.push(`同じ題材らしい出来事（未対応の統合候補）: ${merge.length}組 — ${merge.join(' / ')}`);
   g.notes.forEach((n) => warnings.push(n));
 
   return { errors, todo, warnings, dangling };
