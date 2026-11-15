@@ -17,7 +17,7 @@ graph LR
   subgraph "公開物（静的ファイル）"
     O1[atlas-core.json]
     O2[atlas-events.json]
-    O3[atlas-media.json]
+    O3[atlas-detail.json]
     O4[検証レポート]
   end
   subgraph "ブラウザ"
@@ -38,23 +38,26 @@ graph LR
 ```
 data/atlas/                 ← 人が編集する追記ファイル
   series.json               シリーズ定義
-  works.overrides.json      作品への追記（時間・レンズ・シリーズ所属）と、台帳外8作品の定義
-  concepts.json             概念辞書
-  questions.json            問い台帳
+  families.json             系統（西洋哲学と東洋哲学をゆるく束ねる単位）
+  works.overrides.json      作品への追記（時間・レンズ）※未作成
+  concepts.json             概念辞書 ※未作成
+  questions.json            問い台帳 ※未作成
   lenses.json               レンズ定義
   people.json               人物（EDU以外）
-  events.overrides.json     出来事への固定ID・時間の数値・統合指定
+  id-registry.json          固定IDの台帳（年表の出来事など、元データにIDが無いもの）
+  edges.suggested.json      横断接続の候補（公開データには入らない）
   edges.json                横断接続（why つき）
   routes.json               道
 tools/atlas/                ← 開発時スクリプト（Node標準機能のみ）
   build.mjs                 取り込み→統合→検証→書き出し
   adapters/                 既存台帳ごとの読み取り
-  validate.mjs              検証のみ実行
-  report.mjs                現状レポート（数・参照切れ・孤立）
+  validate.mjs              検証（エラー／編集待ち／注意）
+  report.mjs                レポート生成（docs/manabimap-next/reports/atlas-report.md）
 assets/atlas/               ← 公開される生成物と新UI
   data/atlas-core.json
   data/atlas-events.json
-  data/atlas-media.json
+  data/atlas-detail.json
+  data/atlas-index.json     IDの一覧と件数（次回ビルドとの比較用）
   js/atlas-*.js
   css/atlas.css
 atlas.html                  ← 新ビューのページ（検証期間中は noindex・未リンク）
@@ -88,7 +91,7 @@ docs/manabimap-next/        ← 本設計資料
 |---|---|---|---|
 | `atlas-core.json` | シリーズ・作品・概念・問い・レンズ・人物・道・それらのエッジ・座標 | 最初に必ず | 圧縮後 60KB 以下 |
 | `atlas-events.json` | 出来事とそのエッジ | 時の河を開いたとき／近景に入ったとき | 圧縮後 80KB 以下 |
-| `atlas-media.json` | note・Podcast・動画・研究カード | 近景に入ったとき／カードで必要になったとき | 圧縮後 60KB 以下 |
+| `atlas-detail.json` | 話・note・Podcast・動画・研究カード | 近景に入ったとき／カードで必要になったとき | 圧縮後 60KB 以下 |
 
 参考：現行の `manabimap-data.js` は非圧縮で292KBあり、銀河の表示に不要な note の本文抜粋まで含めて毎回読み込んでいます。
 分割により、最初の表示に必要なデータは現行より小さくなります。
@@ -104,6 +107,8 @@ docs/manabimap-next/        ← 本設計資料
   "layout": { "galaxy": { "work:part17": [0.62, 0.41] } }
 }
 ```
+
+実測（2026-11-15、圧縮後）：core 26KB、events 75KB、detail 53KB。いずれも目安の範囲内です。
 
 `file://` で直接開いたときは JSON の読み込みが制限されるため、同じ内容を `window.ManabiAtlasData = …` として
 包んだ `.js` も併せて出力します（現行の「グローバルに置く」方式との互換）。
@@ -215,7 +220,7 @@ node tools/atlas/build.mjs
 ```
 
 ```bash
-node tools/atlas/validate.mjs
+node tools/atlas/build.mjs --check
 ```
 
 - **自動検証（提案）**：GitHub Actions でプルリクエストごとに検証を走らせ、参照切れ・必須項目の欠落・生成物の更新漏れを知らせます。公開（Pages）の流れは変えません。導入するかは [09](09-open-questions.md) で確認させてください。

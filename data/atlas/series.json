@@ -1,0 +1,12 @@
+[
+  { "id": "series:human", "title": { "ja": "ハルとおじいさん", "en": "Haru and Grandpa" }, "summary": { "ja": "人類史・技術・学び・AIをたどる本編。" }, "status": "published" },
+  { "id": "series:edu", "title": { "ja": "EDU", "en": "EDU" }, "summary": { "ja": "子どもの学びと発達を、研究から考える。" }, "status": "published" },
+  { "id": "series:philosophy-west", "title": { "ja": "西洋哲学" }, "summary": { "ja": "思想家の人生をたどりながら、問いの立て方を学ぶ。" }, "family": "family:philosophy", "match": "^philosophy\\d+\\.html$", "status": "published" },
+  { "id": "series:philosophy-east", "title": { "ja": "東洋哲学" }, "summary": { "ja": "ブッダ、龍樹、孔子、老荘から、生き方の問いを学ぶ。" }, "family": "family:philosophy", "match": "^eastern\\d+\\.html$", "status": "published" },
+  { "id": "series:math", "title": { "ja": "数学" }, "summary": { "ja": "変化と偶然を、数でとらえる。" }, "match": "^math\\d+\\.html$", "status": "published" },
+  { "id": "series:science", "title": { "ja": "科学" }, "family": "family:science", "status": "planned" },
+  { "id": "series:cosmos", "title": { "ja": "宇宙" }, "family": "family:science", "status": "planned" },
+  { "id": "series:physics", "title": { "ja": "物理" }, "family": "family:science", "status": "planned" },
+  { "id": "series:life", "title": { "ja": "生命" }, "family": "family:science", "status": "planned" },
+  { "id": "series:ai-origins", "title": { "ja": "AIの源流" }, "status": "planned" }
+]

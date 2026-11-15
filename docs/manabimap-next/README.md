@@ -1,7 +1,7 @@
 # ManabiMap Next — 次世代知的探索プラットフォーム 基本設計
 
-> **この資料群は設計専用です。** 本番の HTML・CSS・JavaScript・画像には一切手を入れていません。
-> 変更は `docs/manabimap-next/` 配下の Markdown のみです。main へのマージは、レビューと合意ののちに別途判断してください。
+> 既存の本番 HTML・CSS・JavaScript・画像には一切手を入れていません。
+> 追加しているのは、設計資料（`docs/manabimap-next/`）と、フェーズ1の新規ファイル（`tools/atlas/`、`data/atlas/`、`assets/atlas/data/`）のみです。main へのマージは、レビューと合意ののちに別途判断してください。
 
 ## 何を決めるための資料か
 
@@ -17,6 +17,16 @@
   → 分野の空き枠を先に用意せず、新しいシリーズの位置は既存作品とのつながりから自動で決める（[04](04-information-architecture.md) 1章）。
 
 残る確認事項は [09](09-open-questions.md) を参照してください。
+
+## 進捗
+
+| フェーズ | 状態 |
+|---|---|
+| 0 設計レビュー | 案Bで合意 |
+| 1 データの土台 | **前半を実装済み**（取り込み・固定ID・検証・生成物）。後半は編集判断待ち → [08](08-implementation-plan.md)、[実測レポート](reports/atlas-report.md) |
+| 2 以降 | 未着手 |
+
+フェーズ1で追加したのは `tools/atlas/`（ビルド）、`data/atlas/`（追記データ）、`assets/atlas/data/`（生成物）のみで、既存ファイルは変更していません。
 
 ## 結論（先に）
 

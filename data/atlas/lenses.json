@@ -1,0 +1,15 @@
+[
+  { "id": "lens:mind", "title": { "ja": "人間とAI", "en": "Humans & AI" }, "question": { "ja": "AIが答えを出せる時代に、人間が考えるとは何か。" }, "legacy": { "galaxy": "thinking" } },
+  { "id": "lens:learning", "title": { "ja": "学ぶこと", "en": "Learning" }, "question": { "ja": "学ぶとは、答えを増やすことか、問いを増やすことか。" }, "legacy": { "galaxy": "learning" } },
+  { "id": "lens:information", "title": { "ja": "言葉・情報", "en": "Language & Information" }, "question": { "ja": "言葉は思考を作るのか、思考が言葉を作るのか。" }, "legacy": { "galaxy": "language", "timeline": "information" }, "legacyTitles": { "galaxy": "言葉と思考", "timeline": "情報" }, "legacyQuestions": { "timeline": "知識は、どう記録され、複製され、広がった？" } },
+  { "id": "lens:tools", "title": { "ja": "道具と人間", "en": "Tools & Humans" }, "question": { "ja": "道具を使うことと、道具に使われることの境界はどこか。" }, "legacy": { "galaxy": "tool", "timeline": "tools" }, "legacyTitles": { "timeline": "道具" }, "legacyQuestions": { "timeline": "人は何を身体の外に作り、能力を拡張した？" } },
+  { "id": "lens:value", "title": { "ja": "数と価値", "en": "Numbers & Value" }, "question": { "ja": "数字で測れないものに、どう価値を与えるのか。" }, "legacy": { "galaxy": "number" } },
+  { "id": "lens:energy", "title": { "ja": "エネルギー", "en": "Energy" }, "question": { "ja": "使える力が変わると、暮らしはどう変わった？" }, "legacy": { "timeline": "energy" } },
+  { "id": "lens:body", "title": { "ja": "身体・健康", "en": "Body & Health" }, "question": { "ja": "生存、病気、寿命、人口はどう変わった？" }, "legacy": { "timeline": "body" } },
+  { "id": "lens:environment", "title": { "ja": "環境・食料", "en": "Environment & Food" }, "question": { "ja": "人は自然をどう変え、自然にどう変えられた？" }, "legacy": { "timeline": "environment" } },
+  { "id": "lens:mobility", "title": { "ja": "移動・交換", "en": "Mobility & Exchange" }, "question": { "ja": "人・物・病原体・文化は、どう移動した？" }, "legacy": { "timeline": "mobility" } },
+  { "id": "lens:cooperation", "title": { "ja": "協力", "en": "Cooperation" }, "question": { "ja": "人は、どんな仕組みで共に生きてきた？" }, "legacy": { "timeline": "cooperation" } },
+  { "id": "lens:power", "title": { "ja": "権力・権利", "en": "Power & Rights" }, "question": { "ja": "誰が決め、誰が利益や負担を引き受けた？" }, "legacy": { "timeline": "power" } },
+  { "id": "lens:worldview", "title": { "ja": "意味・世界観", "en": "Meaning & Worldview" }, "question": { "ja": "人は世界と自分自身を、どう説明してきた？" }, "legacy": { "timeline": "worldview" } },
+  { "id": "lens:philosophy", "title": { "ja": "哲学・思想", "en": "Philosophy" }, "question": { "ja": "知識・善・社会をめぐる問いは、どう受け継がれ、変わった？" }, "legacy": { "timeline": "philosophy" } }
+]

@@ -216,7 +216,7 @@ graph TB
 | `about` | 作品・出来事→概念 | `work:part4` → `concept:external-memory` | 既存 `concepts`＋追記 |
 | `asks` | 作品・出来事→問い | `work:part5` → `q:…` | 既存 `questions` |
 | `answers` | 作品・人物→問い（立場つき） | `person:zhuangzi` → `q:language-and-thought` | **新規** |
-| `happenedAt` | 作品→出来事 | `work:part4` → `event:printing-press` | 年表の既存リンク66本を**逆向きにも**使う |
+| `happenedAt` | 作品→出来事 | `work:part4` → `event:printing-press` | 年表の既存リンク49本を**逆向きにも**使う |
 | `features` | 作品・出来事→人物 | `work:philosophy1` → `person:saussure` | HTML／EDUデータ |
 | `next` | 作品→作品（順路） | `work:part16` → `work:part17` | 既存 `next` `prev` |
 | `bridges` | 作品↔作品（**シリーズ横断**） | `work:philosophy1` ↔ `work:part5` | **新規・理由必須** |
