@@ -61,6 +61,28 @@ const out = []; const ok = (name, cond, extra = '') => out.push((cond ? 'PASS ' 
   await p.goto(B + 'en/parts/part5.html'); await p.waitForTimeout(600);
   ok('English part pages are unchanged (no panel)', (await p.$$('.atlas-bridge')).length === 0);
 
+  // the 138億年 timeline: connections added to an event, without changing how it reads
+  await p.goto(B + 'evolution.html', { waitUntil: 'domcontentloaded' });
+  await p.waitForTimeout(2500);
+  const tl = await p.evaluate(() => ({ cards: document.querySelectorAll('.timeline-container .event').length, points: document.querySelectorAll('.deep-time-point').length, rows: document.querySelectorAll('.atlas-tl-row').length }));
+  ok('timeline still has its 184 events and points', tl.cards === 184 && tl.points === 184, JSON.stringify(tl));
+  ok('cards with a consequence gain one line', tl.rows > 40 && tl.rows < 100, tl.rows + ' cards');
+  const opened = await p.evaluate(async () => {
+    const btn = [...document.querySelectorAll('.deep-time-point')].find((x) => x.getAttribute('aria-label').includes('グーテンベルク'));
+    btn.click(); await new Promise((r) => setTimeout(r, 1500));
+    btn.click(); await new Promise((r) => setTimeout(r, 800));
+    return { open: document.getElementById('deepTimeDialog').open, text: document.getElementById('atlasTimelineExtra').innerText, compare: (document.querySelector('.atlas-tl__compare') || {}).href || '' };
+  });
+  ok('event detail shows place, what followed and its reason', opened.open && opened.text.includes('マインツ') && opened.text.includes('宗教改革') && opened.text.includes('活版印刷が'));
+  ok('event detail links to the river with the event in focus', opened.compare.includes('view=river') && opened.compare.includes('focus=event:gutenberg-s-printing-system'), opened.compare.split('/').pop());
+  await p.click('#atlasTimelineExtra [data-atlas-go="宗教改革"]');
+  await p.waitForTimeout(1200);
+  const arrived = await p.evaluate(() => ({ open: document.getElementById('deepTimeDialog').open, title: (document.querySelector('.atlas-tl-arrived .event-title') || {}).textContent || '' }));
+  ok('following a consequence closes the detail and goes to that card', !arrived.open && arrived.title.includes('宗教改革'));
+  await p.goto(B + 'en/evolution.html', { waitUntil: 'domcontentloaded' });
+  await p.waitForTimeout(1500);
+  ok('English timeline is unchanged (no added lines)', (await p.$$('.atlas-tl-row, #atlasTimelineExtra')).length === 0);
+
   await p.route('**/atlas-works.js*', (r) => r.abort());
   await p.goto(B + 'index.html'); await p.waitForTimeout(1000); ok('without the Atlas list the home galaxy falls back to 21 parts', (await p.textContent('#galaxyPartCount')) === '21');
   await p.unroute('**/atlas-works.js*');
