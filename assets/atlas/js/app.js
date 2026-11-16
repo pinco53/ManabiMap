@@ -1,12 +1,12 @@
 // Atlas UI: tabs, lenses, the detail card, search, the trail, the list view and AI hand-off.
-import { loadAtlas, Store, TYPE_LABEL, RIVER_SCALES, riverScale, PRESENT, MAX_AGE } from './graph.js';
+import { loadAtlas, Store, TYPE_LABEL, RIVER_SCALES, riverScale, yearLabel, PRESENT, MAX_AGE } from './graph.js';
 import { createViews } from './views.js';
 
 const $ = (id) => document.getElementById(id);
 const esc = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const root = $('atlas'), card = $('atlasCard'), live = $('atlasLive');
 const EDGE_HEAD = { bridges: 'シリーズをまたぐ橋', next: '次に読む', relatesTo: 'ページからのリンク' };
-const VIEW_NAME = { galaxy: '銀河', river: '時の河', stars: '問いの星座', list: 'リスト' };
+const VIEW_NAME = { galaxy: '銀河', river: '時の河', stars: '問いの星座', world: '世界', list: 'リスト' };
 const DEPTH_TEXT = (d) => (d < 34 ? '全体を眺める' : d < 70 ? '作品のあいだを歩く' : '一つの作品へ潜る');
 
 function visitedWorks() {        // read-only: the existing footprints stay on this device
@@ -20,7 +20,7 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
   const env = {
     reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches, visited: visitedWorks(),
     // How much of the canvas the side panels cover, so the views can centre themselves in the rest.
-    inset: () => ({ l: wide.matches && root.dataset.view !== 'river' ? rectIn(document.querySelector('.atlas-lenses'))[2] + 8 : 0, r: wide.matches && !card.hidden ? canvas.getBoundingClientRect().width - rectIn(card)[0] + 8 : 0,
+    inset: () => ({ l: wide.matches && root.dataset.view !== 'river' && document.querySelector('.atlas-lenses').offsetParent ? rectIn(document.querySelector('.atlas-lenses'))[2] + 8 : 0, r: wide.matches && !card.hidden ? canvas.getBoundingClientRect().width - rectIn(card)[0] + 8 : 0,
       b: wide.matches ? 0 : !card.hidden ? Math.max(0, canvas.getBoundingClientRect().height - rectIn(card)[1]) : root.dataset.view === 'river' ? 0 : 150 }),
     // Areas where canvas labels must not be drawn (the heading and the controls sit on top of the canvas).
     obstacles: () => [document.querySelector('.atlas-question'), $('atlasControls')].filter((el) => el.offsetParent).map(rectIn)
@@ -36,7 +36,7 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
   };
   const block = (heading, items) => (items.length ? `<h3>${esc(heading)}</h3><ul>${items.join('')}</ul>` : '');
   const chips = (heading, ids, attr = 'data-go') => (ids.length ? `<h3>${esc(heading)}</h3><div class="atlas-chips">${ids.map((id) => `<button type="button" ${attr}="${esc(id)}">${esc(title(id))}</button>`).join('')}</div>` : '');
-  const viewButtons = (id) => ['galaxy', 'river', 'stars'].filter((v) => v !== store.state.view && (v !== 'river' || atlas.time(id)) && (v !== 'galaxy' || atlas.get(id).pos))
+  const viewButtons = (id) => ['galaxy', 'river', 'stars', 'world'].filter((v) => v !== store.state.view && (v !== 'river' || atlas.time(id)) && (v !== 'galaxy' || atlas.get(id).pos) && (v !== 'world' || (atlas.get(id).place && atlas.get(id).place.at)) && (v !== 'stars' || ['work', 'question', 'concept'].includes(atlas.get(id).type)))
     .map((v) => `<button type="button" data-view-to="${v}">${VIEW_NAME[v]}で見る</button>`).join('');
   const pathButton = (id) => {
     const s = store.state;
@@ -47,7 +47,10 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
   // ---------------------------------------------------------------- the detail card
   function cardBody(n) {
     const id = n.id, summary = (n.summary && n.summary.ja) || '', when = atlas.timeText(id);
-    const head = (kindExtra = '') => `<button type="button" class="atlas-card__close" data-act="close" aria-label="詳細を閉じる">×</button><p class="atlas-card__kind">${esc(TYPE_LABEL[n.type])}${kindExtra}</p><h2 id="atlasCardTitle">${esc(title(id))}</h2>${when ? `<p class="atlas-card__when">${esc(when)}</p>` : ''}`;
+    const head = (kindExtra = '') => `<button type="button" class="atlas-card__close" data-act="close" aria-label="詳細を閉じる">×</button><p class="atlas-card__kind">${esc(TYPE_LABEL[n.type])}${kindExtra}</p><h2 id="atlasCardTitle">${esc(title(id))}</h2>${when || atlas.placeText(id) ? `<p class="atlas-card__when">${esc([when, atlas.placeText(id)].filter(Boolean).join('　／　'))}</p>` : ''}`;
+    // what led here, what followed, and what it is set against — each with its reason
+    const ties = atlas.lineage(id), tie = (x) => go(x.id, { note: atlas.timeText(x.id), why: x.edge.why.ja, flag: x.edge.review === 'pending' ? '確認待ち' : '' });
+    const lineage = block('きっかけ・背景', ties.filter((x) => x.before && !x.contrast).map(tie)) + block('その先に起きたこと', ties.filter((x) => !x.before && !x.contrast).map(tie)) + block('対比される考え', ties.filter((x) => x.contrast).map(tie));
     const actions = (primary, extra = '') => `<div class="atlas-actions">${primary}${viewButtons(id)}${extra}${pathButton(id)}</div>`;
 
     if (n.type === 'work') {
@@ -79,7 +82,7 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
       const workPage = n.work && atlas.get(n.work);
       return head(`<i>${esc(atlas.streamLabel(n))}</i>`) + (summary ? `<p class="atlas-card__lead">${esc(summary)}</p>` : '') +
         (n.question ? `<blockquote>${esc(n.question.ja)}</blockquote>` : '') +
-        block('この出来事を扱う作品', works.concat(workPage ? [go(workPage.id)] : [])) + block('別の場所での扱い', same) +
+        lineage + block('この出来事を扱う作品', works.concat(workPage ? [go(workPage.id)] : [])) + block('別の場所での扱い', same) + chips('概念', atlas.links(id, ['about']).map((l) => l.other)) +
         block('同じ頃、ほかの流れでは', atlas.sameEra(id, 4).map((e) => go(e, { note: atlas.timeText(e) }))) + chips('人物', people) +
         ((n.sources || []).length ? `<p class="atlas-note">出典：${n.sources.slice(0, 3).map((s) => `<a href="${esc(s.href)}" target="_blank" rel="noopener noreferrer">${esc(s.label || '参考')} ↗</a>`).join('　')}</p>` : '') +
         actions(page ? `<a class="is-primary" href="${page[0]}">${page[1]}</a>` : workPage ? `<a class="is-primary" href="${esc(workPage.url.ja)}#timeline">作品ページの年表をひらく →</a>` : '') + '<div data-ai></div>';
@@ -90,14 +93,20 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
       const seriesCount = new Set(members.map((w) => atlas.seriesOf(w))).size;
       return head() + (summary ? `<p class="atlas-card__lead">${esc(summary)}</p>` : '') +
         `<p class="atlas-note">${members.length}作品・${seriesCount}シリーズが、この${n.type === 'question' ? '問い' : '概念'}に集まっています。</p>` +
-        block(n.type === 'question' ? 'この問いに向かう作品と、それぞれの問い方' : 'この概念を扱う作品', members.map((w) => go(w, { why: child(w) }))) +
-        `<div class="atlas-actions"><button type="button" class="is-primary" data-anchor="${esc(id)}">問いの星座の中心に置く</button>${pathButton(id)}</div><div data-ai></div>`;
+        (n.type === 'concept' && atlas.thread(id).length > members.length ? block('系譜 ── 時代順にたどる', atlas.thread(id).map((x) => go(x, { note: atlas.timeText(x) }))) : block(n.type === 'question' ? 'この問いに向かう作品と、それぞれの問い方' : 'この概念を扱う作品', members.map((w) => go(w, { why: child(w) })))) +
+        `<div class="atlas-actions"><button type="button" class="is-primary" data-anchor="${esc(id)}">問いの星座の中心に置く</button>${n.type === 'concept' && atlas.thread(id).length ? '<button type="button" data-view-to="river">時の河で系譜を見る</button>' : ''}${pathButton(id)}</div><div data-ai></div>`;
     }
     if (n.type === 'person') {
       const linked = atlas.links(id, ['features']).map((l) => l.other);
       const pick = (type) => linked.filter((o) => atlas.get(o).type === type).map((o) => go(o));
       return head(n.field ? `<i>${esc(n.field)}</i>` : '') + (n.role ? `<p class="atlas-card__lead">${esc(n.role)}</p>` : '') + (summary ? `<p class="atlas-card__lead">${esc(summary)}</p>` : '') +
-        block('登場する作品', pick('work')) + block('関わるシリーズ', pick('series')) + block('年表の出来事', pick('event')) + block('研究カード', pick('study').slice(0, 5)) + `<div class="atlas-actions">${pathButton(id)}</div>`;
+        lineage + block('登場する作品', pick('work')) + block('関わるシリーズ', pick('series')) + block('年表の出来事', pick('event')) + block('研究カード', pick('study').slice(0, 5)) + `<div class="atlas-actions">${pathButton(id)}</div>`;
+    }
+    if (n.type === 'region') {
+      const here = (x) => x.place && x.place.region === id, events = atlas.all('event').filter((e) => e.stream !== 'work-timeline' && here(e) && atlas.time(e.id)).sort((a, b) => atlas.time(a.id).start - atlas.time(b.id).start);
+      const people = atlas.all('person').filter(here), works = atlas.all('work').filter((x) => (x.regions || []).includes(id));
+      return head() + `<p class="atlas-note">出来事 ${events.length}件・人物 ${people.length}人・関わる作品 ${works.length}本。場所は題と要約から付けたおおよそのものです。</p>` +
+        block('関わる作品', works.map((x) => go(x.id))) + block('出来事 ── 時代順', events.slice(0, 60).map((e) => go(e.id, { note: atlas.timeText(e.id) }))) + chips('人物', people.slice(0, 30).map((x) => x.id));
     }
     if (n.type === 'series') {
       const works = atlas.members(id), planned = n.status === 'planned';
@@ -172,9 +181,11 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
     $('atlasScales').appendChild(b);
     return b;
   });
+  document.querySelectorAll('[data-lanes]').forEach((b) => b.addEventListener('click', () => store.set({ lanes: b.dataset.lanes })));
   function renderScale() {       // how long is this ruler, compared with everything?
     const sc = riverScale(store.state.scale), years = sc.from === undefined ? MAX_AGE : PRESENT - sc.from, share = years / MAX_AGE;
     scaleButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.scale === sc.key)));
+    document.querySelectorAll('[data-lanes]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lanes === store.state.lanes)));
     $('atlasScaleBar').style.width = sc.from === undefined ? '100%' : Math.max(0.15, share * 100) + '%';
     const inverse = 1 / share, rounded = inverse >= 1e4 ? Math.round(inverse / 1e4).toLocaleString('ja-JP') + '万' : (Math.round(inverse / 10) * 10).toLocaleString('ja-JP');
     const part = share >= 0.01 ? `約${Math.round(share * 100)}%` : `約${rounded}分の1`;
@@ -184,6 +195,7 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
   }
   function renderHead() {
     renderScale();
+    $('atlasUntilText').textContent = (store.state.until === undefined || store.state.until >= 0.999) ? '現在' : '〜' + yearLabel(views.untilYear());
     const s = store.state, lens = atlas.get(s.lens), works = atlas.all('work').length;
     root.dataset.view = s.view;
     document.querySelectorAll('.atlas-tabs [data-view]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.view === s.view)));
@@ -199,6 +211,7 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
   }
   document.querySelectorAll('.atlas-tabs [data-view]').forEach((b) => b.addEventListener('click', () => store.set({ view: b.dataset.view })));
   $('atlasDepth').addEventListener('input', (e) => store.set({ depth: Number(e.target.value) }, { push: false }));
+  $('atlasUntil').addEventListener('input', (e) => store.set({ until: Number(e.target.value) / 1000 }, { push: false }));
   $('atlasByTime').addEventListener('click', () => store.set({ byTime: !store.state.byTime }, { push: false }));
   $('atlasRandom').addEventListener('click', () => {
     const pool = atlas.all('question').filter((q) => q.level === 'big' && q.id !== store.state.anchor), q = pool[Math.floor(Math.random() * pool.length)];
@@ -253,7 +266,7 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
   // ---------------------------------------------------------------- keyboard shortcuts
   document.addEventListener('keydown', (e) => {
     if (e.target.closest('input, select, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
-    const view = { 1: 'galaxy', 2: 'river', 3: 'stars', 4: 'list' }[e.key];
+    const view = { 1: 'galaxy', 2: 'river', 3: 'stars', 4: 'world', 5: 'list' }[e.key];
     if (view) store.set({ view });
     else if (e.key === '/') { e.preventDefault(); input.focus(); }
     else if (e.key === 'r' || e.key === 'R') $('atlasRandom').click();

@@ -2,7 +2,7 @@
 
 > 自動生成（`node tools/atlas/build.mjs`）。手で編集しないでください。
 
-**エラー 0件 ／ 編集待ち 62件 ／ 注意 8件 ／ 既存データの参照切れ 0件**
+**エラー 0件 ／ 編集待ち 144件 ／ 注意 8件 ／ 既存データの参照切れ 0件**
 
 ## 1. 取り込んだもの
 
@@ -13,7 +13,7 @@
 | 哲学史 philosophy-history-data.js | entries 32、lanes 3 |
 | 年表 evolution.html ほか | events 160、philosophyPoints 24、workLinks 49、core 84 |
 | 静的ページ parts/(philosophy|eastern|math)*.html | works 8、episodes 80、lifeEvents 169、people 11 |
-| 追記 data/atlas/*.json | concepts dictionary 39/folded 81/keywords 12、questions big 13/parents 107、sameAs 20、bridges 38 |
+| 追記 data/atlas/*.json | concepts dictionary 39/folded 81/keywords 12、questions big 13/parents 107、sameAs 20、places placed 492/pinned 150、bridges 38、influences 61 |
 
 | 種類 | 件数 |
 |---|---|
@@ -31,14 +31,15 @@
 | event | 436 |
 | stream | 1 |
 | concept | 39 |
-| （つながり） | 1645 |
+| region | 12 |
+| （つながり） | 1807 |
 
 | 生成物 | サイズ（非圧縮） |
 |---|---|
-| atlas-core.json | 168 KB |
-| atlas-events.json | 339 KB |
+| atlas-core.json | 176 KB |
+| atlas-events.json | 386 KB |
 | atlas-detail.json | 325 KB |
-| atlas-index.json | 27 KB |
+| atlas-index.json | 28 KB |
 
 ## 2. シリーズ別の作品
 
@@ -89,6 +90,97 @@
 | 権力・権利 | 0 | 82 |
 | 意味・世界観 | 0 | 63 |
 | 哲学・思想 | 0 | 56 |
+
+## 3b. 場所（どこで）
+
+| 種類 | 場所あり | 地図上の点あり | 全体 |
+|---|---|---|---|
+| 出来事（年表・哲学史・教育史） | 262 | 139 | 267 |
+| 出来事（作品内の年表） | 169 | 0 | 169 |
+| 人物 | 61 | 11 | 61 |
+
+地域ごとの出来事数（年表・哲学史・教育史）。偏りを見るための表です。
+
+| 地域 | 138億年年表 | 哲学史 | 教育史 | 人物 |
+|---|---|---|---|---|
+| 宇宙・地球全体 | 7 | 0 | 0 | 0 |
+| 世界全体 | 37 | 0 | 7 | 0 |
+| アフリカ | 10 | 4 | 0 | 0 |
+| 西アジア | 17 | 2 | 0 | 0 |
+| 中央ユーラシア | 4 | 0 | 0 | 0 |
+| 南アジア | 5 | 4 | 0 | 1 |
+| 東アジア | 12 | 5 | 0 | 1 |
+| 日本 | 2 | 1 | 23 | 25 |
+| ヨーロッパ | 50 | 10 | 11 | 13 |
+| 北アメリカ | 30 | 3 | 8 | 18 |
+| 中南アメリカ | 4 | 3 | 1 | 1 |
+| オセアニア | 1 | 0 | 1 | 2 |
+
+## 3c. 因果と影響（どうつながり、どう受け継がれたか）
+
+| から | へ | 種類 | 理由 |
+|---|---|---|---|
+| 文字の発明 | ハンムラビ法典 | 影響 | 文字があって初めて、決まりを誰もが参照できる形で残せるようになった。 |
+| 農業革命 | 初期都市ウルク | 影響 | 農耕が生んだ余剰が、農業をしない人々の暮らす都市を支えた。 |
+| 初期都市ウルク | 文字の発明 | 影響 | 都市で物と労働を管理する必要が、記録の仕組みを育てた。 |
+| ゼロという数と演算へ | イスラム黄金期 | 影響 | インドで育った数字と位取りの考え方が伝わり、計算の学問として発展した。 |
+| 紙の製法改良と記録 | イスラム黄金期 | 影響 | 紙の製法が西へ伝わり、書物を安く大量に作れるようになった。 |
+| 紙の製法改良と記録 | 東アジアの印刷文化 | 影響 | 紙の普及が、刷って配るという発想の前提になった。 |
+| 仏教の成立と伝播 | 東アジアの印刷文化 | 影響 | 年代のわかる最古級の印刷物は仏典で、教えを広める必要が印刷を後押しした。 |
+| イスラム黄金期 | ボローニャ大学の伝統上の創立年 | 影響 | 中世ヨーロッパの大学が学んだ学問の多くは、アラビア語からの翻訳を通じて伝わった。 |
+| イスラム黄金期 | 複式簿記の普及 | 影響 | 伝わった数字と計算法が、商人の帳簿のつけ方を変えた。 |
+| モンゴル帝国とユーラシア交流 | 黒死病パンデミック | 影響 | ユーラシアを結んだ交通路は、人と物だけでなく疫病も運んだ。 |
+| 磁気羅針盤と外洋航海 | コロンブスの航海 | 影響 | 陸の見えない海を進む技術が、大洋を渡る航海の前提になった。 |
+| コロンブスの航海 | コロンブス交換 | 影響 | 二つの大陸が結ばれ、作物・家畜・病原体が行き来し始めた。 |
+| コロンブス交換 | 大西洋奴隷貿易 | 影響 | アメリカ大陸の農園が求めた労働力が、奴隷貿易を拡大させた。 |
+| 大西洋奴隷貿易 | ハイチ独立と奴隷制への挑戦 | 影響 | 奴隷とされた人々自身の蜂起が、最初の黒人共和国を生んだ。 |
+| ハイチ独立と奴隷制への挑戦 | 奴隷制廃止の世界的展開 | 影響 | 奴隷制は倒せるという実例が、各地の廃止運動に影響した。 |
+| グーテンベルク活版印刷 | 宗教改革 | 影響 | 活版印刷が、批判の文書を短い期間で各地へ広げた。 |
+| コペルニクスの地動説 | ガリレオの望遠鏡 | 影響 | 地球が動くという考えを、望遠鏡の観測が裏づけていった。 |
+| ガリレオの望遠鏡 | ニュートン『プリンキピア』 | 影響 | 天体と地上の運動を、一つの法則で説明する道が開かれた。 |
+| アメリカ独立宣言 | フランス革命 | 影響 | 権利と独立を掲げた先例が、大西洋の向こうの革命に影響した。 |
+| フランス革命 | ハイチ独立と奴隷制への挑戦 | 影響 | 自由と平等の宣言は、植民地の奴隷制と正面からぶつかった。 |
+| ワットの蒸気機関 | 工場制生産 | 影響 | 安定した動力が、川から離れた場所にも工場を建てられるようにした。 |
+| ワットの蒸気機関 | 蒸気機関車 | 影響 | 蒸気機関を小さく強くする改良が、乗り物への搭載につながった。 |
+| 工場制生産 | 労働運動と8時間労働 | 影響 | 工場の長時間労働が、働く時間に上限を求める運動を生んだ。 |
+| 種痘とワクチン | 天然痘根絶 | 影響 | 種痘から始まった予防接種が、約180年後に天然痘の根絶に至った。 |
+| リンネの分類学 | ダーウィン『種の起源』 | 影響 | 生きものを整理した分類が、種どうしの関係を問う土台になった。 |
+| メンデルの法則 | DNA二重らせん | 影響 | 遺伝には単位があるという発見が、その実体探しにつながった。 |
+| DNA二重らせん | ヒトゲノム計画の完了 | 影響 | DNAの構造がわかり、配列をすべて読むという目標が立てられるようになった。 |
+| 電信機 | 電話の発明 | 影響 | 電気で信号を送る網が、声を送る技術の土台になった。 |
+| アインシュタインの特殊相対性理論 | 一般相対性理論 | 影響 | 時間と空間の見直しを、重力を含む理論へ広げた。 |
+| 第一次世界大戦 | ロシア革命 | 影響 | 長引く戦争による疲弊が、帝政の崩壊を早めた。 |
+| 第二次世界大戦 | 世界人権宣言 | 影響 | 戦争と虐殺への反省から、人権を国際的な約束にした。 |
+| 第二次世界大戦 | 脱植民地化の世界的展開 | 影響 | 戦争で宗主国の力が弱まり、独立の動きが加速した。 |
+| チューリング・マシン | チューリング・テスト | 影響 | 計算とは何かを定義した同じ人物が、機械は考えるかという問いへ進んだ。 |
+| トランジスタの発明 | マイクロプロセッサ | 影響 | 小さなスイッチを一枚の板に集積することで、計算機が一つの部品になった。 |
+| マイクロプロセッサ | パーソナルコンピューター産業の拡大 | 影響 | 安い演算部品が、個人で買える計算機を可能にした。 |
+| スプートニク | アポロ11号 月面着陸 | 影響 | 最初の人工衛星が、月を目指す競争の引き金になった。 |
+| スプートニク | ARPANETの誕生 | 影響 | 衝撃を受けたアメリカが作った研究機関から、ネットワーク研究が始まった。 |
+| スプートニク | スプートニク・ショックと教育改革 | 影響 | 科学で後れを取ったという危機感が、理数教育の改革を動かした。 |
+| ARPANETの誕生 | World Wide Web | 影響 | つながったネットワークの上に、誰でも文書を公開できる仕組みが作られた。 |
+| World Wide Web | Google創業 | 影響 | 増え続けるページを探す必要が、検索を中心的な道具にした。 |
+| AlexNet ── ディープラーニング覚醒 | AlphaGo vs イ・セドル | 影響 | 深層学習の成功が、囲碁のような直感の領域への応用を後押しした。 |
+| Transformer論文 | BERT / GPT-1 | 影響 | 新しい仕組みが、大量の文章から学ぶ言語モデルの基盤になった。 |
+| BERT / GPT-1 | GPT-3 | 影響 | 同じ仕組みを大きくすると、できることが質的に変わった。 |
+| GPT-3 | ChatGPT公開 | 影響 | 対話の形にしたことで、専門家以外にも一気に広がった。 |
+| ChatGPT公開 | 生成AIと教育のガイダンス | 影響 | 学校での使い方が、すぐに国際的な課題になった。 |
+| ChatGPT公開 | 生成AIの利用に関する暫定的なガイドライン | 影響 | 日本でも、学校での扱いの指針が急いで作られた。 |
+| PISA（生徒の学習到達度調査） | PISAショック | 影響 | 国際調査での順位低下が、日本の学力政策の転換点になった。 |
+| COVID-19パンデミック | 新型コロナウイルスと休校 | 影響 | 感染拡大で世界中の学校が閉じ、学びの形が問い直された。 |
+| 新型コロナウイルスと休校 | GIGAスクール構想 | 影響 | 休校を受けて、1人1台端末の整備が大きく前倒しされた。 |
+| ソシュール | レヴィ＝ストロース | 影響 | レヴィ＝ストロースは、ソシュールの言語学の考え方を、親族や神話の分析に応用した。 |
+| ルソー | カント | 影響 | カントは、ルソーから人間を尊重することを学んだと記している。 |
+| カント | ヘーゲル | 影響 | ヘーゲルは、カントの哲学を受け継ぎつつ、その限界を越えようとした。 |
+| フッサール | ハイデガー | 影響 | ハイデガーはフッサールのもとで現象学を学び、存在の問いへと向きを変えた。 |
+| フッサール | レヴィナス | 影響 | レヴィナスはフッサールの現象学を学び、フランスに紹介した。 |
+| ハイデガー | レヴィナス | 影響 | レヴィナスはハイデガーから強い影響を受け、のちにその哲学を根本から批判した。 |
+| ユング | 河合隼雄 | 影響 | 河合隼雄はユング研究所で学び、ユング心理学を日本に紹介した。 |
+| 孔子 | ルソー | 対比 | 東洋哲学2は、身分を問わず教えた孔子の教室を、ルソーの教育論と比べている。 |
+| ジャン・ピアジェ | レフ・ヴィゴツキー | 対比 | 子どもは自分で知識をつくると見たピアジェに対し、ヴィゴツキーは他者とのやりとりを学びの出発点に置いた。 |
+| レフ・ヴィゴツキー | ジェローム・ブルーナー | 影響 | ブルーナーは、ヴィゴツキーの考えを「足場かけ」という教え方の概念に発展させた。 |
+| ジャン・ピアジェ | シーモア・パパート | 影響 | パパートはピアジェのもとで研究し、子どもが作りながら学ぶという考えをコンピューターに持ち込んだ。 |
+| シーモア・パパート | ミッチェル・レズニック | 影響 | レズニックはパパートの考えを受け継ぎ、子ども向けのプログラミング環境を作った。 |
 
 ## 4. シリーズ横断のつながり
 
@@ -256,9 +348,17 @@
 
 `work:part16`
 
+### 内容の確認待ちの橋（review: pending）（61件）
+
+`event:the-invention-of-writing → event:the-code-of-hammurabi`、`event:agricultural-transformations → event:uruk-and-early-urbanism`、`event:uruk-and-early-urbanism → event:the-invention-of-writing`、`event:zero-as-a-number-and-an-operation → event:the-islamic-golden-age`、`event:paper-and-the-expansion-of-records → event:the-islamic-golden-age`、`event:paper-and-the-expansion-of-records → event:east-asian-printing`、`event:early-buddhism → event:east-asian-printing`、`event:the-islamic-golden-age → event:the-traditional-founding-date-of-the-university-of-bologna`、`event:the-islamic-golden-age → event:double-entry-bookkeeping`、`event:mongol-exchange → event:the-black-death-pandemic`、`event:magnetic-compass → event:columbus-s-atlantic-voyage`、`event:columbus-s-atlantic-voyage → event:columbian-exchange`、`event:columbian-exchange → event:atlantic-slave-trade`、`event:atlantic-slave-trade → event:haitian-revolution`、`event:haitian-revolution → event:abolition`、`event:gutenberg-s-printing-system → event:the-protestant-reformation`、`event:copernicus-and-a-moving-earth → event:galileo-s-telescopic-observations`、`event:galileo-s-telescopic-observations → event:newton-s-principia`、`event:the-american-declaration-of-independence → event:the-french-revolution`、`event:the-french-revolution → event:haitian-revolution`、`event:watt-s-steam-engine-improvements → event:factory-system`、`event:watt-s-steam-engine-improvements → event:the-steam-locomotive`、`event:factory-system → event:eight-hour-movement`、`event:vaccination → event:smallpox-eradication` ほか37件
+
 ### 時間の範囲が下書きの作品（curated-draft）（21件）
 
 `work:part1`、`work:part2`、`work:part3`、`work:part4`、`work:part5`、`work:part6`、`work:part7`、`work:part8`、`work:part8-2`、`work:part9`、`work:part10`、`work:part11`、`work:part12`、`work:part13`、`work:part14`、`work:part15`、`work:part16`、`work:part17`、`work:part18`、`work:part19`、`work:part20`
+
+### 地域の手がかりがない作品（21件）
+
+`work:part9`、`work:part10`、`work:part11`、`work:part12`、`work:part13`、`work:part17`、`work:part18`、`work:part19`、`work:part20`、`work:part21`、`work:part22`、`work:part23`、`work:part24`、`work:part25`、`work:part26`、`work:part27`、`work:part28`、`work:part29`、`work:part30`、`work:part31`、`work:part32`
 
 ### 英語の題がない作品（20件）
 
@@ -273,7 +373,7 @@
 なし。
 ## 7. 注意
 
-- どこにもつながっていない person: 17件（例 person:P-J02, person:P-J06, person:P-J10, person:P-J12, person:P-J17）
+- どこにもつながっていない person: 14件（例 person:P-J02, person:P-J06, person:P-J10, person:P-J12, person:P-J17）
 - 構想中のシリーズ「科学」: 作品ページ 0
 - 構想中のシリーズ「宇宙」: 作品ページ 0
 - 構想中のシリーズ「物理」: 作品ページ 0

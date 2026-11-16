@@ -43,8 +43,9 @@ node tools/atlas/build.mjs --assign-ids
 | `concepts.json` | 概念辞書。`aliases` は既存データの語、`works` は追加で結びつける作品 |
 | `questions.json` | 大きな問いと、作品の問いの親子関係 |
 | `works.overrides.json` | 作品への追記（いまは時間の範囲） |
-| `links.json` | 出来事どうしの対応（`sameAs`）、作品と出来事、出来事と人物 |
-| `edges.json` | 理由つきの横断接続（`why` 必須）。`review: "pending"` は内容の確認待ち。確認したら `"ok"` に書き換える |
+| `links.json` | 出来事どうしの対応（`sameAs`）、作品と出来事、出来事と人物、概念と出来事（`about`＝系譜） |
+| `places.json` | 場所の台帳。地域の定義と、出来事・人物ごとの地域・おおよその緯度経度 |
+| `edges.json` | 理由つきの接続（`why` 必須）。作品どうしの橋（`bridges`）、出来事や人物の影響（`influences`）と対比（`contrasts`）。`review: "pending"` は内容の確認待ち。確認したら `"ok"` に書き換える |
 | `edges.suggested.json` | 接続の候補。公開データには入らない |
 | `id-registry.json` | 固定 ID の台帳（下記）。手では消さない |
 | `retired-ids.json`（任意） | 意図して廃止した ID の一覧 |

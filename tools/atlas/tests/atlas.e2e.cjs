@@ -52,6 +52,19 @@ const out = []; const ok = (name, cond, extra = '') => out.push((cond ? 'PASS ' 
   await p.waitForTimeout(900); await p.screenshot({ path: S + '/shots/13-river-human.png' });
   await p.click('[data-lens="lens:energy"]'); ok('lens in URL', (await p.evaluate(() => location.search)).includes('lens=lens:energy'));
 
+  // space and relations: river by region, causes and consequences, a concept's thread, the world map
+  await p.goto(U + '?view=river&scale=history'); await p.waitForSelector('[data-lanes="region"]'); await p.click('[data-lanes="region"]');
+  ok('river can be cut by region', (await p.evaluate(() => location.search)).includes('lanes=region'));
+  await p.goto(U + '?view=river&focus=event:gutenberg-s-printing-system'); await p.waitForFunction(() => document.querySelector('#atlasCard h2') && document.querySelector('#atlasCard h2').textContent.includes('グーテンベルク'));
+  const heads = await p.$$eval('#atlasCard h3', els => els.map(e => e.textContent)); ok('event card shows what followed, with a place', heads.includes('その先に起きたこと') && (await p.textContent('.atlas-card__when')).includes('マインツ'), heads.slice(0, 3).join(' / '));
+  await p.goto(U + '?focus=concept:writing-and-record'); await p.waitForSelector('#atlasCard h2');
+  const thread = await p.$$eval('#atlasCard .atlas-go strong', els => els.map(e => e.textContent)); ok('concept card lists its thread in time order', thread.indexOf('文字の発明') >= 0 && thread.indexOf('文字の発明') < thread.indexOf('グーテンベルク活版印刷'), thread.length + ' steps');
+  await p.keyboard.press('Escape'); await p.keyboard.press('4'); await p.waitForFunction(() => document.getElementById('atlas').dataset.view === 'world');
+  await p.evaluate(() => { const d = document.getElementById('atlasUntil'); d.value = 500; d.dispatchEvent(new Event('input')); });
+  const until = await p.textContent('#atlasUntilText'); ok('world view filters by time', until.includes('〜'), until);
+  await p.goto(U + '?view=world&focus=region:africa'); await p.waitForSelector('#atlasCard h2'); ok('region card lists events', (await p.$$eval('#atlasCard .atlas-go', els => els.length)) >= 10);
+  await p.waitForTimeout(800); await p.screenshot({ path: S + '/shots/14-world.png' });
+
   // list view as the accessible path
   await p.goto(U); await p.waitForFunction(() => document.getElementById('atlasLenses').children.length > 0); await p.keyboard.press('Tab'); await p.keyboard.press('Enter'); await p.waitForFunction(() => document.getElementById('atlas').dataset.view === 'list');
   const listed = await p.$$eval('#atlasList [data-go^="work:"]', els => els.length); ok('skip link opens list with every work', listed === 41, listed + ' works');

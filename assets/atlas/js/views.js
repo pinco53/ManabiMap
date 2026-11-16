@@ -159,7 +159,13 @@ export function createViews(canvas, atlas, store, env) {
     const px = (x) => cam.c + ((x - gutter()) / span() - 0.5) / cam.z;
     const bound = () => { target.z = clamp(target.z, 1, linear() ? 60 : 900); const half = 0.5 / target.z; target.c = clamp(target.c, half - 0.015, 1.015 - half); };
     const LOG_TICKS = [-13.8e9, -1e10, -1e9, -1e8, -1e7, -1e6, -1e5, -2e4, -1e4, -5000, -3000, -2000, -1000, -500, 1, 500, 1000, 1300, 1500, 1600, 1700, 1800, 1850, 1900, 1920, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020, 2026, 2060, 2120];
+    function regionLanes() {            // the same river cut by place instead of by series
+      const events = atlas.all('event').filter((e) => e.place);
+      return atlas.all('region').map((region) => ({ key: region.id, label: region.title.ja, region: region.id, weight: 1, events: events.filter((e) => e.place.region === region.id), byRegion: true }))
+        .filter((lane) => lane.events.length).map((lane) => ({ ...lane, weight: 1.1 + Math.min(2.4, Math.sqrt(lane.events.length) * 0.22) }));
+    }
     function lanes() {
+      if (state().lanes === 'region') return regionLanes();
       const events = atlas.all('event'), series = atlas.all('series').filter((s) => s.status !== 'planned');
       const list = [{ key: 'deep-time', label: '138億年の年表', weight: 3, events: events.filter((e) => e.stream === 'deep-time') }];
       series.forEach((s) => {
@@ -175,7 +181,7 @@ export function createViews(canvas, atlas, store, env) {
       const s = state(), series = atlas.seriesOf(s.focus);
       if (ruler !== s.scale) { ruler = s.scale; target.c = 0.5; target.z = 1; cam.c = 0.5; cam.z = 1; }
       if (!('focus' in patch || 'view' in patch || 'scale' in patch)) return;
-      if (series && atlas.get(series).status !== 'planned') open = series;
+      if (series && atlas.get(series).status !== 'planned' && atlas.get(s.focus).type !== 'series') open = series;
       const t = atlas.time(s.focus);
       if (!t) return;
       if (linear() && t.end < riverScale(s.scale).from) return;     // outside this ruler: leave the view where it is
@@ -194,39 +200,51 @@ export function createViews(canvas, atlas, store, env) {
       const during = (t) => hoverYear !== null && t.start - tolerance <= hoverYear && t.end + tolerance >= hoverYear;
       let y = top, together = 0;
       rows = [];
+      const spot = new Map(), focusNode = atlas.get(s.focus);
+      // A concept in focus lights up its thread through time; everything else steps back.
+      const thread = focusNode && focusNode.type === 'concept' ? atlas.thread(focusNode.id) : null, inThread = thread && new Set(thread);
+      const ties = focusNode && ['event', 'person'].includes(focusNode.type) ? atlas.lineage(focusNode.id) : [];
+      const tied = new Set(ties.map((x) => x.id));
+      const fade = (id) => (inThread && !inThread.has(id) ? 0.22 : 1);
       all.forEach((lane) => {
-        const height = ((bottom - top) * lane.weight) / total, color = lane.series ? atlas.color(lane.series) : atlas.color((lane.events[0] || {}).id);
+        const height = ((bottom - top) * lane.weight) / total, color = lane.region ? atlas.color(lane.region) : lane.series ? atlas.color(lane.series) : atlas.color((lane.events[0] || {}).id);
         ctx.fillStyle = 'rgba(255,255,255,.035)'; ctx.fillRect(0, y, w, 1);
         rows.push({ key: lane.key, y, height, series: lane.series });
-        const rowH = lane.works ? (lane.isOpen ? (height - 14) / Math.max(1, lane.works.length) : (height - 12) / 3) : 0;
+        const rowH = lane.works ? (lane.isOpen ? (height - 14) / Math.max(1, lane.works.length) : lane.byRegion ? 5 : (height - 12) / 3) : 0;
         (lane.works || []).forEach((n, i) => {
           const t = n.time[0], a = Math.max(-40, sx(pos(t.start))), b = Math.min(w + 40, sx(pos(t.end))), by = y + 8 + (lane.isOpen ? i : i % 3) * rowH + rowH / 2;
-          const isFocus = n.id === s.focus, lit = inLens(n), same = during(t), alpha = (lit ? 1 : 0.22) * (hoverYear === null || same ? 1 : 0.45);
+          const isFocus = n.id === s.focus, lit = inLens(n), same = during(t), alpha = (lit ? 1 : 0.22) * (hoverYear === null || same ? 1 : 0.45) * fade(n.id), barColor = lane.byRegion ? atlas.color(n.id) : color;
+          spot.set(n.id, { x: clamp(a, gut + 6, w - pad.r - 6), y: by });
           if (same) together += 1;
-          ctx.fillStyle = rgba(color, (isFocus ? 0.95 : 0.5) * alpha); ctx.beginPath(); ctx.roundRect(a, by - (isFocus ? 3.5 : 2.5), Math.max(4, b - a), isFocus ? 7 : 5, 3); ctx.fill();
+          ctx.fillStyle = rgba(barColor, (isFocus ? 0.95 : 0.5) * alpha); ctx.beginPath(); ctx.roundRect(a, by - (isFocus ? 3.5 : 2.5), Math.max(4, b - a), isFocus ? 7 : 5, 3); ctx.fill();
           if (env.visited.has(n.id)) { ctx.fillStyle = '#fff'; ctx.fillRect(Math.max(a, 0), by - 1, 3, 2); }
           hit(n.id, 0, 0, 0, [a, by - 7, Math.max(a + 8, b), by + 7]);
           if (lane.isOpen || isFocus || n.id === hover) label((n.number ? n.number + ' ' : '') + n.title.ja, Math.max(a + 4, gut + 8), by - 5, { size: 10, color: rgba('#ffffff', (isFocus ? 1 : 0.72) * alpha), weight: isFocus ? 700 : 500, force: isFocus, max: 26 });
         });
         ctx.save(); ctx.beginPath(); ctx.rect(gut, y, w - gut, height); ctx.clip();
-        const band = lane.works ? (lane.isOpen ? [y + height - 12, y + height - 4] : [y + height, y + height]) : [y + 12, y + height - 10];
+        const band = lane.byRegion ? [y + 22, y + height - 8] : lane.works ? (lane.isOpen ? [y + height - 12, y + height - 4] : [y + height, y + height]) : [y + 12, y + height - 10];
         lane.events.filter((e) => e.time.length).map((e) => ({ e, x: sx(pos((e.time[0].start + Math.min(e.time[0].end, PRESENT + 150)) / 2)) })).filter((d) => d.x > -20 && d.x < w + 20)
           .sort((a, b) => Number(b.e.id === s.focus) - Number(a.e.id === s.focus) || Number(Boolean(b.e.core)) - Number(Boolean(a.e.core)) || a.x - b.x).forEach(({ e, x }) => {
-            const minor = lane.key === 'deep-time' && !e.core && cam.z < 2.4 && e.id !== s.focus;
+            const minor = !linear() && (lane.key === 'deep-time' || lane.byRegion) && !e.core && cam.z < 2.4 && e.id !== s.focus && !tied.has(e.id) && !(inThread && inThread.has(e.id));
             if (minor) return;
             const ey = band[0] + (band[1] - band[0]) * hash(e.id), isFocus = e.id === s.focus, same = during(e.time[0]), lit = inLens(e) || lane.key !== 'deep-time';
-            const alpha = (lit ? 1 : 0.2) * (hoverYear === null || same ? 1 : 0.4);
+            const alpha = (lit ? 1 : 0.2) * (hoverYear === null || same ? 1 : 0.4) * fade(e.id), dot = lane.byRegion ? atlas.color(e.id) : color, marked = tied.has(e.id) || (inThread && inThread.has(e.id));
+            spot.set(e.id, { x, y: ey });
             if (same) together += 1;
-            star(x, ey, isFocus ? 5 : e.core ? 3.2 : 2.2, color, alpha);
+            star(x, ey, isFocus ? 5 : marked ? 4 : e.core ? 3.2 : 2.2, dot, alpha);
             if (isFocus) ring(x, ey, 10, '#ffffff', 0.9);
             hit(e.id, x, ey, 9);
-            if (!lane.works || isFocus || e.id === hover) label(e.title.ja, x + 8, ey + 4, { size: 10, color: rgba('#e8f0ff', (isFocus || same ? 1 : 0.7) * alpha), force: isFocus || e.id === hover, max: isFocus ? 30 : 14 });
+            if (!lane.works || lane.byRegion || isFocus || marked || e.id === hover) label(e.title.ja, x + 8, ey + 4, { size: 10, color: rgba('#e8f0ff', (isFocus || same || marked ? 1 : 0.7) * alpha), force: isFocus || marked || e.id === hover, max: isFocus ? 30 : 14 });
           });
         ctx.restore();
         if (gut) { ctx.fillStyle = 'rgba(9,10,17,.9)'; ctx.fillRect(0, y + 1, gut, height - 1); ctx.fillStyle = 'rgba(255,255,255,.06)'; ctx.fillRect(gut, y, 1, height); }
-        label((lane.works ? (lane.isOpen ? '▾ ' : '▸ ') : '') + lane.label, 14, y + 17, { size: 12, weight: 600, color: rgba(color, 0.95), force: true, font: SERIF });
+        label((lane.works && !lane.byRegion ? (lane.isOpen ? '▾ ' : '▸ ') : '') + lane.label, 14, y + 17, { size: 12, weight: 600, color: rgba(color, 0.95), force: true, font: SERIF });
         y += height;
       });
+      // causes and consequences of the event in focus, and the thread of a concept
+      const here = spot.get(s.focus);
+      if (here) ties.forEach((tie) => { const there = spot.get(tie.id); if (there) arc(tie.before ? there : here, tie.before ? here : there, tie.contrast ? '#f29bb5' : '#ffe7a8', 0.85, 1.5, tie.contrast ? [3, 4] : null); });
+      if (thread) { const pts = thread.filter((id) => atlas.get(id).type === 'event').map((id) => spot.get(id)).filter(Boolean); ctx.beginPath(); pts.forEach((p, k) => (k ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y))); ctx.strokeStyle = rgba(atlas.color(focusNode.id), 0.55); ctx.lineWidth = 1.3; ctx.stroke(); }
       ctx.fillStyle = 'rgba(255,255,255,.14)'; ctx.fillRect(0, bottom, w, 1);
       let last = -999;
       let ticks = LOG_TICKS;
@@ -298,7 +316,86 @@ export function createViews(canvas, atlas, store, env) {
     return { aim() {}, draw, centre, wheel() {}, drag() {}, zoom() {} };
   })();
 
-  const views = { galaxy, river, stars };
+  // ------------------------------------------------------------------ world: where it happened
+  const world = (() => {
+    // Very coarse coastlines ([lng, lat]); enough to recognise the continents, not a map to measure on.
+    const LAND = [
+      [[-168,66],[-156,71],[-128,70],[-110,68],[-95,72],[-82,73],[-78,62],[-65,60],[-56,52],[-66,45],[-70,42],[-76,35],[-81,31],[-80,25],[-84,30],[-90,29],[-97,26],[-97,20],[-91,18],[-88,21],[-87,16],[-83,10],[-79,8],[-83,8],[-86,12],[-92,15],[-97,16],[-105,20],[-110,23],[-113,30],[-117,33],[-121,35],[-124,41],[-124,48],[-130,54],[-140,60],[-152,59],[-165,55],[-160,60],[-166,62]],
+      [[-55,60],[-44,60],[-25,70],[-20,76],[-30,82],[-55,82],[-70,77],[-55,70]],
+      [[-79,8],[-72,12],[-62,10],[-52,5],[-50,0],[-37,-5],[-35,-9],[-39,-15],[-41,-22],[-48,-27],[-54,-34],[-58,-38],[-65,-41],[-68,-50],[-69,-54],[-74,-52],[-74,-44],[-71,-30],[-70,-18],[-76,-14],[-81,-5],[-80,0],[-78,3]],
+      [[-17,15],[-16,21],[-10,29],[-6,35],[10,37],[11,33],[20,31],[32,31],[35,24],[38,18],[43,12],[51,12],[48,5],[40,-3],[39,-10],[35,-20],[33,-26],[27,-34],[19,-35],[15,-27],[12,-17],[13,-8],[9,-1],[9,4],[4,6],[-4,5],[-10,5],[-15,10]],
+      [[-9,37],[-9,43],[-1,44],[-4,48],[3,51],[8,54],[9,57],[6,58],[5,62],[14,68],[25,71],[40,67],[44,66],[60,69],[70,73],[90,76],[105,78],[113,74],[130,72],[160,70],[180,68],[178,64],[163,60],[156,51],[142,54],[135,44],[129,41],[126,35],[122,39],[118,38],[122,31],[120,26],[113,22],[108,20],[107,11],[103,9],[100,13],[99,8],[103,1],[98,8],[94,16],[91,22],[86,21],[80,15],[78,8],[73,16],[72,21],[67,24],[57,25],[56,27],[50,30],[48,29],[51,24],[56,24],[59,22],[55,17],[45,13],[43,13],[39,21],[35,28],[34,31],[36,36],[30,36],[27,37],[26,40],[23,40],[24,37],[21,37],[19,42],[13,45],[18,40],[16,38],[12,42],[9,44],[3,43],[0,39],[-5,36]],
+      [[-5,50],[1,51],[0,53],[-2,56],[-3,58],[-6,57],[-3,54],[-5,52]],
+      [[130,31],[132,34],[136,35],[140,35],[141,38],[141,41],[145,44],[141,45],[140,41],[137,37],[133,35.5],[130,33]],
+      [[114,-22],[114,-34],[118,-35],[124,-33],[131,-31],[136,-35],[140,-38],[147,-38],[150,-36],[153,-28],[146,-19],[142,-11],[141,-17],[136,-12],[130,-12],[125,-14],[121,-19]],
+      [[173,-35],[178,-38],[175,-41],[171,-46],[167,-46],[170,-43],[174,-40]], [[44,-13],[50,-15],[47,-25],[44,-22]],
+      [[95,5],[104,-4],[106,-6],[114,-8],[106,-7],[100,-1]], [[109,1],[117,7],[119,1],[116,-4],[110,-2]]
+    ];
+    const cam = { x: 0.5, y: 0.5, z: 1 }, target = { x: 0.5, y: 0.5, z: 1 };
+    const TOP = 80, BOTTOM = -58;
+    const frame = () => { const a = room(), top = 64, bottom = h - 96, height = Math.min(bottom - top, (a.cw * (TOP - BOTTOM)) / 360), width = (height * 360) / (TOP - BOTTOM); return { x: a.cx - width / 2, y: top + (bottom - top - height) / 2, width, height }; };
+    const project = (lat, lng) => { const f = frame(), u = (lng + 180) / 360, v = (TOP - lat) / (TOP - BOTTOM); return { x: f.x + f.width / 2 + (u - cam.x) * f.width * cam.z, y: f.y + f.height / 2 + (v - cam.y) * f.height * cam.z }; };
+    const bound = () => { target.z = clamp(target.z, 1, 9); const half = 0.5 / target.z; target.x = clamp(target.x, half, 1 - half); target.y = clamp(target.y, half, 1 - half); };
+    /** The year the "until" slider stands for, on the ruler chosen for the river. */
+    const untilYear = () => { const s = riverScale(state().scale), p = state().until === undefined ? 1 : state().until; return s.from === undefined ? yearAt(p * 0.88) : s.from + p * (PRESENT - s.from); };
+    function aim(patch = {}) {
+      const n = atlas.get(state().focus);
+      if ('focus' in patch && n && n.place && n.place.at && cam.z > 1.2) { target.x = (n.place.at[1] + 180) / 360; target.y = (TOP - n.place.at[0]) / (TOP - BOTTOM); bound(); }
+    }
+    function draw() {
+      ['x', 'y', 'z'].forEach((k) => { cam[k] += (target[k] - cam[k]) * ease; if (Math.abs(target[k] - cam[k]) > 0.0005) dirty = true; });
+      const s = state(), f = frame(), limit = untilYear(), floor = riverScale(s.scale).from === undefined ? -Infinity : riverScale(s.scale).from;
+      ctx.save(); ctx.beginPath(); ctx.rect(pad.l, 56, w - pad.l - pad.r, h - 56); ctx.clip();
+      LAND.forEach((shape) => { ctx.beginPath(); shape.forEach(([lng, lat], i) => { const p = project(lat, lng); if (i) ctx.lineTo(p.x, p.y); else ctx.moveTo(p.x, p.y); }); ctx.closePath(); ctx.fillStyle = 'rgba(220,233,255,.065)'; ctx.fill(); ctx.strokeStyle = 'rgba(220,233,255,.2)'; ctx.lineWidth = 1; ctx.stroke(); });
+      const focus = atlas.get(s.focus), ties = focus ? new Map(atlas.lineage(focus.id).map((x) => [x.id, x])) : new Map();
+      const inTime = (n) => { const t = atlas.time(n.id); return !t || (t.start <= limit && t.end >= floor); };
+      const everything = [...atlas.all('event').filter((e) => e.stream !== 'work-timeline'), ...atlas.all('person')].filter((n) => n.place && inTime(n));
+      const pinned = everything.filter((n) => n.place.at);
+      const spot = new Map(), seen = new Map();
+      pinned.forEach((n) => {            // things at the same spot fan out a little so each can be picked
+        const key = n.place.at.join(','), k = seen.get(key) || 0; seen.set(key, k + 1);
+        const p = project(n.place.at[0], n.place.at[1]), r = k ? 7 + Math.floor((k - 1) / 6) * 6 : 0, a = k * 1.05;
+        spot.set(n.id, { x: p.x + Math.cos(a) * r, y: p.y + Math.sin(a) * r });
+      });
+      atlas.all('region').filter((r) => r.at).forEach((r) => {      // what is known only by region gathers at its centre
+        const loose = everything.filter((n) => !n.place.at && n.place.region === r.id).length;
+        const p = project(r.at[0], r.at[1]), isFocus = s.focus === r.id;
+        label(r.title.ja, p.x, p.y - 16, { size: 11, color: rgba(atlas.color(r.id), 0.75), align: 'center', font: SERIF, weight: 600 });
+        if (loose) { ring(p.x, p.y, 9 + Math.sqrt(loose) * 2, atlas.color(r.id), isFocus ? 0.95 : 0.4, [2, 3]); label('ほか' + loose, p.x, p.y + 4, { size: 9, color: rgba(atlas.color(r.id), 0.85), align: 'center' }); }
+        hit(r.id, p.x, p.y, 16);
+      });
+      // how one thing led to another, drawn from place to place
+      atlas.edges.filter((e) => e.type === 'influences' && spot.has(e.from) && spot.has(e.to)).forEach((e) => {
+        const on = e.from === s.focus || e.to === s.focus;
+        arc(spot.get(e.from), spot.get(e.to), '#ffe7a8', on ? 0.9 : focus && focus.type === 'event' ? 0.1 : 0.28, on ? 1.6 : 1);
+      });
+      pinned.sort((a, b) => Number(a.id === s.focus) - Number(b.id === s.focus)).forEach((n) => {
+        const p = spot.get(n.id), isFocus = n.id === s.focus, color = atlas.color(n.place.region), lit = inLens(n) || n.type === 'person', linked = ties.has(n.id);
+        if (n.type === 'person') { ctx.beginPath(); ctx.rect(p.x - 3, p.y - 3, 6, 6); ctx.fillStyle = rgba(color, lit ? 0.95 : 0.2); ctx.fill(); }
+        else star(p.x, p.y, isFocus ? 5 : linked ? 4 : n.core ? 3 : 2.2, color, lit ? 1 : 0.18);
+        if (isFocus) ring(p.x, p.y, 11 + Math.sin(pulse * 0.06) * 1.5, '#ffffff', 0.9);
+        hit(n.id, p.x, p.y, 9);
+        n._p = p; n._rank = isFocus ? 0 : n.id === hover ? 1 : linked ? 2 : n.core && lit ? 3 : 4;
+      });
+      [...pinned].sort((a, b) => a._rank - b._rank).forEach((n) => { if (n._rank < 4 || cam.z > 2.2) label(atlas.title(n.id), n._p.x + 8, n._p.y + 4, { size: n._rank === 0 ? 12 : 10, weight: n._rank === 0 ? 700 : 500, color: n._rank < 3 ? '#ffffff' : 'rgba(225,232,246,.8)', force: n._rank < 2, max: n._rank < 2 ? 28 : 13 }); });
+      ctx.restore();
+      // not everything has a place on the globe
+      ['region:global', 'region:cosmos'].forEach((id, i) => {
+        const count = everything.filter((n) => n.place.region === id).length, x = pad.l + 18 + i * 132, y = h - 112;
+        ctx.beginPath(); ctx.roundRect(x, y - 14, 122, 24, 12); ctx.fillStyle = s.focus === id ? 'rgba(255,231,168,.18)' : 'rgba(13,15,24,.86)'; ctx.fill(); ctx.strokeStyle = 'rgba(211,230,255,.2)'; ctx.stroke();
+        label(`${atlas.title(id)} ${count}`, x + 61, y + 3, { size: 10, color: '#d6dcee', align: 'center', force: true });
+        hit(id, 0, 0, 0, [x, y - 14, x + 122, y + 10]);
+      });
+      label(`地図上に${pinned.length}件　〜${yearLabel(limit)}まで`, f.x + f.width / 2, 74, { size: 11, color: '#ffe7a8', align: 'center', force: true, weight: 600 });
+      dirty = dirty || (!env.reducedMotion && Boolean(focus));
+    }
+    return { aim, draw,
+      wheel: (e, x, y) => { const f = frame(), u = cam.x + (x - f.x - f.width / 2) / (f.width * cam.z), v = cam.y + (y - f.y - f.height / 2) / (f.height * cam.z); target.z *= Math.exp(e.deltaY * -0.0016); bound(); target.x = u - (x - f.x - f.width / 2) / (f.width * target.z); target.y = v - (y - f.y - f.height / 2) / (f.height * target.z); bound(); },
+      drag: (dx, dy) => { const f = frame(); target.x -= dx / (f.width * cam.z); target.y -= dy / (f.height * cam.z); bound(); },
+      zoom: (step) => { target.z *= step > 0 ? 1.5 : 1 / 1.5; bound(); }, untilYear };
+  })();
+
+  const views = { galaxy, river, stars, world };
   const current = () => views[state().view] || galaxy;
 
   function resize() {
@@ -328,7 +425,8 @@ export function createViews(canvas, atlas, store, env) {
     let best = null;
     hits.forEach((item) => {
       const d = item.rect ? (x >= item.rect[0] && x <= item.rect[2] && y >= item.rect[1] && y <= item.rect[3] ? 0.5 : Infinity) : Math.hypot(item.x - x, item.y - y) - item.r;
-      if (d <= 0.5 && (!best || d < best.d || (atlas.get(item.id).type !== 'series' && atlas.get(best.id).type === 'series'))) best = { id: item.id, d };
+      const wide = (id) => ['series', 'region'].includes(atlas.get(id).type);     // a star on top of a cluster wins over the cluster
+      if (d <= 0.5 && (!best || (d < best.d && wide(item.id) === wide(best.id)) || (!wide(item.id) && wide(best.id)))) best = { id: item.id, d };
     });
     return best ? best.id : null;
   }
@@ -340,7 +438,7 @@ export function createViews(canvas, atlas, store, env) {
     const p = local(e);
     if (pointers.has(e.pointerId)) {
       const before = pointers.get(e.pointerId); pointers.set(e.pointerId, p);
-      if (pointers.size === 2) { const [a, b] = [...pointers.values()], gap = Math.hypot(a.x - b.x, a.y - b.y); if (pinch) current().wheel({ deltaY: (pinch - gap) * 3 }, (a.x + b.x) / 2); pinch = gap; down.moved = true; }
+      if (pointers.size === 2) { const [a, b] = [...pointers.values()], gap = Math.hypot(a.x - b.x, a.y - b.y); if (pinch) current().wheel({ deltaY: (pinch - gap) * 3 }, (a.x + b.x) / 2, (a.y + b.y) / 2); pinch = gap; down.moved = true; }
       else if (down) { if (Math.hypot(p.x - down.x, p.y - down.y) > 5) down.moved = true; if (down.moved) current().drag(p.x - before.x, p.y - before.y); }
     } else { const id = pick(p.x, p.y); if (id !== hover) hover = id; if (current().move) current().move(p.x); }
     dirty = true;
@@ -360,7 +458,7 @@ export function createViews(canvas, atlas, store, env) {
   canvas.addEventListener('pointerup', up);
   canvas.addEventListener('pointercancel', (e) => { pointers.delete(e.pointerId); down = null; });
   canvas.addEventListener('pointerleave', () => { hover = null; if (river.move) river.move(null); dirty = true; });
-  canvas.addEventListener('wheel', (e) => { e.preventDefault(); current().wheel(e, local(e).x); dirty = true; }, { passive: false });
+  canvas.addEventListener('wheel', (e) => { e.preventDefault(); current().wheel(e, local(e).x, local(e).y); dirty = true; }, { passive: false });
   canvas.addEventListener('keydown', (e) => {
     const dir = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
     if (dir) {                                  // step to the nearest thing in that direction
@@ -380,5 +478,5 @@ export function createViews(canvas, atlas, store, env) {
   store.on((s, patch) => { current().aim(patch); dirty = true; });
   new ResizeObserver(resize).observe(canvas);
   resize(); current().aim({ focus: true, view: true }); requestAnimationFrame(frame);
-  return { refresh: () => { dirty = true; }, centre: () => stars.centre() };
+  return { refresh: () => { dirty = true; }, centre: () => stars.centre(), untilYear: () => world.untilYear() };
 }

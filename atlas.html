@@ -22,6 +22,7 @@
         <button type="button" role="tab" data-view="galaxy" aria-selected="true"><b>銀河</b><small>どこに何があるか</small></button>
         <button type="button" role="tab" data-view="river" aria-selected="false"><b>時の河</b><small>物差しを替えて比べる</small></button>
         <button type="button" role="tab" data-view="stars" aria-selected="false"><b>問いの星座</b><small>なぜ大事か</small></button>
+        <button type="button" role="tab" data-view="world" aria-selected="false"><b>世界</b><small>どこで起きたか</small></button>
         <button type="button" role="tab" data-view="list" aria-selected="false"><b>リスト</b><small>一覧で読む</small></button>
       </div>
       <div class="atlas-search" role="search">
@@ -39,8 +40,9 @@
         <p id="atlasCount"></p>
       </section>
 
-      <section class="atlas-scales" data-for="river" aria-label="時間の物差しを選ぶ">
+      <section class="atlas-scales" data-for="river world" aria-label="時間の物差しを選ぶ">
         <div class="atlas-scales__chips" id="atlasScales" role="group" aria-label="物差し"></div>
+        <div class="atlas-scales__cut" role="group" aria-label="流れの分け方"><span>流れを分ける：</span><button type="button" data-lanes="series">シリーズ別</button><button type="button" data-lanes="region">地域別</button></div>
         <div class="atlas-scales__bar" aria-hidden="true"><i id="atlasScaleBar"></i></div>
         <p id="atlasScaleText"></p>
       </section>
@@ -49,6 +51,7 @@
 
       <div class="atlas-controls" id="atlasControls">
         <label class="atlas-depth" data-for="galaxy"><span>深さ <strong id="atlasDepthText">全体を眺める</strong></span><input id="atlasDepth" type="range" min="0" max="100" value="26" aria-label="地図を見る深さ"></label>
+        <label class="atlas-depth" data-for="world"><span>いつまで <strong id="atlasUntilText">現在</strong></span><input id="atlasUntil" type="range" min="0" max="1000" value="1000" aria-label="表示する時代の終わり"></label>
         <button type="button" class="atlas-chip" id="atlasByTime" data-for="stars" aria-pressed="false">時代順に並べる</button>
         <p class="atlas-hint" data-for="river">ドラッグで移動・ホイールで拡大。シリーズ名を押すと開閉します。</p>
         <button type="button" class="atlas-chip" id="atlasRandom"><span aria-hidden="true">✦</span> 問いに連れていって</button>

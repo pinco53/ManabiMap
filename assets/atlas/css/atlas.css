@@ -18,7 +18,7 @@ a { color: var(--atlas-tone); }
 .atlas-brand span { font: 500 11px "Zen Old Mincho", serif; color: var(--text-dim, #a3a3bf); }
 .atlas-brand em { margin-left: 4px; padding: 0 6px; border: 1px solid var(--atlas-line); border-radius: 999px; font-style: normal; font-size: 10px; color: var(--atlas-gold); }
 .atlas-tabs { display: flex; gap: 4px; margin-inline: auto; padding: 4px; border: 1px solid var(--atlas-line); border-radius: 12px; background: rgba(255, 255, 255, .03); }
-.atlas-tabs button { display: grid; min-width: 104px; min-height: 44px; padding: 4px 14px; border: 0; border-radius: 9px; background: none; color: var(--text-dim, #a3a3bf); line-height: 1.25; }
+.atlas-tabs button { display: grid; min-width: 96px; min-height: 44px; padding: 4px 14px; border: 0; border-radius: 9px; background: none; color: var(--text-dim, #a3a3bf); line-height: 1.25; }
 .atlas-tabs b { font: 600 14px "Zen Old Mincho", serif; }
 .atlas-tabs small { font-size: 10px; opacity: .8; }
 .atlas-tabs button:hover { color: #fff; background: rgba(255, 255, 255, .05); }
@@ -54,8 +54,12 @@ a { color: var(--atlas-tone); }
 .atlas-chip[aria-pressed="true"] { background: rgba(255, 231, 168, .16); border-color: var(--atlas-gold); }
 .atlas-hint { margin: 0; padding: 8px 14px; border-radius: 999px; background: var(--atlas-panel); font-size: 11px; color: var(--text-dim, #a3a3bf); }
 .atlas [data-for] { display: none; }
-.atlas[data-view="galaxy"] [data-for="galaxy"], .atlas[data-view="river"] [data-for="river"], .atlas[data-view="stars"] [data-for="stars"] { display: revert; }
-.atlas[data-view="galaxy"] .atlas-depth { display: grid; }
+.atlas[data-view="galaxy"] [data-for~="galaxy"], .atlas[data-view="river"] [data-for~="river"], .atlas[data-view="stars"] [data-for~="stars"], .atlas[data-view="world"] [data-for~="world"] { display: revert; }
+.atlas[data-view="galaxy"] .atlas-depth[data-for="galaxy"], .atlas[data-view="world"] .atlas-depth[data-for="world"] { display: grid; }
+.atlas[data-view="world"] .atlas-scales { left: 196px; top: 8px; }
+.atlas[data-view="world"] .atlas-scales__cut, .atlas[data-view="world"] .atlas-scales__bar, .atlas[data-view="world"] .atlas-scales p, .atlas[data-view="world"] .atlas-question { display: none; }
+.atlas[data-view="world"] .atlas-scales__chips button { min-height: 34px; padding: 1px 10px; }
+.atlas[data-view="world"] .atlas-scales__chips small { display: none; }
 .atlas[data-view="river"] .atlas-question { left: 14px; top: 6px; max-width: none; right: 410px; }
 .atlas[data-view="river"] .atlas-question #atlasCount { display: none; }
 .atlas[data-view="river"] .atlas-question h1 { font-size: 15px; margin: 0; }
@@ -67,6 +71,9 @@ a { color: var(--atlas-tone); }
 .atlas-scales__chips button b { font: 600 13px "Zen Old Mincho", serif; }
 .atlas-scales__chips button small { font-size: 10px; color: var(--text-dim, #a3a3bf); }
 .atlas-scales__chips button[aria-pressed="true"] { border-color: var(--atlas-gold); background: rgba(255, 231, 168, .14); }
+.atlas-scales__cut { position: absolute; right: 0; top: -30px; display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--text-dim, #a3a3bf); }
+.atlas-scales__cut button { min-height: 28px; padding: 0 11px; border: 1px solid var(--atlas-line); border-radius: 999px; background: var(--atlas-panel); font-size: 11px; }
+.atlas-scales__cut button[aria-pressed="true"] { border-color: var(--atlas-gold); background: rgba(255, 231, 168, .14); }
 .atlas-scales__bar { position: relative; height: 5px; margin: 7px 2px 3px; border-radius: 3px; background: rgba(220, 233, 255, .14); }
 .atlas-scales__bar i { position: absolute; right: 0; top: -2px; bottom: -2px; min-width: 2px; border-radius: 3px; background: var(--atlas-gold); transition: width .5s; }
 .atlas-scales p { margin: 0 2px; font-size: 11px; color: var(--text-dim, #a3a3bf); }
@@ -138,6 +145,9 @@ a { color: var(--atlas-tone); }
   .atlas-lenses button { width: auto; white-space: nowrap; min-height: 36px; }
   .atlas[data-view="river"] .atlas-lenses { top: 116px; bottom: auto; right: 0; left: 0; padding: 0 8px; }
   .atlas-scales { right: 8px; left: 8px; top: 30px; }
+  .atlas[data-view="world"] .atlas-scales { left: 8px; top: 6px; }
+  .atlas-scales__cut { position: static; margin-top: 4px; }
+  .atlas-scales p { display: none; }
   .atlas[data-view="river"] .atlas-question { right: 8px; }
   .atlas[data-view="river"] .atlas-question { max-width: none; }
   .atlas[data-view="river"] .atlas-question #atlasCount { display: none; }

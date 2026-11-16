@@ -31,11 +31,19 @@ export function report(g, result, { sources, counts, outputs, suggested }) {
   add('レンズごとの所属数：');
   table(['レンズ', '作品', '出来事'], lensUse);
 
+  add('## 3b. 場所（どこで）', '');
+  const placed = (list) => list.filter((n) => n.place).length;
+  table(['種類', '場所あり', '地図上の点あり', '全体'], [['出来事（年表・哲学史・教育史）', events.filter((e) => e.stream !== 'work-timeline')], ['出来事（作品内の年表）', events.filter((e) => e.stream === 'work-timeline')], ['人物', nodes.filter((n) => n.type === 'person')]]
+    .map(([label, list]) => [label, placed(list), list.filter((n) => n.place && n.place.at).length, list.length]));
+  add('地域ごとの出来事数（年表・哲学史・教育史）。偏りを見るための表です。');
+  table(['地域', '138億年年表', '哲学史', '教育史', '人物'], nodes.filter((n) => n.type === 'region').map((r) => [r.title.ja, ...['deep-time', 'philosophy-history', 'edu-history'].map((s) => events.filter((e) => e.stream === s && e.place && e.place.region === r.id).length), nodes.filter((n) => n.type === 'person' && n.place && n.place.region === r.id).length]));
+  add('## 3c. 因果と影響（どうつながり、どう受け継がれたか）', '');
+  table(['から', 'へ', '種類', '理由'], g.edges.filter((e) => ['influences', 'contrasts'].includes(e.type)).map((e) => [title(e.from), title(e.to), e.type === 'contrasts' ? '対比' : '影響', e.why.ja]));
   add('## 4. シリーズ横断のつながり', '', '### 既存ページのリンクから読み取れたもの（理由文なし）');
   const cross = g.edges.filter((e) => e.origin !== 'curated' && g.nodes.get(e.from)?.type === 'work' && g.nodes.get(e.to)?.type === 'work' && g.nodes.get(e.from).series !== g.nodes.get(e.to).series);
   table(['から', 'へ', '種類', '出どころ'], cross.map((e) => [`${title(e.from)}（${e.from}）`, `${title(e.to)}（${e.to}）`, e.type, e.origin]));
   add('### 理由つきの橋', '');
-  table(['から', 'へ', '理由'], g.edges.filter((e) => e.origin === 'curated' && e.type === 'bridges').map((e) => [title(e.from), title(e.to), e.why.ja]));
+  table(['から', 'へ', '理由'], g.edges.filter((e) => e.origin === 'curated' && e.type === 'bridges' && e.why).map((e) => [title(e.from), title(e.to), e.why.ja]));
   add('### 大きな問いと、そこに集まる作品', '');
   table(['大きな問い', '作品数', 'シリーズ数'], nodes.filter((n) => n.type === 'question' && n.level === 'big').map((q) => { const ws = [...new Set(g.edges.filter((e) => e.type === 'asks' && e.to === q.id && g.nodes.get(e.from)?.type === 'work').map((e) => e.from))]; return [q.text.ja, ws.length, new Set(ws.map((w) => g.nodes.get(w).series)).size]; }));
   add('### 概念と、それを扱う作品', '');

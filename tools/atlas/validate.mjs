@@ -24,6 +24,8 @@ export function validate(g, { previous = null, retired = [], registry = null, al
   ofType('route').forEach((r) => r.steps.filter((s) => !nodes.has(s)).forEach((s) => dangling.push({ from: r.id, to: s, type: 'step', missing: [s] })));
   list.forEach((n) => {
     if (n.series && !nodes.has(n.series)) errors.push(`${n.id}: シリーズ ${n.series} が未定義`);
+    if (n.place && !nodes.has(n.place.region)) errors.push(`${n.id}: 地域 ${n.place.region} が未定義`);
+    if (n.place && n.place.at && !(Math.abs(n.place.at[0]) <= 90 && Math.abs(n.place.at[1]) <= 180)) errors.push(`${n.id}: 緯度経度が範囲外`);
     if (n.family && !nodes.has(n.family)) errors.push(`${n.id}: 系統 ${n.family} が未定義`);
     (n.lenses || []).filter((l) => !nodes.has(l)).forEach((l) => errors.push(`${n.id}: レンズ ${l} が未定義`));
     Object.entries(n.url || {}).forEach(([lang, url]) => { if (!exists(url.split('#')[0])) errors.push(`${n.id}: ${lang} の URL ${url} にファイルがありません`); });
@@ -35,7 +37,6 @@ export function validate(g, { previous = null, retired = [], registry = null, al
   });
   works.forEach((w) => { if (!w.series) errors.push(`${w.id}: シリーズがありません`); if (!w.url || !w.url.ja) errors.push(`${w.id}: URL がありません`); });
   g.edges.filter((e) => e.origin === 'curated' && CROSS.has(e.type)).forEach((e) => {
-    if (g.nodes.get(e.from)?.type !== 'work' || g.nodes.get(e.to)?.type !== 'work') return;
     if (!e.why || !e.why.ja || e.why.ja.length < 20) errors.push(`edges.json: ${e.from} → ${e.to} に理由（why、20字以上）がありません`);
     (e.via || []).filter((id) => !nodes.has(id)).forEach((id) => errors.push(`edges.json: ${e.from} → ${e.to} の via ${id} が存在しません`));
   });
@@ -72,6 +73,8 @@ export function validate(g, { previous = null, retired = [], registry = null, al
   group('大きな問いに結びついていない作品の問い', ofType('question').filter((q) => q.level === 'work' && !q.parent).map((q) => q.id));
   group('内容の確認待ちの橋（review: pending）', g.edges.filter((e) => e.review === 'pending').map((e) => `${e.from} → ${e.to}`));
   group('時間の範囲が下書きの作品（curated-draft）', works.filter((w) => (w.time || []).some((t) => t.origin === 'curated-draft')).map((w) => w.id));
+  group('場所のわからない出来事（年表・哲学史・教育史）', ofType('event').filter((e) => e.stream !== 'work-timeline' && !e.future && !e.place).map((e) => e.id));
+  group('地域の手がかりがない作品', works.filter((w) => !w.regions).map((w) => w.id));
   group('英語の題がない作品', works.filter((w) => !w.title.en).map((w) => w.id));
   group('年が読み取れない出来事', ofType('event').filter((e) => !(e.time || []).length).map((e) => `${e.id}（${e.timeLabel?.ja || '—'}）`));
 

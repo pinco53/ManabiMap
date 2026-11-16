@@ -67,9 +67,42 @@ export function enrich(g) {
   (links.sameAs || []).forEach(([a, b]) => g.edge(a, b, 'sameAs', { origin: 'curated' }));
   Object.entries(links.happenedAt || {}).forEach(([from, events]) => events.forEach((e) => g.edge(from, e, 'happenedAt', { origin: 'curated' })));
   Object.entries(links.features || {}).forEach(([person, events]) => events.forEach((e) => g.edge(e, person, 'features', { origin: 'curated' })));
+  Object.entries(links.about || {}).forEach(([concept, events]) => events.forEach((e) => g.edge(e, concept, 'about', { origin: 'curated' })));
   stats.sameAs = (links.sameAs || []).length;
+
+  // --- places: where things happened. Explicit entries first, then what can be inherited.
+  const atlasPlaces = readJson('data/atlas/places.json', null);
+  if (atlasPlaces) {
+    atlasPlaces.regions.forEach((r) => g.node({ type: 'region', ...r }));
+    const all = [...g.nodes.values()];
+    Object.entries(atlasPlaces.places).forEach(([id, place]) => { const n = g.nodes.get(id); if (!n) throw new Error(`places.json: ${id} がありません`); n.place = place; });
+    all.forEach((n) => {
+      if (n.place) return;
+      if (n.type === 'event' && n.region && atlasPlaces.regionWords[n.region]) n.place = { ...atlasPlaces.regionWords[n.region], name: n.region };
+      else if (n.type === 'event' && atlasPlaces.laneRegions[n.lane] && n.stream === 'edu-history') n.place = { region: atlasPlaces.laneRegions[n.lane] };
+      else if (n.type === 'person' && atlasPlaces.personGroups[n.group]) n.place = { region: atlasPlaces.personGroups[n.group] };
+    });
+    // the same topic told in two places shares its location
+    g.edges.filter((e) => e.type === 'sameAs').forEach((e) => { const a = g.nodes.get(e.from), b = g.nodes.get(e.to); if (a && b) { if (!a.place && b.place) a.place = b.place; if (!b.place && a.place) b.place = a.place; } });
+    // a life-event belongs where its person or its work is set
+    all.filter((n) => n.stream === 'work-timeline' && !n.place).forEach((n) => {
+      const person = n.person && g.nodes.get(n.person);
+      if (person && person.place) n.place = { region: person.place.region };
+      else if (atlasPlaces.workDefaults[n.work]) n.place = { region: atlasPlaces.workDefaults[n.work] };
+    });
+    // a work covers the regions of what it is tied to, most frequent first
+    all.filter((n) => n.type === 'work').forEach((w) => {
+      const count = {};
+      g.edges.filter((e) => e.from === w.id && ['happenedAt', 'features'].includes(e.type)).map((e) => g.nodes.get(e.to)).filter((n) => n && n.place)
+        .forEach((n) => { count[n.place.region] = (count[n.place.region] || 0) + 1; });
+      const regions = Object.keys(count).filter((r) => r !== 'region:global' && r !== 'region:cosmos').sort((a, b) => count[b] - count[a]);
+      if (regions.length) w.regions = regions.slice(0, 4);
+    });
+    stats.places = { placed: [...g.nodes.values()].filter((n) => n.place).length, pinned: [...g.nodes.values()].filter((n) => n.place && n.place.at).length };
+  }
 
   readJson('data/atlas/edges.json', []).forEach((e) => g.edge(e.from, e.to, e.type, { ...e, origin: 'curated' }));
   stats.bridges = g.edges.filter((e) => e.origin === 'curated' && e.type === 'bridges').length;
+  stats.influences = g.edges.filter((e) => ['influences', 'contrasts'].includes(e.type)).length;
   return stats;
 }

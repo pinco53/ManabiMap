@@ -18,7 +18,7 @@ import staticParts from './adapters/static-parts.mjs';
 const flags = new Set(process.argv.slice(2));
 const OUT = 'assets/atlas/data/';
 const FILES = {
-  core: ['family', 'series', 'lens', 'page', 'stream', 'work', 'concept', 'question', 'person', 'route'],
+  core: ['family', 'series', 'lens', 'region', 'page', 'stream', 'work', 'concept', 'question', 'person', 'route'],
   events: ['event'],
   detail: ['episode', 'media', 'study']
 };

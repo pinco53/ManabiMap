@@ -4,10 +4,12 @@
 export const PRESENT = 2026;
 export const MAX_AGE = 13_800_000_000;
 
-export const TYPE_LABEL = { series: 'シリーズ', work: '作品', episode: '話', event: '出来事', concept: '概念', question: '問い', person: '人物', media: 'メディア', study: '研究', route: '道', lens: 'レンズ', page: 'ページ', family: '系統' };
+export const TYPE_LABEL = { region: '地域', series: 'シリーズ', work: '作品', episode: '話', event: '出来事', concept: '概念', question: '問い', person: '人物', media: 'メディア', study: '研究', route: '道', lens: 'レンズ', page: 'ページ', family: '系統' };
 export const SERIES_COLOR = {
   'series:civilization': '#e0b65a', 'series:ai': '#f0875f', 'series:words-numbers': '#5fd0c0', 'series:science-thinking': '#6f9df2', 'series:mind-body': '#d98be0', 'series:learning': '#a6d86a',
   'series:edu': '#63c992', 'series:philosophy-west': '#9d8cf0', 'series:philosophy-east': '#f29bb5', 'series:math': '#58c6e8',
+  'region:cosmos': '#b9c4d9', 'region:global': '#dce9ff', 'region:africa': '#e0b65a', 'region:westasia': '#f0875f', 'region:central': '#d9a98b', 'region:southasia': '#f29bb5', 'region:eastasia': '#d98be0',
+  'region:japan': '#9d8cf0', 'region:europe': '#6f9df2', 'region:namerica': '#58c6e8', 'region:lamerica': '#5fd0c0', 'region:oceania': '#a6d86a',
   'series:science': '#9fb4c9', 'series:cosmos': '#9fb4c9', 'series:physics': '#9fb4c9', 'series:life': '#9fb4c9', 'series:ai-origins': '#c9b39f', 'series:ohanashi': '#c9a9c0'
 };
 const STREAM = { 'deep-time': { label: '138億年の年表', color: '#dce9ff' }, 'philosophy-history': { label: '哲学の歴史', color: '#c9b6ff' }, 'edu-history': { label: '教育の歴史', color: '#8fd9b6' } };
@@ -77,6 +79,7 @@ export class Atlas {
     const n = this.get(id);
     if (!n) return null;
     if (n.type === 'series') return n.id;
+    if (n.type === 'region') return null;
     if (n.series) return n.series;
     if (n.work) return this.seriesOf(n.work);
     return null;
@@ -84,6 +87,7 @@ export class Atlas {
   color(id) {
     const n = this.get(id);
     if (!n) return '#dce9ff';
+    if (n.type === 'region') return SERIES_COLOR[id] || '#dce9ff';
     const series = this.seriesOf(id);
     if (series) return SERIES_COLOR[series] || '#dce9ff';
     if (n.type === 'event') return (STREAM[n.stream] || STREAM['deep-time']).color;
@@ -98,6 +102,19 @@ export class Atlas {
     if (t.label && t.label.ja) return t.label.ja;
     return t.start === t.end ? yearLabel(t.start) : yearLabel(t.start) + ' 〜 ' + (t.end >= PRESENT ? '現在' : yearLabel(t.end));
   }
+
+  /** What led to this, and what it led to: [{ id, edge, before }] for influences and contrasts. */
+  lineage(id) {
+    return this.links(id, ['influences', 'contrasts']).map((l) => ({ id: l.other, edge: l.edge, before: l.edge.type === 'influences' && !l.forward, contrast: l.edge.type === 'contrasts' }));
+  }
+  /** Everything tied to a concept, oldest first: its events and the works that take it up. */
+  thread(conceptId) {
+    const ids = [...new Set(this.links(conceptId, ['about']).map((l) => l.other).filter((o) => ['event', 'work'].includes(this.get(o).type) && this.time(o)))];
+    const key = (o) => (this.get(o).type === 'work' ? this.time(o).start : (this.time(o).start + this.time(o).end) / 2);
+    return ids.sort((a, b) => key(a) - key(b));
+  }
+  regionOf(id) { const n = this.get(id); return n && n.place ? n.place.region : n && n.regions ? n.regions[0] : null; }
+  placeText(id) { const n = this.get(id); if (!n) return ''; if (n.place) return (n.place.name ? n.place.name + '（' : '') + this.title(n.place.region) + (n.place.name ? '）' : ''); return (n.regions || []).map((r) => this.title(r)).join('・'); }
 
   /** Works gathered by a question, concept, lens, person or series. */
   members(id) {
@@ -181,7 +198,7 @@ export async function loadAtlas(base) {
 export class Store {
   constructor(atlas) {
     this.atlas = atlas; this.listeners = new Set();
-    this.state = { view: 'galaxy', focus: null, anchor: null, lens: null, scale: 'all', depth: 26, start: null, path: null, trail: [] };
+    this.state = { view: 'galaxy', focus: null, anchor: null, lens: null, scale: 'all', lanes: 'series', depth: 26, start: null, path: null, trail: [] };
     this.read();
     window.addEventListener('popstate', () => { this.read(); this.emit(); });
   }
@@ -189,7 +206,7 @@ export class Store {
     const p = new URLSearchParams(location.search), ok = (id) => (id && this.atlas.get(id) ? id : null);
     const view = p.get('view');
     Object.assign(this.state, {
-      view: ['galaxy', 'river', 'stars', 'list'].includes(view) ? view : 'galaxy', focus: ok(p.get('focus')), anchor: ok(p.get('q')), lens: ok(p.get('lens')), scale: riverScale(p.get('scale')).key,
+      view: ['galaxy', 'river', 'stars', 'world', 'list'].includes(view) ? view : 'galaxy', focus: ok(p.get('focus')), anchor: ok(p.get('q')), lens: ok(p.get('lens')), scale: riverScale(p.get('scale')).key, lanes: p.get('lanes') === 'region' ? 'region' : 'series',
       path: (p.get('path') || '').split(',').filter((id) => this.atlas.get(id))
     });
     if (this.state.path.length < 2) this.state.path = null;
@@ -201,7 +218,8 @@ export class Store {
     if (s.focus) p.set('focus', s.focus);
     if (s.anchor && s.view === 'stars') p.set('q', s.anchor);
     if (s.lens) p.set('lens', s.lens);
-    if (s.scale !== 'all' && s.view === 'river') p.set('scale', s.scale);
+    if (s.scale !== 'all' && ['river', 'world'].includes(s.view)) p.set('scale', s.scale);
+    if (s.lanes === 'region' && s.view === 'river') p.set('lanes', 'region');
     if (s.path) p.set('path', s.path.join(','));
     const query = p.toString().replace(/%3A/g, ':').replace(/%2C/g, ',');
     return location.pathname + (query ? '?' + query : '');
