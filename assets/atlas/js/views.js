@@ -349,8 +349,10 @@ export function createViews(canvas, atlas, store, env) {
       LAND.forEach((shape) => { ctx.beginPath(); shape.forEach(([lng, lat], i) => { const p = project(lat, lng); if (i) ctx.lineTo(p.x, p.y); else ctx.moveTo(p.x, p.y); }); ctx.closePath(); ctx.fillStyle = 'rgba(220,233,255,.065)'; ctx.fill(); ctx.strokeStyle = 'rgba(220,233,255,.2)'; ctx.lineWidth = 1; ctx.stroke(); });
       const focus = atlas.get(s.focus), ties = focus ? new Map(atlas.lineage(focus.id).map((x) => [x.id, x])) : new Map();
       const inTime = (n) => { const t = atlas.time(n.id); return !t || (t.start <= limit && t.end >= floor); };
-      const everything = [...atlas.all('event').filter((e) => e.stream !== 'work-timeline'), ...atlas.all('person')].filter((n) => n.place && inTime(n));
+      const everything = [...atlas.all('event').filter((e) => e.stream !== 'work-timeline'), ...atlas.all('person'), ...atlas.all('study')].filter((n) => n.place && inTime(n));
       const pinned = everything.filter((n) => n.place.at);
+      // a work in focus lights up the places where its research was done
+      const workStudies = new Set(focus && focus.type === 'work' ? atlas.edges.filter((e) => e.type === 'supports' && (e.to === focus.id || (atlas.get(e.to) && atlas.get(e.to).work === focus.id))).map((e) => e.from) : []);
       const spot = new Map(), seen = new Map();
       pinned.forEach((n) => {            // things at the same spot fan out a little so each can be picked
         const key = n.place.at.join(','), k = seen.get(key) || 0; seen.set(key, k + 1);
@@ -370,8 +372,9 @@ export function createViews(canvas, atlas, store, env) {
         arc(spot.get(e.from), spot.get(e.to), '#ffe7a8', on ? 0.9 : focus && focus.type === 'event' ? 0.1 : 0.28, on ? 1.6 : 1);
       });
       pinned.sort((a, b) => Number(a.id === s.focus) - Number(b.id === s.focus)).forEach((n) => {
-        const p = spot.get(n.id), isFocus = n.id === s.focus, color = atlas.color(n.place.region), lit = inLens(n) || n.type === 'person', linked = ties.has(n.id);
+        const p = spot.get(n.id), isFocus = n.id === s.focus, color = atlas.color(n.place.region), lit = inLens(n) || n.type !== 'event', linked = ties.has(n.id) || workStudies.has(n.id);
         if (n.type === 'person') { ctx.beginPath(); ctx.rect(p.x - 3, p.y - 3, 6, 6); ctx.fillStyle = rgba(color, lit ? 0.95 : 0.2); ctx.fill(); }
+        else if (n.type === 'study') { ctx.beginPath(); ctx.moveTo(p.x, p.y - 4); ctx.lineTo(p.x + 4, p.y); ctx.lineTo(p.x, p.y + 4); ctx.lineTo(p.x - 4, p.y); ctx.closePath(); ctx.strokeStyle = rgba(color, 0.95); ctx.lineWidth = 1.2; ctx.stroke(); if (isFocus || linked) { ctx.fillStyle = rgba(color, 0.9); ctx.fill(); } }
         else star(p.x, p.y, isFocus ? 5 : linked ? 4 : n.core ? 3 : 2.2, color, lit ? 1 : 0.18);
         if (isFocus) ring(p.x, p.y, 11 + Math.sin(pulse * 0.06) * 1.5, '#ffffff', 0.9);
         hit(n.id, p.x, p.y, 9);
@@ -386,7 +389,7 @@ export function createViews(canvas, atlas, store, env) {
         label(`${atlas.title(id)} ${count}`, x + 61, y + 3, { size: 10, color: '#d6dcee', align: 'center', force: true });
         hit(id, 0, 0, 0, [x, y - 14, x + 122, y + 10]);
       });
-      label(`地図上に${pinned.length}件　〜${yearLabel(limit)}まで`, f.x + f.width / 2, 74, { size: 11, color: '#ffe7a8', align: 'center', force: true, weight: 600 });
+      label(`地図上に${pinned.length}件（●出来事 ■人物 ◇研究）　〜${yearLabel(limit)}まで`, f.x + f.width / 2, 74, { size: 11, color: '#ffe7a8', align: 'center', force: true, weight: 600, max: 60 });
       dirty = dirty || (!env.reducedMotion && Boolean(focus));
     }
     return { aim, draw,

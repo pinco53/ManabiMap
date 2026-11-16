@@ -1,0 +1,992 @@
+{
+ "_note": "研究が行われた場所。作品の地域の手がかりとして使う。studies は EDU の研究カード・エビデンス、references は本編の作品ページの参考文献・年表・本文に出てくる研究。機関は研究当時の主な所属で、おおよそのもの。",
+ "studies": {
+  "R-A01": {
+   "region": "region:namerica",
+   "at": [
+    40.81,
+    -73.96
+   ],
+   "name": "コロンビア大学"
+  },
+  "R-A02": {
+   "region": "region:europe",
+   "at": [
+    46.2,
+    6.14
+   ],
+   "name": "ジュネーブ"
+  },
+  "R-A03": {
+   "region": "region:europe",
+   "at": [
+    55.75,
+    37.62
+   ],
+   "name": "モスクワ"
+  },
+  "R-A04": {
+   "region": "region:europe",
+   "at": [
+    51.75,
+    -1.26
+   ],
+   "name": "オックスフォード大学"
+  },
+  "R-A05": {
+   "region": "region:namerica",
+   "at": [
+    37.43,
+    -122.17
+   ],
+   "name": "スタンフォード大学"
+  },
+  "R-A06": {
+   "region": "region:namerica",
+   "at": [
+    41.79,
+    -87.6
+   ],
+   "name": "シカゴ大学"
+  },
+  "R-A07": {
+   "region": "region:namerica",
+   "at": [
+    42.36,
+    -71.09
+   ],
+   "name": "MIT"
+  },
+  "R-A08": {
+   "region": "region:namerica",
+   "at": [
+    37.87,
+    -122.26
+   ],
+   "name": "カリフォルニア大学バークレー校"
+  },
+  "R-B01": {
+   "region": "region:namerica",
+   "at": [
+    37.87,
+    -122.26
+   ],
+   "name": "カリフォルニア大学バークレー校"
+  },
+  "R-B02": {
+   "region": "region:europe",
+   "at": [
+    51.51,
+    -0.12
+   ],
+   "name": "ロンドン"
+  },
+  "R-B03": {
+   "region": "region:europe",
+   "at": [
+    47.8,
+    13.04
+   ],
+   "name": "ザルツブルク大学"
+  },
+  "R-B04": {
+   "region": "region:namerica",
+   "at": [
+    49.26,
+    -123.25
+   ],
+   "name": "ブリティッシュコロンビア大学"
+  },
+  "R-B05": {
+   "region": "region:oceania",
+   "at": [
+    -45.87,
+    170.5
+   ],
+   "name": "ニュージーランド・ダニーデン"
+  },
+  "R-B06": {
+   "region": "region:namerica",
+   "at": [
+    39.98,
+    -75.16
+   ],
+   "name": "テンプル大学ほか"
+  },
+  "R-B07": {
+   "region": "region:namerica",
+   "at": [
+    40.73,
+    -73.99
+   ],
+   "name": "ニューヨーク"
+  },
+  "R-B08": {
+   "region": "region:namerica",
+   "at": [
+    36.0,
+    -78.94
+   ],
+   "name": "デューク大学"
+  },
+  "R-B09": {
+   "region": "region:namerica",
+   "at": [
+    41.79,
+    -87.6
+   ],
+   "name": "シカゴ大学"
+  },
+  "R-C01": {
+   "region": "region:namerica",
+   "at": [
+    32.88,
+    -117.23
+   ],
+   "name": "カリフォルニア大学サンディエゴ校"
+  },
+  "R-C02": {
+   "region": "region:namerica",
+   "at": [
+    38.65,
+    -90.31
+   ],
+   "name": "ワシントン大学（セントルイス）"
+  },
+  "R-C03": {
+   "region": "region:namerica",
+   "at": [
+    41.15,
+    -81.34
+   ],
+   "name": "ケント州立大学"
+  },
+  "R-C04": {
+   "region": "region:oceania",
+   "at": [
+    -33.92,
+    151.23
+   ],
+   "name": "ニューサウスウェールズ大学"
+  },
+  "R-C05": {
+   "region": "region:namerica",
+   "at": [
+    34.07,
+    -118.44
+   ],
+   "name": "UCLA"
+  },
+  "R-C06": {
+   "region": "region:namerica",
+   "at": [
+    37.43,
+    -122.17
+   ],
+   "name": "スタンフォード大学"
+  },
+  "R-C07": {
+   "region": "region:namerica",
+   "at": [
+    40.75,
+    -73.98
+   ],
+   "name": "ニューヨーク市立大学"
+  },
+  "R-C08": {
+   "region": "region:namerica",
+   "at": [
+    40.1,
+    -88.23
+   ],
+   "name": "イリノイ大学"
+  },
+  "R-C09": {
+   "region": "region:namerica",
+   "at": [
+    32.88,
+    -117.23
+   ],
+   "name": "カリフォルニア大学サンディエゴ校"
+  },
+  "R-C10": {
+   "region": "region:japan",
+   "at": [
+    35.71,
+    139.76
+   ],
+   "name": "東京大学"
+  },
+  "R-D01": {
+   "region": "region:namerica",
+   "at": [
+    43.13,
+    -77.63
+   ],
+   "name": "ロチェスター大学"
+  },
+  "R-D02": {
+   "region": "region:namerica",
+   "at": [
+    43.13,
+    -77.63
+   ],
+   "name": "ロチェスター大学"
+  },
+  "R-D03": {
+   "region": "region:namerica",
+   "at": [
+    37.43,
+    -122.17
+   ],
+   "name": "スタンフォード大学"
+  },
+  "R-D04": {
+   "region": "region:namerica",
+   "at": [
+    42.28,
+    -83.74
+   ],
+   "name": "ミシガン大学"
+  },
+  "R-D05": {
+   "region": "region:namerica",
+   "at": [
+    40.1,
+    -88.23
+   ],
+   "name": "イリノイ大学"
+  },
+  "R-D06": {
+   "region": "region:namerica",
+   "at": [
+    34.07,
+    -118.44
+   ],
+   "name": "UCLA"
+  },
+  "R-D07": {
+   "region": "region:namerica"
+  },
+  "R-D08": {
+   "region": "region:namerica",
+   "at": [
+    37.43,
+    -122.17
+   ],
+   "name": "スタンフォード大学"
+  },
+  "R-E01": {
+   "region": "region:europe",
+   "at": [
+    51.51,
+    -0.12
+   ],
+   "name": "キングス・カレッジ・ロンドン"
+  },
+  "R-E02": {
+   "region": "region:oceania",
+   "at": [
+    -36.85,
+    174.77
+   ],
+   "name": "オークランド大学"
+  },
+  "R-E03": {
+   "region": "region:namerica",
+   "at": [
+    40.1,
+    -88.23
+   ],
+   "name": "イリノイ大学"
+  },
+  "R-E04": {
+   "region": "region:europe",
+   "at": [
+    50.89,
+    5.98
+   ],
+   "name": "オランダ・オープン大学ほか"
+  },
+  "R-E05": {
+   "region": "region:namerica",
+   "at": [
+    41.79,
+    -87.6
+   ],
+   "name": "シカゴ大学"
+  },
+  "R-E06": {
+   "region": "region:namerica"
+  },
+  "R-E07": {
+   "region": "region:namerica",
+   "at": [
+    34.07,
+    -118.44
+   ],
+   "name": "UCLA"
+  },
+  "R-E08": {
+   "region": "region:namerica",
+   "at": [
+    42.5,
+    -71.07
+   ],
+   "name": "CAST（マサチューセッツ）"
+  },
+  "R-E09": {
+   "region": "region:namerica",
+   "at": [
+    44.97,
+    -93.23
+   ],
+   "name": "ミネソタ大学"
+  },
+  "R-E10": {
+   "region": "region:japan",
+   "at": [
+    35.71,
+    139.76
+   ],
+   "name": "東京大学"
+  },
+  "R-E11": {
+   "region": "region:namerica",
+   "at": [
+    37.43,
+    -122.17
+   ],
+   "name": "スタンフォード大学"
+  },
+  "R-F01": {
+   "region": "region:namerica",
+   "at": [
+    42.37,
+    -71.12
+   ],
+   "name": "ハーバード大学"
+  },
+  "R-F02": {
+   "region": "region:namerica",
+   "at": [
+    41.5,
+    -81.61
+   ],
+   "name": "ケース・ウェスタン・リザーブ大学"
+  },
+  "R-F03": {
+   "region": "region:namerica",
+   "at": [
+    37.43,
+    -122.17
+   ],
+   "name": "スタンフォード大学"
+  },
+  "R-F04": {
+   "region": "region:namerica",
+   "at": [
+    37.65,
+    -122.41
+   ],
+   "name": "サンフランシスコ近郊の小学校"
+  },
+  "R-F05": {
+   "region": "region:japan",
+   "at": [
+    34.59,
+    135.51
+   ],
+   "name": "大阪市立大学"
+  },
+  "R-F06": {
+   "region": "region:japan"
+  },
+  "R-F07": {
+   "region": "region:namerica",
+   "at": [
+    41.88,
+    -87.63
+   ],
+   "name": "CASEL（シカゴ）"
+  },
+  "R-F08": {
+   "region": "region:namerica",
+   "at": [
+    42.37,
+    -71.12
+   ],
+   "name": "ハーバード大学"
+  },
+  "R-G01": {
+   "region": "region:japan",
+   "at": [
+    35.67,
+    139.75
+   ],
+   "name": "国立教育政策研究所"
+  },
+  "R-G02": {
+   "region": "region:namerica",
+   "at": [
+    39.33,
+    -76.62
+   ],
+   "name": "ジョンズ・ホプキンズ大学"
+  },
+  "R-G03": {
+   "region": "region:namerica",
+   "at": [
+    42.37,
+    -71.12
+   ],
+   "name": "ハーバード大学"
+  },
+  "R-G04": {
+   "region": "region:namerica",
+   "at": [
+    42.06,
+    -87.68
+   ],
+   "name": "ノースウェスタン大学"
+  },
+  "R-G06": {
+   "region": "region:japan"
+  },
+  "M-01": {
+   "region": "region:oceania",
+   "at": [
+    -36.85,
+    174.77
+   ],
+   "name": "オークランド大学"
+  },
+  "M-02": {
+   "region": "region:europe",
+   "at": [
+    51.5,
+    -0.12
+   ],
+   "name": "イギリス"
+  },
+  "M-10": {
+   "region": "region:namerica",
+   "at": [
+    36.0,
+    -78.94
+   ],
+   "name": "デューク大学"
+  },
+  "M-11": {
+   "region": "region:namerica",
+   "at": [
+    36.16,
+    -86.78
+   ],
+   "name": "テネシー州"
+  },
+  "M-13": {
+   "region": "region:namerica"
+  }
+ },
+ "references": [
+  {
+   "id": "study:ref-part9-dunbar",
+   "work": "work:part9",
+   "title": {
+    "ja": "ダンバーの社会脳研究"
+   },
+   "place": {
+    "region": "region:europe",
+    "at": [
+     51.75,
+     -1.26
+    ],
+    "name": "オックスフォード大学"
+   }
+  },
+  {
+   "id": "study:ref-part10-rizzolatti",
+   "work": "work:part10",
+   "title": {
+    "ja": "リゾラッティらのミラーニューロン研究"
+   },
+   "place": {
+    "region": "region:europe",
+    "at": [
+     44.8,
+     10.33
+    ],
+    "name": "パルマ大学"
+   }
+  },
+  {
+   "id": "study:ref-part11-harlow",
+   "work": "work:part11",
+   "title": {
+    "ja": "ハーロウの愛着実験"
+   },
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     43.07,
+     -89.4
+    ],
+    "name": "ウィスコンシン大学"
+   }
+  },
+  {
+   "id": "study:ref-part11-bowlby",
+   "work": "work:part11",
+   "title": {
+    "ja": "ボウルビィの愛着理論"
+   },
+   "place": {
+    "region": "region:europe",
+    "at": [
+     51.51,
+     -0.12
+    ],
+    "name": "ロンドン"
+   }
+  },
+  {
+   "id": "study:ref-part11-piaget",
+   "work": "work:part11",
+   "title": {
+    "ja": "ピアジェの発達研究"
+   },
+   "place": {
+    "region": "region:europe",
+    "at": [
+     46.2,
+     6.14
+    ],
+    "name": "ジュネーブ"
+   }
+  },
+  {
+   "id": "study:ref-part11-vygotsky",
+   "work": "work:part11",
+   "title": {
+    "ja": "ヴィゴツキーの発達理論"
+   },
+   "place": {
+    "region": "region:europe",
+    "at": [
+     55.75,
+     37.62
+    ],
+    "name": "モスクワ"
+   }
+  },
+  {
+   "id": "study:ref-part11-bandura",
+   "work": "work:part11",
+   "title": {
+    "ja": "バンデューラの観察学習"
+   },
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     37.43,
+     -122.17
+    ],
+    "name": "スタンフォード大学"
+   }
+  },
+  {
+   "id": "study:ref-part11-marshmallow",
+   "work": "work:part11",
+   "title": {
+    "ja": "マシュマロ実験"
+   },
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     37.43,
+     -122.17
+    ],
+    "name": "スタンフォード大学"
+   }
+  },
+  {
+   "id": "study:ref-part11-serve-return",
+   "work": "work:part11",
+   "title": {
+    "ja": "「サーブとリターン」の発達研究"
+   },
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     42.37,
+     -71.12
+    ],
+    "name": "ハーバード大学"
+   }
+  },
+  {
+   "id": "study:ref-part12-vygotsky",
+   "work": "work:part12",
+   "title": {
+    "ja": "ヴィゴツキーの対話と学習の理論"
+   },
+   "place": {
+    "region": "region:europe",
+    "at": [
+     55.75,
+     37.62
+    ],
+    "name": "モスクワ"
+   }
+  },
+  {
+   "id": "study:ref-part12-explanatory-depth",
+   "work": "work:part12",
+   "title": {
+    "ja": "説明深度の錯覚"
+   },
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     41.31,
+     -72.92
+    ],
+    "name": "イェール大学"
+   }
+  },
+  {
+   "id": "study:ref-part12-retrieval",
+   "work": "work:part12",
+   "title": {
+    "ja": "検索練習と長期保持"
+   },
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     38.65,
+     -90.31
+    ],
+    "name": "ワシントン大学（セントルイス）"
+   }
+  },
+  {
+   "id": "study:ref-part12-self-explanation",
+   "work": "work:part12",
+   "title": {
+    "ja": "自己説明研究"
+   },
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     40.44,
+     -79.96
+    ],
+    "name": "ピッツバーグ大学"
+   }
+  },
+  {
+   "id": "study:ref-part13-tomasello",
+   "work": "work:part13",
+   "title": {
+    "ja": "トマセロの文化学習研究"
+   },
+   "place": {
+    "region": "region:europe",
+    "at": [
+     51.34,
+     12.37
+    ],
+    "name": "マックス・プランク進化人類学研究所"
+   }
+  },
+  {
+   "id": "study:ref-part13-dweck",
+   "work": "work:part13",
+   "title": {
+    "ja": "ドゥエックのマインドセット研究"
+   },
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     37.43,
+     -122.17
+    ],
+    "name": "スタンフォード大学"
+   }
+  },
+  {
+   "id": "study:ref-part13-serve-return",
+   "work": "work:part13",
+   "title": {
+    "ja": "関係の環境で育つ子ども（サーブとリターン）"
+   },
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     42.37,
+     -71.12
+    ],
+    "name": "ハーバード大学"
+   }
+  },
+  {
+   "id": "study:ref-part17-smith",
+   "work": "work:part17",
+   "title": {
+    "ja": "アダム・スミス『国富論』の分業論"
+   },
+   "year": 1776,
+   "place": {
+    "region": "region:europe",
+    "at": [
+     55.86,
+     -4.25
+    ],
+    "name": "スコットランド"
+   }
+  },
+  {
+   "id": "study:ref-part17-mauss",
+   "work": "work:part17",
+   "title": {
+    "ja": "マルセル・モース『贈与論』"
+   },
+   "year": 1925,
+   "place": {
+    "region": "region:europe",
+    "at": [
+     48.86,
+     2.35
+    ],
+    "name": "パリ"
+   }
+  },
+  {
+   "id": "study:ref-part17-eliza",
+   "work": "work:part17",
+   "title": {
+    "ja": "対話プログラム ELIZA"
+   },
+   "year": 1966,
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     42.36,
+     -71.09
+    ],
+    "name": "MIT"
+   }
+  },
+  {
+   "id": "study:ref-part17-yap",
+   "work": "work:part17",
+   "title": {
+    "ja": "ヤップ島の石貨"
+   },
+   "place": {
+    "region": "region:oceania",
+    "at": [
+     9.53,
+     138.12
+    ],
+    "name": "ヤップ島"
+   }
+  },
+  {
+   "id": "study:ref-part17-suez",
+   "work": "work:part17",
+   "title": {
+    "ja": "スエズ運河の座礁と国際貿易"
+   },
+   "year": 2021,
+   "place": {
+    "region": "region:africa",
+    "at": [
+     30.0,
+     32.55
+    ],
+    "name": "スエズ運河"
+   }
+  },
+  {
+   "id": "study:ref-part18-mariotte",
+   "work": "work:part18",
+   "title": {
+    "ja": "マリオットの盲点の報告"
+   },
+   "place": {
+    "region": "region:europe",
+    "at": [
+     48.86,
+     2.35
+    ],
+    "name": "パリ"
+   }
+  },
+  {
+   "id": "study:ref-part18-asch",
+   "work": "work:part18",
+   "title": {
+    "ja": "アッシュの同調実験"
+   },
+   "year": 1951,
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     39.9,
+     -75.35
+    ],
+    "name": "スワースモア大学"
+   }
+  },
+  {
+   "id": "study:ref-part18-loftus",
+   "work": "work:part18",
+   "title": {
+    "ja": "ロフタスとパーマーの記憶実験"
+   },
+   "year": 1974,
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     47.65,
+     -122.31
+    ],
+    "name": "ワシントン大学（シアトル）"
+   }
+  },
+  {
+   "id": "study:ref-part18-simons-chabris",
+   "work": "work:part18",
+   "title": {
+    "ja": "非注意性盲目の実験"
+   },
+   "year": 1999,
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     42.37,
+     -71.12
+    ],
+    "name": "ハーバード大学"
+   }
+  },
+  {
+   "id": "study:ref-part18-kruger-dunning",
+   "work": "work:part18",
+   "title": {
+    "ja": "能力とメタ認知の研究"
+   },
+   "year": 1999,
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     42.45,
+     -76.48
+    ],
+    "name": "コーネル大学"
+   }
+  },
+  {
+   "id": "study:ref-part19-denny",
+   "work": "work:part19",
+   "title": {
+    "ja": "古代人類の交雑個体「Denny」"
+   },
+   "year": 2018,
+   "place": {
+    "region": "region:central",
+    "at": [
+     51.4,
+     84.68
+    ],
+    "name": "アルタイ・デニソワ洞窟"
+   }
+  },
+  {
+   "id": "study:ref-part19-pacific",
+   "work": "work:part19",
+   "title": {
+    "ja": "太平洋を越える長距離航海"
+   },
+   "place": {
+    "region": "region:oceania"
+   }
+  },
+  {
+   "id": "study:ref-part19-green-book",
+   "work": "work:part19",
+   "title": {
+    "ja": "「グリーン・ブック」の刊行"
+   },
+   "year": 1936,
+   "place": {
+    "region": "region:namerica"
+   }
+  },
+  {
+   "id": "study:ref-part20-jevons",
+   "work": "work:part20",
+   "title": {
+    "ja": "ジェヴォンズ『石炭問題』"
+   },
+   "year": 1865,
+   "place": {
+    "region": "region:europe",
+    "at": [
+     53.47,
+     -2.23
+    ],
+    "name": "マンチェスター"
+   }
+  },
+  {
+   "id": "study:ref-part20-lottery",
+   "work": "work:part20",
+   "title": {
+    "ja": "宝くじ当選者と幸福の適応"
+   },
+   "year": 1978,
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     42.06,
+     -87.68
+    ],
+    "name": "ノースウェスタン大学"
+   }
+  },
+  {
+   "id": "study:ref-part20-choice",
+   "work": "work:part20",
+   "title": {
+    "ja": "選択肢の多さと動機づけの実験"
+   },
+   "year": 2000,
+   "place": {
+    "region": "region:namerica",
+    "at": [
+     37.43,
+     -122.17
+    ],
+    "name": "スタンフォード大学"
+   }
+  },
+  {
+   "id": "study:ref-part20-accounting",
+   "work": "work:part20",
+   "title": {
+    "ja": "メソポタミアの記録と会計"
+   },
+   "place": {
+    "region": "region:westasia",
+    "at": [
+     31.32,
+     45.64
+    ],
+    "name": "メソポタミア"
+   }
+  }
+ ]
+}

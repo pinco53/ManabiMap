@@ -36,12 +36,19 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
   };
   const block = (heading, items) => (items.length ? `<h3>${esc(heading)}</h3><ul>${items.join('')}</ul>` : '');
   const chips = (heading, ids, attr = 'data-go') => (ids.length ? `<h3>${esc(heading)}</h3><div class="atlas-chips">${ids.map((id) => `<button type="button" ${attr}="${esc(id)}">${esc(title(id))}</button>`).join('')}</div>` : '');
-  const viewButtons = (id) => ['galaxy', 'river', 'stars', 'world'].filter((v) => v !== store.state.view && (v !== 'river' || atlas.time(id)) && (v !== 'galaxy' || atlas.get(id).pos) && (v !== 'world' || (atlas.get(id).place && atlas.get(id).place.at)) && (v !== 'stars' || ['work', 'question', 'concept'].includes(atlas.get(id).type)))
+  const viewButtons = (id) => ['galaxy', 'river', 'stars', 'world'].filter((v) => v !== store.state.view && (v !== 'river' || atlas.time(id)) && (v !== 'galaxy' || atlas.get(id).pos) && (v !== 'world' || (atlas.get(id).place && atlas.get(id).place.at) || (atlas.get(id).type === 'work' && research(id).some((x) => atlas.get(x).place.at))) && (v !== 'stars' || ['work', 'question', 'concept'].includes(atlas.get(id).type)))
     .map((v) => `<button type="button" data-view-to="${v}">${VIEW_NAME[v]}で見る</button>`).join('');
   const pathButton = (id) => {
     const s = store.state;
     if (s.start && s.start !== id) return `<button type="button" data-act="path">「${esc(title(s.start).slice(0, 10))}」からここへの道</button>`;
     return `<button type="button" data-act="start" aria-pressed="${s.start === id}">${s.start === id ? '出発点に設定中' : 'ここを出発点にする'}</button>`;
+  };
+
+  // research tied to a work, directly or through its episodes; those with a known place first
+  const research = (workId) => {
+    const episodes = new Set(atlas.all('episode').filter((e) => e.work === workId).map((e) => e.id));
+    const ids = [...new Set(atlas.edges.filter((e) => e.type === 'supports' && (e.to === workId || episodes.has(e.to))).map((e) => e.from))].filter((x) => atlas.get(x) && atlas.get(x).place);
+    return ids.sort((a, b) => Number(Boolean(atlas.get(b).place.at)) - Number(Boolean(atlas.get(a).place.at)) || ((atlas.time(a) || {}).start || 0) - ((atlas.time(b) || {}).start || 0));
   };
 
   // ---------------------------------------------------------------- the detail card
@@ -69,6 +76,7 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
         chips('この作品が向かう大きな問い', atlas.bigQuestions(id), 'data-anchor') +
         block(EDGE_HEAD.bridges, bridges) + block('同じ問いの、別の答え', others) + block(EDGE_HEAD.next, next) + block(EDGE_HEAD.relatesTo, related) +
         block('関わる出来事', atlas.sameEra(id, 4).map((e) => go(e, { note: atlas.timeText(e) }))) +
+        block('研究の舞台 ── どこで調べられたか', research(id).slice(0, 8).map((x) => go(x, { note: [atlas.timeText(x), atlas.placeText(x)].filter(Boolean).join('　') }))) +
         chips('概念', atlas.concepts(id)) +
         (episodes.length ? `<h3>話</h3><details><summary>全${episodes.length}話を見る</summary><ul>${episodes.map((e) => `<li>${esc(e.title.ja)}</li>`).join('')}</ul></details>` : '') +
         (mediaLine ? `<p class="atlas-note">${mediaLine}</p>` : '') +
@@ -102,11 +110,17 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
       return head(n.field ? `<i>${esc(n.field)}</i>` : '') + (n.role ? `<p class="atlas-card__lead">${esc(n.role)}</p>` : '') + (summary ? `<p class="atlas-card__lead">${esc(summary)}</p>` : '') +
         lineage + block('登場する作品', pick('work')) + block('関わるシリーズ', pick('series')) + block('年表の出来事', pick('event')) + block('研究カード', pick('study').slice(0, 5)) + `<div class="atlas-actions">${pathButton(id)}</div>`;
     }
+    if (n.type === 'study') {
+      const works = [...new Set(atlas.links(id, ['supports']).map((l) => l.other).map((o) => (atlas.get(o).type === 'episode' ? atlas.get(o).work : o)).filter((o) => atlas.get(o).type === 'work'))];
+      const people = atlas.links(id, ['features']).map((l) => l.other).filter((o) => atlas.get(o).type === 'person');
+      return head(n.domain ? `<i>${esc(n.domain)}</i>` : '') + (n.name ? `<p class="atlas-card__lead">${esc(n.name)}</p>` : '') + (summary ? `<p class="atlas-card__lead">${esc(summary)}</p>` : '') +
+        (n.certainty ? `<p class="atlas-note">確かさ：${esc(n.certainty)}</p>` : '') + block('この研究が支える作品', works.map((x) => go(x))) + chips('人物', people) + `<div class="atlas-actions">${viewButtons(id)}${pathButton(id)}</div>`;
+    }
     if (n.type === 'region') {
       const here = (x) => x.place && x.place.region === id, events = atlas.all('event').filter((e) => e.stream !== 'work-timeline' && here(e) && atlas.time(e.id)).sort((a, b) => atlas.time(a.id).start - atlas.time(b.id).start);
-      const people = atlas.all('person').filter(here), works = atlas.all('work').filter((x) => (x.regions || []).includes(id));
-      return head() + `<p class="atlas-note">出来事 ${events.length}件・人物 ${people.length}人・関わる作品 ${works.length}本。場所は題と要約から付けたおおよそのものです。</p>` +
-        block('関わる作品', works.map((x) => go(x.id))) + block('出来事 ── 時代順', events.slice(0, 60).map((e) => go(e.id, { note: atlas.timeText(e.id) }))) + chips('人物', people.slice(0, 30).map((x) => x.id));
+      const people = atlas.all('person').filter(here), works = atlas.all('work').filter((x) => (x.regions || []).includes(id)), studies = atlas.all('study').filter(here);
+      return head() + `<p class="atlas-note">出来事 ${events.length}件・研究 ${studies.length}件・人物 ${people.length}人・関わる作品 ${works.length}本。場所は題と要約から付けたおおよそのものです。</p>` +
+        block('関わる作品', works.map((x) => go(x.id))) + block('出来事 ── 時代順', events.slice(0, 60).map((e) => go(e.id, { note: atlas.timeText(e.id) }))) + block('ここで行われた研究', studies.slice(0, 40).map((x) => go(x.id, { note: [atlas.timeText(x.id), x.place.name].filter(Boolean).join('　') }))) + chips('人物', people.slice(0, 30).map((x) => x.id));
     }
     if (n.type === 'series') {
       const works = atlas.members(id), planned = n.status === 'planned';

@@ -33,10 +33,12 @@ export function report(g, result, { sources, counts, outputs, suggested }) {
 
   add('## 3b. 場所（どこで）', '');
   const placed = (list) => list.filter((n) => n.place).length;
-  table(['種類', '場所あり', '地図上の点あり', '全体'], [['出来事（年表・哲学史・教育史）', events.filter((e) => e.stream !== 'work-timeline')], ['出来事（作品内の年表）', events.filter((e) => e.stream === 'work-timeline')], ['人物', nodes.filter((n) => n.type === 'person')]]
+  table(['種類', '場所あり', '地図上の点あり', '全体'], [['出来事（年表・哲学史・教育史）', events.filter((e) => e.stream !== 'work-timeline')], ['出来事（作品内の年表）', events.filter((e) => e.stream === 'work-timeline')], ['人物', nodes.filter((n) => n.type === 'person')], ['研究', nodes.filter((n) => n.type === 'study')]]
     .map(([label, list]) => [label, placed(list), list.filter((n) => n.place && n.place.at).length, list.length]));
   add('地域ごとの出来事数（年表・哲学史・教育史）。偏りを見るための表です。');
   table(['地域', '138億年年表', '哲学史', '教育史', '人物'], nodes.filter((n) => n.type === 'region').map((r) => [r.title.ja, ...['deep-time', 'philosophy-history', 'edu-history'].map((s) => events.filter((e) => e.stream === s && e.place && e.place.region === r.id).length), nodes.filter((n) => n.type === 'person' && n.place && n.place.region === r.id).length]));
+  add('作品ごとの地域（結びついた出来事・人物・研究から導いたもの。多い順）：');
+  table(['作品', '地域'], works.map((w) => [w.title.ja, (w.regions || []).map((r) => title(r)).join('・') || '—']));
   add('## 3c. 因果と影響（どうつながり、どう受け継がれたか）', '');
   table(['から', 'へ', '種類', '理由'], g.edges.filter((e) => ['influences', 'contrasts'].includes(e.type)).map((e) => [title(e.from), title(e.to), e.type === 'contrasts' ? '対比' : '影響', e.why.ja]));
   add('## 4. シリーズ横断のつながり', '', '### 既存ページのリンクから読み取れたもの（理由文なし）');

@@ -65,6 +65,11 @@ const out = []; const ok = (name, cond, extra = '') => out.push((cond ? 'PASS ' 
   await p.goto(U + '?view=world&focus=region:africa'); await p.waitForSelector('#atlasCard h2'); ok('region card lists events', (await p.$$eval('#atlasCard .atlas-go', els => els.length)) >= 10);
   await p.waitForTimeout(800); await p.screenshot({ path: S + '/shots/14-world.png' });
 
+  await p.goto(U + '?view=world&focus=work:part11'); await p.waitForSelector('#atlasCard h2');
+  const stage = await p.$$eval('#atlasCard h3', els => els.map(e => e.textContent)); const where = await p.textContent('.atlas-card__when');
+  ok('a learning work takes its place from where the research was done', stage.some(t => t.startsWith('研究の舞台')) && where.includes('北アメリカ'), where.trim());
+  await p.waitForTimeout(900); await p.screenshot({ path: S + '/shots/15-world-research.png' });
+
   // list view as the accessible path
   await p.goto(U); await p.waitForFunction(() => document.getElementById('atlasLenses').children.length > 0); await p.keyboard.press('Tab'); await p.keyboard.press('Enter'); await p.waitForFunction(() => document.getElementById('atlas').dataset.view === 'list');
   const listed = await p.$$eval('#atlasList [data-go^="work:"]', els => els.length); ok('skip link opens list with every work', listed === 41, listed + ' works');

@@ -606,8 +606,9 @@
   "why": {
    "ja": "文字があって初めて、決まりを誰もが参照できる形で残せるようになった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:agricultural-transformations",
@@ -616,8 +617,9 @@
   "why": {
    "ja": "農耕が生んだ余剰が、農業をしない人々の暮らす都市を支えた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:uruk-and-early-urbanism",
@@ -626,8 +628,9 @@
   "why": {
    "ja": "都市で物と労働を管理する必要が、記録の仕組みを育てた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:zero-as-a-number-and-an-operation",
@@ -636,8 +639,9 @@
   "why": {
    "ja": "インドで育った数字と位取りの考え方が伝わり、計算の学問として発展した。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:paper-and-the-expansion-of-records",
@@ -646,8 +650,9 @@
   "why": {
    "ja": "紙の製法が西へ伝わり、書物を安く大量に作れるようになった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:paper-and-the-expansion-of-records",
@@ -656,8 +661,9 @@
   "why": {
    "ja": "紙の普及が、刷って配るという発想の前提になった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:early-buddhism",
@@ -666,8 +672,9 @@
   "why": {
    "ja": "年代のわかる最古級の印刷物は仏典で、教えを広める必要が印刷を後押しした。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-islamic-golden-age",
@@ -676,8 +683,9 @@
   "why": {
    "ja": "中世ヨーロッパの大学が学んだ学問の多くは、アラビア語からの翻訳を通じて伝わった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-islamic-golden-age",
@@ -686,8 +694,9 @@
   "why": {
    "ja": "伝わった数字と計算法が、商人の帳簿のつけ方を変えた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:mongol-exchange",
@@ -696,8 +705,9 @@
   "why": {
    "ja": "ユーラシアを結んだ交通路は、人と物だけでなく疫病も運んだ。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:magnetic-compass",
@@ -706,8 +716,9 @@
   "why": {
    "ja": "陸の見えない海を進む技術が、大洋を渡る航海の前提になった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:columbus-s-atlantic-voyage",
@@ -716,8 +727,9 @@
   "why": {
    "ja": "二つの大陸が結ばれ、作物・家畜・病原体が行き来し始めた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:columbian-exchange",
@@ -726,8 +738,9 @@
   "why": {
    "ja": "アメリカ大陸の農園が求めた労働力が、奴隷貿易を拡大させた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:atlantic-slave-trade",
@@ -736,8 +749,9 @@
   "why": {
    "ja": "奴隷とされた人々自身の蜂起が、最初の黒人共和国を生んだ。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:haitian-revolution",
@@ -746,8 +760,9 @@
   "why": {
    "ja": "奴隷制は倒せるという実例が、各地の廃止運動に影響した。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:gutenberg-s-printing-system",
@@ -756,8 +771,9 @@
   "why": {
    "ja": "活版印刷が、批判の文書を短い期間で各地へ広げた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:copernicus-and-a-moving-earth",
@@ -766,8 +782,9 @@
   "why": {
    "ja": "地球が動くという考えを、望遠鏡の観測が裏づけていった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:galileo-s-telescopic-observations",
@@ -776,8 +793,9 @@
   "why": {
    "ja": "天体と地上の運動を、一つの法則で説明する道が開かれた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-american-declaration-of-independence",
@@ -786,8 +804,9 @@
   "why": {
    "ja": "権利と独立を掲げた先例が、大西洋の向こうの革命に影響した。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-french-revolution",
@@ -796,8 +815,9 @@
   "why": {
    "ja": "自由と平等の宣言は、植民地の奴隷制と正面からぶつかった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:watt-s-steam-engine-improvements",
@@ -806,8 +826,9 @@
   "why": {
    "ja": "安定した動力が、川から離れた場所にも工場を建てられるようにした。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:watt-s-steam-engine-improvements",
@@ -816,8 +837,9 @@
   "why": {
    "ja": "蒸気機関を小さく強くする改良が、乗り物への搭載につながった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:factory-system",
@@ -826,8 +848,9 @@
   "why": {
    "ja": "工場の長時間労働が、働く時間に上限を求める運動を生んだ。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:vaccination",
@@ -836,8 +859,9 @@
   "why": {
    "ja": "種痘から始まった予防接種が、約180年後に天然痘の根絶に至った。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:linnaeus-and-biological-classification",
@@ -846,8 +870,9 @@
   "why": {
    "ja": "生きものを整理した分類が、種どうしの関係を問う土台になった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:mendel-s-laws-of-inheritance",
@@ -856,8 +881,9 @@
   "why": {
    "ja": "遺伝には単位があるという発見が、その実体探しにつながった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-double-helix-structure-of-dna",
@@ -866,8 +892,9 @@
   "why": {
    "ja": "DNAの構造がわかり、配列をすべて読むという目標が立てられるようになった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-electric-telegraph",
@@ -876,8 +903,9 @@
   "why": {
    "ja": "電気で信号を送る網が、声を送る技術の土台になった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:einstein-s-special-theory-of-relativity",
@@ -886,8 +914,9 @@
   "why": {
    "ja": "時間と空間の見直しを、重力を含む理論へ広げた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-first-world-war",
@@ -896,8 +925,9 @@
   "why": {
    "ja": "長引く戦争による疲弊が、帝政の崩壊を早めた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-second-world-war",
@@ -906,8 +936,9 @@
   "why": {
    "ja": "戦争と虐殺への反省から、人権を国際的な約束にした。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-second-world-war",
@@ -916,8 +947,9 @@
   "why": {
    "ja": "戦争で宗主国の力が弱まり、独立の動きが加速した。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-turing-machine",
@@ -926,8 +958,9 @@
   "why": {
    "ja": "計算とは何かを定義した同じ人物が、機械は考えるかという問いへ進んだ。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-invention-of-the-transistor",
@@ -936,8 +969,9 @@
   "why": {
    "ja": "小さなスイッチを一枚の板に集積することで、計算機が一つの部品になった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-microprocessor",
@@ -946,8 +980,9 @@
   "why": {
    "ja": "安い演算部品が、個人で買える計算機を可能にした。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:sputnik",
@@ -956,8 +991,9 @@
   "why": {
    "ja": "最初の人工衛星が、月を目指す競争の引き金になった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:sputnik",
@@ -966,8 +1002,9 @@
   "why": {
    "ja": "衝撃を受けたアメリカが作った研究機関から、ネットワーク研究が始まった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:sputnik",
@@ -976,8 +1013,9 @@
   "why": {
    "ja": "科学で後れを取ったという危機感が、理数教育の改革を動かした。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:arpanet-begins",
@@ -986,8 +1024,9 @@
   "why": {
    "ja": "つながったネットワークの上に、誰でも文書を公開できる仕組みが作られた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-world-wide-web",
@@ -996,8 +1035,9 @@
   "why": {
    "ja": "増え続けるページを探す必要が、検索を中心的な道具にした。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:alexnet-and-the-deep-learning-breakthrough",
@@ -1006,8 +1046,9 @@
   "why": {
    "ja": "深層学習の成功が、囲碁のような直感の領域への応用を後押しした。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-transformer-paper",
@@ -1016,8 +1057,9 @@
   "why": {
    "ja": "新しい仕組みが、大量の文章から学ぶ言語モデルの基盤になった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:bert-and-gpt-1",
@@ -1026,8 +1068,9 @@
   "why": {
    "ja": "同じ仕組みを大きくすると、できることが質的に変わった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:gpt-3",
@@ -1036,8 +1079,9 @@
   "why": {
    "ja": "対話の形にしたことで、専門家以外にも一気に広がった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:chatgpt-is-released",
@@ -1046,8 +1090,9 @@
   "why": {
    "ja": "学校での使い方が、すぐに国際的な課題になった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:chatgpt-is-released",
@@ -1056,8 +1101,9 @@
   "why": {
    "ja": "日本でも、学校での扱いの指針が急いで作られた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:edu-2000",
@@ -1066,8 +1112,9 @@
   "why": {
    "ja": "国際調査での順位低下が、日本の学力政策の転換点になった。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:the-covid-19-pandemic",
@@ -1076,8 +1123,9 @@
   "why": {
    "ja": "感染拡大で世界中の学校が閉じ、学びの形が問い直された。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "event:edu-2020",
@@ -1086,8 +1134,9 @@
   "why": {
    "ja": "休校を受けて、1人1台端末の整備が大きく前倒しされた。"
   },
-  "review": "pending",
-  "basis": "題と要約、一般に知られた歴史的経緯から作成"
+  "review": "ok",
+  "basis": "題と要約、一般に知られた歴史的経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:saussure",
@@ -1096,8 +1145,9 @@
   "why": {
    "ja": "レヴィ＝ストロースは、ソシュールの言語学の考え方を、親族や神話の分析に応用した。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:rousseau",
@@ -1106,8 +1156,9 @@
   "why": {
    "ja": "カントは、ルソーから人間を尊重することを学んだと記している。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:kant",
@@ -1116,8 +1167,9 @@
   "why": {
    "ja": "ヘーゲルは、カントの哲学を受け継ぎつつ、その限界を越えようとした。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:husserl",
@@ -1126,8 +1178,9 @@
   "why": {
    "ja": "ハイデガーはフッサールのもとで現象学を学び、存在の問いへと向きを変えた。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:husserl",
@@ -1136,8 +1189,9 @@
   "why": {
    "ja": "レヴィナスはフッサールの現象学を学び、フランスに紹介した。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:heidegger",
@@ -1146,8 +1200,9 @@
   "why": {
    "ja": "レヴィナスはハイデガーから強い影響を受け、のちにその哲学を根本から批判した。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:jung",
@@ -1156,8 +1211,9 @@
   "why": {
    "ja": "河合隼雄はユング研究所で学び、ユング心理学を日本に紹介した。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:confucius",
@@ -1166,8 +1222,9 @@
   "why": {
    "ja": "東洋哲学2は、身分を問わず教えた孔子の教室を、ルソーの教育論と比べている。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:P-W03",
@@ -1176,8 +1233,9 @@
   "why": {
    "ja": "子どもは自分で知識をつくると見たピアジェに対し、ヴィゴツキーは他者とのやりとりを学びの出発点に置いた。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:P-W02",
@@ -1186,8 +1244,9 @@
   "why": {
    "ja": "ブルーナーは、ヴィゴツキーの考えを「足場かけ」という教え方の概念に発展させた。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:P-W03",
@@ -1196,8 +1255,9 @@
   "why": {
    "ja": "パパートはピアジェのもとで研究し、子どもが作りながら学ぶという考えをコンピューターに持ち込んだ。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  },
  {
   "from": "person:P-W21",
@@ -1206,7 +1266,8 @@
   "why": {
    "ja": "レズニックはパパートの考えを受け継ぎ、子ども向けのプログラミング環境を作った。"
   },
-  "review": "pending",
-  "basis": "作品ページの記述と、一般に知られた経緯から作成"
+  "review": "ok",
+  "basis": "作品ページの記述と、一般に知られた経緯から作成",
+  "reviewed": "2026-11-16"
  }
 ]

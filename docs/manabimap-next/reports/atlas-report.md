@@ -2,7 +2,7 @@
 
 > 自動生成（`node tools/atlas/build.mjs`）。手で編集しないでください。
 
-**エラー 0件 ／ 編集待ち 144件 ／ 注意 8件 ／ 既存データの参照切れ 0件**
+**エラー 0件 ／ 編集待ち 62件 ／ 注意 8件 ／ 既存データの参照切れ 0件**
 
 ## 1. 取り込んだもの
 
@@ -13,7 +13,7 @@
 | 哲学史 philosophy-history-data.js | entries 32、lanes 3 |
 | 年表 evolution.html ほか | events 160、philosophyPoints 24、workLinks 49、core 84 |
 | 静的ページ parts/(philosophy|eastern|math)*.html | works 8、episodes 80、lifeEvents 169、people 11 |
-| 追記 data/atlas/*.json | concepts dictionary 39/folded 81/keywords 12、questions big 13/parents 107、sameAs 20、places placed 492/pinned 150、bridges 38、influences 61 |
+| 追記 data/atlas/*.json | concepts dictionary 39/folded 81/keywords 12、questions big 13/parents 107、sameAs 20、places placed 589/pinned 240、bridges 38、influences 61 |
 
 | 種類 | 件数 |
 |---|---|
@@ -27,18 +27,18 @@
 | media | 407 |
 | episode | 152 |
 | person | 61 |
-| study | 75 |
+| study | 108 |
 | event | 436 |
 | stream | 1 |
 | concept | 39 |
 | region | 12 |
-| （つながり） | 1807 |
+| （つながり） | 1840 |
 
 | 生成物 | サイズ（非圧縮） |
 |---|---|
-| atlas-core.json | 176 KB |
-| atlas-events.json | 386 KB |
-| atlas-detail.json | 325 KB |
+| atlas-core.json | 177 KB |
+| atlas-events.json | 387 KB |
+| atlas-detail.json | 343 KB |
 | atlas-index.json | 28 KB |
 
 ## 2. シリーズ別の作品
@@ -98,6 +98,7 @@
 | 出来事（年表・哲学史・教育史） | 262 | 139 | 267 |
 | 出来事（作品内の年表） | 169 | 0 | 169 |
 | 人物 | 61 | 11 | 61 |
+| 研究 | 97 | 90 | 108 |
 
 地域ごとの出来事数（年表・哲学史・教育史）。偏りを見るための表です。
 
@@ -115,6 +116,52 @@
 | 北アメリカ | 30 | 3 | 8 | 18 |
 | 中南アメリカ | 4 | 3 | 1 | 1 |
 | オセアニア | 1 | 0 | 1 | 2 |
+
+作品ごとの地域（結びついた出来事・人物・研究から導いたもの。多い順）：
+
+| 作品 | 地域 |
+|---|---|
+| 蒸気の時代 | ヨーロッパ・北アメリカ・日本 |
+| つながる世界 | 北アメリカ・日本・ヨーロッパ |
+| AIと生きる未来 | 日本・北アメリカ・東アジア |
+| 文字と知識の冒険 | 西アジア・アフリカ・東アジア・ヨーロッパ |
+| 言葉と思考の旅 | アフリカ・ヨーロッパ |
+| 数字と世界 | 西アジア・南アジア・ヨーロッパ |
+| 人間の前提を外す | ヨーロッパ・日本・北アメリカ |
+| AIと人間のあいだ | 北アメリカ |
+| AIが日常に入る日 | 北アメリカ |
+| 身体という時間 | ヨーロッパ |
+| 感性という深層 | ヨーロッパ |
+| 人はどう学び始めるのか | 北アメリカ・ヨーロッパ |
+| 人はなぜ、一人では学べないのか | 北アメリカ・ヨーロッパ |
+| 学びとは何か | 北アメリカ・ヨーロッパ |
+| 地球は動いている | ヨーロッパ |
+| それ、わかったつもりかも | ヨーロッパ |
+| エネルギーと人類史 | アフリカ・ヨーロッパ |
+| 交換と協働 | ヨーロッパ・北アメリカ・オセアニア・アフリカ |
+| 人はなぜ勘違いするのか | 北アメリカ・ヨーロッパ |
+| 人類はなぜ移動するのか | 中央ユーラシア・オセアニア・北アメリカ |
+| 余ったのに、なぜ足りないのか | 北アメリカ・ヨーロッパ・西アジア |
+| 運動は、脳の肥料だった | 北アメリカ |
+| 聞くだけで、子どもは伸びる | 北アメリカ・ヨーロッパ |
+| 生まれか、育ちか | 北アメリカ・ヨーロッパ |
+| 思い込みが、力を変える | 北アメリカ・オセアニア |
+| なりたい自分に、なれるのか | 北アメリカ |
+| 上達には段階がある | 北アメリカ・ヨーロッパ・オセアニア・日本 |
+| その一言が、子どもを変えた | 北アメリカ・ヨーロッパ・オセアニア・日本 |
+| 工事中の脳 | 北アメリカ |
+| 一人の学びから、みんなの学びへ | 北アメリカ・日本 |
+| ヒトだけの学び方 | ヨーロッパ・北アメリカ |
+| 眠り・遊び・自然 | 北アメリカ |
+| 才能は、どこで見つかるのか | 北アメリカ |
+| 苦しみの出口と、空っぽの私 | 南アジア |
+| 人をつくる型と、型のない道 | 東アジア |
+| 小学生にもわかる微分と積分 | ヨーロッパ |
+| 偶然は、計算できるのか | ヨーロッパ |
+| 言葉の網と、網の外の顔 | ヨーロッパ |
+| 野生の思考と、子どもの発見 | ヨーロッパ |
+| 世界の枠組みと、育つ自由 | ヨーロッパ |
+| 経験そのものへ、世界の中へ | ヨーロッパ |
 
 ## 3c. 因果と影響（どうつながり、どう受け継がれたか）
 
@@ -348,17 +395,9 @@
 
 `work:part16`
 
-### 内容の確認待ちの橋（review: pending）（61件）
-
-`event:the-invention-of-writing → event:the-code-of-hammurabi`、`event:agricultural-transformations → event:uruk-and-early-urbanism`、`event:uruk-and-early-urbanism → event:the-invention-of-writing`、`event:zero-as-a-number-and-an-operation → event:the-islamic-golden-age`、`event:paper-and-the-expansion-of-records → event:the-islamic-golden-age`、`event:paper-and-the-expansion-of-records → event:east-asian-printing`、`event:early-buddhism → event:east-asian-printing`、`event:the-islamic-golden-age → event:the-traditional-founding-date-of-the-university-of-bologna`、`event:the-islamic-golden-age → event:double-entry-bookkeeping`、`event:mongol-exchange → event:the-black-death-pandemic`、`event:magnetic-compass → event:columbus-s-atlantic-voyage`、`event:columbus-s-atlantic-voyage → event:columbian-exchange`、`event:columbian-exchange → event:atlantic-slave-trade`、`event:atlantic-slave-trade → event:haitian-revolution`、`event:haitian-revolution → event:abolition`、`event:gutenberg-s-printing-system → event:the-protestant-reformation`、`event:copernicus-and-a-moving-earth → event:galileo-s-telescopic-observations`、`event:galileo-s-telescopic-observations → event:newton-s-principia`、`event:the-american-declaration-of-independence → event:the-french-revolution`、`event:the-french-revolution → event:haitian-revolution`、`event:watt-s-steam-engine-improvements → event:factory-system`、`event:watt-s-steam-engine-improvements → event:the-steam-locomotive`、`event:factory-system → event:eight-hour-movement`、`event:vaccination → event:smallpox-eradication` ほか37件
-
 ### 時間の範囲が下書きの作品（curated-draft）（21件）
 
 `work:part1`、`work:part2`、`work:part3`、`work:part4`、`work:part5`、`work:part6`、`work:part7`、`work:part8`、`work:part8-2`、`work:part9`、`work:part10`、`work:part11`、`work:part12`、`work:part13`、`work:part14`、`work:part15`、`work:part16`、`work:part17`、`work:part18`、`work:part19`、`work:part20`
-
-### 地域の手がかりがない作品（21件）
-
-`work:part9`、`work:part10`、`work:part11`、`work:part12`、`work:part13`、`work:part17`、`work:part18`、`work:part19`、`work:part20`、`work:part21`、`work:part22`、`work:part23`、`work:part24`、`work:part25`、`work:part26`、`work:part27`、`work:part28`、`work:part29`、`work:part30`、`work:part31`、`work:part32`
 
 ### 英語の題がない作品（20件）
 

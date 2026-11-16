@@ -74,6 +74,14 @@ export function enrich(g) {
   const atlasPlaces = readJson('data/atlas/places.json', null);
   if (atlasPlaces) {
     atlasPlaces.regions.forEach((r) => g.node({ type: 'region', ...r }));
+    // where research was done: the clue to place for works about learning, cognition and development
+    const research = readJson('data/atlas/research-places.json', { studies: {}, references: [] });
+    Object.entries(research.studies).forEach(([id, place]) => { const n = g.nodes.get('study:' + id); if (!n) throw new Error(`research-places.json: study:${id} がありません`); n.place = place; });
+    research.references.forEach((r) => {
+      if (!g.nodes.has(r.work)) throw new Error(`research-places.json: ${r.work} がありません`);
+      g.node({ id: r.id, type: 'study', kind: 'reference', title: r.title, place: r.place, ...(r.year && { time: [{ start: r.year, end: r.year, precision: 'exact' }] }), source: { from: 'data/atlas/research-places.json', id: r.id } });
+      g.edge(r.id, r.work, 'supports', { origin: 'curated' });
+    });
     const all = [...g.nodes.values()];
     Object.entries(atlasPlaces.places).forEach(([id, place]) => { const n = g.nodes.get(id); if (!n) throw new Error(`places.json: ${id} がありません`); n.place = place; });
     all.forEach((n) => {
@@ -93,7 +101,9 @@ export function enrich(g) {
     // a work covers the regions of what it is tied to, most frequent first
     all.filter((n) => n.type === 'work').forEach((w) => {
       const count = {};
-      g.edges.filter((e) => e.from === w.id && ['happenedAt', 'features'].includes(e.type)).map((e) => g.nodes.get(e.to)).filter((n) => n && n.place)
+      const episodes = new Set(all.filter((n) => n.type === 'episode' && n.work === w.id).map((n) => n.id));
+      const studies = g.edges.filter((e) => e.type === 'supports' && (e.to === w.id || episodes.has(e.to))).map((e) => g.nodes.get(e.from));
+      [...g.edges.filter((e) => e.from === w.id && ['happenedAt', 'features'].includes(e.type)).map((e) => g.nodes.get(e.to)), ...new Set(studies)].filter((n) => n && n.place)
         .forEach((n) => { count[n.place.region] = (count[n.place.region] || 0) + 1; });
       const regions = Object.keys(count).filter((r) => r !== 'region:global' && r !== 'region:cosmos').sort((a, b) => count[b] - count[a]);
       if (regions.length) w.regions = regions.slice(0, 4);

@@ -132,7 +132,7 @@ git diff --stat origin/main...HEAD -- . ':!docs' ':!data/atlas' ':!tools/atlas' 
 
 ## 8. 実施済みの確認（フェーズ2試作、2026-11-15）
 
-自動の動作テスト `tools/atlas/tests/atlas.e2e.cjs`（Playwright、現在30項目）にすべて合格。3回連続で同じ結果でした。
+自動の動作テスト `tools/atlas/tests/atlas.e2e.cjs`（Playwright、現在31項目）にすべて合格。3回連続で同じ結果でした。
 
 | 確認したこと | 結果 |
 |---|---|

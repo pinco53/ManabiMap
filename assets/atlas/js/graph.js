@@ -82,6 +82,7 @@ export class Atlas {
     if (n.type === 'region') return null;
     if (n.series) return n.series;
     if (n.work) return this.seriesOf(n.work);
+    if (n.type === 'study') return null;
     return null;
   }
   color(id) {

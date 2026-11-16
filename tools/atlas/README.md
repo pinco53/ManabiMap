@@ -44,6 +44,7 @@ node tools/atlas/build.mjs --assign-ids
 | `questions.json` | 大きな問いと、作品の問いの親子関係 |
 | `works.overrides.json` | 作品への追記（いまは時間の範囲） |
 | `links.json` | 出来事どうしの対応（`sameAs`）、作品と出来事、出来事と人物、概念と出来事（`about`＝系譜） |
+| `research-places.json` | 研究が行われた場所（大学・都市）。学習・認知・発達の作品の地域の手がかり |
 | `places.json` | 場所の台帳。地域の定義と、出来事・人物ごとの地域・おおよその緯度経度 |
 | `edges.json` | 理由つきの接続（`why` 必須）。作品どうしの橋（`bridges`）、出来事や人物の影響（`influences`）と対比（`contrasts`）。`review: "pending"` は内容の確認待ち。確認したら `"ok"` に書き換える |
 | `edges.suggested.json` | 接続の候補。公開データには入らない |
