@@ -14,6 +14,17 @@
       else if (language) language.before(link);
       else nav.append(link);
     });
+    // 知の地図帳（全シリーズを時間・場所・概念・問いでつなぐ探索ページ）への入口。「学びの地図」の隣に置く。
+    document.querySelectorAll('.site-header .desktop-nav, .site-header .mobile-nav nav, .media-v2-header > nav, .media-v2-header > details nav, .part-v2-header > nav, .part-v2-header > details nav').forEach((nav) => {
+      if (nav.querySelector('a[href$="atlas.html"]')) return;
+      const inParts = location.pathname.includes('/parts/');
+      const map = Array.from(nav.querySelectorAll('a')).find((item) => item.getAttribute('href') === (inParts ? '../map.html' : 'map.html'));
+      if (!map) return;
+      const link = document.createElement('a');
+      link.href = inParts ? '../atlas.html' : 'atlas.html';
+      link.textContent = '知の地図帳';
+      map.after(link);
+    });
   }
   const hero = document.querySelector('.simple-page-hero, .map-hero--simple, .page-hero, body[data-part] .cover, body.media-hub .hero');
   if (!hero) return;

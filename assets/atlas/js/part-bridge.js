@@ -43,6 +43,8 @@
     '.atlas-bridge__card strong{font:500 19px/1.6 "Zen Old Mincho",serif;color:#fff}',
     '.atlas-bridge__why{font-size:13.5px;color:#c6c9d6}',
     '.atlas-bridge__card em{margin-top:6px;font-style:normal;font-size:12px;color:#aeb3c6}',
+    '.atlas-bridge__more{margin:30px 0 0;font-size:13px}',
+    '.atlas-bridge__more a{color:#d9bf7d;text-underline-offset:4px}',
     '@media (prefers-reduced-motion:reduce){.atlas-bridge__card{transition:none}.atlas-bridge__card:hover{transform:none}}'
   ].join('');
 
@@ -54,7 +56,8 @@
     '<h2 id="atlas-bridge-title">この部から、別のシリーズへ。</h2>' +
     '<p class="atlas-bridge__lead">この部は「' + esc(where) + '」の一つです。同じ問いは、別の時代や別の分野でも考えられてきました。</p>' +
     (entry.bridges.length ? '<h3>つながる部と、その理由</h3><div class="atlas-bridge__grid">' + entry.bridges.map(function (b) { return card(b, 'bridge', b.why); }).join('') + '</div>' : '') +
-    (entry.same.length ? '<h3>同じ問いの、別の答え</h3><div class="atlas-bridge__grid">' + entry.same.map(function (b) { return card(b, 'same-question', '共通の問い：' + b.question); }).join('') + '</div>' : '');
+    (entry.same.length ? '<h3>同じ問いの、別の答え</h3><div class="atlas-bridge__grid">' + entry.same.map(function (b) { return card(b, 'same-question', '共通の問い：' + b.question); }).join('') + '</div>' : '') +
+    '<p class="atlas-bridge__more"><a href="../atlas.html?focus=work:' + esc(id) + '" data-track-event="atlas_open" data-track-source="' + esc(id) + '">知の地図帳で、この部のつながりを見る <span aria-hidden="true">→</span></a></p>';
 
   function mount() {
     if (document.querySelector('.atlas-bridge')) return;

@@ -84,7 +84,7 @@
     var html = (entry.place ? '<p class="atlas-tl__place">場所：' + esc(entry.place) + '</p>' : '') +
       block('きっかけ・背景', entry.before, 'before') + block('その先に起きたこと', entry.after, 'after') +
       block('この出来事を扱う部', works, 'work') + block('別の年表でも読む', entry.same, 'same') +
-      '<a class="atlas-tl__compare" href="' + esc(riverUrl(entry)) + '" data-track-event="atlas_timeline_compare">同じ頃を、ほかの流れと比べる（知の地図帳・試作）→</a>';
+      '<a class="atlas-tl__compare" href="' + esc(riverUrl(entry)) + '" data-track-event="atlas_timeline_compare">同じ頃を、ほかの流れと比べる（知の地図帳）→</a>';
     extra.innerHTML = html;
     extra.hidden = false;
   }

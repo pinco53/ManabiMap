@@ -148,6 +148,18 @@
     document.getElementById('galaxyCardTitle').textContent = part.title;
     document.getElementById('galaxyCardQuestion').textContent = (part.questions && part.questions[0]) || part.subtitle || '';
     document.getElementById('galaxyCardPartLink').href = part.pageUrl || (isEnglish ? '../map.html' : 'map.html');
+    // With the Atlas work list loaded, the card also leads to the part's connections in the 知の地図帳.
+    if (part.atlasId) {
+      let atlasLink = document.getElementById('galaxyCardAtlas');
+      if (!atlasLink) {
+        atlasLink = document.createElement('a');
+        atlasLink.id = 'galaxyCardAtlas';
+        atlasLink.style.cssText = 'display:block;margin-top:10px;font-size:11px;color:inherit;opacity:.85;text-underline-offset:3px';
+        atlasLink.textContent = '知の地図帳で、つながりを見る →';
+        card.appendChild(atlasLink);
+      }
+      atlasLink.href = 'atlas.html?focus=' + part.atlasId;
+    }
     card.classList.add('is-open');
     card.setAttribute('aria-hidden', 'false');
     remember();

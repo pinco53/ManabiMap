@@ -61,6 +61,31 @@ const out = []; const ok = (name, cond, extra = '') => out.push((cond ? 'PASS ' 
   await p.goto(B + 'en/parts/part5.html'); await p.waitForTimeout(600);
   ok('English part pages are unchanged (no panel)', (await p.$$('.atlas-bridge')).length === 0);
 
+  // the 知の地図帳 is published: reachable from the shared navigation, the galaxy card and the bridge panel
+  for (const [name, url] of [['home', 'index.html'], ['a part page', 'parts/part5.html'], ['a philosophy page', 'parts/philosophy1.html'], ['the timeline', 'evolution.html']]) {
+    await p.goto(B + url, { waitUntil: 'domcontentloaded' });
+    await p.waitForTimeout(700);
+    const nav = await p.evaluate(() => [...document.querySelectorAll('a[href$="atlas.html"]')].filter((a) => a.closest('nav')).map((a) => a.href));
+    let reachable = nav.length > 0;
+    if (reachable) reachable = (await p.request.get(nav[0])).ok();
+    ok('navigation on ' + name + ' leads to the atlas', reachable, nav.length + ' link(s)');
+  }
+  await p.goto(B + 'en/index.html', { waitUntil: 'domcontentloaded' });
+  await p.waitForTimeout(700);
+  ok('English navigation is unchanged (no atlas link)', (await p.$$('nav a[href$="atlas.html"]')).length === 0);
+  await p.goto(B + 'atlas.html');
+  await p.waitForSelector('#atlasLenses button');
+  ok('the atlas is no longer hidden from search engines', (await p.$$('meta[name="robots"]')).length === 0 && (await p.getAttribute('link[rel="canonical"]', 'href')).endsWith('/atlas.html'));
+  await p.goto(B + 'index.html?part=math2');
+  await p.waitForTimeout(900);
+  const cardLink = await p.getAttribute('#galaxyCardAtlas', 'href');
+  ok('the galaxy card links to the part in the atlas', cardLink === 'atlas.html?focus=work:math2', cardLink);
+  await p.goto(B + 'parts/part8_2.html', { waitUntil: 'domcontentloaded' });
+  await p.waitForSelector('.atlas-bridge__more a');
+  await p.click('.atlas-bridge__more a');
+  await p.waitForSelector('#atlasCard h2');
+  ok('the bridge panel opens the part in the atlas', (await p.textContent('#atlasCard h2')) === 'AIが日常に入る日', await p.evaluate(() => location.search));
+
   // the 138億年 timeline: connections added to an event, without changing how it reads
   await p.goto(B + 'evolution.html', { waitUntil: 'domcontentloaded' });
   await p.waitForTimeout(2500);
