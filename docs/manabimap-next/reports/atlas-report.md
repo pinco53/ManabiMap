@@ -14,7 +14,7 @@
 | 年表 evolution.html ほか | events 160、philosophyPoints 24、workLinks 49、core 84 |
 | 静的ページ parts/(philosophy|eastern|math)*.html | works 8、episodes 80、lifeEvents 169、people 11 |
 | 手で登録した作品 works.manual.json | works 0、episodes 0 |
-| 追記 data/atlas/*.json | concepts dictionary 39/folded 81/keywords 12、questions big 13/parents 107、sameAs 20、places placed 589/pinned 240、bridges 38、influences 61 |
+| 追記 data/atlas/*.json | concepts dictionary 39/folded 81/keywords 12、questions big 13/parents 107、sameAs 20、places placed 589/pinned 240、bridges 38、routes 7、influences 61 |
 
 | 種類 | 件数 |
 |---|---|
@@ -24,7 +24,7 @@
 | page | 4 |
 | work | 41 |
 | question | 120 |
-| route | 6 |
+| route | 13 |
 | media | 407 |
 | episode | 152 |
 | person | 61 |
@@ -37,13 +37,13 @@
 
 | 生成物 | サイズ（非圧縮） |
 |---|---|
-| atlas-core.json | 177 KB |
+| atlas-core.json | 186 KB |
 | atlas-events.json | 387 KB |
 | atlas-detail.json | 343 KB |
 | atlas-works.js | 29 KB |
-| atlas-bridges.js | 39 KB |
+| atlas-bridges.js | 45 KB |
 | atlas-timeline.js | 51 KB |
-| atlas-index.json | 28 KB |
+| atlas-index.json | 29 KB |
 
 ## 2. シリーズ別の作品
 

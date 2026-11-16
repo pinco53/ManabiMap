@@ -215,8 +215,8 @@ git diff --stat origin/main...HEAD -- . ':!docs' ':!data/atlas' ':!tools/atlas' 
 | テスト | 対象 | 項目数 |
 |---|---|---|
 | `tools/atlas/build.mjs --check` | データの構造と生成物の鮮度 | エラー0件 |
-| `tools/atlas/tests/site.e2e.cjs` | 既存ページ（銀河、地図ページ、作品ページ44枚、年表、ナビゲーション、英語版が変わっていないこと） | 32 |
-| `tools/atlas/tests/atlas.e2e.cjs` | 知の地図帳の動作 | 31 |
+| `tools/atlas/tests/site.e2e.cjs` | 既存ページ（銀河、地図ページ、作品ページ44枚、年表、ナビゲーション、英語版が変わっていないこと） | 34 |
+| `tools/atlas/tests/atlas.e2e.cjs` | 知の地図帳の動作（道を含む） | 35 |
 | `tools/atlas/tests/add-series.test.mjs` | 新シリーズ追加のリハーサル | 12 |
 
 ## 9. 完了の判定

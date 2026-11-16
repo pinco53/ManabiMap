@@ -70,6 +70,19 @@ const out = []; const ok = (name, cond, extra = '') => out.push((cond ? 'PASS ' 
   ok('a learning work takes its place from where the research was done', stage.some(t => t.startsWith('研究の舞台')) && where.includes('北アメリカ'), where.trim());
   await p.waitForTimeout(900); await p.screenshot({ path: S + '/shots/15-world-research.png' });
 
+  // routes across series: offered when nothing is chosen, each leg with its reason, walkable and shareable
+  await p.goto(U); await p.waitForSelector('#atlasTrail [data-go^="route:"]');
+  ok('routes are offered before anything is chosen', (await p.$$('#atlasTrail [data-go^="route:"]')).length === 3);
+  await p.click('#atlasTrail [data-go="route:words-and-world"]'); await p.waitForSelector('[data-act="walk"]');
+  const legs = await p.$$eval('#atlasCard .atlas-go span', els => els.filter(e => e.textContent.length > 30).length);
+  ok('a route card gives a reason for every step after the first', legs === 3, legs + ' reasons for 4 steps');
+  await p.click('[data-act="walk"]'); await p.waitForFunction(() => location.search.includes('path='));
+  const walked = await p.evaluate(() => ({ url: location.search, name: (document.querySelector('#atlasTrail .is-path') || {}).textContent, steps: document.querySelectorAll('#atlasTrail .is-path').length }));
+  ok('walking a route puts it in the address and names it in the trail', walked.url.includes('work:part5,work:philosophy1,work:part8,work:math2') && walked.name.includes('言葉は、世界を') && walked.steps === 5, walked.name);
+  await p.waitForTimeout(900); await p.screenshot({ path: S + '/shots/16-route.png' });
+  await p.goto(U + '?view=list'); await p.waitForSelector('#atlasListRoutes');
+  ok('the list shows the routes across series', (await p.$$eval('#atlasList [data-go^="route:"]', els => els.length)) === 13);
+
   // list view as the accessible path
   await p.goto(U); await p.waitForFunction(() => document.getElementById('atlasLenses').children.length > 0); await p.keyboard.press('Tab'); await p.keyboard.press('Enter'); await p.waitForFunction(() => document.getElementById('atlas').dataset.view === 'list');
   const listed = await p.$$eval('#atlasList [data-go^="work:"]', els => els.length); ok('skip link opens list with every work', listed === 41, listed + ' works');

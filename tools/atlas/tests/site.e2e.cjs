@@ -86,6 +86,14 @@ const out = []; const ok = (name, cond, extra = '') => out.push((cond ? 'PASS ' 
   await p.waitForSelector('#atlasCard h2');
   ok('the bridge panel opens the part in the atlas', (await p.textContent('#atlasCard h2')) === 'AIが日常に入る日', await p.evaluate(() => location.search));
 
+  await p.goto(B + 'parts/part15.html', { waitUntil: 'domcontentloaded' });
+  await p.waitForSelector('.atlas-bridge__routes a');
+  const routeLinks = await p.$$eval('.atlas-bridge__routes a', (els) => els.map((a) => a.textContent));
+  ok('a part page lists the routes that pass through it', routeLinks.length === 2 && routeLinks.some((t) => t.includes('見えている世界は、本物か')), routeLinks.length + ' routes');
+  await p.click('.atlas-bridge__routes a');
+  await p.waitForSelector('[data-act="walk"]');
+  ok('a route link opens that route in the atlas, already laid out', (await p.evaluate(() => location.search)).includes('path=work:') && (await p.getAttribute('[data-act="walk"]', 'aria-pressed')) === 'true');
+
   // the 138億年 timeline: connections added to an event, without changing how it reads
   await p.goto(B + 'evolution.html', { waitUntil: 'domcontentloaded' });
   await p.waitForTimeout(2500);

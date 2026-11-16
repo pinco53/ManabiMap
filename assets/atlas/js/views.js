@@ -61,7 +61,8 @@ export function createViews(canvas, atlas, store, env) {
       if (!counted && atlas.loaded.has('detail')) { counted = true; atlas.all('media').forEach((m) => atlas.links(m.id, ['deepens']).forEach((l) => media.set(l.other, (media.get(l.other) || 0) + 1))); }
       const works = atlas.all('work'), scale = unit() * cam.z, focus = atlas.get(s.focus);
       const near = new Map(focus ? atlas.links(focus.id, ['bridges', 'next', 'relatesTo']).filter((l) => atlas.get(l.other).pos).map((l) => [l.other, l.edge]) : []);
-      const member = focus && focus.type !== 'work' ? new Set(atlas.members(focus.id)) : null;
+      // what a non-work focus gathers: the steps of a route, or the works of a question, concept, series…
+      const member = focus && focus.type !== 'work' ? new Set(focus.type === 'route' ? focus.steps : atlas.members(focus.id)) : null;
 
       atlas.all('family').forEach((family) => {       // a programme or a tradition: a soft outline around its series
         const own = atlas.all('series').filter((x) => x.family === family.id && x.pos && x.status !== 'planned');

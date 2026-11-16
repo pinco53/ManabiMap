@@ -179,7 +179,7 @@ export class Atlas {
   search(text, limit = 8) {
     const q = text.trim().toLowerCase();
     if (!q) return [];
-    const order = { work: 0, series: 1, question: 2, concept: 3, person: 4, event: 5 };
+    const order = { work: 0, series: 1, route: 1.5, question: 2, concept: 3, person: 4, event: 5 };
     return [...this.nodes.values()].filter((n) => n.type in order && !(n.type === 'question' && n.level !== 'big') && n.stream !== 'work-timeline')
       .map((n) => { const hay = (this.title(n) + ' ' + ((n.summary && n.summary.ja) || '') + ' ' + (n.keywords || []).join(' ')).toLowerCase(); const at = hay.indexOf(q); return at < 0 ? null : { n, score: (this.title(n).toLowerCase().includes(q) ? 0 : 50) + order[n.type] * 5 + Math.min(at, 40) / 40 }; })
       .filter(Boolean).sort((a, b) => a.score - b.score).slice(0, limit).map((r) => r.n.id);

@@ -64,6 +64,7 @@ node tools/atlas/tests/add-series.test.mjs
 | `questions.json` | 大きな問いと、作品の問いの親子関係 |
 | `works.overrides.json` | 作品への追記（いまは時間の範囲） |
 | `links.json` | 出来事どうしの対応（`sameAs`）、作品と出来事、出来事と人物、概念と出来事（`about`＝系譜） |
+| `routes.json` | シリーズをまたぐ道。作品IDの並び。隣り合う作品のあいだに理由つきの橋が必要 |
 | `works.manual.json` | 手で登録する作品。既存の型に合わないページ（新しいシリーズ、単発の作品）はここに書く。書き方は [`docs/manabimap-next/11-adding-a-series.md`](../../docs/manabimap-next/11-adding-a-series.md) |
 | `research-places.json` | 研究が行われた場所（大学・都市）。学習・認知・発達の作品の地域の手がかり |
 | `places.json` | 場所の台帳。地域の定義と、出来事・人物ごとの地域・おおよその緯度経度 |

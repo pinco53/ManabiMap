@@ -114,6 +114,21 @@ export function enrich(g) {
 
   readJson('data/atlas/edges.json', []).forEach((e) => g.edge(e.from, e.to, e.type, { ...e, origin: 'curated' }));
   stats.bridges = g.edges.filter((e) => e.origin === 'curated' && e.type === 'bridges').length;
+
+  // --- routes across series: every step walks a reasoned bridge, so each leg can say why it leads on
+  const routes = readJson('data/atlas/routes.json', []);
+  routes.forEach((r) => {
+    const legs = [];
+    r.steps.forEach((step, i) => {
+      if (!g.nodes.has(step)) throw new Error(`routes.json: ${r.id} の ${step} がありません`);
+      if (!i) return;
+      const bridge = g.edges.find((e) => e.type === 'bridges' && e.origin === 'curated' && ((e.from === r.steps[i - 1] && e.to === step) || (e.to === r.steps[i - 1] && e.from === step)));
+      if (!bridge) throw new Error(`routes.json: ${r.id} の ${r.steps[i - 1]} → ${step} に橋がありません。道は、理由の書かれた橋の上だけを通します`);
+      legs.push({ from: r.steps[i - 1], to: step, why: bridge.why });
+    });
+    g.node({ id: r.id, type: 'route', kind: 'across-series', title: r.title, summary: r.summary, steps: r.steps, legs, source: { from: 'data/atlas/routes.json', id: r.id } });
+  });
+  stats.routes = routes.length;
   stats.influences = g.edges.filter((e) => ['influences', 'contrasts'].includes(e.type)).length;
   return stats;
 }

@@ -110,6 +110,16 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
       return head(n.field ? `<i>${esc(n.field)}</i>` : '') + (n.role ? `<p class="atlas-card__lead">${esc(n.role)}</p>` : '') + (summary ? `<p class="atlas-card__lead">${esc(summary)}</p>` : '') +
         lineage + block('登場する作品', pick('work')) + block('関わるシリーズ', pick('series')) + block('年表の出来事', pick('event')) + block('研究カード', pick('study').slice(0, 5)) + `<div class="atlas-actions">${pathButton(id)}</div>`;
     }
+    if (n.type === 'route') {
+      const steps = n.steps.filter((x) => atlas.get(x)), legs = n.legs || [];
+      const across = n.kind === 'across-series', walking = Boolean(store.state.path) && store.state.path.join() === steps.join();
+      // each step after the first says why the road leads there
+      const items = steps.map((x, i) => go(x, { note: `${i + 1}歩目`, why: i && legs[i - 1] ? legs[i - 1].why.ja : '' }));
+      return head(`<i>${across ? 'シリーズをまたぐ道' : '入門の道'}</i>`) + (summary ? `<p class="atlas-card__lead">${esc(summary)}</p>` : '') +
+        `<p class="atlas-note">${steps.length}歩の道です。${across ? `${new Set(steps.map((x) => atlas.seriesOf(x))).size}つのシリーズを通ります。一歩ごとに、そこへ進む理由が書いてあります。` : ''}</p>` +
+        `<div class="atlas-actions"><button type="button" class="is-primary" data-act="walk" aria-pressed="${walking}">${walking ? 'この道を歩いています' : 'この道を歩く'}</button></div>` +
+        block('道すじ', items) + '<div data-ai></div>';
+    }
     if (n.type === 'study') {
       const works = [...new Set(atlas.links(id, ['supports']).map((l) => l.other).map((o) => (atlas.get(o).type === 'episode' ? atlas.get(o).work : o)).filter((o) => atlas.get(o).type === 'work'))];
       const people = atlas.links(id, ['features']).map((l) => l.other).filter((o) => atlas.get(o).type === 'person');
@@ -171,6 +181,12 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
     else if (t.dataset.anchor) store.set({ view: 'stars', anchor: t.dataset.anchor, focus: t.dataset.anchor });
     else if (t.dataset.viewTo) store.set({ view: t.dataset.viewTo, ...(t.dataset.viewTo === 'stars' ? { anchor: null } : {}), ...(t.dataset.viewTo === 'galaxy' ? { depth: Math.max(s.depth, 50) } : {}) });
     else if (t.dataset.act === 'close') { store.set({ focus: null }); $('atlasCanvas').focus(); }
+    else if (t.dataset.act === 'walk') {
+      const route = atlas.get(s.focus), steps = route.steps.filter((x) => atlas.get(x));
+      store.set({ path: steps, start: null, ...(s.view === 'galaxy' ? { depth: Math.max(s.depth, 46) } : {}) });
+      renderCard(true);
+      say(`「${title(route.id)}」を歩きます。${steps.length}歩の道です。下の道すじから順に進めます。`);
+    }
     else if (t.dataset.act === 'start') { store.set({ start: s.start === s.focus ? null : s.focus }); say(store.state.start ? `「${title(s.focus)}」を出発点にしました。行き先を選んで、道を探してください。` : '出発点を外しました。'); }
     else if (t.dataset.act === 'path') {
       const found = atlas.path(s.start, s.focus);
@@ -238,15 +254,22 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
     if (!t) return;
     if (t.dataset.go) store.set({ focus: t.dataset.go });
     else if (t.dataset.act === 'clear') store.set({ path: null });
+    else if (t.dataset.act === 'routes') { store.set({ view: 'list' }); requestAnimationFrame(() => { const el = document.getElementById('atlasListRoutes'); if (el) el.scrollIntoView({ block: 'start' }); }); }
     else if (t.dataset.act === 'share') { const done = () => say('この画面のリンクをコピーしました。'); (navigator.clipboard ? navigator.clipboard.writeText(location.href) : Promise.reject()).then(done, () => window.prompt('このリンクをコピーしてください', location.href)); }
   });
   function renderTrail() {
     const s = store.state, step = (id, cls = '') => `<button type="button" class="${cls}" data-go="${esc(id)}">${esc(title(id).slice(0, 16))}</button>`;
     let html = '';
     if (s.path) {
-      html += '<span>見つけた道</span>' + s.path.map((id, i) => { const link = i ? atlas.links(s.path[i - 1]).find((l) => l.other === id) : null; return (i ? `<i>—${esc(link ? ({ bridges: '橋', about: '概念', asks: '問い', next: '次', happenedAt: '出来事', features: '人物', sameAs: '同題材', relatesTo: '関連' }[link.edge.type] || '') : '')}→</i>` : '') + step(id, 'is-path'); }).join('') + '<button type="button" data-act="clear" aria-label="見つけた道を消す">×</button>';
+      // a path that is one of the named routes carries its name, and leads back to the route's card
+      const named = atlas.all('route').find((r) => r.steps.filter((x) => atlas.get(x)).join() === s.path.join());
+      html += (named ? `<span>道</span><button type="button" class="is-path" data-go="${esc(named.id)}">${esc(title(named.id))}</button><i>：</i>` : '<span>見つけた道</span>') + s.path.map((id, i) => { const between = i ? atlas.links(s.path[i - 1]).filter((l) => l.other === id) : [], link = between.find((l) => l.edge.type === 'bridges') || between[0] || null; return (i ? `<i>—${esc(link ? ({ bridges: '橋', about: '概念', asks: '問い', next: '次', happenedAt: '出来事', features: '人物', sameAs: '同題材', relatesTo: '関連' }[link.edge.type] || '') : '')}→</i>` : '') + step(id, 'is-path'); }).join('') + '<button type="button" data-act="clear" aria-label="見つけた道を消す">×</button>';
     } else if (s.trail.length) html += '<span>来た道</span>' + s.trail.map((id, i) => (i ? '<i>›</i>' : '') + step(id)).join('');
-    else html += '<span>星を選ぶと、ここに歩いた道が残ります。</span>';
+    else {
+      // nothing chosen yet: offer a few roads to walk
+      const offer = atlas.all('route').filter((r) => r.kind === 'across-series').slice(0, 3);
+      html += '<span>道を歩く</span>' + offer.map((r) => `<button type="button" data-go="${esc(r.id)}">${esc(title(r.id))}</button>`).join('<i>／</i>') + (offer.length ? '<i>／</i><button type="button" data-act="routes">ほかの道</button>' : '<span>星を選ぶと、ここに歩いた道が残ります。</span>');
+    }
     $('atlasTrail').innerHTML = html + '<button type="button" class="atlas-trail__end" data-act="share">この画面を共有</button>';
   }
 
@@ -258,6 +281,8 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
     $('atlasList').innerHTML = '<div class="atlas-list__inner">' +
       series.filter((x) => x.status !== 'planned').map((x) => `<h2>${esc(x.title.ja)}<small>${esc(familyOf(x))}${atlas.members(x.id).length}作品</small></h2><ul>${atlas.members(x.id).map(item).join('')}</ul>`).join('') +
       `<h2>構想中のシリーズ<small>作品ができると星が灯ります</small></h2><ul>${series.filter((x) => x.status === 'planned').map((x) => go(x.id)).join('')}</ul>` +
+      `<h2 id="atlasListRoutes">シリーズをまたぐ道<small>一歩ごとに、進む理由がある</small></h2><ul>${atlas.all('route').filter((r) => r.kind === 'across-series').map((r) => go(r.id, { note: r.steps.length + '歩', why: r.summary.ja })).join('')}</ul>` +
+      `<h2>入門の道<small>はじめての人向け</small></h2><ul>${atlas.all('route').filter((r) => r.kind !== 'across-series').map((r) => go(r.id, { note: r.steps.length + '歩', why: (r.summary && r.summary.ja) || '' })).join('')}</ul>` +
       `<h2>大きな問い<small>問いの星座の中心</small></h2><ul>${atlas.all('question').filter((q) => q.level === 'big').map((q) => go(q.id, { note: atlas.members(q.id).length + '作品' })).join('')}</ul>` +
       `<h2>概念<small>作品をまたいで現れる考え方</small></h2><ul>${atlas.all('concept').map((c) => go(c.id, { note: atlas.members(c.id).length + '作品' })).join('')}</ul></div>`;
   }

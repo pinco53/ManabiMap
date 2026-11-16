@@ -43,6 +43,10 @@
     '.atlas-bridge__card strong{font:500 19px/1.6 "Zen Old Mincho",serif;color:#fff}',
     '.atlas-bridge__why{font-size:13.5px;color:#c6c9d6}',
     '.atlas-bridge__card em{margin-top:6px;font-style:normal;font-size:12px;color:#aeb3c6}',
+    '.atlas-bridge__routes{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px}',
+    '.atlas-bridge__routes a{display:inline-flex;align-items:baseline;gap:12px;padding:12px 18px;border:1px solid rgba(217,191,125,.35);border-radius:999px;color:#f4f1e8;font:500 15px/1.5 "Zen Old Mincho",serif;text-decoration:none}',
+    '.atlas-bridge__routes a:hover,.atlas-bridge__routes a:focus-visible{border-color:#d9bf7d;background:rgba(217,191,125,.08)}',
+    '.atlas-bridge__routes span{font:400 11px/1.4 "Noto Sans JP",sans-serif;color:#d9bf7d;white-space:nowrap}',
     '.atlas-bridge__more{margin:30px 0 0;font-size:13px}',
     '.atlas-bridge__more a{color:#d9bf7d;text-underline-offset:4px}',
     '@media (prefers-reduced-motion:reduce){.atlas-bridge__card{transition:none}.atlas-bridge__card:hover{transform:none}}'
@@ -57,6 +61,9 @@
     '<p class="atlas-bridge__lead">この部は「' + esc(where) + '」の一つです。同じ問いは、別の時代や別の分野でも考えられてきました。</p>' +
     (entry.bridges.length ? '<h3>つながる部と、その理由</h3><div class="atlas-bridge__grid">' + entry.bridges.map(function (b) { return card(b, 'bridge', b.why); }).join('') + '</div>' : '') +
     (entry.same.length ? '<h3>同じ問いの、別の答え</h3><div class="atlas-bridge__grid">' + entry.same.map(function (b) { return card(b, 'same-question', '共通の問い：' + b.question); }).join('') + '</div>' : '') +
+    ((entry.routes || []).length ? '<h3>この部を通る道</h3><ul class="atlas-bridge__routes">' + entry.routes.map(function (r) {
+      return '<li><a href="../' + esc(r.url) + '" data-track-event="atlas_route_open" data-track-source="' + esc(id) + '">' + esc(r.title) + '<span>' + r.steps + '歩の道 →</span></a></li>';
+    }).join('') + '</ul>' : '') +
     '<p class="atlas-bridge__more"><a href="../atlas.html?focus=work:' + esc(id) + '" data-track-event="atlas_open" data-track-source="' + esc(id) + '">知の地図帳で、この部のつながりを見る <span aria-hidden="true">→</span></a></p>';
 
   function mount() {

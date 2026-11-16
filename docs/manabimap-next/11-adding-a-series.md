@@ -182,6 +182,7 @@ node tools/atlas/tests/add-series.test.mjs
 | シリーズの名前を変えたい | `title` を書き換えるだけ。`id` は変えない |
 | 作品をやめたい・IDを変えたい | 消したIDを `retired-ids.json` に書く（書かないとビルドが止まる。公開済みのリンクを守るため） |
 | 年表に出来事を足した | `evolution.html` に足してから `--assign-ids` つきでビルド。場所は `places.json`、因果は `edges.json` に書ける |
+| シリーズをまたぐ道を足したい | `routes.json` に `id` `title` `summary` `steps`（作品IDの並び）を書く。**隣り合う作品のあいだには、理由つきの橋が必要**（無ければビルドがエラーで知らせる）。一歩ごとの理由は橋から自動で引かれる |
 | 新しい人物を足したい | `people.json` に `id` `name` と、分かれば `time`。場所は `places.json` |
 
 ## 「おはなし おはなし」を足す場合（例）
