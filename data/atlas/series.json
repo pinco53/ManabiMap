@@ -119,7 +119,8 @@
   },
   "family": "family:philosophy",
   "match": "^philosophy\\d+\\.html$",
-  "status": "published"
+  "status": "published",
+  "mark": "西哲"
  },
  {
   "id": "series:philosophy-east",
@@ -131,7 +132,8 @@
   },
   "family": "family:philosophy",
   "match": "^eastern\\d+\\.html$",
-  "status": "published"
+  "status": "published",
+  "mark": "東哲"
  },
  {
   "id": "series:math",
@@ -142,7 +144,8 @@
    "ja": "変化と偶然を、数でとらえる。"
   },
   "match": "^math\\d+\\.html$",
-  "status": "published"
+  "status": "published",
+  "mark": "数学"
  },
  {
   "id": "series:science",

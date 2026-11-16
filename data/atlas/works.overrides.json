@@ -271,5 +271,45 @@
     }
    }
   ]
+ },
+ "work:philosophy1": {
+  "listSummary": {
+   "ja": "ソシュールとレヴィナス。全10話の学びの地図。"
+  }
+ },
+ "work:philosophy2": {
+  "listSummary": {
+   "ja": "レヴィ＝ストロースとルソー。全10話の学びの地図。"
+  }
+ },
+ "work:philosophy3": {
+  "listSummary": {
+   "ja": "カントとヘーゲル。全10話の学びの地図。"
+  }
+ },
+ "work:philosophy4": {
+  "listSummary": {
+   "ja": "フッサールとハイデガー。全10話の学びの地図。"
+  }
+ },
+ "work:eastern1": {
+  "listSummary": {
+   "ja": "ブッダと龍樹。全10話の学びの地図。"
+  }
+ },
+ "work:eastern2": {
+  "listSummary": {
+   "ja": "孔子と老子・荘子。全10話の学びの地図。"
+  }
+ },
+ "work:math1": {
+  "listSummary": {
+   "ja": "勢いはかりと、つみ上げ箱。全10話の学びの地図。"
+  }
+ },
+ "work:math2": {
+  "listSummary": {
+   "ja": "たぶんの目もりと、たくさんのめがね。全10話の学びの地図。"
+  }
  }
 }

@@ -15,11 +15,14 @@
   var action = mode === 'map' ? 'この部を見る' : '対話テーマを選ぶ';
   var groups = [];
 
-  data.parts.forEach(function (part) {
+  // The map index lists every series when the Atlas work list is loaded; the dialogue index keeps the original parts.
+  var atlasWorks = mode === 'map' && Array.isArray(window.ManabiAtlasWorks) && window.ManabiAtlasWorks.length ? window.ManabiAtlasWorks : null;
+
+  (atlasWorks || data.parts).forEach(function (part) {
     var group = part.group || 'そのほか';
     var existing = groups.find(function (item) { return item.name === group; });
     if (!existing) {
-      existing = { name: group, parts: [] };
+      existing = { name: group, programme: part.programme || '', parts: [] };
       groups.push(existing);
     }
     existing.parts.push(part);
@@ -33,7 +36,7 @@
       '<div class="simple-part-grid">' + group.parts.map(function (part) {
         var tags = (part.tags || []).slice(0, 3).map(function (tag) { return '<span>' + escapeHtml(tag) + '</span>'; }).join('');
         return '<a class="simple-part-card" href="' + escapeHtml(part.pageUrl) + '">' +
-          '<span class="simple-part-card__number">第' + escapeHtml(part.number) + '部</span>' +
+          '<span class="simple-part-card__number">' + escapeHtml(part.listLabel || '第' + part.number + '部') + '</span>' +
           '<h3>' + escapeHtml(part.title) + '</h3>' +
           '<p>' + escapeHtml(part.subtitle) + '</p>' +
           '<span class="simple-part-card__tags">' + tags + '</span>' +

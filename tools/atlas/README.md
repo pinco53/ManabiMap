@@ -25,6 +25,20 @@ node tools/atlas/build.mjs --check
 node tools/atlas/build.mjs --assign-ids
 ```
 
+## テスト
+
+Playwright が必要です（サイト自体の依存ではありません）。リポジトリ直下で `python3 -m http.server 8765` を起動した状態で実行します。
+
+```bash
+node tools/atlas/tests/atlas.e2e.cjs
+```
+
+```bash
+node tools/atlas/tests/site.e2e.cjs
+```
+
+前者は試作ページ、後者は Atlas の作品一覧を読む既存ページ（トップの銀河、`map.html`）と、変わってはいけないページの確認です。
+
 ## 何を読み、何を書くか
 
 | 読む（変更しない） | アダプタ |
@@ -56,6 +70,7 @@ node tools/atlas/build.mjs --assign-ids
 | `assets/atlas/data/atlas-core.json` | シリーズ・作品・概念・問い・人物・レンズ・道 |
 | `assets/atlas/data/atlas-events.json` | 出来事 |
 | `assets/atlas/data/atlas-detail.json` | 話・note・Podcast・動画・研究 |
+| `assets/atlas/data/atlas-works.js` | 公開中の全作品の一覧（`window.ManabiAtlasWorks`）。トップの銀河と `map.html` が読む |
 | `assets/atlas/data/atlas-index.json` | ID の一覧と件数（次回ビルドとの比較用） |
 | `docs/manabimap-next/reports/atlas-report.md` | 件数・編集待ち・注意の一覧 |
 

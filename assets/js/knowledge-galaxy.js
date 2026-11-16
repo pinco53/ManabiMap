@@ -53,14 +53,18 @@
     '見方を更新する': 'RENEWING THE VIEW', '文明と未来': 'CIVILIZATION & FUTURES', '見方と判断': 'PERCEPTION & JUDGMENT'
   };
   const lensKeys = Object.keys(lensMeta);
-  const parts = data.parts.map(function (part) {
+  // Every series, when the Atlas work list is loaded (Japanese pages). Without it, the original 21 parts.
+  const atlasWorks = !isEnglish && Array.isArray(window.ManabiAtlasWorks) && window.ManabiAtlasWorks.length ? window.ManabiAtlasWorks : null;
+  const parts = (atlasWorks || data.parts).map(function (part) {
     const text = [part.title, part.subtitle, (part.tags || []).join(' '), (part.questions || []).join(' ')].join(' ');
-    const lenses = [];
+    const lenses = Array.isArray(part.lenses) ? part.lenses.slice() : [];
+    if (!Array.isArray(part.lenses)) {
     if (/AI|人間|思考|判断|感性|前提|勘違い|身体|意識/.test(text)) lenses.push('thinking');
     if (/学び|教育|知識|対話|理解|学校|協働|問い/.test(text)) lenses.push('learning');
     if (/言葉|文字|思考|知識|記録|物語|コミュニケーション/.test(text)) lenses.push('language');
     if (/道具|機械|技術|AI|蒸気|コンピュータ|エネルギー|デジタル|交換|移動/.test(text)) lenses.push('tool');
     if (/数字|価値|測|計算|エネルギー|交換|余っ|足り|経済/.test(text)) lenses.push('number');
+    }
     if (!lenses.length) lenses.push('learning');
     const english = englishParts[part.id];
     const fullEnglishPart = window.ManabiMapEnglish && window.ManabiMapEnglish.partsById && window.ManabiMapEnglish.partsById[part.id];
@@ -73,6 +77,16 @@
 
   let activeLens = 'thinking';
   let selected = parts.find(function (part) { return part.id === 'part3'; }) || parts[0];
+  // The lens and the chosen part are kept in the address, so a view can be shared and restored.
+  const startParams = new URLSearchParams(window.location.search);
+  function remember() {
+    if (!window.history || !history.replaceState) return;
+    const params = new URLSearchParams(window.location.search);
+    if (activeLens === 'thinking') params.delete('lens'); else params.set('lens', activeLens);
+    if (card && card.classList.contains('is-open')) params.set('part', selected.id); else params.delete('part');
+    const query = params.toString();
+    history.replaceState(null, '', window.location.pathname + (query ? '?' + query : '') + window.location.hash);
+  }
   let depth = 18;
   let inView = true;
   const pointer = { targetX: 0, targetY: 0, x: 0, y: 0, active: false };
@@ -116,6 +130,7 @@
       if (first) selected = first;
       closeCard();
       updateInterface();
+      remember();
     });
   });
   depthInput.addEventListener('input', function () { depth = Number(depthInput.value); updateInterface(); });
@@ -129,14 +144,15 @@
   function openCard(part) {
     selected = part;
     document.getElementById('galaxyCardGroup').textContent = 'YOU ARE HERE / ' + (part.group || 'MANABI MAP');
-    document.getElementById('galaxyCardPart').textContent = 'PART ' + part.number;
+    document.getElementById('galaxyCardPart').textContent = part.partLabel || 'PART ' + part.number;
     document.getElementById('galaxyCardTitle').textContent = part.title;
     document.getElementById('galaxyCardQuestion').textContent = (part.questions && part.questions[0]) || part.subtitle || '';
     document.getElementById('galaxyCardPartLink').href = part.pageUrl || (isEnglish ? '../map.html' : 'map.html');
     card.classList.add('is-open');
     card.setAttribute('aria-hidden', 'false');
+    remember();
   }
-  function closeCard() { card.classList.remove('is-open'); card.setAttribute('aria-hidden', 'true'); }
+  function closeCard() { card.classList.remove('is-open'); card.setAttribute('aria-hidden', 'true'); remember(); }
   document.getElementById('galaxyCardClose').addEventListener('click', closeCard);
   document.getElementById('galaxyRandom').addEventListener('click', function () {
     const pool = parts.filter(related);
@@ -228,6 +244,7 @@
       field.beginPath(); field.arc(particle.x, particle.y, size * 3.2, 0, Math.PI * 2); field.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha * .1 + ')'; field.fill();
       field.beginPath(); field.arc(particle.x, particle.y, size, 0, Math.PI * 2); field.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')'; field.fill();
     });
+    const labelBoxes = [];
     parts.forEach(function (part, index) {
       const target = anchorTarget(index);
       anchors[part.id] = { x: target.x, y: target.y };
@@ -242,7 +259,11 @@
       if (visible && (isSelected || near || overviewLabel)) {
         field.font = (isSelected ? '600 13px' : '500 10px') + (isEnglish ? ' "Inter", sans-serif' : ' "Noto Sans JP", sans-serif');
         field.fillStyle = isSelected ? '#fff' : '#ebebf6d1';
-        field.fillText(part.number + '  ' + part.title, target.x + 12, target.y - 7);
+        const text = (part.mark || part.number) + '  ' + part.title, textWidth = field.measureText(text).width;
+        const box = [target.x + 8, target.y - 20, target.x + 16 + textWidth, target.y - 2];
+        // With every series on the map, labels would pile up: draw one only where there is room.
+        const crowded = !isSelected && !near && labelBoxes.some(function (b) { return box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]; });
+        if (!crowded) { labelBoxes.push(box); field.fillText(text, target.x + 12, target.y - 7); }
       }
     });
   }
@@ -258,6 +279,41 @@
     const nearest = Object.keys(anchors).map(function (id) { return { id: id, distance: Math.hypot(anchors[id].x - p.x, anchors[id].y - p.y) }; }).sort(function (a, b) { return a.distance - b.distance; })[0];
     if (nearest && nearest.distance < 48) openCard(parts.find(function (part) { return part.id === nearest.id; }));
   });
+
+  // Keyboard: the canvas can take focus; arrows step through the parts drawn to the current question.
+  fieldCanvas.tabIndex = 0;
+  if (!isEnglish) fieldCanvas.setAttribute('aria-label', 'Manabi Mapの' + parts.length + 'の学びを銀河として表した地図。左右の矢印キーで学びを順に選べます。');
+  fieldCanvas.addEventListener('keydown', function (event) {
+    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
+    if (step) {
+      event.preventDefault();
+      const pool = parts.filter(related);
+      const at = pool.findIndex(function (part) { return part.id === selected.id; });
+      openCard(pool[(at + step + pool.length) % pool.length]);
+    } else if (event.key === 'Enter') { event.preventDefault(); openCard(selected); }
+    else if (event.key === 'Escape') closeCard();
+  });
+  // The same parts as plain links, for screen readers and for when the canvas cannot be used.
+  (function () {
+    const list = document.createElement('nav');
+    list.className = 'visually-hidden';
+    list.setAttribute('aria-label', isEnglish ? 'All parts' : 'すべての学び');
+    const ul = document.createElement('ul');
+    parts.forEach(function (part) {
+      const li = document.createElement('li'), a = document.createElement('a');
+      a.href = part.pageUrl || 'map.html'; a.tabIndex = -1;
+      a.textContent = (part.group ? part.group + ' ' : '') + (part.partLabel || 'PART ' + part.number) + ' ' + part.title;
+      li.appendChild(a); ul.appendChild(li);
+    });
+    list.appendChild(ul); section.appendChild(list);
+  })();
+  // Restore what the address asks for.
+  (function () {
+    const lens = startParams.get('lens'), wanted = parts.find(function (part) { return part.id === startParams.get('part'); });
+    const button = lens && lens !== activeLens && document.querySelector('[data-galaxy-lens="' + lens.replace(/[^a-z]/g, '') + '"]');
+    if (button) button.click();
+    if (wanted) openCard(wanted);
+  })();
 
   // Keep the named learning stars readable while giving the surrounding
   // galaxy enough fine-grained light to feel deep rather than empty.
