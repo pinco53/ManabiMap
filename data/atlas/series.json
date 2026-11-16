@@ -1,13 +1,101 @@
 [
  {
-  "id": "series:human",
+  "id": "series:civilization",
   "title": {
-   "ja": "ハルとおじいさん",
-   "en": "Haru and Grandpa"
+   "ja": "文明史"
   },
   "summary": {
-   "ja": "人類史・技術・学び・AIをたどる本編。"
+   "ja": "技術・エネルギー・交換・移動から、人類の歩みをたどる。"
   },
+  "family": "family:haru",
+  "works": [
+   "work:part1",
+   "work:part2",
+   "work:part16",
+   "work:part17",
+   "work:part19",
+   "work:part20"
+  ],
+  "status": "published"
+ },
+ {
+  "id": "series:ai",
+  "title": {
+   "ja": "AIと社会"
+  },
+  "summary": {
+   "ja": "生成AIはどこから来て、暮らしと学びをどう変えるのか。"
+  },
+  "family": "family:haru",
+  "works": [
+   "work:part3",
+   "work:part8",
+   "work:part8-2"
+  ],
+  "status": "published"
+ },
+ {
+  "id": "series:words-numbers",
+  "title": {
+   "ja": "言葉・文字・数"
+  },
+  "summary": {
+   "ja": "考えるための道具は、どう生まれ、何を変えたのか。"
+  },
+  "family": "family:haru",
+  "works": [
+   "work:part4",
+   "work:part5",
+   "work:part6"
+  ],
+  "status": "published"
+ },
+ {
+  "id": "series:science-thinking",
+  "title": {
+   "ja": "科学と思考"
+  },
+  "summary": {
+   "ja": "見方を入れ替え、わからなさと付き合う方法。"
+  },
+  "family": "family:haru",
+  "works": [
+   "work:part7",
+   "work:part14",
+   "work:part15"
+  ],
+  "status": "published"
+ },
+ {
+  "id": "series:mind-body",
+  "title": {
+   "ja": "心と身体"
+  },
+  "summary": {
+   "ja": "進化が作った身体と心で、いまを生きる。"
+  },
+  "family": "family:haru",
+  "works": [
+   "work:part9",
+   "work:part10",
+   "work:part18"
+  ],
+  "status": "published"
+ },
+ {
+  "id": "series:learning",
+  "title": {
+   "ja": "学びの科学"
+  },
+  "summary": {
+   "ja": "人はどう学び始め、なぜ一人では学べないのか。"
+  },
+  "family": "family:haru",
+  "works": [
+   "work:part11",
+   "work:part12",
+   "work:part13"
+  ],
   "status": "published"
  },
  {

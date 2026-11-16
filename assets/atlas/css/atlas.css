@@ -56,14 +56,25 @@ a { color: var(--atlas-tone); }
 .atlas [data-for] { display: none; }
 .atlas[data-view="galaxy"] [data-for="galaxy"], .atlas[data-view="river"] [data-for="river"], .atlas[data-view="stars"] [data-for="stars"] { display: revert; }
 .atlas[data-view="galaxy"] .atlas-depth { display: grid; }
-.atlas[data-view="river"] .atlas-question { left: 16px; top: 8px; max-width: 46vw; }
+.atlas[data-view="river"] .atlas-question { left: 14px; top: 6px; max-width: none; right: 410px; }
+.atlas[data-view="river"] .atlas-question #atlasCount { display: none; }
 .atlas[data-view="river"] .atlas-question h1 { font-size: 15px; margin: 0; }
 .atlas[data-view="river"] .atlas-question #atlasEyebrow { display: none; }
 .atlas[data-view="river"] .atlas-controls { display: none; }
-.atlas[data-view="river"] .atlas-lenses { top: 58px; left: 10px; right: 410px; width: auto; max-height: none; padding: 0; border: 0; background: none; backdrop-filter: none; overflow: visible; }
+.atlas-scales { position: absolute; z-index: 5; left: 10px; right: 410px; top: 34px; }
+.atlas-scales__chips { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.atlas-scales__chips button { display: grid; min-width: max-content; min-height: 40px; padding: 2px 13px; border: 1px solid var(--atlas-line); border-radius: 10px; background: var(--atlas-panel); line-height: 1.25; text-align: left; }
+.atlas-scales__chips button b { font: 600 13px "Zen Old Mincho", serif; }
+.atlas-scales__chips button small { font-size: 10px; color: var(--text-dim, #a3a3bf); }
+.atlas-scales__chips button[aria-pressed="true"] { border-color: var(--atlas-gold); background: rgba(255, 231, 168, .14); }
+.atlas-scales__bar { position: relative; height: 5px; margin: 7px 2px 3px; border-radius: 3px; background: rgba(220, 233, 255, .14); }
+.atlas-scales__bar i { position: absolute; right: 0; top: -2px; bottom: -2px; min-width: 2px; border-radius: 3px; background: var(--atlas-gold); transition: width .5s; }
+.atlas-scales p { margin: 0 2px; font-size: 11px; color: var(--text-dim, #a3a3bf); }
+.atlas-scales p strong { color: var(--atlas-gold); font-weight: 600; }
+.atlas[data-view="river"] .atlas-lenses { top: 112px; left: 10px; right: 410px; width: auto; max-height: none; padding: 0; border: 0; background: none; backdrop-filter: none; overflow: visible; }
 .atlas[data-view="river"] .atlas-lenses p { display: none; }
 .atlas[data-view="river"] .atlas-lenses div { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
-.atlas[data-view="river"] .atlas-lenses button { width: auto; min-height: 30px; white-space: nowrap; border: 1px solid var(--atlas-line); border-radius: 999px; background: var(--atlas-panel); }
+.atlas[data-view="river"] .atlas-lenses button { width: auto; min-height: 26px; font-size: 11px; white-space: nowrap; border: 1px solid var(--atlas-line); border-radius: 999px; background: var(--atlas-panel); }
 .atlas[data-view="river"] .atlas-lenses button[aria-pressed="true"] { background: rgba(220, 233, 255, .2); }
 .atlas[data-view="river"] .atlas-lenses button b { display: none; }
 
@@ -125,7 +136,9 @@ a { color: var(--atlas-tone); }
   .atlas-lenses p { display: none; }
   .atlas-lenses div { display: flex; gap: 4px; overflow-x: auto; }
   .atlas-lenses button { width: auto; white-space: nowrap; min-height: 36px; }
-  .atlas[data-view="river"] .atlas-lenses { top: 34px; bottom: auto; right: 0; left: 0; padding: 0 8px; }
+  .atlas[data-view="river"] .atlas-lenses { top: 116px; bottom: auto; right: 0; left: 0; padding: 0 8px; }
+  .atlas-scales { right: 8px; left: 8px; top: 30px; }
+  .atlas[data-view="river"] .atlas-question { right: 8px; }
   .atlas[data-view="river"] .atlas-question { max-width: none; }
   .atlas[data-view="river"] .atlas-question #atlasCount { display: none; }
   .atlas-controls { bottom: 98px; }

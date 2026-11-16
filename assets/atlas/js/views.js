@@ -1,6 +1,6 @@
 // The three canvas views of the Atlas. Each draws the same graph from a different angle
 // and reports what is under the pointer; all changes go through the store.
-import { timePosition, yearAt, yearLabel, PRESENT } from './graph.js';
+import { timePosition, yearAt, yearLabel, riverScale, PRESENT } from './graph.js';
 
 const FONT = '"Noto Sans JP", "Inter", sans-serif', SERIF = '"Zen Old Mincho", serif';
 const hash = (text, salt = 1) => { let h = 2166136261 ^ salt; for (let i = 0; i < text.length; i += 1) h = Math.imul(h ^ text.charCodeAt(i), 16777619); return ((h >>> 0) % 10000) / 10000; };
@@ -44,8 +44,8 @@ export function createViews(canvas, atlas, store, env) {
   // ------------------------------------------------------------------ galaxy: where things are
   const galaxy = (() => {
     const cam = { x: 0, y: 0, z: 1 }, target = { x: 0, y: 0, z: 1 };
-    const zoomOf = (d) => (d < 34 ? 0.8 + (d / 33) * 0.3 : d < 70 ? 1.15 + ((d - 34) / 36) * 1.25 : 2.5 + ((d - 70) / 30) * 2.4);
-    const unit = () => Math.min(w / 3.7, h / 2.95);
+    const zoomOf = (d) => (d < 34 ? 0.86 + (d / 33) * 0.3 : d < 70 ? 1.15 + ((d - 34) / 36) * 1.25 : 2.5 + ((d - 70) / 30) * 2.4);
+    const unit = () => Math.min(w / 4.3, h / 3.3);
     const screen = (p) => ({ x: room().cx + (p[0] - cam.x) * unit() * cam.z, y: room().cy + (p[1] - cam.y) * unit() * cam.z });
     const media = new Map();
     let counted = false;
@@ -63,13 +63,21 @@ export function createViews(canvas, atlas, store, env) {
       const near = new Map(focus ? atlas.links(focus.id, ['bridges', 'next', 'relatesTo']).filter((l) => atlas.get(l.other).pos).map((l) => [l.other, l.edge]) : []);
       const member = focus && focus.type !== 'work' ? new Set(atlas.members(focus.id)) : null;
 
+      atlas.all('family').forEach((family) => {       // a programme or a tradition: a soft outline around its series
+        const own = atlas.all('series').filter((x) => x.family === family.id && x.pos && x.status !== 'planned');
+        if (own.length < 2) return;
+        const pts = own.map((x) => screen(x.pos)), cx = pts.reduce((a, p) => a + p.x, 0) / pts.length, cy = pts.reduce((a, p) => a + p.y, 0) / pts.length;
+        const rx = Math.max(...pts.map((p) => Math.abs(p.x - cx))) + 0.2 * scale, ry = Math.max(...pts.map((p) => Math.abs(p.y - cy))) + 0.15 * scale;
+        ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, 0, 0, 7); ctx.fillStyle = 'rgba(220,233,255,.022)'; ctx.fill(); ctx.setLineDash([1, 6]); ctx.strokeStyle = 'rgba(220,233,255,.2)'; ctx.lineWidth = 1; ctx.stroke(); ctx.setLineDash([]);
+        if (stage !== 'near') label('── ' + family.title.ja + ' ──', cx, cy + ry + 17, { size: stage === 'far' ? 12 : 10, color: 'rgba(220,233,255,.7)', align: 'center', font: SERIF, force: stage === 'far' });
+      });
       atlas.all('series').forEach((sr) => {
         if (!sr.pos) return;
         const own = works.filter((x) => x.series === sr.id), p = screen(sr.pos), planned = sr.status === 'planned';
-        const r = (sr.pos[0] === 0 && sr.pos[1] === 0 ? 0.6 : planned ? 0.1 : 0.1 + 0.02 * own.length) * scale, color = atlas.color(sr.id);
+        const r = (planned ? 0.1 : 0.08 + 0.02 * own.length) * scale, color = atlas.color(sr.id);
         const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 1.5);
         glow.addColorStop(0, rgba(color, planned ? 0.03 : 0.11)); glow.addColorStop(1, rgba(color, 0));
-        ctx.fillStyle = glow; ctx.beginPath(); ctx.ellipse(p.x, p.y, r * 1.5 * (r > scale * 0.4 ? 1.4 : 1), r * 1.5, 0, 0, 7); ctx.fill();
+        ctx.fillStyle = glow; ctx.beginPath(); ctx.ellipse(p.x, p.y, r * 1.9, r * 1.5, 0, 0, 7); ctx.fill();
         if (planned) ring(p.x, p.y, r, color, 0.45, [3, 5]);
         if (sr.id === s.focus) ring(p.x, p.y, r * 1.15 + 6, color, 0.8);
         const big = stage === 'far';
@@ -139,13 +147,18 @@ export function createViews(canvas, atlas, store, env) {
   // ------------------------------------------------------------------ river: when things happened
   const river = (() => {
     const cam = { c: 0.5, z: 1 }, target = { c: 0.5, z: 1 };
-    let open = 'series:human', hoverX = null, rows = [];
+    let open = null, hoverX = null, rows = [], ruler = null;
+    // Position of a year on the current ruler: 0 = left edge, 1 = right edge.
+    const linear = () => riverScale(state().scale).from !== undefined;
+    const pos = (year) => { const s = riverScale(state().scale); return s.from === undefined ? timePosition(year) / 0.99 : (year - s.from) / (s.to - s.from); };
+    const inv = (p) => { const s = riverScale(state().scale); return s.from === undefined ? yearAt(p * 0.99) : s.from + p * (s.to - s.from); };
+    const nice = (raw) => { const power = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / power; return (f < 1.5 ? 1 : f < 3.5 ? 2 : f < 7.5 ? 5 : 10) * power; };
     const gutter = () => (w < 700 ? 0 : 150);
     const span = () => Math.max(160, w - gutter() - pad.r);
     const sx = (p) => gutter() + span() * (0.5 + (p - cam.c) * cam.z);
     const px = (x) => cam.c + ((x - gutter()) / span() - 0.5) / cam.z;
-    const bound = () => { target.z = clamp(target.z, 1, 900); const half = 0.5 / target.z; target.c = clamp(target.c, half - 0.015, 1.015 - half); };
-    const TICKS = [-13.8e9, -1e10, -1e9, -1e8, -1e7, -1e6, -1e5, -2e4, -1e4, -5000, -3000, -2000, -1000, -500, 1, 500, 1000, 1300, 1500, 1600, 1700, 1800, 1850, 1900, 1920, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020, 2026, 2060, 2120];
+    const bound = () => { target.z = clamp(target.z, 1, linear() ? 60 : 900); const half = 0.5 / target.z; target.c = clamp(target.c, half - 0.015, 1.015 - half); };
+    const LOG_TICKS = [-13.8e9, -1e10, -1e9, -1e8, -1e7, -1e6, -1e5, -2e4, -1e4, -5000, -3000, -2000, -1000, -500, 1, 500, 1000, 1300, 1500, 1600, 1700, 1800, 1850, 1900, 1920, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020, 2026, 2060, 2120];
     function lanes() {
       const events = atlas.all('event'), series = atlas.all('series').filter((s) => s.status !== 'planned');
       const list = [{ key: 'deep-time', label: '138億年の年表', weight: 3, events: events.filter((e) => e.stream === 'deep-time') }];
@@ -160,22 +173,24 @@ export function createViews(canvas, atlas, store, env) {
     }
     function aim(patch = {}) {
       const s = state(), series = atlas.seriesOf(s.focus);
-      if (!('focus' in patch || 'view' in patch)) return;
+      if (ruler !== s.scale) { ruler = s.scale; target.c = 0.5; target.z = 1; cam.c = 0.5; cam.z = 1; }
+      if (!('focus' in patch || 'view' in patch || 'scale' in patch)) return;
       if (series && atlas.get(series).status !== 'planned') open = series;
       const t = atlas.time(s.focus);
       if (!t) return;
-      const a = timePosition(t.start), b = timePosition(Math.min(t.end, PRESENT + 150)), wide = Math.max(b - a, 0.0004);
-      if (wide * target.z * span() < 90) target.z = Math.min(900, 220 / (wide * span()));      // too small to see: zoom until it reads
+      if (linear() && t.end < riverScale(s.scale).from) return;     // outside this ruler: leave the view where it is
+      const a = pos(t.start), b = pos(Math.min(t.end, PRESENT + 150)), wide = Math.max(b - a, 0.0004);
+      if (!linear() && wide * target.z * span() < 90) target.z = Math.min(900, 220 / (wide * span()));      // on the log ruler, zoom until it reads; a linear ruler keeps its honest size
       const half = 0.5 / target.z;
       if (a < target.c - half * 0.9 || b > target.c + half * 0.9) target.c = (a + b) / 2;
       bound();
     }
     function draw() {
       ['c', 'z'].forEach((k) => { cam[k] += (target[k] - cam[k]) * ease; if (Math.abs(target[k] - cam[k]) > 0.0002) dirty = true; });
-      const s = state(), top = 104, bottom = h - 32, all = lanes(), total = all.reduce((sum, l) => sum + l.weight, 0), gut = gutter();
-      const nowX = sx(0.88);
+      const s = state(), top = w < 700 ? 150 : 146, bottom = h - 32, all = lanes(), total = all.reduce((sum, l) => sum + l.weight, 0), gut = gutter();
+      const nowX = sx(pos(PRESENT));
       ctx.fillStyle = 'rgba(120,150,210,.05)'; ctx.fillRect(nowX, top, w - nowX, bottom - top);
-      const hoverYear = hoverX === null ? null : yearAt(px(hoverX)), tolerance = hoverX === null ? 0 : Math.abs(yearAt(px(hoverX + 7)) - yearAt(px(hoverX - 7))) / 2;
+      const hoverYear = hoverX === null ? null : inv(px(hoverX)), tolerance = hoverX === null ? 0 : Math.abs(inv(px(hoverX + 7)) - inv(px(hoverX - 7))) / 2;
       const during = (t) => hoverYear !== null && t.start - tolerance <= hoverYear && t.end + tolerance >= hoverYear;
       let y = top, together = 0;
       rows = [];
@@ -185,7 +200,7 @@ export function createViews(canvas, atlas, store, env) {
         rows.push({ key: lane.key, y, height, series: lane.series });
         const rowH = lane.works ? (lane.isOpen ? (height - 14) / Math.max(1, lane.works.length) : (height - 12) / 3) : 0;
         (lane.works || []).forEach((n, i) => {
-          const t = n.time[0], a = Math.max(-40, sx(timePosition(t.start))), b = Math.min(w + 40, sx(timePosition(t.end))), by = y + 8 + (lane.isOpen ? i : i % 3) * rowH + rowH / 2;
+          const t = n.time[0], a = Math.max(-40, sx(pos(t.start))), b = Math.min(w + 40, sx(pos(t.end))), by = y + 8 + (lane.isOpen ? i : i % 3) * rowH + rowH / 2;
           const isFocus = n.id === s.focus, lit = inLens(n), same = during(t), alpha = (lit ? 1 : 0.22) * (hoverYear === null || same ? 1 : 0.45);
           if (same) together += 1;
           ctx.fillStyle = rgba(color, (isFocus ? 0.95 : 0.5) * alpha); ctx.beginPath(); ctx.roundRect(a, by - (isFocus ? 3.5 : 2.5), Math.max(4, b - a), isFocus ? 7 : 5, 3); ctx.fill();
@@ -195,7 +210,7 @@ export function createViews(canvas, atlas, store, env) {
         });
         ctx.save(); ctx.beginPath(); ctx.rect(gut, y, w - gut, height); ctx.clip();
         const band = lane.works ? (lane.isOpen ? [y + height - 12, y + height - 4] : [y + height, y + height]) : [y + 12, y + height - 10];
-        lane.events.filter((e) => e.time.length).map((e) => ({ e, x: sx(timePosition((e.time[0].start + Math.min(e.time[0].end, PRESENT + 150)) / 2)) })).filter((d) => d.x > -20 && d.x < w + 20)
+        lane.events.filter((e) => e.time.length).map((e) => ({ e, x: sx(pos((e.time[0].start + Math.min(e.time[0].end, PRESENT + 150)) / 2)) })).filter((d) => d.x > -20 && d.x < w + 20)
           .sort((a, b) => Number(b.e.id === s.focus) - Number(a.e.id === s.focus) || Number(Boolean(b.e.core)) - Number(Boolean(a.e.core)) || a.x - b.x).forEach(({ e, x }) => {
             const minor = lane.key === 'deep-time' && !e.core && cam.z < 2.4 && e.id !== s.focus;
             if (minor) return;
@@ -214,7 +229,10 @@ export function createViews(canvas, atlas, store, env) {
       });
       ctx.fillStyle = 'rgba(255,255,255,.14)'; ctx.fillRect(0, bottom, w, 1);
       let last = -999;
-      TICKS.forEach((year) => { const x = sx(timePosition(year)); if (x < gut + 20 || x > w - pad.r - 20 || x - last < 78) return; last = x; ctx.fillStyle = 'rgba(255,255,255,.2)'; ctx.fillRect(x, bottom - 4, 1, 8); ctx.font = `500 10px ${FONT}`; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(200,212,235,.75)'; ctx.fillText(year === 2026 ? '現在' : yearLabel(year), x, bottom + 19); });
+      let ticks = LOG_TICKS;
+      if (linear()) { const a = inv(px(gut)), b = inv(px(w - pad.r)), step = nice((b - a) / Math.max(3, Math.floor((w - gut - pad.r) / 120))); ticks = []; for (let y = Math.ceil(a / step) * step; y <= b; y += step) ticks.push(Math.abs(y) < step / 2 ? 1 : y); }
+      ticks.forEach((year) => { const x = sx(pos(year)); if (x < gut + 20 || x > w - pad.r - 20 || x - last < 78) return; last = x; ctx.fillStyle = 'rgba(255,255,255,.2)'; ctx.fillRect(x, bottom - 4, 1, 8); ctx.font = `500 10px ${FONT}`; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(200,212,235,.75)'; ctx.fillText(year === 2026 ? '現在' : year === 1 ? '紀元' : yearLabel(year), x, bottom + 19); });
+      if (nowX > gut + 30 && nowX < w - pad.r - 10) { ctx.fillStyle = 'rgba(255,231,168,.55)'; ctx.fillRect(nowX, top, 1, bottom - top + 4); label('現在', nowX - 4, top + 12, { size: 10, color: '#ffe7a8', align: 'right', force: true }); }
       if (hoverX !== null) {
         ctx.fillStyle = 'rgba(255,231,168,.5)'; ctx.fillRect(hoverX, top, 1, bottom - top);
         label(yearLabel(hoverYear) + (together ? `　同じ頃 ${together}件` : ''), clamp(hoverX, gut + 90, w - pad.r - 90), top - 8, { size: 11, weight: 600, color: '#ffe7a8', align: 'center', force: true });

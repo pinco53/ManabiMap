@@ -44,6 +44,12 @@ export function enrich(g) {
     Object.assign(work, extra);
   });
 
+  // --- series that list their works explicitly (a programme split into genres)
+  [...g.nodes.values()].filter((n) => n.type === 'series' && n.works).forEach((s) => {
+    s.works.forEach((id) => { const work = g.nodes.get(id); if (!work) throw new Error(`series.json: ${s.id} の作品 ${id} がありません`); if (work.series) throw new Error(`series.json: ${id} が複数のシリーズに入っています`); work.series = s.id; });
+    delete s.works;
+  });
+
   // --- series extras: people, concepts and media that already belong to a series before it has any work page
   [...g.nodes.values()].filter((n) => n.type === 'series').forEach((s) => {
     (s.people || []).forEach((p) => g.edge(s.id, p, 'features', { origin: 'curated' }));

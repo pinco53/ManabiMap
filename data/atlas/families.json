@@ -1,4 +1,27 @@
 [
-  { "id": "family:philosophy", "title": { "ja": "哲学" } },
-  { "id": "family:science", "title": { "ja": "科学", "en": "Science" }, "status": "tentative" }
+ {
+  "id": "family:haru",
+  "title": {
+   "ja": "ハルとおじいさん",
+   "en": "Haru and Grandpa"
+  },
+  "summary": {
+   "ja": "番組名。第1部〜第20部を、ジャンルごとのシリーズに分けて示す。"
+  },
+  "centre": true
+ },
+ {
+  "id": "family:philosophy",
+  "title": {
+   "ja": "哲学"
+  }
+ },
+ {
+  "id": "family:science",
+  "title": {
+   "ja": "科学",
+   "en": "Science"
+  },
+  "status": "tentative"
+ }
 ]

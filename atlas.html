@@ -20,7 +20,7 @@
       <a class="atlas-brand" href="index.html"><strong>Manabi Map</strong><span>知の地図帳 <em>試作</em></span></a>
       <div class="atlas-tabs" role="tablist" aria-label="見え方を切り替える">
         <button type="button" role="tab" data-view="galaxy" aria-selected="true"><b>銀河</b><small>どこに何があるか</small></button>
-        <button type="button" role="tab" data-view="river" aria-selected="false"><b>時の河</b><small>いつ起きたか</small></button>
+        <button type="button" role="tab" data-view="river" aria-selected="false"><b>時の河</b><small>物差しを替えて比べる</small></button>
         <button type="button" role="tab" data-view="stars" aria-selected="false"><b>問いの星座</b><small>なぜ大事か</small></button>
         <button type="button" role="tab" data-view="list" aria-selected="false"><b>リスト</b><small>一覧で読む</small></button>
       </div>
@@ -37,6 +37,12 @@
         <p id="atlasEyebrow">ATLAS</p>
         <h1 id="atlasQuestion">世界の知識は、どこでつながっている？</h1>
         <p id="atlasCount"></p>
+      </section>
+
+      <section class="atlas-scales" data-for="river" aria-label="時間の物差しを選ぶ">
+        <div class="atlas-scales__chips" id="atlasScales" role="group" aria-label="物差し"></div>
+        <div class="atlas-scales__bar" aria-hidden="true"><i id="atlasScaleBar"></i></div>
+        <p id="atlasScaleText"></p>
       </section>
 
       <nav class="atlas-lenses" aria-label="レンズで絞り込む"><p>レンズ</p><div id="atlasLenses"></div></nav>

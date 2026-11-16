@@ -38,7 +38,7 @@ export default function human(g) {
     const e = en[p.id] || {};
     const id = 'work:' + p.id;
     g.node({
-      id, type: 'work', series: 'series:human', cluster: p.group, number: p.number,
+      id, type: 'work', series: null, program: 'family:haru', cluster: p.group, number: p.number,
       title: { ja: p.title, ...(e.title && { en: e.title }) },
       summary: { ja: p.subtitle, ...(e.subtitle && { en: e.subtitle }) },
       url: { ja: p.pageUrl, ...(e.englishUrl && { en: 'en/' + e.englishUrl.replace(/^(\.\.\/)?(en\/)?/, '') }) },

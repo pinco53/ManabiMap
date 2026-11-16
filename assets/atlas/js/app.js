@@ -1,5 +1,5 @@
 // Atlas UI: tabs, lenses, the detail card, search, the trail, the list view and AI hand-off.
-import { loadAtlas, Store, TYPE_LABEL } from './graph.js';
+import { loadAtlas, Store, TYPE_LABEL, RIVER_SCALES, riverScale, PRESENT, MAX_AGE } from './graph.js';
 import { createViews } from './views.js';
 
 const $ = (id) => document.getElementById(id);
@@ -59,7 +59,8 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
       const episodes = atlas.all('episode').filter((e) => e.work === id);
       const media = {}; atlas.links(id, ['deepens']).forEach((l) => { const m = atlas.get(l.other); if (m.type === 'media') media[m.kind] = (media[m.kind] || 0) + 1; });
       const mediaLine = [['note', '読む', 'note.html'], ['podcast', '聴く', 'podcast.html'], ['youtube', '観る', 'youtube.html']].filter(([k]) => media[k]).map(([k, label, href]) => `<a href="${href}">${label} ${media[k]}本</a>`).join('　');
-      return head(`<i style="color:${atlas.color(id)}">${esc(series.title.ja)}${n.number ? ' 第' + esc(n.number) + '部' : ''}</i>`) +
+      const programme = n.program && atlas.get(n.program), numbered = n.number ? `第${esc(n.number)}部` : '';
+      return head(`<i style="color:${atlas.color(id)}">${esc(series.title.ja)}${programme ? '' : ' ' + numbered}</i>${programme ? `<span>${esc(programme.title.ja)} ${numbered}</span>` : ''}`) +
         (summary ? `<p class="atlas-card__lead">${esc(summary)}</p>` : '') +
         atlas.ownQuestions(id).slice(0, 3).map((q) => `<blockquote>${esc(title(q))}</blockquote>`).join('') +
         chips('この作品が向かう大きな問い', atlas.bigQuestions(id), 'data-anchor') +
@@ -74,7 +75,7 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
       const works = atlas.links(id, ['happenedAt']).filter((l) => ['work', 'series'].includes(atlas.get(l.other).type)).map((l) => go(l.other));
       const same = atlas.links(id, ['sameAs']).map((l) => go(l.other, { note: '同じ題材' }));
       const people = atlas.links(id, ['features']).map((l) => l.other).filter((p) => atlas.get(p).type === 'person');
-      const page = { 'deep-time': ['evolution.html', '138億年の年表をひらく →'], 'philosophy-history': ['philosophy-history.html', '哲学の歴史をひらく →'], 'edu-history': ['edu-history.html', '教育の歴史をひらく →'] }[n.stream];
+      const page = { 'deep-time': ['evolution.html', '138億年の年表で、順に読む →'], 'philosophy-history': ['philosophy-history.html', '哲学の歴史をひらく →'], 'edu-history': ['edu-history.html', '教育の歴史をひらく →'] }[n.stream];
       const workPage = n.work && atlas.get(n.work);
       return head(`<i>${esc(atlas.streamLabel(n))}</i>`) + (summary ? `<p class="atlas-card__lead">${esc(summary)}</p>` : '') +
         (n.question ? `<blockquote>${esc(n.question.ja)}</blockquote>` : '') +
@@ -164,7 +165,25 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
     $('atlasLenses').appendChild(b);
     return b;
   });
+  const scaleButtons = RIVER_SCALES.map((sc) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.dataset.scale = sc.key; b.innerHTML = `<b>${esc(sc.label)}</b><small>${esc(sc.note)}</small>`;
+    b.addEventListener('click', () => store.set({ scale: sc.key }));
+    $('atlasScales').appendChild(b);
+    return b;
+  });
+  function renderScale() {       // how long is this ruler, compared with everything?
+    const sc = riverScale(store.state.scale), years = sc.from === undefined ? MAX_AGE : PRESENT - sc.from, share = years / MAX_AGE;
+    scaleButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.scale === sc.key)));
+    $('atlasScaleBar').style.width = sc.from === undefined ? '100%' : Math.max(0.15, share * 100) + '%';
+    const inverse = 1 / share, rounded = inverse >= 1e4 ? Math.round(inverse / 1e4).toLocaleString('ja-JP') + '万' : (Math.round(inverse / 10) * 10).toLocaleString('ja-JP');
+    const part = share >= 0.01 ? `約${Math.round(share * 100)}%` : `約${rounded}分の1`;
+    $('atlasScaleText').innerHTML = sc.from === undefined
+      ? '<strong>一望</strong>：138億年を1画面に収めるため、昔ほど縮めて描いています（長さは比べられません）。物差しを選ぶと、等間隔の目盛りになります。'
+      : `<strong>${esc(sc.label)}</strong>：画面の幅が${esc(sc.note)}。等間隔の目盛りです。宇宙の歴史（138億年）の${part}にあたります（上の線の金色の部分）。`;
+  }
   function renderHead() {
+    renderScale();
     const s = store.state, lens = atlas.get(s.lens), works = atlas.all('work').length;
     root.dataset.view = s.view;
     document.querySelectorAll('.atlas-tabs [data-view]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.view === s.view)));
@@ -174,8 +193,8 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
     let eyebrow = 'ATLAS ／ ' + VIEW_NAME[s.view], question = '世界の知識は、どこでつながっている？';
     let count = `${works}の作品・${atlas.all('series').filter((x) => x.status !== 'planned').length}のシリーズ${atlas.loaded.has('events') ? '・' + atlas.all('event').filter((e) => e.stream !== 'work-timeline').length + 'の出来事' : ''}が、ひとつの地図にあります。`;
     if (s.view === 'stars') { const c = views.centre(); eyebrow = '問いの星座'; question = c ? '' : question; count = 'まわりの星を選ぶと、中心が入れ替わります。'; }
-    else if (s.view === 'river') { question = '同じ頃、ほかの場所では何が起きていた？'; count = 'ドラッグで移動、ホイールで拡大。左のシリーズ名を押すと開閉します。'; }
-    if (lens) { eyebrow = 'レンズ ／ ' + lens.title.ja; if (s.view !== 'stars') question = lens.question.ja; count = `${atlas.members(lens.id).length}の作品が、この問いの重力に引き寄せられています。`; }
+    else if (s.view === 'river') { question = '時の河 ── 物差しを替えて、同じ頃を比べる'; count = ''; }
+    if (lens) { eyebrow = 'レンズ ／ ' + lens.title.ja; if (s.view === 'galaxy') question = lens.question.ja; count = `${atlas.members(lens.id).length}の作品が、この問いの重力に引き寄せられています。`; }
     $('atlasEyebrow').textContent = eyebrow; $('atlasQuestion').textContent = question; $('atlasCount').textContent = count;
   }
   document.querySelectorAll('.atlas-tabs [data-view]').forEach((b) => b.addEventListener('click', () => store.set({ view: b.dataset.view })));
@@ -207,10 +226,10 @@ loadAtlas('assets/atlas/data/').then((atlas) => {
   // ---------------------------------------------------------------- list view (also the keyboard and no-canvas path)
   function renderList() {
     if (store.state.view !== 'list') return;
-    const s = store.state, lens = s.lens, item = (id) => go(id).replace('<li>', atlas.get(id).type === 'work' && lens && !(atlas.get(id).lenses || []).includes(lens) ? '<li class="is-dim">' : '<li>');
+    const s = store.state, lens = s.lens, familyOf = (x) => (x.family && atlas.get(x.family) && atlas.get(x.family).centre ? atlas.get(x.family).title.ja + '　' : ''), item = (id) => go(id).replace('<li>', atlas.get(id).type === 'work' && lens && !(atlas.get(id).lenses || []).includes(lens) ? '<li class="is-dim">' : '<li>');
     const series = atlas.all('series');
     $('atlasList').innerHTML = '<div class="atlas-list__inner">' +
-      series.filter((x) => x.status !== 'planned').map((x) => `<h2>${esc(x.title.ja)}<small>${atlas.members(x.id).length}作品</small></h2><ul>${atlas.members(x.id).map(item).join('')}</ul>`).join('') +
+      series.filter((x) => x.status !== 'planned').map((x) => `<h2>${esc(x.title.ja)}<small>${esc(familyOf(x))}${atlas.members(x.id).length}作品</small></h2><ul>${atlas.members(x.id).map(item).join('')}</ul>`).join('') +
       `<h2>構想中のシリーズ<small>作品ができると星が灯ります</small></h2><ul>${series.filter((x) => x.status === 'planned').map((x) => go(x.id)).join('')}</ul>` +
       `<h2>大きな問い<small>問いの星座の中心</small></h2><ul>${atlas.all('question').filter((q) => q.level === 'big').map((q) => go(q.id, { note: atlas.members(q.id).length + '作品' })).join('')}</ul>` +
       `<h2>概念<small>作品をまたいで現れる考え方</small></h2><ul>${atlas.all('concept').map((c) => go(c.id, { note: atlas.members(c.id).length + '作品' })).join('')}</ul></div>`;

@@ -18,7 +18,7 @@ const out = []; const ok = (name, cond, extra = '') => out.push((cond ? 'PASS ' 
   // go to work via URL and use the bridge
   await p.goto(U + '?focus=work:philosophy1'); await p.waitForSelector('#atlasCard h2');
   ok('card title', (await p.textContent('#atlasCard h2')) === '言葉の網と、網の外の顔');
-  const bridges = await p.$$eval('#atlasCard .atlas-go mark', els => els.length); ok('bridges show reason + review flag', bridges >= 3, bridges + ' bridges');
+  const bridges = await p.$$eval('#atlasCard .atlas-go span', els => els.filter(e => e.textContent.length > 30).length); ok('bridges show their reason', bridges >= 3, bridges + ' bridges');
   await p.click('#atlasCard .atlas-go[data-go="work:part5"]'); await p.waitForFunction(() => location.search.includes('work:part5'));
   ok('following a bridge updates URL', true, await p.evaluate(() => location.search));
   await p.goBack(); await p.waitForFunction(() => document.querySelector('#atlasCard h2').textContent.includes('言葉の網')); ok('browser back restores focus', true);
@@ -47,11 +47,15 @@ const out = []; const ok = (name, cond, extra = '') => out.push((cond ? 'PASS ' 
   await p.goto(U + '?view=river&focus=event:philosophy-confucius'); await p.waitForSelector('#atlasCard h2');
   const era = await p.$$eval('#atlasCard h3', els => els.map(e => e.textContent)); ok('event card has same-topic and same-era blocks', era.includes('別の場所での扱い') && era.includes('同じ頃、ほかの流れでは'), era.join(' / '));
   await p.waitForTimeout(1000); await p.screenshot({ path: S + '/shots/09-river-event.png' });
+  await p.click('[data-scale="human"]'); await p.waitForFunction(() => location.search.includes('scale=human'));
+  const scaleText = await p.textContent('#atlasScaleText'); ok('ruler explains its share of 13.8 billion years', scaleText.includes('分の1'), scaleText.slice(0, 60));
+  await p.waitForTimeout(900); await p.screenshot({ path: S + '/shots/13-river-human.png' });
   await p.click('[data-lens="lens:energy"]'); ok('lens in URL', (await p.evaluate(() => location.search)).includes('lens=lens:energy'));
 
   // list view as the accessible path
   await p.goto(U); await p.waitForFunction(() => document.getElementById('atlasLenses').children.length > 0); await p.keyboard.press('Tab'); await p.keyboard.press('Enter'); await p.waitForFunction(() => document.getElementById('atlas').dataset.view === 'list');
   const listed = await p.$$eval('#atlasList [data-go^="work:"]', els => els.length); ok('skip link opens list with every work', listed === 41, listed + ' works');
+  const genres = await p.$$eval('#atlasList h2', els => els.map(e => e.firstChild.textContent)); ok('programme is split into genre series', ['文明史', 'AIと社会', '言葉・文字・数', '科学と思考', '心と身体', '学びの科学'].every(g => genres.includes(g)) && !genres.includes('ハルとおじいさん'), genres.slice(0, 6).join('、'));
   const planned = await p.$$eval('#atlasList [data-go^="series:"]', els => els.map(e => e.querySelector('strong').textContent)); ok('planned series listed', planned.includes('おはなし おはなし') && planned.includes('AIの源流'), planned.join('、'));
   await p.click('#atlasList [data-go="series:ohanashi"]'); await p.waitForSelector('#atlasCard h2'); const oh = await p.textContent('#atlasCard'); ok('ohanashi card links Kawai and Jung', oh.includes('河合隼雄') && oh.includes('ユング'));
 

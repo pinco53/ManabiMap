@@ -7,7 +7,7 @@
 
 | 種類 | ID接頭辞 | 意味 | 初期件数（既存から） | 主な出どころ |
 |---|---|---|---|---|
-| シリーズ | `series:` | 作品のまとまり | 公開中5＋構想6 | **新規に定義** |
+| シリーズ | `series:` | 作品のまとまり | 公開中10＋構想6 | **新規に定義** |
 | 作品 | `work:` | 1本の部 | 41 | 台帳A 21＋EDU 12＋哲学系 8 |
 | 話 | `ep:` | 作品内のエピソード | 数百（未集計） | 各作品のデータ／HTML |
 | 出来事 | `event:` | 年表上の点・区間 | 267 | 年表160＋哲学24＋哲学史32＋教育史51 |
@@ -27,7 +27,12 @@
 
 | ID | 名称 | 系統（family） | 作品 | 状態 |
 |---|---|---|---|---|
-| `series:human` | ハルとおじいさん（人類史とAI） | — | part1–20, part8-2 | 公開中 |
+| `series:civilization` | 文明史 | `family:haru` | part1, 2, 16, 17, 19, 20 | 公開中 |
+| `series:ai` | AIと社会 | `family:haru` | part3, 8, 8-2 | 公開中 |
+| `series:words-numbers` | 言葉・文字・数 | `family:haru` | part4, 5, 6 | 公開中 |
+| `series:science-thinking` | 科学と思考 | `family:haru` | part7, 14, 15 | 公開中 |
+| `series:mind-body` | 心と身体 | `family:haru` | part9, 10, 18 | 公開中 |
+| `series:learning` | 学びの科学 | `family:haru` | part11, 12, 13 | 公開中 |
 | `series:edu` | EDU（学びと子ども） | — | part21–32 | 公開中 |
 | `series:philosophy-west` | 西洋哲学 | `family:philosophy` | philosophy1–4 | 公開中 |
 | `series:philosophy-east` | 東洋哲学 | `family:philosophy` | eastern1–2 | 公開中 |
@@ -39,6 +44,9 @@
 | `series:ai-origins` | AIの源流 | — | —（Podcast 8本が先行公開済み） | 構想 |
 | `series:ohanashi` | おはなし おはなし | — | —（河合隼雄・ユングにつながる） | 構想 |
 
+- **「ハルとおじいさん」は番組名であり、ジャンルではない**（2026-11-16 のご指摘）。そこで番組名は系統（`family:haru`）として残し、
+  第1部〜第20部を、西洋哲学・東洋哲学と同じ粒度のジャンル名6つに分けました。銀河では6つの星団を番組名の点線がゆるく囲みます。
+  分け方と名称は提案です。`data/atlas/series.json` の `title` と `works` を書き換えるだけで変えられます。
 - 構想中のシリーズのIDと系統は仮置きです。実際に作品ができた時点で確定します。
 - 本編の既存の `group`（三大革命、文明の道具…9種）は、シリーズ内の小分類 `cluster` として保持します。
 

@@ -2,17 +2,35 @@
 // No rendering here. The views and the UI only talk to this module and to the store.
 
 export const PRESENT = 2026;
-const MAX_AGE = 13_800_000_000;
+export const MAX_AGE = 13_800_000_000;
 
 export const TYPE_LABEL = { series: 'シリーズ', work: '作品', episode: '話', event: '出来事', concept: '概念', question: '問い', person: '人物', media: 'メディア', study: '研究', route: '道', lens: 'レンズ', page: 'ページ', family: '系統' };
 export const SERIES_COLOR = {
-  'series:human': '#e6c27a', 'series:edu': '#7fd1a8', 'series:philosophy-west': '#b6a1f5', 'series:philosophy-east': '#f29bb5', 'series:math': '#7cc4f2',
+  'series:civilization': '#e0b65a', 'series:ai': '#f0875f', 'series:words-numbers': '#5fd0c0', 'series:science-thinking': '#6f9df2', 'series:mind-body': '#d98be0', 'series:learning': '#a6d86a',
+  'series:edu': '#63c992', 'series:philosophy-west': '#9d8cf0', 'series:philosophy-east': '#f29bb5', 'series:math': '#58c6e8',
   'series:science': '#9fb4c9', 'series:cosmos': '#9fb4c9', 'series:physics': '#9fb4c9', 'series:life': '#9fb4c9', 'series:ai-origins': '#c9b39f', 'series:ohanashi': '#c9a9c0'
 };
 const STREAM = { 'deep-time': { label: '138億年の年表', color: '#dce9ff' }, 'philosophy-history': { label: '哲学の歴史', color: '#c9b6ff' }, 'edu-history': { label: '教育の歴史', color: '#8fd9b6' } };
 // How costly each kind of connection is when looking for a path. Reasoned bridges are the cheapest.
 const STEP_COST = { bridges: 1, next: 1.6, relatesTo: 1.6, about: 1.3, asks: 1.3, happenedAt: 1.5, features: 1.5, sameAs: 0.4, partOf: 1.8 };
 const STEP_LABEL = { bridges: '橋', next: '次の部', relatesTo: '関連', about: '同じ概念', asks: '同じ問い', happenedAt: '同じ出来事', features: '同じ人物', sameAs: '同じ題材', partOf: '所属' };
+
+/**
+ * Rulers for the river. "all" squeezes everything onto the timeline's log scale so nothing is hidden;
+ * every other ruler is linear, so lengths on screen are honest and can be compared.
+ */
+export const RIVER_SCALES = [
+  { key: 'all', label: '一望', note: '全部を1画面に' },
+  { key: 'cosmos', label: '宇宙史', note: '138億年', from: -13.8e9 },
+  { key: 'life', label: '生命史', note: '40億年', from: -4e9 },
+  { key: 'human', label: '人類史', note: '700万年', from: -7e6 },
+  { key: 'sapiens', label: 'ホモ・サピエンス', note: '30万年', from: -3e5 },
+  { key: 'civil', label: '文明史', note: '1万年', from: -8000 },
+  { key: 'history', label: '歴史時代', note: '5000年', from: -3000 },
+  { key: 'modern', label: '近現代', note: '500年', from: 1500 },
+  { key: 'now', label: '現代', note: '130年', from: 1900 }
+].map((s) => (s.from === undefined ? s : { ...s, to: PRESENT + Math.max(4, (PRESENT - s.from) * 0.03) }));
+export const riverScale = (key) => RIVER_SCALES.find((s) => s.key === key) || RIVER_SCALES[0];
 
 /** Same log scale as the existing 138億年 timeline: 0 = Big Bang, 0.88 = now, beyond = future. */
 export function timePosition(year) {
@@ -163,7 +181,7 @@ export async function loadAtlas(base) {
 export class Store {
   constructor(atlas) {
     this.atlas = atlas; this.listeners = new Set();
-    this.state = { view: 'galaxy', focus: null, anchor: null, lens: null, depth: 26, start: null, path: null, trail: [] };
+    this.state = { view: 'galaxy', focus: null, anchor: null, lens: null, scale: 'all', depth: 26, start: null, path: null, trail: [] };
     this.read();
     window.addEventListener('popstate', () => { this.read(); this.emit(); });
   }
@@ -171,7 +189,7 @@ export class Store {
     const p = new URLSearchParams(location.search), ok = (id) => (id && this.atlas.get(id) ? id : null);
     const view = p.get('view');
     Object.assign(this.state, {
-      view: ['galaxy', 'river', 'stars', 'list'].includes(view) ? view : 'galaxy', focus: ok(p.get('focus')), anchor: ok(p.get('q')), lens: ok(p.get('lens')),
+      view: ['galaxy', 'river', 'stars', 'list'].includes(view) ? view : 'galaxy', focus: ok(p.get('focus')), anchor: ok(p.get('q')), lens: ok(p.get('lens')), scale: riverScale(p.get('scale')).key,
       path: (p.get('path') || '').split(',').filter((id) => this.atlas.get(id))
     });
     if (this.state.path.length < 2) this.state.path = null;
@@ -183,6 +201,7 @@ export class Store {
     if (s.focus) p.set('focus', s.focus);
     if (s.anchor && s.view === 'stars') p.set('q', s.anchor);
     if (s.lens) p.set('lens', s.lens);
+    if (s.scale !== 'all' && s.view === 'river') p.set('scale', s.scale);
     if (s.path) p.set('path', s.path.join(','));
     const query = p.toString().replace(/%3A/g, ':').replace(/%2C/g, ',');
     return location.pathname + (query ? '?' + query : '');

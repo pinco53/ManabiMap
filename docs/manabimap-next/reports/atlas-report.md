@@ -2,7 +2,7 @@
 
 > 自動生成（`node tools/atlas/build.mjs`）。手で編集しないでください。
 
-**エラー 0件 ／ 編集待ち 100件 ／ 注意 8件 ／ 既存データの参照切れ 0件**
+**エラー 0件 ／ 編集待ち 62件 ／ 注意 8件 ／ 既存データの参照切れ 0件**
 
 ## 1. 取り込んだもの
 
@@ -17,8 +17,8 @@
 
 | 種類 | 件数 |
 |---|---|
-| family | 2 |
-| series | 11 |
+| family | 3 |
+| series | 16 |
 | lens | 13 |
 | page | 4 |
 | work | 41 |
@@ -35,7 +35,7 @@
 
 | 生成物 | サイズ（非圧縮） |
 |---|---|
-| atlas-core.json | 165 KB |
+| atlas-core.json | 168 KB |
 | atlas-events.json | 339 KB |
 | atlas-detail.json | 325 KB |
 | atlas-index.json | 27 KB |
@@ -44,7 +44,12 @@
 
 | シリーズ | 状態 | 作品数 | 時間あり | 英語題あり | 話 |
 |---|---|---|---|---|---|
-| ハルとおじいさん（`series:human`） | published | 21 | 21 | 21 | 0 |
+| 文明史（`series:civilization`） | published | 6 | 6 | 6 | 0 |
+| AIと社会（`series:ai`） | published | 3 | 3 | 3 | 0 |
+| 言葉・文字・数（`series:words-numbers`） | published | 3 | 3 | 3 | 0 |
+| 科学と思考（`series:science-thinking`） | published | 3 | 3 | 3 | 0 |
+| 心と身体（`series:mind-body`） | published | 3 | 3 | 3 | 0 |
+| 学びの科学（`series:learning`） | published | 3 | 3 | 3 | 0 |
 | EDU（`series:edu`） | published | 12 | 12 | 0 | 72 |
 | 西洋哲学（`series:philosophy-west`） | published | 4 | 4 | 0 | 40 |
 | 東洋哲学（`series:philosophy-east`） | published | 2 | 2 | 0 | 20 |
@@ -91,6 +96,38 @@
 
 | から | へ | 種類 | 出どころ |
 |---|---|---|---|
+| 蒸気の時代（work:part1） | AIと生きる未来（work:part3） | next | derived |
+| つながる世界（work:part2） | AIと生きる未来（work:part3） | next | derived |
+| つながる世界（work:part2） | 文字と知識の冒険（work:part4） | next | derived |
+| つながる世界（work:part2） | AIと人間のあいだ（work:part8） | next | derived |
+| AIと生きる未来（work:part3） | 言葉と思考の旅（work:part5） | next | derived |
+| 文字と知識の冒険（work:part4） | つながる世界（work:part2） | next | derived |
+| 文字と知識の冒険（work:part4） | AIと人間のあいだ（work:part8） | next | derived |
+| 言葉と思考の旅（work:part5） | AIと人間のあいだ（work:part8） | next | derived |
+| 数字と世界（work:part6） | AIが日常に入る日（work:part8-2） | next | derived |
+| 人間の前提を外す（work:part7） | AIと人間のあいだ（work:part8） | next | derived |
+| 人間の前提を外す（work:part7） | AIと生きる未来（work:part3） | next | derived |
+| AIと人間のあいだ（work:part8） | 言葉と思考の旅（work:part5） | next | derived |
+| AIが日常に入る日（work:part8-2） | 数字と世界（work:part6） | next | derived |
+| 身体という時間（work:part9） | AIが日常に入る日（work:part8-2） | next | derived |
+| 身体という時間（work:part9） | AIと生きる未来（work:part3） | next | derived |
+| 感性という深層（work:part10） | 人はどう学び始めるのか（work:part11） | next | derived |
+| 感性という深層（work:part10） | AIと生きる未来（work:part3） | next | derived |
+| 人はどう学び始めるのか（work:part11） | 感性という深層（work:part10） | next | derived |
+| 人はなぜ、一人では学べないのか（work:part12） | AIが日常に入る日（work:part8-2） | next | derived |
+| 学びとは何か（work:part13） | 地球は動いている（work:part14） | next | derived |
+| 学びとは何か（work:part13） | 文字と知識の冒険（work:part4） | next | derived |
+| 地球は動いている（work:part14） | 学びとは何か（work:part13） | next | derived |
+| それ、わかったつもりかも（work:part15） | エネルギーと人類史（work:part16） | next | derived |
+| それ、わかったつもりかも（work:part15） | AIと人間のあいだ（work:part8） | next | derived |
+| エネルギーと人類史（work:part16） | それ、わかったつもりかも（work:part15） | next | derived |
+| 交換と協働（work:part17） | 人はなぜ勘違いするのか（work:part18） | next | derived |
+| 交換と協働（work:part17） | 人はなぜ、一人では学べないのか（work:part12） | next | derived |
+| 人はなぜ勘違いするのか（work:part18） | 人類はなぜ移動するのか（work:part19） | next | derived |
+| 人はなぜ勘違いするのか（work:part18） | 交換と協働（work:part17） | next | derived |
+| 人はなぜ勘違いするのか（work:part18） | それ、わかったつもりかも（work:part15） | next | derived |
+| 人類はなぜ移動するのか（work:part19） | 人はなぜ勘違いするのか（work:part18） | next | derived |
+| 余ったのに、なぜ足りないのか（work:part20） | 人はなぜ勘違いするのか（work:part18） | next | derived |
 | 苦しみの出口と、空っぽの私（work:eastern1） | 言葉の網と、網の外の顔（work:philosophy1） | relatesTo | derived:html-link |
 | 苦しみの出口と、空っぽの私（work:eastern1） | 世界の枠組みと、育つ自由（work:philosophy3） | relatesTo | derived:html-link |
 | 人をつくる型と、型のない道（work:eastern2） | 言葉の網と、網の外の顔（work:philosophy1） | relatesTo | derived:html-link |
@@ -150,14 +187,14 @@
 
 | 大きな問い | 作品数 | シリーズ数 |
 |---|---|---|
-| 道具を使うことと、道具に使われることの境界はどこにあるのか。 | 7 | 2 |
-| AIが答えを出せる時代に、人間が考えるとは何か。 | 9 | 3 |
-| 言葉は思考を作るのか、思考が言葉を作るのか。 | 5 | 3 |
-| 数字で測れないものに、どう価値を与えるのか。 | 7 | 4 |
-| 学ぶとは、答えを増やすことか、問いを増やすことか。 | 11 | 5 |
-| 私たちが見ている世界は、世界そのものなのか。 | 7 | 3 |
+| 道具を使うことと、道具に使われることの境界はどこにあるのか。 | 7 | 4 |
+| AIが答えを出せる時代に、人間が考えるとは何か。 | 9 | 5 |
+| 言葉は思考を作るのか、思考が言葉を作るのか。 | 5 | 4 |
+| 数字で測れないものに、どう価値を与えるのか。 | 7 | 5 |
+| 学ぶとは、答えを増やすことか、問いを増やすことか。 | 11 | 7 |
+| 私たちが見ている世界は、世界そのものなのか。 | 7 | 4 |
 | 「私」とは何か。どこまでが自分なのか。 | 3 | 2 |
-| 人はなぜ、他者とともに生きるのか。 | 11 | 4 |
+| 人はなぜ、他者とともに生きるのか。 | 11 | 6 |
 | 身体は、考えることや学ぶことに何をもたらすのか。 | 4 | 2 |
 | どれだけあれば、足りるのか。 | 3 | 2 |
 | わからないことと、どう付き合うのか。 | 2 | 2 |
@@ -168,42 +205,42 @@
 
 | 概念 | 作品数 | シリーズ数 |
 |---|---|---|
-| 言葉 | 6 | 3 |
+| 言葉 | 6 | 4 |
 | 文字と記録 | 3 | 2 |
-| 三つの革命 | 6 | 1 |
-| 生成AI | 7 | 3 |
-| 計算 | 3 | 2 |
-| 確率と不確実性 | 4 | 2 |
-| 数 | 4 | 2 |
-| 測ること | 5 | 3 |
+| 三つの革命 | 6 | 3 |
+| 生成AI | 7 | 4 |
+| 計算 | 3 | 3 |
+| 確率と不確実性 | 4 | 4 |
+| 数 | 4 | 3 |
+| 測ること | 5 | 4 |
 | 証拠と確からしさ | 4 | 3 |
 | 見方の転換 | 5 | 2 |
 | 知覚と現実 | 4 | 3 |
 | 思い込み | 4 | 3 |
-| 注意 | 7 | 2 |
-| メタ認知 | 5 | 2 |
-| 対話 | 4 | 3 |
-| 他者 | 5 | 3 |
+| 注意 | 7 | 4 |
+| メタ認知 | 5 | 4 |
+| 対話 | 4 | 4 |
+| 他者 | 5 | 5 |
 | 「私」 | 4 | 3 |
-| 協力 | 4 | 2 |
+| 協力 | 4 | 3 |
 | 贈与と交換 | 2 | 2 |
 | 不平等 | 3 | 3 |
 | 自由と自律 | 5 | 3 |
-| 教育と学校 | 8 | 3 |
-| 受け継がれる文化 | 4 | 3 |
+| 教育と学校 | 8 | 5 |
+| 受け継がれる文化 | 4 | 4 |
 | 発達 | 5 | 2 |
 | 遊び | 2 | 2 |
 | 練習と熟達 | 2 | 2 |
 | 動機づけ | 5 | 3 |
-| 身体 | 5 | 2 |
-| 進化 | 4 | 2 |
+| 身体 | 5 | 3 |
+| 進化 | 4 | 3 |
 | 移動 | 2 | 2 |
-| 道具と技術 | 6 | 2 |
+| 道具と技術 | 6 | 4 |
 | エネルギー | 2 | 1 |
-| 時間 | 5 | 3 |
+| 時間 | 5 | 4 |
 | 変化をとらえる | 3 | 2 |
 | 足りること・余白 | 4 | 3 |
-| 意味 | 3 | 2 |
+| 意味 | 3 | 3 |
 | 構造 | 3 | 2 |
 | 死と喪失 | 3 | 2 |
 | 物語 | 0 | 0 |
@@ -218,10 +255,6 @@
 ### 理由つきの橋（bridges）を持たない作品（1件）
 
 `work:part16`
-
-### 内容の確認待ちの橋（review: pending）（38件）
-
-`work:philosophy1 → work:part5`、`work:philosophy1 → work:part12`、`work:philosophy1 → work:part8`、`work:philosophy2 → work:part17`、`work:philosophy2 → work:part11`、`work:philosophy2 → work:part4`、`work:philosophy3 → work:part18`、`work:philosophy3 → work:part14`、`work:philosophy3 → work:part13`、`work:philosophy3 → work:part3`、`work:philosophy4 → work:part10`、`work:philosophy4 → work:part1`、`work:philosophy4 → work:part7`、`work:eastern1 → work:part20`、`work:eastern1 → work:part19`、`work:eastern2 → work:part13`、`work:eastern2 → work:part26`、`work:eastern2 → work:part6`、`work:math1 → work:part6`、`work:math1 → work:part14`、`work:math1 → work:part8`、`work:math2 → work:part8`、`work:math2 → work:part18`、`work:math2 → work:part15` ほか14件
 
 ### 時間の範囲が下書きの作品（curated-draft）（21件）
 
