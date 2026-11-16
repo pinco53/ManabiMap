@@ -13,6 +13,7 @@
 | 哲学史 philosophy-history-data.js | entries 32、lanes 3 |
 | 年表 evolution.html ほか | events 160、philosophyPoints 24、workLinks 49、core 84 |
 | 静的ページ parts/(philosophy|eastern|math)*.html | works 8、episodes 80、lifeEvents 169、people 11 |
+| 手で登録した作品 works.manual.json | works 0、episodes 0 |
 | 追記 data/atlas/*.json | concepts dictionary 39/folded 81/keywords 12、questions big 13/parents 107、sameAs 20、places placed 589/pinned 240、bridges 38、influences 61 |
 
 | 種類 | 件数 |

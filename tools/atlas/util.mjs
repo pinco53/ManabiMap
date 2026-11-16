@@ -8,11 +8,20 @@ export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 export const PRESENT = 2026;            // matches assets/js/evolution-deep-time.js
 export const MAX_AGE = 13_800_000_000;
 
-export const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
-export const exists = (rel) => fs.existsSync(path.join(ROOT, rel));
+// A rehearsal (see tests/add-series.test.mjs) can point the hand-edited data and the outputs somewhere else,
+// so trying out a new series never touches the real files.
+const DATA_DIR = process.env.ATLAS_DATA_DIR, OUT_DIR = process.env.ATLAS_OUT_DIR;
+const GENERATED = ['assets/atlas/data/', 'docs/manabimap-next/reports/'];
+function abs(rel) {
+  if (DATA_DIR && rel.startsWith('data/atlas/')) return path.join(DATA_DIR, rel.slice('data/atlas/'.length));
+  if (OUT_DIR && GENERATED.some((dir) => rel.startsWith(dir))) return path.join(OUT_DIR, path.basename(rel));
+  return path.join(ROOT, rel);
+}
+export const read = (rel) => fs.readFileSync(abs(rel), 'utf8');
+export const exists = (rel) => fs.existsSync(abs(rel));
 export const readJson = (rel, fallback) => (exists(rel) ? JSON.parse(read(rel)) : fallback);
 export function writeIfChanged(rel, text) {
-  const file = path.join(ROOT, rel);
+  const file = abs(rel);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   if (fs.existsSync(file) && fs.readFileSync(file, 'utf8') === text) return false;
   fs.writeFileSync(file, text);

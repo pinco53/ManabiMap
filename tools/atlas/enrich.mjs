@@ -100,6 +100,7 @@ export function enrich(g) {
     });
     // a work covers the regions of what it is tied to, most frequent first
     all.filter((n) => n.type === 'work').forEach((w) => {
+      if (w.regionsOrigin === 'curated') { w.regions.forEach((r) => { if (!g.nodes.has(r)) throw new Error(`${w.id}: 地域 ${r} が未定義`); }); return; }   // written by hand: keep it
       const count = {};
       const episodes = new Set(all.filter((n) => n.type === 'episode' && n.work === w.id).map((n) => n.id));
       const studies = g.edges.filter((e) => e.type === 'supports' && (e.to === w.id || episodes.has(e.to))).map((e) => g.nodes.get(e.from));

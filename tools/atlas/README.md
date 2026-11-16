@@ -37,6 +37,12 @@ node tools/atlas/tests/atlas.e2e.cjs
 node tools/atlas/tests/site.e2e.cjs
 ```
 
+新しいシリーズを足す手順のリハーサル（サーバーも Playwright も不要。本番のデータには書き込みません）：
+
+```bash
+node tools/atlas/tests/add-series.test.mjs
+```
+
 前者は試作ページ、後者は Atlas の作品一覧を読む既存ページ（トップの銀河、`map.html`）と、変わってはいけないページの確認です。
 
 ## 何を読み、何を書くか
@@ -58,6 +64,7 @@ node tools/atlas/tests/site.e2e.cjs
 | `questions.json` | 大きな問いと、作品の問いの親子関係 |
 | `works.overrides.json` | 作品への追記（いまは時間の範囲） |
 | `links.json` | 出来事どうしの対応（`sameAs`）、作品と出来事、出来事と人物、概念と出来事（`about`＝系譜） |
+| `works.manual.json` | 手で登録する作品。既存の型に合わないページ（新しいシリーズ、単発の作品）はここに書く。書き方は [`docs/manabimap-next/11-adding-a-series.md`](../../docs/manabimap-next/11-adding-a-series.md) |
 | `research-places.json` | 研究が行われた場所（大学・都市）。学習・認知・発達の作品の地域の手がかり |
 | `places.json` | 場所の台帳。地域の定義と、出来事・人物ごとの地域・おおよその緯度経度 |
 | `edges.json` | 理由つきの接続（`why` 必須）。作品どうしの橋（`bridges`）、出来事や人物の影響（`influences`）と対比（`contrasts`）。`review: "pending"` は内容の確認待ち。確認したら `"ok"` に書き換える |

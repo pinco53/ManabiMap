@@ -20,6 +20,9 @@ export function layout(g) {
   const worksOf = (s) => all.filter((n) => n.type === 'work' && n.series === s.id);
   const angleOf = (id) => Math.atan2(lock[id][1], lock[id][0] / STRETCH);
 
+  // 0. A place written by hand in series.json ("pos": [x, y]) wins over everything computed below.
+  series.forEach((s) => { if (!lock[s.id] && Array.isArray(s.pos) && s.pos.length === 2) lock[s.id] = [round(s.pos[0]), round(s.pos[1])]; });
+
   // 1. The centre family: its series share the inner ring, in the order they are listed.
   const inner = series.filter((s) => ringOf(s) === 'inner');
   inner.forEach((s, i) => { if (!lock[s.id]) lock[s.id] = polar(-Math.PI / 2 + (i / inner.length) * Math.PI * 2, INNER); });

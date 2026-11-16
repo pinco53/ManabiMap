@@ -14,6 +14,7 @@ import edu from './adapters/edu.mjs';
 import philosophyHistory from './adapters/philosophy-history.mjs';
 import timeline from './adapters/timeline.mjs';
 import staticParts from './adapters/static-parts.mjs';
+import manualWorks from './adapters/manual-works.mjs';
 
 const flags = new Set(process.argv.slice(2));
 const OUT = 'assets/atlas/data/';
@@ -32,7 +33,7 @@ readJson('data/atlas/lenses.json', []).forEach((l) => g.node({ type: 'lens', ...
 
 const ctx = { ids, series, people: readJson('data/atlas/people.json', []) };
 const sources = { '本編 manabimap-data.js': human(g, ctx), 'EDU edu-data/*.js': edu(g, ctx), '哲学史 philosophy-history-data.js': philosophyHistory(g, ctx),
-  '年表 evolution.html ほか': timeline(g, ctx), '静的ページ parts/(philosophy|eastern|math)*.html': staticParts(g, ctx) };
+  '年表 evolution.html ほか': timeline(g, ctx), '静的ページ parts/(philosophy|eastern|math)*.html': staticParts(g, ctx), '手で登録した作品 works.manual.json': manualWorks(g, ctx) };
 sources['追記 data/atlas/*.json'] = Object.fromEntries(Object.entries(enrich(g)).map(([k, v]) => [k, typeof v === 'object' ? Object.entries(v).map(([a, b]) => `${a} ${b}`).join('/') : v]));
 
 const previous = exists(OUT + 'atlas-index.json') ? JSON.parse(read(OUT + 'atlas-index.json')) : null;

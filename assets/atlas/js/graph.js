@@ -90,7 +90,7 @@ export class Atlas {
     if (!n) return '#dce9ff';
     if (n.type === 'region') return SERIES_COLOR[id] || '#dce9ff';
     const series = this.seriesOf(id);
-    if (series) return SERIES_COLOR[series] || '#dce9ff';
+    if (series) return (this.get(series) && this.get(series).color) || SERIES_COLOR[series] || '#dce9ff';   // a new series can bring its own colour in series.json
     if (n.type === 'event') return (STREAM[n.stream] || STREAM['deep-time']).color;
     return { question: '#ffe7a8', concept: '#a8e6ff', person: '#ffc9a8', lens: '#dce9ff' }[n.type] || '#dce9ff';
   }
