@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>知の地図帳｜Manabi Map</title>
+  <meta name="description" content="文明史・AI・哲学・数学・学びなど、Manabi Mapのすべてのシリーズを、時間・場所・概念・問いでつないで探索する地図帳です。">
+  <meta name="theme-color" content="#040910">
+  <link rel="canonical" href="https://pinco53.github.io/ManabiMap/atlas.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Manabi Map">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="知の地図帳｜Manabi Map">
+  <meta property="og:description" content="すべてのシリーズを、時間・場所・概念・問いでつないで探索する地図帳です。">
+  <meta property="og:url" content="https://pinco53.github.io/ManabiMap/atlas.html">
+  <meta property="og:image" content="https://pinco53.github.io/ManabiMap/assets/social/og-manabimap-lens-20260801.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://pinco53.github.io/ManabiMap/assets/social/og-manabimap-lens-20260801.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Old+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/ai-handoff.css">
+  <link rel="stylesheet" href="assets/atlas/css/atlas.css">
+</head>
+<body>
+  <a class="atlas-skip" href="?view=list" id="atlasSkip">リストで見る</a>
+  <div class="atlas" id="atlas" data-view="galaxy">
+    <header class="atlas-top">
+      <a class="atlas-brand" href="index.html" aria-label="Manabi Map トップへ"><strong>Manabi Map</strong><span>知の地図帳 <em>β</em></span></a>
+      <nav class="atlas-site" aria-label="サイト内の移動"><a href="map.html">学びの地図</a><a href="evolution.html">138億年の年表</a><a href="questions.html">AIと対話する</a></nav>
+      <div class="atlas-tabs" role="tablist" aria-label="見え方を切り替える">
+        <button type="button" role="tab" data-view="galaxy" aria-selected="true"><b>銀河</b><small>どこに何があるか</small></button>
+        <button type="button" role="tab" data-view="river" aria-selected="false"><b>時の河</b><small>物差しを替えて比べる</small></button>
+        <button type="button" role="tab" data-view="stars" aria-selected="false"><b>問いの星座</b><small>なぜ大事か</small></button>
+        <button type="button" role="tab" data-view="world" aria-selected="false"><b>世界</b><small>どこで起きたか</small></button>
+        <button type="button" role="tab" data-view="list" aria-selected="false"><b>リスト</b><small>一覧で読む</small></button>
+      </div>
+      <div class="atlas-search" role="search">
+        <input id="atlasSearch" type="search" placeholder="作品・人物・概念・問いを探す" aria-label="作品・人物・概念・問いを探す" autocomplete="off" aria-controls="atlasResults" aria-expanded="false">
+        <ul id="atlasResults" role="listbox" hidden></ul>
+      </div>
+    </header>
+
+    <main class="atlas-stage" id="main">
+      <canvas id="atlasCanvas" tabindex="0" role="application" aria-label="知の地図。矢印キーで隣へ移動、プラスとマイナスで深さを変えます。同じ内容はリスト表示でも読めます。"></canvas>
+
+      <section class="atlas-question" aria-live="polite">
+        <p id="atlasEyebrow">ATLAS</p>
+        <h1 id="atlasQuestion">世界の知識は、どこでつながっている？</h1>
+        <p id="atlasCount"></p>
+      </section>
+
+      <section class="atlas-scales" data-for="river world" aria-label="時間の物差しを選ぶ">
+        <div class="atlas-scales__chips" id="atlasScales" role="group" aria-label="物差し"></div>
+        <div class="atlas-scales__cut" role="group" aria-label="流れの分け方"><span>流れを分ける：</span><button type="button" data-lanes="series">シリーズ別</button><button type="button" data-lanes="region">地域別</button></div>
+        <div class="atlas-scales__bar" aria-hidden="true"><i id="atlasScaleBar"></i></div>
+        <p id="atlasScaleText"></p>
+      </section>
+
+      <nav class="atlas-lenses" aria-label="レンズで絞り込む"><p>レンズ</p><div id="atlasLenses"></div></nav>
+
+      <div class="atlas-controls" id="atlasControls">
+        <label class="atlas-depth" data-for="galaxy"><span>深さ <strong id="atlasDepthText">全体を眺める</strong></span><input id="atlasDepth" type="range" min="0" max="100" value="26" aria-label="地図を見る深さ"></label>
+        <label class="atlas-depth" data-for="world"><span>いつまで <strong id="atlasUntilText">現在</strong></span><input id="atlasUntil" type="range" min="0" max="1000" value="1000" aria-label="表示する時代の終わり"></label>
+        <button type="button" class="atlas-chip" id="atlasByTime" data-for="stars" aria-pressed="false">時代順に並べる</button>
+        <p class="atlas-hint" data-for="river">ドラッグで移動・ホイールで拡大。シリーズ名を押すと開閉します。</p>
+        <button type="button" class="atlas-chip" id="atlasRandom"><span aria-hidden="true">✦</span> 問いに連れていって</button>
+      </div>
+
+      <section class="atlas-list" id="atlasList" tabindex="-1" aria-label="すべての作品・問い・概念の一覧"></section>
+
+      <aside class="atlas-card" id="atlasCard" aria-label="選んだものの詳細" hidden></aside>
+
+      <footer class="atlas-trail" id="atlasTrail" aria-label="来た道と、見つけた道"></footer>
+      <p class="atlas-live" id="atlasLive" role="status" aria-live="polite"></p>
+    </main>
+  </div>
+  <noscript><p style="padding:24px;color:#fff">この地図帳はJavaScriptで動きます。<a href="map.html" style="color:#9cf">学びの地図（一覧）</a>からも各作品へ進めます。</p></noscript>
+  <script src="assets/js/ai-handoff.js"></script>
+  <script type="module" src="assets/atlas/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+{
+ "_note": "出来事どうし・作品と出来事・出来事と人物の対応。sameAs は「同じ題材を別の場所で扱っている」ことを示し、表示文はそれぞれの場所のものを保つ。",
+ "sameAs": [
+  [
+   "event:philosophy-upanishads",
+   "event:phist-east-upanishads"
+  ],
+  [
+   "event:philosophy-confucius",
+   "event:phist-east-confucius"
+  ],
+  [
+   "event:philosophy-mozi",
+   "event:phist-east-mohism"
+  ],
+  [
+   "event:philosophy-socrates",
+   "event:phist-west-socrates-plato"
+  ],
+  [
+   "event:philosophy-aristotle",
+   "event:phist-west-aristotle"
+  ],
+  [
+   "event:philosophy-daoism",
+   "event:phist-east-daoism"
+  ],
+  [
+   "event:philosophy-nagarjuna",
+   "event:phist-east-nagarjuna"
+  ],
+  [
+   "event:philosophy-al-ghazali",
+   "event:phist-crossroads-al-ghazali"
+  ],
+  [
+   "event:philosophy-zhu-xi",
+   "event:phist-east-zhu-xi"
+  ],
+  [
+   "event:philosophy-aquinas",
+   "event:phist-west-aquinas"
+  ],
+  [
+   "event:philosophy-locke",
+   "event:phist-west-locke"
+  ],
+  [
+   "event:philosophy-kant",
+   "event:phist-west-kant"
+  ],
+  [
+   "event:philosophy-wollstonecraft",
+   "event:phist-west-wollstonecraft"
+  ],
+  [
+   "event:philosophy-marx",
+   "event:phist-west-marx"
+  ],
+  [
+   "event:philosophy-du-bois",
+   "event:phist-crossroads-du-bois"
+  ],
+  [
+   "event:philosophy-satyagraha",
+   "event:phist-crossroads-gandhi"
+  ],
+  [
+   "event:philosophy-beauvoir",
+   "event:phist-west-beauvoir"
+  ],
+  [
+   "event:philosophy-land-ethic",
+   "event:phist-crossroads-land-ethic"
+  ],
+  [
+   "event:philosophy-fanon",
+   "event:phist-crossroads-fanon"
+  ],
+  [
+   "event:philosophy-intersectionality",
+   "event:phist-crossroads-intersectionality"
+  ]
+ ],
+ "happenedAt": {
+  "work:eastern1": [
+   "event:early-buddhism",
+   "event:phist-east-buddha",
+   "event:philosophy-nagarjuna"
+  ],
+  "work:eastern2": [
+   "event:philosophy-confucius",
+   "event:philosophy-daoism"
+  ],
+  "work:philosophy2": [
+   "event:philosophy-rousseau"
+  ],
+  "work:philosophy3": [
+   "event:philosophy-kant"
+  ],
+  "work:math1": [
+   "event:newton-s-principia"
+  ],
+  "series:ai-origins": [
+   "event:the-turing-machine",
+   "event:shannon-s-information-theory",
+   "event:the-turing-test"
+  ]
+ },
+ "features": {
+  "person:kant": [
+   "event:philosophy-kant",
+   "event:phist-west-kant"
+  ],
+  "person:confucius": [
+   "event:philosophy-confucius",
+   "event:phist-east-confucius"
+  ],
+  "person:rousseau": [
+   "event:philosophy-rousseau"
+  ],
+  "person:buddha": [
+   "event:early-buddhism",
+   "event:phist-east-buddha"
+  ],
+  "person:P-W01": [
+   "event:edu-1896",
+   "event:philosophy-dewey"
+  ],
+  "person:P-W05": [
+   "event:edu-1956"
+  ],
+  "person:P-W19": [
+   "event:edu-1968"
+  ],
+  "person:P-W21": [
+   "event:edu-1980"
+  ],
+  "person:P-W10": [
+   "event:edu-2009"
+  ],
+  "person:P-W24": [
+   "event:edu-2000"
+  ]
+ },
+ "about": {
+  "concept:writing-and-record": [
+   "event:the-invention-of-writing",
+   "event:alphabetic-writing-spreads",
+   "event:paper-and-the-expansion-of-records",
+   "event:east-asian-printing",
+   "event:gutenberg-s-printing-system",
+   "event:the-encyclopedie-begins-publication",
+   "event:the-world-wide-web",
+   "event:google-is-founded"
+  ],
+  "concept:language": [
+   "event:the-spread-of-symbolic-behaviour",
+   "event:the-invention-of-writing",
+   "event:alphabetic-writing-spreads"
+  ],
+  "concept:computation": [
+   "event:the-turing-machine",
+   "event:eniac",
+   "event:the-invention-of-the-transistor",
+   "event:shannon-s-information-theory",
+   "event:the-microprocessor",
+   "event:alexnet-and-the-deep-learning-breakthrough"
+  ],
+  "concept:generative-ai": [
+   "event:the-turing-test",
+   "event:alexnet-and-the-deep-learning-breakthrough",
+   "event:generative-adversarial-networks",
+   "event:the-transformer-paper",
+   "event:bert-and-gpt-1",
+   "event:gpt-3",
+   "event:chatgpt-is-released",
+   "event:generative-ai-becomes-multimodal"
+  ],
+  "concept:energy": [
+   "event:the-control-of-fire",
+   "event:agricultural-transformations",
+   "event:watt-s-steam-engine-improvements",
+   "event:practical-electric-lighting-and-power-grids",
+   "event:haber-bosch",
+   "event:hiroshima-and-nagasaki",
+   "event:climate-response"
+  ],
+  "concept:number": [
+   "event:zero-as-a-number-and-an-operation",
+   "event:double-entry-bookkeeping"
+  ],
+  "concept:exchange": [
+   "event:coinage",
+   "event:silk-road",
+   "event:indian-ocean-trade",
+   "event:joint-stock-company",
+   "event:the-bitcoin-paper"
+  ],
+  "concept:mobility": [
+   "event:beyond-africa",
+   "event:a-global-human-dispersal",
+   "event:horse-domestication",
+   "event:the-wheel-and-axle",
+   "event:magnetic-compass",
+   "event:columbus-s-atlantic-voyage",
+   "event:the-steam-locomotive",
+   "event:the-wright-brothers-first-powered-flight",
+   "event:apollo-11-lands-on-the-moon"
+  ],
+  "concept:cooperation": [
+   "event:irrigation",
+   "event:athenian-democracy",
+   "event:magna-carta",
+   "event:udhr"
+  ],
+  "concept:evidence": [
+   "event:copernicus-and-a-moving-earth",
+   "event:galileo-s-telescopic-observations",
+   "event:newton-s-principia",
+   "event:germ-theory"
+  ],
+  "concept:paradigm": [
+   "event:copernicus-and-a-moving-earth",
+   "event:darwin-s-on-the-origin-of-species",
+   "event:einstein-s-special-theory-of-relativity",
+   "event:the-uncertainty-principle"
+  ],
+  "concept:education": [
+   "event:imperial-examinations",
+   "event:the-traditional-founding-date-of-the-university-of-bologna",
+   "event:edu-1763",
+   "event:compulsory-education",
+   "event:edu-1872",
+   "event:edu-1947",
+   "event:edu-2019"
+  ],
+  "concept:evolution": [
+   "event:the-rise-of-primates",
+   "event:early-hominin-candidates",
+   "event:the-emergence-of-homo-sapiens",
+   "event:darwin-s-on-the-origin-of-species"
+  ],
+  "concept:body": [
+   "event:australopithecines",
+   "event:vaccination",
+   "event:anesthesia",
+   "event:the-discovery-of-penicillin"
+  ],
+  "concept:inequality": [
+   "event:atlantic-slave-trade",
+   "event:haitian-revolution",
+   "event:abolition",
+   "event:womens-suffrage",
+   "event:civil-rights",
+   "event:cedaw"
+  ],
+  "concept:attention": [
+   "event:mass-media",
+   "event:facebook",
+   "event:youtube",
+   "event:twitter",
+   "event:the-iphone-is-released"
+  ],
+  "concept:tools-technology": [
+   "event:the-earliest-known-stone-tools",
+   "event:the-wheel-and-axle",
+   "event:bronze-metallurgy",
+   "event:the-spread-of-ironworking",
+   "event:watt-s-steam-engine-improvements",
+   "event:the-electric-telegraph",
+   "event:the-telephone",
+   "event:the-iphone-is-released"
+  ]
+ }
+}
