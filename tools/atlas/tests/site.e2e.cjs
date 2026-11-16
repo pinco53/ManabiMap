@@ -31,6 +31,36 @@ const out = []; const ok = (name, cond, extra = '') => out.push((cond ? 'PASS ' 
   await p.goto(B + 'questions.html'); await p.waitForTimeout(600);
   ok('dialogue index is unchanged (21 parts)', (await p.$$eval('a.simple-part-card', (e) => e.length)) === 21);
 
+  // the bridge panel at the end of every kind of part page
+  const fs = require('fs'), path = require('path'), partsDir = path.join(__dirname, '../../../parts');
+  const files = fs.readdirSync(partsDir).filter((f) => f.endsWith('.html'));
+  let panels = 0, deadLinks = 0;
+  const wrongPlace = [];
+  for (const file of files) {
+    await p.goto(B + 'parts/' + file, { waitUntil: 'domcontentloaded' });   // not 'load': videos and web fonts are not what is checked here
+    await p.waitForSelector('.atlas-bridge', { timeout: 8000 }).catch(() => {});
+    const info = await p.evaluate(() => {
+      const el = document.querySelector('.atlas-bridge');
+      if (!el) return null;
+      const r = el.getBoundingClientRect();
+      return { count: document.querySelectorAll('.atlas-bridge').length, links: [...el.querySelectorAll('a')].map((a) => a.href), wide: r.width,
+        afterContent: r.top + scrollY > document.body.scrollHeight * 0.5, overflow: document.documentElement.scrollWidth > innerWidth + 1 };
+    });
+    if (!info || info.count !== 1) { wrongPlace.push(file + ':missing'); continue; }
+    panels += 1;
+    if (!info.afterContent || info.overflow || info.wide < 300) wrongPlace.push(file);
+    for (const h of info.links) if (!(await p.request.get(h)).ok()) deadLinks += 1;
+  }
+  ok('every part page ends with one bridge panel', panels === files.length && panels === 44, panels + ' of ' + files.length);
+  ok('the panel sits after the content and its links work', wrongPlace.length === 0 && deadLinks === 0, wrongPlace.join(',') + ' dead:' + deadLinks);
+  await p.goto(B + 'parts/philosophy1.html'); await p.waitForSelector('.atlas-bridge');
+  const text = await p.textContent('.atlas-bridge');
+  ok('bridges carry their reason', text.includes('言葉と思考の旅') && text.includes('ソシュール'));
+  await p.goto(B + 'parts/part9_1.html'); await p.waitForSelector('.atlas-bridge');
+  ok('a chapter page uses the bridges of its part', (await p.textContent('.atlas-bridge')).includes('工事中の脳'));
+  await p.goto(B + 'en/parts/part5.html'); await p.waitForTimeout(600);
+  ok('English part pages are unchanged (no panel)', (await p.$$('.atlas-bridge')).length === 0);
+
   await p.route('**/atlas-works.js*', (r) => r.abort());
   await p.goto(B + 'index.html'); await p.waitForTimeout(1000); ok('without the Atlas list the home galaxy falls back to 21 parts', (await p.textContent('#galaxyPartCount')) === '21');
   await p.unroute('**/atlas-works.js*');

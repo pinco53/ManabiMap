@@ -40,6 +40,7 @@
 | atlas-events.json | 387 KB |
 | atlas-detail.json | 343 KB |
 | atlas-works.js | 29 KB |
+| atlas-bridges.js | 39 KB |
 | atlas-index.json | 28 KB |
 
 ## 2. シリーズ別の作品

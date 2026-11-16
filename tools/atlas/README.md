@@ -71,6 +71,7 @@ node tools/atlas/tests/site.e2e.cjs
 | `assets/atlas/data/atlas-events.json` | 出来事 |
 | `assets/atlas/data/atlas-detail.json` | 話・note・Podcast・動画・研究 |
 | `assets/atlas/data/atlas-works.js` | 公開中の全作品の一覧（`window.ManabiAtlasWorks`）。トップの銀河と `map.html` が読む |
+| `assets/atlas/data/atlas-bridges.js` | 作品ごとの「別シリーズへの橋」と「同じ問いの別の答え」（`window.ManabiAtlasBridges`）。作品ページの末尾に出る |
 | `assets/atlas/data/atlas-index.json` | ID の一覧と件数（次回ビルドとの比較用） |
 | `docs/manabimap-next/reports/atlas-report.md` | 件数・編集待ち・注意の一覧 |
 
