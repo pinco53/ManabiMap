@@ -5,14 +5,9 @@ export const PRESENT = 2026;
 export const MAX_AGE = 13_800_000_000;
 
 export const TYPE_LABEL = { region: '地域', series: 'シリーズ', work: '作品', episode: '話', event: '出来事', concept: '概念', question: '問い', person: '人物', media: 'メディア', study: '研究', route: '道', lens: 'レンズ', page: 'ページ', family: '系統' };
-export const SERIES_COLOR = {
-  'series:civilization': '#e0b65a', 'series:ai': '#f0875f', 'series:words-numbers': '#5fd0c0', 'series:science-thinking': '#6f9df2', 'series:mind-body': '#d98be0', 'series:learning': '#a6d86a',
-  'series:edu': '#63c992', 'series:philosophy-west': '#9d8cf0', 'series:philosophy-east': '#f29bb5', 'series:math': '#58c6e8',
-  'region:cosmos': '#b9c4d9', 'region:global': '#dce9ff', 'region:africa': '#e0b65a', 'region:westasia': '#f0875f', 'region:central': '#d9a98b', 'region:southasia': '#f29bb5', 'region:eastasia': '#d98be0',
-  'region:japan': '#9d8cf0', 'region:europe': '#6f9df2', 'region:namerica': '#58c6e8', 'region:lamerica': '#5fd0c0', 'region:oceania': '#a6d86a',
-  'series:science': '#9fb4c9', 'series:cosmos': '#9fb4c9', 'series:physics': '#9fb4c9', 'series:life': '#9fb4c9', 'series:ai-origins': '#c9b39f', 'series:ohanashi': '#c9a9c0'
-};
-const STREAM = { 'deep-time': { label: '138億年の年表', color: '#dce9ff' }, 'philosophy-history': { label: '哲学の歴史', color: '#c9b6ff' }, 'edu-history': { label: '教育の歴史', color: '#8fd9b6' } };
+import { SERIES_COLOR, STREAM_COLOR, TYPE_COLOR, STAR_TONE, seriesColor } from './palette.js';
+export { SERIES_COLOR };
+const STREAM = { 'deep-time': { label: '138億年の年表', color: STREAM_COLOR['deep-time'] }, 'philosophy-history': { label: '哲学の歴史', color: STREAM_COLOR['philosophy-history'] }, 'edu-history': { label: '教育の歴史', color: STREAM_COLOR['edu-history'] } };
 // How costly each kind of connection is when looking for a path. Reasoned bridges are the cheapest.
 const STEP_COST = { bridges: 1, next: 1.6, relatesTo: 1.6, about: 1.3, asks: 1.3, happenedAt: 1.5, features: 1.5, sameAs: 0.4, partOf: 1.8 };
 const STEP_LABEL = { bridges: '橋', next: '次の部', relatesTo: '関連', about: '同じ概念', asks: '同じ問い', happenedAt: '同じ出来事', features: '同じ人物', sameAs: '同じ題材', partOf: '所属' };
@@ -87,12 +82,12 @@ export class Atlas {
   }
   color(id) {
     const n = this.get(id);
-    if (!n) return '#dce9ff';
-    if (n.type === 'region') return SERIES_COLOR[id] || '#dce9ff';
+    if (!n) return STAR_TONE;
+    if (n.type === 'region') return SERIES_COLOR[id] || STAR_TONE;
     const series = this.seriesOf(id);
-    if (series) return (this.get(series) && this.get(series).color) || SERIES_COLOR[series] || '#dce9ff';   // a new series can bring its own colour in series.json
+    if (series) return seriesColor(this.get(series));
     if (n.type === 'event') return (STREAM[n.stream] || STREAM['deep-time']).color;
-    return { question: '#ffe7a8', concept: '#a8e6ff', person: '#ffc9a8', lens: '#dce9ff' }[n.type] || '#dce9ff';
+    return TYPE_COLOR[n.type] || STAR_TONE;
   }
   streamLabel(n) { return n.stream === 'work-timeline' ? this.title(n.work) + ' の年表' : (STREAM[n.stream] || {}).label || ''; }
   time(id) { const n = this.get(id); return n && n.time && n.time.length ? n.time[0] : null; }

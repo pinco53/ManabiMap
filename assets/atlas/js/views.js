@@ -1,6 +1,7 @@
 // The three canvas views of the Atlas. Each draws the same graph from a different angle
 // and reports what is under the pointer; all changes go through the store.
 import { timePosition, yearAt, yearLabel, riverScale, PRESENT } from './graph.js';
+import { STAR_CORE, STAR_DIM, STAR_SELECT, CONTRAST, mix } from './palette.js';
 
 const FONT = '"Noto Sans JP", "Inter", sans-serif', SERIF = '"Zen Old Mincho", serif';
 const hash = (text, salt = 1) => { let h = 2166136261 ^ salt; for (let i = 0; i < text.length; i += 1) h = Math.imul(h ^ text.charCodeAt(i), 16777619); return ((h >>> 0) % 10000) / 10000; };
@@ -28,12 +29,28 @@ export function createViews(canvas, atlas, store, env) {
     const box = [left - 3, y - size, left + width + 3, y + 4];
     if (!force && (box[0] < 4 || box[2] > w - 4 || labels.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]))) return false;
     labels.push(box);
-    ctx.textAlign = align; ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(8,8,13,.82)'; ctx.strokeText(shown, x, y); ctx.fillStyle = color; ctx.fillText(shown, x, y);
+    ctx.textAlign = align; ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(4,9,16,.82)'; ctx.strokeText(shown, x, y); ctx.fillStyle = color; ctx.fillText(shown, x, y);
     return true;
   }
+  const crowd = new Map();
   function star(x, y, r, color, alpha = 1) {
-    ctx.beginPath(); ctx.arc(x, y, r * 3.4, 0, 7); ctx.fillStyle = rgba(color, 0.1 * alpha); ctx.fill();
-    ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fillStyle = rgba(color, alpha); ctx.fill();
+    const dim = alpha < 0.5, tint = dim ? mix(color, STAR_DIM, 0.55) : color, a = dim ? 0.35 : alpha, core = mix(tint, STAR_CORE, 0.3), dot = mix(tint, STAR_CORE, 0.05);
+    const cx = Math.floor(x / 12), cy = Math.floor(y / 12);
+    let near = 0;
+    for (let i = -1; i <= 1; i += 1) for (let j = -1; j <= 1; j += 1) near += crowd.get((cx + i) + ':' + (cy + j)) || 0;
+    crowd.set(cx + ':' + cy, (crowd.get(cx + ':' + cy) || 0) + 1);
+    const halo = Math.max(r >= 5 ? 0.6 : 0, 1 / (1 + 0.6 * near));
+    ctx.globalCompositeOperation = 'screen';
+    if (halo >= 0.4) {
+      const wide = ctx.createRadialGradient(x, y, 0, x, y, r * 7);
+      wide.addColorStop(0, rgba(tint, 0.12 * a * halo)); wide.addColorStop(1, rgba(tint, 0));
+      ctx.fillStyle = wide; ctx.beginPath(); ctx.arc(x, y, r * 7, 0, 7); ctx.fill();
+    }
+    const glow = ctx.createRadialGradient(x, y, 0, x, y, r * 2.6);
+    glow.addColorStop(0, rgba(core, 0.55 * a * halo)); glow.addColorStop(0.35, rgba(tint, 0.36 * a * halo)); glow.addColorStop(1, rgba(tint, 0));
+    ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(x, y, r * 2.6, 0, 7); ctx.fill();
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.beginPath(); ctx.arc(x, y, r * 0.8, 0, 7); ctx.fillStyle = rgba(dot, a); ctx.fill();
   }
   function ring(x, y, r, color, alpha, dash) { ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.setLineDash(dash || []); ctx.strokeStyle = rgba(color, alpha); ctx.lineWidth = 1.2; ctx.stroke(); ctx.setLineDash([]); }
   function arc(a, b, color, alpha, width = 1, dash) {
@@ -97,7 +114,7 @@ export function createViews(canvas, atlas, store, env) {
       });
 
       const at = (id) => { const n = atlas.get(id); return n && n.pos ? screen(n.pos) : null; };
-      if (s.path) for (let i = 1; i < s.path.length; i += 1) { const a = at(s.path[i - 1]), b = at(s.path[i]); if (a && b) arc(a, b, '#ffe7a8', 0.8, 2); }
+      if (s.path) for (let i = 1; i < s.path.length; i += 1) { const a = at(s.path[i - 1]), b = at(s.path[i]); if (a && b) arc(a, b, STAR_SELECT, 0.8, 2); }
       if (focus && focus.pos) [...near].sort((a, b) => (a[1].type === 'bridges' ? 0 : 1) - (b[1].type === 'bridges' ? 0 : 1)).slice(0, 12).forEach(([id, edge]) => {
         arc(screen(focus.pos), at(id), atlas.color(id), edge.type === 'bridges' ? 0.75 : 0.3, edge.type === 'bridges' ? 1.4 : 1, edge.type === 'bridges' ? null : [2, 5]);
       });
@@ -108,7 +125,7 @@ export function createViews(canvas, atlas, store, env) {
         star(p.x, p.y, stage === 'far' ? 2.1 : isFocus ? 6 : linked ? 4.6 : 3.6, color, alpha);
         if (env.visited.has(n.id)) ring(p.x, p.y, stage === 'far' ? 4.5 : 8, '#ffffff', 0.5 * alpha);
         if (isFocus) ring(p.x, p.y, 13 + Math.sin(pulse * 0.06) * 2, '#ffffff', 0.85);
-        if (s.start === n.id) ring(p.x, p.y, 18, '#ffe7a8', 0.9, [2, 4]);
+        if (s.start === n.id) ring(p.x, p.y, 18, STAR_SELECT, 0.9, [2, 4]);
         hit(n.id, p.x, p.y, stage === 'far' ? 9 : 15);
         n._screen = p; n._lit = lit; n._rank = isFocus ? 0 : n.id === hover ? 1 : linked ? 2 : lit ? 3 : 9;
       });
@@ -244,17 +261,17 @@ export function createViews(canvas, atlas, store, env) {
       });
       // causes and consequences of the event in focus, and the thread of a concept
       const here = spot.get(s.focus);
-      if (here) ties.forEach((tie) => { const there = spot.get(tie.id); if (there) arc(tie.before ? there : here, tie.before ? here : there, tie.contrast ? '#f29bb5' : '#ffe7a8', 0.85, 1.5, tie.contrast ? [3, 4] : null); });
+      if (here) ties.forEach((tie) => { const there = spot.get(tie.id); if (there) arc(tie.before ? there : here, tie.before ? here : there, tie.contrast ? CONTRAST : STAR_SELECT, 0.85, 1.5, tie.contrast ? [3, 4] : null); });
       if (thread) { const pts = thread.filter((id) => atlas.get(id).type === 'event').map((id) => spot.get(id)).filter(Boolean); ctx.beginPath(); pts.forEach((p, k) => (k ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y))); ctx.strokeStyle = rgba(atlas.color(focusNode.id), 0.55); ctx.lineWidth = 1.3; ctx.stroke(); }
       ctx.fillStyle = 'rgba(255,255,255,.14)'; ctx.fillRect(0, bottom, w, 1);
       let last = -999;
       let ticks = LOG_TICKS;
       if (linear()) { const a = inv(px(gut)), b = inv(px(w - pad.r)), step = nice((b - a) / Math.max(3, Math.floor((w - gut - pad.r) / 120))); ticks = []; for (let y = Math.ceil(a / step) * step; y <= b; y += step) ticks.push(Math.abs(y) < step / 2 ? 1 : y); }
       ticks.forEach((year) => { const x = sx(pos(year)); if (x < gut + 20 || x > w - pad.r - 20 || x - last < 78) return; last = x; ctx.fillStyle = 'rgba(255,255,255,.2)'; ctx.fillRect(x, bottom - 4, 1, 8); ctx.font = `500 10px ${FONT}`; ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(200,212,235,.75)'; ctx.fillText(year === 2026 ? '現在' : year === 1 ? '紀元' : yearLabel(year), x, bottom + 19); });
-      if (nowX > gut + 30 && nowX < w - pad.r - 10) { ctx.fillStyle = 'rgba(255,231,168,.55)'; ctx.fillRect(nowX, top, 1, bottom - top + 4); label('現在', nowX - 4, top + 12, { size: 10, color: '#ffe7a8', align: 'right', force: true }); }
+      if (nowX > gut + 30 && nowX < w - pad.r - 10) { ctx.fillStyle = 'rgba(241,220,169,.55)'; ctx.fillRect(nowX, top, 1, bottom - top + 4); label('現在', nowX - 4, top + 12, { size: 10, color: STAR_SELECT, align: 'right', force: true }); }
       if (hoverX !== null) {
-        ctx.fillStyle = 'rgba(255,231,168,.5)'; ctx.fillRect(hoverX, top, 1, bottom - top);
-        label(yearLabel(hoverYear) + (together ? `　同じ頃 ${together}件` : ''), clamp(hoverX, gut + 90, w - pad.r - 90), top - 8, { size: 11, weight: 600, color: '#ffe7a8', align: 'center', force: true });
+        ctx.fillStyle = 'rgba(241,220,169,.5)'; ctx.fillRect(hoverX, top, 1, bottom - top);
+        label(yearLabel(hoverYear) + (together ? `　同じ頃 ${together}件` : ''), clamp(hoverX, gut + 90, w - pad.r - 90), top - 8, { size: 11, weight: 600, color: STAR_SELECT, align: 'center', force: true });
       }
     }
     return {
@@ -309,7 +326,7 @@ export function createViews(canvas, atlas, store, env) {
       const text = atlas.title(id), lines = text.length > 17 ? [text.slice(0, Math.ceil(text.length / 2)), text.slice(Math.ceil(text.length / 2))] : [text];
       const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, base * 0.62); glow.addColorStop(0, rgba(atlas.color(id), 0.2)); glow.addColorStop(1, rgba(atlas.color(id), 0));
       ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(cx, cy, base * 0.62, 0, 7); ctx.fill();
-      lines.forEach((line, i) => label(line, cx, cy + (i - (lines.length - 1) / 2) * 22 + 5, { size: w < 700 ? 13 : 16, weight: 600, color: '#fff7dc', align: 'center', force: true, max: 40, font: SERIF }));
+      lines.forEach((line, i) => label(line, cx, cy + (i - (lines.length - 1) / 2) * 22 + 5, { size: w < 700 ? 13 : 16, weight: 600, color: STAR_CORE, align: 'center', force: true, max: 40, font: SERIF }));
       label(`${c.type === 'question' ? '問い' : '概念'}　${members.length}作品・${new Set(members.map((m) => m.series)).size}シリーズ`, cx, cy + lines.length * 13 + 22, { size: 10, color: 'rgba(255,247,220,.65)', align: 'center', force: true });
       hit(id, cx, cy, 34);
       dirty = dirty || (!env.reducedMotion && Boolean(s.focus));
@@ -370,7 +387,7 @@ export function createViews(canvas, atlas, store, env) {
       // how one thing led to another, drawn from place to place
       atlas.edges.filter((e) => e.type === 'influences' && spot.has(e.from) && spot.has(e.to)).forEach((e) => {
         const on = e.from === s.focus || e.to === s.focus;
-        arc(spot.get(e.from), spot.get(e.to), '#ffe7a8', on ? 0.9 : focus && focus.type === 'event' ? 0.1 : 0.28, on ? 1.6 : 1);
+        arc(spot.get(e.from), spot.get(e.to), STAR_SELECT, on ? 0.9 : focus && focus.type === 'event' ? 0.1 : 0.28, on ? 1.6 : 1);
       });
       pinned.sort((a, b) => Number(a.id === s.focus) - Number(b.id === s.focus)).forEach((n) => {
         const p = spot.get(n.id), isFocus = n.id === s.focus, color = atlas.color(n.place.region), lit = inLens(n) || n.type !== 'event', linked = ties.has(n.id) || workStudies.has(n.id);
@@ -386,11 +403,11 @@ export function createViews(canvas, atlas, store, env) {
       // not everything has a place on the globe
       ['region:global', 'region:cosmos'].forEach((id, i) => {
         const count = everything.filter((n) => n.place.region === id).length, x = pad.l + 18 + i * 132, y = h - 112;
-        ctx.beginPath(); ctx.roundRect(x, y - 14, 122, 24, 12); ctx.fillStyle = s.focus === id ? 'rgba(255,231,168,.18)' : 'rgba(13,15,24,.86)'; ctx.fill(); ctx.strokeStyle = 'rgba(211,230,255,.2)'; ctx.stroke();
-        label(`${atlas.title(id)} ${count}`, x + 61, y + 3, { size: 10, color: '#d6dcee', align: 'center', force: true });
+        ctx.beginPath(); ctx.roundRect(x, y - 14, 122, 24, 12); ctx.fillStyle = s.focus === id ? 'rgba(241,220,169,.18)' : 'rgba(11,20,32,.86)'; ctx.fill(); ctx.strokeStyle = 'rgba(211,230,255,.2)'; ctx.stroke();
+        label(`${atlas.title(id)} ${count}`, x + 61, y + 3, { size: 10, color: '#d9dee5', align: 'center', force: true });
         hit(id, 0, 0, 0, [x, y - 14, x + 122, y + 10]);
       });
-      label(`地図上に${pinned.length}件（●出来事 ■人物 ◇研究）　〜${yearLabel(limit)}まで`, f.x + f.width / 2, 74, { size: 11, color: '#ffe7a8', align: 'center', force: true, weight: 600, max: 60 });
+      label(`地図上に${pinned.length}件（●出来事 ■人物 ◇研究）　〜${yearLabel(limit)}まで`, f.x + f.width / 2, 74, { size: 11, color: STAR_SELECT, align: 'center', force: true, weight: 600, max: 60 });
       dirty = dirty || (!env.reducedMotion && Boolean(focus));
     }
     return { aim, draw,
@@ -408,9 +425,9 @@ export function createViews(canvas, atlas, store, env) {
     canvas.width = Math.floor(w * dpr); canvas.height = Math.floor(h * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     backdrop = document.createElement('canvas'); backdrop.width = canvas.width; backdrop.height = canvas.height;
     const b = backdrop.getContext('2d'); b.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const sky = b.createRadialGradient(w * 0.54, h * 0.5, 0, w * 0.54, h * 0.5, Math.max(w, h) * 0.75); sky.addColorStop(0, '#141a2a'); sky.addColorStop(0.55, '#0b0d16'); sky.addColorStop(1, '#08080d');
+    const sky = b.createRadialGradient(w * 0.54, h * 0.5, 0, w * 0.54, h * 0.5, Math.max(w, h) * 0.75); sky.addColorStop(0, '#0d1624'); sky.addColorStop(0.55, '#070d17'); sky.addColorStop(1, '#040910');
     b.fillStyle = sky; b.fillRect(0, 0, w, h);
-    for (let i = 0; i < Math.round((w * h) / 2600); i += 1) { b.fillStyle = `rgba(214,228,255,${0.08 + hash('s' + i, 3) * 0.4})`; b.fillRect(hash('s' + i, 1) * w, hash('s' + i, 2) * h, hash('s' + i, 4) > 0.9 ? 1.6 : 1, hash('s' + i, 4) > 0.9 ? 1.6 : 1); }
+    for (let i = 0; i < Math.round((w * h) / 2600); i += 1) { b.fillStyle = `rgba(${hash('s' + i, 5) > 0.85 ? '255,226,180' : '206,222,255'},${0.08 + hash('s' + i, 3) * 0.4})`; b.fillRect(hash('s' + i, 1) * w, hash('s' + i, 2) * h, hash('s' + i, 4) > 0.9 ? 1.6 : 1, hash('s' + i, 4) > 0.9 ? 1.6 : 1); }
     dirty = true;
   }
   function frame() {
@@ -422,6 +439,7 @@ export function createViews(canvas, atlas, store, env) {
     const settling = pad.l !== want.l || pad.r !== want.r || pad.b !== want.b;
     dirty = settling; pulse += 1; hits = []; labels = env.obstacles();
     ctx.drawImage(backdrop, 0, 0, w, h);
+    crowd.clear();
     current().draw();
     canvas.style.cursor = hover ? 'pointer' : 'grab';
   }

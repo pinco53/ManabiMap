@@ -175,6 +175,15 @@
   });
 
   const field = fieldCanvas.getContext('2d');
+  // One soft glow per tint, drawn once and reused for every floating star.
+  const GLOW_STRENGTH = .3;
+  const glowSprites = [[205, 220, 242], [255, 228, 154]].map(function (rgb) {
+    const sprite = document.createElement('canvas'); sprite.width = sprite.height = 64;
+    const g = sprite.getContext('2d'), fade = g.createRadialGradient(32, 32, 0, 32, 32, 32), tint = rgb.join(',');
+    fade.addColorStop(0, 'rgba(' + tint + ',1)'); fade.addColorStop(.35, 'rgba(' + tint + ',.28)'); fade.addColorStop(1, 'rgba(' + tint + ',0)');
+    g.fillStyle = fade; g.fillRect(0, 0, 64, 64);
+    return sprite;
+  });
   const dustCount = Math.max(310, data.mediaItems.length);
   const dust = Array.from({ length: dustCount }, function (_, index) {
     return { x: 0, y: 0, sx: hash(index, 1), sy: hash(index, 2), radius: 1 + hash(index, 4) * 2.2, partIndex: index % parts.length };
@@ -253,7 +262,7 @@
       const red = Math.round(205 + warmth * 50), green = Math.round(220 + warmth * 8), blue = Math.round(242 - warmth * 88);
       const alpha = target.related ? .34 + glow * .62 : .07 + glow * .2;
       const size = particle.radius + glow * 3.8;
-      field.beginPath(); field.arc(particle.x, particle.y, size * 3.2, 0, Math.PI * 2); field.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha * .1 + ')'; field.fill();
+      field.globalAlpha = Math.min(1, alpha * GLOW_STRENGTH); field.drawImage(glowSprites[warmth > .5 ? 1 : 0], particle.x - size * 3.2, particle.y - size * 3.2, size * 6.4, size * 6.4); field.globalAlpha = 1;
       field.beginPath(); field.arc(particle.x, particle.y, size, 0, Math.PI * 2); field.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')'; field.fill();
     });
     const labelBoxes = [];
@@ -263,8 +272,21 @@
       const isSelected = part.id === selected.id;
       const near = pointer.active && Math.hypot(target.x - pointer.x, target.y - pointer.y) < 46;
       const visible = target.related || isSelected || near;
-      field.beginPath(); field.arc(target.x, target.y, isSelected ? 20 : 12, 0, Math.PI * 2); field.fillStyle = visible ? '#dbebff1f' : '#8496ae0a'; field.fill();
-      field.beginPath(); field.arc(target.x, target.y, isSelected ? 6 : visible ? 4 : 2, 0, Math.PI * 2); field.fillStyle = visible ? '#e8f2ff' : '#4d5868'; field.fill();
+      if (visible) {
+        const reach = isSelected ? 32 : 21, inner = isSelected ? 13 : 8.5;
+        field.globalCompositeOperation = 'lighter';
+        const wide = field.createRadialGradient(target.x, target.y, 0, target.x, target.y, reach);
+        wide.addColorStop(0, 'rgba(220,233,255,.15)'); wide.addColorStop(1, 'rgba(220,233,255,0)');
+        field.fillStyle = wide; field.beginPath(); field.arc(target.x, target.y, reach, 0, Math.PI * 2); field.fill();
+        const near = field.createRadialGradient(target.x, target.y, 0, target.x, target.y, inner);
+        near.addColorStop(0, 'rgba(255,248,238,.6)'); near.addColorStop(.35, 'rgba(220,233,255,.24)'); near.addColorStop(1, 'rgba(220,233,255,0)');
+        field.fillStyle = near; field.beginPath(); field.arc(target.x, target.y, inner, 0, Math.PI * 2); field.fill();
+        field.globalCompositeOperation = 'source-over';
+        field.beginPath(); field.arc(target.x, target.y, isSelected ? 4.6 : 3.2, 0, Math.PI * 2); field.fillStyle = '#f6f6fb'; field.fill();
+      } else {
+        field.beginPath(); field.arc(target.x, target.y, 12, 0, Math.PI * 2); field.fillStyle = '#8496ae0a'; field.fill();
+        field.beginPath(); field.arc(target.x, target.y, 2, 0, Math.PI * 2); field.fillStyle = '#4d5868'; field.fill();
+      }
       if (isSelected) { field.beginPath(); field.arc(target.x, target.y, 13 + Math.sin(frame * .05) * 2, 0, Math.PI * 2); field.strokeStyle = '#e8f2ffc7'; field.lineWidth = 1.2; field.stroke(); }
       const behindQuestion = width > 760 && target.y < 310 && target.x > 210 && target.x < 780;
       const overviewLabel = width > 760 && depth < 62 && !behindQuestion && (!isEnglish || index % 2 === 0);
