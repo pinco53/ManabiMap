@@ -33,24 +33,34 @@ export function createViews(canvas, atlas, store, env) {
     return true;
   }
   const crowd = new Map();
+  // Stars brighten as the cursor comes near: k eases in and out, reach is in screen pixels.
+  const aim = { x: 0, y: 0, k: 0, want: 0, reach: 130 };
+  const lift = (x, y) => {
+    if (aim.k < 0.01) return 0;
+    const t = Math.max(0, 1 - Math.hypot(x - aim.x, y - aim.y) / aim.reach);
+    return aim.k * t * t * (3 - 2 * t);
+  };
   function star(x, y, r, color, alpha = 1) {
-    const dim = alpha < 0.5, tint = dim ? mix(color, STAR_DIM, 0.55) : color, a = dim ? 0.35 : alpha, core = mix(tint, STAR_CORE, 0.3), dot = mix(tint, STAR_CORE, 0.05);
+    const dim = alpha < 0.5, l = lift(x, y) * (dim ? 0.5 : 1);
+    const tint = dim ? mix(color, STAR_DIM, 0.55 * (1 - l)) : color, a = dim ? 0.35 + 0.35 * l : alpha;
+    const core = mix(tint, STAR_CORE, 0.3 + 0.35 * l), dot = mix(tint, STAR_CORE, 0.05 + 0.45 * l), size = r * (1 + 0.3 * l);
     const cx = Math.floor(x / 12), cy = Math.floor(y / 12);
     let near = 0;
     for (let i = -1; i <= 1; i += 1) for (let j = -1; j <= 1; j += 1) near += crowd.get((cx + i) + ':' + (cy + j)) || 0;
     crowd.set(cx + ':' + cy, (crowd.get(cx + ':' + cy) || 0) + 1);
-    const halo = Math.max(r >= 5 ? 0.6 : 0, 1 / (1 + 0.6 * near));
+    const halo = Math.max(r >= 5 ? 0.6 : 0, 1 / (1 + 0.6 * near), 0.85 * l), boost = 1 + 1.2 * l;
     ctx.globalCompositeOperation = 'screen';
     if (halo >= 0.4) {
-      const wide = ctx.createRadialGradient(x, y, 0, x, y, r * 7);
-      wide.addColorStop(0, rgba(tint, 0.12 * a * halo)); wide.addColorStop(1, rgba(tint, 0));
-      ctx.fillStyle = wide; ctx.beginPath(); ctx.arc(x, y, r * 7, 0, 7); ctx.fill();
+      const spread = size * (7 + 4 * l);
+      const wide = ctx.createRadialGradient(x, y, 0, x, y, spread);
+      wide.addColorStop(0, rgba(tint, Math.min(1, 0.12 * a * halo * boost))); wide.addColorStop(1, rgba(tint, 0));
+      ctx.fillStyle = wide; ctx.beginPath(); ctx.arc(x, y, spread, 0, 7); ctx.fill();
     }
-    const glow = ctx.createRadialGradient(x, y, 0, x, y, r * 2.6);
-    glow.addColorStop(0, rgba(core, 0.55 * a * halo)); glow.addColorStop(0.35, rgba(tint, 0.36 * a * halo)); glow.addColorStop(1, rgba(tint, 0));
-    ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(x, y, r * 2.6, 0, 7); ctx.fill();
+    const glow = ctx.createRadialGradient(x, y, 0, x, y, size * 2.6);
+    glow.addColorStop(0, rgba(core, Math.min(1, 0.55 * a * halo * boost))); glow.addColorStop(0.35, rgba(tint, Math.min(1, 0.36 * a * halo * boost))); glow.addColorStop(1, rgba(tint, 0));
+    ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(x, y, size * 2.6, 0, 7); ctx.fill();
     ctx.globalCompositeOperation = 'source-over';
-    ctx.beginPath(); ctx.arc(x, y, r * 0.8, 0, 7); ctx.fillStyle = rgba(dot, a); ctx.fill();
+    ctx.beginPath(); ctx.arc(x, y, size * 0.8, 0, 7); ctx.fillStyle = rgba(dot, a); ctx.fill();
   }
   function ring(x, y, r, color, alpha, dash) { ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.setLineDash(dash || []); ctx.strokeStyle = rgba(color, alpha); ctx.lineWidth = 1.2; ctx.stroke(); ctx.setLineDash([]); }
   function arc(a, b, color, alpha, width = 1, dash) {
@@ -440,6 +450,7 @@ export function createViews(canvas, atlas, store, env) {
     dirty = settling; pulse += 1; hits = []; labels = env.obstacles();
     ctx.drawImage(backdrop, 0, 0, w, h);
     crowd.clear();
+    if (aim.k !== aim.want) { aim.k += (aim.want - aim.k) * (env.reducedMotion ? 1 : 0.18); if (Math.abs(aim.want - aim.k) < 0.01) aim.k = aim.want; else dirty = true; }
     current().draw();
     canvas.style.cursor = hover ? 'pointer' : 'grab';
   }
@@ -458,6 +469,7 @@ export function createViews(canvas, atlas, store, env) {
   canvas.addEventListener('pointerdown', (e) => { canvas.setPointerCapture(e.pointerId); pointers.set(e.pointerId, local(e)); down = { ...local(e), moved: false }; });
   canvas.addEventListener('pointermove', (e) => {
     const p = local(e);
+    if (e.pointerType !== 'touch') { aim.x = p.x; aim.y = p.y; aim.want = 1; }
     if (pointers.has(e.pointerId)) {
       const before = pointers.get(e.pointerId); pointers.set(e.pointerId, p);
       if (pointers.size === 2) { const [a, b] = [...pointers.values()], gap = Math.hypot(a.x - b.x, a.y - b.y); if (pinch) current().wheel({ deltaY: (pinch - gap) * 3 }, (a.x + b.x) / 2, (a.y + b.y) / 2); pinch = gap; down.moved = true; }
@@ -479,7 +491,7 @@ export function createViews(canvas, atlas, store, env) {
   };
   canvas.addEventListener('pointerup', up);
   canvas.addEventListener('pointercancel', (e) => { pointers.delete(e.pointerId); down = null; });
-  canvas.addEventListener('pointerleave', () => { hover = null; if (river.move) river.move(null); dirty = true; });
+  canvas.addEventListener('pointerleave', () => { aim.want = 0; hover = null; if (river.move) river.move(null); dirty = true; });
   canvas.addEventListener('wheel', (e) => { e.preventDefault(); current().wheel(e, local(e).x, local(e).y); dirty = true; }, { passive: false });
   canvas.addEventListener('keydown', (e) => {
     const dir = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];

@@ -177,6 +177,7 @@
   const field = fieldCanvas.getContext('2d');
   // One soft glow per tint, drawn once and reused for every floating star.
   const GLOW_STRENGTH = .3;
+  let pointerGlow = 0;
   const glowSprites = [[205, 220, 242], [255, 228, 154]].map(function (rgb) {
     const sprite = document.createElement('canvas'); sprite.width = sprite.height = 64;
     const g = sprite.getContext('2d'), fade = g.createRadialGradient(32, 32, 0, 32, 32, 32), tint = rgb.join(',');
@@ -243,6 +244,7 @@
 
   function drawField() {
     frame += 1;
+    pointerGlow += ((pointer.active ? 1 : 0) - pointerGlow) * (reduced.matches ? 1 : .12);
     field.clearRect(0, 0, width, height);
     dust.forEach(function (particle) {
       const target = particleTarget(particle);
@@ -262,8 +264,8 @@
       const red = Math.round(205 + warmth * 50), green = Math.round(220 + warmth * 8), blue = Math.round(242 - warmth * 88);
       const alpha = target.related ? .34 + glow * .62 : .07 + glow * .2;
       const size = particle.radius + glow * 3.8;
-      field.globalAlpha = Math.min(1, alpha * GLOW_STRENGTH); field.drawImage(glowSprites[warmth > .5 ? 1 : 0], particle.x - size * 3.2, particle.y - size * 3.2, size * 6.4, size * 6.4); field.globalAlpha = 1;
-      field.beginPath(); field.arc(particle.x, particle.y, size, 0, Math.PI * 2); field.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')'; field.fill();
+      field.globalAlpha = Math.min(1, alpha * (GLOW_STRENGTH + glow * .25)); field.drawImage(glowSprites[warmth > .5 ? 1 : 0], particle.x - size * 3.2, particle.y - size * 3.2, size * 6.4, size * 6.4); field.globalAlpha = 1;
+      field.beginPath(); field.arc(particle.x, particle.y, particle.radius * (1 + glow * .35), 0, Math.PI * 2); field.fillStyle = 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')'; field.fill();
     });
     const labelBoxes = [];
     parts.forEach(function (part, index) {
@@ -272,20 +274,21 @@
       const isSelected = part.id === selected.id;
       const near = pointer.active && Math.hypot(target.x - pointer.x, target.y - pointer.y) < 46;
       const visible = target.related || isSelected || near;
+      const closeness = Math.max(0, 1 - Math.hypot(target.x - pointer.x, target.y - pointer.y) / 150), shine = pointerGlow * closeness * closeness * (3 - 2 * closeness);
       if (visible) {
-        const reach = isSelected ? 32 : 21, inner = isSelected ? 13 : 8.5;
+        const reach = (isSelected ? 32 : 21) * (1 + .7 * shine), inner = (isSelected ? 13 : 8.5) * (1 + .5 * shine);
         field.globalCompositeOperation = 'lighter';
         const wide = field.createRadialGradient(target.x, target.y, 0, target.x, target.y, reach);
-        wide.addColorStop(0, 'rgba(220,233,255,.15)'); wide.addColorStop(1, 'rgba(220,233,255,0)');
+        wide.addColorStop(0, 'rgba(220,233,255,' + (.15 + .22 * shine) + ')'); wide.addColorStop(1, 'rgba(220,233,255,0)');
         field.fillStyle = wide; field.beginPath(); field.arc(target.x, target.y, reach, 0, Math.PI * 2); field.fill();
         const near = field.createRadialGradient(target.x, target.y, 0, target.x, target.y, inner);
-        near.addColorStop(0, 'rgba(255,248,238,.6)'); near.addColorStop(.35, 'rgba(220,233,255,.24)'); near.addColorStop(1, 'rgba(220,233,255,0)');
+        near.addColorStop(0, 'rgba(255,248,238,' + (.6 + .35 * shine) + ')'); near.addColorStop(.35, 'rgba(220,233,255,' + (.24 + .2 * shine) + ')'); near.addColorStop(1, 'rgba(220,233,255,0)');
         field.fillStyle = near; field.beginPath(); field.arc(target.x, target.y, inner, 0, Math.PI * 2); field.fill();
         field.globalCompositeOperation = 'source-over';
-        field.beginPath(); field.arc(target.x, target.y, isSelected ? 4.6 : 3.2, 0, Math.PI * 2); field.fillStyle = '#f6f6fb'; field.fill();
+        field.beginPath(); field.arc(target.x, target.y, (isSelected ? 4.6 : 3.2) * (1 + .25 * shine), 0, Math.PI * 2); field.fillStyle = '#f6f6fb'; field.fill();
       } else {
-        field.beginPath(); field.arc(target.x, target.y, 12, 0, Math.PI * 2); field.fillStyle = '#8496ae0a'; field.fill();
-        field.beginPath(); field.arc(target.x, target.y, 2, 0, Math.PI * 2); field.fillStyle = '#4d5868'; field.fill();
+        field.beginPath(); field.arc(target.x, target.y, 12 * (1 + shine), 0, Math.PI * 2); field.fillStyle = 'rgba(132,150,174,' + (.04 + .1 * shine) + ')'; field.fill();
+        field.beginPath(); field.arc(target.x, target.y, 2 + 1.2 * shine, 0, Math.PI * 2); field.fillStyle = 'rgb(' + Math.round(77 + 124 * shine) + ',' + Math.round(88 + 126 * shine) + ',' + Math.round(104 + 128 * shine) + ')'; field.fill();
       }
       if (isSelected) { field.beginPath(); field.arc(target.x, target.y, 13 + Math.sin(frame * .05) * 2, 0, Math.PI * 2); field.strokeStyle = '#e8f2ffc7'; field.lineWidth = 1.2; field.stroke(); }
       const behindQuestion = width > 760 && target.y < 310 && target.x > 210 && target.x < 780;
