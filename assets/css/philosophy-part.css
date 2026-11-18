@@ -452,3 +452,15 @@
 }
 
 .philosophy-part .ep-player iframe { display: block; width: 100%; height: 100%; border: 0; }
+
+/* 東洋第3部：第一章（空海）は曼荼羅の朱と金、第二章（最澄）は比叡山の杉の深緑と灯の橙 */
+.philosophy-part--mandala {
+  --ph-blue: #e9b949;
+  --ph-amber: #7fbf8e;
+}
+.philosophy-part--mandala .ep.ch1 .ep-head { background: #e5554008; }
+.philosophy-part--mandala .ep.ch1 .pull { border-left-color: #e9b949; background: #e9b9490c; }
+.philosophy-part--mandala .ep.ch2 .ep-head { background: #7fbf8e08; }
+.philosophy-part--mandala .ep.ch2 .pull { border-left-color: #f0a050; background: #f0a0500c; }
+.philosophy-part--mandala .kw { border-color: #e9b94944; background: #e9b9490b; }
+.philosophy-part--mandala .ep.ch2 .kw { border-color: #7fbf8e44; background: #7fbf8e0b; }
