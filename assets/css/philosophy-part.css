@@ -464,3 +464,15 @@
 .philosophy-part--mandala .ep.ch2 .pull { border-left-color: #f0a050; background: #f0a0500c; }
 .philosophy-part--mandala .kw { border-color: #e9b94944; background: #e9b9490b; }
 .philosophy-part--mandala .ep.ch2 .kw { border-color: #7fbf8e44; background: #7fbf8e0b; }
+
+/* 哲学第5部：カフェのアプリコット色と煙の灰色 / サント＝ヴィクトワール山の青緑と黄土色 */
+.philosophy-part--freedom {
+  --ph-blue: #e8a86a;
+  --ph-amber: #7fb8a8;
+}
+.philosophy-part--freedom .ep.ch1 .ep-head { background: #e8a86a08; }
+.philosophy-part--freedom .ep.ch1 .pull { border-left-color: #e8a86a; background: #e8a86a0c; }
+.philosophy-part--freedom .ep.ch2 .ep-head { background: #7fb8a808; }
+.philosophy-part--freedom .ep.ch2 .pull { border-left-color: #c9a25a; background: #c9a25a0c; }
+.philosophy-part--freedom .kw { border-color: #e8a86a44; background: #e8a86a0b; }
+.philosophy-part--freedom .ep.ch2 .kw { border-color: #7fb8a844; background: #7fb8a80b; }
