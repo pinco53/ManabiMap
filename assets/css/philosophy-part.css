@@ -476,3 +476,13 @@
 .philosophy-part--freedom .ep.ch2 .pull { border-left-color: #c9a25a; background: #c9a25a0c; }
 .philosophy-part--freedom .kw { border-color: #e8a86a44; background: #e8a86a0b; }
 .philosophy-part--freedom .ep.ch2 .kw { border-color: #7fb8a844; background: #7fb8a80b; }
+.philosophy-part--logic {
+  --ph-blue: #e3c46a;
+  --ph-amber: #d27a5e;
+}
+.philosophy-part--logic .ep.ch1 .ep-head { background: #e3c46a08; }
+.philosophy-part--logic .ep.ch1 .pull { border-left-color: #e3c46a; background: #e3c46a0c; }
+.philosophy-part--logic .ep.ch2 .ep-head { background: #d27a5e08; }
+.philosophy-part--logic .ep.ch2 .pull { border-left-color: #c98a3a; background: #c98a3a0c; }
+.philosophy-part--logic .kw { border-color: #e3c46a44; background: #e3c46a0b; }
+.philosophy-part--logic .ep.ch2 .kw { border-color: #d27a5e44; background: #d27a5e0b; }
